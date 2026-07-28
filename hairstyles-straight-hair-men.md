@@ -13,13 +13,14 @@ Most guides mention face shapes in passing. This table gives you a direct answer
 | Face Shape | What Works | What to Avoid | Why |
 |---|---|---|---|
 | **Oval** | Almost anything — crew cut, quiff, pompadour, curtain bangs | No restrictions | Balanced proportions handle all styles |
-| **Round** | Height on top — pompadour, quiff, faux hawk, textured crop with high fade | Uniform-length cuts, chin-length bobs | Vertical volume elongates a round face |
-| **Square** | Textured crop, side part, layered cuts, messy fringe | Ultra-short buzz cuts that expose the full jaw | Texture softens strong angles |
+| **[Round](round-face-shape-haircuts-for-men)** | Height on top — pompadour, quiff, faux hawk, textured crop with high fade | Uniform-length cuts, chin-length bobs | Vertical volume elongates a round face |
+| **[Square](square-face-shape-haircuts)** | Textured crop, side part, layered cuts, messy fringe | Ultra-short buzz cuts that expose the full jaw | Texture softens strong angles |
 | **Oblong** | Fringe styles, curtain bangs, side-swept cuts | Tall pompadours, slick backs with no side volume | Adding width prevents the face from looking longer |
-| **Diamond** | Side part, quiff, curtain bangs, layered mid-length | Very short all-over cuts | Volume at the forehead and jaw balances narrow points |
-| **Heart** | Fringe or side-swept bangs, medium-length textured cuts | Styles that add width at the temples | Covering the forehead slightly balances a narrow chin |
+| **[Diamond](diamond-face-shape-hairstyles-for-men)** | Side part, quiff, curtain bangs, layered mid-length | Very short all-over cuts | Volume at the forehead and jaw balances narrow points |
+| **[Heart](heart-face-shape-hairstyles-for-men)** | Fringe or side-swept bangs, medium-length textured cuts | Styles that add width at the temples | Covering the forehead slightly balances a narrow chin |
+| **[Triangle](triangle-face-shape-hairstyles-for-men)** | Textured quiff, pompadour, side-swept fringe with volume on top | Cuts that add bulk at the jawline — full beards paired with short tops | The wider jaw needs visual weight shifted upward toward the forehead |
 
-**How to find your face shape in 30 seconds:** Stand in front of a mirror with your hair pulled back. Compare three measurements — forehead width, cheekbone width, and jawline width. If all three are roughly equal, you have a square or round face (jaw angle tells you which). If your forehead is widest, that is heart-shaped. If your cheekbones are widest, diamond. If your face is noticeably longer than wide, oblong. If nothing stands out, oval.
+**How to find your face shape in 30 seconds:** Stand in front of a mirror with your hair pulled back. Compare three measurements — forehead width, cheekbone width, and jawline width. If all three are roughly equal, you have a square or round face (jaw angle tells you which). If your forehead is widest, that is heart-shaped. If your cheekbones are widest, diamond. If your jawline is the widest point, triangle. If your face is noticeably longer than wide, oblong. If nothing stands out, oval. Men with a [large forehead](best-hairstyles-for-men-with-large-foreheads) should also factor forehead coverage into their cut choice — fringe styles and textured crops work well.
 
 ## Short Hairstyles for Straight Hair (1–3 Inches)
 
@@ -83,7 +84,7 @@ Military origin. The sides are shaved close to the skin starting almost at the c
 
 ### 8. Skin Fade with Textured Top
 
-The sides fade down to bare skin while the top stays at two to four inches with point-cut texture for movement and separation. This is one of the most requested cuts globally in 2026, according to barbershop trend reports from [Booksy's 2025 grooming data](https://www.booksy.com). Straight hair benefits heavily from the textured top — without it, the contrast between the faded sides and a flat top looks unfinished.
+The sides fade down to bare skin while the top stays at two to four inches with point-cut texture for movement and separation. This is one of the most requested cuts globally in 2026, according to barbershop trend reports from [Booksy's 2026 Beauty Industry Trends Report](https://trends-uk.booksy.com/). Straight hair benefits heavily from the textured top — without it, the contrast between the faded sides and a flat top looks unfinished.
 
 - **Best face shape:** All face shapes — universally flattering
 - **Ask your barber:** "Skin fade on the sides, leave 3 inches on top, point-cut for texture and movement."
@@ -135,7 +136,7 @@ A shorter, more relaxed version of the pompadour. The front lifts upward and sli
 
 ### 14. Comb Over with Fade
 
-Hair swept firmly to one side (3–4 inches on top) with a mid to high fade on the sides. The [comb over](comb-over-haircut) lost its old-school stigma years ago — modern versions are textured, voluminous, and sharp. Straight hair makes the directional sweep look clean and deliberate.
+Hair swept firmly to one side (3–4 inches on top) with a mid to high fade on the sides. The [comb over](comb-over-haircut) lost its old-school stigma years ago — and its [classic version](classic-comb-over-haircut) remains the most requested cut in professional barbershops — modern versions are textured, voluminous, and sharp. Straight hair makes the directional sweep look clean and deliberate.
 
 - **Best face shape:** All face shapes
 - **Ask your barber:** "Modern comb over, mid fade, keep 3 to 4 inches on top, blend the transition."
@@ -143,7 +144,7 @@ Hair swept firmly to one side (3–4 inches on top) with a mid to high fade on t
 
 ### 15. Slick Back
 
-All hair swept directly backward from the forehead. The 2026 version uses matte or low-shine products for an airy, natural flow — not the heavy, greasy look from decades past. Brad Pitt in *Fury* showed how a slick back with an undercut creates a controlled, military-sharp aesthetic. Pair it with a [low fade](low-fade-haircut) or [mid fade](mid-fade-haircut) to keep the sides clean.
+All hair swept directly backward from the forehead. The 2026 version uses matte or low-shine products for an airy, natural flow — not the heavy, greasy look from decades past. Brad Pitt in *Fury* showed how a slick back with an undercut creates a controlled, military-sharp aesthetic. Pair it with a [low fade](low-fade-haircut) or [mid fade](mid-fade-haircut) to keep the sides clean. For a full breakdown of how to wear this cut, see our [slick back styling guide](how-to-style-slick-back-haircut).
 
 - **Best face shape:** Oval, square, oblong
 - **Ask your barber:** "Slick back — 4 to 5 inches on top, undercut or low fade on the sides, tight neckline."
@@ -167,7 +168,7 @@ The mullet returned in the early 2020s and is now a legitimate style choice — 
 
 ### 18. Curtain Bangs (Middle Part)
 
-Hair parted down the center with the front sections falling to each side, framing the face symmetrically. Timothée Chalamet and multiple BTS members popularized this cut globally. Straight hair produces the cleanest version — the curtains fall in symmetrical lines without frizz or unpredictability.
+Hair parted down the center with the front sections falling to each side, framing the face symmetrically. For more [middle part variations](middle-part-hairstyles-for-men), this is the foundation cut. Timothée Chalamet and multiple BTS members popularized this cut globally. Straight hair produces the cleanest version — the curtains fall in symmetrical lines without frizz or unpredictability.
 
 - **Best face shape:** Oval, oblong, diamond — softens strong jawlines and balances wider foreheads
 - **Ask your barber:** "Curtain bangs, middle part, medium length with light layers for movement."
@@ -207,7 +208,7 @@ The front hair falls diagonally across the forehead in a soft sweeping arc. One 
 
 ### 23. Burst Fade with Textured Top
 
-The burst fade creates a semi-circular pattern radiating outward around the ear — like an arc of gradually increasing hair density. Paired with a textured top, it gives a sporty, dynamic silhouette. For straight hair, the burst creates strong geometric contrast against the naturally smooth top.
+The [burst fade](burst-fade-haircut) creates a semi-circular pattern radiating outward around the ear — like an arc of gradually increasing hair density. Paired with a textured top, it gives a sporty, dynamic silhouette. For straight hair, the burst creates strong geometric contrast against the naturally smooth top.
 
 - **Best face shape:** Oval, diamond
 - **Ask your barber:** "Burst fade around the ears, 2 to 3 inches on top, textured with point-cutting."
@@ -275,7 +276,7 @@ All hair combed straight back with a polished, deliberate finish. This is the fo
 
 ## Trending Cuts for 2025–2026
 
-The trend direction in 2026 moves away from rigid, high-shine styling toward natural texture, matte finishes, and cuts that work with hair rather than against it. Heavy gel and stiff holds are declining. Movement and flexibility are taking over, according to styling trend reports from [Booksy](https://www.booksy.com) and [Fresha's 2025 barbershop data](https://www.fresha.com).
+The trend direction in 2026 moves away from rigid, high-shine styling toward natural texture, matte finishes, and cuts that work with hair rather than against it. Heavy gel and stiff holds are declining. Movement and flexibility are taking over, according to styling trend reports from [Booksy's 2026 Beauty Industry Trends Report](https://trends-uk.booksy.com/) and [Fresha's Selfcare Report 2025](https://www.fresha.com/blog/fresha-selfcare-report-2025).
 
 ### 31. Warrior Cut
 
@@ -347,7 +348,7 @@ Straight hair responds differently to different products. Choosing the wrong one
 | Fiber paste | Medium-high | Low shine | Flexible everyday hold, messy fringe, textured cuts | You want a wet or glossy look |
 | Grooming cream | Low | Natural shine | Classic side part, polished low-key styles | You need volume — creams add weight |
 
-**Source for product science:** Kaolin and bentonite clays physically thicken each hair strand by coating it with mineral particles, which is why clay-based products add visible density to fine straight hair. Water-based pomades wash out cleaner than oil-based formulas and cause less long-term buildup, making them the better choice for scalp health according to trichology research reviewed by the [International Association of Trichologists](https://www.trichology.edu.au).
+**Source for product science:** Kaolin and bentonite clays physically thicken each hair strand by coating it with mineral particles, which is why clay-based products add visible density to fine straight hair. Water-based pomades wash out cleaner than oil-based formulas and cause less long-term buildup, making them the better choice for scalp health according to trichology research reviewed by the [International Association of Trichologists](https://www.iattrichology.com).
 
 ## Maintenance: How Often to Cut, Wash, and Restyle
 
@@ -394,7 +395,7 @@ It depends on the cut. Short fades and hard parts need touch-ups every 2–3 wee
 
 ### Which fade works best with straight hair?
 
-Low fades and mid fades blend smoothly with straight hair and suit professional settings. High fades and skin fades create bolder contrast and suit casual or creative environments. Burst fades and drop fades add unique silhouettes for men who want something less conventional. Read more about fade options in our [low fade guide](low-fade-haircut) and [mid fade guide](mid-fade-haircut).
+Low fades and mid fades blend smoothly with straight hair and suit professional settings. High fades and skin fades create bolder contrast and suit casual or creative environments. Burst fades and drop fades add unique silhouettes for men who want something less conventional. Read more about fade options in our [low fade guide](low-fade-haircut) and [mid fade guide](mid-fade-haircut). If you are unsure whether to ask for a fade or a taper, our [taper fade vs skin fade comparison](taper-fade-vs-skin-fade) breaks down the differences.
 
 ### Is straight hair easier to maintain than curly hair?
 
