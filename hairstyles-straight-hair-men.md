@@ -1,12 +1,10 @@
 # Hairstyles for Men with Straight Hair: The Complete 2026 Guide
 
-Straight hair sits flat from root to tip. It reflects light evenly, rarely frizzes, and holds clean lines better than any other hair type. That makes it the easiest texture to cut and style — but also the easiest to get wrong. A bad cut on straight hair has nowhere to hide.
-
 **Quick answer:** The crew cut, textured quiff, and side part consistently rank as the strongest all-round choices for straight hair because they hold shape with minimal product, suit most face shapes, and take under five minutes to style each morning.
 
-This guide covers 35 haircuts that work on straight hair, organized by length. Each one includes face shape matches, what to tell your barber, and a styling tip you can use the same day.
+Straight hair sits flat from root to tip. It reflects light evenly, rarely frizzes, and holds clean lines better than any other hair type. That makes it the easiest texture to cut and style — but also the easiest to get wrong. A bad cut on straight hair has nowhere to hide.
 
-If your hair is thick and dense, we have a separate guide covering cuts that manage bulk: [Thick Straight Hair Haircuts for Men](thick-straight-hair-men). If your hair is fine or thinning, the approach changes — read [Thin Straight Hair Haircuts for Men](thin-straight-hair-men) for volume-focused options.
+This guide covers 35 haircuts that work on straight hair, organized by length. Each one includes face shape matches, what to tell your barber, and a styling tip you can use the same day. If your hair is thick and dense, we have a separate guide covering cuts that manage bulk: [Thick Straight Hair Haircuts for Men](thick-straight-hair-men). If your hair is fine or thinning, the approach changes — read [Thin Straight Hair Haircuts for Men](thin-straight-hair-men) for volume-focused options.
 
 ## How to Match a Haircut to Your Face Shape
 
