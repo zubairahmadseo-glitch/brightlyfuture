@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free AI Blog Generator — No Signup, No Limits | BrightlyFuture</title>
+<meta name="description" content="Free AI Blog Generator that writes SEO-optimized, human-sounding blog posts in 30 seconds. No signup, no credit card, unlimited use.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.output-blog { white-space: pre-wrap; line-height: 1.8; font-size: 0.9rem; }
+.progress-wrap { margin-top: 1.5rem; display: none; }
+.progress-bar { height: 8px; border-radius: 4px; background: var(--dark2); overflow: hidden; margin-bottom: 0.5rem; }
+.progress-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--pri), var(--cyan)); transition: width .4s; }
+.tag-select { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.tag { padding: 0.35rem 0.9rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600; cursor: pointer; border: 1px solid var(--border); background: var(--dark2); color: var(--muted); transition: all .2s; }
+.tag.selected { background: var(--pri); border-color: var(--pri); color: #fff; }
+</style>
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<nav class="navbar">
+  <a href="/" class="logo">Brightly<span>Future</span></a>
+  <ul class="nav-links">
+    <li><a href="/">Home</a></li>
+    <li><a href="/services/">Services</a></li>
+    <li><a href="/tools/" class="active">Free Tools</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li><a href="/about/">About</a></li>
+    <li><a href="/quote/" class="btn-quote">Get A Quote</a></li>
+  </ul>
+</nav>
+
+<!-- ── Section 1: Hero ── -->
+<div class="tool-page-hero">
+  <a href="/tools/" class="back-link">← Back to All Tools</a>
+  <span class="hero-badge">🤖 AI Blog Generator</span>
+  <h1>Free AI Blog Generator</h1>
+  <p>Generate SEO-optimized, human-sounding blog posts in 30 seconds. No signup, no credit card, unlimited use — built for bloggers, marketers &amp; small businesses.</p>
+  <div class="usp-badges">
+    <span class="usp-badge">✓ 100% Free Forever</span>
+    <span class="usp-badge">✓ No Signup Required</span>
+    <span class="usp-badge">✓ Unlimited Usage</span>
+    <span class="usp-badge">✓ SEO + AEO + GEO Ready</span>
+  </div>
+</div>
+
+<!-- ── Section 2: Tool Widget ── -->
+<div class="tool-workspace">
+  <div class="tool-box">
+    <div class="mb">
+      <label>Blog Topic / Title Idea</label>
+      <input type="text" id="blogTopic" placeholder="e.g. How to Build a Custom API for Your Business">
+    </div>
+
+    <div class="tool-row mb">
+      <div>
+        <label>Target Audience</label>
+        <select id="audience">
+          <option>Small Business Owners</option>
+          <option>Developers</option>
+          <option>Marketing Professionals</option>
+          <option>Entrepreneurs</option>
+          <option>Enterprise IT Teams</option>
+          <option>General Public</option>
+        </select>
+      </div>
+      <div>
+        <label>Word Count Target</label>
+        <select id="wordTarget">
+          <option value="500">~500 words (Short)</option>
+          <option value="800" selected>~800 words (Medium)</option>
+          <option value="1200">~1200 words (Long-form)</option>
+          <option value="1800">~1800 words (Pillar)</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="mb">
+      <label>Writing Tone</label>
+      <div class="tag-select" id="toneSelector">
+        <span class="tag selected" onclick="selectTone(this,'Professional')">Professional</span>
+        <span class="tag" onclick="selectTone(this,'Friendly')">Friendly</span>
+        <span class="tag" onclick="selectTone(this,'Technical')">Technical</span>
+        <span class="tag" onclick="selectTone(this,'Persuasive')">Persuasive</span>
+        <span class="tag" onclick="selectTone(this,'Conversational')">Conversational</span>
+        <span class="tag" onclick="selectTone(this,'Educational')">Educational</span>
+      </div>
+    </div>
+
+    <div class="mb">
+      <label>Focus Keywords (comma separated)</label>
+      <input type="text" id="focusKws" placeholder="e.g. custom API, PHP development, REST API">
+    </div>
+
+    <div class="mb">
+      <label>Number of H2 Sections</label>
+      <select id="numSections">
+        <option value="3">3 Sections</option>
+        <option value="4" selected>4 Sections</option>
+        <option value="5">5 Sections</option>
+        <option value="6">6 Sections</option>
+      </select>
+    </div>
+
+    <div class="check-group mb">
+      <label><input type="checkbox" id="inclIntro" checked> Introduction</label>
+      <label><input type="checkbox" id="inclMeta" checked> Meta Description</label>
+      <label><input type="checkbox" id="inclFaq"> FAQ Section</label>
+      <label><input type="checkbox" id="inclCta" checked> CTA / Conclusion</label>
+    </div>
+
+    <div class="btn-group">
+      <button class="btn btn-primary" id="generateBtn" onclick="generateBlog()">🤖 Generate Blog Post</button>
+      <button class="btn btn-secondary" onclick="clearAll()">Clear</button>
+    </div>
+
+    <div class="progress-wrap" id="progressWrap">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+      <p id="progressLabel" style="font-size:0.8rem;color:var(--muted);text-align:center;">Generating…</p>
+    </div>
+  </div>
+
+  <div id="outputSection" style="display:none;margin-top:1.5rem;">
+    <div class="tool-box">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;gap:0.75rem;">
+        <h3 style="font-size:1rem;">Generated Blog Post</h3>
+        <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+          <button class="btn btn-secondary" style="padding:0.4rem 0.9rem;font-size:0.8rem;" onclick="copyBlog()">📋 Copy</button>
+          <button class="btn btn-secondary" style="padding:0.4rem 0.9rem;font-size:0.8rem;" onclick="downloadBlog()">⬇ Download</button>
+        </div>
+      </div>
+
+      <div class="stats-row" style="margin-bottom:1.5rem;">
+        <div class="stat-chip"><div class="val" id="outWC">0</div><div class="lbl">Words</div></div>
+        <div class="stat-chip"><div class="val" id="outRT">0</div><div class="lbl">Read Min</div></div>
+        <div class="stat-chip"><div class="val" id="outSec">0</div><div class="lbl">Sections</div></div>
+      </div>
+
+      <div class="output-blog" id="blogOutput"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 3: How It Works ── -->
+<div class="content-section">
+  <div class="section-header">
+    <h2>Generate Your Blog Post in 3 Simple Steps</h2>
+    <p>From blank page to publish-ready draft in under a minute.</p>
+  </div>
+  <div class="steps-grid">
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <h3>Enter Topic &amp; Keyword</h3>
+      <p>Type your blog topic and target SEO keyword. Add secondary keywords if you have them.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">2</div>
+      <h3>Pick Tone &amp; Length</h3>
+      <p>Choose length, tone, audience, and toggle any advanced SEO or humanization options.</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">3</div>
+      <h3>Generate &amp; Publish</h3>
+      <p>Click Generate — get a fully-structured, SEO-optimized blog draft in 30 seconds.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 4: Key Features ── -->
+<div class="content-section alt-bg">
+  <div class="section-header">
+    <h2>Why Our AI Blog Generator is Different</h2>
+    <p>Built for real bloggers who care about SEO, readability, and staying human.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="icon">💰</div>
+      <h3>100% Free Forever</h3>
+      <p>No hidden costs, no trial gimmicks. Every feature stays free — that's the deal.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🚀</div>
+      <h3>Zero Signup</h3>
+      <p>No email, no credit card, no account creation. Start generating in one click.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">♾️</div>
+      <h3>Unlimited Usage</h3>
+      <p>Write one post or one hundred. There are no daily caps, no word limits, ever.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🎯</div>
+      <h3>SEO + AEO + GEO Optimized</h3>
+      <p>Ranks on Google, cited by AI Overviews and Perplexity — built for the 2026 search landscape.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">🧑‍💻</div>
+      <h3>Humanize Mode</h3>
+      <p>Bypass AI detectors with natural sentence variation, no robotic phrases, real reader flow.</p>
+    </div>
+    <div class="feature-card">
+      <div class="icon">📊</div>
+      <h3>Competitor-Researched</h3>
+      <p>Analyzes top 3–4 ranking articles for your keyword before writing — so your post beats them.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 5: Perfect For ── -->
+<div class="content-section">
+  <div class="section-header">
+    <h2>Perfect For Every Type of Blogger</h2>
+    <p>Whether you write occasionally or run a full content operation.</p>
+  </div>
+  <div class="audience-grid">
+    <div class="audience-card">
+      <div class="icon">✍️</div>
+      <h3>Bloggers</h3>
+      <p>Personal &amp; niche blog owners scaling their content output.</p>
+    </div>
+    <div class="audience-card">
+      <div class="icon">🏢</div>
+      <h3>Small Business</h3>
+      <p>SMBs building organic search presence without a full content team.</p>
+    </div>
+    <div class="audience-card">
+      <div class="icon">✏️</div>
+      <h3>Freelance Writers</h3>
+      <p>Deliver more client work in less time — with better on-page SEO.</p>
+    </div>
+    <div class="audience-card">
+      <div class="icon">📈</div>
+      <h3>Marketing Agencies</h3>
+      <p>Scale content production across multiple client accounts effortlessly.</p>
+    </div>
+    <div class="audience-card">
+      <div class="icon">🎓</div>
+      <h3>Students</h3>
+      <p>Draft articles, essays &amp; research pieces faster — with clean structure.</p>
+    </div>
+    <div class="audience-card">
+      <div class="icon">💸</div>
+      <h3>Affiliate Marketers</h3>
+      <p>Publish reviews, comparisons &amp; buying guides at scale for niche sites.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 6: Comparison Table ── -->
+<div class="content-section alt-bg">
+  <div class="section-header">
+    <h2>How We Compare to Other AI Blog Generators</h2>
+    <p>A quick honest look at what you get with us vs. the paid giants.</p>
+  </div>
+  <div class="comparison-wrap">
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th class="highlight-col">BrightlyFuture</th>
+          <th>HubSpot</th>
+          <th>QuillBot</th>
+          <th>Jasper</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>100% Free</td><td class="highlight-col check">&#10003;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td></tr>
+        <tr><td>No Signup Required</td><td class="highlight-col check">&#10003;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td></tr>
+        <tr><td>Unlimited Generations</td><td class="highlight-col check">&#10003;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td></tr>
+        <tr><td>Humanize Mode</td><td class="highlight-col check">&#10003;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td></tr>
+        <tr><td>AI Phrase Avoidance</td><td class="highlight-col check">&#10003;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td></tr>
+        <tr><td>SEO + AEO + GEO Optimized</td><td class="highlight-col check">&#10003;</td><td class="check">&#10003;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td></tr>
+        <tr><td>Competitor Research Built-in</td><td class="highlight-col check">&#10003;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td></tr>
+        <tr><td>Multi-language Support</td><td class="highlight-col check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
+        <tr><td>Starting Price</td><td class="highlight-col" style="color:var(--green);font-weight:700;">$0</td><td>$20/mo</td><td>$9.95/mo</td><td>$49/mo</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ── Section 7: Tips ── -->
+<div class="content-section">
+  <div class="section-header">
+    <h2>5 Tips to Get Expert-Level Output</h2>
+    <p>Small prompt tweaks that turn generic AI drafts into publish-ready articles.</p>
+  </div>
+  <div class="tips-list">
+    <div class="tip-card">
+      <div class="tip-num">1</div>
+      <div>
+        <h3>Be specific with your topic</h3>
+        <p>Instead of "coffee," write "how to brew pour-over coffee at home for beginners." Specificity narrows the AI's focus and produces sharper output.</p>
+      </div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">2</div>
+      <div>
+        <h3>Always include a focus keyword</h3>
+        <p>Even one strong keyword tells the AI what to optimize around. Add 2–3 LSI keywords in the secondary field for better on-page SEO.</p>
+      </div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">3</div>
+      <div>
+        <h3>Match tone to your audience</h3>
+        <p>A B2B SaaS blog needs "Authoritative." A lifestyle blog wins with "Conversational." Wrong tone kills engagement, no matter how good the content is.</p>
+      </div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">4</div>
+      <div>
+        <h3>Turn on Humanize Mode + Avoid AI Phrases</h3>
+        <p>These two toggles dramatically reduce AI detection scores and remove clichés like "in today's digital landscape" and "delve into."</p>
+      </div>
+    </div>
+    <div class="tip-card">
+      <div class="tip-num">5</div>
+      <div>
+        <h3>Always edit and fact-check</h3>
+        <p>AI can hallucinate stats and quotes. Verify numbers, add a personal story or example, and update any dates before publishing.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 8: Related Tools ── -->
+<div class="content-section alt-bg">
+  <div class="section-header">
+    <h2>Complete Your Content Workflow</h2>
+    <p>Free companion tools that pair perfectly with the AI Blog Generator.</p>
+  </div>
+  <div class="related-grid">
+    <div class="related-card">
+      <span class="cat">Content · AI</span>
+      <h3>AI Blog Detector</h3>
+      <p>Check if your content sounds AI-written. Get a detection score before you publish.</p>
+      <a href="/tools/ai-blog-detector/" class="btn btn-secondary" style="text-align:center;">Try Now</a>
+    </div>
+    <div class="related-card">
+      <span class="cat">Content · Rewriting</span>
+      <h3>AI Paraphraser</h3>
+      <p>Rewrite any paragraph instantly while keeping the original meaning intact.</p>
+      <a href="/tools/ai-paraphraser/" class="btn btn-secondary" style="text-align:center;">Try Now</a>
+    </div>
+    <div class="related-card">
+      <span class="cat">Content · SEO</span>
+      <h3>Word &amp; Character Counter</h3>
+      <p>Check word count, character count &amp; reading time for SEO-optimal length.</p>
+      <a href="/tools/word-character-counter/" class="btn btn-secondary" style="text-align:center;">Try Now</a>
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 9: Service Banner ── -->
+<div class="content-section">
+  <div class="service-banner">
+    <span class="badge">Done-for-you</span>
+    <h3>Need Full Content Marketing Support?</h3>
+    <p>Beyond the tool — our team builds complete AI-assisted content strategies, from keyword research to publishing calendars and SEO-optimized long-form articles.</p>
+    <a href="/services/content-marketing/" class="btn btn-primary">Get a Free Quote →</a>
+  </div>
+</div>
+
+<!-- ── Section 10: FAQ ── -->
+<div class="content-section alt-bg">
+  <div class="section-header">
+    <h2>Frequently Asked Questions</h2>
+    <p>Everything you wanted to know about our AI Blog Generator.</p>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Is this AI blog generator really free?</button>
+      <div class="faq-a"><p>Yes — 100% free with no hidden costs, no trial period, and no upgrade prompts. Every feature stays free forever, including all advanced SEO and humanization options.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Do I need to sign up or create an account?</button>
+      <div class="faq-a"><p>No signup, no email, no account required. Just open the tool, type your topic, and hit Generate. That's it.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Is there a word limit or usage cap?</button>
+      <div class="faq-a"><p>No — you can generate as many blog posts as you want, at any length up to 3,000+ words. There are no daily caps or hidden limits.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Can I use it without a credit card?</button>
+      <div class="faq-a"><p>Absolutely. We never ask for payment information — because we don't charge for anything.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Is AI-generated content safe for SEO?</button>
+      <div class="faq-a"><p>Google's official stance: AI content is fine as long as it's helpful, accurate, and demonstrates E-E-A-T. Our tool bakes in SEO best practices, but you should always add personal insights and fact-check statistics before publishing.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Can Google detect AI-written blog posts?</button>
+      <div class="faq-a"><p>Google's own systems can identify AI patterns, but they don't automatically penalize AI content. What matters is quality. Enable our Humanize Mode + Avoid AI Phrases options for output that reads and scores as human-written.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">How long should my AI-generated blog post be?</button>
+      <div class="faq-a"><p>Depends on the topic. Quick answers: 500–800 words. Standard how-to guides: 1,000–1,500. Deep-dive pillar articles: 2,000–3,000+. Match length to search intent, not a fixed rule.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Can I use this for my WordPress blog?</button>
+      <div class="faq-a"><p>Yes. Generate your post, copy the HTML or Markdown output, and paste directly into the WordPress editor. Headings, lists, and formatting carry over cleanly.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">How do I make AI content sound human?</button>
+      <div class="faq-a"><p>Turn on Humanize Mode, Avoid AI Phrases, and Sentence Length Variation. Then always add a short personal story, quote, or opinion during your final edit — that's what makes content genuinely human.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">What niches does this tool work best for?</button>
+      <div class="faq-a"><p>Almost any niche — from finance and health to travel, real estate, food, tech, and lifestyle. If you can describe the topic, the AI can draft a post around it.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Can I generate posts in different languages?</button>
+      <div class="faq-a"><p>Yes — English (US &amp; UK), Urdu, Hindi, Spanish, French, German, Arabic, and more. Just pick your language from the dropdown.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">How is this different from ChatGPT?</button>
+      <div class="faq-a"><p>ChatGPT is a general-purpose chat tool — you have to prompt engineer everything. Our tool is purpose-built for blog posts, with SEO structure, meta descriptions, FAQ sections, competitor research, and humanization baked in from the start.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Do I own the content generated?</button>
+      <div class="faq-a"><p>Yes — all content generated is yours to use, edit, publish, or sell however you want. No attribution required.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">Can I generate blog posts with images?</button>
+      <div class="faq-a"><p>Enable "Image Placement Suggestions" in Extras. The tool won't generate images directly but will suggest where to add them, with SEO-friendly alt text ready to paste.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">How many blog posts can I generate per day?</button>
+      <div class="faq-a"><p>As many as you want. Truly no cap — write one, or write a hundred. We don't limit usage.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Section 11: Final CTA ── -->
+<div class="final-cta">
+  <h2>Ready to Write Your Next Blog Post?</h2>
+  <p>Generate a fully SEO-optimized draft in 30 seconds — no signup, no card, no limits.</p>
+  <a href="#blogTopic" class="btn-big">✨ Generate Blog Now — It's Free</a>
+  <div class="sub-note">100% Free · No Signup · Unlimited Use</div>
+</div>
+
+<!-- ── Footer ── -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">Brightly<span>Future</span></div>
+      <p>AI-powered tools &amp; services for modern creators, marketers &amp; businesses.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="/services/ai-solutions/">AI Solutions</a>
+      <a href="/services/php-development/">PHP Development</a>
+      <a href="/services/custom-apis/">Custom APIs</a>
+      <a href="/services/web-design/">Web Design</a>
+    </div>
+    <div class="footer-col">
+      <h4>Tools &amp; Resources</h4>
+      <a href="/tools/">All Free Tools</a>
+      <a href="/tools/ai-blog-generator/">AI Blog Generator</a>
+      <a href="/tools/json-validator/">JSON Validator</a>
+      <a href="/tools/password-generator/">Password Generator</a>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="/about/">About Us</a>
+      <a href="/blog/">Blog</a>
+      <a href="/contact/">Contact</a>
+      <a href="/sitemap/">Sitemap</a>
+    </div>
+  </div>
+  <div class="footer-copy">© 2026 BrightlyFuture · All rights reserved</div>
+</footer>
+
+<div class="toast" id="toast">Copied!</div>
+
+<script>
+let selectedTone = 'Professional';
+let lastBlog = '';
+
+function selectTone(el, tone) {
+  selectedTone = tone;
+  document.querySelectorAll('#toneSelector .tag').forEach(t => t.classList.remove('selected'));
+  el.classList.add('selected');
+}
+
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  item.classList.toggle('open');
+}
+
+const blogTemplates = {
+  intro: (topic, audience, kws, tone) => {
+    const toneMap = {Professional:'In today\'s competitive digital landscape,', Friendly:'Hey there! If you\'ve been wondering about', Technical:'From an architectural standpoint,', Persuasive:'Here\'s a truth most businesses ignore:', Conversational:'Let\'s be honest —', Educational:'Before we dive in, it\'s worth understanding that'};
+    const opener = toneMap[tone] || 'In this guide,';
+    return `${opener} ${topic} has become one of the most talked-about topics in the industry. Whether you're a ${audience.toLowerCase()} looking to gain a competitive edge or simply trying to understand how modern digital solutions work, this guide covers everything you need to know.
+
+${kws ? 'Key areas we\'ll explore include ' + kws.split(',').slice(0,3).map(k=>k.trim()).join(', ') + ' and much more.' : 'By the end of this post, you\'ll have a clear roadmap for taking action.'}`;
+  },
+
+  h2Section: (heading, content) => `\n## ${heading}\n\n${content}\n`,
+
+  conclusion: (topic, audience) => `\n## Conclusion\n\nIn summary, ${topic} is no longer optional for ${audience.toLowerCase()} — it's a necessity. The digital landscape moves fast, and the businesses that invest in the right solutions today will be the ones leading tomorrow.\n\nReady to take the next step? BrightlyFuture specialises in AI solutions, PHP development, custom APIs, and web design tailored to your exact needs.\n\n**[Get a free consultation →](https://brightlyfuture.co.uk)**`,
+
+  faq: (topic) => `\n## Frequently Asked Questions\n\n**Q: How long does it take to implement ${topic}?**\nA: Timelines vary depending on complexity, but most projects can be scoped and delivered within 4–12 weeks with the right team.\n\n**Q: How much does ${topic} cost?**\nA: Costs depend on your requirements. BrightlyFuture offers transparent pricing starting from discovery workshops. Contact us for a custom quote.\n\n**Q: Can I integrate this with my existing systems?**\nA: Absolutely. Our solutions are designed with interoperability in mind, using standard APIs and modern frameworks.\n\n**Q: Is technical expertise required on my end?**\nA: Not necessarily. We manage the technical complexity so you can focus on your business outcomes.`,
+};
+
+const sectionContent = [
+  (t,kws) => `Understanding the fundamentals of ${t} starts with asking the right questions. Many organisations jump straight to implementation without first establishing clear goals. Before anything else, map your current workflow and identify the specific pain points you're trying to solve.\n\nKey considerations at this stage include scalability requirements, integration with existing tech stacks, and team capabilities. ${kws ? 'Terms like ' + kws.split(',')[0]?.trim() + ' often come up here — and with good reason.' : ''}`,
+  (t,kws) => `Once you have a clear picture of your requirements, the next step is selecting the right approach. There is no one-size-fits-all solution. Depending on your budget, timeline, and technical maturity, you may choose between off-the-shelf platforms, custom-built solutions, or hybrid models.\n\n${kws ? 'Solutions centred around ' + kws.split(',').slice(0,2).map(k=>k.trim()).join(' and ') + ' tend to offer the best balance of flexibility and speed to market.' : 'Custom-built solutions, while more expensive upfront, often deliver superior ROI over time.'}`,
+  (t) => `Implementation is where strategy meets reality. Common pitfalls at this stage include scope creep, poor documentation, and inadequate testing. To avoid these, establish a phased rollout plan with clear milestones and sign-off points.\n\nBest practices include:\n\n• Start with an MVP (minimum viable product) to validate assumptions early\n• Involve end-users in testing from day one\n• Document everything — from architecture decisions to API contracts\n• Build monitoring and alerting in from the beginning, not as an afterthought`,
+  (t) => `Measuring success post-launch is just as important as the build itself. Define your KPIs before you go live. Common metrics include uptime, error rates, user adoption, and time savings per task.\n\nSchedule regular review cycles — monthly in the first quarter, then quarterly thereafter. This data drives continuous improvement and helps justify further investment in ${t}.`,
+  (t) => `Scaling and maintaining your solution requires a long-term mindset. Technologies evolve, business requirements shift, and user expectations grow. Build flexibility into your architecture from day one.\n\nCloud-native approaches, containerisation, and microservices architectures are popular choices for ${t} projects that need to scale without complete rewrites every few years.`,
+  (t) => `Security and compliance are non-negotiable in today's regulatory environment. Whether you're subject to GDPR, ISO 27001, or sector-specific requirements, your ${t} implementation must account for data protection, access controls, and audit logging from the outset.\n\nRegular penetration testing and security audits are recommended at least annually — more frequently for high-risk or high-traffic systems.`,
+];
+
+const sectionTitles = (topic) => [
+  `Understanding ${topic}: The Foundations`,
+  `Choosing the Right Approach for Your ${topic} Project`,
+  `Step-by-Step Implementation Guide`,
+  `Measuring ROI and Success Metrics`,
+  `Scaling Your Solution for Long-Term Growth`,
+  `Security, Compliance, and Best Practices`,
+];
+
+async function generateBlog() {
+  const topic = document.getElementById('blogTopic').value.trim();
+  if (!topic) { alert('Please enter a blog topic.'); return; }
+
+  const audience = document.getElementById('audience').value;
+  const kws = document.getElementById('focusKws').value.trim();
+  const numSec = parseInt(document.getElementById('numSections').value);
+  const inclIntro = document.getElementById('inclIntro').checked;
+  const inclMeta = document.getElementById('inclMeta').checked;
+  const inclFaq = document.getElementById('inclFaq').checked;
+  const inclCta = document.getElementById('inclCta').checked;
+
+  document.getElementById('progressWrap').style.display = '';
+  document.getElementById('generateBtn').disabled = true;
+  document.getElementById('outputSection').style.display = 'none';
+
+  let prog = 0;
+  const fill = document.getElementById('progressFill');
+  const label = document.getElementById('progressLabel');
+  const steps = ['Crafting outline…','Writing introduction…','Generating sections…','Adding SEO elements…','Finalising blog post…'];
+  let stepI = 0;
+
+  const interval = setInterval(() => {
+    prog = Math.min(prog + 2, 90);
+    fill.style.width = prog + '%';
+    if (prog % 18 === 0 && stepI < steps.length) { label.textContent = steps[stepI++]; }
+  }, 50);
+
+  await new Promise(r => setTimeout(r, 2500));
+  clearInterval(interval);
+  fill.style.width = '100%';
+  label.textContent = 'Done! ✅';
+
+  let blog = '';
+  const seotitle = `${topic}: A Complete Guide for ${audience} in ${new Date().getFullYear()}`;
+  blog += `SEO Title: ${seotitle}\n`;
+  if (inclMeta) {
+    const kwSnippet = kws ? kws.split(',')[0]?.trim() + ' and more' : topic.split(' ').slice(0,5).join(' ');
+    blog += `Meta Description: Discover everything you need to know about ${topic}. This comprehensive guide covers ${kwSnippet} — written for ${audience.toLowerCase()}.\n`;
+  }
+  blog += `\n# ${seotitle}\n\n`;
+  if (inclIntro) blog += blogTemplates.intro(topic, audience, kws, selectedTone) + '\n';
+
+  const titles = sectionTitles(topic);
+  for (let i = 0; i < Math.min(numSec, sectionContent.length); i++) {
+    blog += blogTemplates.h2Section(titles[i], sectionContent[i](topic, kws));
+  }
+
+  if (inclFaq) blog += blogTemplates.faq(topic);
+  if (inclCta) blog += blogTemplates.conclusion(topic, audience);
+
+  lastBlog = blog;
+  document.getElementById('blogOutput').textContent = blog;
+  const wc = blog.match(/\b\w+\b/g)?.length || 0;
+  document.getElementById('outWC').textContent = wc;
+  document.getElementById('outRT').textContent = Math.max(1, Math.round(wc / 200));
+  document.getElementById('outSec').textContent = numSec + (inclFaq ? 1 : 0) + (inclCta ? 1 : 0);
+
+  await new Promise(r => setTimeout(r, 400));
+  document.getElementById('progressWrap').style.display = 'none';
+  document.getElementById('generateBtn').disabled = false;
+  document.getElementById('outputSection').style.display = '';
+}
+
+function copyBlog() {
+  navigator.clipboard.writeText(lastBlog).then(() => {
+    const t = document.getElementById('toast'); t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2000);
+  });
+}
+
+function downloadBlog() {
+  const topic = document.getElementById('blogTopic').value.trim().replace(/\s+/g,'-').toLowerCase() || 'blog-post';
+  const blob = new Blob([lastBlog], {type:'text/markdown'});
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob);
+  a.download = topic + '.md'; a.click();
+}
+
+function clearAll() {
+  document.getElementById('blogTopic').value = '';
+  document.getElementById('focusKws').value = '';
+  document.getElementById('outputSection').style.display = 'none';
+  document.getElementById('progressWrap').style.display = 'none';
+}
+</script>
+</body>
+</html>
