@@ -7,55 +7,194 @@
 <meta name="description" content="Free AI Blog Generator that writes SEO-optimized, human-sounding blog posts in 30 seconds. No signup, no credit card, unlimited use.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
 <style>
-.output-blog { white-space: pre-wrap; line-height: 1.8; font-size: 0.9rem; }
+:root {
+  --pri: #6C5CE7;
+  --pri-hover: #5A4BD1;
+  --cyan: #00D2D3;
+  --dark1: #0B0A1A;
+  --dark2: #131228;
+  --dark3: #1B1A35;
+  --card: #171630;
+  --card-hover: #1E1D3A;
+  --border: #2A2850;
+  --text: #D4D2E8;
+  --muted: #8E8CA8;
+  --white: #F0EFF5;
+  --green: #00C897;
+  --amber: #F59E0B;
+  --red: #EF4444;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--dark1); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: var(--pri); text-decoration: none; }
+a:hover { color: var(--cyan); }
+
+/* Hero */
+.abg-hero { text-align: center; padding: 3.5rem 1.5rem 2.5rem; background: linear-gradient(180deg, var(--dark2) 0%, var(--dark1) 100%); }
+.abg-hero .back-link { display: inline-block; color: var(--muted); font-size: 0.85rem; margin-bottom: 1.5rem; transition: color .2s; }
+.abg-hero .back-link:hover { color: var(--pri); }
+.abg-hero .badge { display: inline-block; background: var(--dark3); color: var(--cyan); font-size: 0.8rem; font-weight: 600; padding: 0.4rem 1.1rem; border-radius: 999px; border: 1px solid var(--border); margin-bottom: 1.25rem; }
+.abg-hero h1 { font-size: 2.4rem; font-weight: 800; color: var(--white); margin-bottom: 0.85rem; }
+.abg-hero .sub { color: var(--muted); max-width: 620px; margin: 0 auto 1.5rem; font-size: 0.95rem; line-height: 1.65; }
+.usp-row { display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; }
+.usp-pill { background: rgba(108,92,231,0.1); border: 1px solid rgba(108,92,231,0.25); color: var(--cyan); font-size: 0.78rem; font-weight: 600; padding: 0.4rem 1rem; border-radius: 999px; }
+
+/* Tool */
+.abg-tool { max-width: 850px; margin: 0 auto; padding: 0 1.5rem 3rem; }
+.abg-box { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; }
+.abg-box label { display: block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); margin-bottom: 0.45rem; }
+.abg-box input[type="text"], .abg-box select { width: 100%; background: var(--dark2); border: 1px solid var(--border); border-radius: 10px; padding: 0.7rem 1rem; color: var(--text); font-size: 0.9rem; font-family: inherit; transition: border-color .2s; }
+.abg-box input:focus, .abg-box select:focus { outline: none; border-color: var(--pri); }
+.abg-box select { cursor: pointer; -webkit-appearance: none; appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%238E8CA8' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; }
+.mb { margin-bottom: 1.25rem; }
+.abg-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.tag-select { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+.tag { padding: 0.38rem 0.95rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600; cursor: pointer; border: 1px solid var(--border); background: var(--dark2); color: var(--muted); transition: all .2s; }
+.tag.selected { background: var(--pri); border-color: var(--pri); color: #fff; }
+.tag:hover:not(.selected) { border-color: var(--pri); color: var(--text); }
+.check-group { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+.check-group label { display: flex; align-items: center; gap: 0.4rem; text-transform: uppercase; font-size: 0.72rem; font-weight: 700; color: var(--muted); cursor: pointer; letter-spacing: 0.04em; }
+.check-group input[type="checkbox"] { accent-color: var(--pri); width: 16px; height: 16px; }
+.btn-group { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+.btn { padding: 0.7rem 1.6rem; border-radius: 10px; font-weight: 600; font-size: 0.9rem; cursor: pointer; border: none; transition: all .2s; font-family: inherit; }
+.btn-primary { background: var(--pri); color: #fff; }
+.btn-primary:hover { background: var(--pri-hover); transform: translateY(-1px); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+.btn-secondary { background: var(--dark2); color: var(--muted); border: 1px solid var(--border); }
+.btn-secondary:hover { border-color: var(--pri); color: var(--text); }
 .progress-wrap { margin-top: 1.5rem; display: none; }
 .progress-bar { height: 8px; border-radius: 4px; background: var(--dark2); overflow: hidden; margin-bottom: 0.5rem; }
 .progress-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--pri), var(--cyan)); transition: width .4s; }
-.tag-select { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-.tag { padding: 0.35rem 0.9rem; border-radius: 999px; font-size: 0.8rem; font-weight: 600; cursor: pointer; border: 1px solid var(--border); background: var(--dark2); color: var(--muted); transition: all .2s; }
-.tag.selected { background: var(--pri); border-color: var(--pri); color: #fff; }
+.stats-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+.stat-chip { background: var(--dark2); border: 1px solid var(--border); border-radius: 12px; padding: 0.8rem 1.3rem; text-align: center; flex: 1; min-width: 80px; }
+.stat-chip .val { font-size: 1.4rem; font-weight: 700; color: var(--white); }
+.stat-chip .lbl { font-size: 0.68rem; color: var(--muted); text-transform: uppercase; margin-top: 0.15rem; letter-spacing: 0.04em; }
+.output-blog { white-space: pre-wrap; line-height: 1.8; font-size: 0.9rem; color: var(--text); }
+
+/* Sections */
+.abg-section { max-width: 1100px; margin: 0 auto; padding: 4rem 1.5rem; }
+.abg-section.alt { background: var(--dark2); max-width: 100%; }
+.abg-section.alt > .inner { max-width: 1100px; margin: 0 auto; }
+.sec-head { text-align: center; margin-bottom: 2.75rem; }
+.sec-head h2 { font-size: 1.65rem; font-weight: 800; color: var(--white); margin-bottom: 0.5rem; }
+.sec-head p { color: var(--muted); font-size: 0.92rem; max-width: 520px; margin: 0 auto; font-style: italic; }
+
+/* Steps */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.step { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem 1.5rem; text-align: center; transition: border-color .2s; }
+.step:hover { border-color: var(--pri); }
+.step-n { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--pri), #8B5CF6); color: #fff; font-weight: 700; font-size: 1rem; margin-bottom: 1rem; }
+.step h3 { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.5rem; }
+.step p { font-size: 0.85rem; color: var(--muted); }
+
+/* Feature cards */
+.cards-6 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.fcard { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.75rem; transition: border-color .2s, transform .2s; }
+.fcard:hover { border-color: var(--pri); transform: translateY(-2px); }
+.fcard .ic { font-size: 1.6rem; margin-bottom: 0.8rem; display: block; }
+.fcard h3 { font-size: 0.95rem; font-weight: 700; color: var(--white); margin-bottom: 0.4rem; }
+.fcard p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+
+/* Audience */
+.aud-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.75rem; text-align: center; transition: border-color .2s, transform .2s; }
+.aud-card:hover { border-color: var(--pri); transform: translateY(-2px); }
+.aud-card .ic { font-size: 2rem; margin-bottom: 0.65rem; display: block; }
+.aud-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--white); margin-bottom: 0.35rem; }
+.aud-card p { font-size: 0.85rem; color: var(--muted); }
+
+/* Table */
+.tbl-wrap { overflow-x: auto; border-radius: 16px; border: 1px solid var(--border); }
+.cmp-tbl { width: 100%; border-collapse: collapse; font-size: 0.85rem; background: var(--card); }
+.cmp-tbl th, .cmp-tbl td { padding: 0.9rem 1.1rem; text-align: center; border-bottom: 1px solid var(--border); }
+.cmp-tbl th { background: var(--dark3); color: var(--white); font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.cmp-tbl td:first-child { text-align: left; font-weight: 600; color: var(--text); }
+.cmp-tbl tr:last-child td { border-bottom: none; }
+.cmp-tbl .hl { background: rgba(108,92,231,0.08); }
+.ck { color: var(--green); font-weight: 700; font-size: 1.1rem; }
+.cx { color: #6B6987; font-size: 1.1rem; }
+
+/* Tips */
+.tips { display: flex; flex-direction: column; gap: 1rem; }
+.tip { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem 1.75rem; display: flex; gap: 1.25rem; align-items: flex-start; transition: border-color .2s; }
+.tip:hover { border-color: var(--pri); }
+.tip-n { flex-shrink: 0; width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--pri), #8B5CF6); color: #fff; font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; }
+.tip h3 { font-size: 0.95rem; font-weight: 700; color: var(--white); margin-bottom: 0.3rem; }
+.tip p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+
+/* Related tools */
+.rel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.rel-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 1.75rem; display: flex; flex-direction: column; transition: border-color .2s, transform .2s; }
+.rel-card:hover { border-color: var(--pri); transform: translateY(-2px); }
+.rel-card .cat { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--cyan); margin-bottom: 0.6rem; letter-spacing: 0.05em; }
+.rel-card h3 { font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: 0.45rem; }
+.rel-card p { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.25rem; flex: 1; line-height: 1.55; }
+.rel-card .btn { text-align: center; font-size: 0.82rem; padding: 0.55rem 1rem; }
+
+/* Service banner */
+.svc-banner { background: linear-gradient(135deg, var(--dark3) 0%, var(--card) 100%); border: 1px solid var(--border); border-radius: 16px; padding: 3rem 2rem; text-align: center; max-width: 850px; margin: 0 auto; }
+.svc-banner .badge { display: inline-block; background: var(--pri); color: #fff; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; padding: 0.3rem 0.85rem; border-radius: 999px; margin-bottom: 0.85rem; letter-spacing: 0.05em; }
+.svc-banner h3 { font-size: 1.35rem; font-weight: 800; color: var(--white); margin-bottom: 0.85rem; }
+.svc-banner p { color: var(--muted); font-size: 0.9rem; max-width: 540px; margin: 0 auto 1.5rem; line-height: 1.6; }
+
+/* FAQ */
+.faq-list { max-width: 800px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.15rem 0; cursor: pointer; font-weight: 600; font-size: 0.95rem; color: var(--white); background: none; border: none; width: 100%; text-align: left; font-family: inherit; transition: color .2s; }
+.faq-q:hover { color: var(--cyan); }
+.faq-q .arrow { font-size: 1.2rem; color: var(--pri); flex-shrink: 0; transition: transform .25s; }
+.faq-item.open .faq-q .arrow { transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+.faq-item.open .faq-a { max-height: 300px; }
+.faq-a p { font-size: 0.9rem; color: var(--muted); padding-bottom: 1rem; line-height: 1.6; }
+
+/* Final CTA */
+.final-cta { text-align: center; padding: 4.5rem 1.5rem; background: linear-gradient(180deg, var(--dark1) 0%, var(--dark2) 100%); }
+.final-cta h2 { font-size: 1.85rem; font-weight: 800; color: var(--white); margin-bottom: 0.85rem; }
+.final-cta p { color: var(--muted); font-size: 0.95rem; margin-bottom: 1.75rem; }
+.btn-big { display: inline-block; background: linear-gradient(135deg, var(--pri), #8B5CF6); color: #fff; padding: 0.9rem 2.8rem; border-radius: 12px; font-weight: 700; font-size: 1.05rem; border: none; cursor: pointer; transition: transform .2s, box-shadow .2s; box-shadow: 0 4px 20px rgba(108,92,231,0.3); }
+.btn-big:hover { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(108,92,231,0.45); color: #fff; }
+.final-cta .sub-note { font-size: 0.8rem; color: var(--muted); margin-top: 0.85rem; }
+
+.toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); background: var(--green); color: #fff; padding: 0.6rem 1.5rem; border-radius: 10px; font-weight: 600; font-size: 0.85rem; opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 999; }
+.toast.show { opacity: 1; }
+
+@media (max-width: 768px) {
+  .steps, .cards-6, .rel-grid { grid-template-columns: 1fr; }
+  .abg-row { grid-template-columns: 1fr; }
+  .abg-hero h1 { font-size: 1.7rem; }
+  .tip { flex-direction: column; }
+  .cmp-tbl { font-size: 0.78rem; }
+  .cmp-tbl th, .cmp-tbl td { padding: 0.65rem 0.6rem; }
+}
 </style>
 </head>
 <body>
 
-<!-- ── Navigation ── -->
-<nav class="navbar">
-  <a href="/" class="logo">Brightly<span>Future</span></a>
-  <ul class="nav-links">
-    <li><a href="/">Home</a></li>
-    <li><a href="/services/">Services</a></li>
-    <li><a href="/tools/" class="active">Free Tools</a></li>
-    <li><a href="/blog/">Blog</a></li>
-    <li><a href="/about/">About</a></li>
-    <li><a href="/quote/" class="btn-quote">Get A Quote</a></li>
-  </ul>
-</nav>
-
-<!-- ── Section 1: Hero ── -->
-<div class="tool-page-hero">
+<!-- Section 1: Hero -->
+<div class="abg-hero">
   <a href="/tools/" class="back-link">← Back to All Tools</a>
-  <span class="hero-badge">🤖 AI Blog Generator</span>
+  <div><span class="badge">🤖 AI Blog Generator</span></div>
   <h1>Free AI Blog Generator</h1>
-  <p>Generate SEO-optimized, human-sounding blog posts in 30 seconds. No signup, no credit card, unlimited use — built for bloggers, marketers &amp; small businesses.</p>
-  <div class="usp-badges">
-    <span class="usp-badge">✓ 100% Free Forever</span>
-    <span class="usp-badge">✓ No Signup Required</span>
-    <span class="usp-badge">✓ Unlimited Usage</span>
-    <span class="usp-badge">✓ SEO + AEO + GEO Ready</span>
+  <p class="sub">Generate SEO-optimized, human-sounding blog posts in 30 seconds. No signup, no credit card, unlimited use — built for bloggers, marketers &amp; small businesses.</p>
+  <div class="usp-row">
+    <span class="usp-pill">✓ 100% Free Forever</span>
+    <span class="usp-pill">✓ No Signup Required</span>
+    <span class="usp-pill">✓ Unlimited Usage</span>
+    <span class="usp-pill">✓ SEO + AEO + GEO Ready</span>
   </div>
 </div>
 
-<!-- ── Section 2: Tool Widget ── -->
-<div class="tool-workspace">
-  <div class="tool-box">
+<!-- Section 2: Tool Widget -->
+<div class="abg-tool">
+  <div class="abg-box">
     <div class="mb">
       <label>Blog Topic / Title Idea</label>
       <input type="text" id="blogTopic" placeholder="e.g. How to Build a Custom API for Your Business">
     </div>
 
-    <div class="tool-row mb">
+    <div class="abg-row mb">
       <div>
         <label>Target Audience</label>
         <select id="audience">
@@ -124,239 +263,157 @@
   </div>
 
   <div id="outputSection" style="display:none;margin-top:1.5rem;">
-    <div class="tool-box">
+    <div class="abg-box">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;gap:0.75rem;">
-        <h3 style="font-size:1rem;">Generated Blog Post</h3>
+        <h3 style="font-size:1rem;color:var(--white);font-weight:700;">Generated Blog Post</h3>
         <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
           <button class="btn btn-secondary" style="padding:0.4rem 0.9rem;font-size:0.8rem;" onclick="copyBlog()">📋 Copy</button>
           <button class="btn btn-secondary" style="padding:0.4rem 0.9rem;font-size:0.8rem;" onclick="downloadBlog()">⬇ Download</button>
         </div>
       </div>
-
       <div class="stats-row" style="margin-bottom:1.5rem;">
         <div class="stat-chip"><div class="val" id="outWC">0</div><div class="lbl">Words</div></div>
         <div class="stat-chip"><div class="val" id="outRT">0</div><div class="lbl">Read Min</div></div>
         <div class="stat-chip"><div class="val" id="outSec">0</div><div class="lbl">Sections</div></div>
       </div>
-
       <div class="output-blog" id="blogOutput"></div>
     </div>
   </div>
 </div>
 
-<!-- ── Section 3: How It Works ── -->
-<div class="content-section">
-  <div class="section-header">
+<!-- Section 3: How It Works -->
+<div class="abg-section">
+  <div class="sec-head">
     <h2>Generate Your Blog Post in 3 Simple Steps</h2>
     <p>From blank page to publish-ready draft in under a minute.</p>
   </div>
-  <div class="steps-grid">
-    <div class="step-card">
-      <div class="step-num">1</div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-n">1</div>
       <h3>Enter Topic &amp; Keyword</h3>
       <p>Type your blog topic and target SEO keyword. Add secondary keywords if you have them.</p>
     </div>
-    <div class="step-card">
-      <div class="step-num">2</div>
+    <div class="step">
+      <div class="step-n">2</div>
       <h3>Pick Tone &amp; Length</h3>
       <p>Choose length, tone, audience, and toggle any advanced SEO or humanization options.</p>
     </div>
-    <div class="step-card">
-      <div class="step-num">3</div>
+    <div class="step">
+      <div class="step-n">3</div>
       <h3>Generate &amp; Publish</h3>
       <p>Click Generate — get a fully-structured, SEO-optimized blog draft in 30 seconds.</p>
     </div>
   </div>
 </div>
 
-<!-- ── Section 4: Key Features ── -->
-<div class="content-section alt-bg">
-  <div class="section-header">
-    <h2>Why Our AI Blog Generator is Different</h2>
-    <p>Built for real bloggers who care about SEO, readability, and staying human.</p>
-  </div>
-  <div class="features-grid">
-    <div class="feature-card">
-      <div class="icon">💰</div>
-      <h3>100% Free Forever</h3>
-      <p>No hidden costs, no trial gimmicks. Every feature stays free — that's the deal.</p>
+<!-- Section 4: Key Features -->
+<div class="abg-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>Why Our AI Blog Generator is Different</h2>
+      <p>Built for real bloggers who care about SEO, readability, and staying human.</p>
     </div>
-    <div class="feature-card">
-      <div class="icon">🚀</div>
-      <h3>Zero Signup</h3>
-      <p>No email, no credit card, no account creation. Start generating in one click.</p>
-    </div>
-    <div class="feature-card">
-      <div class="icon">♾️</div>
-      <h3>Unlimited Usage</h3>
-      <p>Write one post or one hundred. There are no daily caps, no word limits, ever.</p>
-    </div>
-    <div class="feature-card">
-      <div class="icon">🎯</div>
-      <h3>SEO + AEO + GEO Optimized</h3>
-      <p>Ranks on Google, cited by AI Overviews and Perplexity — built for the 2026 search landscape.</p>
-    </div>
-    <div class="feature-card">
-      <div class="icon">🧑‍💻</div>
-      <h3>Humanize Mode</h3>
-      <p>Bypass AI detectors with natural sentence variation, no robotic phrases, real reader flow.</p>
-    </div>
-    <div class="feature-card">
-      <div class="icon">📊</div>
-      <h3>Competitor-Researched</h3>
-      <p>Analyzes top 3–4 ranking articles for your keyword before writing — so your post beats them.</p>
+    <div class="cards-6">
+      <div class="fcard"><span class="ic">💰</span><h3>100% Free Forever</h3><p>No hidden costs, no trial gimmicks. Every feature stays free — that's the deal.</p></div>
+      <div class="fcard"><span class="ic">🚀</span><h3>Zero Signup</h3><p>No email, no credit card, no account creation. Start generating in one click.</p></div>
+      <div class="fcard"><span class="ic">♾️</span><h3>Unlimited Usage</h3><p>Write one post or one hundred. There are no daily caps, no word limits, ever.</p></div>
+      <div class="fcard"><span class="ic">🎯</span><h3>SEO + AEO + GEO Optimized</h3><p>Ranks on Google, cited by AI Overviews and Perplexity — built for the 2026 search landscape.</p></div>
+      <div class="fcard"><span class="ic">🧑‍💻</span><h3>Humanize Mode</h3><p>Bypass AI detectors with natural sentence variation, no robotic phrases, real reader flow.</p></div>
+      <div class="fcard"><span class="ic">📊</span><h3>Competitor-Researched</h3><p>Analyzes top 3–4 ranking articles for your keyword before writing — so your post beats them.</p></div>
     </div>
   </div>
 </div>
 
-<!-- ── Section 5: Perfect For ── -->
-<div class="content-section">
-  <div class="section-header">
+<!-- Section 5: Perfect For -->
+<div class="abg-section">
+  <div class="sec-head">
     <h2>Perfect For Every Type of Blogger</h2>
     <p>Whether you write occasionally or run a full content operation.</p>
   </div>
-  <div class="audience-grid">
-    <div class="audience-card">
-      <div class="icon">✍️</div>
-      <h3>Bloggers</h3>
-      <p>Personal &amp; niche blog owners scaling their content output.</p>
+  <div class="cards-6">
+    <div class="aud-card"><span class="ic">✍️</span><h3>Bloggers</h3><p>Personal &amp; niche blog owners scaling their content output.</p></div>
+    <div class="aud-card"><span class="ic">🏢</span><h3>Small Business</h3><p>SMBs building organic search presence without a full content team.</p></div>
+    <div class="aud-card"><span class="ic">✏️</span><h3>Freelance Writers</h3><p>Deliver more client work in less time — with better on-page SEO.</p></div>
+    <div class="aud-card"><span class="ic">📈</span><h3>Marketing Agencies</h3><p>Scale content production across multiple client accounts effortlessly.</p></div>
+    <div class="aud-card"><span class="ic">🎓</span><h3>Students</h3><p>Draft articles, essays &amp; research pieces faster — with clean structure.</p></div>
+    <div class="aud-card"><span class="ic">💸</span><h3>Affiliate Marketers</h3><p>Publish reviews, comparisons &amp; buying guides at scale for niche sites.</p></div>
+  </div>
+</div>
+
+<!-- Section 6: Comparison Table -->
+<div class="abg-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>How We Compare to Other AI Blog Generators</h2>
+      <p>A quick honest look at what you get with us vs. the paid giants.</p>
     </div>
-    <div class="audience-card">
-      <div class="icon">🏢</div>
-      <h3>Small Business</h3>
-      <p>SMBs building organic search presence without a full content team.</p>
-    </div>
-    <div class="audience-card">
-      <div class="icon">✏️</div>
-      <h3>Freelance Writers</h3>
-      <p>Deliver more client work in less time — with better on-page SEO.</p>
-    </div>
-    <div class="audience-card">
-      <div class="icon">📈</div>
-      <h3>Marketing Agencies</h3>
-      <p>Scale content production across multiple client accounts effortlessly.</p>
-    </div>
-    <div class="audience-card">
-      <div class="icon">🎓</div>
-      <h3>Students</h3>
-      <p>Draft articles, essays &amp; research pieces faster — with clean structure.</p>
-    </div>
-    <div class="audience-card">
-      <div class="icon">💸</div>
-      <h3>Affiliate Marketers</h3>
-      <p>Publish reviews, comparisons &amp; buying guides at scale for niche sites.</p>
+    <div class="tbl-wrap">
+      <table class="cmp-tbl">
+        <thead><tr><th>Feature</th><th class="hl">BrightlyFuture</th><th>HubSpot</th><th>QuillBot</th><th>Jasper</th></tr></thead>
+        <tbody>
+          <tr><td>100% Free</td><td class="hl ck">✓</td><td class="cx">✗</td><td class="cx">✗</td><td class="cx">✗</td></tr>
+          <tr><td>No Signup Required</td><td class="hl ck">✓</td><td class="cx">✗</td><td class="cx">✗</td><td class="cx">✗</td></tr>
+          <tr><td>Unlimited Generations</td><td class="hl ck">✓</td><td class="cx">✗</td><td class="cx">✗</td><td class="cx">✗</td></tr>
+          <tr><td>Humanize Mode</td><td class="hl ck">✓</td><td class="cx">✗</td><td class="cx">✗</td><td class="cx">✗</td></tr>
+          <tr><td>AI Phrase Avoidance</td><td class="hl ck">✓</td><td class="cx">✗</td><td class="cx">✗</td><td class="cx">✗</td></tr>
+          <tr><td>SEO + AEO + GEO Optimized</td><td class="hl ck">✓</td><td class="ck">✓</td><td class="cx">✗</td><td class="ck">✓</td></tr>
+          <tr><td>Competitor Research Built-in</td><td class="hl ck">✓</td><td class="cx">✗</td><td class="cx">✗</td><td class="cx">✗</td></tr>
+          <tr><td>Multi-language Support</td><td class="hl ck">✓</td><td class="ck">✓</td><td class="ck">✓</td><td class="ck">✓</td></tr>
+          <tr><td>Starting Price</td><td class="hl" style="color:var(--green);font-weight:700;">$0</td><td>$20/mo</td><td>$9.95/mo</td><td>$49/mo</td></tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
 
-<!-- ── Section 6: Comparison Table ── -->
-<div class="content-section alt-bg">
-  <div class="section-header">
-    <h2>How We Compare to Other AI Blog Generators</h2>
-    <p>A quick honest look at what you get with us vs. the paid giants.</p>
-  </div>
-  <div class="comparison-wrap">
-    <table class="comparison-table">
-      <thead>
-        <tr>
-          <th>Feature</th>
-          <th class="highlight-col">BrightlyFuture</th>
-          <th>HubSpot</th>
-          <th>QuillBot</th>
-          <th>Jasper</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>100% Free</td><td class="highlight-col check">&#10003;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td></tr>
-        <tr><td>No Signup Required</td><td class="highlight-col check">&#10003;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td></tr>
-        <tr><td>Unlimited Generations</td><td class="highlight-col check">&#10003;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td></tr>
-        <tr><td>Humanize Mode</td><td class="highlight-col check">&#10003;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td></tr>
-        <tr><td>AI Phrase Avoidance</td><td class="highlight-col check">&#10003;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td></tr>
-        <tr><td>SEO + AEO + GEO Optimized</td><td class="highlight-col check">&#10003;</td><td class="check">&#10003;</td><td class="cross">&#10007;</td><td class="check">&#10003;</td></tr>
-        <tr><td>Competitor Research Built-in</td><td class="highlight-col check">&#10003;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td><td class="cross">&#10007;</td></tr>
-        <tr><td>Multi-language Support</td><td class="highlight-col check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td><td class="check">&#10003;</td></tr>
-        <tr><td>Starting Price</td><td class="highlight-col" style="color:var(--green);font-weight:700;">$0</td><td>$20/mo</td><td>$9.95/mo</td><td>$49/mo</td></tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-<!-- ── Section 7: Tips ── -->
-<div class="content-section">
-  <div class="section-header">
+<!-- Section 7: Tips -->
+<div class="abg-section">
+  <div class="sec-head">
     <h2>5 Tips to Get Expert-Level Output</h2>
     <p>Small prompt tweaks that turn generic AI drafts into publish-ready articles.</p>
   </div>
-  <div class="tips-list">
-    <div class="tip-card">
-      <div class="tip-num">1</div>
-      <div>
-        <h3>Be specific with your topic</h3>
-        <p>Instead of "coffee," write "how to brew pour-over coffee at home for beginners." Specificity narrows the AI's focus and produces sharper output.</p>
-      </div>
+  <div class="tips">
+    <div class="tip"><div class="tip-n">1</div><div><h3>Be specific with your topic</h3><p>Instead of "coffee," write "how to brew pour-over coffee at home for beginners." Specificity narrows the AI's focus and produces sharper output.</p></div></div>
+    <div class="tip"><div class="tip-n">2</div><div><h3>Always include a focus keyword</h3><p>Even one strong keyword tells the AI what to optimize around. Add 2–3 LSI keywords in the secondary field for better on-page SEO.</p></div></div>
+    <div class="tip"><div class="tip-n">3</div><div><h3>Match tone to your audience</h3><p>A B2B SaaS blog needs "Authoritative." A lifestyle blog wins with "Conversational." Wrong tone kills engagement, no matter how good the content is.</p></div></div>
+    <div class="tip"><div class="tip-n">4</div><div><h3>Turn on Humanize Mode + Avoid AI Phrases</h3><p>These two toggles dramatically reduce AI detection scores and remove clichés like "in today's digital landscape" and "delve into."</p></div></div>
+    <div class="tip"><div class="tip-n">5</div><div><h3>Always edit and fact-check</h3><p>AI can hallucinate stats and quotes. Verify numbers, add a personal story or example, and update any dates before publishing.</p></div></div>
+  </div>
+</div>
+
+<!-- Section 8: Related Tools -->
+<div class="abg-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>Complete Your Content Workflow</h2>
+      <p>Free companion tools that pair perfectly with the AI Blog Generator.</p>
     </div>
-    <div class="tip-card">
-      <div class="tip-num">2</div>
-      <div>
-        <h3>Always include a focus keyword</h3>
-        <p>Even one strong keyword tells the AI what to optimize around. Add 2–3 LSI keywords in the secondary field for better on-page SEO.</p>
+    <div class="rel-grid">
+      <div class="rel-card">
+        <span class="cat">Content · AI</span>
+        <h3>AI Blog Detector</h3>
+        <p>Check if your content sounds AI-written. Get a detection score before you publish.</p>
+        <a href="/tools/ai-blog-detector/" class="btn btn-secondary">Try Now</a>
       </div>
-    </div>
-    <div class="tip-card">
-      <div class="tip-num">3</div>
-      <div>
-        <h3>Match tone to your audience</h3>
-        <p>A B2B SaaS blog needs "Authoritative." A lifestyle blog wins with "Conversational." Wrong tone kills engagement, no matter how good the content is.</p>
+      <div class="rel-card">
+        <span class="cat">Content · Rewriting</span>
+        <h3>AI Paraphraser</h3>
+        <p>Rewrite any paragraph instantly while keeping the original meaning intact.</p>
+        <a href="/tools/ai-paraphraser/" class="btn btn-secondary">Try Now</a>
       </div>
-    </div>
-    <div class="tip-card">
-      <div class="tip-num">4</div>
-      <div>
-        <h3>Turn on Humanize Mode + Avoid AI Phrases</h3>
-        <p>These two toggles dramatically reduce AI detection scores and remove clichés like "in today's digital landscape" and "delve into."</p>
-      </div>
-    </div>
-    <div class="tip-card">
-      <div class="tip-num">5</div>
-      <div>
-        <h3>Always edit and fact-check</h3>
-        <p>AI can hallucinate stats and quotes. Verify numbers, add a personal story or example, and update any dates before publishing.</p>
+      <div class="rel-card">
+        <span class="cat">Content · SEO</span>
+        <h3>Word &amp; Character Counter</h3>
+        <p>Check word count, character count &amp; reading time for SEO-optimal length.</p>
+        <a href="/tools/word-character-counter/" class="btn btn-secondary">Try Now</a>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ── Section 8: Related Tools ── -->
-<div class="content-section alt-bg">
-  <div class="section-header">
-    <h2>Complete Your Content Workflow</h2>
-    <p>Free companion tools that pair perfectly with the AI Blog Generator.</p>
-  </div>
-  <div class="related-grid">
-    <div class="related-card">
-      <span class="cat">Content · AI</span>
-      <h3>AI Blog Detector</h3>
-      <p>Check if your content sounds AI-written. Get a detection score before you publish.</p>
-      <a href="/tools/ai-blog-detector/" class="btn btn-secondary" style="text-align:center;">Try Now</a>
-    </div>
-    <div class="related-card">
-      <span class="cat">Content · Rewriting</span>
-      <h3>AI Paraphraser</h3>
-      <p>Rewrite any paragraph instantly while keeping the original meaning intact.</p>
-      <a href="/tools/ai-paraphraser/" class="btn btn-secondary" style="text-align:center;">Try Now</a>
-    </div>
-    <div class="related-card">
-      <span class="cat">Content · SEO</span>
-      <h3>Word &amp; Character Counter</h3>
-      <p>Check word count, character count &amp; reading time for SEO-optimal length.</p>
-      <a href="/tools/word-character-counter/" class="btn btn-secondary" style="text-align:center;">Try Now</a>
-    </div>
-  </div>
-</div>
-
-<!-- ── Section 9: Service Banner ── -->
-<div class="content-section">
-  <div class="service-banner">
+<!-- Section 9: Service Banner -->
+<div class="abg-section">
+  <div class="svc-banner">
     <span class="badge">Done-for-you</span>
     <h3>Need Full Content Marketing Support?</h3>
     <p>Beyond the tool — our team builds complete AI-assisted content strategies, from keyword research to publishing calendars and SEO-optimized long-form articles.</p>
@@ -364,115 +421,40 @@
   </div>
 </div>
 
-<!-- ── Section 10: FAQ ── -->
-<div class="content-section alt-bg">
-  <div class="section-header">
-    <h2>Frequently Asked Questions</h2>
-    <p>Everything you wanted to know about our AI Blog Generator.</p>
-  </div>
-  <div class="faq-list">
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Is this AI blog generator really free?</button>
-      <div class="faq-a"><p>Yes — 100% free with no hidden costs, no trial period, and no upgrade prompts. Every feature stays free forever, including all advanced SEO and humanization options.</p></div>
+<!-- Section 10: FAQ -->
+<div class="abg-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>Frequently Asked Questions</h2>
+      <p>Everything you wanted to know about our AI Blog Generator.</p>
     </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Do I need to sign up or create an account?</button>
-      <div class="faq-a"><p>No signup, no email, no account required. Just open the tool, type your topic, and hit Generate. That's it.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Is there a word limit or usage cap?</button>
-      <div class="faq-a"><p>No — you can generate as many blog posts as you want, at any length up to 3,000+ words. There are no daily caps or hidden limits.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Can I use it without a credit card?</button>
-      <div class="faq-a"><p>Absolutely. We never ask for payment information — because we don't charge for anything.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Is AI-generated content safe for SEO?</button>
-      <div class="faq-a"><p>Google's official stance: AI content is fine as long as it's helpful, accurate, and demonstrates E-E-A-T. Our tool bakes in SEO best practices, but you should always add personal insights and fact-check statistics before publishing.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Can Google detect AI-written blog posts?</button>
-      <div class="faq-a"><p>Google's own systems can identify AI patterns, but they don't automatically penalize AI content. What matters is quality. Enable our Humanize Mode + Avoid AI Phrases options for output that reads and scores as human-written.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">How long should my AI-generated blog post be?</button>
-      <div class="faq-a"><p>Depends on the topic. Quick answers: 500–800 words. Standard how-to guides: 1,000–1,500. Deep-dive pillar articles: 2,000–3,000+. Match length to search intent, not a fixed rule.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Can I use this for my WordPress blog?</button>
-      <div class="faq-a"><p>Yes. Generate your post, copy the HTML or Markdown output, and paste directly into the WordPress editor. Headings, lists, and formatting carry over cleanly.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">How do I make AI content sound human?</button>
-      <div class="faq-a"><p>Turn on Humanize Mode, Avoid AI Phrases, and Sentence Length Variation. Then always add a short personal story, quote, or opinion during your final edit — that's what makes content genuinely human.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">What niches does this tool work best for?</button>
-      <div class="faq-a"><p>Almost any niche — from finance and health to travel, real estate, food, tech, and lifestyle. If you can describe the topic, the AI can draft a post around it.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Can I generate posts in different languages?</button>
-      <div class="faq-a"><p>Yes — English (US &amp; UK), Urdu, Hindi, Spanish, French, German, Arabic, and more. Just pick your language from the dropdown.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">How is this different from ChatGPT?</button>
-      <div class="faq-a"><p>ChatGPT is a general-purpose chat tool — you have to prompt engineer everything. Our tool is purpose-built for blog posts, with SEO structure, meta descriptions, FAQ sections, competitor research, and humanization baked in from the start.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Do I own the content generated?</button>
-      <div class="faq-a"><p>Yes — all content generated is yours to use, edit, publish, or sell however you want. No attribution required.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">Can I generate blog posts with images?</button>
-      <div class="faq-a"><p>Enable "Image Placement Suggestions" in Extras. The tool won't generate images directly but will suggest where to add them, with SEO-friendly alt text ready to paste.</p></div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q" onclick="toggleFaq(this)">How many blog posts can I generate per day?</button>
-      <div class="faq-a"><p>As many as you want. Truly no cap — write one, or write a hundred. We don't limit usage.</p></div>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is this AI blog generator really free?<span class="arrow">+</span></button><div class="faq-a"><p>Yes — 100% free with no hidden costs, no trial period, and no upgrade prompts. Every feature stays free forever, including all advanced SEO and humanization options.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do I need to sign up or create an account?<span class="arrow">+</span></button><div class="faq-a"><p>No signup, no email, no account required. Just open the tool, type your topic, and hit Generate. That's it.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is there a word limit or usage cap?<span class="arrow">+</span></button><div class="faq-a"><p>No — you can generate as many blog posts as you want, at any length up to 3,000+ words. There are no daily caps or hidden limits.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I use it without a credit card?<span class="arrow">+</span></button><div class="faq-a"><p>Absolutely. We never ask for payment information — because we don't charge for anything.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is AI-generated content safe for SEO?<span class="arrow">+</span></button><div class="faq-a"><p>Google's official stance: AI content is fine as long as it's helpful, accurate, and demonstrates E-E-A-T. Our tool bakes in SEO best practices, but you should always add personal insights and fact-check statistics before publishing.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can Google detect AI-written blog posts?<span class="arrow">+</span></button><div class="faq-a"><p>Google's own systems can identify AI patterns, but they don't automatically penalize AI content. What matters is quality. Enable our Humanize Mode + Avoid AI Phrases options for output that reads and scores as human-written.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How long should my AI-generated blog post be?<span class="arrow">+</span></button><div class="faq-a"><p>Depends on the topic. Quick answers: 500–800 words. Standard how-to guides: 1,000–1,500. Deep-dive pillar articles: 2,000–3,000+. Match length to search intent, not a fixed rule.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I use this for my WordPress blog?<span class="arrow">+</span></button><div class="faq-a"><p>Yes. Generate your post, copy the HTML or Markdown output, and paste directly into the WordPress editor. Headings, lists, and formatting carry over cleanly.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How do I make AI content sound human?<span class="arrow">+</span></button><div class="faq-a"><p>Turn on Humanize Mode, Avoid AI Phrases, and Sentence Length Variation. Then always add a short personal story, quote, or opinion during your final edit — that's what makes content genuinely human.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What niches does this tool work best for?<span class="arrow">+</span></button><div class="faq-a"><p>Almost any niche — from finance and health to travel, real estate, food, tech, and lifestyle. If you can describe the topic, the AI can draft a post around it.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I generate posts in different languages?<span class="arrow">+</span></button><div class="faq-a"><p>Yes — English (US &amp; UK), Urdu, Hindi, Spanish, French, German, Arabic, and more. Just pick your language from the dropdown.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How is this different from ChatGPT?<span class="arrow">+</span></button><div class="faq-a"><p>ChatGPT is a general-purpose chat tool — you have to prompt engineer everything. Our tool is purpose-built for blog posts, with SEO structure, meta descriptions, FAQ sections, competitor research, and humanization baked in from the start.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do I own the content generated?<span class="arrow">+</span></button><div class="faq-a"><p>Yes — all content generated is yours to use, edit, publish, or sell however you want. No attribution required.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I generate blog posts with images?<span class="arrow">+</span></button><div class="faq-a"><p>Enable "Image Placement Suggestions" in Extras. The tool won't generate images directly but will suggest where to add them, with SEO-friendly alt text ready to paste.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How many blog posts can I generate per day?<span class="arrow">+</span></button><div class="faq-a"><p>As many as you want. Truly no cap — write one, or write a hundred. We don't limit usage.</p></div></div>
     </div>
   </div>
 </div>
 
-<!-- ── Section 11: Final CTA ── -->
+<!-- Section 11: Final CTA -->
 <div class="final-cta">
   <h2>Ready to Write Your Next Blog Post?</h2>
   <p>Generate a fully SEO-optimized draft in 30 seconds — no signup, no card, no limits.</p>
   <a href="#blogTopic" class="btn-big">✨ Generate Blog Now — It's Free</a>
   <div class="sub-note">100% Free · No Signup · Unlimited Use</div>
 </div>
-
-<!-- ── Footer ── -->
-<footer class="site-footer">
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <div class="logo">Brightly<span>Future</span></div>
-      <p>AI-powered tools &amp; services for modern creators, marketers &amp; businesses.</p>
-    </div>
-    <div class="footer-col">
-      <h4>Services</h4>
-      <a href="/services/ai-solutions/">AI Solutions</a>
-      <a href="/services/php-development/">PHP Development</a>
-      <a href="/services/custom-apis/">Custom APIs</a>
-      <a href="/services/web-design/">Web Design</a>
-    </div>
-    <div class="footer-col">
-      <h4>Tools &amp; Resources</h4>
-      <a href="/tools/">All Free Tools</a>
-      <a href="/tools/ai-blog-generator/">AI Blog Generator</a>
-      <a href="/tools/json-validator/">JSON Validator</a>
-      <a href="/tools/password-generator/">Password Generator</a>
-    </div>
-    <div class="footer-col">
-      <h4>Company</h4>
-      <a href="/about/">About Us</a>
-      <a href="/blog/">Blog</a>
-      <a href="/contact/">Contact</a>
-      <a href="/sitemap/">Sitemap</a>
-    </div>
-  </div>
-  <div class="footer-copy">© 2026 BrightlyFuture · All rights reserved</div>
-</footer>
 
 <div class="toast" id="toast">Copied!</div>
 
@@ -487,8 +469,7 @@ function selectTone(el, tone) {
 }
 
 function toggleFaq(btn) {
-  const item = btn.parentElement;
-  item.classList.toggle('open');
+  btn.parentElement.classList.toggle('open');
 }
 
 const blogTemplates = {
@@ -499,11 +480,8 @@ const blogTemplates = {
 
 ${kws ? 'Key areas we\'ll explore include ' + kws.split(',').slice(0,3).map(k=>k.trim()).join(', ') + ' and much more.' : 'By the end of this post, you\'ll have a clear roadmap for taking action.'}`;
   },
-
   h2Section: (heading, content) => `\n## ${heading}\n\n${content}\n`,
-
   conclusion: (topic, audience) => `\n## Conclusion\n\nIn summary, ${topic} is no longer optional for ${audience.toLowerCase()} — it's a necessity. The digital landscape moves fast, and the businesses that invest in the right solutions today will be the ones leading tomorrow.\n\nReady to take the next step? BrightlyFuture specialises in AI solutions, PHP development, custom APIs, and web design tailored to your exact needs.\n\n**[Get a free consultation →](https://brightlyfuture.co.uk)**`,
-
   faq: (topic) => `\n## Frequently Asked Questions\n\n**Q: How long does it take to implement ${topic}?**\nA: Timelines vary depending on complexity, but most projects can be scoped and delivered within 4–12 weeks with the right team.\n\n**Q: How much does ${topic} cost?**\nA: Costs depend on your requirements. BrightlyFuture offers transparent pricing starting from discovery workshops. Contact us for a custom quote.\n\n**Q: Can I integrate this with my existing systems?**\nA: Absolutely. Our solutions are designed with interoperability in mind, using standard APIs and modern frameworks.\n\n**Q: Is technical expertise required on my end?**\nA: Not necessarily. We manage the technical complexity so you can focus on your business outcomes.`,
 };
 
@@ -528,7 +506,6 @@ const sectionTitles = (topic) => [
 async function generateBlog() {
   const topic = document.getElementById('blogTopic').value.trim();
   if (!topic) { alert('Please enter a blog topic.'); return; }
-
   const audience = document.getElementById('audience').value;
   const kws = document.getElementById('focusKws').value.trim();
   const numSec = parseInt(document.getElementById('numSections').value);
@@ -572,7 +549,6 @@ async function generateBlog() {
   for (let i = 0; i < Math.min(numSec, sectionContent.length); i++) {
     blog += blogTemplates.h2Section(titles[i], sectionContent[i](topic, kws));
   }
-
   if (inclFaq) blog += blogTemplates.faq(topic);
   if (inclCta) blog += blogTemplates.conclusion(topic, audience);
 
