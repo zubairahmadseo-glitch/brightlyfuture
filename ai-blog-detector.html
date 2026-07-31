@@ -586,24 +586,34 @@ a:hover { color: var(--pri-hover); }
 <div class="toast" id="toast">Copied!</div>
 
 <script>
-var inputEl = document.getElementById('inputText');
-var lastReport = '';
+(function(){
+var inputEl, lastReport = '';
 
-inputEl.addEventListener('input', function() {
-  var text = this.value.trim();
-  var words = text ? text.split(/\s+/).length : 0;
-  document.getElementById('wordCount').textContent = words;
-  document.getElementById('charCount').textContent = this.value.length;
-});
-
-function toggleFaq(btn) {
-  btn.parentElement.classList.toggle('open');
+function initDetector() {
+  inputEl = document.getElementById('inputText');
+  if (!inputEl) { setTimeout(initDetector, 200); return; }
+  inputEl.addEventListener('input', function() {
+    var text = this.value.trim();
+    var words = text ? text.split(/\s+/).length : 0;
+    document.getElementById('wordCount').textContent = words;
+    document.getElementById('charCount').textContent = this.value.length;
+  });
 }
 
-function loadSample() {
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initDetector);
+} else {
+  initDetector();
+}
+
+window.toggleFaq = function(btn) {
+  btn.parentElement.classList.toggle('open');
+};
+
+window.loadSample = function() {
   inputEl.value = "Artificial intelligence has rapidly transformed the way businesses operate across virtually every industry. From automating routine tasks to providing deep analytical insights, AI technologies are enabling organisations to achieve unprecedented levels of efficiency and productivity. Machine learning algorithms can now process vast amounts of data in seconds, identifying patterns and trends that would take human analysts weeks to uncover. Furthermore, natural language processing has made it possible for computers to understand and generate human language with remarkable accuracy. These advancements are not limited to large corporations; small and medium-sized enterprises are also leveraging AI tools to compete more effectively in the global marketplace. As the technology continues to evolve, we can expect even more innovative applications that will reshape how we work, communicate, and solve complex problems.";
   inputEl.dispatchEvent(new Event('input'));
-}
+};
 
 function splitSentences(text) {
   var result = text.match(/[^.!?]+[.!?]+[\s]*/g);
@@ -664,7 +674,7 @@ function calcVocabRichness(text) {
   var raw = getWords(text.toLowerCase());
   var words = [];
   for (var i = 0; i < raw.length; i++) {
-    var w = raw[i].replace(/[^a-z']/g, '');
+    var w = raw[i].replace(/[^a-z\x27]/g, '');
     if (w.length > 2) words.push(w);
   }
   if (words.length === 0) return 0;
@@ -684,10 +694,10 @@ function scoreSentence(sentence) {
   if (wc >= 15 && wc <= 25) score += 8;
   if (wc >= 18 && wc <= 22) score += 5;
 
-  var transitions = /^(furthermore|moreover|additionally|consequently|in addition|however|nevertheless|in conclusion|as a result|it is worth noting|it is important|on the other hand|in today's|in the modern|in this article)/i;
+  var transitions = /^(furthermore|moreover|additionally|consequently|in addition|however|nevertheless|in conclusion|as a result|it is worth noting|it is important|on the other hand|in today\x27s|in the modern|in this article)/i;
   if (transitions.test(sentence.trim())) score += 15;
 
-  var aiPhrases = /(unprecedented|leverag(e|ing)|cutting-edge|game-changer|revolutioniz|landscape|paradigm shift|holistic approach|synergy|robust|seamless|comprehensive|innovative solutions|at the forefront|digital transformation|in today's fast-paced|it's worth noting|it is important to note|in the realm of|serves as a|plays a crucial role|a testament to|navigat(e|ing) the complex)/i;
+  var aiPhrases = /(unprecedented|leverag(e|ing)|cutting-edge|game-changer|revolutioniz|landscape|paradigm shift|holistic approach|synergy|robust|seamless|comprehensive|innovative solutions|at the forefront|digital transformation|in today\x27s fast-paced|it\x27s worth noting|it is important to note|in the realm of|serves as a|plays a crucial role|a testament to|navigat(e|ing) the complex)/i;
   if (aiPhrases.test(sentence)) score += 18;
 
   var passive = /(is|are|was|were|been|being)\s+(being\s+)?\w+(ed|en)\b/i;
@@ -695,7 +705,7 @@ function scoreSentence(sentence) {
 
   if (sentence.trim().charAt(sentence.trim().length - 1) === '.' && sentence.indexOf('!') === -1 && sentence.indexOf('?') === -1 && sentence.indexOf('—') === -1 && sentence.indexOf('...') === -1) score += 3;
 
-  if (/\b(can't|won't|isn't|aren't|don't|doesn't|it's|that's|we're|they're|I'm|you're|he's|she's|we've|they've|I've|you've|couldn't|wouldn't|shouldn't)\b/.test(sentence)) score -= 12;
+  if (/\b(can\x27t|won\x27t|isn\x27t|aren\x27t|don\x27t|doesn\x27t|it\x27s|that\x27s|we\x27re|they\x27re|I\x27m|you\x27re|he\x27s|she\x27s|we\x27ve|they\x27ve|I\x27ve|you\x27ve|couldn\x27t|wouldn\x27t|shouldn\x27t)\b/.test(sentence)) score -= 12;
 
   if (/\b(I|my|me|mine)\b/.test(sentence)) score -= 10;
 
@@ -842,7 +852,7 @@ function showResults(text, words) {
   }
 }
 
-function detectAI() {
+window.detectAI = function() {
   var text = inputEl.value.trim();
   if (!text) { alert('Please paste some text to analyse.'); return; }
   var words = getWords(text);
@@ -872,9 +882,9 @@ function detectAI() {
       showResults(text, words);
     }, 400);
   }, 2200);
-}
+};
 
-function copyReport() {
+window.copyReport = function() {
   if (navigator.clipboard && navigator.clipboard.writeText) {
     navigator.clipboard.writeText(lastReport).then(function() {
       var t = document.getElementById('toast');
@@ -892,9 +902,9 @@ function copyReport() {
     t.classList.add('show');
     setTimeout(function() { t.classList.remove('show'); }, 2000);
   }
-}
+};
 
-function downloadReport() {
+window.downloadReport = function() {
   var blob = new Blob([lastReport], { type: 'text/plain' });
   var a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
@@ -902,14 +912,15 @@ function downloadReport() {
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
-}
+};
 
-function clearAll() {
+window.clearAll = function() {
   inputEl.value = '';
   inputEl.dispatchEvent(new Event('input'));
   document.getElementById('resultSection').style.display = 'none';
   document.getElementById('progressWrap').style.display = 'none';
-}
+};
+})();
 </script>
 </body>
 </html>
