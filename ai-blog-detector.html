@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free AI Content Detector — Check If Text Is AI or Human Written | BrightlyFuture</title>
+<meta name="description" content="Free AI Content Detector that checks if text is written by AI or a human. No signup, no limits. Detects ChatGPT, GPT-4, Gemini, Claude &amp; more in seconds.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --pri: #6C5CE7;
+  --pri-hover: #5A4BD1;
+  --bg: #E8E0F0;
+  --bg-alt: #DDD4EB;
+  --card-bg: #FFFFFF;
+  --card-border: #D0C6E0;
+  --input-bg: #F5F1FA;
+  --input-border: #D0C6E0;
+  --text: #2D2B55;
+  --muted: #6B6490;
+  --heading: #1A1744;
+  --green: #00C897;
+  --red: #EF4444;
+  --yellow: #F59E0B;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: var(--pri); text-decoration: none; }
+a:hover { color: var(--pri-hover); }
+
+/* Hero */
+.abd-hero { text-align: center; padding: 3.5rem 1.5rem 2.5rem; background: var(--bg); }
+.abd-hero .back-link { display: inline-block; color: var(--muted); font-size: 0.85rem; margin-bottom: 1.5rem; transition: color .2s; }
+.abd-hero .back-link:hover { color: var(--pri); }
+.abd-hero .badge { display: inline-block; background: var(--card-bg); color: var(--pri); font-size: 0.8rem; font-weight: 600; padding: 0.4rem 1.1rem; border-radius: 999px; border: 1px solid var(--card-border); margin-bottom: 1.25rem; }
+.abd-hero h1 { font-size: 2.4rem; font-weight: 800; color: var(--heading); margin-bottom: 0.85rem; }
+.abd-hero .sub { color: var(--muted); max-width: 640px; margin: 0 auto 1.5rem; font-size: 0.95rem; line-height: 1.65; }
+.usp-row { display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; }
+.usp-pill { background: rgba(108,92,231,0.08); border: 1px solid rgba(108,92,231,0.2); color: var(--pri); font-size: 0.78rem; font-weight: 600; padding: 0.4rem 1rem; border-radius: 999px; }
+
+/* Tool */
+.abd-tool { max-width: 850px; margin: 0 auto; padding: 0 1.5rem 3rem; }
+.abd-box { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 2rem; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.abd-box label { display: block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); margin-bottom: 0.45rem; }
+.abd-box textarea { width: 100%; background: var(--input-bg); border: 1px solid var(--input-border); border-radius: 10px; padding: 0.9rem 1rem; color: var(--text); font-size: 0.9rem; font-family: inherit; transition: border-color .2s; resize: vertical; min-height: 200px; line-height: 1.7; }
+.abd-box textarea:focus { outline: none; border-color: var(--pri); }
+.char-count { font-size: 0.75rem; color: var(--muted); text-align: right; margin-top: 0.35rem; }
+.mb { margin-bottom: 1.25rem; }
+.btn-group { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+.btn { padding: 0.7rem 1.6rem; border-radius: 10px; font-weight: 600; font-size: 0.9rem; cursor: pointer; border: none; transition: all .2s; font-family: inherit; }
+.btn-primary { background: var(--pri) !important; color: #fff !important; }
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active { background: var(--pri-hover) !important; color: #fff !important; transform: translateY(-1px); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+.btn-secondary { background: var(--input-bg) !important; color: var(--muted) !important; border: 1px solid var(--card-border) !important; }
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active { border-color: var(--pri) !important; color: var(--text) !important; background: var(--input-bg) !important; }
+
+/* Progress */
+.progress-wrap { margin-top: 1.5rem; display: none; }
+.progress-bar { height: 8px; border-radius: 4px; background: var(--input-bg); overflow: hidden; margin-bottom: 0.5rem; }
+.progress-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--pri), #8B5CF6); transition: width .4s; }
+.progress-label { font-size: 0.8rem; color: var(--muted); }
+
+/* Results */
+.result-section { display: none; margin-top: 2rem; }
+.result-verdict { text-align: center; padding: 2rem 1.5rem; border-radius: 16px; border: 2px solid var(--card-border); margin-bottom: 1.5rem; }
+.result-verdict.human { border-color: var(--green); background: rgba(0,200,151,0.05); }
+.result-verdict.mixed { border-color: var(--yellow); background: rgba(245,158,11,0.05); }
+.result-verdict.ai { border-color: var(--red); background: rgba(239,68,68,0.05); }
+.verdict-icon { font-size: 2.5rem; margin-bottom: 0.5rem; display: block; }
+.verdict-label { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.3rem; }
+.result-verdict.human .verdict-label { color: var(--green); }
+.result-verdict.mixed .verdict-label { color: var(--yellow); }
+.result-verdict.ai .verdict-label { color: var(--red); }
+.verdict-sub { font-size: 0.9rem; color: var(--muted); }
+
+/* Score ring */
+.score-ring-wrap { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.score-item { text-align: center; }
+.score-ring { position: relative; width: 100px; height: 100px; }
+.score-ring svg { transform: rotate(-90deg); }
+.score-ring .bg-circle { fill: none; stroke: var(--input-bg); stroke-width: 8; }
+.score-ring .fg-circle { fill: none; stroke-width: 8; stroke-linecap: round; transition: stroke-dashoffset 1s ease; }
+.score-ring .score-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 1.3rem; font-weight: 800; color: var(--heading); }
+.score-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-top: 0.5rem; }
+
+/* Breakdown */
+.breakdown { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+.bd-item { background: var(--input-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 1rem 1.2rem; }
+.bd-item .bd-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 0.3rem; }
+.bd-item .bd-val { font-size: 1.1rem; font-weight: 700; color: var(--heading); }
+.bd-bar { height: 6px; border-radius: 3px; background: var(--card-border); margin-top: 0.5rem; overflow: hidden; }
+.bd-bar-fill { height: 100%; border-radius: 3px; transition: width .8s ease; }
+
+/* Highlighted text */
+.highlighted-text { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; line-height: 1.8; font-size: 0.9rem; max-height: 350px; overflow-y: auto; }
+.hl-legend { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.75rem; font-size: 0.78rem; color: var(--muted); }
+.hl-legend span { display: inline-flex; align-items: center; gap: 0.35rem; }
+.hl-legend .dot { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+.hl-ai { background: rgba(239,68,68,0.15); border-bottom: 2px solid var(--red); padding: 0 2px; }
+.hl-mixed { background: rgba(245,158,11,0.12); border-bottom: 2px solid var(--yellow); padding: 0 2px; }
+
+.stats-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+.stat-chip { background: var(--input-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 0.8rem 1.3rem; text-align: center; flex: 1; min-width: 80px; }
+.stat-chip .val { font-size: 1.4rem; font-weight: 700; color: var(--heading); }
+.stat-chip .lbl { font-size: 0.68rem; color: var(--muted); text-transform: uppercase; margin-top: 0.15rem; letter-spacing: 0.04em; }
+
+/* Sections */
+.abd-section { max-width: 1100px; margin: 0 auto; padding: 4rem 1.5rem; }
+.abd-section.alt { background: var(--bg-alt); max-width: 100%; }
+.abd-section.alt > .inner { max-width: 1100px; margin: 0 auto; }
+.sec-head { text-align: center; margin-bottom: 2.75rem; }
+.sec-head h2 { font-size: 1.65rem; font-weight: 800; color: var(--heading); margin-bottom: 0.5rem; }
+.sec-head p { color: var(--muted); font-size: 0.92rem; max-width: 520px; margin: 0 auto; font-style: italic; }
+
+/* Steps */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.step { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 2rem 1.5rem; text-align: center; transition: border-color .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.step:hover { border-color: var(--pri); }
+.step-n { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--pri), #8B5CF6); color: #fff; font-weight: 700; font-size: 1rem; margin-bottom: 1rem; }
+.step h3 { font-size: 1rem; font-weight: 700; color: var(--heading); margin-bottom: 0.5rem; }
+.step p { font-size: 0.85rem; color: var(--muted); }
+
+/* Feature & audience cards */
+.cards-6 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.fcard { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; transition: border-color .2s, transform .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.fcard:hover { border-color: var(--pri); transform: translateY(-2px); }
+.fcard .ic { font-size: 1.6rem; margin-bottom: 0.8rem; display: block; }
+.fcard h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.4rem; }
+.fcard p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+.aud-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; text-align: center; transition: border-color .2s, transform .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.aud-card:hover { border-color: var(--pri); transform: translateY(-2px); }
+.aud-card .ic { font-size: 2rem; margin-bottom: 0.65rem; display: block; }
+.aud-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.35rem; }
+.aud-card p { font-size: 0.85rem; color: var(--muted); }
+
+/* Comparison table */
+.tbl-wrap { overflow-x: auto; border-radius: 16px; border: 1px solid var(--card-border); box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.cmp-tbl { width: 100%; border-collapse: collapse; font-size: 0.85rem; background: var(--card-bg); }
+.cmp-tbl th, .cmp-tbl td { padding: 0.9rem 1.1rem; text-align: center; border-bottom: 1px solid var(--card-border); }
+.cmp-tbl th { background: var(--heading); color: #fff; font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.cmp-tbl td:first-child { text-align: left; font-weight: 600; color: var(--text); }
+.cmp-tbl tr:last-child td { border-bottom: none; }
+.cmp-tbl .hl { background: rgba(108,92,231,0.06); }
+.ck { color: var(--green); font-weight: 700; font-size: 1.1rem; }
+.cx { color: var(--red); font-size: 1.1rem; }
+
+/* Tips */
+.tips { display: flex; flex-direction: column; gap: 1rem; }
+.tip { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.5rem 1.75rem; display: flex; gap: 1.25rem; align-items: flex-start; transition: border-color .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.tip:hover { border-color: var(--pri); }
+.tip-n { flex-shrink: 0; width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--pri), #8B5CF6); color: #fff; font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; }
+.tip h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.3rem; }
+.tip p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+
+/* Related tools */
+.rel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.rel-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; display: flex; flex-direction: column; transition: border-color .2s, transform .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.rel-card:hover { border-color: var(--pri); transform: translateY(-2px); }
+.rel-card .cat { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--pri); margin-bottom: 0.6rem; letter-spacing: 0.05em; }
+.rel-card h3 { font-size: 1rem; font-weight: 700; color: var(--heading); margin-bottom: 0.45rem; }
+.rel-card p { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.25rem; flex: 1; line-height: 1.55; }
+.rel-card .btn { text-align: center; font-size: 0.82rem; padding: 0.55rem 1rem; }
+
+/* Service banner */
+.svc-banner { background: linear-gradient(135deg, var(--bg-alt) 0%, var(--card-bg) 100%); border: 1px solid var(--card-border); border-radius: 16px; padding: 3rem 2rem; text-align: center; max-width: 850px; margin: 0 auto; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.svc-banner .badge { display: inline-block; background: var(--pri); color: #fff; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; padding: 0.3rem 0.85rem; border-radius: 999px; margin-bottom: 0.85rem; letter-spacing: 0.05em; }
+.svc-banner h3 { font-size: 1.35rem; font-weight: 800; color: var(--heading); margin-bottom: 0.85rem; }
+.svc-banner p { color: var(--muted); font-size: 0.9rem; max-width: 540px; margin: 0 auto 1.5rem; line-height: 1.6; }
+
+/* FAQ */
+.faq-list { max-width: 800px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--card-border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.15rem 0; cursor: pointer; font-weight: 600; font-size: 0.95rem; color: var(--heading) !important; background: transparent !important; border: none !important; border-radius: 0 !important; width: 100%; text-align: left; font-family: inherit; transition: color .2s; box-shadow: none !important; }
+.faq-q:hover, .faq-q:focus, .faq-q:active { color: var(--pri) !important; background: transparent !important; box-shadow: none !important; }
+.faq-q .arrow { font-size: 1.2rem; color: var(--pri); flex-shrink: 0; transition: transform .25s; }
+.faq-item.open .faq-q .arrow { transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+.faq-item.open .faq-a { max-height: 400px; }
+.faq-a p { font-size: 0.9rem; color: var(--muted); padding-bottom: 1rem; line-height: 1.6; }
+
+/* Final CTA */
+.final-cta { text-align: center; padding: 4.5rem 1.5rem; background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%); }
+.final-cta h2 { font-size: 1.85rem; font-weight: 800; color: var(--heading); margin-bottom: 0.85rem; }
+.final-cta p { color: var(--muted); font-size: 0.95rem; margin-bottom: 1.75rem; }
+.btn-big { display: inline-block; background: linear-gradient(135deg, var(--pri), #8B5CF6) !important; color: #fff !important; padding: 0.9rem 2.8rem; border-radius: 12px; font-weight: 700; font-size: 1.05rem; border: none; cursor: pointer; transition: transform .2s, box-shadow .2s; box-shadow: 0 4px 20px rgba(108,92,231,0.3); }
+.btn-big:hover, .btn-big:focus, .btn-big:active { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(108,92,231,0.45); color: #fff !important; background: linear-gradient(135deg, var(--pri-hover), #7C4FE0) !important; }
+.final-cta .sub-note { font-size: 0.8rem; color: var(--muted); margin-top: 0.85rem; }
+
+.toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); background: var(--green); color: #fff; padding: 0.6rem 1.5rem; border-radius: 10px; font-weight: 600; font-size: 0.85rem; opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 999; }
+.toast.show { opacity: 1; }
+
+@media (max-width: 768px) {
+  .steps, .cards-6, .rel-grid { grid-template-columns: 1fr; }
+  .breakdown { grid-template-columns: 1fr; }
+  .abd-hero h1 { font-size: 1.7rem; }
+  .tip { flex-direction: column; }
+  .cmp-tbl { font-size: 0.78rem; }
+  .cmp-tbl th, .cmp-tbl td { padding: 0.65rem 0.6rem; }
+  .score-ring-wrap { gap: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Section 1: Hero -->
+<div class="abd-hero">
+  <a href="/tools/" class="back-link">&larr; Back to All Tools</a>
+  <div><span class="badge">&#128373; AI Content Detector</span></div>
+  <h1>Free AI Content Detector</h1>
+  <p class="sub">Instantly detect whether text is written by AI (ChatGPT, GPT-4, Gemini, Claude) or a human. Sentence-level analysis with highlighted results &mdash; no signup, no limits.</p>
+  <div class="usp-row">
+    <span class="usp-pill">&#10003; 100% Free Forever</span>
+    <span class="usp-pill">&#10003; No Signup Required</span>
+    <span class="usp-pill">&#10003; Sentence-Level Analysis</span>
+    <span class="usp-pill">&#10003; Detects GPT, Gemini &amp; Claude</span>
+  </div>
+</div>
+
+<!-- Section 2: Tool Widget -->
+<div class="abd-tool">
+  <div class="abd-box">
+    <div class="mb">
+      <label>Paste Your Text Below</label>
+      <textarea id="inputText" placeholder="Paste the text you want to analyse here. For best results, use at least 50 words&hellip;"></textarea>
+      <div class="char-count"><span id="wordCount">0</span> words &middot; <span id="charCount">0</span> characters</div>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-primary" id="detectBtn" onclick="detectAI()">&#128373; Analyse Text</button>
+      <button class="btn btn-secondary" onclick="clearAll()">Clear</button>
+      <button class="btn btn-secondary" onclick="loadSample()">Load Sample</button>
+    </div>
+
+    <!-- Progress -->
+    <div class="progress-wrap" id="progressWrap">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+      <div class="progress-label" id="progressLabel">Initialising analysis&hellip;</div>
+    </div>
+
+    <!-- Results -->
+    <div class="result-section" id="resultSection">
+      <!-- Verdict -->
+      <div class="result-verdict" id="verdictBox">
+        <span class="verdict-icon" id="verdictIcon"></span>
+        <div class="verdict-label" id="verdictLabel"></div>
+        <div class="verdict-sub" id="verdictSub"></div>
+      </div>
+
+      <!-- Score Rings -->
+      <div class="score-ring-wrap">
+        <div class="score-item">
+          <div class="score-ring">
+            <svg width="100" height="100" viewBox="0 0 100 100">
+              <circle class="bg-circle" cx="50" cy="50" r="42"/>
+              <circle class="fg-circle" id="aiRing" cx="50" cy="50" r="42" stroke="var(--red)" stroke-dasharray="263.9" stroke-dashoffset="263.9"/>
+            </svg>
+            <div class="score-text" id="aiScore">0%</div>
+          </div>
+          <div class="score-label">AI Probability</div>
+        </div>
+        <div class="score-item">
+          <div class="score-ring">
+            <svg width="100" height="100" viewBox="0 0 100 100">
+              <circle class="bg-circle" cx="50" cy="50" r="42"/>
+              <circle class="fg-circle" id="humanRing" cx="50" cy="50" r="42" stroke="var(--green)" stroke-dasharray="263.9" stroke-dashoffset="263.9"/>
+            </svg>
+            <div class="score-text" id="humanScore">0%</div>
+          </div>
+          <div class="score-label">Human Probability</div>
+        </div>
+      </div>
+
+      <!-- Breakdown -->
+      <div class="breakdown" id="breakdownGrid">
+        <div class="bd-item">
+          <div class="bd-label">Perplexity Score</div>
+          <div class="bd-val" id="bdPerplexity">--</div>
+          <div class="bd-bar"><div class="bd-bar-fill" id="bdPerplexityBar" style="width:0%;background:var(--pri)"></div></div>
+        </div>
+        <div class="bd-item">
+          <div class="bd-label">Burstiness Score</div>
+          <div class="bd-val" id="bdBurstiness">--</div>
+          <div class="bd-bar"><div class="bd-bar-fill" id="bdBurstinessBar" style="width:0%;background:var(--green)"></div></div>
+        </div>
+        <div class="bd-item">
+          <div class="bd-label">Sentence Uniformity</div>
+          <div class="bd-val" id="bdUniformity">--</div>
+          <div class="bd-bar"><div class="bd-bar-fill" id="bdUniformityBar" style="width:0%;background:var(--yellow)"></div></div>
+        </div>
+        <div class="bd-item">
+          <div class="bd-label">Vocabulary Richness</div>
+          <div class="bd-val" id="bdVocab">--</div>
+          <div class="bd-bar"><div class="bd-bar-fill" id="bdVocabBar" style="width:0%;background:var(--pri)"></div></div>
+        </div>
+      </div>
+
+      <!-- Highlighted Text -->
+      <div class="mb">
+        <label>Sentence-Level Analysis</label>
+        <div class="hl-legend">
+          <span><span class="dot" style="background:rgba(239,68,68,0.3)"></span> Likely AI</span>
+          <span><span class="dot" style="background:rgba(245,158,11,0.3)"></span> Uncertain</span>
+          <span><span class="dot" style="background:transparent;border:1px solid var(--card-border)"></span> Likely Human</span>
+        </div>
+        <div class="highlighted-text" id="highlightedText"></div>
+      </div>
+
+      <!-- Stats row -->
+      <div class="stats-row">
+        <div class="stat-chip"><div class="val" id="outSentences">0</div><div class="lbl">Sentences</div></div>
+        <div class="stat-chip"><div class="val" id="outAiSent">0</div><div class="lbl">AI Sentences</div></div>
+        <div class="stat-chip"><div class="val" id="outHumanSent">0</div><div class="lbl">Human Sentences</div></div>
+        <div class="stat-chip"><div class="val" id="outAvgLen">0</div><div class="lbl">Avg Words/Sent</div></div>
+      </div>
+
+      <div class="btn-group">
+        <button class="btn btn-secondary" onclick="copyReport()">&#128203; Copy Report</button>
+        <button class="btn btn-secondary" onclick="downloadReport()">&#11015; Download Report</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 3: How It Works -->
+<div class="abd-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>How Our AI Content Detector Works</h2>
+      <p>Three simple steps to verify any text in seconds.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <h3>Paste Your Text</h3>
+        <p>Copy and paste any text &mdash; blog posts, essays, emails, product descriptions, or social media content &mdash; into the text box above.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <h3>Click Analyse</h3>
+        <p>Our algorithm examines perplexity, burstiness, sentence structure, vocabulary patterns, and stylistic markers across every sentence.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <h3>Review Results</h3>
+        <p>Get an overall AI probability score plus sentence-level highlighting so you can see exactly which parts look AI-generated and which look human-written.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 4: Key Features -->
+<div class="abd-section">
+  <div class="sec-head">
+    <h2>Key Features of BrightlyFuture AI Detector</h2>
+    <p>Everything you need to verify content authenticity.</p>
+  </div>
+  <div class="cards-6">
+    <div class="fcard">
+      <span class="ic">&#128270;</span>
+      <h3>Sentence-Level Detection</h3>
+      <p>Every sentence is individually scored and colour-coded so you can pinpoint exactly which parts were likely written by AI.</p>
+    </div>
+    <div class="fcard">
+      <span class="ic">&#128200;</span>
+      <h3>Perplexity &amp; Burstiness Analysis</h3>
+      <p>We measure how predictable and uniform the text is &mdash; two key markers that distinguish human writing from machine output.</p>
+    </div>
+    <div class="fcard">
+      <span class="ic">&#129302;</span>
+      <h3>Multi-Model Detection</h3>
+      <p>Trained to recognise patterns from ChatGPT, GPT-4, GPT-4o, Gemini, Claude, LLaMA, and other popular large language models.</p>
+    </div>
+    <div class="fcard">
+      <span class="ic">&#127760;</span>
+      <h3>Works in Multiple Languages</h3>
+      <p>Analyse content in English, Spanish, French, German, Hindi, Urdu, Arabic, and more &mdash; with accurate detection across languages.</p>
+    </div>
+    <div class="fcard">
+      <span class="ic">&#128274;</span>
+      <h3>100% Private &amp; Secure</h3>
+      <p>Your text is never stored, logged, or shared with third parties. Analysis happens in your browser &mdash; your content stays yours.</p>
+    </div>
+    <div class="fcard">
+      <span class="ic">&#9889;</span>
+      <h3>Instant Results</h3>
+      <p>Get detailed analysis in under 5 seconds. No queues, no waiting, no daily limits &mdash; analyse as many texts as you need.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Section 5: Who Is This For -->
+<div class="abd-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>Who Is This AI Detector For?</h2>
+      <p>Built for anyone who needs to verify content authenticity.</p>
+    </div>
+    <div class="cards-6">
+      <div class="aud-card">
+        <span class="ic">&#127891;</span>
+        <h3>Teachers &amp; Educators</h3>
+        <p>Verify student submissions for AI-generated content before grading assignments and essays.</p>
+      </div>
+      <div class="aud-card">
+        <span class="ic">&#128221;</span>
+        <h3>Content Managers</h3>
+        <p>Screen freelancer deliverables and guest posts to ensure originality before publishing.</p>
+      </div>
+      <div class="aud-card">
+        <span class="ic">&#128188;</span>
+        <h3>SEO Professionals</h3>
+        <p>Check whether content meets Google&rsquo;s E-E-A-T guidelines and doesn&rsquo;t trigger AI-content penalties.</p>
+      </div>
+      <div class="aud-card">
+        <span class="ic">&#128640;</span>
+        <h3>Recruiters &amp; HR Teams</h3>
+        <p>Verify cover letters, writing samples, and application essays for authenticity.</p>
+      </div>
+      <div class="aud-card">
+        <span class="ic">&#128214;</span>
+        <h3>Publishers &amp; Editors</h3>
+        <p>Maintain editorial standards by screening manuscripts, articles, and contributed content.</p>
+      </div>
+      <div class="aud-card">
+        <span class="ic">&#128187;</span>
+        <h3>Bloggers &amp; Writers</h3>
+        <p>Self-check your own AI-assisted drafts to ensure they read as human-written before publishing.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 6: Comparison Table -->
+<div class="abd-section">
+  <div class="sec-head">
+    <h2>How We Compare to Other AI Detectors</h2>
+    <p>See why BrightlyFuture is the best free AI content detector.</p>
+  </div>
+  <div class="tbl-wrap">
+    <table class="cmp-tbl">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th class="hl">BrightlyFuture</th>
+          <th>GPTZero</th>
+          <th>Originality.ai</th>
+          <th>Copyleaks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Free to Use</td><td class="hl"><span class="ck">&#10003;</span></td><td>Limited</td><td><span class="cx">&#10007;</span></td><td>Limited</td></tr>
+        <tr><td>No Signup Required</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
+        <tr><td>Sentence-Level Highlighting</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td></tr>
+        <tr><td>Perplexity &amp; Burstiness Scores</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
+        <tr><td>Multi-Language Support</td><td class="hl"><span class="ck">&#10003;</span></td><td>Limited</td><td><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td></tr>
+        <tr><td>Unlimited Scans</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
+        <tr><td>No Credit Card Needed</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="ck">&#10003;</span></td></tr>
+        <tr><td>Downloadable Reports</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td></tr>
+        <tr><td>Privacy (No Data Stored)</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Section 7: Tips -->
+<div class="abd-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>Tips for Accurate AI Detection</h2>
+      <p>Get the most reliable results from your scans.</p>
+    </div>
+    <div class="tips">
+      <div class="tip">
+        <div class="tip-n">1</div>
+        <div>
+          <h3>Use at Least 50 Words</h3>
+          <p>Short snippets lack enough statistical signal for reliable analysis. Paste at least 50 words &mdash; 150+ words gives the most accurate results.</p>
+        </div>
+      </div>
+      <div class="tip">
+        <div class="tip-n">2</div>
+        <div>
+          <h3>Test Full Paragraphs, Not Fragments</h3>
+          <p>Sentence fragments and bullet points can skew detection. Use complete paragraphs with natural sentence structure for best accuracy.</p>
+        </div>
+      </div>
+      <div class="tip">
+        <div class="tip-n">3</div>
+        <div>
+          <h3>Check Multiple Sections Separately</h3>
+          <p>In long documents, different sections may have different authors. Analyse introduction, body, and conclusion separately for granular insight.</p>
+        </div>
+      </div>
+      <div class="tip">
+        <div class="tip-n">4</div>
+        <div>
+          <h3>Understand That No Detector Is 100% Accurate</h3>
+          <p>AI detection is probabilistic, not definitive. Use results as one data point alongside your own editorial judgement &mdash; never as the sole basis for consequential decisions.</p>
+        </div>
+      </div>
+      <div class="tip">
+        <div class="tip-n">5</div>
+        <div>
+          <h3>Beware of Paraphrasing Tools</h3>
+          <p>Text that has been run through a paraphrasing or spinning tool can reduce detection accuracy. If you suspect this, look for unnatural phrasing and vocabulary inconsistencies.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 8: Related Tools -->
+<div class="abd-section">
+  <div class="sec-head">
+    <h2>More Free Tools from BrightlyFuture</h2>
+    <p>Explore our growing library of AI-powered tools.</p>
+  </div>
+  <div class="rel-grid">
+    <div class="rel-card">
+      <span class="cat">Content &middot; AI</span>
+      <h3>AI Blog Generator</h3>
+      <p>Generate SEO-optimized, human-sounding blog posts in 30 seconds. No signup required.</p>
+      <a href="/tools/ai-blog-generator/" class="btn btn-secondary">Try Now</a>
+    </div>
+    <div class="rel-card">
+      <span class="cat">Content &middot; SEO</span>
+      <h3>AI Paragraph Rewriter</h3>
+      <p>Rewrite paragraphs to sound more natural, improve readability, and bypass AI detection patterns.</p>
+      <a href="/tools/ai-paragraph-rewriter/" class="btn btn-secondary">Try Now</a>
+    </div>
+    <div class="rel-card">
+      <span class="cat">Content &middot; SEO</span>
+      <h3>Word &amp; Character Counter</h3>
+      <p>Check word count, character count &amp; reading time for SEO-optimal content length.</p>
+      <a href="/tools/word-character-counter/" class="btn btn-secondary">Try Now</a>
+    </div>
+  </div>
+</div>
+
+<!-- Section 9: Service Banner -->
+<div class="abd-section">
+  <div class="svc-banner">
+    <span class="badge">Done-for-you</span>
+    <h3>Need Help Creating Human-Quality Content?</h3>
+    <p>Beyond detection &mdash; our team crafts original, SEO-optimized, human-written content that passes every AI detector and ranks on Google.</p>
+    <a href="/services/content-marketing/" class="btn btn-primary">Get a Free Quote &rarr;</a>
+  </div>
+</div>
+
+<!-- Section 10: FAQ -->
+<div class="abd-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>Frequently Asked Questions</h2>
+      <p>Everything you wanted to know about our AI Content Detector.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is this AI detector really free?<span class="arrow">+</span></button><div class="faq-a"><p>Yes &mdash; 100% free with no hidden costs, no trial period, and no upgrade prompts. Every feature, including sentence-level analysis, stays free forever.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do I need to sign up or create an account?<span class="arrow">+</span></button><div class="faq-a"><p>No signup, no email, no account required. Just paste your text, click Analyse, and get instant results.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How accurate is this AI content detector?<span class="arrow">+</span></button><div class="faq-a"><p>Our detector analyses perplexity, burstiness, sentence structure, and vocabulary patterns to produce reliable results. However, no AI detector is 100% accurate &mdash; results should be used as one factor alongside editorial judgement.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Which AI models can it detect?<span class="arrow">+</span></button><div class="faq-a"><p>It detects patterns from ChatGPT (GPT-3.5, GPT-4, GPT-4o), Google Gemini, Anthropic Claude, Meta LLaMA, Mistral, and other popular large language models.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is perplexity in AI detection?<span class="arrow">+</span></button><div class="faq-a"><p>Perplexity measures how predictable the text is. AI-generated text tends to have low perplexity (very predictable word choices), while human writing is more varied and surprising. Higher perplexity generally indicates human authorship.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is burstiness in AI detection?<span class="arrow">+</span></button><div class="faq-a"><p>Burstiness measures the variation in sentence length and complexity. Humans naturally write with high burstiness &mdash; mixing short punchy sentences with longer complex ones. AI tends to produce uniformly structured sentences with low burstiness.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is my text stored or shared?<span class="arrow">+</span></button><div class="faq-a"><p>No. All analysis happens in your browser. Your text is never stored, logged, sent to a server, or shared with any third party. Your privacy is fully protected.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How many words do I need for accurate results?<span class="arrow">+</span></button><div class="faq-a"><p>We recommend at least 50 words for a basic scan. For the most accurate results, paste 150 words or more. Very short texts (under 30 words) may not contain enough patterns for reliable detection.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can it detect AI content that has been paraphrased?<span class="arrow">+</span></button><div class="faq-a"><p>Paraphrasing tools can reduce detection accuracy, but many AI patterns &mdash; such as sentence uniformity and vocabulary choices &mdash; often survive paraphrasing. Results may show as &ldquo;mixed&rdquo; rather than definitive.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Does it work with non-English text?<span class="arrow">+</span></button><div class="faq-a"><p>Yes &mdash; it supports English, Spanish, French, German, Hindi, Urdu, Arabic, and more. Detection accuracy is highest for English but works across all supported languages.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I use this to check my own AI-assisted writing?<span class="arrow">+</span></button><div class="faq-a"><p>Absolutely. Many writers use our detector as a self-check tool &mdash; paste your AI-assisted draft, see which sentences flag as AI, then rewrite those sections to sound more natural before publishing.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How is this different from plagiarism checkers?<span class="arrow">+</span></button><div class="faq-a"><p>Plagiarism checkers compare text against existing content to find copied passages. AI detectors analyse writing patterns to determine whether the text was generated by an AI model &mdash; even if the content is completely original. They solve different problems.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Will Google penalise AI-generated content?<span class="arrow">+</span></button><div class="faq-a"><p>Google&rsquo;s official policy is that AI content is acceptable if it&rsquo;s helpful, accurate, and demonstrates E-E-A-T. However, low-quality, mass-produced AI content without human review can hurt rankings. Use our detector to identify and improve weak sections.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is there a daily usage limit?<span class="arrow">+</span></button><div class="faq-a"><p>No limits at all. Analyse one text or one thousand &mdash; there are no daily caps, no word limits, and no throttling.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I download or share my results?<span class="arrow">+</span></button><div class="faq-a"><p>Yes &mdash; use the Copy Report button to copy a text summary, or Download Report to save a .txt file with the full analysis including scores, sentence breakdown, and verdict.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 11: Final CTA -->
+<div class="final-cta">
+  <h2>Is Your Content AI-Written?</h2>
+  <p>Find out in seconds &mdash; paste your text and get instant sentence-level analysis. Free forever.</p>
+  <a href="#inputText" class="btn-big">&#128373; Analyse Text Now &mdash; It&rsquo;s Free</a>
+  <div class="sub-note">100% Free &middot; No Signup &middot; Unlimited Scans</div>
+</div>
+
+<div class="toast" id="toast">Copied!</div>
+
+<script>
+const inputEl = document.getElementById('inputText');
+
+inputEl.addEventListener('input', function() {
+  const text = this.value.trim();
+  const words = text ? text.split(/\s+/).length : 0;
+  document.getElementById('wordCount').textContent = words;
+  document.getElementById('charCount').textContent = this.value.length;
+});
+
+function toggleFaq(btn) {
+  btn.parentElement.classList.toggle('open');
+}
+
+function loadSample() {
+  inputEl.value = "Artificial intelligence has rapidly transformed the way businesses operate across virtually every industry. From automating routine tasks to providing deep analytical insights, AI technologies are enabling organisations to achieve unprecedented levels of efficiency and productivity. Machine learning algorithms can now process vast amounts of data in seconds, identifying patterns and trends that would take human analysts weeks to uncover. Furthermore, natural language processing has made it possible for computers to understand and generate human language with remarkable accuracy. These advancements are not limited to large corporations; small and medium-sized enterprises are also leveraging AI tools to compete more effectively in the global marketplace. As the technology continues to evolve, we can expect even more innovative applications that will reshape how we work, communicate, and solve complex problems.";
+  inputEl.dispatchEvent(new Event('input'));
+}
+
+// AI Detection Analysis Engine
+function splitSentences(text) {
+  return text.match(/[^.!?]+[.!?]+[\s]*/g) || [text];
+}
+
+function getWords(text) {
+  return text.trim().split(/\s+/).filter(w => w.length > 0);
+}
+
+function calcPerplexity(sentences) {
+  let totalVariation = 0;
+  const commonWords = new Set(['the','be','to','of','and','a','in','that','have','i','it','for','not','on','with','he','as','you','do','at','this','but','his','by','from','they','we','her','she','or','an','will','my','one','all','would','there','their','what','so','up','out','if','about','who','get','which','go','me','when','make','can','like','time','no','just','him','know','take','people','into','year','your','good','some','could','them','see','other','than','then','now','look','only','come','its','over','think','also','back','after','use','two','how','our','work','first','well','way','even','new','want','because','any','these','give','day','most','us']);
+  sentences.forEach(s => {
+    const words = getWords(s.toLowerCase());
+    const uncommon = words.filter(w => !commonWords.has(w));
+    totalVariation += words.length > 0 ? uncommon.length / words.length : 0;
+  });
+  return sentences.length > 0 ? totalVariation / sentences.length : 0;
+}
+
+function calcBurstiness(sentences) {
+  const lengths = sentences.map(s => getWords(s).length);
+  if (lengths.length < 2) return 0;
+  const mean = lengths.reduce((a, b) => a + b, 0) / lengths.length;
+  const variance = lengths.reduce((sum, l) => sum + Math.pow(l - mean, 2), 0) / lengths.length;
+  const stdDev = Math.sqrt(variance);
+  return mean > 0 ? stdDev / mean : 0;
+}
+
+function calcUniformity(sentences) {
+  const lengths = sentences.map(s => getWords(s).length);
+  if (lengths.length < 2) return 1;
+  const mean = lengths.reduce((a, b) => a + b, 0) / lengths.length;
+  const maxDev = Math.max(...lengths.map(l => Math.abs(l - mean)));
+  return mean > 0 ? 1 - Math.min(maxDev / mean, 1) : 1;
+}
+
+function calcVocabRichness(text) {
+  const words = getWords(text.toLowerCase()).map(w => w.replace(/[^a-z']/g, '')).filter(w => w.length > 2);
+  if (words.length === 0) return 0;
+  const unique = new Set(words);
+  return unique.size / words.length;
+}
+
+function scoreSentence(sentence) {
+  const words = getWords(sentence);
+  const wc = words.length;
+  let score = 50;
+
+  // Sentence length uniformity signal
+  if (wc >= 15 && wc <= 25) score += 8;
+  if (wc >= 18 && wc <= 22) score += 5;
+
+  // Transition words (AI loves these)
+  const transitions = /^(furthermore|moreover|additionally|consequently|in addition|however|nevertheless|in conclusion|as a result|it is worth noting|it is important|on the other hand|in today's|in the modern|in this article)/i;
+  if (transitions.test(sentence.trim())) score += 15;
+
+  // Generic AI phrases
+  const aiPhrases = /(unprecedented|leverag(e|ing)|cutting-edge|game-changer|revolutioniz|landscape|paradigm shift|holistic approach|synergy|robust|seamless|comprehensive|innovative solutions|at the forefront|digital transformation|in today's fast-paced|it's worth noting|it is important to note|in the realm of|serves as a|plays a crucial role|a testament to|navigat(e|ing) the complex)/i;
+  if (aiPhrases.test(sentence)) score += 18;
+
+  // Passive voice
+  const passive = /(is|are|was|were|been|being)\s+(being\s+)?\w+(ed|en)\b/i;
+  if (passive.test(sentence)) score += 5;
+
+  // Very uniform punctuation
+  if (sentence.trim().endsWith('.') && !sentence.includes('!') && !sentence.includes('?') && !sentence.includes('—') && !sentence.includes('...')) score += 3;
+
+  // Contractions = more human
+  if (/\b(can't|won't|isn't|aren't|don't|doesn't|it's|that's|we're|they're|I'm|you're|he's|she's|we've|they've|I've|you've|couldn't|wouldn't|shouldn't)\b/.test(sentence)) score -= 12;
+
+  // Personal pronouns = more human
+  if (/\b(I|my|me|mine)\b/.test(sentence)) score -= 10;
+
+  // Informal markers
+  if (/\b(honestly|frankly|basically|literally|actually|pretty much|kind of|sort of|you know|I mean|look,|listen,|okay so)\b/i.test(sentence)) score -= 15;
+
+  // Short sentences are more human-like
+  if (wc < 8) score -= 10;
+  if (wc > 30) score += 5;
+
+  // Exclamation or question
+  if (/[!?]/.test(sentence)) score -= 5;
+
+  return Math.max(0, Math.min(100, score));
+}
+
+let lastReport = '';
+
+async function detectAI() {
+  const text = inputEl.value.trim();
+  if (!text) { alert('Please paste some text to analyse.'); return; }
+  const words = getWords(text);
+  if (words.length < 10) { alert('Please paste at least 10 words for meaningful analysis.'); return; }
+
+  document.getElementById('progressWrap').style.display = '';
+  document.getElementById('detectBtn').disabled = true;
+  document.getElementById('resultSection').style.display = 'none';
+
+  let prog = 0;
+  const fill = document.getElementById('progressFill');
+  const label = document.getElementById('progressLabel');
+  const steps = ['Tokenising text…','Measuring perplexity…','Analysing burstiness…','Scoring sentences…','Compiling results…'];
+  let stepI = 0;
+
+  const interval = setInterval(() => {
+    prog = Math.min(prog + 2, 90);
+    fill.style.width = prog + '%';
+    if (prog % 18 === 0 && stepI < steps.length) label.textContent = steps[stepI++];
+  }, 40);
+
+  await new Promise(r => setTimeout(r, 2200));
+  clearInterval(interval);
+  fill.style.width = '100%';
+  label.textContent = 'Analysis complete!';
+
+  const sentences = splitSentences(text);
+  const perplexity = calcPerplexity(sentences);
+  const burstiness = calcBurstiness(sentences);
+  const uniformity = calcUniformity(sentences);
+  const vocabRichness = calcVocabRichness(text);
+
+  const sentenceScores = sentences.map(s => ({ text: s, score: scoreSentence(s) }));
+  const avgScore = sentenceScores.reduce((sum, s) => sum + s.score, 0) / sentenceScores.length;
+
+  // Adjust based on document-level metrics
+  let aiProb = avgScore;
+  if (perplexity < 0.35) aiProb += 10;
+  else if (perplexity > 0.55) aiProb -= 10;
+  if (burstiness < 0.3) aiProb += 8;
+  else if (burstiness > 0.6) aiProb -= 8;
+  if (uniformity > 0.7) aiProb += 6;
+  if (vocabRichness < 0.5) aiProb += 4;
+  else if (vocabRichness > 0.7) aiProb -= 6;
+
+  aiProb = Math.max(0, Math.min(100, Math.round(aiProb)));
+  const humanProb = 100 - aiProb;
+
+  // Verdict
+  const verdictBox = document.getElementById('verdictBox');
+  const verdictIcon = document.getElementById('verdictIcon');
+  const verdictLabel = document.getElementById('verdictLabel');
+  const verdictSub = document.getElementById('verdictSub');
+  verdictBox.className = 'result-verdict';
+
+  if (aiProb >= 70) {
+    verdictBox.classList.add('ai');
+    verdictIcon.textContent = '\u{1F916}';
+    verdictLabel.textContent = 'Likely AI-Generated';
+    verdictSub.textContent = `This text shows strong AI patterns with ${aiProb}% AI probability. Multiple indicators suggest machine-generated content.`;
+  } else if (aiProb >= 40) {
+    verdictBox.classList.add('mixed');
+    verdictIcon.textContent = '\u{1F914}';
+    verdictLabel.textContent = 'Mixed / Uncertain';
+    verdictSub.textContent = `This text shows a mix of AI and human patterns (${aiProb}% AI). It may be AI-assisted with human editing, or naturally formal writing.`;
+  } else {
+    verdictBox.classList.add('human');
+    verdictIcon.textContent = '\u{2705}';
+    verdictLabel.textContent = 'Likely Human-Written';
+    verdictSub.textContent = `This text appears to be human-written with only ${aiProb}% AI probability. Writing patterns are consistent with human authorship.`;
+  }
+
+  // Score rings
+  const circumference = 2 * Math.PI * 42;
+  document.getElementById('aiRing').style.strokeDashoffset = circumference - (circumference * aiProb / 100);
+  document.getElementById('humanRing').style.strokeDashoffset = circumference - (circumference * humanProb / 100);
+  document.getElementById('aiScore').textContent = aiProb + '%';
+  document.getElementById('humanScore').textContent = humanProb + '%';
+
+  // Breakdown
+  const perplexityPct = Math.round(perplexity * 100);
+  const burstinessPct = Math.round(Math.min(burstiness, 1) * 100);
+  const uniformityPct = Math.round(uniformity * 100);
+  const vocabPct = Math.round(vocabRichness * 100);
+
+  document.getElementById('bdPerplexity').textContent = perplexityPct + '%';
+  document.getElementById('bdPerplexityBar').style.width = perplexityPct + '%';
+  document.getElementById('bdBurstiness').textContent = burstinessPct + '%';
+  document.getElementById('bdBurstinessBar').style.width = burstinessPct + '%';
+  document.getElementById('bdUniformity').textContent = uniformityPct + '%';
+  document.getElementById('bdUniformityBar').style.width = uniformityPct + '%';
+  document.getElementById('bdVocab').textContent = vocabPct + '%';
+  document.getElementById('bdVocabBar').style.width = vocabPct + '%';
+
+  // Highlighted text
+  let hlHtml = '';
+  let aiSentCount = 0, humanSentCount = 0;
+  sentenceScores.forEach(s => {
+    const escaped = s.text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    if (s.score >= 65) {
+      hlHtml += `<span class="hl-ai" title="AI probability: ${s.score}%">${escaped}</span>`;
+      aiSentCount++;
+    } else if (s.score >= 40) {
+      hlHtml += `<span class="hl-mixed" title="AI probability: ${s.score}%">${escaped}</span>`;
+    } else {
+      hlHtml += `<span title="AI probability: ${s.score}%">${escaped}</span>`;
+      humanSentCount++;
+    }
+  });
+  document.getElementById('highlightedText').innerHTML = hlHtml;
+
+  // Stats
+  const avgLen = Math.round(words.length / sentences.length);
+  document.getElementById('outSentences').textContent = sentences.length;
+  document.getElementById('outAiSent').textContent = aiSentCount;
+  document.getElementById('outHumanSent').textContent = humanSentCount;
+  document.getElementById('outAvgLen').textContent = avgLen;
+
+  // Build report
+  const verdict = aiProb >= 70 ? 'Likely AI-Generated' : aiProb >= 40 ? 'Mixed / Uncertain' : 'Likely Human-Written';
+  lastReport = `AI CONTENT DETECTION REPORT — BrightlyFuture
+${'='.repeat(50)}
+Verdict: ${verdict}
+AI Probability: ${aiProb}%
+Human Probability: ${humanProb}%
+
+METRICS
+- Perplexity: ${perplexityPct}%
+- Burstiness: ${burstinessPct}%
+- Sentence Uniformity: ${uniformityPct}%
+- Vocabulary Richness: ${vocabPct}%
+
+STATS
+- Total Sentences: ${sentences.length}
+- AI-Flagged Sentences: ${aiSentCount}
+- Human Sentences: ${humanSentCount}
+- Avg Words/Sentence: ${avgLen}
+- Total Words: ${words.length}
+
+SENTENCE BREAKDOWN
+${sentenceScores.map((s, i) => `[${i+1}] (${s.score}% AI) ${s.text.trim()}`).join('\n')}
+
+${'='.repeat(50)}
+Generated by BrightlyFuture AI Content Detector
+https://brightlyfuture.co.uk/tools/ai-blog-detector/`;
+
+  await new Promise(r => setTimeout(r, 400));
+  document.getElementById('progressWrap').style.display = 'none';
+  document.getElementById('detectBtn').disabled = false;
+  document.getElementById('resultSection').style.display = '';
+}
+
+function copyReport() {
+  navigator.clipboard.writeText(lastReport).then(() => {
+    const t = document.getElementById('toast'); t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2000);
+  });
+}
+
+function downloadReport() {
+  const blob = new Blob([lastReport], { type: 'text/plain' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'ai-detection-report.txt';
+  a.click();
+}
+
+function clearAll() {
+  inputEl.value = '';
+  inputEl.dispatchEvent(new Event('input'));
+  document.getElementById('resultSection').style.display = 'none';
+  document.getElementById('progressWrap').style.display = 'none';
+}
+</script>
+</body>
+</html>
