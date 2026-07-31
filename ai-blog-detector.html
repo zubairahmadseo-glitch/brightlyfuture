@@ -579,18 +579,19 @@ a:hover { color: var(--pri-hover); }
 <div class="final-cta">
   <h2>Is Your Content AI-Written?</h2>
   <p>Find out in seconds &mdash; paste your text and get instant sentence-level analysis. Free forever.</p>
-  <a href="#inputText" class="btn-big" onclick="setTimeout(detectAI,400)">&#128373; Analyse Text Now &mdash; It&rsquo;s Free</a>
+  <a href="#inputText" class="btn-big" onclick="setTimeout(function(){detectAI()},400)">&#128373; Analyse Text Now &mdash; It&rsquo;s Free</a>
   <div class="sub-note">100% Free &middot; No Signup &middot; Unlimited Scans</div>
 </div>
 
 <div class="toast" id="toast">Copied!</div>
 
 <script>
-const inputEl = document.getElementById('inputText');
+var inputEl = document.getElementById('inputText');
+var lastReport = '';
 
 inputEl.addEventListener('input', function() {
-  const text = this.value.trim();
-  const words = text ? text.split(/\s+/).length : 0;
+  var text = this.value.trim();
+  var words = text ? text.split(/\s+/).length : 0;
   document.getElementById('wordCount').textContent = words;
   document.getElementById('charCount').textContent = this.value.length;
 });
@@ -604,261 +605,303 @@ function loadSample() {
   inputEl.dispatchEvent(new Event('input'));
 }
 
-// AI Detection Analysis Engine
 function splitSentences(text) {
-  return text.match(/[^.!?]+[.!?]+[\s]*/g) || [text];
+  var result = text.match(/[^.!?]+[.!?]+[\s]*/g);
+  if (!result || result.length === 0) return [text];
+  return result;
 }
 
 function getWords(text) {
-  return text.trim().split(/\s+/).filter(w => w.length > 0);
+  return text.trim().split(/\s+/).filter(function(w) { return w.length > 0; });
 }
 
 function calcPerplexity(sentences) {
-  let totalVariation = 0;
-  const commonWords = new Set(['the','be','to','of','and','a','in','that','have','i','it','for','not','on','with','he','as','you','do','at','this','but','his','by','from','they','we','her','she','or','an','will','my','one','all','would','there','their','what','so','up','out','if','about','who','get','which','go','me','when','make','can','like','time','no','just','him','know','take','people','into','year','your','good','some','could','them','see','other','than','then','now','look','only','come','its','over','think','also','back','after','use','two','how','our','work','first','well','way','even','new','want','because','any','these','give','day','most','us']);
-  sentences.forEach(s => {
-    const words = getWords(s.toLowerCase());
-    const uncommon = words.filter(w => !commonWords.has(w));
-    totalVariation += words.length > 0 ? uncommon.length / words.length : 0;
-  });
+  var totalVariation = 0;
+  var commonList = ['the','be','to','of','and','a','in','that','have','i','it','for','not','on','with','he','as','you','do','at','this','but','his','by','from','they','we','her','she','or','an','will','my','one','all','would','there','their','what','so','up','out','if','about','who','get','which','go','me','when','make','can','like','time','no','just','him','know','take','people','into','year','your','good','some','could','them','see','other','than','then','now','look','only','come','its','over','think','also','back','after','use','two','how','our','work','first','well','way','even','new','want','because','any','these','give','day','most','us'];
+  var commonWords = {};
+  for (var c = 0; c < commonList.length; c++) { commonWords[commonList[c]] = true; }
+  for (var i = 0; i < sentences.length; i++) {
+    var words = getWords(sentences[i].toLowerCase());
+    var uncommonCount = 0;
+    for (var j = 0; j < words.length; j++) {
+      if (!commonWords[words[j]]) uncommonCount++;
+    }
+    totalVariation += words.length > 0 ? uncommonCount / words.length : 0;
+  }
   return sentences.length > 0 ? totalVariation / sentences.length : 0;
 }
 
 function calcBurstiness(sentences) {
-  const lengths = sentences.map(s => getWords(s).length);
+  var lengths = [];
+  for (var i = 0; i < sentences.length; i++) { lengths.push(getWords(sentences[i]).length); }
   if (lengths.length < 2) return 0;
-  const mean = lengths.reduce((a, b) => a + b, 0) / lengths.length;
-  const variance = lengths.reduce((sum, l) => sum + Math.pow(l - mean, 2), 0) / lengths.length;
-  const stdDev = Math.sqrt(variance);
+  var sum = 0;
+  for (var a = 0; a < lengths.length; a++) sum += lengths[a];
+  var mean = sum / lengths.length;
+  var variance = 0;
+  for (var b = 0; b < lengths.length; b++) variance += Math.pow(lengths[b] - mean, 2);
+  variance = variance / lengths.length;
+  var stdDev = Math.sqrt(variance);
   return mean > 0 ? stdDev / mean : 0;
 }
 
 function calcUniformity(sentences) {
-  const lengths = sentences.map(s => getWords(s).length);
+  var lengths = [];
+  for (var i = 0; i < sentences.length; i++) { lengths.push(getWords(sentences[i]).length); }
   if (lengths.length < 2) return 1;
-  const mean = lengths.reduce((a, b) => a + b, 0) / lengths.length;
-  const maxDev = Math.max(...lengths.map(l => Math.abs(l - mean)));
+  var sum = 0;
+  for (var a = 0; a < lengths.length; a++) sum += lengths[a];
+  var mean = sum / lengths.length;
+  var maxDev = 0;
+  for (var b = 0; b < lengths.length; b++) {
+    var dev = Math.abs(lengths[b] - mean);
+    if (dev > maxDev) maxDev = dev;
+  }
   return mean > 0 ? 1 - Math.min(maxDev / mean, 1) : 1;
 }
 
 function calcVocabRichness(text) {
-  const words = getWords(text.toLowerCase()).map(w => w.replace(/[^a-z']/g, '')).filter(w => w.length > 2);
+  var raw = getWords(text.toLowerCase());
+  var words = [];
+  for (var i = 0; i < raw.length; i++) {
+    var w = raw[i].replace(/[^a-z']/g, '');
+    if (w.length > 2) words.push(w);
+  }
   if (words.length === 0) return 0;
-  const unique = new Set(words);
-  return unique.size / words.length;
+  var seen = {};
+  var uniqueCount = 0;
+  for (var j = 0; j < words.length; j++) {
+    if (!seen[words[j]]) { seen[words[j]] = true; uniqueCount++; }
+  }
+  return uniqueCount / words.length;
 }
 
 function scoreSentence(sentence) {
-  const words = getWords(sentence);
-  const wc = words.length;
-  let score = 50;
+  var words = getWords(sentence);
+  var wc = words.length;
+  var score = 50;
 
-  // Sentence length uniformity signal
   if (wc >= 15 && wc <= 25) score += 8;
   if (wc >= 18 && wc <= 22) score += 5;
 
-  // Transition words (AI loves these)
-  const transitions = /^(furthermore|moreover|additionally|consequently|in addition|however|nevertheless|in conclusion|as a result|it is worth noting|it is important|on the other hand|in today's|in the modern|in this article)/i;
+  var transitions = /^(furthermore|moreover|additionally|consequently|in addition|however|nevertheless|in conclusion|as a result|it is worth noting|it is important|on the other hand|in today's|in the modern|in this article)/i;
   if (transitions.test(sentence.trim())) score += 15;
 
-  // Generic AI phrases
-  const aiPhrases = /(unprecedented|leverag(e|ing)|cutting-edge|game-changer|revolutioniz|landscape|paradigm shift|holistic approach|synergy|robust|seamless|comprehensive|innovative solutions|at the forefront|digital transformation|in today's fast-paced|it's worth noting|it is important to note|in the realm of|serves as a|plays a crucial role|a testament to|navigat(e|ing) the complex)/i;
+  var aiPhrases = /(unprecedented|leverag(e|ing)|cutting-edge|game-changer|revolutioniz|landscape|paradigm shift|holistic approach|synergy|robust|seamless|comprehensive|innovative solutions|at the forefront|digital transformation|in today's fast-paced|it's worth noting|it is important to note|in the realm of|serves as a|plays a crucial role|a testament to|navigat(e|ing) the complex)/i;
   if (aiPhrases.test(sentence)) score += 18;
 
-  // Passive voice
-  const passive = /(is|are|was|were|been|being)\s+(being\s+)?\w+(ed|en)\b/i;
+  var passive = /(is|are|was|were|been|being)\s+(being\s+)?\w+(ed|en)\b/i;
   if (passive.test(sentence)) score += 5;
 
-  // Very uniform punctuation
-  if (sentence.trim().endsWith('.') && !sentence.includes('!') && !sentence.includes('?') && !sentence.includes('—') && !sentence.includes('...')) score += 3;
+  if (sentence.trim().charAt(sentence.trim().length - 1) === '.' && sentence.indexOf('!') === -1 && sentence.indexOf('?') === -1 && sentence.indexOf('—') === -1 && sentence.indexOf('...') === -1) score += 3;
 
-  // Contractions = more human
   if (/\b(can't|won't|isn't|aren't|don't|doesn't|it's|that's|we're|they're|I'm|you're|he's|she's|we've|they've|I've|you've|couldn't|wouldn't|shouldn't)\b/.test(sentence)) score -= 12;
 
-  // Personal pronouns = more human
   if (/\b(I|my|me|mine)\b/.test(sentence)) score -= 10;
 
-  // Informal markers
   if (/\b(honestly|frankly|basically|literally|actually|pretty much|kind of|sort of|you know|I mean|look,|listen,|okay so)\b/i.test(sentence)) score -= 15;
 
-  // Short sentences are more human-like
   if (wc < 8) score -= 10;
   if (wc > 30) score += 5;
 
-  // Exclamation or question
   if (/[!?]/.test(sentence)) score -= 5;
 
   return Math.max(0, Math.min(100, score));
 }
 
-let lastReport = '';
+function showResults(text, words) {
+  try {
+    var sentences = splitSentences(text);
+    var perplexity = calcPerplexity(sentences);
+    var burstiness = calcBurstiness(sentences);
+    var uniformity = calcUniformity(sentences);
+    var vocabRichness = calcVocabRichness(text);
 
-async function detectAI() {
-  const text = inputEl.value.trim();
+    var sentenceScores = [];
+    for (var i = 0; i < sentences.length; i++) {
+      sentenceScores.push({ text: sentences[i], score: scoreSentence(sentences[i]) });
+    }
+    var totalScore = 0;
+    for (var j = 0; j < sentenceScores.length; j++) totalScore += sentenceScores[j].score;
+    var avgScore = totalScore / sentenceScores.length;
+
+    var aiProb = avgScore;
+    if (perplexity < 0.35) aiProb += 10;
+    else if (perplexity > 0.55) aiProb -= 10;
+    if (burstiness < 0.3) aiProb += 8;
+    else if (burstiness > 0.6) aiProb -= 8;
+    if (uniformity > 0.7) aiProb += 6;
+    if (vocabRichness < 0.5) aiProb += 4;
+    else if (vocabRichness > 0.7) aiProb -= 6;
+
+    aiProb = Math.max(0, Math.min(100, Math.round(aiProb)));
+    var humanProb = 100 - aiProb;
+
+    var verdictBox = document.getElementById('verdictBox');
+    var verdictIcon = document.getElementById('verdictIcon');
+    var verdictLabel = document.getElementById('verdictLabel');
+    var verdictSub = document.getElementById('verdictSub');
+    verdictBox.className = 'result-verdict';
+
+    if (aiProb >= 70) {
+      verdictBox.className = 'result-verdict ai';
+      verdictIcon.innerHTML = '&#129302;';
+      verdictLabel.textContent = 'Likely AI-Generated';
+      verdictSub.textContent = 'This text shows strong AI patterns with ' + aiProb + '% AI probability. Multiple indicators suggest machine-generated content.';
+    } else if (aiProb >= 40) {
+      verdictBox.className = 'result-verdict mixed';
+      verdictIcon.innerHTML = '&#129300;';
+      verdictLabel.textContent = 'Mixed / Uncertain';
+      verdictSub.textContent = 'This text shows a mix of AI and human patterns (' + aiProb + '% AI). It may be AI-assisted with human editing, or naturally formal writing.';
+    } else {
+      verdictBox.className = 'result-verdict human';
+      verdictIcon.innerHTML = '&#9989;';
+      verdictLabel.textContent = 'Likely Human-Written';
+      verdictSub.textContent = 'This text appears to be human-written with only ' + aiProb + '% AI probability. Writing patterns are consistent with human authorship.';
+    }
+
+    var circumference = 2 * Math.PI * 42;
+    var aiRing = document.getElementById('aiRing');
+    var humanRing = document.getElementById('humanRing');
+    aiRing.setAttribute('stroke-dashoffset', circumference - (circumference * aiProb / 100));
+    humanRing.setAttribute('stroke-dashoffset', circumference - (circumference * humanProb / 100));
+    document.getElementById('aiScore').textContent = aiProb + '%';
+    document.getElementById('humanScore').textContent = humanProb + '%';
+
+    var perplexityPct = Math.round(perplexity * 100);
+    var burstinessPct = Math.round(Math.min(burstiness, 1) * 100);
+    var uniformityPct = Math.round(uniformity * 100);
+    var vocabPct = Math.round(vocabRichness * 100);
+
+    document.getElementById('bdPerplexity').textContent = perplexityPct + '%';
+    document.getElementById('bdPerplexityBar').style.width = perplexityPct + '%';
+    document.getElementById('bdBurstiness').textContent = burstinessPct + '%';
+    document.getElementById('bdBurstinessBar').style.width = burstinessPct + '%';
+    document.getElementById('bdUniformity').textContent = uniformityPct + '%';
+    document.getElementById('bdUniformityBar').style.width = uniformityPct + '%';
+    document.getElementById('bdVocab').textContent = vocabPct + '%';
+    document.getElementById('bdVocabBar').style.width = vocabPct + '%';
+
+    var hlHtml = '';
+    var aiSentCount = 0;
+    var humanSentCount = 0;
+    for (var k = 0; k < sentenceScores.length; k++) {
+      var s = sentenceScores[k];
+      var escaped = s.text.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      if (s.score >= 65) {
+        hlHtml += '<span class="hl-ai" title="AI probability: ' + s.score + '%">' + escaped + '</span>';
+        aiSentCount++;
+      } else if (s.score >= 40) {
+        hlHtml += '<span class="hl-mixed" title="AI probability: ' + s.score + '%">' + escaped + '</span>';
+      } else {
+        hlHtml += '<span title="AI probability: ' + s.score + '%">' + escaped + '</span>';
+        humanSentCount++;
+      }
+    }
+    document.getElementById('highlightedText').innerHTML = hlHtml;
+
+    var avgLen = Math.round(words.length / sentences.length);
+    document.getElementById('outSentences').textContent = sentences.length;
+    document.getElementById('outAiSent').textContent = aiSentCount;
+    document.getElementById('outHumanSent').textContent = humanSentCount;
+    document.getElementById('outAvgLen').textContent = avgLen;
+
+    var verdictText = aiProb >= 70 ? 'Likely AI-Generated' : aiProb >= 40 ? 'Mixed / Uncertain' : 'Likely Human-Written';
+    var breakdownLines = '';
+    for (var m = 0; m < sentenceScores.length; m++) {
+      breakdownLines += '[' + (m + 1) + '] (' + sentenceScores[m].score + '% AI) ' + sentenceScores[m].text.trim() + '\n';
+    }
+    lastReport = 'AI CONTENT DETECTION REPORT - BrightlyFuture\n' +
+      '==================================================\n' +
+      'Verdict: ' + verdictText + '\n' +
+      'AI Probability: ' + aiProb + '%\n' +
+      'Human Probability: ' + humanProb + '%\n\n' +
+      'METRICS\n' +
+      '- Perplexity: ' + perplexityPct + '%\n' +
+      '- Burstiness: ' + burstinessPct + '%\n' +
+      '- Sentence Uniformity: ' + uniformityPct + '%\n' +
+      '- Vocabulary Richness: ' + vocabPct + '%\n\n' +
+      'STATS\n' +
+      '- Total Sentences: ' + sentences.length + '\n' +
+      '- AI-Flagged Sentences: ' + aiSentCount + '\n' +
+      '- Human Sentences: ' + humanSentCount + '\n' +
+      '- Avg Words/Sentence: ' + avgLen + '\n' +
+      '- Total Words: ' + words.length + '\n\n' +
+      'SENTENCE BREAKDOWN\n' + breakdownLines + '\n' +
+      '==================================================\n' +
+      'Generated by BrightlyFuture AI Content Detector\n' +
+      'https://brightlyfuture.co.uk/tools/ai-blog-detector/';
+
+    document.getElementById('progressWrap').style.display = 'none';
+    document.getElementById('detectBtn').disabled = false;
+    document.getElementById('resultSection').style.display = '';
+  } catch (err) {
+    document.getElementById('progressWrap').style.display = 'none';
+    document.getElementById('detectBtn').disabled = false;
+    alert('Analysis error: ' + err.message);
+  }
+}
+
+function detectAI() {
+  var text = inputEl.value.trim();
   if (!text) { alert('Please paste some text to analyse.'); return; }
-  const words = getWords(text);
+  var words = getWords(text);
   if (words.length < 10) { alert('Please paste at least 10 words for meaningful analysis.'); return; }
 
   document.getElementById('progressWrap').style.display = '';
   document.getElementById('detectBtn').disabled = true;
   document.getElementById('resultSection').style.display = 'none';
 
-  let prog = 0;
-  const fill = document.getElementById('progressFill');
-  const label = document.getElementById('progressLabel');
-  const steps = ['Tokenising text…','Measuring perplexity…','Analysing burstiness…','Scoring sentences…','Compiling results…'];
-  let stepI = 0;
+  var prog = 0;
+  var fill = document.getElementById('progressFill');
+  var label = document.getElementById('progressLabel');
+  var steps = ['Tokenising text...', 'Measuring perplexity...', 'Analysing burstiness...', 'Scoring sentences...', 'Compiling results...'];
+  var stepI = 0;
 
-  const interval = setInterval(() => {
+  var interval = setInterval(function() {
     prog = Math.min(prog + 2, 90);
     fill.style.width = prog + '%';
-    if (prog % 18 === 0 && stepI < steps.length) label.textContent = steps[stepI++];
+    if (prog % 18 === 0 && stepI < steps.length) { label.textContent = steps[stepI]; stepI++; }
   }, 40);
 
-  await new Promise(r => setTimeout(r, 2200));
-  clearInterval(interval);
-  fill.style.width = '100%';
-  label.textContent = 'Analysis complete!';
-
-  const sentences = splitSentences(text);
-  const perplexity = calcPerplexity(sentences);
-  const burstiness = calcBurstiness(sentences);
-  const uniformity = calcUniformity(sentences);
-  const vocabRichness = calcVocabRichness(text);
-
-  const sentenceScores = sentences.map(s => ({ text: s, score: scoreSentence(s) }));
-  const avgScore = sentenceScores.reduce((sum, s) => sum + s.score, 0) / sentenceScores.length;
-
-  // Adjust based on document-level metrics
-  let aiProb = avgScore;
-  if (perplexity < 0.35) aiProb += 10;
-  else if (perplexity > 0.55) aiProb -= 10;
-  if (burstiness < 0.3) aiProb += 8;
-  else if (burstiness > 0.6) aiProb -= 8;
-  if (uniformity > 0.7) aiProb += 6;
-  if (vocabRichness < 0.5) aiProb += 4;
-  else if (vocabRichness > 0.7) aiProb -= 6;
-
-  aiProb = Math.max(0, Math.min(100, Math.round(aiProb)));
-  const humanProb = 100 - aiProb;
-
-  // Verdict
-  const verdictBox = document.getElementById('verdictBox');
-  const verdictIcon = document.getElementById('verdictIcon');
-  const verdictLabel = document.getElementById('verdictLabel');
-  const verdictSub = document.getElementById('verdictSub');
-  verdictBox.className = 'result-verdict';
-
-  if (aiProb >= 70) {
-    verdictBox.classList.add('ai');
-    verdictIcon.textContent = '\u{1F916}';
-    verdictLabel.textContent = 'Likely AI-Generated';
-    verdictSub.textContent = `This text shows strong AI patterns with ${aiProb}% AI probability. Multiple indicators suggest machine-generated content.`;
-  } else if (aiProb >= 40) {
-    verdictBox.classList.add('mixed');
-    verdictIcon.textContent = '\u{1F914}';
-    verdictLabel.textContent = 'Mixed / Uncertain';
-    verdictSub.textContent = `This text shows a mix of AI and human patterns (${aiProb}% AI). It may be AI-assisted with human editing, or naturally formal writing.`;
-  } else {
-    verdictBox.classList.add('human');
-    verdictIcon.textContent = '\u{2705}';
-    verdictLabel.textContent = 'Likely Human-Written';
-    verdictSub.textContent = `This text appears to be human-written with only ${aiProb}% AI probability. Writing patterns are consistent with human authorship.`;
-  }
-
-  // Score rings
-  const circumference = 2 * Math.PI * 42;
-  document.getElementById('aiRing').style.strokeDashoffset = circumference - (circumference * aiProb / 100);
-  document.getElementById('humanRing').style.strokeDashoffset = circumference - (circumference * humanProb / 100);
-  document.getElementById('aiScore').textContent = aiProb + '%';
-  document.getElementById('humanScore').textContent = humanProb + '%';
-
-  // Breakdown
-  const perplexityPct = Math.round(perplexity * 100);
-  const burstinessPct = Math.round(Math.min(burstiness, 1) * 100);
-  const uniformityPct = Math.round(uniformity * 100);
-  const vocabPct = Math.round(vocabRichness * 100);
-
-  document.getElementById('bdPerplexity').textContent = perplexityPct + '%';
-  document.getElementById('bdPerplexityBar').style.width = perplexityPct + '%';
-  document.getElementById('bdBurstiness').textContent = burstinessPct + '%';
-  document.getElementById('bdBurstinessBar').style.width = burstinessPct + '%';
-  document.getElementById('bdUniformity').textContent = uniformityPct + '%';
-  document.getElementById('bdUniformityBar').style.width = uniformityPct + '%';
-  document.getElementById('bdVocab').textContent = vocabPct + '%';
-  document.getElementById('bdVocabBar').style.width = vocabPct + '%';
-
-  // Highlighted text
-  let hlHtml = '';
-  let aiSentCount = 0, humanSentCount = 0;
-  sentenceScores.forEach(s => {
-    const escaped = s.text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-    if (s.score >= 65) {
-      hlHtml += `<span class="hl-ai" title="AI probability: ${s.score}%">${escaped}</span>`;
-      aiSentCount++;
-    } else if (s.score >= 40) {
-      hlHtml += `<span class="hl-mixed" title="AI probability: ${s.score}%">${escaped}</span>`;
-    } else {
-      hlHtml += `<span title="AI probability: ${s.score}%">${escaped}</span>`;
-      humanSentCount++;
-    }
-  });
-  document.getElementById('highlightedText').innerHTML = hlHtml;
-
-  // Stats
-  const avgLen = Math.round(words.length / sentences.length);
-  document.getElementById('outSentences').textContent = sentences.length;
-  document.getElementById('outAiSent').textContent = aiSentCount;
-  document.getElementById('outHumanSent').textContent = humanSentCount;
-  document.getElementById('outAvgLen').textContent = avgLen;
-
-  // Build report
-  const verdict = aiProb >= 70 ? 'Likely AI-Generated' : aiProb >= 40 ? 'Mixed / Uncertain' : 'Likely Human-Written';
-  lastReport = `AI CONTENT DETECTION REPORT — BrightlyFuture
-${'='.repeat(50)}
-Verdict: ${verdict}
-AI Probability: ${aiProb}%
-Human Probability: ${humanProb}%
-
-METRICS
-- Perplexity: ${perplexityPct}%
-- Burstiness: ${burstinessPct}%
-- Sentence Uniformity: ${uniformityPct}%
-- Vocabulary Richness: ${vocabPct}%
-
-STATS
-- Total Sentences: ${sentences.length}
-- AI-Flagged Sentences: ${aiSentCount}
-- Human Sentences: ${humanSentCount}
-- Avg Words/Sentence: ${avgLen}
-- Total Words: ${words.length}
-
-SENTENCE BREAKDOWN
-${sentenceScores.map((s, i) => `[${i+1}] (${s.score}% AI) ${s.text.trim()}`).join('\n')}
-
-${'='.repeat(50)}
-Generated by BrightlyFuture AI Content Detector
-https://brightlyfuture.co.uk/tools/ai-blog-detector/`;
-
-  await new Promise(r => setTimeout(r, 400));
-  document.getElementById('progressWrap').style.display = 'none';
-  document.getElementById('detectBtn').disabled = false;
-  document.getElementById('resultSection').style.display = '';
+  setTimeout(function() {
+    clearInterval(interval);
+    fill.style.width = '100%';
+    label.textContent = 'Analysis complete!';
+    setTimeout(function() {
+      showResults(text, words);
+    }, 400);
+  }, 2200);
 }
 
 function copyReport() {
-  navigator.clipboard.writeText(lastReport).then(() => {
-    const t = document.getElementById('toast'); t.classList.add('show');
-    setTimeout(() => t.classList.remove('show'), 2000);
-  });
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(lastReport).then(function() {
+      var t = document.getElementById('toast');
+      t.classList.add('show');
+      setTimeout(function() { t.classList.remove('show'); }, 2000);
+    });
+  } else {
+    var ta = document.createElement('textarea');
+    ta.value = lastReport;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    var t = document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(function() { t.classList.remove('show'); }, 2000);
+  }
 }
 
 function downloadReport() {
-  const blob = new Blob([lastReport], { type: 'text/plain' });
-  const a = document.createElement('a');
+  var blob = new Blob([lastReport], { type: 'text/plain' });
+  var a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
   a.download = 'ai-detection-report.txt';
+  document.body.appendChild(a);
   a.click();
+  document.body.removeChild(a);
 }
 
 function clearAll() {
