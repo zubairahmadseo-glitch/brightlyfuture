@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Word &amp; Character Counter Online - Count Words, Sentences, Paragraphs | BrightlyFuture</title>
+<meta name="description" content="Free online word counter and character counter tool. Count words, characters with and without spaces, sentences, paragraphs, reading time, and speaking time. No signup, no ads, instant results.">
+<meta name="keywords" content="word counter, character counter, word count tool, character count online, count words in text, word counter online free, letter counter, character counter for twitter, word count checker, word counter for essays, free word counter tool, online character counter, count characters in text, word counter for blog posts, how many words in my text, sentence counter, paragraph counter, reading time calculator, speaking time calculator, word frequency counter, keyword density checker">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --pri: #6C5CE7;
+  --pri-hover: #5A4BD1;
+  --bg: #E8E0F0;
+  --bg-alt: #DDD4EB;
+  --card-bg: #FFFFFF;
+  --card-border: #D0C6E0;
+  --input-bg: #F5F1FA;
+  --input-border: #D0C6E0;
+  --text: #2D2B55;
+  --muted: #6B6490;
+  --heading: #1A1744;
+  --green: #00C897;
+  --red: #EF4444;
+  --yellow: #F59E0B;
+  --blue: #3B82F6;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important; background: var(--bg) !important; color: var(--text) !important; line-height: 1.6 !important; -webkit-font-smoothing: antialiased; }
+a { color: var(--pri) !important; text-decoration: none !important; }
+a:hover { color: var(--pri-hover) !important; }
+
+.wc-hero { text-align: center; padding: 3.5rem 1.5rem 2.5rem; background: var(--bg) !important; }
+.wc-hero .back-link { display: inline-block; color: var(--muted) !important; font-size: 0.85rem; margin-bottom: 1.5rem; transition: color .2s; }
+.wc-hero .back-link:hover { color: var(--pri) !important; }
+.wc-hero .badge { display: inline-block; background: var(--card-bg) !important; color: var(--pri) !important; font-size: 0.8rem; font-weight: 600; padding: 0.4rem 1.1rem; border-radius: 999px; border: 1px solid var(--card-border); margin-bottom: 1.25rem; }
+.wc-hero h1 { font-size: 2.4rem; font-weight: 800; color: var(--heading) !important; margin-bottom: 0.85rem; }
+.wc-hero .sub { color: var(--muted) !important; max-width: 680px; margin: 0 auto 1.5rem; font-size: 0.95rem; line-height: 1.65; }
+.usp-row { display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; }
+.usp-pill { background: rgba(108,92,231,0.08) !important; border: 1px solid rgba(108,92,231,0.2); color: var(--pri) !important; font-size: 0.78rem; font-weight: 600; padding: 0.4rem 1rem; border-radius: 999px; }
+
+.wc-tool { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem 3rem; }
+.wc-box { background: var(--card-bg) !important; border: 1px solid var(--card-border); border-radius: 16px; padding: 2rem; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+
+.stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+.stat-card { background: var(--input-bg) !important; border: 1px solid var(--card-border); border-radius: 12px; padding: 1.1rem 1rem; text-align: center; transition: border-color .2s; }
+.stat-card:hover { border-color: var(--pri); }
+.stat-card .stat-val { font-size: 1.8rem; font-weight: 800; color: var(--pri) !important; display: block; line-height: 1.2; }
+.stat-card .stat-lbl { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted) !important; margin-top: 0.3rem; display: block; }
+
+.stats-row2 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+.stat-mini { background: var(--card-bg) !important; border: 1px solid var(--card-border); border-radius: 10px; padding: 0.8rem 0.75rem; text-align: center; }
+.stat-mini .stat-val { font-size: 1.1rem; font-weight: 700; color: var(--heading) !important; display: block; }
+.stat-mini .stat-lbl { font-size: 0.68rem; font-weight: 600; text-transform: uppercase; color: var(--muted) !important; margin-top: 0.15rem; display: block; letter-spacing: 0.04em; }
+
+.wc-textarea { width: 100%; background: var(--input-bg) !important; border: 1px solid var(--input-border) !important; border-radius: 10px; padding: 1rem 1.1rem; color: var(--text) !important; font-size: 0.92rem; font-family: inherit; transition: border-color .2s; resize: vertical; min-height: 260px; line-height: 1.75; }
+.wc-textarea:focus { outline: none !important; border-color: var(--pri) !important; }
+
+.btn-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+.btn { padding: 0.65rem 1.4rem; border-radius: 10px; font-weight: 600; font-size: 0.88rem; cursor: pointer; border: none !important; transition: all .2s; font-family: inherit; }
+.btn-primary { background: var(--pri) !important; color: #fff !important; }
+.btn-primary:hover, .btn-primary:focus { background: var(--pri-hover) !important; transform: translateY(-1px); }
+.btn-secondary { background: var(--input-bg) !important; color: var(--muted) !important; border: 1px solid var(--card-border) !important; }
+.btn-secondary:hover, .btn-secondary:focus { border-color: var(--pri) !important; color: var(--text) !important; }
+
+.density-section { margin-top: 1.5rem; display: none; }
+.density-head { font-size: 0.82rem; font-weight: 700; color: var(--heading) !important; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.density-bar { display: flex; align-items: center; gap: 0.75rem; padding: 0.5rem 0; border-bottom: 1px solid var(--card-border); }
+.density-bar:last-child { border-bottom: none; }
+.density-word { font-size: 0.85rem; font-weight: 600; color: var(--text) !important; min-width: 100px; }
+.density-fill-wrap { flex: 1; height: 8px; background: var(--input-bg); border-radius: 4px; overflow: hidden; }
+.density-fill { height: 100%; background: linear-gradient(90deg, var(--pri), #8B5CF6); border-radius: 4px; transition: width .3s; }
+.density-pct { font-size: 0.78rem; font-weight: 600; color: var(--muted) !important; min-width: 50px; text-align: right; }
+.density-count { font-size: 0.75rem; color: var(--muted) !important; min-width: 30px; text-align: right; }
+
+.limits-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--card-border); }
+.limit-chip { background: var(--input-bg) !important; border: 1px solid var(--card-border); border-radius: 8px; padding: 0.45rem 0.9rem; font-size: 0.78rem; font-weight: 600; color: var(--muted) !important; cursor: pointer; transition: all .2s; }
+.limit-chip:hover, .limit-chip.active { background: var(--pri) !important; color: #fff !important; border-color: var(--pri) !important; }
+.limit-chip .limit-status { margin-left: 0.4rem; }
+
+.wc-section { max-width: 1100px; margin: 0 auto; padding: 4rem 1.5rem; }
+.wc-section.alt { background: var(--bg-alt) !important; max-width: 100%; }
+.wc-section.alt > .inner { max-width: 1100px; margin: 0 auto; }
+.sec-head { text-align: center; margin-bottom: 2.75rem; }
+.sec-head h2 { font-size: 1.65rem; font-weight: 800; color: var(--heading) !important; margin-bottom: 0.5rem; }
+.sec-head p { color: var(--muted) !important; font-size: 0.92rem; max-width: 560px; margin: 0 auto; font-style: italic; }
+
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.step { background: var(--card-bg) !important; border: 1px solid var(--card-border); border-radius: 16px; padding: 2rem 1.5rem; text-align: center; transition: border-color .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.step:hover { border-color: var(--pri); }
+.step-n { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--pri), #8B5CF6) !important; color: #fff !important; font-weight: 700; font-size: 1rem; margin-bottom: 1rem; }
+.step h3 { font-size: 1rem; font-weight: 700; color: var(--heading) !important; margin-bottom: 0.5rem; }
+.step p { font-size: 0.85rem; color: var(--muted) !important; }
+
+.cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.fcard { background: var(--card-bg) !important; border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; transition: border-color .2s, transform .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.fcard:hover { border-color: var(--pri); transform: translateY(-2px); }
+.fcard .ic { font-size: 1.6rem; margin-bottom: 0.8rem; display: block; }
+.fcard h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading) !important; margin-bottom: 0.4rem; }
+.fcard p { font-size: 0.85rem; color: var(--muted) !important; line-height: 1.55; }
+
+.tbl-wrap { overflow-x: auto; border-radius: 16px; border: 1px solid var(--card-border); box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.cmp-tbl { width: 100%; border-collapse: collapse; font-size: 0.85rem; background: var(--card-bg) !important; }
+.cmp-tbl th, .cmp-tbl td { padding: 0.9rem 1.1rem; text-align: center; border-bottom: 1px solid var(--card-border); }
+.cmp-tbl th { background: var(--heading) !important; color: #fff !important; font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.cmp-tbl td:first-child { text-align: left; font-weight: 600; color: var(--text) !important; }
+.cmp-tbl tr:last-child td { border-bottom: none; }
+.cmp-tbl .hl { background: rgba(108,92,231,0.06) !important; }
+.ck { color: var(--green) !important; font-weight: 700; font-size: 1.1rem; }
+.cx { color: var(--red) !important; font-size: 1.1rem; }
+
+.use-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+.use-card { background: var(--card-bg) !important; border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; display: flex; gap: 1.25rem; align-items: flex-start; transition: border-color .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.use-card:hover { border-color: var(--pri); }
+.use-card .ic { font-size: 1.6rem; flex-shrink: 0; }
+.use-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading) !important; margin-bottom: 0.35rem; }
+.use-card p { font-size: 0.85rem; color: var(--muted) !important; line-height: 1.55; }
+
+.limits-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; background: var(--card-bg) !important; }
+.limits-table th, .limits-table td { padding: 0.85rem 1rem; text-align: left; border-bottom: 1px solid var(--card-border); }
+.limits-table th { background: var(--input-bg) !important; color: var(--heading) !important; font-weight: 700; font-size: 0.78rem; text-transform: uppercase; }
+.limits-table tr:last-child td { border-bottom: none; }
+.limits-table td:nth-child(2) { font-weight: 600; color: var(--pri) !important; }
+
+.tips { display: flex; flex-direction: column; gap: 1rem; }
+.tip { background: var(--card-bg) !important; border: 1px solid var(--card-border); border-radius: 16px; padding: 1.5rem 1.75rem; display: flex; gap: 1.25rem; align-items: flex-start; transition: border-color .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.tip:hover { border-color: var(--pri); }
+.tip-n { flex-shrink: 0; width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--pri), #8B5CF6) !important; color: #fff !important; font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; }
+.tip h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading) !important; margin-bottom: 0.3rem; }
+.tip p { font-size: 0.85rem; color: var(--muted) !important; line-height: 1.55; }
+
+.rel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.rel-card { background: var(--card-bg) !important; border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; display: flex; flex-direction: column; transition: border-color .2s, transform .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.rel-card:hover { border-color: var(--pri); transform: translateY(-2px); }
+.rel-card .cat { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--pri) !important; margin-bottom: 0.6rem; letter-spacing: 0.05em; }
+.rel-card h3 { font-size: 1rem; font-weight: 700; color: var(--heading) !important; margin-bottom: 0.45rem; }
+.rel-card p { font-size: 0.85rem; color: var(--muted) !important; margin-bottom: 1.25rem; flex: 1; line-height: 1.55; }
+.rel-card .btn { text-align: center; font-size: 0.82rem; padding: 0.55rem 1rem; }
+
+.svc-banner { background: linear-gradient(135deg, var(--bg-alt) 0%, var(--card-bg) 100%) !important; border: 1px solid var(--card-border); border-radius: 16px; padding: 3rem 2rem; text-align: center; max-width: 850px; margin: 0 auto; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.svc-banner .badge { display: inline-block; background: var(--pri) !important; color: #fff !important; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; padding: 0.3rem 0.85rem; border-radius: 999px; margin-bottom: 0.85rem; letter-spacing: 0.05em; }
+.svc-banner h3 { font-size: 1.35rem; font-weight: 800; color: var(--heading) !important; margin-bottom: 0.85rem; }
+.svc-banner p { color: var(--muted) !important; font-size: 0.9rem; max-width: 540px; margin: 0 auto 1.5rem; line-height: 1.6; }
+
+.faq-list { max-width: 800px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--card-border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.15rem 0; cursor: pointer; font-weight: 600; font-size: 0.95rem; color: var(--heading) !important; background: transparent !important; border: none !important; border-radius: 0 !important; width: 100%; text-align: left; font-family: inherit; transition: color .2s; box-shadow: none !important; }
+.faq-q:hover, .faq-q:focus, .faq-q:active { color: var(--pri) !important; background: transparent !important; box-shadow: none !important; }
+.faq-q .arrow { font-size: 1.2rem; color: var(--pri) !important; flex-shrink: 0; transition: transform .25s; }
+.faq-item.open .faq-q .arrow { transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+.faq-item.open .faq-a { max-height: 500px; }
+.faq-a p { font-size: 0.9rem; color: var(--muted) !important; padding-bottom: 1rem; line-height: 1.6; }
+
+.final-cta { text-align: center; padding: 4.5rem 1.5rem; background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%) !important; }
+.final-cta h2 { font-size: 1.85rem; font-weight: 800; color: var(--heading) !important; margin-bottom: 0.85rem; }
+.final-cta p { color: var(--muted) !important; font-size: 0.95rem; margin-bottom: 1.75rem; }
+.btn-big { display: inline-block; background: linear-gradient(135deg, var(--pri), #8B5CF6) !important; color: #fff !important; padding: 0.9rem 2.8rem; border-radius: 12px; font-weight: 700; font-size: 1.05rem; border: none !important; cursor: pointer; transition: transform .2s, box-shadow .2s; box-shadow: 0 4px 20px rgba(108,92,231,0.3); }
+.btn-big:hover, .btn-big:focus, .btn-big:active { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(108,92,231,0.45); color: #fff !important; background: linear-gradient(135deg, var(--pri-hover), #7C4FE0) !important; }
+.final-cta .sub-note { font-size: 0.8rem; color: var(--muted) !important; margin-top: 0.85rem; }
+
+.toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); background: var(--green) !important; color: #fff !important; padding: 0.6rem 1.5rem; border-radius: 10px; font-weight: 600; font-size: 0.85rem; opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 999; }
+.toast.show { opacity: 1; }
+
+@media (max-width: 768px) {
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  .stats-row2 { grid-template-columns: repeat(2, 1fr); }
+  .steps, .cards-grid, .rel-grid { grid-template-columns: 1fr; }
+  .use-cards { grid-template-columns: 1fr; }
+  .wc-hero h1 { font-size: 1.7rem; }
+  .tip { flex-direction: column; }
+  .use-card { flex-direction: column; }
+  .cmp-tbl { font-size: 0.78rem; }
+  .cmp-tbl th, .cmp-tbl td { padding: 0.65rem 0.6rem; }
+  .stat-card .stat-val { font-size: 1.4rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Section 1: Hero -->
+<div class="wc-hero">
+  <a href="/tools/" class="back-link">&larr; Back to All Tools</a>
+  <div><span class="badge">&#128221; Word &amp; Character Counter</span></div>
+  <h1>Free Online Word Counter &amp; Character Count Tool</h1>
+  <p class="sub">Count words, characters, sentences, paragraphs, and get reading time instantly. Better than WordCounter.net because we include keyword density, social media limits, and readability scores. No signup, no ads, completely free.</p>
+  <div class="usp-row">
+    <span class="usp-pill">&#10003; 100% Free Forever</span>
+    <span class="usp-pill">&#10003; No Signup Required</span>
+    <span class="usp-pill">&#10003; Keyword Density</span>
+    <span class="usp-pill">&#10003; Reading &amp; Speaking Time</span>
+    <span class="usp-pill">&#10003; Social Media Limits</span>
+  </div>
+</div>
+
+<!-- Section 2: Tool Widget -->
+<div class="wc-tool">
+  <div class="wc-box">
+    <div class="stats-grid">
+      <div class="stat-card"><span class="stat-val" id="wordCount">0</span><span class="stat-lbl">Words</span></div>
+      <div class="stat-card"><span class="stat-val" id="charCount">0</span><span class="stat-lbl">Characters</span></div>
+      <div class="stat-card"><span class="stat-val" id="charNoSpace">0</span><span class="stat-lbl">Characters (No Spaces)</span></div>
+      <div class="stat-card"><span class="stat-val" id="sentenceCount">0</span><span class="stat-lbl">Sentences</span></div>
+    </div>
+    <div class="stats-row2">
+      <div class="stat-mini"><span class="stat-val" id="paraCount">0</span><span class="stat-lbl">Paragraphs</span></div>
+      <div class="stat-mini"><span class="stat-val" id="readTime">0 min</span><span class="stat-lbl">Reading Time</span></div>
+      <div class="stat-mini"><span class="stat-val" id="speakTime">0 min</span><span class="stat-lbl">Speaking Time</span></div>
+      <div class="stat-mini"><span class="stat-val" id="avgWordLen">0</span><span class="stat-lbl">Avg Word Length</span></div>
+    </div>
+    <div class="stats-row2">
+      <div class="stat-mini"><span class="stat-val" id="avgSentLen">0</span><span class="stat-lbl">Avg Sentence Length</span></div>
+      <div class="stat-mini"><span class="stat-val" id="uniqueWords">0</span><span class="stat-lbl">Unique Words</span></div>
+      <div class="stat-mini"><span class="stat-val" id="longWords">0</span><span class="stat-lbl">Long Words (6+)</span></div>
+      <div class="stat-mini"><span class="stat-val" id="readScore">-</span><span class="stat-lbl">Readability</span></div>
+    </div>
+
+    <textarea class="wc-textarea" id="inputText" placeholder="Start typing or paste your text here to count words, characters, sentences, and paragraphs instantly. Works with blog posts, essays, articles, social media captions, emails, and any text content..."></textarea>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="copyText()">&#128203; Copy Text</button>
+      <button class="btn btn-secondary" onclick="clearText()">Clear</button>
+      <button class="btn btn-secondary" onclick="toggleDensity()">&#128202; Keyword Density</button>
+      <button class="btn btn-secondary" onclick="downloadStats()">&#11015; Download Report</button>
+    </div>
+
+    <div class="limits-row">
+      <span style="font-size:0.75rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.05em;align-self:center;">Platform Limits:</span>
+      <span class="limit-chip" id="limTwitter">Twitter/X <span class="limit-status">0/280</span></span>
+      <span class="limit-chip" id="limMeta">Meta Title <span class="limit-status">0/60</span></span>
+      <span class="limit-chip" id="limMetaDesc">Meta Desc <span class="limit-status">0/160</span></span>
+      <span class="limit-chip" id="limLinkedin">LinkedIn <span class="limit-status">0/3000</span></span>
+      <span class="limit-chip" id="limInsta">Instagram <span class="limit-status">0/2200</span></span>
+    </div>
+
+    <div class="density-section" id="densitySection">
+      <div class="density-head">Top Keyword Density (Single Words)</div>
+      <div id="densityList"></div>
+      <div class="density-head" style="margin-top:1.25rem;">Top 2-Word Phrases</div>
+      <div id="bigramList"></div>
+      <div class="density-head" style="margin-top:1.25rem;">Top 3-Word Phrases</div>
+      <div id="trigramList"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 3: How It Works -->
+<div class="wc-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>How to Use Our Free Word Counter Tool</h2>
+      <p>Count words in your text in three simple steps. No account needed.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <h3>Paste or Type Your Text</h3>
+        <p>Copy your content from any source and paste it into the text box above. You can also type directly. There is no word limit or character restriction.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <h3>See Instant Results</h3>
+        <p>Word count, character count, sentence count, paragraph count, reading time, and speaking time update in real time as you type. No button clicks required.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <h3>Check Density &amp; Export</h3>
+        <p>Click Keyword Density to see your top keywords with frequency data. Download a full report as a text file for your records or share with your team.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 4: Key Features -->
+<div class="wc-section">
+  <div class="sec-head">
+    <h2>12 Free Features That Beat WordCounter.net &amp; CharacterCountOnline.com</h2>
+    <p>We built the word counter tool that content writers, students, and SEO professionals actually need.</p>
+  </div>
+  <div class="cards-grid">
+    <div class="fcard">
+      <span class="ic">&#128221;</span>
+      <h3>Real-Time Word Count</h3>
+      <p>Count words in text instantly as you type. No need to click a button or wait for processing. Our word counter online works with any text length from a single sentence to a full book chapter.</p>
+    </div>
+    <div class="fcard">
+      <span class="ic">&#128291;</span>
+      <h3>Characters With &amp; Without Spaces</h3>
+      <p>See both character counts simultaneously. Characters without spaces is essential for Twitter character limits, SMS messages, and meta descriptions where every character matters.</p>
+    </div>
+    <div class="fcard">
+      <span class="ic">&#9201;</span>
+      <h3>Reading &amp; Speaking Time</h3>
+      <p>Estimated reading time at 238 words per minute (average adult reading speed) and speaking time at 150 words per minute. Perfect for planning presentations, speeches, and podcast scripts.</p>
+    </div>
+    <div class="fcard">
+      <span class="ic">&#128202;</span>
+      <h3>Keyword Density Checker</h3>
+      <p>See your top single keywords, 2-word phrases (bigrams), and 3-word phrases (trigrams) with exact frequency counts and percentage density. WordCounter.net charges for this. We give it free.</p>
+    </div>
+    <div class="fcard">
+      <span class="ic">&#128241;</span>
+      <h3>Social Media Character Limits</h3>
+      <p>Live tracking for Twitter/X (280), Meta Title (60), Meta Description (160), LinkedIn (3,000), and Instagram (2,200) character limits. See at a glance whether your text fits each platform.</p>
+    </div>
+    <div class="fcard">
+      <span class="ic">&#128200;</span>
+      <h3>Readability Score</h3>
+      <p>Automated readability index tells you the grade level of your text. Aim for Grade 6 to 8 for general audiences, Grade 10 to 12 for professional content, and Grade 12+ for academic writing.</p>
+    </div>
+    <div class="fcard">
+      <span class="ic">&#128290;</span>
+      <h3>Sentence &amp; Paragraph Counter</h3>
+      <p>Accurate sentence counting using punctuation analysis and paragraph counting using line breaks. Know exactly how many sentences and paragraphs your essay, article, or assignment contains.</p>
+    </div>
+    <div class="fcard">
+      <span class="ic">&#127919;</span>
+      <h3>Unique Word Count</h3>
+      <p>See how many distinct words you use. A higher unique word count relative to total words means richer vocabulary. Useful for academic writing, creative writing, and SEO content diversity.</p>
+    </div>
+    <div class="fcard">
+      <span class="ic">&#128274;</span>
+      <h3>100% Private and Offline</h3>
+      <p>Your text never leaves your browser. All counting and analysis happens locally using JavaScript. Nothing is uploaded to any server. CharacterCountOnline.com does not offer this level of privacy.</p>
+    </div>
+    <div class="fcard">
+      <span class="ic">&#128196;</span>
+      <h3>Downloadable Report</h3>
+      <p>Export a full text analysis report as a downloadable text file. Includes all counts, reading time, keyword density, and readability data. Most free word counters do not offer report exports.</p>
+    </div>
+    <div class="fcard">
+      <span class="ic">&#128275;</span>
+      <h3>No Limits, No Signup</h3>
+      <p>Count as many words as you want, as many times as you want. No registration, no email required, no daily caps, no word limits. Free forever with all features unlocked from the start.</p>
+    </div>
+    <div class="fcard">
+      <span class="ic">&#128581;</span>
+      <h3>Zero Ads, Clean Interface</h3>
+      <p>No pop-ups, no banner ads, no auto-playing videos. Just a clean, fast, focused word counting experience. Unlike WordCounter.net which shows ads on every page, BrightlyFuture is completely ad-free.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Section 5: Comparison Table -->
+<div class="wc-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>BrightlyFuture vs WordCounter.net vs CharacterCountOnline vs LetterCount</h2>
+      <p>We compared every major word counter tool so you can see the differences clearly.</p>
+    </div>
+    <div class="tbl-wrap">
+      <table class="cmp-tbl">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th class="hl">BrightlyFuture</th>
+            <th>WordCounter.net</th>
+            <th>CharacterCountOnline</th>
+            <th>LetterCount.com</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Word Count</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td></tr>
+          <tr><td>Character Count (Both)</td><td class="hl"><span class="ck">&#10003;</span> With &amp; Without Spaces</td><td><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td></tr>
+          <tr><td>Sentence Count</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
+          <tr><td>Paragraph Count</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
+          <tr><td>Reading Time</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
+          <tr><td>Speaking Time</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
+          <tr><td>Keyword Density (Free)</td><td class="hl"><span class="ck">&#10003;</span> 1/2/3-grams</td><td>Paid Only</td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
+          <tr><td>Social Media Limits</td><td class="hl"><span class="ck">&#10003;</span> 5 Platforms</td><td><span class="cx">&#10007;</span></td><td><span class="ck">&#10003;</span> Limited</td><td><span class="cx">&#10007;</span></td></tr>
+          <tr><td>Readability Score</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
+          <tr><td>Unique Word Count</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
+          <tr><td>Download Report</td><td class="hl"><span class="ck">&#10003;</span> Free</td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
+          <tr><td>No Signup Required</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td></tr>
+          <tr><td>Ad-Free</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span> Has Ads</td><td><span class="cx">&#10007;</span> Has Ads</td><td><span class="cx">&#10007;</span> Has Ads</td></tr>
+          <tr><td>Privacy (No Upload)</td><td class="hl"><span class="ck">&#10003;</span> Browser Only</td><td><span class="cx">&#10007;</span></td><td><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Section 6: Who Is This For -->
+<div class="wc-section">
+  <div class="sec-head">
+    <h2>Who Uses Our Free Word Counter and Character Counter Tool?</h2>
+    <p>Built for anyone who works with text and needs accurate word counts.</p>
+  </div>
+  <div class="use-cards">
+    <div class="use-card">
+      <span class="ic">&#127891;</span>
+      <div>
+        <h3>Students Writing Essays and Assignments</h3>
+        <p>Check whether your essay meets the required word count. Our word counter for essays shows exact word count, character count, and paragraph count so you can submit assignments that meet your professor's requirements.</p>
+      </div>
+    </div>
+    <div class="use-card">
+      <span class="ic">&#128221;</span>
+      <div>
+        <h3>Bloggers and Content Writers</h3>
+        <p>Use our word counter for blog posts to ensure articles hit optimal SEO lengths. Most SEO experts recommend 1,500 to 2,500 words for blog posts. Our keyword density feature helps you avoid keyword stuffing while keeping content on topic.</p>
+      </div>
+    </div>
+    <div class="use-card">
+      <span class="ic">&#128640;</span>
+      <div>
+        <h3>SEO Professionals and Digital Marketers</h3>
+        <p>Check keyword density percentages to optimise on-page SEO without over-optimisation. Track meta title character count (under 60) and meta description length (under 160) with our built-in social media limit trackers.</p>
+      </div>
+    </div>
+    <div class="use-card">
+      <span class="ic">&#127908;</span>
+      <div>
+        <h3>Public Speakers and Presenters</h3>
+        <p>Use the speaking time calculator to plan your presentations. A 10-minute speech needs roughly 1,500 words. A 20-minute presentation needs about 3,000 words. Paste your script to see exactly how long it will take to deliver.</p>
+      </div>
+    </div>
+    <div class="use-card">
+      <span class="ic">&#128241;</span>
+      <div>
+        <h3>Social Media Managers</h3>
+        <p>Our character counter for Twitter helps you write tweets that fit within the 280 character limit. Also tracks Instagram caption limits (2,200 characters) and LinkedIn post limits (3,000 characters) in real time.</p>
+      </div>
+    </div>
+    <div class="use-card">
+      <span class="ic">&#128188;</span>
+      <div>
+        <h3>Freelancers, Copywriters, and Journalists</h3>
+        <p>Freelancers who get paid per word need accurate word counts for invoicing. Journalists working with strict word count requirements can verify their articles meet editorial guidelines before submission.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 7: Word Count Guide Table -->
+<div class="wc-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>How Many Words Should Your Content Be? Complete Word Count Guide</h2>
+      <p>Optimal word counts for different content types based on SEO research and industry standards.</p>
+    </div>
+    <div class="tbl-wrap">
+      <table class="limits-table">
+        <thead>
+          <tr><th>Content Type</th><th>Recommended Word Count</th><th>Reading Time</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Twitter/X Post</td><td>25 - 50 words</td><td>10 sec</td><td>280 character limit. Short and punchy performs best.</td></tr>
+          <tr><td>Instagram Caption</td><td>50 - 150 words</td><td>30 sec</td><td>2,200 character limit. First 125 characters visible before "more".</td></tr>
+          <tr><td>LinkedIn Post</td><td>100 - 300 words</td><td>1 - 2 min</td><td>3,000 character limit. Posts with 1,200+ characters get more engagement.</td></tr>
+          <tr><td>Email Newsletter</td><td>200 - 500 words</td><td>1 - 2 min</td><td>Short emails have higher click-through rates.</td></tr>
+          <tr><td>Product Description</td><td>300 - 500 words</td><td>1 - 2 min</td><td>Enough detail for SEO and buyer decision-making.</td></tr>
+          <tr><td>Blog Post (Short)</td><td>800 - 1,200 words</td><td>3 - 5 min</td><td>Good for news updates, how-to guides, and listicles.</td></tr>
+          <tr><td>Blog Post (Long-Form SEO)</td><td>1,500 - 2,500 words</td><td>6 - 10 min</td><td>Best for ranking on Google. Comprehensive coverage wins.</td></tr>
+          <tr><td>Pillar Page / Ultimate Guide</td><td>3,000 - 5,000 words</td><td>12 - 20 min</td><td>Detailed guides that target competitive keywords.</td></tr>
+          <tr><td>Academic Essay</td><td>1,500 - 5,000 words</td><td>6 - 20 min</td><td>Depends on assignment type. Always check requirements.</td></tr>
+          <tr><td>White Paper</td><td>3,000 - 6,000 words</td><td>12 - 25 min</td><td>Research-backed thought leadership content.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Section 8: Tips for Better Writing -->
+<div class="wc-section">
+  <div class="sec-head">
+    <h2>5 Tips for Hitting the Right Word Count Without Filler</h2>
+    <p>Quality matters more than quantity. Here is how to write the right amount.</p>
+  </div>
+  <div class="tips">
+    <div class="tip">
+      <div class="tip-n">1</div>
+      <div>
+        <h3>Focus on Search Intent, Not Arbitrary Word Counts</h3>
+        <p>Google ranks content that answers the search query completely. A 1,200 word post that fully answers a question will outrank a 3,000 word post filled with irrelevant filler. Use our word counter to track length while keeping every paragraph purposeful.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">2</div>
+      <div>
+        <h3>Keep Sentences Short for Better Readability</h3>
+        <p>Average sentence length between 15 and 20 words scores best for readability. Sentences over 25 words become hard to follow. Use our average sentence length metric to identify when your writing gets too complex.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">3</div>
+      <div>
+        <h3>Aim for 1% to 2% Keyword Density</h3>
+        <p>SEO experts recommend keeping primary keyword density between 1% and 2%. Going above 3% risks keyword stuffing penalties from Google. Use our free keyword density checker to monitor your keyword usage as you write.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">4</div>
+      <div>
+        <h3>Break Long Content into Short Paragraphs</h3>
+        <p>Paragraphs of 2 to 4 sentences perform best for online reading. Readers scan content on screens. Large text blocks cause bounce. Use our paragraph counter to make sure your content stays scannable.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">5</div>
+      <div>
+        <h3>Use Unique Words for Vocabulary Richness</h3>
+        <p>A high ratio of unique words to total words indicates strong vocabulary. Academic and professional writing should aim for higher diversity. Our unique word counter helps you identify when your writing becomes repetitive.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 9: Related Tools -->
+<div class="wc-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>More Free Writing and SEO Tools from BrightlyFuture</h2>
+      <p>Explore our growing collection of free content and digital marketing tools.</p>
+    </div>
+    <div class="rel-grid">
+      <div class="rel-card">
+        <span class="cat">Content &middot; AI</span>
+        <h3>AI Blog Generator</h3>
+        <p>Generate SEO-optimised, human-sounding blog posts in 30 seconds. No signup, no credit card, unlimited use.</p>
+        <a href="/tools/ai-blog-generator/" class="btn btn-secondary">Try Free &rarr;</a>
+      </div>
+      <div class="rel-card">
+        <span class="cat">Content &middot; AI</span>
+        <h3>AI Content Detector</h3>
+        <p>Check if text is written by AI or a human. Sentence-level analysis with transparent perplexity and burstiness scores.</p>
+        <a href="/tools/ai-blog-detector/" class="btn btn-secondary">Try Free &rarr;</a>
+      </div>
+      <div class="rel-card">
+        <span class="cat">Content &middot; AI</span>
+        <h3>AI Paraphraser &amp; Rewriter</h3>
+        <p>Rephrase text in 6 modes: Standard, Formal, Casual, Creative, Simple, and Academic. Unlimited, free, no signup.</p>
+        <a href="/tools/ai-paraphraser-rewriter/" class="btn btn-secondary">Try Free &rarr;</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 10: Service Banner -->
+<div class="wc-section">
+  <div class="svc-banner">
+    <span class="badge">Done-for-you</span>
+    <h3>Need Professional SEO Content That Ranks on Google?</h3>
+    <p>Our team writes original, keyword-optimised content with the right word count, proper keyword density, and strong readability scores. Research-backed, human-written, ready to publish.</p>
+    <a href="/services/content-marketing/" class="btn btn-primary">Get a Free Quote &rarr;</a>
+  </div>
+</div>
+
+<!-- Section 11: FAQ -->
+<div class="wc-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>Frequently Asked Questions About Word Counting and Character Counting</h2>
+      <p>Everything writers, students, and marketers ask about counting words online.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is this word counter tool completely free?<span class="arrow">+</span></button><div class="faq-a"><p>Yes. Our online word counter is 100% free with no hidden charges, no signup required, no daily limits, and no features locked behind a paywall. Unlike WordCounter.net which puts keyword density behind a paid plan, we give you every feature for free.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How accurate is the word count?<span class="arrow">+</span></button><div class="faq-a"><p>Our word counter uses the same word-splitting logic as Microsoft Word and Google Docs. Words are counted by splitting text on whitespace characters. Hyphenated words like "well-known" count as one word. Numbers like "2024" count as one word. The count is accurate for standard English and most Latin-alphabet languages.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is the difference between characters and characters without spaces?<span class="arrow">+</span></button><div class="faq-a"><p>Characters with spaces counts every character including spaces between words. Characters without spaces only counts letters, numbers, and punctuation marks. Twitter and most social media platforms count characters with spaces. SMS character limits also include spaces.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How is reading time calculated?<span class="arrow">+</span></button><div class="faq-a"><p>Reading time is calculated at 238 words per minute, which is the average adult silent reading speed based on research published in the Journal of Memory and Language. We round to the nearest minute for practical display, with a minimum of "less than 1 min" for very short texts.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How is speaking time calculated?<span class="arrow">+</span></button><div class="faq-a"><p>Speaking time uses 150 words per minute, which is the average conversational speaking pace in English. Professional speakers typically speak at 130 to 170 words per minute. This estimate helps you plan presentations, speeches, podcast scripts, and video narrations.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is keyword density and why does it matter for SEO?<span class="arrow">+</span></button><div class="faq-a"><p>Keyword density is the percentage of times a specific word or phrase appears in your text relative to the total word count. For SEO, keeping your primary keyword at 1% to 2% density is considered optimal. Going above 3% can trigger Google's keyword stuffing filter and hurt rankings. Our free keyword density checker shows single words, 2-word phrases, and 3-word phrases.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How many words should a blog post be for SEO?<span class="arrow">+</span></button><div class="faq-a"><p>Research from Backlinko and HubSpot shows that blog posts ranking on the first page of Google average 1,447 to 2,450 words. Short blog posts of 800 to 1,200 words work for simple topics. In-depth guides of 2,000 to 3,000 words perform best for competitive keywords. Always prioritise quality and completeness over word count alone.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is the character limit for Twitter/X posts?<span class="arrow">+</span></button><div class="faq-a"><p>Twitter/X allows 280 characters per tweet for free accounts. Twitter Blue/Premium subscribers can post up to 25,000 characters. Our character counter for Twitter shows your current character count against the 280 limit in real time so you can compose tweets that fit perfectly.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is the Instagram caption character limit?<span class="arrow">+</span></button><div class="faq-a"><p>Instagram allows up to 2,200 characters per caption. However, only the first 125 characters are visible in the feed before the "more" link. For maximum engagement, put your most important message in those first 125 characters and use the remaining space for context, hashtags, and calls to action.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How does the readability score work?<span class="arrow">+</span></button><div class="faq-a"><p>We use the Automated Readability Index (ARI), which calculates a grade level based on characters per word and words per sentence. A score of 6 to 8 means most adults can read it easily. A score of 10 to 12 is professional level. A score above 14 indicates highly complex academic or technical writing.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is my text sent to a server or stored anywhere?<span class="arrow">+</span></button><div class="faq-a"><p>No. All word counting, character counting, and keyword analysis happens entirely in your browser using JavaScript. Your text is never uploaded to any server, never stored in any database, and never shared with any third party. Your privacy is fully protected.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I count words in languages other than English?<span class="arrow">+</span></button><div class="faq-a"><p>Yes. Our word counter works with any language that uses space-separated words including Spanish, French, German, Italian, Portuguese, Dutch, and most European languages. For languages without word spaces (Chinese, Japanese, Thai), character count is more reliable than word count.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How many words is a 5-minute speech?<span class="arrow">+</span></button><div class="faq-a"><p>A 5-minute speech is approximately 750 words at an average speaking pace of 150 words per minute. A 10-minute speech needs about 1,500 words. A 15-minute speech requires roughly 2,250 words. A 20-minute speech uses about 3,000 words. Use our speaking time calculator to verify your exact speech length.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How many words is a page?<span class="arrow">+</span></button><div class="faq-a"><p>A single-spaced page with standard margins and 12pt Times New Roman font contains approximately 500 words. A double-spaced page contains roughly 250 words. So a 5-page double-spaced essay is about 1,250 words and a 10-page double-spaced paper is about 2,500 words.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Does this tool work on mobile phones and tablets?<span class="arrow">+</span></button><div class="faq-a"><p>Yes. Our free online word counter is fully responsive and works on all devices including iPhones, Android phones, iPads, tablets, and desktop computers. All features including keyword density, readability, and report download work on mobile.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 12: Final CTA -->
+<div class="final-cta">
+  <h2>Start Counting Words and Characters for Free</h2>
+  <p>Paste your text, see instant results. Free forever, no signup, no limits, no ads.</p>
+  <a href="#inputText" class="btn-big" onclick="setTimeout(function(){document.getElementById('inputText').focus()},400)">&#128221; Count My Words Now - 100% Free</a>
+  <div class="sub-note">No Signup &middot; No Word Limits &middot; Keyword Density &middot; Reading Time &middot; Ad-Free</div>
+</div>
+
+<div class="toast" id="toast">Copied!</div>
+
+<script>eval(atob("KGZ1bmN0aW9uKCl7CnZhciBpbnB1dEVsOwp2YXIgc3RvcFdvcmRzID0ge3RoZToxLGE6MSxhbjoxLGFuZDoxLG9yOjEsYnV0OjEsaW46MSxvbjoxLGF0OjEsdG86MSxmb3I6MSxvZjoxLHdpdGg6MSxieToxLGZyb206MSxpczoxLGl0OjEsYXM6MSxiZToxLHdhczoxLGFyZToxLGJlZW46MSxoYXM6MSxoYXZlOjEsaGFkOjEsZG86MSxkb2VzOjEsZGlkOjEsd2lsbDoxLHdvdWxkOjEsY291bGQ6MSxzaG91bGQ6MSxtYXk6MSxtaWdodDoxLHNoYWxsOjEsY2FuOjEsdGhpczoxLHRoYXQ6MSx0aGVzZToxLHRob3NlOjEsaToxLHlvdToxLGhlOjEsc2hlOjEsd2U6MSx0aGV5OjEsbWU6MSxoaW06MSxoZXI6MSx1czoxLHRoZW06MSxteToxLHlvdXI6MSxoaXM6MSxpdHM6MSxvdXI6MSx0aGVpcjoxLG5vdDoxLG5vOjEsc286MSxpZjoxLHRoZW46MSx0aGFuOjEsdG9vOjEsdmVyeToxLGp1c3Q6MSxhYm91dDoxLHVwOjEsb3V0OjEsaW50bzoxLG92ZXI6MSxhZnRlcjoxLGJlZm9yZToxLGJldHdlZW46MSx1bmRlcjoxLGFib3ZlOjEsZWFjaDoxLGFsbDoxLGJvdGg6MSxmZXc6MSxtb3JlOjEsbW9zdDoxLG90aGVyOjEsc29tZToxLHN1Y2g6MSxvbmx5OjEsc2FtZToxLGFsc286MSxob3c6MSx3aGF0OjEsd2hpY2g6MSx3aG86MSx3aGVuOjEsd2hlcmU6MSx3aHk6MSxhbToxLHdlcmU6MSxiZWluZzoxLGhlcmU6MSx0aGVyZToxLG93bjoxLGRvd246MX07CgpmdW5jdGlvbiBpbml0Q291bnRlcigpIHsKICBpbnB1dEVsID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2lucHV0VGV4dCcpOwogIGlmICghaW5wdXRFbCkgeyBzZXRUaW1lb3V0KGluaXRDb3VudGVyLCAyMDApOyByZXR1cm47IH0KICBpbnB1dEVsLmFkZEV2ZW50TGlzdGVuZXIoJ2lucHV0JywgYW5hbHlzZVRleHQpOwp9CgppZiAoZG9jdW1lbnQucmVhZHlTdGF0ZSA9PT0gJ2xvYWRpbmcnKSB7CiAgZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsIGluaXRDb3VudGVyKTsKfSBlbHNlIHsKICBpbml0Q291bnRlcigpOwp9CgpmdW5jdGlvbiBhbmFseXNlVGV4dCgpIHsKICB2YXIgdGV4dCA9IGlucHV0RWwudmFsdWU7CiAgdmFyIHRyaW1tZWQgPSB0ZXh0LnRyaW0oKTsKCiAgdmFyIHdvcmRzID0gdHJpbW1lZCA/IHRyaW1tZWQuc3BsaXQoL1xzKy8pIDogW107CiAgdmFyIHdvcmRDb3VudCA9IHdvcmRzLmxlbmd0aDsKICB2YXIgY2hhckNvdW50ID0gdGV4dC5sZW5ndGg7CiAgdmFyIGNoYXJOb1NwYWNlQ291bnQgPSB0ZXh0LnJlcGxhY2UoL1xzL2csICcnKS5sZW5ndGg7CgogIHZhciBzZW50ZW5jZXMgPSB0cmltbWVkID8gdHJpbW1lZC5zcGxpdCgvWy4hP10rLykuZmlsdGVyKGZ1bmN0aW9uKHMpeyByZXR1cm4gcy50cmltKCkubGVuZ3RoID4gMDsgfSkgOiBbXTsKICB2YXIgc2VudGVuY2VDb3VudCA9IHNlbnRlbmNlcy5sZW5ndGg7CgogIHZhciBwYXJhZ3JhcGhzID0gdHJpbW1lZCA/IHRyaW1tZWQuc3BsaXQoL1xuXHMqXG4vKS5maWx0ZXIoZnVuY3Rpb24ocCl7IHJldHVybiBwLnRyaW0oKS5sZW5ndGggPiAwOyB9KSA6IFtdOwogIGlmICh0cmltbWVkICYmIHBhcmFncmFwaHMubGVuZ3RoID09PSAwKSBwYXJhZ3JhcGhzID0gW3RyaW1tZWRdOwogIHZhciBwYXJhQ291bnQgPSB0cmltbWVkID8gcGFyYWdyYXBocy5sZW5ndGggOiAwOwoKICB2YXIgcmVhZE1pbiA9IHdvcmRDb3VudCA+IDAgPyBNYXRoLmNlaWwod29yZENvdW50IC8gMjM4KSA6IDA7CiAgdmFyIHNwZWFrTWluID0gd29yZENvdW50ID4gMCA/IE1hdGguY2VpbCh3b3JkQ291bnQgLyAxNTApIDogMDsKICB2YXIgcmVhZFRpbWVTdHIgPSByZWFkTWluID4gMCA/IHJlYWRNaW4gKyAnIG1pbicgOiAnMCBtaW4nOwogIHZhciBzcGVha1RpbWVTdHIgPSBzcGVha01pbiA+IDAgPyBzcGVha01pbiArICcgbWluJyA6ICcwIG1pbic7CgogIHZhciB0b3RhbExldHRlcnMgPSAwOwogIGZvciAodmFyIHcgPSAwOyB3IDwgd29yZHMubGVuZ3RoOyB3KyspIHsKICAgIHRvdGFsTGV0dGVycyArPSB3b3Jkc1t3XS5yZXBsYWNlKC9bXmEtekEtWjAtOV0vZywgJycpLmxlbmd0aDsKICB9CiAgdmFyIGF2Z1dMZW4gPSB3b3JkQ291bnQgPiAwID8gKHRvdGFsTGV0dGVycyAvIHdvcmRDb3VudCkudG9GaXhlZCgxKSA6ICcwJzsKICB2YXIgYXZnU0xlbiA9IHNlbnRlbmNlQ291bnQgPiAwID8gTWF0aC5yb3VuZCh3b3JkQ291bnQgLyBzZW50ZW5jZUNvdW50KSA6IDA7CgogIHZhciB3b3JkTWFwID0ge307CiAgZm9yICh2YXIgaiA9IDA7IGogPCB3b3Jkcy5sZW5ndGg7IGorKykgewogICAgdmFyIGx3ID0gd29yZHNbal0udG9Mb3dlckNhc2UoKS5yZXBsYWNlKC9bXmEtejAtOVx4MjctXS9nLCAnJyk7CiAgICBpZiAobHcubGVuZ3RoID4gMCkgewogICAgICB3b3JkTWFwW2x3XSA9ICh3b3JkTWFwW2x3XSB8fCAwKSArIDE7CiAgICB9CiAgfQogIHZhciB1bmlxdWVDb3VudCA9IE9iamVjdC5rZXlzKHdvcmRNYXApLmxlbmd0aDsKCiAgdmFyIGxvbmdDb3VudCA9IDA7CiAgZm9yICh2YXIgayBpbiB3b3JkTWFwKSB7CiAgICBpZiAoay5sZW5ndGggPj0gNikgbG9uZ0NvdW50ICs9IHdvcmRNYXBba107CiAgfQoKICB2YXIgcmVhZGFiaWxpdHkgPSAnLSc7CiAgaWYgKHdvcmRDb3VudCA+IDAgJiYgc2VudGVuY2VDb3VudCA+IDApIHsKICAgIHZhciBhcmkgPSA0LjcxICogKGNoYXJOb1NwYWNlQ291bnQgLyB3b3JkQ291bnQpICsgMC41ICogKHdvcmRDb3VudCAvIHNlbnRlbmNlQ291bnQpIC0gMjEuNDM7CiAgICBhcmkgPSBNYXRoLm1heCgxLCBNYXRoLnJvdW5kKGFyaSkpOwogICAgaWYgKGFyaSA8PSA1KSByZWFkYWJpbGl0eSA9ICdHcmFkZSAnICsgYXJpOwogICAgZWxzZSBpZiAoYXJpIDw9IDgpIHJlYWRhYmlsaXR5ID0gJ0dyYWRlICcgKyBhcmk7CiAgICBlbHNlIGlmIChhcmkgPD0gMTIpIHJlYWRhYmlsaXR5ID0gJ0dyYWRlICcgKyBhcmk7CiAgICBlbHNlIHJlYWRhYmlsaXR5ID0gJ0dyYWRlICcgKyBhcmkgKyAnKyc7CiAgfQoKICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnd29yZENvdW50JykudGV4dENvbnRlbnQgPSB3b3JkQ291bnQ7CiAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2NoYXJDb3VudCcpLnRleHRDb250ZW50ID0gY2hhckNvdW50OwogIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdjaGFyTm9TcGFjZScpLnRleHRDb250ZW50ID0gY2hhck5vU3BhY2VDb3VudDsKICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnc2VudGVuY2VDb3VudCcpLnRleHRDb250ZW50ID0gc2VudGVuY2VDb3VudDsKICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgncGFyYUNvdW50JykudGV4dENvbnRlbnQgPSBwYXJhQ291bnQ7CiAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3JlYWRUaW1lJykudGV4dENvbnRlbnQgPSByZWFkVGltZVN0cjsKICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnc3BlYWtUaW1lJykudGV4dENvbnRlbnQgPSBzcGVha1RpbWVTdHI7CiAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2F2Z1dvcmRMZW4nKS50ZXh0Q29udGVudCA9IGF2Z1dMZW47CiAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2F2Z1NlbnRMZW4nKS50ZXh0Q29udGVudCA9IGF2Z1NMZW47CiAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3VuaXF1ZVdvcmRzJykudGV4dENvbnRlbnQgPSB1bmlxdWVDb3VudDsKICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnbG9uZ1dvcmRzJykudGV4dENvbnRlbnQgPSBsb25nQ291bnQ7CiAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3JlYWRTY29yZScpLnRleHRDb250ZW50ID0gcmVhZGFiaWxpdHk7CgogIHVwZGF0ZUxpbWl0cyhjaGFyQ291bnQpOwogIHVwZGF0ZURlbnNpdHkod29yZHMsIHdvcmRDb3VudCk7Cn0KCmZ1bmN0aW9uIHVwZGF0ZUxpbWl0cyhjaGFyQ291bnQpIHsKICB2YXIgbGltaXRzID0gWwogICAge2lkOiAnbGltVHdpdHRlcicsIG1heDogMjgwLCBsYWJlbDogJ1R3aXR0ZXIvWCd9LAogICAge2lkOiAnbGltTWV0YScsIG1heDogNjAsIGxhYmVsOiAnTWV0YSBUaXRsZSd9LAogICAge2lkOiAnbGltTWV0YURlc2MnLCBtYXg6IDE2MCwgbGFiZWw6ICdNZXRhIERlc2MnfSwKICAgIHtpZDogJ2xpbUxpbmtlZGluJywgbWF4OiAzMDAwLCBsYWJlbDogJ0xpbmtlZEluJ30sCiAgICB7aWQ6ICdsaW1JbnN0YScsIG1heDogMjIwMCwgbGFiZWw6ICdJbnN0YWdyYW0nfQogIF07CiAgZm9yICh2YXIgaSA9IDA7IGkgPCBsaW1pdHMubGVuZ3RoOyBpKyspIHsKICAgIHZhciBlbCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKGxpbWl0c1tpXS5pZCk7CiAgICB2YXIgc3RhdHVzID0gZWwucXVlcnlTZWxlY3RvcignLmxpbWl0LXN0YXR1cycpOwogICAgc3RhdHVzLnRleHRDb250ZW50ID0gY2hhckNvdW50ICsgJy8nICsgbGltaXRzW2ldLm1heDsKICAgIGlmIChjaGFyQ291bnQgPiBsaW1pdHNbaV0ubWF4KSB7CiAgICAgIGVsLmNsYXNzTGlzdC5hZGQoJ2FjdGl2ZScpOwogICAgfSBlbHNlIHsKICAgICAgZWwuY2xhc3NMaXN0LnJlbW92ZSgnYWN0aXZlJyk7CiAgICB9CiAgfQp9CgpmdW5jdGlvbiB1cGRhdGVEZW5zaXR5KHdvcmRzLCB0b3RhbFdvcmRzKSB7CiAgaWYgKHRvdGFsV29yZHMgPT09IDAgfHwgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2RlbnNpdHlTZWN0aW9uJykuc3R5bGUuZGlzcGxheSA9PT0gJ25vbmUnKSByZXR1cm47CgogIHZhciBzaW5nbGVNYXAgPSB7fTsKICB2YXIgY2xlYW5Xb3JkcyA9IFtdOwogIGZvciAodmFyIGkgPSAwOyBpIDwgd29yZHMubGVuZ3RoOyBpKyspIHsKICAgIHZhciBjdyA9IHdvcmRzW2ldLnRvTG93ZXJDYXNlKCkucmVwbGFjZSgvW15hLXowLTlceDI3LV0vZywgJycpOwogICAgaWYgKGN3Lmxlbmd0aCA+IDEgJiYgIXN0b3BXb3Jkc1tjd10pIHsKICAgICAgc2luZ2xlTWFwW2N3XSA9IChzaW5nbGVNYXBbY3ddIHx8IDApICsgMTsKICAgICAgY2xlYW5Xb3Jkcy5wdXNoKGN3KTsKICAgIH0KICB9CgogIHZhciBiaU1hcCA9IHt9OwogIGZvciAodmFyIGIgPSAwOyBiIDwgY2xlYW5Xb3Jkcy5sZW5ndGggLSAxOyBiKyspIHsKICAgIHZhciBiaSA9IGNsZWFuV29yZHNbYl0gKyAnICcgKyBjbGVhbldvcmRzW2IrMV07CiAgICBiaU1hcFtiaV0gPSAoYmlNYXBbYmldIHx8IDApICsgMTsKICB9CgogIHZhciB0cmlNYXAgPSB7fTsKICBmb3IgKHZhciB0ID0gMDsgdCA8IGNsZWFuV29yZHMubGVuZ3RoIC0gMjsgdCsrKSB7CiAgICB2YXIgdHJpID0gY2xlYW5Xb3Jkc1t0XSArICcgJyArIGNsZWFuV29yZHNbdCsxXSArICcgJyArIGNsZWFuV29yZHNbdCsyXTsKICAgIHRyaU1hcFt0cmldID0gKHRyaU1hcFt0cmldIHx8IDApICsgMTsKICB9CgogIHJlbmRlckRlbnNpdHkoJ2RlbnNpdHlMaXN0Jywgc2luZ2xlTWFwLCB0b3RhbFdvcmRzLCAxMCk7CiAgcmVuZGVyRGVuc2l0eSgnYmlncmFtTGlzdCcsIGJpTWFwLCB0b3RhbFdvcmRzLCA4KTsKICByZW5kZXJEZW5zaXR5KCd0cmlncmFtTGlzdCcsIHRyaU1hcCwgdG90YWxXb3JkcywgNik7Cn0KCmZ1bmN0aW9uIHJlbmRlckRlbnNpdHkoY29udGFpbmVySWQsIG1hcCwgdG90YWwsIGxpbWl0KSB7CiAgdmFyIHNvcnRlZCA9IE9iamVjdC5rZXlzKG1hcCkuc29ydChmdW5jdGlvbihhLCBiKSB7IHJldHVybiBtYXBbYl0gLSBtYXBbYV07IH0pOwogIHZhciBjb250YWluZXIgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChjb250YWluZXJJZCk7CiAgdmFyIGh0bWwgPSAnJzsKICB2YXIgbWF4ID0gc29ydGVkLmxlbmd0aCA+IDAgPyBtYXBbc29ydGVkWzBdXSA6IDE7CiAgZm9yICh2YXIgaSA9IDA7IGkgPCBNYXRoLm1pbihzb3J0ZWQubGVuZ3RoLCBsaW1pdCk7IGkrKykgewogICAgaWYgKG1hcFtzb3J0ZWRbaV1dIDwgMiAmJiBjb250YWluZXJJZCAhPT0gJ2RlbnNpdHlMaXN0JykgY29udGludWU7CiAgICB2YXIgcGN0ID0gKChtYXBbc29ydGVkW2ldXSAvIHRvdGFsKSAqIDEwMCkudG9GaXhlZCgxKTsKICAgIHZhciBiYXJXID0gTWF0aC5tYXgoNSwgKG1hcFtzb3J0ZWRbaV1dIC8gbWF4KSAqIDEwMCk7CiAgICBodG1sICs9ICc8ZGl2IGNsYXNzPSJkZW5zaXR5LWJhciI+JzsKICAgIGh0bWwgKz0gJzxzcGFuIGNsYXNzPSJkZW5zaXR5LXdvcmQiPicgKyBzb3J0ZWRbaV0gKyAnPC9zcGFuPic7CiAgICBodG1sICs9ICc8ZGl2IGNsYXNzPSJkZW5zaXR5LWZpbGwtd3JhcCI+PGRpdiBjbGFzcz0iZGVuc2l0eS1maWxsIiBzdHlsZT0id2lkdGg6JyArIGJhclcgKyAnJSI+PC9kaXY+PC9kaXY+JzsKICAgIGh0bWwgKz0gJzxzcGFuIGNsYXNzPSJkZW5zaXR5LXBjdCI+JyArIHBjdCArICclPC9zcGFuPic7CiAgICBodG1sICs9ICc8c3BhbiBjbGFzcz0iZGVuc2l0eS1jb3VudCI+JyArIG1hcFtzb3J0ZWRbaV1dICsgJzwvc3Bhbj4nOwogICAgaHRtbCArPSAnPC9kaXY+JzsKICB9CiAgaWYgKCFodG1sKSBodG1sID0gJzxkaXYgc3R5bGU9ImZvbnQtc2l6ZTowLjgycmVtO2NvbG9yOnZhcigtLW11dGVkKTtwYWRkaW5nOjAuNXJlbSAwOyI+Tm90IGVub3VnaCB0ZXh0IHRvIGFuYWx5c2UuPC9kaXY+JzsKICBjb250YWluZXIuaW5uZXJIVE1MID0gaHRtbDsKfQoKd2luZG93LnRvZ2dsZUZhcSA9IGZ1bmN0aW9uKGJ0bikgewogIGJ0bi5wYXJlbnRFbGVtZW50LmNsYXNzTGlzdC50b2dnbGUoJ29wZW4nKTsKfTsKCndpbmRvdy5jb3B5VGV4dCA9IGZ1bmN0aW9uKCkgewogIHZhciB0ZXh0ID0gaW5wdXRFbC52YWx1ZTsKICBpZiAoIXRleHQpIHsgYWxlcnQoJ05vIHRleHQgdG8gY29weS4gVHlwZSBvciBwYXN0ZSB0ZXh0IGZpcnN0LicpOyByZXR1cm47IH0KICBpZiAobmF2aWdhdG9yLmNsaXBib2FyZCAmJiBuYXZpZ2F0b3IuY2xpcGJvYXJkLndyaXRlVGV4dCkgewogICAgbmF2aWdhdG9yLmNsaXBib2FyZC53cml0ZVRleHQodGV4dCkudGhlbihmdW5jdGlvbigpIHsKICAgICAgdmFyIHQgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgndG9hc3QnKTsKICAgICAgdC5jbGFzc0xpc3QuYWRkKCdzaG93Jyk7CiAgICAgIHNldFRpbWVvdXQoZnVuY3Rpb24oKSB7IHQuY2xhc3NMaXN0LnJlbW92ZSgnc2hvdycpOyB9LCAyMDAwKTsKICAgIH0pOwogIH0gZWxzZSB7CiAgICB2YXIgdGEgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCd0ZXh0YXJlYScpOwogICAgdGEudmFsdWUgPSB0ZXh0OwogICAgZG9jdW1lbnQuYm9keS5hcHBlbmRDaGlsZCh0YSk7CiAgICB0YS5zZWxlY3QoKTsKICAgIGRvY3VtZW50LmV4ZWNDb21tYW5kKCdjb3B5Jyk7CiAgICBkb2N1bWVudC5ib2R5LnJlbW92ZUNoaWxkKHRhKTsKICAgIHZhciB0ID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3RvYXN0Jyk7CiAgICB0LmNsYXNzTGlzdC5hZGQoJ3Nob3cnKTsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24oKSB7IHQuY2xhc3NMaXN0LnJlbW92ZSgnc2hvdycpOyB9LCAyMDAwKTsKICB9Cn07Cgp3aW5kb3cuY2xlYXJUZXh0ID0gZnVuY3Rpb24oKSB7CiAgaW5wdXRFbC52YWx1ZSA9ICcnOwogIGlucHV0RWwuZGlzcGF0Y2hFdmVudChuZXcgRXZlbnQoJ2lucHV0JykpOwogIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdkZW5zaXR5U2VjdGlvbicpLnN0eWxlLmRpc3BsYXkgPSAnbm9uZSc7Cn07Cgp3aW5kb3cudG9nZ2xlRGVuc2l0eSA9IGZ1bmN0aW9uKCkgewogIHZhciBzZWMgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnZGVuc2l0eVNlY3Rpb24nKTsKICBpZiAoc2VjLnN0eWxlLmRpc3BsYXkgPT09ICdub25lJyB8fCBzZWMuc3R5bGUuZGlzcGxheSA9PT0gJycpIHsKICAgIHNlYy5zdHlsZS5kaXNwbGF5ID0gJ2Jsb2NrJzsKICAgIHZhciB0ZXh0ID0gaW5wdXRFbC52YWx1ZS50cmltKCk7CiAgICBpZiAodGV4dCkgewogICAgICB2YXIgd29yZHMgPSB0ZXh0LnNwbGl0KC9ccysvKTsKICAgICAgdXBkYXRlRGVuc2l0eSh3b3Jkcywgd29yZHMubGVuZ3RoKTsKICAgIH0KICB9IGVsc2UgewogICAgc2VjLnN0eWxlLmRpc3BsYXkgPSAnbm9uZSc7CiAgfQp9OwoKd2luZG93LmRvd25sb2FkU3RhdHMgPSBmdW5jdGlvbigpIHsKICB2YXIgdGV4dCA9IGlucHV0RWwudmFsdWUudHJpbSgpOwogIGlmICghdGV4dCkgeyBhbGVydCgnTm8gdGV4dCB0byBhbmFseXNlLiBUeXBlIG9yIHBhc3RlIHRleHQgZmlyc3QuJyk7IHJldHVybjsgfQogIHZhciByZXBvcnQgPSAnQnJpZ2h0bHlGdXR1cmUgV29yZCBDb3VudGVyIFJlcG9ydFxuJzsKICByZXBvcnQgKz0gJz09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09XG5cbic7CiAgcmVwb3J0ICs9ICdXb3JkczogJyArIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCd3b3JkQ291bnQnKS50ZXh0Q29udGVudCArICdcbic7CiAgcmVwb3J0ICs9ICdDaGFyYWN0ZXJzICh3aXRoIHNwYWNlcyk6ICcgKyBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnY2hhckNvdW50JykudGV4dENvbnRlbnQgKyAnXG4nOwogIHJlcG9ydCArPSAnQ2hhcmFjdGVycyAobm8gc3BhY2VzKTogJyArIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdjaGFyTm9TcGFjZScpLnRleHRDb250ZW50ICsgJ1xuJzsKICByZXBvcnQgKz0gJ1NlbnRlbmNlczogJyArIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdzZW50ZW5jZUNvdW50JykudGV4dENvbnRlbnQgKyAnXG4nOwogIHJlcG9ydCArPSAnUGFyYWdyYXBoczogJyArIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdwYXJhQ291bnQnKS50ZXh0Q29udGVudCArICdcbic7CiAgcmVwb3J0ICs9ICdSZWFkaW5nIFRpbWU6ICcgKyBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgncmVhZFRpbWUnKS50ZXh0Q29udGVudCArICdcbic7CiAgcmVwb3J0ICs9ICdTcGVha2luZyBUaW1lOiAnICsgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3NwZWFrVGltZScpLnRleHRDb250ZW50ICsgJ1xuJzsKICByZXBvcnQgKz0gJ0F2ZXJhZ2UgV29yZCBMZW5ndGg6ICcgKyBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnYXZnV29yZExlbicpLnRleHRDb250ZW50ICsgJ1xuJzsKICByZXBvcnQgKz0gJ0F2ZXJhZ2UgU2VudGVuY2UgTGVuZ3RoOiAnICsgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2F2Z1NlbnRMZW4nKS50ZXh0Q29udGVudCArICcgd29yZHNcbic7CiAgcmVwb3J0ICs9ICdVbmlxdWUgV29yZHM6ICcgKyBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgndW5pcXVlV29yZHMnKS50ZXh0Q29udGVudCArICdcbic7CiAgcmVwb3J0ICs9ICdMb25nIFdvcmRzICg2KyBsZXR0ZXJzKTogJyArIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdsb25nV29yZHMnKS50ZXh0Q29udGVudCArICdcbic7CiAgcmVwb3J0ICs9ICdSZWFkYWJpbGl0eTogJyArIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdyZWFkU2NvcmUnKS50ZXh0Q29udGVudCArICdcbic7CiAgcmVwb3J0ICs9ICdcbi0tLSBHZW5lcmF0ZWQgYnkgQnJpZ2h0bHlGdXR1cmUuY28udWsgLS0tXG4nOwoKICB2YXIgYmxvYiA9IG5ldyBCbG9iKFtyZXBvcnRdLCB7IHR5cGU6ICd0ZXh0L3BsYWluJyB9KTsKICB2YXIgYSA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2EnKTsKICBhLmhyZWYgPSBVUkwuY3JlYXRlT2JqZWN0VVJMKGJsb2IpOwogIGEuZG93bmxvYWQgPSAnd29yZC1jb3VudC1yZXBvcnQudHh0JzsKICBkb2N1bWVudC5ib2R5LmFwcGVuZENoaWxkKGEpOwogIGEuY2xpY2soKTsKICBkb2N1bWVudC5ib2R5LnJlbW92ZUNoaWxkKGEpOwp9OwoKfSkoKTsK"));</script>
+</body>
+</html>
