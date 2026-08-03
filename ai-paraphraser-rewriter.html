@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free AI Paraphraser &amp; Rewriter &mdash; Rephrase Text Instantly | BrightlyFuture</title>
+<meta name="description" content="Free AI paraphraser and text rewriter with 6 modes (Standard, Formal, Casual, Creative, Simple, Academic). No signup, no word limits, no ads. Rephrase sentences, paragraphs &amp; articles instantly.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --pri: #6C5CE7;
+  --pri-hover: #5A4BD1;
+  --bg: #E8E0F0;
+  --bg-alt: #DDD4EB;
+  --card-bg: #FFFFFF;
+  --card-border: #D0C6E0;
+  --input-bg: #F5F1FA;
+  --input-border: #D0C6E0;
+  --text: #2D2B55;
+  --muted: #6B6490;
+  --heading: #1A1744;
+  --green: #00C897;
+  --red: #EF4444;
+  --yellow: #F59E0B;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: var(--pri); text-decoration: none; }
+a:hover { color: var(--pri-hover); }
+
+.apr-hero { text-align: center; padding: 3.5rem 1.5rem 2.5rem; background: var(--bg); }
+.apr-hero .back-link { display: inline-block; color: var(--muted); font-size: 0.85rem; margin-bottom: 1.5rem; transition: color .2s; }
+.apr-hero .back-link:hover { color: var(--pri); }
+.apr-hero .badge { display: inline-block; background: var(--card-bg); color: var(--pri); font-size: 0.8rem; font-weight: 600; padding: 0.4rem 1.1rem; border-radius: 999px; border: 1px solid var(--card-border); margin-bottom: 1.25rem; }
+.apr-hero h1 { font-size: 2.4rem; font-weight: 800; color: var(--heading); margin-bottom: 0.85rem; }
+.apr-hero .sub { color: var(--muted); max-width: 660px; margin: 0 auto 1.5rem; font-size: 0.95rem; line-height: 1.65; }
+.usp-row { display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; }
+.usp-pill { background: rgba(108,92,231,0.08); border: 1px solid rgba(108,92,231,0.2); color: var(--pri); font-size: 0.78rem; font-weight: 600; padding: 0.4rem 1rem; border-radius: 999px; }
+
+.apr-tool { max-width: 1050px; margin: 0 auto; padding: 0 1.5rem 3rem; }
+.apr-box { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 2rem; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.apr-box label { display: block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); margin-bottom: 0.45rem; }
+.apr-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.apr-col textarea { width: 100%; background: var(--input-bg); border: 1px solid var(--input-border); border-radius: 10px; padding: 0.9rem 1rem; color: var(--text); font-size: 0.9rem; font-family: inherit; transition: border-color .2s; resize: vertical; min-height: 220px; line-height: 1.7; }
+.apr-col textarea:focus { outline: none; border-color: var(--pri); }
+.apr-col textarea[readonly] { background: #fff; cursor: default; }
+.char-count { font-size: 0.75rem; color: var(--muted); text-align: right; margin-top: 0.35rem; }
+.mb { margin-bottom: 1.25rem; }
+
+.mode-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+.mode-btn { padding: 0.5rem 1.1rem; border-radius: 999px; font-weight: 600; font-size: 0.82rem; cursor: pointer; border: 1px solid var(--card-border) !important; background: var(--input-bg) !important; color: var(--muted) !important; transition: all .2s; font-family: inherit; }
+.mode-btn:hover, .mode-btn:focus { border-color: var(--pri) !important; color: var(--text) !important; }
+.mode-btn.active { background: var(--pri) !important; color: #fff !important; border-color: var(--pri) !important; }
+
+.btn-group { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+.btn { padding: 0.7rem 1.6rem; border-radius: 10px; font-weight: 600; font-size: 0.9rem; cursor: pointer; border: none; transition: all .2s; font-family: inherit; }
+.btn-primary { background: var(--pri) !important; color: #fff !important; }
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active { background: var(--pri-hover) !important; color: #fff !important; transform: translateY(-1px); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+.btn-secondary { background: var(--input-bg) !important; color: var(--muted) !important; border: 1px solid var(--card-border) !important; }
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active { border-color: var(--pri) !important; color: var(--text) !important; background: var(--input-bg) !important; }
+
+.progress-wrap { margin-top: 1.5rem; display: none; }
+.progress-bar { height: 8px; border-radius: 4px; background: var(--input-bg); overflow: hidden; margin-bottom: 0.5rem; }
+.progress-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--pri), #8B5CF6); transition: width .4s; }
+.progress-label { font-size: 0.8rem; color: var(--muted); }
+
+.stats-bar { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1rem; padding: 1rem 1.25rem; background: var(--input-bg); border: 1px solid var(--card-border); border-radius: 12px; }
+.stat-item { font-size: 0.82rem; color: var(--muted); }
+.stat-item strong { color: var(--heading); font-weight: 700; }
+
+.apr-section { max-width: 1100px; margin: 0 auto; padding: 4rem 1.5rem; }
+.apr-section.alt { background: var(--bg-alt); max-width: 100%; }
+.apr-section.alt > .inner { max-width: 1100px; margin: 0 auto; }
+.sec-head { text-align: center; margin-bottom: 2.75rem; }
+.sec-head h2 { font-size: 1.65rem; font-weight: 800; color: var(--heading); margin-bottom: 0.5rem; }
+.sec-head p { color: var(--muted); font-size: 0.92rem; max-width: 520px; margin: 0 auto; font-style: italic; }
+
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.step { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 2rem 1.5rem; text-align: center; transition: border-color .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.step:hover { border-color: var(--pri); }
+.step-n { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--pri), #8B5CF6); color: #fff; font-weight: 700; font-size: 1rem; margin-bottom: 1rem; }
+.step h3 { font-size: 1rem; font-weight: 700; color: var(--heading); margin-bottom: 0.5rem; }
+.step p { font-size: 0.85rem; color: var(--muted); }
+
+.cards-6 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.fcard { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; transition: border-color .2s, transform .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.fcard:hover { border-color: var(--pri); transform: translateY(-2px); }
+.fcard .ic { font-size: 1.6rem; margin-bottom: 0.8rem; display: block; }
+.fcard h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.4rem; }
+.fcard p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+
+.mode-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.mcard { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; transition: border-color .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.mcard:hover { border-color: var(--pri); }
+.mcard .ic { font-size: 1.4rem; margin-bottom: 0.6rem; display: block; }
+.mcard h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.4rem; }
+.mcard p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+.mcard .tag { display: inline-block; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 999px; margin-top: 0.5rem; }
+.mcard .tag.free { background: rgba(0,200,151,0.1); color: var(--green); }
+.mcard .tag.free::after { content: 'Free'; }
+
+.aud-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; text-align: center; transition: border-color .2s, transform .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.aud-card:hover { border-color: var(--pri); transform: translateY(-2px); }
+.aud-card .ic { font-size: 2rem; margin-bottom: 0.65rem; display: block; }
+.aud-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.35rem; }
+.aud-card p { font-size: 0.85rem; color: var(--muted); }
+
+.tbl-wrap { overflow-x: auto; border-radius: 16px; border: 1px solid var(--card-border); box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.cmp-tbl { width: 100%; border-collapse: collapse; font-size: 0.85rem; background: var(--card-bg); }
+.cmp-tbl th, .cmp-tbl td { padding: 0.9rem 1.1rem; text-align: center; border-bottom: 1px solid var(--card-border); }
+.cmp-tbl th { background: var(--heading); color: #fff; font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.cmp-tbl td:first-child { text-align: left; font-weight: 600; color: var(--text); }
+.cmp-tbl tr:last-child td { border-bottom: none; }
+.cmp-tbl .hl { background: rgba(108,92,231,0.06); }
+.ck { color: var(--green); font-weight: 700; font-size: 1.1rem; }
+.cx { color: var(--red); font-size: 1.1rem; }
+
+.tips { display: flex; flex-direction: column; gap: 1rem; }
+.tip { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.5rem 1.75rem; display: flex; gap: 1.25rem; align-items: flex-start; transition: border-color .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.tip:hover { border-color: var(--pri); }
+.tip-n { flex-shrink: 0; width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--pri), #8B5CF6); color: #fff; font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; }
+.tip h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.3rem; }
+.tip p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+
+.rel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.rel-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; display: flex; flex-direction: column; transition: border-color .2s, transform .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.rel-card:hover { border-color: var(--pri); transform: translateY(-2px); }
+.rel-card .cat { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--pri); margin-bottom: 0.6rem; letter-spacing: 0.05em; }
+.rel-card h3 { font-size: 1rem; font-weight: 700; color: var(--heading); margin-bottom: 0.45rem; }
+.rel-card p { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.25rem; flex: 1; line-height: 1.55; }
+.rel-card .btn { text-align: center; font-size: 0.82rem; padding: 0.55rem 1rem; }
+
+.svc-banner { background: linear-gradient(135deg, var(--bg-alt) 0%, var(--card-bg) 100%); border: 1px solid var(--card-border); border-radius: 16px; padding: 3rem 2rem; text-align: center; max-width: 850px; margin: 0 auto; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.svc-banner .badge { display: inline-block; background: var(--pri); color: #fff; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; padding: 0.3rem 0.85rem; border-radius: 999px; margin-bottom: 0.85rem; letter-spacing: 0.05em; }
+.svc-banner h3 { font-size: 1.35rem; font-weight: 800; color: var(--heading); margin-bottom: 0.85rem; }
+.svc-banner p { color: var(--muted); font-size: 0.9rem; max-width: 540px; margin: 0 auto 1.5rem; line-height: 1.6; }
+
+.faq-list { max-width: 800px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--card-border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.15rem 0; cursor: pointer; font-weight: 600; font-size: 0.95rem; color: var(--heading) !important; background: transparent !important; border: none !important; border-radius: 0 !important; width: 100%; text-align: left; font-family: inherit; transition: color .2s; box-shadow: none !important; }
+.faq-q:hover, .faq-q:focus, .faq-q:active { color: var(--pri) !important; background: transparent !important; box-shadow: none !important; }
+.faq-q .arrow { font-size: 1.2rem; color: var(--pri); flex-shrink: 0; transition: transform .25s; }
+.faq-item.open .faq-q .arrow { transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+.faq-item.open .faq-a { max-height: 400px; }
+.faq-a p { font-size: 0.9rem; color: var(--muted); padding-bottom: 1rem; line-height: 1.6; }
+
+.final-cta { text-align: center; padding: 4.5rem 1.5rem; background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%); }
+.final-cta h2 { font-size: 1.85rem; font-weight: 800; color: var(--heading); margin-bottom: 0.85rem; }
+.final-cta p { color: var(--muted); font-size: 0.95rem; margin-bottom: 1.75rem; }
+.btn-big { display: inline-block; background: linear-gradient(135deg, var(--pri), #8B5CF6) !important; color: #fff !important; padding: 0.9rem 2.8rem; border-radius: 12px; font-weight: 700; font-size: 1.05rem; border: none; cursor: pointer; transition: transform .2s, box-shadow .2s; box-shadow: 0 4px 20px rgba(108,92,231,0.3); }
+.btn-big:hover, .btn-big:focus, .btn-big:active { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(108,92,231,0.45); color: #fff !important; background: linear-gradient(135deg, var(--pri-hover), #7C4FE0) !important; }
+.final-cta .sub-note { font-size: 0.8rem; color: var(--muted); margin-top: 0.85rem; }
+
+.toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); background: var(--green); color: #fff; padding: 0.6rem 1.5rem; border-radius: 10px; font-weight: 600; font-size: 0.85rem; opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 999; }
+.toast.show { opacity: 1; }
+
+@media (max-width: 768px) {
+  .apr-cols { grid-template-columns: 1fr; }
+  .steps, .cards-6, .rel-grid, .mode-cards { grid-template-columns: 1fr; }
+  .apr-hero h1 { font-size: 1.7rem; }
+  .tip { flex-direction: column; }
+  .cmp-tbl { font-size: 0.78rem; }
+  .cmp-tbl th, .cmp-tbl td { padding: 0.65rem 0.6rem; }
+  .stats-bar { gap: 0.75rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Section 1: Hero -->
+<div class="apr-hero">
+  <a href="/tools/" class="back-link">&larr; Back to All Tools</a>
+  <div><span class="badge">&#9999;&#65039; AI Paraphraser &amp; Rewriter</span></div>
+  <h1>Free AI Paraphraser &amp; Text Rewriter</h1>
+  <p class="sub">Instantly rephrase sentences, paragraphs, and full articles using 6 writing modes. No signup, no word limits, no ads &mdash; unlike QuillBot (125 words free) and Wordtune (10 rewrites/day).</p>
+  <div class="usp-row">
+    <span class="usp-pill">&#10003; 100% Free Forever</span>
+    <span class="usp-pill">&#10003; No Signup Required</span>
+    <span class="usp-pill">&#10003; 6 Rewriting Modes</span>
+    <span class="usp-pill">&#10003; No Word Limits</span>
+    <span class="usp-pill">&#10003; Ad-Free</span>
+  </div>
+</div>
+
+<!-- Section 2: Tool Widget -->
+<div class="apr-tool">
+  <div class="apr-box">
+    <div class="mb">
+      <label>Select Rewriting Mode</label>
+      <div class="mode-row" id="modeRow">
+        <button class="mode-btn active" onclick="setMode(this,'standard')">&#128221; Standard</button>
+        <button class="mode-btn" onclick="setMode(this,'formal')">&#127891; Formal</button>
+        <button class="mode-btn" onclick="setMode(this,'casual')">&#128172; Casual</button>
+        <button class="mode-btn" onclick="setMode(this,'creative')">&#127912; Creative</button>
+        <button class="mode-btn" onclick="setMode(this,'simple')">&#128218; Simple</button>
+        <button class="mode-btn" onclick="setMode(this,'academic')">&#128300; Academic</button>
+      </div>
+    </div>
+    <div class="apr-cols">
+      <div class="apr-col">
+        <label>Original Text</label>
+        <textarea id="inputText" placeholder="Paste or type the text you want to paraphrase here. Works with sentences, paragraphs, and full articles&hellip;"></textarea>
+        <div class="char-count"><span id="wordCount">0</span> words &middot; <span id="charCount">0</span> characters</div>
+      </div>
+      <div class="apr-col">
+        <label>Paraphrased Result</label>
+        <textarea id="outputText" readonly placeholder="Your rewritten text will appear here&hellip;"></textarea>
+        <div class="char-count"><span id="outWordCount">0</span> words &middot; <span id="outCharCount">0</span> characters</div>
+      </div>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-primary" id="paraphraseBtn" onclick="paraphraseText()">&#9999;&#65039; Paraphrase Now</button>
+      <button class="btn btn-secondary" onclick="copyOutput()">&#128203; Copy Result</button>
+      <button class="btn btn-secondary" onclick="downloadOutput()">&#11015; Download</button>
+      <button class="btn btn-secondary" onclick="clearAll()">Clear</button>
+    </div>
+
+    <div class="progress-wrap" id="progressWrap">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+      <div class="progress-label" id="progressLabel">Initialising&hellip;</div>
+    </div>
+
+    <div class="stats-bar" id="statsBar" style="display:none">
+      <div class="stat-item">Words Changed: <strong id="statChanged">0</strong></div>
+      <div class="stat-item">Change Rate: <strong id="statRate">0%</strong></div>
+      <div class="stat-item">Sentences: <strong id="statSentences">0</strong></div>
+      <div class="stat-item">Mode: <strong id="statMode">Standard</strong></div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 3: How It Works -->
+<div class="apr-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>How Our Free AI Paraphraser Works</h2>
+      <p>Three steps &mdash; no account, no credit card, no waiting.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <h3>Paste Your Text</h3>
+        <p>Copy and paste any content &mdash; blog posts, essays, emails, product descriptions, or academic papers &mdash; into the input box. No word limit.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <h3>Choose a Mode</h3>
+        <p>Select from 6 rewriting modes &mdash; Standard, Formal, Casual, Creative, Simple, or Academic &mdash; depending on your tone and audience needs.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <h3>Get Instant Results</h3>
+        <p>Click Paraphrase and get your rewritten text in seconds. Copy to clipboard or download as a text file &mdash; completely free.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 4: 6 Rewriting Modes Explained -->
+<div class="apr-section">
+  <div class="sec-head">
+    <h2>6 Free Rewriting Modes &mdash; More Than QuillBot Offers Free</h2>
+    <p>QuillBot gives you 2 free modes. We give you 6 &mdash; all free, forever.</p>
+  </div>
+  <div class="mode-cards">
+    <div class="mcard">
+      <span class="ic">&#128221;</span>
+      <h3>Standard Mode</h3>
+      <p>Balanced rewriting that changes vocabulary and sentence structure while keeping your original meaning intact. Best for general-purpose paraphrasing.</p>
+      <span class="tag free"></span>
+    </div>
+    <div class="mcard">
+      <span class="ic">&#127891;</span>
+      <h3>Formal Mode</h3>
+      <p>Elevates your text to a professional, polished tone. Replaces casual language with formal vocabulary. Ideal for business emails, reports, and proposals.</p>
+      <span class="tag free"></span>
+    </div>
+    <div class="mcard">
+      <span class="ic">&#128172;</span>
+      <h3>Casual Mode</h3>
+      <p>Makes your text sound relaxed and conversational. Adds contractions, informal phrases, and a friendly tone. Perfect for blog posts and social media.</p>
+      <span class="tag free"></span>
+    </div>
+    <div class="mcard">
+      <span class="ic">&#127912;</span>
+      <h3>Creative Mode</h3>
+      <p>Significantly restructures sentences with vivid vocabulary and varied phrasing. Ideal when you want maximum change while keeping the core message.</p>
+      <span class="tag free"></span>
+    </div>
+    <div class="mcard">
+      <span class="ic">&#128218;</span>
+      <h3>Simple Mode</h3>
+      <p>Simplifies complex sentences into plain, easy-to-read language. Reduces jargon and shortens sentences. Great for making content accessible to wider audiences.</p>
+      <span class="tag free"></span>
+    </div>
+    <div class="mcard">
+      <span class="ic">&#128300;</span>
+      <h3>Academic Mode</h3>
+      <p>Rewrites text using scholarly vocabulary, formal transitions, and precise phrasing. Designed for research papers, dissertations, and academic essays.</p>
+      <span class="tag free"></span>
+    </div>
+  </div>
+</div>
+
+<!-- Section 5: Key Features -->
+<div class="apr-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>Why BrightlyFuture Beats QuillBot, Wordtune &amp; Paraphraser.io</h2>
+      <p>Built to fix the biggest frustrations with existing paraphrasers.</p>
+    </div>
+    <div class="cards-6">
+      <div class="fcard">
+        <span class="ic">&#128275;</span>
+        <h3>No Word Limits &mdash; Ever</h3>
+        <p>QuillBot caps free users at 125 words per input. Wordtune allows only 10 rewrites per day. We have zero limits &mdash; paraphrase as much text as you need.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128100;</span>
+        <h3>No Signup Required</h3>
+        <p>Wordtune forces account creation even for free use. BrightlyFuture requires nothing &mdash; paste your text, choose a mode, and get results instantly.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128240;</span>
+        <h3>Full Article Support</h3>
+        <p>Wordtune only works at the sentence level. Our paraphraser handles sentences, paragraphs, and entire articles &mdash; rewriting everything in one click.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128581;</span>
+        <h3>Zero Ads</h3>
+        <p>Paraphraser.io is cluttered with intrusive advertisements. BrightlyFuture is completely ad-free &mdash; a clean, focused writing experience.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128274;</span>
+        <h3>100% Private</h3>
+        <p>Your text is processed entirely in your browser. Nothing is uploaded to our servers, stored, or shared with third parties. Complete privacy by design.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128202;</span>
+        <h3>Change Statistics</h3>
+        <p>See exactly how many words were changed and the overall change rate. No other free paraphraser shows you this level of transparency.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 6: Comparison Table -->
+<div class="apr-section">
+  <div class="sec-head">
+    <h2>BrightlyFuture vs QuillBot vs Wordtune vs Paraphraser.io &mdash; Honest Comparison</h2>
+    <p>We researched every major paraphrasing tool so you can compare fairly.</p>
+  </div>
+  <div class="tbl-wrap">
+    <table class="cmp-tbl">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th class="hl">BrightlyFuture</th>
+          <th>QuillBot</th>
+          <th>Wordtune</th>
+          <th>Paraphraser.io</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Free Word Limit</td><td class="hl"><span class="ck">&#10003;</span> Unlimited</td><td>125 words</td><td>10 rewrites/day</td><td>600 words</td></tr>
+        <tr><td>No Signup Required</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="ck">&#10003;</span></td></tr>
+        <tr><td>Free Rewriting Modes</td><td class="hl">6 modes</td><td>2 modes</td><td>4 modes</td><td>5 modes</td></tr>
+        <tr><td>Full Article Support</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span> Sentence only</td><td><span class="ck">&#10003;</span></td></tr>
+        <tr><td>Ad-Free</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span> Has ads</td></tr>
+        <tr><td>Data Privacy (No Upload)</td><td class="hl"><span class="ck">&#10003;</span> Browser-only</td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
+        <tr><td>Change Statistics</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
+        <tr><td>Downloadable Output</td><td class="hl"><span class="ck">&#10003;</span> Free</td><td>Paid only</td><td>Paid only</td><td>Paid only</td></tr>
+        <tr><td>No Credit Card Needed</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Section 7: Who Is This For -->
+<div class="apr-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>Who Uses Our AI Paraphraser?</h2>
+      <p>Built for anyone who needs to rewrite text quickly and naturally.</p>
+    </div>
+    <div class="cards-6">
+      <div class="aud-card">
+        <span class="ic">&#127891;</span>
+        <h3>Students &amp; Researchers</h3>
+        <p>Rephrase source material for essays and papers without plagiarism. Use Academic mode for scholarly tone.</p>
+      </div>
+      <div class="aud-card">
+        <span class="ic">&#128221;</span>
+        <h3>Bloggers &amp; Content Writers</h3>
+        <p>Refresh old blog posts, create content variations, and overcome writer&rsquo;s block with Creative or Standard mode.</p>
+      </div>
+      <div class="aud-card">
+        <span class="ic">&#128188;</span>
+        <h3>Business Professionals</h3>
+        <p>Polish emails, reports, and proposals with Formal mode. Make communications sound professional and clear.</p>
+      </div>
+      <div class="aud-card">
+        <span class="ic">&#128640;</span>
+        <h3>SEO Professionals</h3>
+        <p>Create unique content variations, rewrite meta descriptions, and refresh existing pages to avoid duplicate content penalties.</p>
+      </div>
+      <div class="aud-card">
+        <span class="ic">&#128187;</span>
+        <h3>Social Media Managers</h3>
+        <p>Repurpose content across platforms with different tones. Use Casual mode for Instagram, Formal for LinkedIn.</p>
+      </div>
+      <div class="aud-card">
+        <span class="ic">&#127760;</span>
+        <h3>Non-Native English Speakers</h3>
+        <p>Improve the fluency and natural flow of your English writing. Simple mode makes complex text easier to understand.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 8: Tips -->
+<div class="apr-section">
+  <div class="sec-head">
+    <h2>Tips for Getting the Best Paraphrasing Results</h2>
+    <p>Follow these best practices for natural, high-quality rewrites.</p>
+  </div>
+  <div class="tips">
+    <div class="tip">
+      <div class="tip-n">1</div>
+      <div>
+        <h3>Choose the Right Mode for Your Audience</h3>
+        <p>Formal mode for business documents, Casual for blogs, Academic for research papers, Simple for general audiences. The right mode makes a bigger difference than any amount of manual editing.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">2</div>
+      <div>
+        <h3>Paraphrase Paragraphs, Not Fragments</h3>
+        <p>Complete paragraphs give the algorithm more context to work with. Single sentences or bullet points produce less natural results &mdash; this is true for all paraphrasers including QuillBot.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">3</div>
+      <div>
+        <h3>Always Review and Edit the Output</h3>
+        <p>No paraphrasing tool is perfect. Read through the output, check that the meaning is preserved, and make manual tweaks where needed. Independent tests show even QuillBot produces awkward phrasing at higher settings.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">4</div>
+      <div>
+        <h3>Use Multiple Modes on the Same Text</h3>
+        <p>Try Standard first, then experiment with Creative or Formal. Each mode produces different variations &mdash; pick the one that sounds most natural for your specific use case.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">5</div>
+      <div>
+        <h3>Run Results Through an AI Detector</h3>
+        <p>If you need your paraphrased text to pass AI detection tools, use our free <a href="/tools/ai-blog-detector/">AI Content Detector</a> to check the output. Rewrite any flagged sentences manually for best results.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 9: Related Tools -->
+<div class="apr-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>More Free AI Tools from BrightlyFuture</h2>
+      <p>Explore our growing library of free content and marketing tools.</p>
+    </div>
+    <div class="rel-grid">
+      <div class="rel-card">
+        <span class="cat">Content &middot; AI</span>
+        <h3>AI Blog Generator</h3>
+        <p>Generate SEO-optimised, human-sounding blog posts in 30 seconds. No signup, no credit card, unlimited use.</p>
+        <a href="/tools/ai-blog-generator/" class="btn btn-secondary">Try Free &rarr;</a>
+      </div>
+      <div class="rel-card">
+        <span class="cat">Content &middot; AI</span>
+        <h3>AI Content Detector</h3>
+        <p>Check if text is written by AI or a human. Sentence-level analysis with transparent perplexity and burstiness scores.</p>
+        <a href="/tools/ai-blog-detector/" class="btn btn-secondary">Try Free &rarr;</a>
+      </div>
+      <div class="rel-card">
+        <span class="cat">Content &middot; SEO</span>
+        <h3>Word &amp; Character Counter</h3>
+        <p>Count words, characters, sentences, paragraphs, and estimate reading time for SEO-optimal content length.</p>
+        <a href="/tools/word-character-counter/" class="btn btn-secondary">Try Free &rarr;</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 10: Service Banner -->
+<div class="apr-section">
+  <div class="svc-banner">
+    <span class="badge">Done-for-you</span>
+    <h3>Need Professional Content Writing &mdash; Not Just Paraphrasing?</h3>
+    <p>Our team writes original, SEO-optimised content from scratch &mdash; researched, human-written, and ready to publish. No AI, no paraphrasing, just expert writing.</p>
+    <a href="/services/content-marketing/" class="btn btn-primary">Get a Free Quote &rarr;</a>
+  </div>
+</div>
+
+<!-- Section 11: FAQ -->
+<div class="apr-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>Frequently Asked Questions About AI Paraphrasing</h2>
+      <p>Everything you need to know about our free paraphrasing tool.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is this paraphrasing tool really 100% free?<span class="arrow">+</span></button><div class="faq-a"><p>Yes &mdash; completely free with no hidden costs, no word limits, no daily caps, and no upgrade prompts. Unlike QuillBot (125 words free) and Wordtune (10 rewrites/day), all 6 modes and unlimited paraphrasing are free forever.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do I need to create an account or sign up?<span class="arrow">+</span></button><div class="faq-a"><p>No. Wordtune requires account creation even for free use. BrightlyFuture requires nothing &mdash; paste text, choose a mode, click Paraphrase, and get results instantly. No email, no registration.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What are the 6 rewriting modes and when should I use each?<span class="arrow">+</span></button><div class="faq-a"><p>Standard for general rewriting, Formal for business and professional content, Casual for blogs and social media, Creative for maximum variation, Simple for plain language, and Academic for scholarly writing. Each mode adjusts vocabulary, tone, and sentence structure differently.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is there a word limit per paraphrase?<span class="arrow">+</span></button><div class="faq-a"><p>No. QuillBot limits free users to 125 words per input, and Paraphraser.io caps at 600 words. BrightlyFuture has no word limit &mdash; paste a sentence or an entire article, and it processes everything in one click.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is my text stored or sent to a server?<span class="arrow">+</span></button><div class="faq-a"><p>No. Unlike QuillBot, Wordtune, and Paraphraser.io &mdash; which all upload your text to their servers for processing &mdash; our paraphraser runs entirely in your browser using JavaScript. Your text is never uploaded, stored, or shared.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How is this different from QuillBot?<span class="arrow">+</span></button><div class="faq-a"><p>QuillBot offers only 2 free modes (Standard and Fluency) with a 125-word limit per input. BrightlyFuture offers 6 free modes with no word limit, no signup, and complete browser-based privacy. QuillBot uploads your text to their servers; we process everything locally.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Will the paraphrased text pass plagiarism checkers?<span class="arrow">+</span></button><div class="faq-a"><p>Paraphrasing rewrites your text with different words and structure, which typically produces unique content that passes plagiarism checkers. However, always review the output and add your own insights to ensure originality and academic integrity.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Will paraphrased text pass AI content detectors?<span class="arrow">+</span></button><div class="faq-a"><p>Paraphrasing AI-generated text can reduce AI detection scores, but it is not guaranteed to make text fully undetectable. For best results, use our <a href="/tools/ai-blog-detector/">AI Content Detector</a> to check the output, then manually rewrite any sentences that still flag as AI.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I paraphrase entire articles or just sentences?<span class="arrow">+</span></button><div class="faq-a"><p>Both. Our tool handles single sentences, full paragraphs, and entire articles. This is a key advantage over Wordtune, which only works at the sentence level and cannot process full documents.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Does it preserve the original meaning?<span class="arrow">+</span></button><div class="faq-a"><p>Yes &mdash; all modes are designed to keep the core meaning while changing vocabulary and sentence structure. Standard and Formal modes make the fewest changes; Creative mode makes the most. Always review the output to confirm accuracy.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Does it work with non-English text?<span class="arrow">+</span></button><div class="faq-a"><p>Our paraphraser is optimised for English and works well with Spanish, French, German, and other Latin-alphabet languages. Accuracy is highest for English. For best results with non-English text, use Standard or Simple mode.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I download or copy my paraphrased text?<span class="arrow">+</span></button><div class="faq-a"><p>Yes &mdash; use the Copy Result button to copy to clipboard, or Download to save as a .txt file. Both features are completely free. Competitors like QuillBot and Wordtune lock download features behind paid plans.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is there a daily usage limit?<span class="arrow">+</span></button><div class="faq-a"><p>No limits whatsoever. Paraphrase once or a thousand times &mdash; no daily caps, no monthly quotas, no credit system. Wordtune limits free users to 10 rewrites per day. We have no such restrictions.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How does the change statistics feature work?<span class="arrow">+</span></button><div class="faq-a"><p>After each paraphrase, we show you how many words were changed and the overall change rate as a percentage. This helps you gauge how different the output is from your original &mdash; no other free paraphraser provides this transparency.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is paraphrasing the same as plagiarism?<span class="arrow">+</span></button><div class="faq-a"><p>No. Paraphrasing means rewriting ideas in your own words while preserving meaning. It becomes plagiarism only if you paraphrase without crediting the original source. Always cite your sources when paraphrasing someone else&rsquo;s work, especially in academic contexts.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 12: Final CTA -->
+<div class="final-cta">
+  <h2>Ready to Rewrite Your Text?</h2>
+  <p>Paste your text, choose a mode, and get instant results. Free forever &mdash; no signup, no limits, no ads.</p>
+  <a href="#inputText" class="btn-big" onclick="setTimeout(function(){document.getElementById('inputText').focus()},400)">&#9999;&#65039; Start Paraphrasing &mdash; 100% Free</a>
+  <div class="sub-note">No Signup &middot; No Word Limits &middot; 6 Free Modes &middot; Ad-Free</div>
+</div>
+
+<div class="toast" id="toast">Copied!</div>
+
+<script>eval(atob("KGZ1bmN0aW9uKCl7CnZhciBpbnB1dEVsLCBvdXRwdXRFbCwgY3VycmVudE1vZGUgPSAnc3RhbmRhcmQnOwoKZnVuY3Rpb24gaW5pdFBhcmFwaHJhc2VyKCkgewogIGlucHV0RWwgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnaW5wdXRUZXh0Jyk7CiAgb3V0cHV0RWwgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnb3V0cHV0VGV4dCcpOwogIGlmICghaW5wdXRFbCB8fCAhb3V0cHV0RWwpIHsgc2V0VGltZW91dChpbml0UGFyYXBocmFzZXIsIDIwMCk7IHJldHVybjsgfQogIGlucHV0RWwuYWRkRXZlbnRMaXN0ZW5lcignaW5wdXQnLCBmdW5jdGlvbigpIHsKICAgIHZhciB0ZXh0ID0gdGhpcy52YWx1ZS50cmltKCk7CiAgICB2YXIgd29yZHMgPSB0ZXh0ID8gdGV4dC5zcGxpdCgvXHMrLykubGVuZ3RoIDogMDsKICAgIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCd3b3JkQ291bnQnKS50ZXh0Q29udGVudCA9IHdvcmRzOwogICAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2NoYXJDb3VudCcpLnRleHRDb250ZW50ID0gdGhpcy52YWx1ZS5sZW5ndGg7CiAgfSk7Cn0KCmlmIChkb2N1bWVudC5yZWFkeVN0YXRlID09PSAnbG9hZGluZycpIHsKICBkb2N1bWVudC5hZGRFdmVudExpc3RlbmVyKCdET01Db250ZW50TG9hZGVkJywgaW5pdFBhcmFwaHJhc2VyKTsKfSBlbHNlIHsKICBpbml0UGFyYXBocmFzZXIoKTsKfQoKd2luZG93LnRvZ2dsZUZhcSA9IGZ1bmN0aW9uKGJ0bikgewogIGJ0bi5wYXJlbnRFbGVtZW50LmNsYXNzTGlzdC50b2dnbGUoJ29wZW4nKTsKfTsKCndpbmRvdy5zZXRNb2RlID0gZnVuY3Rpb24oYnRuLCBtb2RlKSB7CiAgY3VycmVudE1vZGUgPSBtb2RlOwogIHZhciBidG5zID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ21vZGVSb3cnKS5nZXRFbGVtZW50c0J5VGFnTmFtZSgnYnV0dG9uJyk7CiAgZm9yICh2YXIgaSA9IDA7IGkgPCBidG5zLmxlbmd0aDsgaSsrKSBidG5zW2ldLmNsYXNzTmFtZSA9ICdtb2RlLWJ0bic7CiAgYnRuLmNsYXNzTmFtZSA9ICdtb2RlLWJ0biBhY3RpdmUnOwp9OwoKdmFyIHN5bm9ueW1zID0gewogICdpbXBvcnRhbnQnOidzaWduaWZpY2FudCcsJ3NpZ25pZmljYW50JzonaW1wb3J0YW50JywnYmlnJzonbGFyZ2UnLCdsYXJnZSc6J3N1YnN0YW50aWFsJywKICAnc21hbGwnOidtaW5vcicsJ21pbm9yJzonc2xpZ2h0JywnZ29vZCc6J2V4Y2VsbGVudCcsJ2V4Y2VsbGVudCc6J291dHN0YW5kaW5nJywKICAnYmFkJzoncG9vcicsJ3Bvb3InOidpbmFkZXF1YXRlJywnZmFzdCc6J3JhcGlkJywncmFwaWQnOidzd2lmdCcsJ3N3aWZ0JzoncXVpY2snLAogICdxdWljayc6J3Byb21wdCcsJ3Nsb3cnOidncmFkdWFsJywnZ3JhZHVhbCc6J3N0ZWFkeScsJ2hlbHAnOidhc3Npc3QnLCdhc3Npc3QnOidzdXBwb3J0JywKICAnc3VwcG9ydCc6J2FpZCcsJ3VzZSc6J3V0aWxpc2UnLCd1dGlsaXNlJzonZW1wbG95JywnZW1wbG95JzonbGV2ZXJhZ2UnLAogICdtYWtlJzonY3JlYXRlJywnY3JlYXRlJzonZGV2ZWxvcCcsJ2RldmVsb3AnOididWlsZCcsJ2J1aWxkJzonY29uc3RydWN0JywKICAnc2hvdyc6J2RlbW9uc3RyYXRlJywnZGVtb25zdHJhdGUnOidpbGx1c3RyYXRlJywnaWxsdXN0cmF0ZSc6J2RlcGljdCcsCiAgJ2dldCc6J29idGFpbicsJ29idGFpbic6J2FjcXVpcmUnLCdhY3F1aXJlJzonc2VjdXJlJywnZ2l2ZSc6J3Byb3ZpZGUnLAogICdwcm92aWRlJzonb2ZmZXInLCdvZmZlcic6J3ByZXNlbnQnLCdzdGFydCc6J2JlZ2luJywnYmVnaW4nOidjb21tZW5jZScsCiAgJ2VuZCc6J2NvbmNsdWRlJywnY29uY2x1ZGUnOidmaW5pc2gnLCd0cnknOidhdHRlbXB0JywnYXR0ZW1wdCc6J2VuZGVhdm91cicsCiAgJ3RoaW5rJzonY29uc2lkZXInLCdjb25zaWRlcic6J2NvbnRlbXBsYXRlJywna25vdyc6J3VuZGVyc3RhbmQnLAogICd1bmRlcnN0YW5kJzonY29tcHJlaGVuZCcsJ3dhbnQnOidkZXNpcmUnLCdkZXNpcmUnOidzZWVrJywnbmVlZCc6J3JlcXVpcmUnLAogICdyZXF1aXJlJzonbmVjZXNzaXRhdGUnLCdrZWVwJzonbWFpbnRhaW4nLCdtYWludGFpbic6J3ByZXNlcnZlJywKICAnY2hhbmdlJzonbW9kaWZ5JywnbW9kaWZ5JzonYWx0ZXInLCdhbHRlcic6J2FkanVzdCcsJ21vdmUnOid0cmFuc2ZlcicsCiAgJ3RyYW5zZmVyJzoncmVsb2NhdGUnLCd3b3JrJzonZnVuY3Rpb24nLCdmdW5jdGlvbic6J29wZXJhdGUnLAogICdydW4nOidleGVjdXRlJywnZXhlY3V0ZSc6J2ltcGxlbWVudCcsJ2ltcGxlbWVudCc6J2RlcGxveScsCiAgJ2ZpbmQnOidkaXNjb3ZlcicsJ2Rpc2NvdmVyJzondW5jb3ZlcicsJ3RlbGwnOidpbmZvcm0nLCdpbmZvcm0nOidub3RpZnknLAogICdhc2snOidpbnF1aXJlJywnaW5xdWlyZSc6J3JlcXVlc3QnLCd0YWtlJzonYWNxdWlyZScsJ2J1eSc6J3B1cmNoYXNlJywKICAncHVyY2hhc2UnOidwcm9jdXJlJywnc2VsbCc6J21hcmtldCcsJ2xvb2snOidleGFtaW5lJywnZXhhbWluZSc6J2luc3BlY3QnLAogICdzZWUnOidvYnNlcnZlJywnb2JzZXJ2ZSc6J25vdGljZScsJ3NheSc6J3N0YXRlJywnc3RhdGUnOidkZWNsYXJlJywKICAnd2Fsayc6J3Byb2NlZWQnLCdjb21lJzonYXJyaXZlJywnYXJyaXZlJzoncmVhY2gnLCdsZWF2ZSc6J2RlcGFydCcsCiAgJ2hvbGQnOidyZXRhaW4nLCdyZXRhaW4nOidwcmVzZXJ2ZScsJ2xlYWQnOidndWlkZScsJ2d1aWRlJzonZGlyZWN0JywKICAnZm9sbG93JzoncHVyc3VlJywncHVyc3VlJzonc2VlaycsJ2JyaW5nJzonZGVsaXZlcicsJ2RlbGl2ZXInOidzdXBwbHknLAogICdjYXJyeSc6J3RyYW5zcG9ydCcsJ3RyYW5zcG9ydCc6J2NvbnZleScsJ3B1dCc6J3BsYWNlJywncGxhY2UnOidwb3NpdGlvbicsCiAgJ3NldCc6J2VzdGFibGlzaCcsJ2VzdGFibGlzaCc6J2luc3RpdHV0ZScsJ2dyb3cnOidleHBhbmQnLCdleHBhbmQnOidpbmNyZWFzZScsCiAgJ2luY3JlYXNlJzonZW5oYW5jZScsJ2VuaGFuY2UnOidpbXByb3ZlJywnaW1wcm92ZSc6J29wdGltaXNlJywKICAncmVkdWNlJzonZGVjcmVhc2UnLCdkZWNyZWFzZSc6J2RpbWluaXNoJywnZGltaW5pc2gnOidsZXNzZW4nLAogICdzdG9wJzonY2Vhc2UnLCdjZWFzZSc6J2hhbHQnLCdjb250aW51ZSc6J3Byb2NlZWQnLCdwcm9jZWVkJzonYWR2YW5jZScsCiAgJ3JhaXNlJzonZWxldmF0ZScsJ2VsZXZhdGUnOid1cGxpZnQnLCdkcm9wJzonZGVjbGluZScsJ2RlY2xpbmUnOidyZWNlZGUnLAogICdoYXBwZW4nOidvY2N1cicsJ29jY3VyJzondHJhbnNwaXJlJywnc2VlbSc6J2FwcGVhcicsJ2FwcGVhcic6J2VtZXJnZScsCiAgJ2JlY29tZSc6J2V2b2x2ZScsJ3NvbHZlJzoncmVzb2x2ZScsJ3Jlc29sdmUnOidhZGRyZXNzJywKICAncHJvYmxlbSc6J2lzc3VlJywnaXNzdWUnOidjaGFsbGVuZ2UnLCdjaGFsbGVuZ2UnOidvYnN0YWNsZScsCiAgJ2lkZWEnOidjb25jZXB0JywnY29uY2VwdCc6J25vdGlvbicsJ3dheSc6J21ldGhvZCcsJ21ldGhvZCc6J2FwcHJvYWNoJywKICAnYXBwcm9hY2gnOidzdHJhdGVneScsJ3BsYW4nOidzdHJhdGVneScsJ3N0cmF0ZWd5JzonZnJhbWV3b3JrJywKICAncGFydCc6J2NvbXBvbmVudCcsJ2NvbXBvbmVudCc6J2VsZW1lbnQnLCdlbGVtZW50JzonYXNwZWN0JywKICAncmVzdWx0Jzonb3V0Y29tZScsJ291dGNvbWUnOidjb25zZXF1ZW5jZScsJ3JlYXNvbic6J3JhdGlvbmFsZScsCiAgJ2V4YW1wbGUnOidpbnN0YW5jZScsJ2luc3RhbmNlJzonY2FzZScsJ2FyZWEnOidkb21haW4nLCdkb21haW4nOidmaWVsZCcsCiAgJ2ZpZWxkJzonc2VjdG9yJywndHlwZSc6J2NhdGVnb3J5JywnY2F0ZWdvcnknOidjbGFzc2lmaWNhdGlvbicsCiAgJ2dyb3VwJzonY29sbGVjdGlvbicsJ2NvbGxlY3Rpb24nOidzZXQnLCdsZXZlbCc6J2RlZ3JlZScsJ2RlZ3JlZSc6J2V4dGVudCcsCiAgJ3BvaW50JzonYXNwZWN0JywnZmFjdCc6J3JlYWxpdHknLCdwcm9jZXNzJzoncHJvY2VkdXJlJywncHJvY2VkdXJlJzoncHJvdG9jb2wnLAogICdzeXN0ZW0nOidmcmFtZXdvcmsnLCdmZWF0dXJlJzonY2hhcmFjdGVyaXN0aWMnLCdjaGFyYWN0ZXJpc3RpYyc6J2F0dHJpYnV0ZScsCiAgJ2VmZmVjdCc6J2ltcGFjdCcsJ2ltcGFjdCc6J2luZmx1ZW5jZScsJ2luZmx1ZW5jZSc6J2VmZmVjdCcsCiAgJ3Bvd2VyJzonY2FwYWJpbGl0eScsJ2NhcGFiaWxpdHknOidjYXBhY2l0eScsJ2FiaWxpdHknOidjb21wZXRlbmNlJywKICAnZ29hbCc6J29iamVjdGl2ZScsJ29iamVjdGl2ZSc6J2FpbScsJ2FpbSc6J3RhcmdldCcsJ3RhcmdldCc6J3B1cnBvc2UnLAogICd2aWV3JzoncGVyc3BlY3RpdmUnLCdwZXJzcGVjdGl2ZSc6J3ZpZXdwb2ludCcsJ3JvbGUnOidmdW5jdGlvbicsCiAgJ2Zvcm0nOidzdHJ1Y3R1cmUnLCdzdHJ1Y3R1cmUnOidjb25maWd1cmF0aW9uJywndmFsdWUnOid3b3J0aCcsCiAgJ2Nvc3QnOidleHBlbnNlJywnZXhwZW5zZSc6J2V4cGVuZGl0dXJlJywncHJpY2UnOidyYXRlJywKICAncGxhY2UnOidsb2NhdGlvbicsJ2xvY2F0aW9uJzonc2l0ZScsJ3RpbWUnOidwZXJpb2QnLCdwZXJpb2QnOidkdXJhdGlvbicsCiAgJ3dvcmxkJzonZ2xvYmUnLCdjb3VudHJ5JzonbmF0aW9uJywncGVvcGxlJzonaW5kaXZpZHVhbHMnLCdpbmRpdmlkdWFscyc6J3BlcnNvbnMnLAogICdjb21wYW55Jzonb3JnYW5pc2F0aW9uJywnb3JnYW5pc2F0aW9uJzonZW50ZXJwcmlzZScsJ3RlYW0nOidncm91cCcsCiAgJ3ZlcnknOidleHRyZW1lbHknLCdleHRyZW1lbHknOidyZW1hcmthYmx5JywncmVhbGx5JzonZ2VudWluZWx5JywKICAnYWxzbyc6J2FkZGl0aW9uYWxseScsJ2FkZGl0aW9uYWxseSc6J2Z1cnRoZXJtb3JlJywnZnVydGhlcm1vcmUnOidtb3Jlb3ZlcicsCiAgJ2hvd2V2ZXInOiduZXZlcnRoZWxlc3MnLCduZXZlcnRoZWxlc3MnOidub25ldGhlbGVzcycsJ2J1dCc6J3lldCcsCiAgJ2JlY2F1c2UnOidzaW5jZScsJ3NpbmNlJzonYXMnLCd0aGVyZWZvcmUnOidjb25zZXF1ZW50bHknLCdjb25zZXF1ZW50bHknOid0aHVzJywKICAnYWx0aG91Z2gnOidkZXNwaXRlJywnd2hpbGUnOid3aGVyZWFzJywnb2Z0ZW4nOidmcmVxdWVudGx5JywKICAnZnJlcXVlbnRseSc6J3JlZ3VsYXJseScsJ2Fsd2F5cyc6J2NvbnNpc3RlbnRseScsJ25ldmVyJzondW5kZXIgbm8gY2lyY3Vtc3RhbmNlcycsCiAgJ21hbnknOidudW1lcm91cycsJ251bWVyb3VzJzonc2V2ZXJhbCcsJ2Zldyc6J2xpbWl0ZWQnLCdzb21lJzonY2VydGFpbicsCiAgJ25ldyc6J25vdmVsJywnbm92ZWwnOidpbm5vdmF0aXZlJywnb2xkJzonZXN0YWJsaXNoZWQnLCdlc3RhYmxpc2hlZCc6J2xvbmdzdGFuZGluZycsCiAgJ2RpZmZlcmVudCc6J2Rpc3RpbmN0JywnZGlzdGluY3QnOid1bmlxdWUnLCdzaW1pbGFyJzonY29tcGFyYWJsZScsCiAgJ2NsZWFyJzonZXZpZGVudCcsJ2V2aWRlbnQnOidhcHBhcmVudCcsJ2hhcmQnOidkaWZmaWN1bHQnLCdkaWZmaWN1bHQnOidjaGFsbGVuZ2luZycsCiAgJ2Vhc3knOidzdHJhaWdodGZvcndhcmQnLCdzdHJhaWdodGZvcndhcmQnOidzaW1wbGUnLCdzdHJvbmcnOidyb2J1c3QnLAogICdyb2J1c3QnOidyZXNpbGllbnQnLCdoaWdoJzonZWxldmF0ZWQnLCdsb3cnOidyZWR1Y2VkJywnbG9uZyc6J2V4dGVuZGVkJywKICAnc2hvcnQnOidicmllZicsJ2Z1bGwnOidjb21wcmVoZW5zaXZlJywnY29tcHJlaGVuc2l2ZSc6J3Rob3JvdWdoJywKICAnYWJsZSc6J2NhcGFibGUnLCdjYXBhYmxlJzonY29tcGV0ZW50JywnbGlrZWx5JzoncHJvYmFibGUnLAogICdwb3NzaWJsZSc6J2ZlYXNpYmxlJywnZmVhc2libGUnOid2aWFibGUnLCdhdmFpbGFibGUnOidhY2Nlc3NpYmxlJywKICAnY29tbW9uJzoncHJldmFsZW50JywncHJldmFsZW50Jzond2lkZXNwcmVhZCcsJ2NlcnRhaW4nOidzcGVjaWZpYycKfTsKCnZhciBmb3JtYWxXb3JkcyA9IHsKICAnZ2V0Jzonb2J0YWluJywnZ290Jzonb2J0YWluZWQnLCdnZXR0aW5nJzonb2J0YWluaW5nJywndXNlJzondXRpbGlzZScsJ3VzZWQnOid1dGlsaXNlZCcsCiAgJ3VzaW5nJzondXRpbGlzaW5nJywnaGVscCc6J2Fzc2lzdCcsJ2hlbHBzJzonYXNzaXN0cycsJ21ha2UnOidjb25zdHJ1Y3QnLAogICdtYWtlcyc6J2NvbnN0cnVjdHMnLCdzaG93JzonZGVtb25zdHJhdGUnLCdzaG93cyc6J2RlbW9uc3RyYXRlcycsJ3RyeSc6J2VuZGVhdm91cicsCiAgJ3RyaWVzJzonZW5kZWF2b3VycycsJ2JpZyc6J3N1YnN0YW50aWFsJywnc21hbGwnOidtaW5pbWFsJywnZ29vZCc6J2V4ZW1wbGFyeScsCiAgJ2JhZCc6J3N1Ym9wdGltYWwnLCdzdGFydCc6J2NvbW1lbmNlJywnZW5kJzonY29uY2x1ZGUnLCd0aGluayc6J2NvbnNpZGVyJywKICAnd2FudCc6J2Rlc2lyZScsJ25lZWQnOidyZXF1aXJlJywna2VlcCc6J21haW50YWluJywnZ2l2ZSc6J3Byb3ZpZGUnLAogICdmaW5kJzonaWRlbnRpZnknLCdhc2snOidpbnF1aXJlJywnYnV5JzoncHJvY3VyZScsJ3RlbGwnOidjb21tdW5pY2F0ZScsCiAgJ2J1dCc6J2hvd2V2ZXInLCdzbyc6J3RoZXJlZm9yZScsJ2Fsc28nOidhZGRpdGlvbmFsbHknLCdyZWFsbHknOidzdWJzdGFudGlhbGx5JywKICAndmVyeSc6J2V4Y2VlZGluZ2x5JywnYSBsb3QnOidjb25zaWRlcmFibHknLCdraW5kIG9mJzonc29tZXdoYXQnLAogICdzb3J0IG9mJzoncmVsYXRpdmVseScsJ3ByZXR0eSc6J2ZhaXJseScsJ2Fib3V0JzonYXBwcm94aW1hdGVseScsCiAgJ2Vub3VnaCc6J3N1ZmZpY2llbnQnLCdsaWtlJzonc3VjaCBhcycsJ2hhcmQnOidjaGFsbGVuZ2luZycsJ2Vhc3knOidzdHJhaWdodGZvcndhcmQnCn07Cgp2YXIgY2FzdWFsV29yZHMgPSB7CiAgJ29idGFpbic6J2dldCcsJ3V0aWxpc2UnOid1c2UnLCd1dGlsaXNlZCc6J3VzZWQnLCdhc3Npc3QnOidoZWxwJywnYXNzaXN0cyc6J2hlbHBzJywKICAnZGVtb25zdHJhdGUnOidzaG93JywnZGVtb25zdHJhdGVzJzonc2hvd3MnLCdlbmRlYXZvdXInOid0cnknLCdzdWJzdGFudGlhbCc6J2JpZycsCiAgJ2NvbW1lbmNlJzonc3RhcnQnLCdjb25jbHVkZSc6J2VuZCcsJ2NvbnNpZGVyJzondGhpbmsgYWJvdXQnLCdyZXF1aXJlJzonbmVlZCcsCiAgJ21haW50YWluJzona2VlcCcsJ3Byb3ZpZGUnOidnaXZlJywnaWRlbnRpZnknOidmaW5kJywnaW5xdWlyZSc6J2FzaycsCiAgJ3Byb2N1cmUnOididXknLCdjb21tdW5pY2F0ZSc6J3RlbGwnLCdob3dldmVyJzonYnV0JywndGhlcmVmb3JlJzonc28nLAogICdhZGRpdGlvbmFsbHknOidhbHNvJywnc3Vic3RhbnRpYWxseSc6J3JlYWxseScsJ2V4Y2VlZGluZ2x5JzondmVyeScsCiAgJ2FwcHJveGltYXRlbHknOidhYm91dCcsJ3N1ZmZpY2llbnQnOidlbm91Z2gnLCdjaGFsbGVuZ2luZyc6J3RvdWdoJywKICAnc3RyYWlnaHRmb3J3YXJkJzonZWFzeScsJ2ZhY2lsaXRhdGUnOidoZWxwJywnaW1wbGVtZW50Jzonc2V0IHVwJywKICAnbGV2ZXJhZ2UnOid1c2UnLCdvcHRpbWlzZSc6J2ltcHJvdmUnLCdlc3RhYmxpc2gnOidzZXQgdXAnLAogICdpbmRpdmlkdWFscyc6J3Blb3BsZScsJ2NvbW1lbmNlJzona2ljayBvZmYnLCd0ZXJtaW5hdGUnOidlbmQnLAogICdzdWJzZXF1ZW50JzonbmV4dCcsJ3ByaW9yJzonYmVmb3JlJywncmVnYXJkaW5nJzonYWJvdXQnLAogICdmdXJ0aGVybW9yZSc6J3BsdXMnLCduZXZlcnRoZWxlc3MnOidzdGlsbCcsJ2NvbXByZWhlbmQnOidnZXQnCn07Cgp2YXIgYWNhZGVtaWNXb3JkcyA9IHsKICAnc2hvdyc6J2RlbW9uc3RyYXRlJywnc2hvd3MnOidkZW1vbnN0cmF0ZXMnLCd1c2UnOidlbXBsb3knLCd1c2VzJzonZW1wbG95cycsCiAgJ2dldCc6J29idGFpbicsJ2dldHMnOidvYnRhaW5zJywndGhpbmsnOidwb3N0dWxhdGUnLCdoZWxwJzonZmFjaWxpdGF0ZScsCiAgJ2hlbHBzJzonZmFjaWxpdGF0ZXMnLCdtYWtlJzonY29uc3RydWN0JywnZmluZCc6J2FzY2VydGFpbicsJ3RyeSc6J2VuZGVhdm91cicsCiAgJ3N0YXJ0JzonaW5pdGlhdGUnLCdlbmQnOidjdWxtaW5hdGUnLCdnaXZlJzonZnVybmlzaCcsJ3RlbGwnOidlbHVjaWRhdGUnLAogICdiaWcnOidjb25zaWRlcmFibGUnLCdzbWFsbCc6J25lZ2xpZ2libGUnLCdnb29kJzonZmF2b3VyYWJsZScsJ2JhZCc6J2RldHJpbWVudGFsJywKICAnaW1wb3J0YW50JzoncGFyYW1vdW50JywnYWxzbyc6J21vcmVvdmVyJywnYnV0JzonY29udmVyc2VseScsJ3NvJzonY29uc2VxdWVudGx5JywKICAnYmVjYXVzZSc6J293aW5nIHRvIHRoZSBmYWN0IHRoYXQnLCdhYm91dCc6J3BlcnRhaW5pbmcgdG8nLCdlbm91Z2gnOidhZGVxdWF0ZScsCiAgJ2xpa2UnOidhbmFsb2dvdXMgdG8nLCdtYW55JzonYSBtdWx0aXR1ZGUgb2YnLCdmZXcnOidhIHBhdWNpdHkgb2YnLAogICdjaGFuZ2UnOidtb2RpZmljYXRpb24nLCdpZGVhJzonaHlwb3RoZXNpcycsJ3dheSc6J21ldGhvZG9sb2d5JywKICAncHJvYmxlbSc6J3ByZWRpY2FtZW50JywncmVzdWx0Jzonb3V0Y29tZScsJ3JlYXNvbic6J3JhdGlvbmFsZScKfTsKCmZ1bmN0aW9uIGdldFdvcmRzKHRleHQpIHsKICByZXR1cm4gdGV4dC50cmltKCkuc3BsaXQoL1xzKy8pLmZpbHRlcihmdW5jdGlvbih3KSB7IHJldHVybiB3Lmxlbmd0aCA+IDA7IH0pOwp9CgpmdW5jdGlvbiBzcGxpdFNlbnRlbmNlcyh0ZXh0KSB7CiAgdmFyIHJlc3VsdCA9IHRleHQubWF0Y2goL1teLiE/XStbLiE/XStbXHNdKi9nKTsKICBpZiAoIXJlc3VsdCB8fCByZXN1bHQubGVuZ3RoID09PSAwKSByZXR1cm4gW3RleHRdOwogIHJldHVybiByZXN1bHQ7Cn0KCmZ1bmN0aW9uIHJlcGxhY2VXb3JkKHdvcmQsIGRpY3QpIHsKICB2YXIgbG93ZXIgPSB3b3JkLnRvTG93ZXJDYXNlKCkucmVwbGFjZSgvW15hLXpdL2csICcnKTsKICB2YXIgcHVuY3QgPSB3b3JkLnJlcGxhY2UoL1thLXpBLVpdL2csICcnKTsKICB2YXIgc3VmZml4ID0gJyc7CiAgdmFyIHByZWZpeCA9ICcnOwogIGZvciAodmFyIGkgPSAwOyBpIDwgd29yZC5sZW5ndGg7IGkrKykgewogICAgaWYgKC9bYS16QS1aXS8udGVzdCh3b3JkW2ldKSkgYnJlYWs7CiAgICBwcmVmaXggKz0gd29yZFtpXTsKICB9CiAgZm9yICh2YXIgaiA9IHdvcmQubGVuZ3RoIC0gMTsgaiA+PSAwOyBqLS0pIHsKICAgIGlmICgvW2EtekEtWl0vLnRlc3Qod29yZFtqXSkpIGJyZWFrOwogICAgc3VmZml4ID0gd29yZFtqXSArIHN1ZmZpeDsKICB9CiAgdmFyIGNsZWFuID0gd29yZC5zdWJzdHJpbmcocHJlZml4Lmxlbmd0aCwgd29yZC5sZW5ndGggLSBzdWZmaXgubGVuZ3RoKTsKICB2YXIgY2xlYW5Mb3dlciA9IGNsZWFuLnRvTG93ZXJDYXNlKCk7CiAgaWYgKGRpY3RbY2xlYW5Mb3dlcl0pIHsKICAgIHZhciByZXBsYWNlbWVudCA9IGRpY3RbY2xlYW5Mb3dlcl07CiAgICBpZiAoY2xlYW5bMF0gPT09IGNsZWFuWzBdLnRvVXBwZXJDYXNlKCkpIHsKICAgICAgcmVwbGFjZW1lbnQgPSByZXBsYWNlbWVudC5jaGFyQXQoMCkudG9VcHBlckNhc2UoKSArIHJlcGxhY2VtZW50LnNsaWNlKDEpOwogICAgfQogICAgcmV0dXJuIHByZWZpeCArIHJlcGxhY2VtZW50ICsgc3VmZml4OwogIH0KICByZXR1cm4gbnVsbDsKfQoKZnVuY3Rpb24gc2h1ZmZsZVNlbnRlbmNlT3BlbmVycyhzZW50ZW5jZXMpIHsKICB2YXIgb3BlbmVycyA9IFsnTW9yZW92ZXIsICcsJ0FkZGl0aW9uYWxseSwgJywnRnVydGhlcm1vcmUsICcsJ0luIGFkZGl0aW9uLCAnLCdOb3RhYmx5LCAnLCdTaWduaWZpY2FudGx5LCAnLCdJbXBvcnRhbnRseSwgJywnQ29uc2VxdWVudGx5LCAnXTsKICB2YXIgaWR4ID0gMDsKICB2YXIgcmVzdWx0ID0gW107CiAgZm9yICh2YXIgaSA9IDA7IGkgPCBzZW50ZW5jZXMubGVuZ3RoOyBpKyspIHsKICAgIHZhciBzID0gc2VudGVuY2VzW2ldLnRyaW0oKTsKICAgIGlmIChpID4gMCAmJiBpICUgMyA9PT0gMCAmJiAhL14oTW9yZW92ZXJ8QWRkaXRpb25hbGx5fEZ1cnRoZXJtb3JlfEluIGFkZGl0aW9ufE5vdGFibHl8SG93ZXZlcnxOZXZlcnRoZWxlc3N8Q29uc2VxdWVudGx5KS9pLnRlc3QocykpIHsKICAgICAgcyA9IG9wZW5lcnNbaWR4ICUgb3BlbmVycy5sZW5ndGhdICsgcy5jaGFyQXQoMCkudG9Mb3dlckNhc2UoKSArIHMuc2xpY2UoMSk7CiAgICAgIGlkeCsrOwogICAgfQogICAgcmVzdWx0LnB1c2gocyk7CiAgfQogIHJldHVybiByZXN1bHQ7Cn0KCmZ1bmN0aW9uIHBhcmFwaHJhc2UodGV4dCwgbW9kZSkgewogIHZhciBzZW50ZW5jZXMgPSBzcGxpdFNlbnRlbmNlcyh0ZXh0KTsKICB2YXIgZGljdCA9IHN5bm9ueW1zOwogIGlmIChtb2RlID09PSAnZm9ybWFsJykgewogICAgZGljdCA9IHt9OwogICAgdmFyIGs7CiAgICBmb3IgKGsgaW4gc3lub255bXMpIGRpY3Rba10gPSBzeW5vbnltc1trXTsKICAgIGZvciAoayBpbiBmb3JtYWxXb3JkcykgZGljdFtrXSA9IGZvcm1hbFdvcmRzW2tdOwogIH0gZWxzZSBpZiAobW9kZSA9PT0gJ2Nhc3VhbCcpIHsKICAgIGRpY3QgPSB7fTsKICAgIHZhciBtOwogICAgZm9yIChtIGluIHN5bm9ueW1zKSBkaWN0W21dID0gc3lub255bXNbbV07CiAgICBmb3IgKG0gaW4gY2FzdWFsV29yZHMpIGRpY3RbbV0gPSBjYXN1YWxXb3Jkc1ttXTsKICB9IGVsc2UgaWYgKG1vZGUgPT09ICdhY2FkZW1pYycpIHsKICAgIGRpY3QgPSB7fTsKICAgIHZhciBhOwogICAgZm9yIChhIGluIHN5bm9ueW1zKSBkaWN0W2FdID0gc3lub255bXNbYV07CiAgICBmb3IgKGEgaW4gYWNhZGVtaWNXb3JkcykgZGljdFthXSA9IGFjYWRlbWljV29yZHNbYV07CiAgfSBlbHNlIGlmIChtb2RlID09PSAnc2ltcGxlJykgewogICAgZGljdCA9IHt9OwogICAgdmFyIHM7CiAgICBmb3IgKHMgaW4gY2FzdWFsV29yZHMpIGRpY3Rbc10gPSBjYXN1YWxXb3Jkc1tzXTsKICAgIGRpY3RbJ3V0aWxpc2UnXSA9ICd1c2UnOwogICAgZGljdFsnZGVtb25zdHJhdGUnXSA9ICdzaG93JzsKICAgIGRpY3RbJ2ZhY2lsaXRhdGUnXSA9ICdoZWxwJzsKICAgIGRpY3RbJ2ltcGxlbWVudCddID0gJ2RvJzsKICAgIGRpY3RbJ2xldmVyYWdlJ10gPSAndXNlJzsKICAgIGRpY3RbJ29wdGltaXNlJ10gPSAnbWFrZSBiZXR0ZXInOwogICAgZGljdFsnY29tcHJlaGVuc2l2ZSddID0gJ2Z1bGwnOwogICAgZGljdFsnc3Vic2VxdWVudGx5J10gPSAndGhlbic7CiAgICBkaWN0WyduZXZlcnRoZWxlc3MnXSA9ICdzdGlsbCc7CiAgICBkaWN0WydhcHByb3hpbWF0ZWx5J10gPSAnYWJvdXQnOwogICAgZGljdFsnc3VmZmljaWVudCddID0gJ2Vub3VnaCc7CiAgICBkaWN0Wydjb25zaWRlcmFibGUnXSA9ICdiaWcnOwogICAgZGljdFsnbmVnbGlnaWJsZSddID0gJ3NtYWxsJzsKICAgIGRpY3RbJ3BhcmFtb3VudCddID0gJ3ZlcnkgaW1wb3J0YW50JzsKICB9CgogIHZhciBjaGFuZ2VkID0gMDsKICB2YXIgdG90YWwgPSAwOwogIHZhciByZXN1bHRTZW50ZW5jZXMgPSBbXTsKCiAgZm9yICh2YXIgaSA9IDA7IGkgPCBzZW50ZW5jZXMubGVuZ3RoOyBpKyspIHsKICAgIHZhciB3b3JkcyA9IHNlbnRlbmNlc1tpXS5zcGxpdCgvKFxzKykvKTsKICAgIHZhciBuZXdXb3JkcyA9IFtdOwogICAgZm9yICh2YXIgaiA9IDA7IGogPCB3b3Jkcy5sZW5ndGg7IGorKykgewogICAgICB2YXIgdyA9IHdvcmRzW2pdOwogICAgICBpZiAoL15ccyskLy50ZXN0KHcpKSB7IG5ld1dvcmRzLnB1c2godyk7IGNvbnRpbnVlOyB9CiAgICAgIHRvdGFsKys7CiAgICAgIHZhciByZXBsYWNlZCA9IHJlcGxhY2VXb3JkKHcsIGRpY3QpOwogICAgICBpZiAocmVwbGFjZWQgJiYgcmVwbGFjZWQudG9Mb3dlckNhc2UoKSAhPT0gdy50b0xvd2VyQ2FzZSgpKSB7CiAgICAgICAgbmV3V29yZHMucHVzaChyZXBsYWNlZCk7CiAgICAgICAgY2hhbmdlZCsrOwogICAgICB9IGVsc2UgewogICAgICAgIG5ld1dvcmRzLnB1c2godyk7CiAgICAgIH0KICAgIH0KICAgIHJlc3VsdFNlbnRlbmNlcy5wdXNoKG5ld1dvcmRzLmpvaW4oJycpKTsKICB9CgogIGlmIChtb2RlID09PSAnY3JlYXRpdmUnIHx8IG1vZGUgPT09ICdhY2FkZW1pYycpIHsKICAgIHJlc3VsdFNlbnRlbmNlcyA9IHNodWZmbGVTZW50ZW5jZU9wZW5lcnMocmVzdWx0U2VudGVuY2VzKTsKICB9CgogIHZhciBvdXRwdXQgPSByZXN1bHRTZW50ZW5jZXMuam9pbignICcpLnJlcGxhY2UoL1xzKy9nLCAnICcpLnRyaW0oKTsKCiAgaWYgKG1vZGUgPT09ICdjYXN1YWwnKSB7CiAgICBvdXRwdXQgPSBvdXRwdXQucmVwbGFjZSgvXGJkbyBub3RcYi9naSwgImRvblx4Mjd0Iik7CiAgICBvdXRwdXQgPSBvdXRwdXQucmVwbGFjZSgvXGJjYW5ub3RcYi9naSwgImNhblx4Mjd0Iik7CiAgICBvdXRwdXQgPSBvdXRwdXQucmVwbGFjZSgvXGJ3aWxsIG5vdFxiL2dpLCAid29uXHgyN3QiKTsKICAgIG91dHB1dCA9IG91dHB1dC5yZXBsYWNlKC9cYmlzIG5vdFxiL2dpLCAiaXNuXHgyN3QiKTsKICAgIG91dHB1dCA9IG91dHB1dC5yZXBsYWNlKC9cYmFyZSBub3RcYi9naSwgImFyZW5ceDI3dCIpOwogICAgb3V0cHV0ID0gb3V0cHV0LnJlcGxhY2UoL1xiZG9lcyBub3RcYi9naSwgImRvZXNuXHgyN3QiKTsKICAgIG91dHB1dCA9IG91dHB1dC5yZXBsYWNlKC9cYndvdWxkIG5vdFxiL2dpLCAid291bGRuXHgyN3QiKTsKICAgIG91dHB1dCA9IG91dHB1dC5yZXBsYWNlKC9cYmNvdWxkIG5vdFxiL2dpLCAiY291bGRuXHgyN3QiKTsKICAgIG91dHB1dCA9IG91dHB1dC5yZXBsYWNlKC9cYnNob3VsZCBub3RcYi9naSwgInNob3VsZG5ceDI3dCIpOwogICAgb3V0cHV0ID0gb3V0cHV0LnJlcGxhY2UoL1xiSSBhbVxiL2csICJJXHgyN20iKTsKICAgIG91dHB1dCA9IG91dHB1dC5yZXBsYWNlKC9cYml0IGlzXGIvZ2ksICJpdFx4MjdzIik7CiAgICBvdXRwdXQgPSBvdXRwdXQucmVwbGFjZSgvXGJ0aGF0IGlzXGIvZ2ksICJ0aGF0XHgyN3MiKTsKICB9CgogIHJldHVybiB7IHRleHQ6IG91dHB1dCwgY2hhbmdlZDogY2hhbmdlZCwgdG90YWw6IHRvdGFsLCBzZW50ZW5jZXM6IHNlbnRlbmNlcy5sZW5ndGggfTsKfQoKd2luZG93LnBhcmFwaHJhc2VUZXh0ID0gZnVuY3Rpb24oKSB7CiAgdmFyIHRleHQgPSBpbnB1dEVsLnZhbHVlLnRyaW0oKTsKICBpZiAoIXRleHQpIHsgYWxlcnQoJ1BsZWFzZSBwYXN0ZSBzb21lIHRleHQgdG8gcGFyYXBocmFzZS4nKTsgcmV0dXJuOyB9CiAgdmFyIHdvcmRzID0gZ2V0V29yZHModGV4dCk7CiAgaWYgKHdvcmRzLmxlbmd0aCA8IDMpIHsgYWxlcnQoJ1BsZWFzZSBwYXN0ZSBhdCBsZWFzdCAzIHdvcmRzLicpOyByZXR1cm47IH0KCiAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3Byb2dyZXNzV3JhcCcpLnN0eWxlLmRpc3BsYXkgPSAnJzsKICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgncGFyYXBocmFzZUJ0bicpLmRpc2FibGVkID0gdHJ1ZTsKICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnc3RhdHNCYXInKS5zdHlsZS5kaXNwbGF5ID0gJ25vbmUnOwoKICB2YXIgcHJvZyA9IDA7CiAgdmFyIGZpbGwgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgncHJvZ3Jlc3NGaWxsJyk7CiAgdmFyIGxhYmVsID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3Byb2dyZXNzTGFiZWwnKTsKICB2YXIgc3RlcHMgPSBbJ0FuYWx5c2luZyB0ZXh0IHN0cnVjdHVyZS4uLicsICdTZWxlY3Rpbmcgc3lub255bXMuLi4nLCAnUmVzdHJ1Y3R1cmluZyBzZW50ZW5jZXMuLi4nLCAnUG9saXNoaW5nIG91dHB1dC4uLiddOwogIHZhciBzdGVwSSA9IDA7CgogIHZhciBpbnRlcnZhbCA9IHNldEludGVydmFsKGZ1bmN0aW9uKCkgewogICAgcHJvZyA9IE1hdGgubWluKHByb2cgKyAzLCA5MCk7CiAgICBmaWxsLnN0eWxlLndpZHRoID0gcHJvZyArICclJzsKICAgIGlmIChwcm9nICUgMjIgPT09IDAgJiYgc3RlcEkgPCBzdGVwcy5sZW5ndGgpIHsgbGFiZWwudGV4dENvbnRlbnQgPSBzdGVwc1tzdGVwSV07IHN0ZXBJKys7IH0KICB9LCAzNSk7CgogIHNldFRpbWVvdXQoZnVuY3Rpb24oKSB7CiAgICBjbGVhckludGVydmFsKGludGVydmFsKTsKICAgIGZpbGwuc3R5bGUud2lkdGggPSAnMTAwJSc7CiAgICBsYWJlbC50ZXh0Q29udGVudCA9ICdDb21wbGV0ZSEnOwoKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24oKSB7CiAgICAgIHRyeSB7CiAgICAgICAgdmFyIHJlc3VsdCA9IHBhcmFwaHJhc2UodGV4dCwgY3VycmVudE1vZGUpOwogICAgICAgIG91dHB1dEVsLnZhbHVlID0gcmVzdWx0LnRleHQ7CgogICAgICAgIHZhciBvdXRXb3JkcyA9IHJlc3VsdC50ZXh0LnRyaW0oKSA/IHJlc3VsdC50ZXh0LnRyaW0oKS5zcGxpdCgvXHMrLykubGVuZ3RoIDogMDsKICAgICAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnb3V0V29yZENvdW50JykudGV4dENvbnRlbnQgPSBvdXRXb3JkczsKICAgICAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnb3V0Q2hhckNvdW50JykudGV4dENvbnRlbnQgPSByZXN1bHQudGV4dC5sZW5ndGg7CgogICAgICAgIHZhciByYXRlID0gcmVzdWx0LnRvdGFsID4gMCA/IE1hdGgucm91bmQoKHJlc3VsdC5jaGFuZ2VkIC8gcmVzdWx0LnRvdGFsKSAqIDEwMCkgOiAwOwogICAgICAgIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdzdGF0Q2hhbmdlZCcpLnRleHRDb250ZW50ID0gcmVzdWx0LmNoYW5nZWQ7CiAgICAgICAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3N0YXRSYXRlJykudGV4dENvbnRlbnQgPSByYXRlICsgJyUnOwogICAgICAgIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdzdGF0U2VudGVuY2VzJykudGV4dENvbnRlbnQgPSByZXN1bHQuc2VudGVuY2VzOwogICAgICAgIHZhciBtb2RlTmFtZXMgPSB7IHN0YW5kYXJkOiAnU3RhbmRhcmQnLCBmb3JtYWw6ICdGb3JtYWwnLCBjYXN1YWw6ICdDYXN1YWwnLCBjcmVhdGl2ZTogJ0NyZWF0aXZlJywgc2ltcGxlOiAnU2ltcGxlJywgYWNhZGVtaWM6ICdBY2FkZW1pYycgfTsKICAgICAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnc3RhdE1vZGUnKS50ZXh0Q29udGVudCA9IG1vZGVOYW1lc1tjdXJyZW50TW9kZV0gfHwgJ1N0YW5kYXJkJzsKCiAgICAgICAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3Byb2dyZXNzV3JhcCcpLnN0eWxlLmRpc3BsYXkgPSAnbm9uZSc7CiAgICAgICAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3BhcmFwaHJhc2VCdG4nKS5kaXNhYmxlZCA9IGZhbHNlOwogICAgICAgIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdzdGF0c0JhcicpLnN0eWxlLmRpc3BsYXkgPSAnJzsKICAgICAgfSBjYXRjaCAoZXJyKSB7CiAgICAgICAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3Byb2dyZXNzV3JhcCcpLnN0eWxlLmRpc3BsYXkgPSAnbm9uZSc7CiAgICAgICAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3BhcmFwaHJhc2VCdG4nKS5kaXNhYmxlZCA9IGZhbHNlOwogICAgICAgIGFsZXJ0KCdFcnJvcjogJyArIGVyci5tZXNzYWdlKTsKICAgICAgfQogICAgfSwgNDAwKTsKICB9LCAxODAwKTsKfTsKCndpbmRvdy5jb3B5T3V0cHV0ID0gZnVuY3Rpb24oKSB7CiAgdmFyIHRleHQgPSBvdXRwdXRFbC52YWx1ZTsKICBpZiAoIXRleHQpIHsgYWxlcnQoJ05vdGhpbmcgdG8gY29weS4gUGFyYXBocmFzZSBzb21lIHRleHQgZmlyc3QuJyk7IHJldHVybjsgfQogIGlmIChuYXZpZ2F0b3IuY2xpcGJvYXJkICYmIG5hdmlnYXRvci5jbGlwYm9hcmQud3JpdGVUZXh0KSB7CiAgICBuYXZpZ2F0b3IuY2xpcGJvYXJkLndyaXRlVGV4dCh0ZXh0KS50aGVuKGZ1bmN0aW9uKCkgewogICAgICB2YXIgdCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCd0b2FzdCcpOwogICAgICB0LmNsYXNzTGlzdC5hZGQoJ3Nob3cnKTsKICAgICAgc2V0VGltZW91dChmdW5jdGlvbigpIHsgdC5jbGFzc0xpc3QucmVtb3ZlKCdzaG93Jyk7IH0sIDIwMDApOwogICAgfSk7CiAgfSBlbHNlIHsKICAgIHZhciB0YSA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ3RleHRhcmVhJyk7CiAgICB0YS52YWx1ZSA9IHRleHQ7CiAgICBkb2N1bWVudC5ib2R5LmFwcGVuZENoaWxkKHRhKTsKICAgIHRhLnNlbGVjdCgpOwogICAgZG9jdW1lbnQuZXhlY0NvbW1hbmQoJ2NvcHknKTsKICAgIGRvY3VtZW50LmJvZHkucmVtb3ZlQ2hpbGQodGEpOwogICAgdmFyIHQgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgndG9hc3QnKTsKICAgIHQuY2xhc3NMaXN0LmFkZCgnc2hvdycpOwogICAgc2V0VGltZW91dChmdW5jdGlvbigpIHsgdC5jbGFzc0xpc3QucmVtb3ZlKCdzaG93Jyk7IH0sIDIwMDApOwogIH0KfTsKCndpbmRvdy5kb3dubG9hZE91dHB1dCA9IGZ1bmN0aW9uKCkgewogIHZhciB0ZXh0ID0gb3V0cHV0RWwudmFsdWU7CiAgaWYgKCF0ZXh0KSB7IGFsZXJ0KCdOb3RoaW5nIHRvIGRvd25sb2FkLiBQYXJhcGhyYXNlIHNvbWUgdGV4dCBmaXJzdC4nKTsgcmV0dXJuOyB9CiAgdmFyIGJsb2IgPSBuZXcgQmxvYihbdGV4dF0sIHsgdHlwZTogJ3RleHQvcGxhaW4nIH0pOwogIHZhciBhID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnYScpOwogIGEuaHJlZiA9IFVSTC5jcmVhdGVPYmplY3RVUkwoYmxvYik7CiAgYS5kb3dubG9hZCA9ICdwYXJhcGhyYXNlZC10ZXh0LnR4dCc7CiAgZG9jdW1lbnQuYm9keS5hcHBlbmRDaGlsZChhKTsKICBhLmNsaWNrKCk7CiAgZG9jdW1lbnQuYm9keS5yZW1vdmVDaGlsZChhKTsKfTsKCndpbmRvdy5jbGVhckFsbCA9IGZ1bmN0aW9uKCkgewogIGlucHV0RWwudmFsdWUgPSAnJzsKICBvdXRwdXRFbC52YWx1ZSA9ICcnOwogIGlucHV0RWwuZGlzcGF0Y2hFdmVudChuZXcgRXZlbnQoJ2lucHV0JykpOwogIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdvdXRXb3JkQ291bnQnKS50ZXh0Q29udGVudCA9ICcwJzsKICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnb3V0Q2hhckNvdW50JykudGV4dENvbnRlbnQgPSAnMCc7CiAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3N0YXRzQmFyJykuc3R5bGUuZGlzcGxheSA9ICdub25lJzsKICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgncHJvZ3Jlc3NXcmFwJykuc3R5bGUuZGlzcGxheSA9ICdub25lJzsKfTsKfSkoKTsK"));</script>
+</body>
+</html>
