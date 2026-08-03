@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Free AI Content Detector — Check If Text Is AI or Human Written | BrightlyFuture</title>
-<meta name="description" content="Free AI Content Detector that checks if text is written by AI or a human. No signup, no limits. Detects ChatGPT, GPT-4, Gemini, Claude &amp; more in seconds.">
+<title>Free AI Content Detector &mdash; Detect ChatGPT, GPT-4, Gemini &amp; Claude Text | BrightlyFuture</title>
+<meta name="description" content="Free AI content detector with sentence-level analysis. Detects ChatGPT, GPT-4, GPT-5, Gemini, Claude &amp; LLaMA text instantly. No signup, no limits, 100% private. Transparent perplexity &amp; burstiness scores.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -35,7 +35,7 @@ a:hover { color: var(--pri-hover); }
 .abd-hero .back-link:hover { color: var(--pri); }
 .abd-hero .badge { display: inline-block; background: var(--card-bg); color: var(--pri); font-size: 0.8rem; font-weight: 600; padding: 0.4rem 1.1rem; border-radius: 999px; border: 1px solid var(--card-border); margin-bottom: 1.25rem; }
 .abd-hero h1 { font-size: 2.4rem; font-weight: 800; color: var(--heading); margin-bottom: 0.85rem; }
-.abd-hero .sub { color: var(--muted); max-width: 640px; margin: 0 auto 1.5rem; font-size: 0.95rem; line-height: 1.65; }
+.abd-hero .sub { color: var(--muted); max-width: 660px; margin: 0 auto 1.5rem; font-size: 0.95rem; line-height: 1.65; }
 .usp-row { display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; }
 .usp-pill { background: rgba(108,92,231,0.08); border: 1px solid rgba(108,92,231,0.2); color: var(--pri); font-size: 0.78rem; font-weight: 600; padding: 0.4rem 1rem; border-radius: 999px; }
 
@@ -145,6 +145,14 @@ a:hover { color: var(--pri-hover); }
 .ck { color: var(--green); font-weight: 700; font-size: 1.1rem; }
 .cx { color: var(--red); font-size: 1.1rem; }
 
+/* How it works detail */
+.how-detail { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+.how-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; transition: border-color .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.how-card:hover { border-color: var(--pri); }
+.how-card .ic { font-size: 1.4rem; margin-bottom: 0.6rem; display: block; }
+.how-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.4rem; }
+.how-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+
 /* Tips */
 .tips { display: flex; flex-direction: column; gap: 1rem; }
 .tip { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.5rem 1.75rem; display: flex; gap: 1.25rem; align-items: flex-start; transition: border-color .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
@@ -193,7 +201,7 @@ a:hover { color: var(--pri-hover); }
 
 @media (max-width: 768px) {
   .steps, .cards-6, .rel-grid { grid-template-columns: 1fr; }
-  .breakdown { grid-template-columns: 1fr; }
+  .breakdown, .how-detail { grid-template-columns: 1fr; }
   .abd-hero h1 { font-size: 1.7rem; }
   .tip { flex-direction: column; }
   .cmp-tbl { font-size: 0.78rem; }
@@ -207,14 +215,15 @@ a:hover { color: var(--pri-hover); }
 <!-- Section 1: Hero -->
 <div class="abd-hero">
   <a href="/tools/" class="back-link">&larr; Back to All Tools</a>
-  <div><span class="badge">&#128373; AI Content Detector</span></div>
-  <h1>Free AI Content Detector</h1>
-  <p class="sub">Instantly detect whether text is written by AI (ChatGPT, GPT-4, Gemini, Claude) or a human. Sentence-level analysis with highlighted results &mdash; no signup, no limits.</p>
+  <div><span class="badge">&#128373; Free AI Content Detector</span></div>
+  <h1>Free AI Content Detector &mdash; No Signup, No Limits</h1>
+  <p class="sub">Instantly detect whether any text was written by AI (ChatGPT, GPT-4, GPT-5, Gemini, Claude, LLaMA) or a human. Transparent sentence-level analysis with perplexity and burstiness scores &mdash; completely free, forever.</p>
   <div class="usp-row">
     <span class="usp-pill">&#10003; 100% Free Forever</span>
     <span class="usp-pill">&#10003; No Signup Required</span>
-    <span class="usp-pill">&#10003; Sentence-Level Analysis</span>
-    <span class="usp-pill">&#10003; Detects GPT, Gemini &amp; Claude</span>
+    <span class="usp-pill">&#10003; Sentence-Level Highlighting</span>
+    <span class="usp-pill">&#10003; Transparent Scoring Metrics</span>
+    <span class="usp-pill">&#10003; Unlimited Scans</span>
   </div>
 </div>
 
@@ -223,13 +232,13 @@ a:hover { color: var(--pri-hover); }
   <div class="abd-box">
     <div class="mb">
       <label>Paste Your Text Below</label>
-      <textarea id="inputText" placeholder="Paste the text you want to analyse here. For best results, use at least 50 words&hellip;"></textarea>
+      <textarea id="inputText" placeholder="Paste the text you want to analyse here. For best results, use at least 50 words. We support blog posts, essays, emails, product descriptions, academic papers, and more&hellip;"></textarea>
       <div class="char-count"><span id="wordCount">0</span> words &middot; <span id="charCount">0</span> characters</div>
     </div>
     <div class="btn-group">
-      <button class="btn btn-primary" id="detectBtn" onclick="detectAI()">&#128373; Analyse Text</button>
+      <button class="btn btn-primary" id="detectBtn" onclick="detectAI()">&#128373; Analyse Text Now</button>
       <button class="btn btn-secondary" onclick="clearAll()">Clear</button>
-      <button class="btn btn-secondary" onclick="loadSample()">Load Sample</button>
+      <button class="btn btn-secondary" onclick="loadSample()">Load Sample Text</button>
     </div>
 
     <!-- Progress -->
@@ -326,106 +335,96 @@ a:hover { color: var(--pri-hover); }
 <div class="abd-section alt">
   <div class="inner">
     <div class="sec-head">
-      <h2>How Our AI Content Detector Works</h2>
-      <p>Three simple steps to verify any text in seconds.</p>
+      <h2>How Our Free AI Content Detector Works</h2>
+      <p>Three simple steps &mdash; no account, no credit card, no waiting.</p>
     </div>
     <div class="steps">
       <div class="step">
         <div class="step-n">1</div>
         <h3>Paste Your Text</h3>
-        <p>Copy and paste any text &mdash; blog posts, essays, emails, product descriptions, or social media content &mdash; into the text box above.</p>
+        <p>Copy and paste any content &mdash; blog posts, essays, emails, product descriptions, academic papers, or social media captions &mdash; into the text box above. No word limit.</p>
       </div>
       <div class="step">
         <div class="step-n">2</div>
         <h3>Click Analyse</h3>
-        <p>Our algorithm examines perplexity, burstiness, sentence structure, vocabulary patterns, and stylistic markers across every sentence.</p>
+        <p>Our algorithm examines four key metrics &mdash; perplexity, burstiness, sentence uniformity, and vocabulary richness &mdash; across every single sentence in your text.</p>
       </div>
       <div class="step">
         <div class="step-n">3</div>
-        <h3>Review Results</h3>
-        <p>Get an overall AI probability score plus sentence-level highlighting so you can see exactly which parts look AI-generated and which look human-written.</p>
+        <h3>Review Transparent Results</h3>
+        <p>Get an overall AI probability score, sentence-level colour-coded highlighting, and full metric breakdowns. Download or copy your report instantly &mdash; no paywall.</p>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Section 4: Key Features -->
+<!-- Section 4: What We Analyse (Perplexity & Burstiness Explained) -->
 <div class="abd-section">
   <div class="sec-head">
-    <h2>Key Features of BrightlyFuture AI Detector</h2>
-    <p>Everything you need to verify content authenticity.</p>
+    <h2>What Our AI Detector Analyses &mdash; Full Transparency</h2>
+    <p>Unlike black-box tools, we show you exactly how we score your text.</p>
   </div>
-  <div class="cards-6">
-    <div class="fcard">
-      <span class="ic">&#128270;</span>
-      <h3>Sentence-Level Detection</h3>
-      <p>Every sentence is individually scored and colour-coded so you can pinpoint exactly which parts were likely written by AI.</p>
+  <div class="how-detail">
+    <div class="how-card">
+      <span class="ic">&#128290;</span>
+      <h3>Perplexity Score</h3>
+      <p>Perplexity measures how predictable the word choices are. AI-generated text tends to choose the most statistically likely next word, resulting in low perplexity. Human writing is more varied and surprising, producing higher perplexity scores.</p>
     </div>
-    <div class="fcard">
+    <div class="how-card">
       <span class="ic">&#128200;</span>
-      <h3>Perplexity &amp; Burstiness Analysis</h3>
-      <p>We measure how predictable and uniform the text is &mdash; two key markers that distinguish human writing from machine output.</p>
+      <h3>Burstiness Score</h3>
+      <p>Burstiness measures variation in sentence length and complexity. Humans naturally write with high burstiness &mdash; mixing short punchy sentences with longer complex ones. AI produces uniformly structured sentences with low burstiness.</p>
     </div>
-    <div class="fcard">
-      <span class="ic">&#129302;</span>
-      <h3>Multi-Model Detection</h3>
-      <p>Trained to recognise patterns from ChatGPT, GPT-4, GPT-4o, Gemini, Claude, LLaMA, and other popular large language models.</p>
+    <div class="how-card">
+      <span class="ic">&#128207;</span>
+      <h3>Sentence Uniformity</h3>
+      <p>We measure how similar your sentences are in length and structure. AI models tend to generate sentences within a narrow length range (15&ndash;25 words). Human writers are more inconsistent &mdash; and that inconsistency is a strong authenticity signal.</p>
     </div>
-    <div class="fcard">
-      <span class="ic">&#127760;</span>
-      <h3>Works in Multiple Languages</h3>
-      <p>Analyse content in English, Spanish, French, German, Hindi, Urdu, Arabic, and more &mdash; with accurate detection across languages.</p>
-    </div>
-    <div class="fcard">
-      <span class="ic">&#128274;</span>
-      <h3>100% Private &amp; Secure</h3>
-      <p>Your text is never stored, logged, or shared with third parties. Analysis happens in your browser &mdash; your content stays yours.</p>
-    </div>
-    <div class="fcard">
-      <span class="ic">&#9889;</span>
-      <h3>Instant Results</h3>
-      <p>Get detailed analysis in under 5 seconds. No queues, no waiting, no daily limits &mdash; analyse as many texts as you need.</p>
+    <div class="how-card">
+      <span class="ic">&#128218;</span>
+      <h3>Vocabulary Richness</h3>
+      <p>We calculate the ratio of unique words to total words. AI often recycles the same vocabulary throughout a piece, while humans draw from a broader lexicon. Higher vocabulary richness typically indicates human authorship.</p>
     </div>
   </div>
 </div>
 
-<!-- Section 5: Who Is This For -->
+<!-- Section 5: Key Features -->
 <div class="abd-section alt">
   <div class="inner">
     <div class="sec-head">
-      <h2>Who Is This AI Detector For?</h2>
-      <p>Built for anyone who needs to verify content authenticity.</p>
+      <h2>Why Choose BrightlyFuture AI Detector Over GPTZero, Originality.ai &amp; Copyleaks</h2>
+      <p>Built to fix the biggest frustrations with existing AI detectors.</p>
     </div>
     <div class="cards-6">
-      <div class="aud-card">
-        <span class="ic">&#127891;</span>
-        <h3>Teachers &amp; Educators</h3>
-        <p>Verify student submissions for AI-generated content before grading assignments and essays.</p>
+      <div class="fcard">
+        <span class="ic">&#128275;</span>
+        <h3>Truly Free &mdash; No Hidden Limits</h3>
+        <p>Unlike GPTZero (800 words/scan free) and Originality.ai (no free plan at all), our detector is 100% free with no word caps, no daily limits, and no credit system. Ever.</p>
       </div>
-      <div class="aud-card">
-        <span class="ic">&#128221;</span>
-        <h3>Content Managers</h3>
-        <p>Screen freelancer deliverables and guest posts to ensure originality before publishing.</p>
+      <div class="fcard">
+        <span class="ic">&#128100;</span>
+        <h3>No Signup Required</h3>
+        <p>GPTZero and Originality.ai both require account creation. We believe privacy starts with anonymity &mdash; paste your text and analyse immediately without registering.</p>
       </div>
-      <div class="aud-card">
-        <span class="ic">&#128188;</span>
-        <h3>SEO Professionals</h3>
-        <p>Check whether content meets Google&rsquo;s E-E-A-T guidelines and doesn&rsquo;t trigger AI-content penalties.</p>
+      <div class="fcard">
+        <span class="ic">&#128270;</span>
+        <h3>Sentence-Level Highlighting</h3>
+        <p>Every sentence is individually scored and colour-coded (red = likely AI, yellow = uncertain, unmarked = human) so you can pinpoint exactly which parts need rewriting.</p>
       </div>
-      <div class="aud-card">
-        <span class="ic">&#128640;</span>
-        <h3>Recruiters &amp; HR Teams</h3>
-        <p>Verify cover letters, writing samples, and application essays for authenticity.</p>
+      <div class="fcard">
+        <span class="ic">&#128202;</span>
+        <h3>Transparent Scoring Metrics</h3>
+        <p>Copyleaks hides its scoring methodology. We show you every metric &mdash; perplexity, burstiness, uniformity, and vocabulary richness &mdash; so you understand why your text was flagged.</p>
       </div>
-      <div class="aud-card">
-        <span class="ic">&#128214;</span>
-        <h3>Publishers &amp; Editors</h3>
-        <p>Maintain editorial standards by screening manuscripts, articles, and contributed content.</p>
+      <div class="fcard">
+        <span class="ic">&#128274;</span>
+        <h3>100% Private &amp; Secure</h3>
+        <p>GPTZero, Originality.ai, and Copyleaks all store your text on their servers. Our detector runs entirely in your browser &mdash; your content is never uploaded, stored, or shared.</p>
       </div>
-      <div class="aud-card">
-        <span class="ic">&#128187;</span>
-        <h3>Bloggers &amp; Writers</h3>
-        <p>Self-check your own AI-assisted drafts to ensure they read as human-written before publishing.</p>
+      <div class="fcard">
+        <span class="ic">&#129302;</span>
+        <h3>Multi-Model Detection</h3>
+        <p>Detects patterns from ChatGPT (GPT-3.5, GPT-4, GPT-4o, GPT-5), Google Gemini, Anthropic Claude, Meta LLaMA, Mistral, DeepSeek, and other large language models.</p>
       </div>
     </div>
   </div>
@@ -434,8 +433,8 @@ a:hover { color: var(--pri-hover); }
 <!-- Section 6: Comparison Table -->
 <div class="abd-section">
   <div class="sec-head">
-    <h2>How We Compare to Other AI Detectors</h2>
-    <p>See why BrightlyFuture is the best free AI content detector.</p>
+    <h2>BrightlyFuture vs GPTZero vs Originality.ai vs Copyleaks &mdash; Honest Comparison</h2>
+    <p>We researched every major AI detector so you can compare fairly.</p>
   </div>
   <div class="tbl-wrap">
     <table class="cmp-tbl">
@@ -449,138 +448,180 @@ a:hover { color: var(--pri-hover); }
         </tr>
       </thead>
       <tbody>
-        <tr><td>Free to Use</td><td class="hl"><span class="ck">&#10003;</span></td><td>Limited</td><td><span class="cx">&#10007;</span></td><td>Limited</td></tr>
-        <tr><td>No Signup Required</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
-        <tr><td>Sentence-Level Highlighting</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td></tr>
-        <tr><td>Perplexity &amp; Burstiness Scores</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
-        <tr><td>Multi-Language Support</td><td class="hl"><span class="ck">&#10003;</span></td><td>Limited</td><td><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td></tr>
-        <tr><td>Unlimited Scans</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
+        <tr><td>Free to Use</td><td class="hl"><span class="ck">&#10003;</span> Unlimited</td><td>Limited (800 words)</td><td><span class="cx">&#10007;</span> No free plan</td><td>Limited (10 pages/mo)</td></tr>
+        <tr><td>No Signup Required</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td><td><span class="ck">&#10003;</span> (limited)</td></tr>
+        <tr><td>Sentence-Level Highlighting</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td></tr>
+        <tr><td>Perplexity &amp; Burstiness Shown</td><td class="hl"><span class="ck">&#10003;</span></td><td>Partial</td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
+        <tr><td>Multi-Language Support</td><td class="hl"><span class="ck">&#10003;</span></td><td>Limited</td><td><span class="ck">&#10003;</span> (30 langs)</td><td><span class="ck">&#10003;</span> (30+ langs)</td></tr>
+        <tr><td>Data Privacy (No Storage)</td><td class="hl"><span class="ck">&#10003;</span> Browser-only</td><td><span class="cx">&#10007;</span> Server-stored</td><td><span class="cx">&#10007;</span> Server-stored</td><td><span class="cx">&#10007;</span> Server-stored</td></tr>
+        <tr><td>Free Downloadable Reports</td><td class="hl"><span class="ck">&#10003;</span></td><td>Paid only</td><td>Paid only</td><td>Paid only</td></tr>
+        <tr><td>Unlimited Scans</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span> (10/day free)</td><td><span class="cx">&#10007;</span> (credit-based)</td><td><span class="cx">&#10007;</span> (credit-based)</td></tr>
         <tr><td>No Credit Card Needed</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="ck">&#10003;</span></td></tr>
-        <tr><td>Downloadable Reports</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td></tr>
-        <tr><td>Privacy (No Data Stored)</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
       </tbody>
     </table>
   </div>
 </div>
 
-<!-- Section 7: Tips -->
+<!-- Section 7: Who Is This For -->
 <div class="abd-section alt">
   <div class="inner">
     <div class="sec-head">
-      <h2>Tips for Accurate AI Detection</h2>
-      <p>Get the most reliable results from your scans.</p>
+      <h2>Who Uses Our AI Content Detector?</h2>
+      <p>Built for anyone who values content authenticity and transparency.</p>
     </div>
-    <div class="tips">
-      <div class="tip">
-        <div class="tip-n">1</div>
-        <div>
-          <h3>Use at Least 50 Words</h3>
-          <p>Short snippets lack enough statistical signal for reliable analysis. Paste at least 50 words &mdash; 150+ words gives the most accurate results.</p>
-        </div>
+    <div class="cards-6">
+      <div class="aud-card">
+        <span class="ic">&#127891;</span>
+        <h3>Teachers &amp; Educators</h3>
+        <p>Screen student submissions for AI-generated content before grading. Unlike GPTZero, our tool is free for unlimited student papers.</p>
       </div>
-      <div class="tip">
-        <div class="tip-n">2</div>
-        <div>
-          <h3>Test Full Paragraphs, Not Fragments</h3>
-          <p>Sentence fragments and bullet points can skew detection. Use complete paragraphs with natural sentence structure for best accuracy.</p>
-        </div>
+      <div class="aud-card">
+        <span class="ic">&#128221;</span>
+        <h3>Content Managers &amp; Editors</h3>
+        <p>Verify freelancer deliverables, guest posts, and contributed articles before publishing to maintain editorial standards.</p>
       </div>
-      <div class="tip">
-        <div class="tip-n">3</div>
-        <div>
-          <h3>Check Multiple Sections Separately</h3>
-          <p>In long documents, different sections may have different authors. Analyse introduction, body, and conclusion separately for granular insight.</p>
-        </div>
+      <div class="aud-card">
+        <span class="ic">&#128188;</span>
+        <h3>SEO Professionals</h3>
+        <p>Check whether content meets Google&rsquo;s E-E-A-T guidelines. Identify AI-heavy sections that could hurt search rankings.</p>
       </div>
-      <div class="tip">
-        <div class="tip-n">4</div>
-        <div>
-          <h3>Understand That No Detector Is 100% Accurate</h3>
-          <p>AI detection is probabilistic, not definitive. Use results as one data point alongside your own editorial judgement &mdash; never as the sole basis for consequential decisions.</p>
-        </div>
+      <div class="aud-card">
+        <span class="ic">&#128640;</span>
+        <h3>Recruiters &amp; HR Teams</h3>
+        <p>Verify cover letters, writing samples, and application essays for authenticity during the hiring process.</p>
       </div>
-      <div class="tip">
-        <div class="tip-n">5</div>
-        <div>
-          <h3>Beware of Paraphrasing Tools</h3>
-          <p>Text that has been run through a paraphrasing or spinning tool can reduce detection accuracy. If you suspect this, look for unnatural phrasing and vocabulary inconsistencies.</p>
-        </div>
+      <div class="aud-card">
+        <span class="ic">&#128214;</span>
+        <h3>Publishers &amp; Authors</h3>
+        <p>Maintain editorial integrity by screening manuscripts, articles, and submitted content before publication.</p>
+      </div>
+      <div class="aud-card">
+        <span class="ic">&#128187;</span>
+        <h3>Bloggers &amp; Copywriters</h3>
+        <p>Self-check AI-assisted drafts before publishing. See exactly which sentences flag as AI and rewrite them to sound natural.</p>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Section 8: Related Tools -->
+<!-- Section 8: Tips for Accurate Results -->
 <div class="abd-section">
   <div class="sec-head">
-    <h2>More Free Tools from BrightlyFuture</h2>
-    <p>Explore our growing library of AI-powered tools.</p>
+    <h2>Tips for Getting the Most Accurate AI Detection Results</h2>
+    <p>Follow these best practices for reliable analysis.</p>
   </div>
-  <div class="rel-grid">
-    <div class="rel-card">
-      <span class="cat">Content &middot; AI</span>
-      <h3>AI Blog Generator</h3>
-      <p>Generate SEO-optimized, human-sounding blog posts in 30 seconds. No signup required.</p>
-      <a href="/tools/ai-blog-generator/" class="btn btn-secondary">Try Now</a>
+  <div class="tips">
+    <div class="tip">
+      <div class="tip-n">1</div>
+      <div>
+        <h3>Use at Least 50 Words &mdash; 150+ for Best Accuracy</h3>
+        <p>Short snippets lack enough statistical signal for reliable analysis. Independent tests confirm that all AI detectors &mdash; including GPTZero and Copyleaks &mdash; perform significantly better on longer text samples.</p>
+      </div>
     </div>
-    <div class="rel-card">
-      <span class="cat">Content &middot; SEO</span>
-      <h3>AI Paragraph Rewriter</h3>
-      <p>Rewrite paragraphs to sound more natural, improve readability, and bypass AI detection patterns.</p>
-      <a href="/tools/ai-paragraph-rewriter/" class="btn btn-secondary">Try Now</a>
+    <div class="tip">
+      <div class="tip-n">2</div>
+      <div>
+        <h3>Test Full Paragraphs, Not Bullet Points</h3>
+        <p>Sentence fragments, bullet lists, and headings can skew detection results. Use complete paragraphs with natural sentence structure for the most accurate analysis.</p>
+      </div>
     </div>
-    <div class="rel-card">
-      <span class="cat">Content &middot; SEO</span>
-      <h3>Word &amp; Character Counter</h3>
-      <p>Check word count, character count &amp; reading time for SEO-optimal content length.</p>
-      <a href="/tools/word-character-counter/" class="btn btn-secondary">Try Now</a>
+    <div class="tip">
+      <div class="tip-n">3</div>
+      <div>
+        <h3>Analyse Different Sections Separately</h3>
+        <p>In long documents, different sections may have different authors or AI involvement. Test the introduction, body paragraphs, and conclusion separately for granular insight into each section.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">4</div>
+      <div>
+        <h3>No AI Detector Is 100% Accurate</h3>
+        <p>Independent benchmarks show even top tools like GPTZero score 62&ndash;88% accuracy, and Copyleaks around 79%. Use AI detection as one signal alongside your own editorial judgement &mdash; never as the sole basis for consequential decisions.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">5</div>
+      <div>
+        <h3>Watch for Paraphrased AI Content</h3>
+        <p>Text run through paraphrasing tools can fool most detectors &mdash; Copyleaks accuracy drops by 50% on humanised text. If you suspect paraphrasing, look for unnatural phrasing and vocabulary inconsistencies alongside our scores.</p>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- Section 9: Service Banner -->
+<!-- Section 9: Related Tools -->
+<div class="abd-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>More Free AI Tools from BrightlyFuture</h2>
+      <p>Explore our growing library of free content and marketing tools.</p>
+    </div>
+    <div class="rel-grid">
+      <div class="rel-card">
+        <span class="cat">Content &middot; AI</span>
+        <h3>AI Blog Generator</h3>
+        <p>Generate SEO-optimised, human-sounding blog posts in 30 seconds. No signup, no credit card, unlimited use.</p>
+        <a href="/tools/ai-blog-generator/" class="btn btn-secondary">Try Free &rarr;</a>
+      </div>
+      <div class="rel-card">
+        <span class="cat">Content &middot; AI</span>
+        <h3>AI Paraphraser / Rewriter</h3>
+        <p>Rewrite paragraphs to sound more natural, improve readability, and make AI-assisted content undetectable.</p>
+        <a href="/tools/ai-paraphraser-rewriter/" class="btn btn-secondary">Try Free &rarr;</a>
+      </div>
+      <div class="rel-card">
+        <span class="cat">Content &middot; SEO</span>
+        <h3>Word &amp; Character Counter</h3>
+        <p>Count words, characters, sentences, paragraphs, and estimate reading time for SEO-optimal content length.</p>
+        <a href="/tools/word-character-counter/" class="btn btn-secondary">Try Free &rarr;</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 10: Service Banner -->
 <div class="abd-section">
   <div class="svc-banner">
     <span class="badge">Done-for-you</span>
-    <h3>Need Help Creating Human-Quality Content?</h3>
-    <p>Beyond detection &mdash; our team crafts original, SEO-optimized, human-written content that passes every AI detector and ranks on Google.</p>
+    <h3>Need Human-Quality Content That Passes Every AI Detector?</h3>
+    <p>Beyond detection &mdash; our team crafts original, SEO-optimised, human-written content that passes GPTZero, Originality.ai, Copyleaks, and ranks on Google.</p>
     <a href="/services/content-marketing/" class="btn btn-primary">Get a Free Quote &rarr;</a>
   </div>
 </div>
 
-<!-- Section 10: FAQ -->
+<!-- Section 11: FAQ -->
 <div class="abd-section alt">
   <div class="inner">
     <div class="sec-head">
-      <h2>Frequently Asked Questions</h2>
-      <p>Everything you wanted to know about our AI Content Detector.</p>
+      <h2>Frequently Asked Questions About AI Content Detection</h2>
+      <p>Everything you need to know about detecting AI-generated text.</p>
     </div>
     <div class="faq-list">
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is this AI detector really free?<span class="arrow">+</span></button><div class="faq-a"><p>Yes &mdash; 100% free with no hidden costs, no trial period, and no upgrade prompts. Every feature, including sentence-level analysis, stays free forever.</p></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do I need to sign up or create an account?<span class="arrow">+</span></button><div class="faq-a"><p>No signup, no email, no account required. Just paste your text, click Analyse, and get instant results.</p></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How accurate is this AI content detector?<span class="arrow">+</span></button><div class="faq-a"><p>Our detector analyses perplexity, burstiness, sentence structure, and vocabulary patterns to produce reliable results. However, no AI detector is 100% accurate &mdash; results should be used as one factor alongside editorial judgement.</p></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Which AI models can it detect?<span class="arrow">+</span></button><div class="faq-a"><p>It detects patterns from ChatGPT (GPT-3.5, GPT-4, GPT-4o), Google Gemini, Anthropic Claude, Meta LLaMA, Mistral, and other popular large language models.</p></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is perplexity in AI detection?<span class="arrow">+</span></button><div class="faq-a"><p>Perplexity measures how predictable the text is. AI-generated text tends to have low perplexity (very predictable word choices), while human writing is more varied and surprising. Higher perplexity generally indicates human authorship.</p></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is burstiness in AI detection?<span class="arrow">+</span></button><div class="faq-a"><p>Burstiness measures the variation in sentence length and complexity. Humans naturally write with high burstiness &mdash; mixing short punchy sentences with longer complex ones. AI tends to produce uniformly structured sentences with low burstiness.</p></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is my text stored or shared?<span class="arrow">+</span></button><div class="faq-a"><p>No. All analysis happens in your browser. Your text is never stored, logged, sent to a server, or shared with any third party. Your privacy is fully protected.</p></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How many words do I need for accurate results?<span class="arrow">+</span></button><div class="faq-a"><p>We recommend at least 50 words for a basic scan. For the most accurate results, paste 150 words or more. Very short texts (under 30 words) may not contain enough patterns for reliable detection.</p></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can it detect AI content that has been paraphrased?<span class="arrow">+</span></button><div class="faq-a"><p>Paraphrasing tools can reduce detection accuracy, but many AI patterns &mdash; such as sentence uniformity and vocabulary choices &mdash; often survive paraphrasing. Results may show as &ldquo;mixed&rdquo; rather than definitive.</p></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Does it work with non-English text?<span class="arrow">+</span></button><div class="faq-a"><p>Yes &mdash; it supports English, Spanish, French, German, Hindi, Urdu, Arabic, and more. Detection accuracy is highest for English but works across all supported languages.</p></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I use this to check my own AI-assisted writing?<span class="arrow">+</span></button><div class="faq-a"><p>Absolutely. Many writers use our detector as a self-check tool &mdash; paste your AI-assisted draft, see which sentences flag as AI, then rewrite those sections to sound more natural before publishing.</p></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How is this different from plagiarism checkers?<span class="arrow">+</span></button><div class="faq-a"><p>Plagiarism checkers compare text against existing content to find copied passages. AI detectors analyse writing patterns to determine whether the text was generated by an AI model &mdash; even if the content is completely original. They solve different problems.</p></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Will Google penalise AI-generated content?<span class="arrow">+</span></button><div class="faq-a"><p>Google&rsquo;s official policy is that AI content is acceptable if it&rsquo;s helpful, accurate, and demonstrates E-E-A-T. However, low-quality, mass-produced AI content without human review can hurt rankings. Use our detector to identify and improve weak sections.</p></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is there a daily usage limit?<span class="arrow">+</span></button><div class="faq-a"><p>No limits at all. Analyse one text or one thousand &mdash; there are no daily caps, no word limits, and no throttling.</p></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I download or share my results?<span class="arrow">+</span></button><div class="faq-a"><p>Yes &mdash; use the Copy Report button to copy a text summary, or Download Report to save a .txt file with the full analysis including scores, sentence breakdown, and verdict.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is this AI content detector really 100% free?<span class="arrow">+</span></button><div class="faq-a"><p>Yes &mdash; completely free with no hidden costs, no trial period, no credit system, and no upgrade prompts. Unlike Originality.ai (which has no free plan) and GPTZero (which limits free users to 800 words per scan), every feature on BrightlyFuture &mdash; including sentence-level analysis and downloadable reports &mdash; is free forever.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do I need to create an account or sign up?<span class="arrow">+</span></button><div class="faq-a"><p>No signup, no email, no account required. Both GPTZero and Originality.ai require account creation before you can scan any text. BrightlyFuture lets you paste your text and get results immediately &mdash; no registration needed.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Which AI models can this detector identify?<span class="arrow">+</span></button><div class="faq-a"><p>Our detector analyses patterns from all major large language models including ChatGPT (GPT-3.5, GPT-4, GPT-4o, GPT-5), Google Gemini, Anthropic Claude, Meta LLaMA, Mistral, DeepSeek, and other popular LLMs. The analysis focuses on writing patterns common across AI models rather than model-specific signatures.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is perplexity in AI detection and why does it matter?<span class="arrow">+</span></button><div class="faq-a"><p>Perplexity measures how predictable word choices are in a text. AI models choose the most statistically probable next word, producing low perplexity. Human writing is more creative and unpredictable, resulting in higher perplexity. GPTZero uses this metric too &mdash; we show it transparently so you can understand exactly why your text was scored the way it was.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is burstiness and how does it detect AI text?<span class="arrow">+</span></button><div class="faq-a"><p>Burstiness measures the variation in sentence length and complexity throughout a text. Humans naturally write with high burstiness &mdash; mixing short sentences with longer ones, varying complexity paragraph to paragraph. AI tends to produce uniformly structured sentences with consistent length, resulting in low burstiness scores.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is my text stored or sent to a server?<span class="arrow">+</span></button><div class="faq-a"><p>No. Unlike GPTZero, Originality.ai, and Copyleaks &mdash; which all upload and process your text on their servers &mdash; our analysis runs entirely in your browser using JavaScript. Your text is never uploaded, stored, logged, or shared with any third party. Complete privacy by design.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How many words do I need for accurate results?<span class="arrow">+</span></button><div class="faq-a"><p>We recommend at least 50 words for a basic scan and 150+ words for the most accurate results. This aligns with industry findings &mdash; all major detectors including GPTZero and Copyleaks perform better on longer samples. Very short texts (under 30 words) may not contain enough patterns for reliable detection.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can it detect AI content that has been paraphrased or humanised?<span class="arrow">+</span></button><div class="faq-a"><p>Paraphrasing tools can reduce detection accuracy across all detectors &mdash; Copyleaks accuracy drops by roughly 50% on humanised text, and similar drops affect GPTZero and Originality.ai. Our detector still catches many AI patterns that survive paraphrasing (such as sentence uniformity and vocabulary distribution), but results may show as &ldquo;mixed&rdquo; rather than definitive.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How accurate is this AI detector compared to GPTZero or Copyleaks?<span class="arrow">+</span></button><div class="faq-a"><p>We believe in honesty: no AI detector is 100% accurate. Independent benchmarks show GPTZero at 62&ndash;88% accuracy (despite claiming 99%), Copyleaks at ~79%, and Originality.ai with 2&ndash;5x higher false positives than competitors. Our detector uses the same proven metrics (perplexity, burstiness) and adds vocabulary richness analysis &mdash; use results as a strong signal, not absolute proof.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Does it work with non-English text?<span class="arrow">+</span></button><div class="faq-a"><p>Yes &mdash; our detector works across English, Spanish, French, German, Hindi, Urdu, Arabic, Portuguese, and more. Detection accuracy is highest for English (as with all AI detectors), but the underlying metrics &mdash; sentence structure, vocabulary distribution, and burstiness &mdash; transfer well across languages.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I use this to check my own AI-assisted writing before publishing?<span class="arrow">+</span></button><div class="faq-a"><p>Absolutely &mdash; this is one of the most popular use cases. Paste your AI-assisted draft, see exactly which sentences flag as AI (highlighted in red), then rewrite those specific sections to sound more natural before publishing. The sentence-level analysis makes this targeted editing much faster than rewriting blindly.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Will Google penalise my website for AI-generated content?<span class="arrow">+</span></button><div class="faq-a"><p>Google&rsquo;s official policy states that AI content is acceptable if it provides value, is accurate, and demonstrates E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness). However, mass-produced AI content without human review can hurt rankings. Use our detector to identify weak sections, add your expertise and personal experience, and ensure your content reads as genuinely valuable.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is there a daily usage limit or word cap?<span class="arrow">+</span></button><div class="faq-a"><p>No limits whatsoever. Analyse one text or one thousand &mdash; there are no daily caps, no word limits, no throttling, and no credit system. GPTZero limits free users to ~10 scans per day and 10,000 words per month. Originality.ai charges per 100 words scanned. We have no such restrictions.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I download or share my analysis results?<span class="arrow">+</span></button><div class="faq-a"><p>Yes &mdash; use the Copy Report button to copy a detailed text summary to your clipboard, or Download Report to save a .txt file with the full analysis including verdict, metric scores, sentence-by-sentence breakdown, and statistics. Both features are completely free &mdash; competitors like GPTZero lock report downloads behind paid plans.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How is AI detection different from plagiarism checking?<span class="arrow">+</span></button><div class="faq-a"><p>Plagiarism checkers compare your text against existing published content to find copied passages. AI detectors analyse writing patterns &mdash; perplexity, burstiness, sentence structure &mdash; to determine whether the text was generated by an AI model, even if the content is completely original and appears nowhere else online. They solve different problems and are most effective when used together.</p></div></div>
     </div>
   </div>
 </div>
 
-<!-- Section 11: Final CTA -->
+<!-- Section 12: Final CTA -->
 <div class="final-cta">
-  <h2>Is Your Content AI-Written?</h2>
-  <p>Find out in seconds &mdash; paste your text and get instant sentence-level analysis. Free forever.</p>
-  <a href="#inputText" class="btn-big" onclick="setTimeout(function(){detectAI()},400)">&#128373; Analyse Text Now &mdash; It&rsquo;s Free</a>
-  <div class="sub-note">100% Free &middot; No Signup &middot; Unlimited Scans</div>
+  <h2>Is Your Content Written by AI?</h2>
+  <p>Find out in seconds &mdash; free, private, and transparent. No signup, no limits, no hidden costs.</p>
+  <a href="#inputText" class="btn-big" onclick="setTimeout(function(){detectAI()},400)">&#128373; Analyse Your Text Now &mdash; 100% Free</a>
+  <div class="sub-note">No Signup &middot; Unlimited Scans &middot; Transparent Metrics &middot; Free Reports</div>
 </div>
 
 <div class="toast" id="toast">Copied!</div>
@@ -703,7 +744,7 @@ function scoreSentence(sentence) {
   var passive = /(is|are|was|were|been|being)\s+(being\s+)?\w+(ed|en)\b/i;
   if (passive.test(sentence)) score += 5;
 
-  if (sentence.trim().charAt(sentence.trim().length - 1) === '.' && sentence.indexOf('!') === -1 && sentence.indexOf('?') === -1 && sentence.indexOf('—') === -1 && sentence.indexOf('...') === -1) score += 3;
+  if (sentence.trim().charAt(sentence.trim().length - 1) === '.' && sentence.indexOf('!') === -1 && sentence.indexOf('?') === -1) score += 3;
 
   if (/\b(can\x27t|won\x27t|isn\x27t|aren\x27t|don\x27t|doesn\x27t|it\x27s|that\x27s|we\x27re|they\x27re|I\x27m|you\x27re|he\x27s|she\x27s|we\x27ve|they\x27ve|I\x27ve|you\x27ve|couldn\x27t|wouldn\x27t|shouldn\x27t)\b/.test(sentence)) score -= 12;
 
