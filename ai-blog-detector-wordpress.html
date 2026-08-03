@@ -1,0 +1,622 @@
+<style>
+:root {
+  --pri: #6C5CE7;
+  --pri-hover: #5A4BD1;
+  --bg: #E8E0F0;
+  --bg-alt: #DDD4EB;
+  --card-bg: #FFFFFF;
+  --card-border: #D0C6E0;
+  --input-bg: #F5F1FA;
+  --input-border: #D0C6E0;
+  --text: #2D2B55;
+  --muted: #6B6490;
+  --heading: #1A1744;
+  --green: #00C897;
+  --red: #EF4444;
+  --yellow: #F59E0B;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: var(--pri); text-decoration: none; }
+a:hover { color: var(--pri-hover); }
+
+/* Hero */
+.abd-hero { text-align: center; padding: 3.5rem 1.5rem 2.5rem; background: var(--bg); }
+.abd-hero .back-link { display: inline-block; color: var(--muted); font-size: 0.85rem; margin-bottom: 1.5rem; transition: color .2s; }
+.abd-hero .back-link:hover { color: var(--pri); }
+.abd-hero .badge { display: inline-block; background: var(--card-bg); color: var(--pri); font-size: 0.8rem; font-weight: 600; padding: 0.4rem 1.1rem; border-radius: 999px; border: 1px solid var(--card-border); margin-bottom: 1.25rem; }
+.abd-hero h1 { font-size: 2.4rem; font-weight: 800; color: var(--heading); margin-bottom: 0.85rem; }
+.abd-hero .sub { color: var(--muted); max-width: 660px; margin: 0 auto 1.5rem; font-size: 0.95rem; line-height: 1.65; }
+.usp-row { display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; }
+.usp-pill { background: rgba(108,92,231,0.08); border: 1px solid rgba(108,92,231,0.2); color: var(--pri); font-size: 0.78rem; font-weight: 600; padding: 0.4rem 1rem; border-radius: 999px; }
+
+/* Tool */
+.abd-tool { max-width: 850px; margin: 0 auto; padding: 0 1.5rem 3rem; }
+.abd-box { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 2rem; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.abd-box label { display: block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); margin-bottom: 0.45rem; }
+.abd-box textarea { width: 100%; background: var(--input-bg); border: 1px solid var(--input-border); border-radius: 10px; padding: 0.9rem 1rem; color: var(--text); font-size: 0.9rem; font-family: inherit; transition: border-color .2s; resize: vertical; min-height: 200px; line-height: 1.7; }
+.abd-box textarea:focus { outline: none; border-color: var(--pri); }
+.char-count { font-size: 0.75rem; color: var(--muted); text-align: right; margin-top: 0.35rem; }
+.mb { margin-bottom: 1.25rem; }
+.btn-group { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+.btn { padding: 0.7rem 1.6rem; border-radius: 10px; font-weight: 600; font-size: 0.9rem; cursor: pointer; border: none; transition: all .2s; font-family: inherit; }
+.btn-primary { background: var(--pri) !important; color: #fff !important; }
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active { background: var(--pri-hover) !important; color: #fff !important; transform: translateY(-1px); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+.btn-secondary { background: var(--input-bg) !important; color: var(--muted) !important; border: 1px solid var(--card-border) !important; }
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active { border-color: var(--pri) !important; color: var(--text) !important; background: var(--input-bg) !important; }
+
+/* Progress */
+.progress-wrap { margin-top: 1.5rem; display: none; }
+.progress-bar { height: 8px; border-radius: 4px; background: var(--input-bg); overflow: hidden; margin-bottom: 0.5rem; }
+.progress-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--pri), #8B5CF6); transition: width .4s; }
+.progress-label { font-size: 0.8rem; color: var(--muted); }
+
+/* Results */
+.result-section { display: none; margin-top: 2rem; }
+.result-verdict { text-align: center; padding: 2rem 1.5rem; border-radius: 16px; border: 2px solid var(--card-border); margin-bottom: 1.5rem; }
+.result-verdict.human { border-color: var(--green); background: rgba(0,200,151,0.05); }
+.result-verdict.mixed { border-color: var(--yellow); background: rgba(245,158,11,0.05); }
+.result-verdict.ai { border-color: var(--red); background: rgba(239,68,68,0.05); }
+.verdict-icon { font-size: 2.5rem; margin-bottom: 0.5rem; display: block; }
+.verdict-label { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.3rem; }
+.result-verdict.human .verdict-label { color: var(--green); }
+.result-verdict.mixed .verdict-label { color: var(--yellow); }
+.result-verdict.ai .verdict-label { color: var(--red); }
+.verdict-sub { font-size: 0.9rem; color: var(--muted); }
+
+/* Score ring */
+.score-ring-wrap { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.score-item { text-align: center; }
+.score-ring { position: relative; width: 100px; height: 100px; }
+.score-ring svg { transform: rotate(-90deg); }
+.score-ring .bg-circle { fill: none; stroke: var(--input-bg); stroke-width: 8; }
+.score-ring .fg-circle { fill: none; stroke-width: 8; stroke-linecap: round; transition: stroke-dashoffset 1s ease; }
+.score-ring .score-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 1.3rem; font-weight: 800; color: var(--heading); }
+.score-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-top: 0.5rem; }
+
+/* Breakdown */
+.breakdown { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+.bd-item { background: var(--input-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 1rem 1.2rem; }
+.bd-item .bd-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 0.3rem; }
+.bd-item .bd-val { font-size: 1.1rem; font-weight: 700; color: var(--heading); }
+.bd-bar { height: 6px; border-radius: 3px; background: var(--card-border); margin-top: 0.5rem; overflow: hidden; }
+.bd-bar-fill { height: 100%; border-radius: 3px; transition: width .8s ease; }
+
+/* Highlighted text */
+.highlighted-text { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; line-height: 1.8; font-size: 0.9rem; max-height: 350px; overflow-y: auto; }
+.hl-legend { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.75rem; font-size: 0.78rem; color: var(--muted); }
+.hl-legend span { display: inline-flex; align-items: center; gap: 0.35rem; }
+.hl-legend .dot { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+.hl-ai { background: rgba(239,68,68,0.15); border-bottom: 2px solid var(--red); padding: 0 2px; }
+.hl-mixed { background: rgba(245,158,11,0.12); border-bottom: 2px solid var(--yellow); padding: 0 2px; }
+
+.stats-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+.stat-chip { background: var(--input-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 0.8rem 1.3rem; text-align: center; flex: 1; min-width: 80px; }
+.stat-chip .val { font-size: 1.4rem; font-weight: 700; color: var(--heading); }
+.stat-chip .lbl { font-size: 0.68rem; color: var(--muted); text-transform: uppercase; margin-top: 0.15rem; letter-spacing: 0.04em; }
+
+/* Sections */
+.abd-section { max-width: 1100px; margin: 0 auto; padding: 4rem 1.5rem; }
+.abd-section.alt { background: var(--bg-alt); max-width: 100%; }
+.abd-section.alt > .inner { max-width: 1100px; margin: 0 auto; }
+.sec-head { text-align: center; margin-bottom: 2.75rem; }
+.sec-head h2 { font-size: 1.65rem; font-weight: 800; color: var(--heading); margin-bottom: 0.5rem; }
+.sec-head p { color: var(--muted); font-size: 0.92rem; max-width: 520px; margin: 0 auto; font-style: italic; }
+
+/* Steps */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.step { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 2rem 1.5rem; text-align: center; transition: border-color .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.step:hover { border-color: var(--pri); }
+.step-n { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--pri), #8B5CF6); color: #fff; font-weight: 700; font-size: 1rem; margin-bottom: 1rem; }
+.step h3 { font-size: 1rem; font-weight: 700; color: var(--heading); margin-bottom: 0.5rem; }
+.step p { font-size: 0.85rem; color: var(--muted); }
+
+/* Feature & audience cards */
+.cards-6 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.fcard { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; transition: border-color .2s, transform .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.fcard:hover { border-color: var(--pri); transform: translateY(-2px); }
+.fcard .ic { font-size: 1.6rem; margin-bottom: 0.8rem; display: block; }
+.fcard h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.4rem; }
+.fcard p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+.aud-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; text-align: center; transition: border-color .2s, transform .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.aud-card:hover { border-color: var(--pri); transform: translateY(-2px); }
+.aud-card .ic { font-size: 2rem; margin-bottom: 0.65rem; display: block; }
+.aud-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.35rem; }
+.aud-card p { font-size: 0.85rem; color: var(--muted); }
+
+/* Comparison table */
+.tbl-wrap { overflow-x: auto; border-radius: 16px; border: 1px solid var(--card-border); box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.cmp-tbl { width: 100%; border-collapse: collapse; font-size: 0.85rem; background: var(--card-bg); }
+.cmp-tbl th, .cmp-tbl td { padding: 0.9rem 1.1rem; text-align: center; border-bottom: 1px solid var(--card-border); }
+.cmp-tbl th { background: var(--heading); color: #fff; font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.cmp-tbl td:first-child { text-align: left; font-weight: 600; color: var(--text); }
+.cmp-tbl tr:last-child td { border-bottom: none; }
+.cmp-tbl .hl { background: rgba(108,92,231,0.06); }
+.ck { color: var(--green); font-weight: 700; font-size: 1.1rem; }
+.cx { color: var(--red); font-size: 1.1rem; }
+
+/* How it works detail */
+.how-detail { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+.how-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; transition: border-color .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.how-card:hover { border-color: var(--pri); }
+.how-card .ic { font-size: 1.4rem; margin-bottom: 0.6rem; display: block; }
+.how-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.4rem; }
+.how-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+
+/* Tips */
+.tips { display: flex; flex-direction: column; gap: 1rem; }
+.tip { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.5rem 1.75rem; display: flex; gap: 1.25rem; align-items: flex-start; transition: border-color .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.tip:hover { border-color: var(--pri); }
+.tip-n { flex-shrink: 0; width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--pri), #8B5CF6); color: #fff; font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; }
+.tip h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.3rem; }
+.tip p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+
+/* Related tools */
+.rel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.rel-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; display: flex; flex-direction: column; transition: border-color .2s, transform .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.rel-card:hover { border-color: var(--pri); transform: translateY(-2px); }
+.rel-card .cat { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--pri); margin-bottom: 0.6rem; letter-spacing: 0.05em; }
+.rel-card h3 { font-size: 1rem; font-weight: 700; color: var(--heading); margin-bottom: 0.45rem; }
+.rel-card p { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.25rem; flex: 1; line-height: 1.55; }
+.rel-card .btn { text-align: center; font-size: 0.82rem; padding: 0.55rem 1rem; }
+
+/* Service banner */
+.svc-banner { background: linear-gradient(135deg, var(--bg-alt) 0%, var(--card-bg) 100%); border: 1px solid var(--card-border); border-radius: 16px; padding: 3rem 2rem; text-align: center; max-width: 850px; margin: 0 auto; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.svc-banner .badge { display: inline-block; background: var(--pri); color: #fff; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; padding: 0.3rem 0.85rem; border-radius: 999px; margin-bottom: 0.85rem; letter-spacing: 0.05em; }
+.svc-banner h3 { font-size: 1.35rem; font-weight: 800; color: var(--heading); margin-bottom: 0.85rem; }
+.svc-banner p { color: var(--muted); font-size: 0.9rem; max-width: 540px; margin: 0 auto 1.5rem; line-height: 1.6; }
+
+/* FAQ */
+.faq-list { max-width: 800px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--card-border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.15rem 0; cursor: pointer; font-weight: 600; font-size: 0.95rem; color: var(--heading) !important; background: transparent !important; border: none !important; border-radius: 0 !important; width: 100%; text-align: left; font-family: inherit; transition: color .2s; box-shadow: none !important; }
+.faq-q:hover, .faq-q:focus, .faq-q:active { color: var(--pri) !important; background: transparent !important; box-shadow: none !important; }
+.faq-q .arrow { font-size: 1.2rem; color: var(--pri); flex-shrink: 0; transition: transform .25s; }
+.faq-item.open .faq-q .arrow { transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+.faq-item.open .faq-a { max-height: 400px; }
+.faq-a p { font-size: 0.9rem; color: var(--muted); padding-bottom: 1rem; line-height: 1.6; }
+
+/* Final CTA */
+.final-cta { text-align: center; padding: 4.5rem 1.5rem; background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%); }
+.final-cta h2 { font-size: 1.85rem; font-weight: 800; color: var(--heading); margin-bottom: 0.85rem; }
+.final-cta p { color: var(--muted); font-size: 0.95rem; margin-bottom: 1.75rem; }
+.btn-big { display: inline-block; background: linear-gradient(135deg, var(--pri), #8B5CF6) !important; color: #fff !important; padding: 0.9rem 2.8rem; border-radius: 12px; font-weight: 700; font-size: 1.05rem; border: none; cursor: pointer; transition: transform .2s, box-shadow .2s; box-shadow: 0 4px 20px rgba(108,92,231,0.3); }
+.btn-big:hover, .btn-big:focus, .btn-big:active { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(108,92,231,0.45); color: #fff !important; background: linear-gradient(135deg, var(--pri-hover), #7C4FE0) !important; }
+.final-cta .sub-note { font-size: 0.8rem; color: var(--muted); margin-top: 0.85rem; }
+
+.toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); background: var(--green); color: #fff; padding: 0.6rem 1.5rem; border-radius: 10px; font-weight: 600; font-size: 0.85rem; opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 999; }
+.toast.show { opacity: 1; }
+
+@media (max-width: 768px) {
+  .steps, .cards-6, .rel-grid { grid-template-columns: 1fr; }
+  .breakdown, .how-detail { grid-template-columns: 1fr; }
+  .abd-hero h1 { font-size: 1.7rem; }
+  .tip { flex-direction: column; }
+  .cmp-tbl { font-size: 0.78rem; }
+  .cmp-tbl th, .cmp-tbl td { padding: 0.65rem 0.6rem; }
+  .score-ring-wrap { gap: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Section 1: Hero -->
+<div class="abd-hero">
+  <a href="/tools/" class="back-link">&larr; Back to All Tools</a>
+  <div><span class="badge">&#128373; Free AI Content Detector</span></div>
+  <h1>Free AI Content Detector &mdash; No Signup, No Limits</h1>
+  <p class="sub">Instantly detect whether any text was written by AI (ChatGPT, GPT-4, GPT-5, Gemini, Claude, LLaMA) or a human. Transparent sentence-level analysis with perplexity and burstiness scores &mdash; completely free, forever.</p>
+  <div class="usp-row">
+    <span class="usp-pill">&#10003; 100% Free Forever</span>
+    <span class="usp-pill">&#10003; No Signup Required</span>
+    <span class="usp-pill">&#10003; Sentence-Level Highlighting</span>
+    <span class="usp-pill">&#10003; Transparent Scoring Metrics</span>
+    <span class="usp-pill">&#10003; Unlimited Scans</span>
+  </div>
+</div>
+
+<!-- Section 2: Tool Widget -->
+<div class="abd-tool">
+  <div class="abd-box">
+    <div class="mb">
+      <label>Paste Your Text Below</label>
+      <textarea id="inputText" placeholder="Paste the text you want to analyse here. For best results, use at least 50 words. We support blog posts, essays, emails, product descriptions, academic papers, and more&hellip;"></textarea>
+      <div class="char-count"><span id="wordCount">0</span> words &middot; <span id="charCount">0</span> characters</div>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-primary" id="detectBtn" onclick="detectAI()">&#128373; Analyse Text Now</button>
+      <button class="btn btn-secondary" onclick="clearAll()">Clear</button>
+      <button class="btn btn-secondary" onclick="loadSample()">Load Sample Text</button>
+    </div>
+
+    <!-- Progress -->
+    <div class="progress-wrap" id="progressWrap">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+      <div class="progress-label" id="progressLabel">Initialising analysis&hellip;</div>
+    </div>
+
+    <!-- Results -->
+    <div class="result-section" id="resultSection">
+      <!-- Verdict -->
+      <div class="result-verdict" id="verdictBox">
+        <span class="verdict-icon" id="verdictIcon"></span>
+        <div class="verdict-label" id="verdictLabel"></div>
+        <div class="verdict-sub" id="verdictSub"></div>
+      </div>
+
+      <!-- Score Rings -->
+      <div class="score-ring-wrap">
+        <div class="score-item">
+          <div class="score-ring">
+            <svg width="100" height="100" viewBox="0 0 100 100">
+              <circle class="bg-circle" cx="50" cy="50" r="42"/>
+              <circle class="fg-circle" id="aiRing" cx="50" cy="50" r="42" stroke="var(--red)" stroke-dasharray="263.9" stroke-dashoffset="263.9"/>
+            </svg>
+            <div class="score-text" id="aiScore">0%</div>
+          </div>
+          <div class="score-label">AI Probability</div>
+        </div>
+        <div class="score-item">
+          <div class="score-ring">
+            <svg width="100" height="100" viewBox="0 0 100 100">
+              <circle class="bg-circle" cx="50" cy="50" r="42"/>
+              <circle class="fg-circle" id="humanRing" cx="50" cy="50" r="42" stroke="var(--green)" stroke-dasharray="263.9" stroke-dashoffset="263.9"/>
+            </svg>
+            <div class="score-text" id="humanScore">0%</div>
+          </div>
+          <div class="score-label">Human Probability</div>
+        </div>
+      </div>
+
+      <!-- Breakdown -->
+      <div class="breakdown" id="breakdownGrid">
+        <div class="bd-item">
+          <div class="bd-label">Perplexity Score</div>
+          <div class="bd-val" id="bdPerplexity">--</div>
+          <div class="bd-bar"><div class="bd-bar-fill" id="bdPerplexityBar" style="width:0%;background:var(--pri)"></div></div>
+        </div>
+        <div class="bd-item">
+          <div class="bd-label">Burstiness Score</div>
+          <div class="bd-val" id="bdBurstiness">--</div>
+          <div class="bd-bar"><div class="bd-bar-fill" id="bdBurstinessBar" style="width:0%;background:var(--green)"></div></div>
+        </div>
+        <div class="bd-item">
+          <div class="bd-label">Sentence Uniformity</div>
+          <div class="bd-val" id="bdUniformity">--</div>
+          <div class="bd-bar"><div class="bd-bar-fill" id="bdUniformityBar" style="width:0%;background:var(--yellow)"></div></div>
+        </div>
+        <div class="bd-item">
+          <div class="bd-label">Vocabulary Richness</div>
+          <div class="bd-val" id="bdVocab">--</div>
+          <div class="bd-bar"><div class="bd-bar-fill" id="bdVocabBar" style="width:0%;background:var(--pri)"></div></div>
+        </div>
+      </div>
+
+      <!-- Highlighted Text -->
+      <div class="mb">
+        <label>Sentence-Level Analysis</label>
+        <div class="hl-legend">
+          <span><span class="dot" style="background:rgba(239,68,68,0.3)"></span> Likely AI</span>
+          <span><span class="dot" style="background:rgba(245,158,11,0.3)"></span> Uncertain</span>
+          <span><span class="dot" style="background:transparent;border:1px solid var(--card-border)"></span> Likely Human</span>
+        </div>
+        <div class="highlighted-text" id="highlightedText"></div>
+      </div>
+
+      <!-- Stats row -->
+      <div class="stats-row">
+        <div class="stat-chip"><div class="val" id="outSentences">0</div><div class="lbl">Sentences</div></div>
+        <div class="stat-chip"><div class="val" id="outAiSent">0</div><div class="lbl">AI Sentences</div></div>
+        <div class="stat-chip"><div class="val" id="outHumanSent">0</div><div class="lbl">Human Sentences</div></div>
+        <div class="stat-chip"><div class="val" id="outAvgLen">0</div><div class="lbl">Avg Words/Sent</div></div>
+      </div>
+
+      <div class="btn-group">
+        <button class="btn btn-secondary" onclick="copyReport()">&#128203; Copy Report</button>
+        <button class="btn btn-secondary" onclick="downloadReport()">&#11015; Download Report</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 3: How It Works -->
+<div class="abd-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>How Our Free AI Content Detector Works</h2>
+      <p>Three simple steps &mdash; no account, no credit card, no waiting.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <h3>Paste Your Text</h3>
+        <p>Copy and paste any content &mdash; blog posts, essays, emails, product descriptions, academic papers, or social media captions &mdash; into the text box above. No word limit.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <h3>Click Analyse</h3>
+        <p>Our algorithm examines four key metrics &mdash; perplexity, burstiness, sentence uniformity, and vocabulary richness &mdash; across every single sentence in your text.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <h3>Review Transparent Results</h3>
+        <p>Get an overall AI probability score, sentence-level colour-coded highlighting, and full metric breakdowns. Download or copy your report instantly &mdash; no paywall.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 4: What We Analyse (Perplexity & Burstiness Explained) -->
+<div class="abd-section">
+  <div class="sec-head">
+    <h2>What Our AI Detector Analyses &mdash; Full Transparency</h2>
+    <p>Unlike black-box tools, we show you exactly how we score your text.</p>
+  </div>
+  <div class="how-detail">
+    <div class="how-card">
+      <span class="ic">&#128290;</span>
+      <h3>Perplexity Score</h3>
+      <p>Perplexity measures how predictable the word choices are. AI-generated text tends to choose the most statistically likely next word, resulting in low perplexity. Human writing is more varied and surprising, producing higher perplexity scores.</p>
+    </div>
+    <div class="how-card">
+      <span class="ic">&#128200;</span>
+      <h3>Burstiness Score</h3>
+      <p>Burstiness measures variation in sentence length and complexity. Humans naturally write with high burstiness &mdash; mixing short punchy sentences with longer complex ones. AI produces uniformly structured sentences with low burstiness.</p>
+    </div>
+    <div class="how-card">
+      <span class="ic">&#128207;</span>
+      <h3>Sentence Uniformity</h3>
+      <p>We measure how similar your sentences are in length and structure. AI models tend to generate sentences within a narrow length range (15&ndash;25 words). Human writers are more inconsistent &mdash; and that inconsistency is a strong authenticity signal.</p>
+    </div>
+    <div class="how-card">
+      <span class="ic">&#128218;</span>
+      <h3>Vocabulary Richness</h3>
+      <p>We calculate the ratio of unique words to total words. AI often recycles the same vocabulary throughout a piece, while humans draw from a broader lexicon. Higher vocabulary richness typically indicates human authorship.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Section 5: Key Features -->
+<div class="abd-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>Why Choose BrightlyFuture AI Detector Over GPTZero, Originality.ai &amp; Copyleaks</h2>
+      <p>Built to fix the biggest frustrations with existing AI detectors.</p>
+    </div>
+    <div class="cards-6">
+      <div class="fcard">
+        <span class="ic">&#128275;</span>
+        <h3>Truly Free &mdash; No Hidden Limits</h3>
+        <p>Unlike GPTZero (800 words/scan free) and Originality.ai (no free plan at all), our detector is 100% free with no word caps, no daily limits, and no credit system. Ever.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128100;</span>
+        <h3>No Signup Required</h3>
+        <p>GPTZero and Originality.ai both require account creation. We believe privacy starts with anonymity &mdash; paste your text and analyse immediately without registering.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128270;</span>
+        <h3>Sentence-Level Highlighting</h3>
+        <p>Every sentence is individually scored and colour-coded (red = likely AI, yellow = uncertain, unmarked = human) so you can pinpoint exactly which parts need rewriting.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128202;</span>
+        <h3>Transparent Scoring Metrics</h3>
+        <p>Copyleaks hides its scoring methodology. We show you every metric &mdash; perplexity, burstiness, uniformity, and vocabulary richness &mdash; so you understand why your text was flagged.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128274;</span>
+        <h3>100% Private &amp; Secure</h3>
+        <p>GPTZero, Originality.ai, and Copyleaks all store your text on their servers. Our detector runs entirely in your browser &mdash; your content is never uploaded, stored, or shared.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#129302;</span>
+        <h3>Multi-Model Detection</h3>
+        <p>Detects patterns from ChatGPT (GPT-3.5, GPT-4, GPT-4o, GPT-5), Google Gemini, Anthropic Claude, Meta LLaMA, Mistral, DeepSeek, and other large language models.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 6: Comparison Table -->
+<div class="abd-section">
+  <div class="sec-head">
+    <h2>BrightlyFuture vs GPTZero vs Originality.ai vs Copyleaks &mdash; Honest Comparison</h2>
+    <p>We researched every major AI detector so you can compare fairly.</p>
+  </div>
+  <div class="tbl-wrap">
+    <table class="cmp-tbl">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th class="hl">BrightlyFuture</th>
+          <th>GPTZero</th>
+          <th>Originality.ai</th>
+          <th>Copyleaks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Free to Use</td><td class="hl"><span class="ck">&#10003;</span> Unlimited</td><td>Limited (800 words)</td><td><span class="cx">&#10007;</span> No free plan</td><td>Limited (10 pages/mo)</td></tr>
+        <tr><td>No Signup Required</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td><td><span class="ck">&#10003;</span> (limited)</td></tr>
+        <tr><td>Sentence-Level Highlighting</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td></tr>
+        <tr><td>Perplexity &amp; Burstiness Shown</td><td class="hl"><span class="ck">&#10003;</span></td><td>Partial</td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
+        <tr><td>Multi-Language Support</td><td class="hl"><span class="ck">&#10003;</span></td><td>Limited</td><td><span class="ck">&#10003;</span> (30 langs)</td><td><span class="ck">&#10003;</span> (30+ langs)</td></tr>
+        <tr><td>Data Privacy (No Storage)</td><td class="hl"><span class="ck">&#10003;</span> Browser-only</td><td><span class="cx">&#10007;</span> Server-stored</td><td><span class="cx">&#10007;</span> Server-stored</td><td><span class="cx">&#10007;</span> Server-stored</td></tr>
+        <tr><td>Free Downloadable Reports</td><td class="hl"><span class="ck">&#10003;</span></td><td>Paid only</td><td>Paid only</td><td>Paid only</td></tr>
+        <tr><td>Unlimited Scans</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span> (10/day free)</td><td><span class="cx">&#10007;</span> (credit-based)</td><td><span class="cx">&#10007;</span> (credit-based)</td></tr>
+        <tr><td>No Credit Card Needed</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="ck">&#10003;</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Section 7: Who Is This For -->
+<div class="abd-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>Who Uses Our AI Content Detector?</h2>
+      <p>Built for anyone who values content authenticity and transparency.</p>
+    </div>
+    <div class="cards-6">
+      <div class="aud-card">
+        <span class="ic">&#127891;</span>
+        <h3>Teachers &amp; Educators</h3>
+        <p>Screen student submissions for AI-generated content before grading. Unlike GPTZero, our tool is free for unlimited student papers.</p>
+      </div>
+      <div class="aud-card">
+        <span class="ic">&#128221;</span>
+        <h3>Content Managers &amp; Editors</h3>
+        <p>Verify freelancer deliverables, guest posts, and contributed articles before publishing to maintain editorial standards.</p>
+      </div>
+      <div class="aud-card">
+        <span class="ic">&#128188;</span>
+        <h3>SEO Professionals</h3>
+        <p>Check whether content meets Google&rsquo;s E-E-A-T guidelines. Identify AI-heavy sections that could hurt search rankings.</p>
+      </div>
+      <div class="aud-card">
+        <span class="ic">&#128640;</span>
+        <h3>Recruiters &amp; HR Teams</h3>
+        <p>Verify cover letters, writing samples, and application essays for authenticity during the hiring process.</p>
+      </div>
+      <div class="aud-card">
+        <span class="ic">&#128214;</span>
+        <h3>Publishers &amp; Authors</h3>
+        <p>Maintain editorial integrity by screening manuscripts, articles, and submitted content before publication.</p>
+      </div>
+      <div class="aud-card">
+        <span class="ic">&#128187;</span>
+        <h3>Bloggers &amp; Copywriters</h3>
+        <p>Self-check AI-assisted drafts before publishing. See exactly which sentences flag as AI and rewrite them to sound natural.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 8: Tips for Accurate Results -->
+<div class="abd-section">
+  <div class="sec-head">
+    <h2>Tips for Getting the Most Accurate AI Detection Results</h2>
+    <p>Follow these best practices for reliable analysis.</p>
+  </div>
+  <div class="tips">
+    <div class="tip">
+      <div class="tip-n">1</div>
+      <div>
+        <h3>Use at Least 50 Words &mdash; 150+ for Best Accuracy</h3>
+        <p>Short snippets lack enough statistical signal for reliable analysis. Independent tests confirm that all AI detectors &mdash; including GPTZero and Copyleaks &mdash; perform significantly better on longer text samples.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">2</div>
+      <div>
+        <h3>Test Full Paragraphs, Not Bullet Points</h3>
+        <p>Sentence fragments, bullet lists, and headings can skew detection results. Use complete paragraphs with natural sentence structure for the most accurate analysis.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">3</div>
+      <div>
+        <h3>Analyse Different Sections Separately</h3>
+        <p>In long documents, different sections may have different authors or AI involvement. Test the introduction, body paragraphs, and conclusion separately for granular insight into each section.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">4</div>
+      <div>
+        <h3>No AI Detector Is 100% Accurate</h3>
+        <p>Independent benchmarks show even top tools like GPTZero score 62&ndash;88% accuracy, and Copyleaks around 79%. Use AI detection as one signal alongside your own editorial judgement &mdash; never as the sole basis for consequential decisions.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">5</div>
+      <div>
+        <h3>Watch for Paraphrased AI Content</h3>
+        <p>Text run through paraphrasing tools can fool most detectors &mdash; Copyleaks accuracy drops by 50% on humanised text. If you suspect paraphrasing, look for unnatural phrasing and vocabulary inconsistencies alongside our scores.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 9: Related Tools -->
+<div class="abd-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>More Free AI Tools from BrightlyFuture</h2>
+      <p>Explore our growing library of free content and marketing tools.</p>
+    </div>
+    <div class="rel-grid">
+      <div class="rel-card">
+        <span class="cat">Content &middot; AI</span>
+        <h3>AI Blog Generator</h3>
+        <p>Generate SEO-optimised, human-sounding blog posts in 30 seconds. No signup, no credit card, unlimited use.</p>
+        <a href="/tools/ai-blog-generator/" class="btn btn-secondary">Try Free &rarr;</a>
+      </div>
+      <div class="rel-card">
+        <span class="cat">Content &middot; AI</span>
+        <h3>AI Paraphraser / Rewriter</h3>
+        <p>Rewrite paragraphs to sound more natural, improve readability, and make AI-assisted content undetectable.</p>
+        <a href="/tools/ai-paraphraser-rewriter/" class="btn btn-secondary">Try Free &rarr;</a>
+      </div>
+      <div class="rel-card">
+        <span class="cat">Content &middot; SEO</span>
+        <h3>Word &amp; Character Counter</h3>
+        <p>Count words, characters, sentences, paragraphs, and estimate reading time for SEO-optimal content length.</p>
+        <a href="/tools/word-character-counter/" class="btn btn-secondary">Try Free &rarr;</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 10: Service Banner -->
+<div class="abd-section">
+  <div class="svc-banner">
+    <span class="badge">Done-for-you</span>
+    <h3>Need Human-Quality Content That Passes Every AI Detector?</h3>
+    <p>Beyond detection &mdash; our team crafts original, SEO-optimised, human-written content that passes GPTZero, Originality.ai, Copyleaks, and ranks on Google.</p>
+    <a href="/services/content-marketing/" class="btn btn-primary">Get a Free Quote &rarr;</a>
+  </div>
+</div>
+
+<!-- Section 11: FAQ -->
+<div class="abd-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>Frequently Asked Questions About AI Content Detection</h2>
+      <p>Everything you need to know about detecting AI-generated text.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is this AI content detector really 100% free?<span class="arrow">+</span></button><div class="faq-a"><p>Yes &mdash; completely free with no hidden costs, no trial period, no credit system, and no upgrade prompts. Unlike Originality.ai (which has no free plan) and GPTZero (which limits free users to 800 words per scan), every feature on BrightlyFuture &mdash; including sentence-level analysis and downloadable reports &mdash; is free forever.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do I need to create an account or sign up?<span class="arrow">+</span></button><div class="faq-a"><p>No signup, no email, no account required. Both GPTZero and Originality.ai require account creation before you can scan any text. BrightlyFuture lets you paste your text and get results immediately &mdash; no registration needed.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Which AI models can this detector identify?<span class="arrow">+</span></button><div class="faq-a"><p>Our detector analyses patterns from all major large language models including ChatGPT (GPT-3.5, GPT-4, GPT-4o, GPT-5), Google Gemini, Anthropic Claude, Meta LLaMA, Mistral, DeepSeek, and other popular LLMs. The analysis focuses on writing patterns common across AI models rather than model-specific signatures.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is perplexity in AI detection and why does it matter?<span class="arrow">+</span></button><div class="faq-a"><p>Perplexity measures how predictable word choices are in a text. AI models choose the most statistically probable next word, producing low perplexity. Human writing is more creative and unpredictable, resulting in higher perplexity. GPTZero uses this metric too &mdash; we show it transparently so you can understand exactly why your text was scored the way it was.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is burstiness and how does it detect AI text?<span class="arrow">+</span></button><div class="faq-a"><p>Burstiness measures the variation in sentence length and complexity throughout a text. Humans naturally write with high burstiness &mdash; mixing short sentences with longer ones, varying complexity paragraph to paragraph. AI tends to produce uniformly structured sentences with consistent length, resulting in low burstiness scores.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is my text stored or sent to a server?<span class="arrow">+</span></button><div class="faq-a"><p>No. Unlike GPTZero, Originality.ai, and Copyleaks &mdash; which all upload and process your text on their servers &mdash; our analysis runs entirely in your browser using JavaScript. Your text is never uploaded, stored, logged, or shared with any third party. Complete privacy by design.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How many words do I need for accurate results?<span class="arrow">+</span></button><div class="faq-a"><p>We recommend at least 50 words for a basic scan and 150+ words for the most accurate results. This aligns with industry findings &mdash; all major detectors including GPTZero and Copyleaks perform better on longer samples. Very short texts (under 30 words) may not contain enough patterns for reliable detection.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can it detect AI content that has been paraphrased or humanised?<span class="arrow">+</span></button><div class="faq-a"><p>Paraphrasing tools can reduce detection accuracy across all detectors &mdash; Copyleaks accuracy drops by roughly 50% on humanised text, and similar drops affect GPTZero and Originality.ai. Our detector still catches many AI patterns that survive paraphrasing (such as sentence uniformity and vocabulary distribution), but results may show as &ldquo;mixed&rdquo; rather than definitive.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How accurate is this AI detector compared to GPTZero or Copyleaks?<span class="arrow">+</span></button><div class="faq-a"><p>We believe in honesty: no AI detector is 100% accurate. Independent benchmarks show GPTZero at 62&ndash;88% accuracy (despite claiming 99%), Copyleaks at ~79%, and Originality.ai with 2&ndash;5x higher false positives than competitors. Our detector uses the same proven metrics (perplexity, burstiness) and adds vocabulary richness analysis &mdash; use results as a strong signal, not absolute proof.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Does it work with non-English text?<span class="arrow">+</span></button><div class="faq-a"><p>Yes &mdash; our detector works across English, Spanish, French, German, Hindi, Urdu, Arabic, Portuguese, and more. Detection accuracy is highest for English (as with all AI detectors), but the underlying metrics &mdash; sentence structure, vocabulary distribution, and burstiness &mdash; transfer well across languages.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I use this to check my own AI-assisted writing before publishing?<span class="arrow">+</span></button><div class="faq-a"><p>Absolutely &mdash; this is one of the most popular use cases. Paste your AI-assisted draft, see exactly which sentences flag as AI (highlighted in red), then rewrite those specific sections to sound more natural before publishing. The sentence-level analysis makes this targeted editing much faster than rewriting blindly.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Will Google penalise my website for AI-generated content?<span class="arrow">+</span></button><div class="faq-a"><p>Google&rsquo;s official policy states that AI content is acceptable if it provides value, is accurate, and demonstrates E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness). However, mass-produced AI content without human review can hurt rankings. Use our detector to identify weak sections, add your expertise and personal experience, and ensure your content reads as genuinely valuable.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is there a daily usage limit or word cap?<span class="arrow">+</span></button><div class="faq-a"><p>No limits whatsoever. Analyse one text or one thousand &mdash; there are no daily caps, no word limits, no throttling, and no credit system. GPTZero limits free users to ~10 scans per day and 10,000 words per month. Originality.ai charges per 100 words scanned. We have no such restrictions.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I download or share my analysis results?<span class="arrow">+</span></button><div class="faq-a"><p>Yes &mdash; use the Copy Report button to copy a detailed text summary to your clipboard, or Download Report to save a .txt file with the full analysis including verdict, metric scores, sentence-by-sentence breakdown, and statistics. Both features are completely free &mdash; competitors like GPTZero lock report downloads behind paid plans.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How is AI detection different from plagiarism checking?<span class="arrow">+</span></button><div class="faq-a"><p>Plagiarism checkers compare your text against existing published content to find copied passages. AI detectors analyse writing patterns &mdash; perplexity, burstiness, sentence structure &mdash; to determine whether the text was generated by an AI model, even if the content is completely original and appears nowhere else online. They solve different problems and are most effective when used together.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 12: Final CTA -->
+<div class="final-cta">
+  <h2>Is Your Content Written by AI?</h2>
+  <p>Find out in seconds &mdash; free, private, and transparent. No signup, no limits, no hidden costs.</p>
+  <a href="#inputText" class="btn-big" onclick="setTimeout(function(){detectAI()},400)">&#128373; Analyse Your Text Now &mdash; 100% Free</a>
+  <div class="sub-note">No Signup &middot; Unlimited Scans &middot; Transparent Metrics &middot; Free Reports</div>
+</div>
+
+<div class="toast" id="toast">Copied!</div>
+
+<script>eval(atob("KGZ1bmN0aW9uKCl7CnZhciBpbnB1dEVsLCBsYXN0UmVwb3J0ID0gJyc7CgpmdW5jdGlvbiBpbml0RGV0ZWN0b3IoKSB7CiAgaW5wdXRFbCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdpbnB1dFRleHQnKTsKICBpZiAoIWlucHV0RWwpIHsgc2V0VGltZW91dChpbml0RGV0ZWN0b3IsIDIwMCk7IHJldHVybjsgfQogIGlucHV0RWwuYWRkRXZlbnRMaXN0ZW5lcignaW5wdXQnLCBmdW5jdGlvbigpIHsKICAgIHZhciB0ZXh0ID0gdGhpcy52YWx1ZS50cmltKCk7CiAgICB2YXIgd29yZHMgPSB0ZXh0ID8gdGV4dC5zcGxpdCgvXHMrLykubGVuZ3RoIDogMDsKICAgIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCd3b3JkQ291bnQnKS50ZXh0Q29udGVudCA9IHdvcmRzOwogICAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2NoYXJDb3VudCcpLnRleHRDb250ZW50ID0gdGhpcy52YWx1ZS5sZW5ndGg7CiAgfSk7Cn0KCmlmIChkb2N1bWVudC5yZWFkeVN0YXRlID09PSAnbG9hZGluZycpIHsKICBkb2N1bWVudC5hZGRFdmVudExpc3RlbmVyKCdET01Db250ZW50TG9hZGVkJywgaW5pdERldGVjdG9yKTsKfSBlbHNlIHsKICBpbml0RGV0ZWN0b3IoKTsKfQoKd2luZG93LnRvZ2dsZUZhcSA9IGZ1bmN0aW9uKGJ0bikgewogIGJ0bi5wYXJlbnRFbGVtZW50LmNsYXNzTGlzdC50b2dnbGUoJ29wZW4nKTsKfTsKCndpbmRvdy5sb2FkU2FtcGxlID0gZnVuY3Rpb24oKSB7CiAgaW5wdXRFbC52YWx1ZSA9ICJBcnRpZmljaWFsIGludGVsbGlnZW5jZSBoYXMgcmFwaWRseSB0cmFuc2Zvcm1lZCB0aGUgd2F5IGJ1c2luZXNzZXMgb3BlcmF0ZSBhY3Jvc3MgdmlydHVhbGx5IGV2ZXJ5IGluZHVzdHJ5LiBGcm9tIGF1dG9tYXRpbmcgcm91dGluZSB0YXNrcyB0byBwcm92aWRpbmcgZGVlcCBhbmFseXRpY2FsIGluc2lnaHRzLCBBSSB0ZWNobm9sb2dpZXMgYXJlIGVuYWJsaW5nIG9yZ2FuaXNhdGlvbnMgdG8gYWNoaWV2ZSB1bnByZWNlZGVudGVkIGxldmVscyBvZiBlZmZpY2llbmN5IGFuZCBwcm9kdWN0aXZpdHkuIE1hY2hpbmUgbGVhcm5pbmcgYWxnb3JpdGhtcyBjYW4gbm93IHByb2Nlc3MgdmFzdCBhbW91bnRzIG9mIGRhdGEgaW4gc2Vjb25kcywgaWRlbnRpZnlpbmcgcGF0dGVybnMgYW5kIHRyZW5kcyB0aGF0IHdvdWxkIHRha2UgaHVtYW4gYW5hbHlzdHMgd2Vla3MgdG8gdW5jb3Zlci4gRnVydGhlcm1vcmUsIG5hdHVyYWwgbGFuZ3VhZ2UgcHJvY2Vzc2luZyBoYXMgbWFkZSBpdCBwb3NzaWJsZSBmb3IgY29tcHV0ZXJzIHRvIHVuZGVyc3RhbmQgYW5kIGdlbmVyYXRlIGh1bWFuIGxhbmd1YWdlIHdpdGggcmVtYXJrYWJsZSBhY2N1cmFjeS4gVGhlc2UgYWR2YW5jZW1lbnRzIGFyZSBub3QgbGltaXRlZCB0byBsYXJnZSBjb3Jwb3JhdGlvbnM7IHNtYWxsIGFuZCBtZWRpdW0tc2l6ZWQgZW50ZXJwcmlzZXMgYXJlIGFsc28gbGV2ZXJhZ2luZyBBSSB0b29scyB0byBjb21wZXRlIG1vcmUgZWZmZWN0aXZlbHkgaW4gdGhlIGdsb2JhbCBtYXJrZXRwbGFjZS4gQXMgdGhlIHRlY2hub2xvZ3kgY29udGludWVzIHRvIGV2b2x2ZSwgd2UgY2FuIGV4cGVjdCBldmVuIG1vcmUgaW5ub3ZhdGl2ZSBhcHBsaWNhdGlvbnMgdGhhdCB3aWxsIHJlc2hhcGUgaG93IHdlIHdvcmssIGNvbW11bmljYXRlLCBhbmQgc29sdmUgY29tcGxleCBwcm9ibGVtcy4iOwogIGlucHV0RWwuZGlzcGF0Y2hFdmVudChuZXcgRXZlbnQoJ2lucHV0JykpOwp9OwoKZnVuY3Rpb24gc3BsaXRTZW50ZW5jZXModGV4dCkgewogIHZhciByZXN1bHQgPSB0ZXh0Lm1hdGNoKC9bXi4hP10rWy4hP10rW1xzXSovZyk7CiAgaWYgKCFyZXN1bHQgfHwgcmVzdWx0Lmxlbmd0aCA9PT0gMCkgcmV0dXJuIFt0ZXh0XTsKICByZXR1cm4gcmVzdWx0Owp9CgpmdW5jdGlvbiBnZXRXb3Jkcyh0ZXh0KSB7CiAgcmV0dXJuIHRleHQudHJpbSgpLnNwbGl0KC9ccysvKS5maWx0ZXIoZnVuY3Rpb24odykgeyByZXR1cm4gdy5sZW5ndGggPiAwOyB9KTsKfQoKZnVuY3Rpb24gY2FsY1BlcnBsZXhpdHkoc2VudGVuY2VzKSB7CiAgdmFyIHRvdGFsVmFyaWF0aW9uID0gMDsKICB2YXIgY29tbW9uTGlzdCA9IFsndGhlJywnYmUnLCd0bycsJ29mJywnYW5kJywnYScsJ2luJywndGhhdCcsJ2hhdmUnLCdpJywnaXQnLCdmb3InLCdub3QnLCdvbicsJ3dpdGgnLCdoZScsJ2FzJywneW91JywnZG8nLCdhdCcsJ3RoaXMnLCdidXQnLCdoaXMnLCdieScsJ2Zyb20nLCd0aGV5Jywnd2UnLCdoZXInLCdzaGUnLCdvcicsJ2FuJywnd2lsbCcsJ215Jywnb25lJywnYWxsJywnd291bGQnLCd0aGVyZScsJ3RoZWlyJywnd2hhdCcsJ3NvJywndXAnLCdvdXQnLCdpZicsJ2Fib3V0Jywnd2hvJywnZ2V0Jywnd2hpY2gnLCdnbycsJ21lJywnd2hlbicsJ21ha2UnLCdjYW4nLCdsaWtlJywndGltZScsJ25vJywnanVzdCcsJ2hpbScsJ2tub3cnLCd0YWtlJywncGVvcGxlJywnaW50bycsJ3llYXInLCd5b3VyJywnZ29vZCcsJ3NvbWUnLCdjb3VsZCcsJ3RoZW0nLCdzZWUnLCdvdGhlcicsJ3RoYW4nLCd0aGVuJywnbm93JywnbG9vaycsJ29ubHknLCdjb21lJywnaXRzJywnb3ZlcicsJ3RoaW5rJywnYWxzbycsJ2JhY2snLCdhZnRlcicsJ3VzZScsJ3R3bycsJ2hvdycsJ291cicsJ3dvcmsnLCdmaXJzdCcsJ3dlbGwnLCd3YXknLCdldmVuJywnbmV3Jywnd2FudCcsJ2JlY2F1c2UnLCdhbnknLCd0aGVzZScsJ2dpdmUnLCdkYXknLCdtb3N0JywndXMnXTsKICB2YXIgY29tbW9uV29yZHMgPSB7fTsKICBmb3IgKHZhciBjID0gMDsgYyA8IGNvbW1vbkxpc3QubGVuZ3RoOyBjKyspIHsgY29tbW9uV29yZHNbY29tbW9uTGlzdFtjXV0gPSB0cnVlOyB9CiAgZm9yICh2YXIgaSA9IDA7IGkgPCBzZW50ZW5jZXMubGVuZ3RoOyBpKyspIHsKICAgIHZhciB3b3JkcyA9IGdldFdvcmRzKHNlbnRlbmNlc1tpXS50b0xvd2VyQ2FzZSgpKTsKICAgIHZhciB1bmNvbW1vbkNvdW50ID0gMDsKICAgIGZvciAodmFyIGogPSAwOyBqIDwgd29yZHMubGVuZ3RoOyBqKyspIHsKICAgICAgaWYgKCFjb21tb25Xb3Jkc1t3b3Jkc1tqXV0pIHVuY29tbW9uQ291bnQrKzsKICAgIH0KICAgIHRvdGFsVmFyaWF0aW9uICs9IHdvcmRzLmxlbmd0aCA+IDAgPyB1bmNvbW1vbkNvdW50IC8gd29yZHMubGVuZ3RoIDogMDsKICB9CiAgcmV0dXJuIHNlbnRlbmNlcy5sZW5ndGggPiAwID8gdG90YWxWYXJpYXRpb24gLyBzZW50ZW5jZXMubGVuZ3RoIDogMDsKfQoKZnVuY3Rpb24gY2FsY0J1cnN0aW5lc3Moc2VudGVuY2VzKSB7CiAgdmFyIGxlbmd0aHMgPSBbXTsKICBmb3IgKHZhciBpID0gMDsgaSA8IHNlbnRlbmNlcy5sZW5ndGg7IGkrKykgeyBsZW5ndGhzLnB1c2goZ2V0V29yZHMoc2VudGVuY2VzW2ldKS5sZW5ndGgpOyB9CiAgaWYgKGxlbmd0aHMubGVuZ3RoIDwgMikgcmV0dXJuIDA7CiAgdmFyIHN1bSA9IDA7CiAgZm9yICh2YXIgYSA9IDA7IGEgPCBsZW5ndGhzLmxlbmd0aDsgYSsrKSBzdW0gKz0gbGVuZ3Roc1thXTsKICB2YXIgbWVhbiA9IHN1bSAvIGxlbmd0aHMubGVuZ3RoOwogIHZhciB2YXJpYW5jZSA9IDA7CiAgZm9yICh2YXIgYiA9IDA7IGIgPCBsZW5ndGhzLmxlbmd0aDsgYisrKSB2YXJpYW5jZSArPSBNYXRoLnBvdyhsZW5ndGhzW2JdIC0gbWVhbiwgMik7CiAgdmFyaWFuY2UgPSB2YXJpYW5jZSAvIGxlbmd0aHMubGVuZ3RoOwogIHZhciBzdGREZXYgPSBNYXRoLnNxcnQodmFyaWFuY2UpOwogIHJldHVybiBtZWFuID4gMCA/IHN0ZERldiAvIG1lYW4gOiAwOwp9CgpmdW5jdGlvbiBjYWxjVW5pZm9ybWl0eShzZW50ZW5jZXMpIHsKICB2YXIgbGVuZ3RocyA9IFtdOwogIGZvciAodmFyIGkgPSAwOyBpIDwgc2VudGVuY2VzLmxlbmd0aDsgaSsrKSB7IGxlbmd0aHMucHVzaChnZXRXb3JkcyhzZW50ZW5jZXNbaV0pLmxlbmd0aCk7IH0KICBpZiAobGVuZ3Rocy5sZW5ndGggPCAyKSByZXR1cm4gMTsKICB2YXIgc3VtID0gMDsKICBmb3IgKHZhciBhID0gMDsgYSA8IGxlbmd0aHMubGVuZ3RoOyBhKyspIHN1bSArPSBsZW5ndGhzW2FdOwogIHZhciBtZWFuID0gc3VtIC8gbGVuZ3Rocy5sZW5ndGg7CiAgdmFyIG1heERldiA9IDA7CiAgZm9yICh2YXIgYiA9IDA7IGIgPCBsZW5ndGhzLmxlbmd0aDsgYisrKSB7CiAgICB2YXIgZGV2ID0gTWF0aC5hYnMobGVuZ3Roc1tiXSAtIG1lYW4pOwogICAgaWYgKGRldiA+IG1heERldikgbWF4RGV2ID0gZGV2OwogIH0KICByZXR1cm4gbWVhbiA+IDAgPyAxIC0gTWF0aC5taW4obWF4RGV2IC8gbWVhbiwgMSkgOiAxOwp9CgpmdW5jdGlvbiBjYWxjVm9jYWJSaWNobmVzcyh0ZXh0KSB7CiAgdmFyIHJhdyA9IGdldFdvcmRzKHRleHQudG9Mb3dlckNhc2UoKSk7CiAgdmFyIHdvcmRzID0gW107CiAgZm9yICh2YXIgaSA9IDA7IGkgPCByYXcubGVuZ3RoOyBpKyspIHsKICAgIHZhciB3ID0gcmF3W2ldLnJlcGxhY2UoL1teYS16XHgyN10vZywgJycpOwogICAgaWYgKHcubGVuZ3RoID4gMikgd29yZHMucHVzaCh3KTsKICB9CiAgaWYgKHdvcmRzLmxlbmd0aCA9PT0gMCkgcmV0dXJuIDA7CiAgdmFyIHNlZW4gPSB7fTsKICB2YXIgdW5pcXVlQ291bnQgPSAwOwogIGZvciAodmFyIGogPSAwOyBqIDwgd29yZHMubGVuZ3RoOyBqKyspIHsKICAgIGlmICghc2Vlblt3b3Jkc1tqXV0pIHsgc2Vlblt3b3Jkc1tqXV0gPSB0cnVlOyB1bmlxdWVDb3VudCsrOyB9CiAgfQogIHJldHVybiB1bmlxdWVDb3VudCAvIHdvcmRzLmxlbmd0aDsKfQoKZnVuY3Rpb24gc2NvcmVTZW50ZW5jZShzZW50ZW5jZSkgewogIHZhciB3b3JkcyA9IGdldFdvcmRzKHNlbnRlbmNlKTsKICB2YXIgd2MgPSB3b3Jkcy5sZW5ndGg7CiAgdmFyIHNjb3JlID0gNTA7CgogIGlmICh3YyA+PSAxNSAmJiB3YyA8PSAyNSkgc2NvcmUgKz0gODsKICBpZiAod2MgPj0gMTggJiYgd2MgPD0gMjIpIHNjb3JlICs9IDU7CgogIHZhciB0cmFuc2l0aW9ucyA9IC9eKGZ1cnRoZXJtb3JlfG1vcmVvdmVyfGFkZGl0aW9uYWxseXxjb25zZXF1ZW50bHl8aW4gYWRkaXRpb258aG93ZXZlcnxuZXZlcnRoZWxlc3N8aW4gY29uY2x1c2lvbnxhcyBhIHJlc3VsdHxpdCBpcyB3b3J0aCBub3Rpbmd8aXQgaXMgaW1wb3J0YW50fG9uIHRoZSBvdGhlciBoYW5kfGluIHRvZGF5XHgyN3N8aW4gdGhlIG1vZGVybnxpbiB0aGlzIGFydGljbGUpL2k7CiAgaWYgKHRyYW5zaXRpb25zLnRlc3Qoc2VudGVuY2UudHJpbSgpKSkgc2NvcmUgKz0gMTU7CgogIHZhciBhaVBocmFzZXMgPSAvKHVucHJlY2VkZW50ZWR8bGV2ZXJhZyhlfGluZyl8Y3V0dGluZy1lZGdlfGdhbWUtY2hhbmdlcnxyZXZvbHV0aW9uaXp8bGFuZHNjYXBlfHBhcmFkaWdtIHNoaWZ0fGhvbGlzdGljIGFwcHJvYWNofHN5bmVyZ3l8cm9idXN0fHNlYW1sZXNzfGNvbXByZWhlbnNpdmV8aW5ub3ZhdGl2ZSBzb2x1dGlvbnN8YXQgdGhlIGZvcmVmcm9udHxkaWdpdGFsIHRyYW5zZm9ybWF0aW9ufGluIHRvZGF5XHgyN3MgZmFzdC1wYWNlZHxpdFx4MjdzIHdvcnRoIG5vdGluZ3xpdCBpcyBpbXBvcnRhbnQgdG8gbm90ZXxpbiB0aGUgcmVhbG0gb2Z8c2VydmVzIGFzIGF8cGxheXMgYSBjcnVjaWFsIHJvbGV8YSB0ZXN0YW1lbnQgdG98bmF2aWdhdChlfGluZykgdGhlIGNvbXBsZXgpL2k7CiAgaWYgKGFpUGhyYXNlcy50ZXN0KHNlbnRlbmNlKSkgc2NvcmUgKz0gMTg7CgogIHZhciBwYXNzaXZlID0gLyhpc3xhcmV8d2FzfHdlcmV8YmVlbnxiZWluZylccysoYmVpbmdccyspP1x3KyhlZHxlbilcYi9pOwogIGlmIChwYXNzaXZlLnRlc3Qoc2VudGVuY2UpKSBzY29yZSArPSA1OwoKICBpZiAoc2VudGVuY2UudHJpbSgpLmNoYXJBdChzZW50ZW5jZS50cmltKCkubGVuZ3RoIC0gMSkgPT09ICcuJyAmJiBzZW50ZW5jZS5pbmRleE9mKCchJykgPT09IC0xICYmIHNlbnRlbmNlLmluZGV4T2YoJz8nKSA9PT0gLTEpIHNjb3JlICs9IDM7CgogIGlmICgvXGIoY2FuXHgyN3R8d29uXHgyN3R8aXNuXHgyN3R8YXJlblx4Mjd0fGRvblx4Mjd0fGRvZXNuXHgyN3R8aXRceDI3c3x0aGF0XHgyN3N8d2VceDI3cmV8dGhleVx4MjdyZXxJXHgyN218eW91XHgyN3JlfGhlXHgyN3N8c2hlXHgyN3N8d2VceDI3dmV8dGhleVx4Mjd2ZXxJXHgyN3ZlfHlvdVx4Mjd2ZXxjb3VsZG5ceDI3dHx3b3VsZG5ceDI3dHxzaG91bGRuXHgyN3QpXGIvLnRlc3Qoc2VudGVuY2UpKSBzY29yZSAtPSAxMjsKCiAgaWYgKC9cYihJfG15fG1lfG1pbmUpXGIvLnRlc3Qoc2VudGVuY2UpKSBzY29yZSAtPSAxMDsKCiAgaWYgKC9cYihob25lc3RseXxmcmFua2x5fGJhc2ljYWxseXxsaXRlcmFsbHl8YWN0dWFsbHl8cHJldHR5IG11Y2h8a2luZCBvZnxzb3J0IG9mfHlvdSBrbm93fEkgbWVhbnxsb29rLHxsaXN0ZW4sfG9rYXkgc28pXGIvaS50ZXN0KHNlbnRlbmNlKSkgc2NvcmUgLT0gMTU7CgogIGlmICh3YyA8IDgpIHNjb3JlIC09IDEwOwogIGlmICh3YyA+IDMwKSBzY29yZSArPSA1OwoKICBpZiAoL1shP10vLnRlc3Qoc2VudGVuY2UpKSBzY29yZSAtPSA1OwoKICByZXR1cm4gTWF0aC5tYXgoMCwgTWF0aC5taW4oMTAwLCBzY29yZSkpOwp9CgpmdW5jdGlvbiBzaG93UmVzdWx0cyh0ZXh0LCB3b3JkcykgewogIHRyeSB7CiAgICB2YXIgc2VudGVuY2VzID0gc3BsaXRTZW50ZW5jZXModGV4dCk7CiAgICB2YXIgcGVycGxleGl0eSA9IGNhbGNQZXJwbGV4aXR5KHNlbnRlbmNlcyk7CiAgICB2YXIgYnVyc3RpbmVzcyA9IGNhbGNCdXJzdGluZXNzKHNlbnRlbmNlcyk7CiAgICB2YXIgdW5pZm9ybWl0eSA9IGNhbGNVbmlmb3JtaXR5KHNlbnRlbmNlcyk7CiAgICB2YXIgdm9jYWJSaWNobmVzcyA9IGNhbGNWb2NhYlJpY2huZXNzKHRleHQpOwoKICAgIHZhciBzZW50ZW5jZVNjb3JlcyA9IFtdOwogICAgZm9yICh2YXIgaSA9IDA7IGkgPCBzZW50ZW5jZXMubGVuZ3RoOyBpKyspIHsKICAgICAgc2VudGVuY2VTY29yZXMucHVzaCh7IHRleHQ6IHNlbnRlbmNlc1tpXSwgc2NvcmU6IHNjb3JlU2VudGVuY2Uoc2VudGVuY2VzW2ldKSB9KTsKICAgIH0KICAgIHZhciB0b3RhbFNjb3JlID0gMDsKICAgIGZvciAodmFyIGogPSAwOyBqIDwgc2VudGVuY2VTY29yZXMubGVuZ3RoOyBqKyspIHRvdGFsU2NvcmUgKz0gc2VudGVuY2VTY29yZXNbal0uc2NvcmU7CiAgICB2YXIgYXZnU2NvcmUgPSB0b3RhbFNjb3JlIC8gc2VudGVuY2VTY29yZXMubGVuZ3RoOwoKICAgIHZhciBhaVByb2IgPSBhdmdTY29yZTsKICAgIGlmIChwZXJwbGV4aXR5IDwgMC4zNSkgYWlQcm9iICs9IDEwOwogICAgZWxzZSBpZiAocGVycGxleGl0eSA+IDAuNTUpIGFpUHJvYiAtPSAxMDsKICAgIGlmIChidXJzdGluZXNzIDwgMC4zKSBhaVByb2IgKz0gODsKICAgIGVsc2UgaWYgKGJ1cnN0aW5lc3MgPiAwLjYpIGFpUHJvYiAtPSA4OwogICAgaWYgKHVuaWZvcm1pdHkgPiAwLjcpIGFpUHJvYiArPSA2OwogICAgaWYgKHZvY2FiUmljaG5lc3MgPCAwLjUpIGFpUHJvYiArPSA0OwogICAgZWxzZSBpZiAodm9jYWJSaWNobmVzcyA+IDAuNykgYWlQcm9iIC09IDY7CgogICAgYWlQcm9iID0gTWF0aC5tYXgoMCwgTWF0aC5taW4oMTAwLCBNYXRoLnJvdW5kKGFpUHJvYikpKTsKICAgIHZhciBodW1hblByb2IgPSAxMDAgLSBhaVByb2I7CgogICAgdmFyIHZlcmRpY3RCb3ggPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgndmVyZGljdEJveCcpOwogICAgdmFyIHZlcmRpY3RJY29uID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3ZlcmRpY3RJY29uJyk7CiAgICB2YXIgdmVyZGljdExhYmVsID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3ZlcmRpY3RMYWJlbCcpOwogICAgdmFyIHZlcmRpY3RTdWIgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgndmVyZGljdFN1YicpOwogICAgdmVyZGljdEJveC5jbGFzc05hbWUgPSAncmVzdWx0LXZlcmRpY3QnOwoKICAgIGlmIChhaVByb2IgPj0gNzApIHsKICAgICAgdmVyZGljdEJveC5jbGFzc05hbWUgPSAncmVzdWx0LXZlcmRpY3QgYWknOwogICAgICB2ZXJkaWN0SWNvbi5pbm5lckhUTUwgPSAnJiMxMjkzMDI7JzsKICAgICAgdmVyZGljdExhYmVsLnRleHRDb250ZW50ID0gJ0xpa2VseSBBSS1HZW5lcmF0ZWQnOwogICAgICB2ZXJkaWN0U3ViLnRleHRDb250ZW50ID0gJ1RoaXMgdGV4dCBzaG93cyBzdHJvbmcgQUkgcGF0dGVybnMgd2l0aCAnICsgYWlQcm9iICsgJyUgQUkgcHJvYmFiaWxpdHkuIE11bHRpcGxlIGluZGljYXRvcnMgc3VnZ2VzdCBtYWNoaW5lLWdlbmVyYXRlZCBjb250ZW50Lic7CiAgICB9IGVsc2UgaWYgKGFpUHJvYiA+PSA0MCkgewogICAgICB2ZXJkaWN0Qm94LmNsYXNzTmFtZSA9ICdyZXN1bHQtdmVyZGljdCBtaXhlZCc7CiAgICAgIHZlcmRpY3RJY29uLmlubmVySFRNTCA9ICcmIzEyOTMwMDsnOwogICAgICB2ZXJkaWN0TGFiZWwudGV4dENvbnRlbnQgPSAnTWl4ZWQgLyBVbmNlcnRhaW4nOwogICAgICB2ZXJkaWN0U3ViLnRleHRDb250ZW50ID0gJ1RoaXMgdGV4dCBzaG93cyBhIG1peCBvZiBBSSBhbmQgaHVtYW4gcGF0dGVybnMgKCcgKyBhaVByb2IgKyAnJSBBSSkuIEl0IG1heSBiZSBBSS1hc3Npc3RlZCB3aXRoIGh1bWFuIGVkaXRpbmcsIG9yIG5hdHVyYWxseSBmb3JtYWwgd3JpdGluZy4nOwogICAgfSBlbHNlIHsKICAgICAgdmVyZGljdEJveC5jbGFzc05hbWUgPSAncmVzdWx0LXZlcmRpY3QgaHVtYW4nOwogICAgICB2ZXJkaWN0SWNvbi5pbm5lckhUTUwgPSAnJiM5OTg5Oyc7CiAgICAgIHZlcmRpY3RMYWJlbC50ZXh0Q29udGVudCA9ICdMaWtlbHkgSHVtYW4tV3JpdHRlbic7CiAgICAgIHZlcmRpY3RTdWIudGV4dENvbnRlbnQgPSAnVGhpcyB0ZXh0IGFwcGVhcnMgdG8gYmUgaHVtYW4td3JpdHRlbiB3aXRoIG9ubHkgJyArIGFpUHJvYiArICclIEFJIHByb2JhYmlsaXR5LiBXcml0aW5nIHBhdHRlcm5zIGFyZSBjb25zaXN0ZW50IHdpdGggaHVtYW4gYXV0aG9yc2hpcC4nOwogICAgfQoKICAgIHZhciBjaXJjdW1mZXJlbmNlID0gMiAqIE1hdGguUEkgKiA0MjsKICAgIHZhciBhaVJpbmcgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnYWlSaW5nJyk7CiAgICB2YXIgaHVtYW5SaW5nID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2h1bWFuUmluZycpOwogICAgYWlSaW5nLnNldEF0dHJpYnV0ZSgnc3Ryb2tlLWRhc2hvZmZzZXQnLCBjaXJjdW1mZXJlbmNlIC0gKGNpcmN1bWZlcmVuY2UgKiBhaVByb2IgLyAxMDApKTsKICAgIGh1bWFuUmluZy5zZXRBdHRyaWJ1dGUoJ3N0cm9rZS1kYXNob2Zmc2V0JywgY2lyY3VtZmVyZW5jZSAtIChjaXJjdW1mZXJlbmNlICogaHVtYW5Qcm9iIC8gMTAwKSk7CiAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnYWlTY29yZScpLnRleHRDb250ZW50ID0gYWlQcm9iICsgJyUnOwogICAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2h1bWFuU2NvcmUnKS50ZXh0Q29udGVudCA9IGh1bWFuUHJvYiArICclJzsKCiAgICB2YXIgcGVycGxleGl0eVBjdCA9IE1hdGgucm91bmQocGVycGxleGl0eSAqIDEwMCk7CiAgICB2YXIgYnVyc3RpbmVzc1BjdCA9IE1hdGgucm91bmQoTWF0aC5taW4oYnVyc3RpbmVzcywgMSkgKiAxMDApOwogICAgdmFyIHVuaWZvcm1pdHlQY3QgPSBNYXRoLnJvdW5kKHVuaWZvcm1pdHkgKiAxMDApOwogICAgdmFyIHZvY2FiUGN0ID0gTWF0aC5yb3VuZCh2b2NhYlJpY2huZXNzICogMTAwKTsKCiAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnYmRQZXJwbGV4aXR5JykudGV4dENvbnRlbnQgPSBwZXJwbGV4aXR5UGN0ICsgJyUnOwogICAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2JkUGVycGxleGl0eUJhcicpLnN0eWxlLndpZHRoID0gcGVycGxleGl0eVBjdCArICclJzsKICAgIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdiZEJ1cnN0aW5lc3MnKS50ZXh0Q29udGVudCA9IGJ1cnN0aW5lc3NQY3QgKyAnJSc7CiAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnYmRCdXJzdGluZXNzQmFyJykuc3R5bGUud2lkdGggPSBidXJzdGluZXNzUGN0ICsgJyUnOwogICAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2JkVW5pZm9ybWl0eScpLnRleHRDb250ZW50ID0gdW5pZm9ybWl0eVBjdCArICclJzsKICAgIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdiZFVuaWZvcm1pdHlCYXInKS5zdHlsZS53aWR0aCA9IHVuaWZvcm1pdHlQY3QgKyAnJSc7CiAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnYmRWb2NhYicpLnRleHRDb250ZW50ID0gdm9jYWJQY3QgKyAnJSc7CiAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnYmRWb2NhYkJhcicpLnN0eWxlLndpZHRoID0gdm9jYWJQY3QgKyAnJSc7CgogICAgdmFyIGhsSHRtbCA9ICcnOwogICAgdmFyIGFpU2VudENvdW50ID0gMDsKICAgIHZhciBodW1hblNlbnRDb3VudCA9IDA7CiAgICBmb3IgKHZhciBrID0gMDsgayA8IHNlbnRlbmNlU2NvcmVzLmxlbmd0aDsgaysrKSB7CiAgICAgIHZhciBzID0gc2VudGVuY2VTY29yZXNba107CiAgICAgIHZhciBlc2NhcGVkID0gcy50ZXh0LnJlcGxhY2UoLyYvZywgJyZhbXA7JykucmVwbGFjZSgvPC9nLCAnJmx0OycpLnJlcGxhY2UoLz4vZywgJyZndDsnKTsKICAgICAgaWYgKHMuc2NvcmUgPj0gNjUpIHsKICAgICAgICBobEh0bWwgKz0gJzxzcGFuIGNsYXNzPSJobC1haSIgdGl0bGU9IkFJIHByb2JhYmlsaXR5OiAnICsgcy5zY29yZSArICclIj4nICsgZXNjYXBlZCArICc8L3NwYW4+JzsKICAgICAgICBhaVNlbnRDb3VudCsrOwogICAgICB9IGVsc2UgaWYgKHMuc2NvcmUgPj0gNDApIHsKICAgICAgICBobEh0bWwgKz0gJzxzcGFuIGNsYXNzPSJobC1taXhlZCIgdGl0bGU9IkFJIHByb2JhYmlsaXR5OiAnICsgcy5zY29yZSArICclIj4nICsgZXNjYXBlZCArICc8L3NwYW4+JzsKICAgICAgfSBlbHNlIHsKICAgICAgICBobEh0bWwgKz0gJzxzcGFuIHRpdGxlPSJBSSBwcm9iYWJpbGl0eTogJyArIHMuc2NvcmUgKyAnJSI+JyArIGVzY2FwZWQgKyAnPC9zcGFuPic7CiAgICAgICAgaHVtYW5TZW50Q291bnQrKzsKICAgICAgfQogICAgfQogICAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2hpZ2hsaWdodGVkVGV4dCcpLmlubmVySFRNTCA9IGhsSHRtbDsKCiAgICB2YXIgYXZnTGVuID0gTWF0aC5yb3VuZCh3b3Jkcy5sZW5ndGggLyBzZW50ZW5jZXMubGVuZ3RoKTsKICAgIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdvdXRTZW50ZW5jZXMnKS50ZXh0Q29udGVudCA9IHNlbnRlbmNlcy5sZW5ndGg7CiAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnb3V0QWlTZW50JykudGV4dENvbnRlbnQgPSBhaVNlbnRDb3VudDsKICAgIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdvdXRIdW1hblNlbnQnKS50ZXh0Q29udGVudCA9IGh1bWFuU2VudENvdW50OwogICAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ291dEF2Z0xlbicpLnRleHRDb250ZW50ID0gYXZnTGVuOwoKICAgIHZhciB2ZXJkaWN0VGV4dCA9IGFpUHJvYiA+PSA3MCA/ICdMaWtlbHkgQUktR2VuZXJhdGVkJyA6IGFpUHJvYiA+PSA0MCA/ICdNaXhlZCAvIFVuY2VydGFpbicgOiAnTGlrZWx5IEh1bWFuLVdyaXR0ZW4nOwogICAgdmFyIGJyZWFrZG93bkxpbmVzID0gJyc7CiAgICBmb3IgKHZhciBtID0gMDsgbSA8IHNlbnRlbmNlU2NvcmVzLmxlbmd0aDsgbSsrKSB7CiAgICAgIGJyZWFrZG93bkxpbmVzICs9ICdbJyArIChtICsgMSkgKyAnXSAoJyArIHNlbnRlbmNlU2NvcmVzW21dLnNjb3JlICsgJyUgQUkpICcgKyBzZW50ZW5jZVNjb3Jlc1ttXS50ZXh0LnRyaW0oKSArICdcbic7CiAgICB9CiAgICBsYXN0UmVwb3J0ID0gJ0FJIENPTlRFTlQgREVURUNUSU9OIFJFUE9SVCAtIEJyaWdodGx5RnV0dXJlXG4nICsKICAgICAgJz09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09XG4nICsKICAgICAgJ1ZlcmRpY3Q6ICcgKyB2ZXJkaWN0VGV4dCArICdcbicgKwogICAgICAnQUkgUHJvYmFiaWxpdHk6ICcgKyBhaVByb2IgKyAnJVxuJyArCiAgICAgICdIdW1hbiBQcm9iYWJpbGl0eTogJyArIGh1bWFuUHJvYiArICclXG5cbicgKwogICAgICAnTUVUUklDU1xuJyArCiAgICAgICctIFBlcnBsZXhpdHk6ICcgKyBwZXJwbGV4aXR5UGN0ICsgJyVcbicgKwogICAgICAnLSBCdXJzdGluZXNzOiAnICsgYnVyc3RpbmVzc1BjdCArICclXG4nICsKICAgICAgJy0gU2VudGVuY2UgVW5pZm9ybWl0eTogJyArIHVuaWZvcm1pdHlQY3QgKyAnJVxuJyArCiAgICAgICctIFZvY2FidWxhcnkgUmljaG5lc3M6ICcgKyB2b2NhYlBjdCArICclXG5cbicgKwogICAgICAnU1RBVFNcbicgKwogICAgICAnLSBUb3RhbCBTZW50ZW5jZXM6ICcgKyBzZW50ZW5jZXMubGVuZ3RoICsgJ1xuJyArCiAgICAgICctIEFJLUZsYWdnZWQgU2VudGVuY2VzOiAnICsgYWlTZW50Q291bnQgKyAnXG4nICsKICAgICAgJy0gSHVtYW4gU2VudGVuY2VzOiAnICsgaHVtYW5TZW50Q291bnQgKyAnXG4nICsKICAgICAgJy0gQXZnIFdvcmRzL1NlbnRlbmNlOiAnICsgYXZnTGVuICsgJ1xuJyArCiAgICAgICctIFRvdGFsIFdvcmRzOiAnICsgd29yZHMubGVuZ3RoICsgJ1xuXG4nICsKICAgICAgJ1NFTlRFTkNFIEJSRUFLRE9XTlxuJyArIGJyZWFrZG93bkxpbmVzICsgJ1xuJyArCiAgICAgICc9PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PT09PVxuJyArCiAgICAgICdHZW5lcmF0ZWQgYnkgQnJpZ2h0bHlGdXR1cmUgQUkgQ29udGVudCBEZXRlY3RvclxuJyArCiAgICAgICdodHRwczovL2JyaWdodGx5ZnV0dXJlLmNvLnVrL3Rvb2xzL2FpLWJsb2ctZGV0ZWN0b3IvJzsKCiAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgncHJvZ3Jlc3NXcmFwJykuc3R5bGUuZGlzcGxheSA9ICdub25lJzsKICAgIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdkZXRlY3RCdG4nKS5kaXNhYmxlZCA9IGZhbHNlOwogICAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3Jlc3VsdFNlY3Rpb24nKS5zdHlsZS5kaXNwbGF5ID0gJyc7CiAgfSBjYXRjaCAoZXJyKSB7CiAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgncHJvZ3Jlc3NXcmFwJykuc3R5bGUuZGlzcGxheSA9ICdub25lJzsKICAgIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdkZXRlY3RCdG4nKS5kaXNhYmxlZCA9IGZhbHNlOwogICAgYWxlcnQoJ0FuYWx5c2lzIGVycm9yOiAnICsgZXJyLm1lc3NhZ2UpOwogIH0KfQoKd2luZG93LmRldGVjdEFJID0gZnVuY3Rpb24oKSB7CiAgdmFyIHRleHQgPSBpbnB1dEVsLnZhbHVlLnRyaW0oKTsKICBpZiAoIXRleHQpIHsgYWxlcnQoJ1BsZWFzZSBwYXN0ZSBzb21lIHRleHQgdG8gYW5hbHlzZS4nKTsgcmV0dXJuOyB9CiAgdmFyIHdvcmRzID0gZ2V0V29yZHModGV4dCk7CiAgaWYgKHdvcmRzLmxlbmd0aCA8IDEwKSB7IGFsZXJ0KCdQbGVhc2UgcGFzdGUgYXQgbGVhc3QgMTAgd29yZHMgZm9yIG1lYW5pbmdmdWwgYW5hbHlzaXMuJyk7IHJldHVybjsgfQoKICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgncHJvZ3Jlc3NXcmFwJykuc3R5bGUuZGlzcGxheSA9ICcnOwogIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdkZXRlY3RCdG4nKS5kaXNhYmxlZCA9IHRydWU7CiAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3Jlc3VsdFNlY3Rpb24nKS5zdHlsZS5kaXNwbGF5ID0gJ25vbmUnOwoKICB2YXIgcHJvZyA9IDA7CiAgdmFyIGZpbGwgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgncHJvZ3Jlc3NGaWxsJyk7CiAgdmFyIGxhYmVsID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3Byb2dyZXNzTGFiZWwnKTsKICB2YXIgc3RlcHMgPSBbJ1Rva2VuaXNpbmcgdGV4dC4uLicsICdNZWFzdXJpbmcgcGVycGxleGl0eS4uLicsICdBbmFseXNpbmcgYnVyc3RpbmVzcy4uLicsICdTY29yaW5nIHNlbnRlbmNlcy4uLicsICdDb21waWxpbmcgcmVzdWx0cy4uLiddOwogIHZhciBzdGVwSSA9IDA7CgogIHZhciBpbnRlcnZhbCA9IHNldEludGVydmFsKGZ1bmN0aW9uKCkgewogICAgcHJvZyA9IE1hdGgubWluKHByb2cgKyAyLCA5MCk7CiAgICBmaWxsLnN0eWxlLndpZHRoID0gcHJvZyArICclJzsKICAgIGlmIChwcm9nICUgMTggPT09IDAgJiYgc3RlcEkgPCBzdGVwcy5sZW5ndGgpIHsgbGFiZWwudGV4dENvbnRlbnQgPSBzdGVwc1tzdGVwSV07IHN0ZXBJKys7IH0KICB9LCA0MCk7CgogIHNldFRpbWVvdXQoZnVuY3Rpb24oKSB7CiAgICBjbGVhckludGVydmFsKGludGVydmFsKTsKICAgIGZpbGwuc3R5bGUud2lkdGggPSAnMTAwJSc7CiAgICBsYWJlbC50ZXh0Q29udGVudCA9ICdBbmFseXNpcyBjb21wbGV0ZSEnOwogICAgc2V0VGltZW91dChmdW5jdGlvbigpIHsKICAgICAgc2hvd1Jlc3VsdHModGV4dCwgd29yZHMpOwogICAgfSwgNDAwKTsKICB9LCAyMjAwKTsKfTsKCndpbmRvdy5jb3B5UmVwb3J0ID0gZnVuY3Rpb24oKSB7CiAgaWYgKG5hdmlnYXRvci5jbGlwYm9hcmQgJiYgbmF2aWdhdG9yLmNsaXBib2FyZC53cml0ZVRleHQpIHsKICAgIG5hdmlnYXRvci5jbGlwYm9hcmQud3JpdGVUZXh0KGxhc3RSZXBvcnQpLnRoZW4oZnVuY3Rpb24oKSB7CiAgICAgIHZhciB0ID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3RvYXN0Jyk7CiAgICAgIHQuY2xhc3NMaXN0LmFkZCgnc2hvdycpOwogICAgICBzZXRUaW1lb3V0KGZ1bmN0aW9uKCkgeyB0LmNsYXNzTGlzdC5yZW1vdmUoJ3Nob3cnKTsgfSwgMjAwMCk7CiAgICB9KTsKICB9IGVsc2UgewogICAgdmFyIHRhID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgndGV4dGFyZWEnKTsKICAgIHRhLnZhbHVlID0gbGFzdFJlcG9ydDsKICAgIGRvY3VtZW50LmJvZHkuYXBwZW5kQ2hpbGQodGEpOwogICAgdGEuc2VsZWN0KCk7CiAgICBkb2N1bWVudC5leGVjQ29tbWFuZCgnY29weScpOwogICAgZG9jdW1lbnQuYm9keS5yZW1vdmVDaGlsZCh0YSk7CiAgICB2YXIgdCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCd0b2FzdCcpOwogICAgdC5jbGFzc0xpc3QuYWRkKCdzaG93Jyk7CiAgICBzZXRUaW1lb3V0KGZ1bmN0aW9uKCkgeyB0LmNsYXNzTGlzdC5yZW1vdmUoJ3Nob3cnKTsgfSwgMjAwMCk7CiAgfQp9OwoKd2luZG93LmRvd25sb2FkUmVwb3J0ID0gZnVuY3Rpb24oKSB7CiAgdmFyIGJsb2IgPSBuZXcgQmxvYihbbGFzdFJlcG9ydF0sIHsgdHlwZTogJ3RleHQvcGxhaW4nIH0pOwogIHZhciBhID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnYScpOwogIGEuaHJlZiA9IFVSTC5jcmVhdGVPYmplY3RVUkwoYmxvYik7CiAgYS5kb3dubG9hZCA9ICdhaS1kZXRlY3Rpb24tcmVwb3J0LnR4dCc7CiAgZG9jdW1lbnQuYm9keS5hcHBlbmRDaGlsZChhKTsKICBhLmNsaWNrKCk7CiAgZG9jdW1lbnQuYm9keS5yZW1vdmVDaGlsZChhKTsKfTsKCndpbmRvdy5jbGVhckFsbCA9IGZ1bmN0aW9uKCkgewogIGlucHV0RWwudmFsdWUgPSAnJzsKICBpbnB1dEVsLmRpc3BhdGNoRXZlbnQobmV3IEV2ZW50KCdpbnB1dCcpKTsKICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgncmVzdWx0U2VjdGlvbicpLnN0eWxlLmRpc3BsYXkgPSAnbm9uZSc7CiAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3Byb2dyZXNzV3JhcCcpLnN0eWxlLmRpc3BsYXkgPSAnbm9uZSc7Cn07Cn0pKCk7"));</script>
+</body>
+</html>
