@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Twitter/X Character Counter - Count Tweet Characters Online | BrightlyFuture</title>
+<meta name="description" content="Free Twitter/X character counter with real-time count, circular progress ring, URL detection (23 chars), hashtag and mention counting. Works for standard tweets and X Premium. No signup.">
+<meta name="keywords" content="twitter character counter, x character counter, tweet character counter, twitter character count, x character limit, tweet length checker, twitter character limit tool, count characters twitter, twitter word counter, x premium character limit, free twitter counter, tweet counter online">
+<style>
+#tcc-wrap {
+  --pri: #6C5CE7;
+  --pri-hover: #5A4BD1;
+  --bg: #E8E0F0;
+  --bg-alt: #DDD4EB;
+  --card-bg: #FFFFFF;
+  --card-border: #D0C6E0;
+  --input-bg: #F5F1FA;
+  --input-border: #D0C6E0;
+  --text: #2D2B55;
+  --muted: #6B6490;
+  --heading: #1A1744;
+  --green: #00C897;
+  --red: #EF4444;
+  --yellow: #F59E0B;
+  display: block !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  background: var(--bg) !important;
+  color: var(--text) !important;
+  line-height: 1.6 !important;
+}
+#tcc-wrap *, #tcc-wrap *::before, #tcc-wrap *::after { box-sizing: border-box !important; margin: 0; padding: 0; }
+#tcc-wrap a { color: var(--pri) !important; text-decoration: none !important; }
+#tcc-wrap a:hover { color: var(--pri-hover) !important; }
+
+#tcc-wrap .tcc-hero { text-align: center; padding: 3.5rem 1.5rem 2.5rem; background: var(--bg) !important; }
+#tcc-wrap .tcc-hero .badge { display: inline-block; background: var(--card-bg) !important; color: var(--pri) !important; font-size: 0.8rem; font-weight: 600; padding: 0.4rem 1.1rem; border-radius: 999px; border: 1px solid var(--card-border); margin-bottom: 1.25rem; }
+#tcc-wrap .tcc-hero h1 { font-size: 2.3rem; font-weight: 800; color: var(--heading) !important; margin-bottom: 0.85rem; }
+#tcc-wrap .tcc-hero .sub { color: var(--muted) !important; max-width: 650px; margin: 0 auto 1.5rem; font-size: 0.95rem; line-height: 1.65; }
+#tcc-wrap .usp-row { display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; margin-bottom: 1.5rem; }
+#tcc-wrap .usp-pill { background: rgba(108,92,231,0.08) !important; border: 1px solid rgba(108,92,231,0.2); color: var(--pri) !important; font-size: 0.78rem; font-weight: 600; padding: 0.4rem 1rem; border-radius: 999px; }
+#tcc-wrap .btn-cta { padding: 0.85rem 2rem; border-radius: 10px; font-weight: 700; font-size: 0.95rem; cursor: pointer; border: none !important; background: var(--pri) !important; color: #fff !important; transition: all .2s; font-family: inherit; }
+#tcc-wrap .btn-cta:hover { background: var(--pri-hover) !important; transform: translateY(-1px); }
+
+#tcc-wrap .tcc-tool { max-width: 750px; margin: 0 auto; padding: 0 1.5rem 3rem; }
+#tcc-wrap .tcc-box { background: var(--card-bg) !important; border: 1px solid var(--card-border); border-radius: 16px; padding: 2rem; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+
+#tcc-wrap .type-row { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+#tcc-wrap .type-opt { display: flex; align-items: center; gap: 0.5rem; background: var(--input-bg) !important; border: 1px solid var(--input-border); border-radius: 10px; padding: 0.6rem 1rem; cursor: pointer; font-size: 0.85rem; font-weight: 600; color: var(--text) !important; flex: 1; min-width: 200px; }
+#tcc-wrap .type-opt input { accent-color: var(--pri); cursor: pointer; }
+
+#tcc-wrap .tcc-textarea { width: 100%; background: var(--input-bg) !important; border: 1px solid var(--input-border) !important; border-radius: 10px; padding: 1rem 1.1rem; color: var(--text) !important; font-size: 0.95rem; font-family: inherit; transition: border-color .2s; resize: vertical; min-height: 180px; line-height: 1.65; }
+#tcc-wrap .tcc-textarea:focus { outline: none !important; border-color: var(--pri) !important; }
+
+#tcc-wrap .count-row { display: flex; align-items: center; gap: 1.25rem; margin-top: 1.25rem; flex-wrap: wrap; }
+#tcc-wrap .ring-wrap { position: relative; width: 64px; height: 64px; flex-shrink: 0; }
+#tcc-wrap .ring-svg { transform: rotate(-90deg); }
+#tcc-wrap .ring-bg { fill: none; stroke: var(--input-border); stroke-width: 6; }
+#tcc-wrap .ring-fg { fill: none; stroke: var(--green); stroke-width: 6; stroke-linecap: round; transition: stroke-dashoffset .25s ease, stroke .25s ease; }
+#tcc-wrap .count-info { flex: 1; min-width: 200px; }
+#tcc-wrap .char-count { font-size: 1.7rem; font-weight: 800; color: var(--heading) !important; line-height: 1.1; }
+#tcc-wrap .remain-count { font-size: 0.85rem; color: var(--muted) !important; margin-top: 0.25rem; }
+#tcc-wrap .warn-label { display: none; background: rgba(245,158,11,0.12) !important; color: #B45309 !important; font-size: 0.75rem; font-weight: 700; padding: 0.3rem 0.7rem; border-radius: 999px; margin-top: 0.4rem; }
+#tcc-wrap .over-label { display: none; background: rgba(239,68,68,0.12) !important; color: var(--red) !important; font-size: 0.75rem; font-weight: 700; padding: 0.3rem 0.7rem; border-radius: 999px; margin-top: 0.4rem; }
+
+#tcc-wrap .btn-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+#tcc-wrap .btn { padding: 0.65rem 1.4rem; border-radius: 10px; font-weight: 600; font-size: 0.88rem; cursor: pointer; border: none !important; transition: all .2s; font-family: inherit; }
+#tcc-wrap .btn-primary { background: var(--pri) !important; color: #fff !important; }
+#tcc-wrap .btn-primary:hover { background: var(--pri-hover) !important; transform: translateY(-1px); }
+#tcc-wrap .btn-secondary { background: var(--input-bg) !important; color: var(--muted) !important; border: 1px solid var(--card-border) !important; }
+#tcc-wrap .btn-secondary:hover { border-color: var(--pri) !important; color: var(--text) !important; }
+
+#tcc-wrap .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.85rem; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--card-border); }
+#tcc-wrap .stat-card { background: var(--input-bg) !important; border: 1px solid var(--card-border); border-radius: 12px; padding: 0.9rem 0.6rem; text-align: center; }
+#tcc-wrap .stat-card .stat-val { font-size: 1.35rem; font-weight: 800; color: var(--pri) !important; display: block; line-height: 1.2; }
+#tcc-wrap .stat-card .stat-lbl { font-size: 0.65rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted) !important; margin-top: 0.3rem; display: block; }
+
+#tcc-wrap #toast { position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%) translateY(20px); background: var(--heading) !important; color: #fff !important; padding: 0.7rem 1.3rem; border-radius: 10px; font-size: 0.85rem; font-weight: 600; opacity: 0; pointer-events: none; transition: opacity .25s, transform .25s; z-index: 9999; }
+#tcc-wrap #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+#tcc-wrap .tcc-section { max-width: 1100px; margin: 0 auto; padding: 4rem 1.5rem; }
+#tcc-wrap .tcc-section.alt { background: var(--bg-alt) !important; max-width: 100%; }
+#tcc-wrap .tcc-section.alt > .inner { max-width: 1100px; margin: 0 auto; }
+#tcc-wrap .sec-head { text-align: center; margin-bottom: 2.5rem; }
+#tcc-wrap .sec-head h2 { font-size: 1.6rem; font-weight: 800; color: var(--heading) !important; margin-bottom: 0.5rem; }
+#tcc-wrap .sec-head p { color: var(--muted) !important; font-size: 0.92rem; max-width: 560px; margin: 0 auto; }
+#tcc-wrap .sec-body p { color: var(--text) !important; font-size: 0.92rem; line-height: 1.75; max-width: 800px; margin: 0 auto 1rem; }
+
+#tcc-wrap .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+#tcc-wrap .step { background: var(--card-bg) !important; border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem 1.5rem; text-align: center; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+#tcc-wrap .step-n { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, var(--pri), #8B5CF6) !important; color: #fff !important; font-weight: 700; margin-bottom: 0.9rem; }
+#tcc-wrap .step h3 { font-size: 0.98rem; font-weight: 700; color: var(--heading) !important; margin-bottom: 0.4rem; }
+#tcc-wrap .step p { font-size: 0.83rem; color: var(--muted) !important; }
+
+#tcc-wrap .cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+#tcc-wrap .fcard { background: var(--card-bg) !important; border: 1px solid var(--card-border); border-radius: 16px; padding: 1.6rem; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+#tcc-wrap .fcard .ic { font-size: 1.5rem; margin-bottom: 0.7rem; display: block; }
+#tcc-wrap .fcard h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading) !important; margin-bottom: 0.4rem; }
+#tcc-wrap .fcard p { font-size: 0.83rem; color: var(--muted) !important; line-height: 1.55; }
+
+#tcc-wrap .limits-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; background: var(--card-bg) !important; border-radius: 16px; overflow: hidden; border: 1px solid var(--card-border); }
+#tcc-wrap .limits-table th, #tcc-wrap .limits-table td { padding: 0.85rem 1rem; text-align: left; border-bottom: 1px solid var(--card-border); }
+#tcc-wrap .limits-table th { background: var(--heading) !important; color: #fff !important; font-weight: 700; font-size: 0.78rem; text-transform: uppercase; }
+#tcc-wrap .limits-table tr:last-child td { border-bottom: none; }
+#tcc-wrap .limits-table td:last-child { font-weight: 700; color: var(--pri) !important; }
+#tcc-wrap .tbl-wrap { overflow-x: auto; border-radius: 16px; }
+
+#tcc-wrap .cmp-tbl-wrap { overflow-x: auto; border-radius: 16px; border: 1px solid var(--card-border); box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+#tcc-wrap .cmp-tbl { width: 100%; border-collapse: collapse; font-size: 0.84rem; background: var(--card-bg) !important; min-width: 600px; }
+#tcc-wrap .cmp-tbl th, #tcc-wrap .cmp-tbl td { padding: 0.85rem 1rem; text-align: center; border-bottom: 1px solid var(--card-border); }
+#tcc-wrap .cmp-tbl th { background: var(--heading) !important; color: #fff !important; font-weight: 700; font-size: 0.76rem; text-transform: uppercase; }
+#tcc-wrap .cmp-tbl td:first-child { text-align: left; font-weight: 600; color: var(--text) !important; }
+#tcc-wrap .cmp-tbl tr:last-child td { border-bottom: none; }
+#tcc-wrap .cmp-tbl .hl { background: rgba(108,92,231,0.06) !important; }
+#tcc-wrap .ck { color: var(--green) !important; font-weight: 700; }
+#tcc-wrap .cx { color: var(--red) !important; }
+
+#tcc-wrap .tips-list, #tcc-wrap .mistakes-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+#tcc-wrap .tip-card { background: var(--card-bg) !important; border: 1px solid var(--card-border); border-radius: 12px; padding: 1.1rem 1.3rem; display: flex; gap: 0.8rem; align-items: flex-start; }
+#tcc-wrap .tip-card .ic { flex-shrink: 0; font-size: 1.1rem; }
+#tcc-wrap .tip-card h3 { font-size: 0.9rem; font-weight: 700; color: var(--heading) !important; margin-bottom: 0.25rem; }
+#tcc-wrap .tip-card p { font-size: 0.82rem; color: var(--muted) !important; line-height: 1.5; }
+
+#tcc-wrap .faq-list { max-width: 800px; margin: 0 auto; }
+#tcc-wrap .faq-item { background: var(--card-bg) !important; border: 1px solid var(--card-border); border-radius: 12px; margin-bottom: 0.75rem; overflow: hidden; }
+#tcc-wrap .faq-q { width: 100%; text-align: left; background: transparent !important; border: none !important; padding: 1rem 1.25rem; font-size: 0.92rem; font-weight: 700; color: var(--heading) !important; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; font-family: inherit; }
+#tcc-wrap .faq-q::after { content: '+'; font-size: 1.2rem; color: var(--pri) !important; flex-shrink: 0; transition: transform .2s; }
+#tcc-wrap .faq-item.open .faq-q::after { transform: rotate(45deg); }
+#tcc-wrap .faq-a { display: none; padding: 0 1.25rem 1.1rem; font-size: 0.86rem; color: var(--muted) !important; line-height: 1.65; }
+#tcc-wrap .faq-item.open .faq-a { display: block; }
+
+@media (max-width: 780px) {
+  #tcc-wrap .stats-grid { grid-template-columns: repeat(2, 1fr); }
+  #tcc-wrap .steps, #tcc-wrap .cards-grid { grid-template-columns: 1fr; }
+  #tcc-wrap .tips-list, #tcc-wrap .mistakes-list { grid-template-columns: 1fr; }
+  #tcc-wrap .cmp-tbl-wrap { max-width: 100%; }
+}
+</style>
+</head>
+<body>
+<div id="tcc-wrap">
+
+<section class="tcc-hero">
+  <span class="badge">Free Online Tool</span>
+  <h1>Free Twitter/X Character Counter</h1>
+  <p class="sub">Compose the perfect tweet every time. Count characters in real time, track hashtags and mentions, detect URLs correctly, and stay within Twitter/X limits, all without leaving your browser.</p>
+  <div class="usp-row">
+    <span class="usp-pill">No signup required</span>
+    <span class="usp-pill">100% free forever</span>
+    <span class="usp-pill">Works instantly in your browser</span>
+  </div>
+  <button type="button" class="btn-cta" id="ctaBtn">Start Counting Characters</button>
+</section>
+
+<section class="tcc-tool">
+  <div class="tcc-box">
+    <div class="type-row">
+      <label class="type-opt">
+        <input type="radio" name="tweetType" value="280" checked>
+        Standard Tweet (280 characters)
+      </label>
+      <label class="type-opt">
+        <input type="radio" name="tweetType" value="25000">
+        X Premium (25,000 characters)
+      </label>
+    </div>
+
+    <textarea id="tweetInput" class="tcc-textarea" placeholder="Type or paste your tweet here to see the live character count..."></textarea>
+
+    <div class="count-row">
+      <div class="ring-wrap" id="tccRingWrap">
+        <svg class="ring-svg" width="64" height="64" viewBox="0 0 64 64">
+          <circle class="ring-bg" cx="32" cy="32" r="26"></circle>
+          <circle class="ring-fg" id="tccRing" cx="32" cy="32" r="26"></circle>
+        </svg>
+      </div>
+      <div class="count-info">
+        <div class="char-count" id="charCount">0 / 280</div>
+        <div class="remain-count" id="remainCount">280 characters remaining</div>
+        <span class="warn-label" id="warnLabel">Approaching character limit</span>
+        <span class="over-label" id="overLabel">Over limit</span>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button type="button" class="btn btn-primary" id="copyBtn">Copy Tweet</button>
+      <button type="button" class="btn btn-secondary" id="sampleBtn">Sample Tweet</button>
+      <button type="button" class="btn btn-secondary" id="clearBtn">Clear</button>
+    </div>
+
+    <div id="resultsWrap" class="stats-grid">
+      <div class="stat-card"><span class="stat-val" id="statChars">0</span><span class="stat-lbl">Chars Used</span></div>
+      <div class="stat-card"><span class="stat-val" id="statRemaining">280</span><span class="stat-lbl">Remaining</span></div>
+      <div class="stat-card"><span class="stat-val" id="statWords">0</span><span class="stat-lbl">Words</span></div>
+      <div class="stat-card"><span class="stat-val" id="statSentences">0</span><span class="stat-lbl">Sentences</span></div>
+      <div class="stat-card"><span class="stat-val" id="statHashtags">0</span><span class="stat-lbl">Hashtags</span></div>
+      <div class="stat-card"><span class="stat-val" id="statMentions">0</span><span class="stat-lbl">Mentions</span></div>
+      <div class="stat-card"><span class="stat-val" id="statUrls">0</span><span class="stat-lbl">URLs</span></div>
+      <div class="stat-card"><span class="stat-val" id="statReadTime">0 sec</span><span class="stat-lbl">Read Time</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="tcc-section">
+  <div class="sec-head">
+    <h2>What Is a Twitter Character Counter</h2>
+    <p>Understanding how this tool helps you write within the limits</p>
+  </div>
+  <div class="sec-body">
+    <p>A Twitter/X character counter is a tool that tracks exactly how many characters your tweet uses out of the platform's allowed limit, so you never get cut off or rejected when posting. Twitter/X counts characters differently from a plain text editor: links are compressed to a fixed length, emojis can count as more than one character, and every letter, space, and punctuation mark adds to the total.</p>
+    <p>This free tool gives you a live, accurate count as you type, along with a visual progress ring, word and sentence breakdowns, and detection for hashtags, mentions, and URLs. Whether you are drafting a single tweet, a bio, or a long-form X Premium post, you can see exactly where you stand before you hit publish.</p>
+  </div>
+</section>
+
+<section class="tcc-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>Why Character Count Matters on Twitter/X</h2>
+      <p>Precision matters more than you think on a platform built around brevity</p>
+    </div>
+    <div class="sec-body">
+      <p>Character limits shape how your message is read, shared, and understood. Tweets that run over the limit simply will not post, forcing last-minute edits that can weaken your message or cut off important context like a link or hashtag. On the other end, research consistently shows that shorter, punchier tweets tend to earn higher engagement than long, dense ones, since readers scroll fast and decide in a split second whether to stop.</p>
+      <p>Staying within limits also matters for compliance and consistency. Bios, display names, list names, and DMs each have their own separate limits, and going over any of them means the platform will not save your changes. Knowing your exact character count in advance means you compose with confidence instead of guessing and re-editing.</p>
+    </div>
+  </div>
+</section>
+
+<section class="tcc-section">
+  <div class="sec-head">
+    <h2>How to Use This Tool</h2>
+    <p>Three simple steps to a perfectly sized tweet</p>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-n">1</div>
+      <h3>Choose Your Tweet Type</h3>
+      <p>Select Standard Tweet for the 280 character limit, or X Premium for the extended 25,000 character limit.</p>
+    </div>
+    <div class="step">
+      <div class="step-n">2</div>
+      <h3>Type or Paste Your Text</h3>
+      <p>Write directly in the box or paste in a draft. The counter, ring, and stats update instantly with every keystroke.</p>
+    </div>
+    <div class="step">
+      <div class="step-n">3</div>
+      <h3>Review and Copy</h3>
+      <p>Check your stats panel for hashtags, mentions, and URLs, then copy your finished tweet straight to the clipboard.</p>
+    </div>
+  </div>
+</section>
+
+<section class="tcc-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>Key Features</h2>
+      <p>Everything you need to compose within Twitter/X limits</p>
+    </div>
+    <div class="cards-grid">
+      <div class="fcard">
+        <span class="ic">⭕</span>
+        <h3>Live Progress Ring</h3>
+        <p>A circular indicator visually shows your usage, turning from green to yellow to red as you approach the limit.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">🔗</span>
+        <h3>Accurate URL Detection</h3>
+        <p>Every link is automatically counted as 23 characters, exactly matching how Twitter/X shortens URLs.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">🏷️</span>
+        <h3>Hashtag and Mention Tracking</h3>
+        <p>Instantly see how many hashtags and mentions are in your draft without counting them manually.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">🔄</span>
+        <h3>Standard and Premium Toggle</h3>
+        <p>Switch between the 280 character standard limit and the 25,000 character X Premium limit in one click.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">📊</span>
+        <h3>Full Stats Panel</h3>
+        <p>Words, sentences, reading time, and more, all calculated in real time as you compose your tweet.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">📋</span>
+        <h3>One-Click Copy</h3>
+        <p>Copy your finished tweet to the clipboard instantly and paste it directly into Twitter/X.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tcc-section">
+  <div class="sec-head">
+    <h2>Twitter/X Character Limit Guide</h2>
+    <p>Every limit you need to know across the platform</p>
+  </div>
+  <div class="tbl-wrap">
+    <table class="limits-table">
+      <thead>
+        <tr><th>Field</th><th>Character Limit</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Standard Tweet</td><td>280</td></tr>
+        <tr><td>X Premium Post</td><td>25,000</td></tr>
+        <tr><td>Bio</td><td>160</td></tr>
+        <tr><td>Display Name</td><td>50</td></tr>
+        <tr><td>Username (Handle)</td><td>15</td></tr>
+        <tr><td>Direct Message</td><td>10,000</td></tr>
+        <tr><td>List Name</td><td>25</td></tr>
+        <tr><td>List Description</td><td>100</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="tcc-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>How Twitter Counts Characters</h2>
+      <p>The rules that make Twitter/X counting different from a plain text editor</p>
+    </div>
+    <div class="sec-body">
+      <p><strong>URLs:</strong> Any link starting with http or https is automatically shortened and always counts as exactly 23 characters, no matter how long the original URL is. This tool applies the same rule so your count matches what Twitter/X will actually show.</p>
+      <p><strong>Emojis:</strong> Most emojis count as 2 characters because Twitter/X measures text in UTF-16 code units, and many emoji characters require two code units to represent. Some complex emojis with modifiers can count for even more.</p>
+      <p><strong>Special characters:</strong> Accented letters, symbols, and characters from non-Latin alphabets can also use more than one code unit depending on the character set, which is why the same sentence may count differently in different languages.</p>
+    </div>
+  </div>
+</section>
+
+<section class="tcc-section">
+  <div class="sec-head">
+    <h2>How This Tool Compares</h2>
+    <p>See how BrightlyFuture stacks up against other character counters</p>
+  </div>
+  <div class="cmp-tbl-wrap">
+    <table class="cmp-tbl">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th class="hl">BrightlyFuture</th>
+          <th>CharacterCountOnline</th>
+          <th>LetterCount</th>
+          <th>EditPad</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Price</td><td class="hl"><span class="ck">Free</span></td><td>Free</td><td>Free</td><td>Free</td></tr>
+        <tr><td>Real-Time Count</td><td class="hl"><span class="ck">✓</span></td><td><span class="ck">✓</span></td><td><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr>
+        <tr><td>URL Detection (23 chars)</td><td class="hl"><span class="ck">✓</span></td><td><span class="cx">✗</span></td><td><span class="cx">✗</span></td><td><span class="cx">✗</span></td></tr>
+        <tr><td>Progress Ring</td><td class="hl"><span class="ck">✓</span></td><td><span class="cx">✗</span></td><td><span class="cx">✗</span></td><td><span class="cx">✗</span></td></tr>
+        <tr><td>Tweet Type Toggle</td><td class="hl"><span class="ck">✓</span></td><td><span class="cx">✗</span></td><td><span class="cx">✗</span></td><td><span class="cx">✗</span></td></tr>
+        <tr><td>Full Stats Panel</td><td class="hl"><span class="ck">✓</span></td><td>Partial</td><td>Partial</td><td>Partial</td></tr>
+        <tr><td>Hashtag/Mention Count</td><td class="hl"><span class="ck">✓</span></td><td><span class="cx">✗</span></td><td><span class="cx">✗</span></td><td><span class="cx">✗</span></td></tr>
+        <tr><td>No Signup</td><td class="hl"><span class="ck">✓</span></td><td><span class="ck">✓</span></td><td><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section class="tcc-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>Tips for Writing Better Tweets</h2>
+      <p>Simple habits that boost engagement</p>
+    </div>
+    <div class="tips-list">
+      <div class="tip-card"><span class="ic">✅</span><div><h3>Front-load your message</h3><p>Put the most important point in the first few words, since many readers only see a partial preview.</p></div></div>
+      <div class="tip-card"><span class="ic">✅</span><div><h3>Leave room for shares</h3><p>Keep some characters free so others can quote your tweet with their own comment attached.</p></div></div>
+      <div class="tip-card"><span class="ic">✅</span><div><h3>Use one or two hashtags</h3><p>Overloading a tweet with hashtags can hurt readability and often reduces engagement.</p></div></div>
+      <div class="tip-card"><span class="ic">✅</span><div><h3>Check your link count</h3><p>Remember every link uses 23 characters regardless of length, so account for it before you finish writing.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="tcc-section">
+  <div class="sec-head">
+    <h2>Common Twitter Character Mistakes</h2>
+    <p>Avoid these pitfalls when composing your posts</p>
+  </div>
+  <div class="mistakes-list">
+    <div class="tip-card"><span class="ic">⚠️</span><div><h3>Forgetting URL compression</h3><p>Assuming a long link counts as its full length can cause you to underestimate your character total.</p></div></div>
+    <div class="tip-card"><span class="ic">⚠️</span><div><h3>Not accounting for emoji weight</h3><p>Some emojis count as two or more characters, which can quietly push you over the limit.</p></div></div>
+    <div class="tip-card"><span class="ic">⚠️</span><div><h3>Editing after posting fails</h3><p>Waiting until Twitter/X rejects your post to check the count wastes time versus checking as you type.</p></div></div>
+    <div class="tip-card"><span class="ic">⚠️</span><div><h3>Ignoring bio and name limits</h3><p>Profile fields have their own separate, much shorter limits than tweets, which are easy to overlook.</p></div></div>
+  </div>
+</section>
+
+<section class="tcc-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>Frequently Asked Questions</h2>
+      <p>Everything you need to know about counting Twitter/X characters</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button type="button" class="faq-q">Is this Twitter character counter free to use?</button>
+        <div class="faq-a">Yes, this tool is completely free with no signup, subscription, or hidden limits. All counting happens in your browser.</div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q">What is the Twitter/X character limit?</button>
+        <div class="faq-a">Standard tweets are limited to 280 characters. Verified X Premium subscribers can post up to 25,000 characters.</div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q">Does Twitter count URLs differently?</button>
+        <div class="faq-a">Yes, every URL starting with http or https is automatically shortened and counted as exactly 23 characters, regardless of its actual length. This tool applies the same rule.</div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q">How does Twitter count emojis?</button>
+        <div class="faq-a">Most emojis count as 2 characters because Twitter/X measures text using UTF-16 code units, and many emoji require two units to represent. Some complex emoji with skin tone or gender modifiers can count for more.</div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q">What is the X Premium character limit?</button>
+        <div class="faq-a">X Premium subscribers can post tweets up to 25,000 characters long, a significant increase over the standard 280 character limit.</div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q">Do spaces count as characters on Twitter?</button>
+        <div class="faq-a">Yes, spaces count toward your character limit just like any other character, including letters, numbers, and punctuation.</div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q">Do hashtags count toward the character limit?</button>
+        <div class="faq-a">Yes, hashtags count as regular text, with each character including the pound sign counted normally toward your limit.</div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q">Do mentions count toward the character limit?</button>
+        <div class="faq-a">Yes, mentions such as @username count as regular text and use up characters just like any other word in your tweet.</div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q">What happens if I go over the character limit?</button>
+        <div class="faq-a">Twitter/X will not let you post the tweet until you shorten it. This tool shows you exactly how many characters you need to remove.</div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q">Can I use this for Twitter threads?</button>
+        <div class="faq-a">Yes, you can draft each tweet in a thread one at a time in the text box, checking the count for each individual post before you publish.</div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q">Does this tool save my tweets?</button>
+        <div class="faq-a">No, everything runs locally in your browser. Nothing you type is stored, uploaded, or saved anywhere.</div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q">How accurate is the URL character counting?</button>
+        <div class="faq-a">This tool detects every http and https link and counts each one as exactly 23 characters, matching Twitter/X's own link shortening behavior precisely.</div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q">What is the ideal tweet length for engagement?</button>
+        <div class="faq-a">Many studies suggest tweets between 70 and 120 characters tend to see stronger engagement, though this varies by audience and topic.</div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q">Can I use this on mobile?</button>
+        <div class="faq-a">Yes, this tool works fully on mobile browsers with a responsive layout designed for smaller screens.</div>
+      </div>
+      <div class="faq-item">
+        <button type="button" class="faq-q">Does this work for Twitter DMs too?</button>
+        <div class="faq-a">You can use the text box to check any message length, but note that Direct Messages have their own separate 10,000 character limit, different from the tweet limit selected above.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="toast"></div>
+
+</div><!-- /tcc-wrap -->
+<script>eval(atob("KGZ1bmN0aW9uICgpIHsKICBmdW5jdGlvbiBpbml0KCkgewogICAgdmFyIHdyYXAgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgndGNjLXdyYXAnKTsKICAgIGlmICghd3JhcCkgcmV0dXJuOwoKICAgIHZhciBpbnB1dCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCd0d2VldElucHV0Jyk7CiAgICB2YXIgY2hhckNvdW50RWwgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnY2hhckNvdW50Jyk7CiAgICB2YXIgcmVtYWluQ291bnRFbCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdyZW1haW5Db3VudCcpOwogICAgdmFyIHJpbmcgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgndGNjUmluZycpOwogICAgdmFyIHJpbmdXcmFwID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3RjY1JpbmdXcmFwJyk7CiAgICB2YXIgb3ZlckxhYmVsID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ292ZXJMYWJlbCcpOwogICAgdmFyIHdhcm5MYWJlbCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCd3YXJuTGFiZWwnKTsKCiAgICB2YXIgc3RhdENoYXJzID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3N0YXRDaGFycycpOwogICAgdmFyIHN0YXRSZW1haW5pbmcgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnc3RhdFJlbWFpbmluZycpOwogICAgdmFyIHN0YXRXb3JkcyA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdzdGF0V29yZHMnKTsKICAgIHZhciBzdGF0U2VudGVuY2VzID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3N0YXRTZW50ZW5jZXMnKTsKICAgIHZhciBzdGF0SGFzaHRhZ3MgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnc3RhdEhhc2h0YWdzJyk7CiAgICB2YXIgc3RhdE1lbnRpb25zID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3N0YXRNZW50aW9ucycpOwogICAgdmFyIHN0YXRVcmxzID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3N0YXRVcmxzJyk7CiAgICB2YXIgc3RhdFJlYWRUaW1lID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3N0YXRSZWFkVGltZScpOwoKICAgIHZhciBjb3B5QnRuID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2NvcHlCdG4nKTsKICAgIHZhciBjbGVhckJ0biA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdjbGVhckJ0bicpOwogICAgdmFyIHNhbXBsZUJ0biA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdzYW1wbGVCdG4nKTsKICAgIHZhciBjdGFCdG4gPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnY3RhQnRuJyk7CiAgICB2YXIgdG9hc3QgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgndG9hc3QnKTsKICAgIHZhciByYWRpb3MgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yQWxsKCdpbnB1dFtuYW1lPSJ0d2VldFR5cGUiXScpOwoKICAgIGlmICghaW5wdXQgfHwgIXJpbmcpIHJldHVybjsKCiAgICB2YXIgUkFESVVTID0gMjY7CiAgICB2YXIgQ0lSQyA9IDIgKiBNYXRoLlBJICogUkFESVVTOwogICAgcmluZy5zdHlsZS5zdHJva2VEYXNoYXJyYXkgPSBTdHJpbmcoQ0lSQyk7CgogICAgdmFyIFVSTF9SRSA9IC9odHRwcz86XC9cL1teXHNdKy9nOwogICAgdmFyIEhBU0hUQUdfUkUgPSAvI1x3Ky9nOwogICAgdmFyIE1FTlRJT05fUkUgPSAvQFx3Ky9nOwoKICAgIGZ1bmN0aW9uIGdldExpbWl0KCkgewogICAgICB2YXIgY2hlY2tlZCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoJ2lucHV0W25hbWU9InR3ZWV0VHlwZSJdOmNoZWNrZWQnKTsKICAgICAgdmFyIHZhbCA9IGNoZWNrZWQgPyBjaGVja2VkLnZhbHVlIDogJzI4MCc7CiAgICAgIHJldHVybiBwYXJzZUludCh2YWwsIDEwKSB8fCAyODA7CiAgICB9CgogICAgZnVuY3Rpb24gY291bnRBZGp1c3RlZCh0ZXh0KSB7CiAgICAgIHZhciB1cmxzID0gdGV4dC5tYXRjaChVUkxfUkUpIHx8IFtdOwogICAgICB2YXIgYWN0dWFsVXJsTGVuID0gMDsKICAgICAgZm9yICh2YXIgaSA9IDA7IGkgPCB1cmxzLmxlbmd0aDsgaSsrKSBhY3R1YWxVcmxMZW4gKz0gdXJsc1tpXS5sZW5ndGg7CiAgICAgIHZhciBhZGp1c3RlZCA9IHRleHQubGVuZ3RoIC0gYWN0dWFsVXJsTGVuICsgKHVybHMubGVuZ3RoICogMjMpOwogICAgICByZXR1cm4geyBhZGp1c3RlZDogYWRqdXN0ZWQsIHVybHM6IHVybHMgfTsKICAgIH0KCiAgICBmdW5jdGlvbiBjb3VudFdvcmRzKHRleHQpIHsKICAgICAgdmFyIHRyaW1tZWQgPSB0ZXh0LnRyaW0oKTsKICAgICAgaWYgKCF0cmltbWVkKSByZXR1cm4gMDsKICAgICAgcmV0dXJuIHRyaW1tZWQuc3BsaXQoL1xzKy8pLmZpbHRlcihmdW5jdGlvbiAodykgeyByZXR1cm4gdy5sZW5ndGggPiAwOyB9KS5sZW5ndGg7CiAgICB9CgogICAgZnVuY3Rpb24gY291bnRTZW50ZW5jZXModGV4dCkgewogICAgICB2YXIgdHJpbW1lZCA9IHRleHQudHJpbSgpOwogICAgICBpZiAoIXRyaW1tZWQpIHJldHVybiAwOwogICAgICB2YXIgcGFydHMgPSB0cmltbWVkLnNwbGl0KC9bLiE/XSsvKS5maWx0ZXIoZnVuY3Rpb24gKHMpIHsgcmV0dXJuIHMudHJpbSgpLmxlbmd0aCA+IDA7IH0pOwogICAgICByZXR1cm4gcGFydHMubGVuZ3RoOwogICAgfQoKICAgIGZ1bmN0aW9uIHNldENvbG9yKHBjdCkgewogICAgICB2YXIgY29sb3I7CiAgICAgIGlmIChwY3QgPiAxMDApIGNvbG9yID0gJ3ZhcigtLXJlZCknOwogICAgICBlbHNlIGlmIChwY3QgPj0gOTApIGNvbG9yID0gJ3ZhcigtLXJlZCknOwogICAgICBlbHNlIGlmIChwY3QgPj0gNzApIGNvbG9yID0gJ3ZhcigtLXllbGxvdyknOwogICAgICBlbHNlIGNvbG9yID0gJ3ZhcigtLWdyZWVuKSc7CiAgICAgIHJpbmcuc3R5bGUuc3Ryb2tlID0gY29sb3I7CiAgICAgIGlmIChjaGFyQ291bnRFbCkgY2hhckNvdW50RWwuc3R5bGUuY29sb3IgPSAocGN0ID49IDEwMCkgPyAndmFyKC0tcmVkKScgOiAndmFyKC0taGVhZGluZyknOwogICAgfQoKICAgIGZ1bmN0aW9uIHVwZGF0ZSgpIHsKICAgICAgdmFyIHRleHQgPSBpbnB1dC52YWx1ZSB8fCAnJzsKICAgICAgdmFyIGxpbWl0ID0gZ2V0TGltaXQoKTsKICAgICAgdmFyIHJlc3VsdCA9IGNvdW50QWRqdXN0ZWQodGV4dCk7CiAgICAgIHZhciBhZGp1c3RlZCA9IHJlc3VsdC5hZGp1c3RlZDsKICAgICAgdmFyIHVybHMgPSByZXN1bHQudXJsczsKICAgICAgdmFyIHJlbWFpbmluZyA9IGxpbWl0IC0gYWRqdXN0ZWQ7CiAgICAgIHZhciBwY3QgPSBsaW1pdCA+IDAgPyAoYWRqdXN0ZWQgLyBsaW1pdCkgKiAxMDAgOiAwOwogICAgICB2YXIgY2xhbXBlZFBjdCA9IE1hdGgubWluKHBjdCwgMTAwKTsKCiAgICAgIHZhciBvZmZzZXQgPSBDSVJDICogKDEgLSAoY2xhbXBlZFBjdCAvIDEwMCkpOwogICAgICByaW5nLnN0eWxlLnN0cm9rZURhc2hvZmZzZXQgPSBTdHJpbmcob2Zmc2V0KTsKICAgICAgc2V0Q29sb3IocGN0KTsKCiAgICAgIGlmIChjaGFyQ291bnRFbCkgY2hhckNvdW50RWwudGV4dENvbnRlbnQgPSBhZGp1c3RlZCArICcgLyAnICsgbGltaXQ7CiAgICAgIGlmIChyZW1haW5Db3VudEVsKSB7CiAgICAgICAgaWYgKHJlbWFpbmluZyA8IDApIHsKICAgICAgICAgIHJlbWFpbkNvdW50RWwudGV4dENvbnRlbnQgPSAnLScgKyBNYXRoLmFicyhyZW1haW5pbmcpICsgJyBvdmVyIGxpbWl0JzsKICAgICAgICAgIHJlbWFpbkNvdW50RWwuc3R5bGUuY29sb3IgPSAndmFyKC0tcmVkKSc7CiAgICAgICAgfSBlbHNlIHsKICAgICAgICAgIHJlbWFpbkNvdW50RWwudGV4dENvbnRlbnQgPSByZW1haW5pbmcgKyAnIGNoYXJhY3RlcnMgcmVtYWluaW5nJzsKICAgICAgICAgIHJlbWFpbkNvdW50RWwuc3R5bGUuY29sb3IgPSAndmFyKC0tbXV0ZWQpJzsKICAgICAgICB9CiAgICAgIH0KCiAgICAgIGlmIChvdmVyTGFiZWwpIHsKICAgICAgICBpZiAocmVtYWluaW5nIDwgMCkgewogICAgICAgICAgb3ZlckxhYmVsLnN0eWxlLmRpc3BsYXkgPSAnaW5saW5lLWJsb2NrJzsKICAgICAgICAgIG92ZXJMYWJlbC50ZXh0Q29udGVudCA9ICdPdmVyIGxpbWl0IGJ5ICcgKyBNYXRoLmFicyhyZW1haW5pbmcpICsgJyBjaGFyYWN0ZXJzJzsKICAgICAgICB9IGVsc2UgewogICAgICAgICAgb3ZlckxhYmVsLnN0eWxlLmRpc3BsYXkgPSAnbm9uZSc7CiAgICAgICAgfQogICAgICB9CgogICAgICBpZiAod2FybkxhYmVsKSB7CiAgICAgICAgaWYgKHJlbWFpbmluZyA+PSAwICYmIHJlbWFpbmluZyA8PSAyMCkgewogICAgICAgICAgd2FybkxhYmVsLnN0eWxlLmRpc3BsYXkgPSAnaW5saW5lLWJsb2NrJzsKICAgICAgICB9IGVsc2UgewogICAgICAgICAgd2FybkxhYmVsLnN0eWxlLmRpc3BsYXkgPSAnbm9uZSc7CiAgICAgICAgfQogICAgICB9CgogICAgICB2YXIgd29yZHMgPSBjb3VudFdvcmRzKHRleHQpOwogICAgICB2YXIgc2VudGVuY2VzID0gY291bnRTZW50ZW5jZXModGV4dCk7CiAgICAgIHZhciBoYXNodGFncyA9ICh0ZXh0Lm1hdGNoKEhBU0hUQUdfUkUpIHx8IFtdKS5sZW5ndGg7CiAgICAgIHZhciBtZW50aW9ucyA9ICh0ZXh0Lm1hdGNoKE1FTlRJT05fUkUpIHx8IFtdKS5sZW5ndGg7CiAgICAgIHZhciByZWFkU2Vjb25kcyA9IE1hdGguY2VpbCgod29yZHMgLyAyMDApICogNjApOwogICAgICB2YXIgcmVhZFRpbWVMYWJlbCA9IHdvcmRzID09PSAwID8gJzAgc2VjJyA6IChyZWFkU2Vjb25kcyA8IDYwID8gKHJlYWRTZWNvbmRzICsgJyBzZWMnKSA6IChNYXRoLnJvdW5kKHJlYWRTZWNvbmRzIC8gNjApICsgJyBtaW4nKSk7CgogICAgICBpZiAoc3RhdENoYXJzKSBzdGF0Q2hhcnMudGV4dENvbnRlbnQgPSBTdHJpbmcoYWRqdXN0ZWQpOwogICAgICBpZiAoc3RhdFJlbWFpbmluZykgc3RhdFJlbWFpbmluZy50ZXh0Q29udGVudCA9IFN0cmluZyhyZW1haW5pbmcpOwogICAgICBpZiAoc3RhdFdvcmRzKSBzdGF0V29yZHMudGV4dENvbnRlbnQgPSBTdHJpbmcod29yZHMpOwogICAgICBpZiAoc3RhdFNlbnRlbmNlcykgc3RhdFNlbnRlbmNlcy50ZXh0Q29udGVudCA9IFN0cmluZyhzZW50ZW5jZXMpOwogICAgICBpZiAoc3RhdEhhc2h0YWdzKSBzdGF0SGFzaHRhZ3MudGV4dENvbnRlbnQgPSBTdHJpbmcoaGFzaHRhZ3MpOwogICAgICBpZiAoc3RhdE1lbnRpb25zKSBzdGF0TWVudGlvbnMudGV4dENvbnRlbnQgPSBTdHJpbmcobWVudGlvbnMpOwogICAgICBpZiAoc3RhdFVybHMpIHN0YXRVcmxzLnRleHRDb250ZW50ID0gU3RyaW5nKHVybHMubGVuZ3RoKTsKICAgICAgaWYgKHN0YXRSZWFkVGltZSkgc3RhdFJlYWRUaW1lLnRleHRDb250ZW50ID0gcmVhZFRpbWVMYWJlbDsKICAgIH0KCiAgICBpbnB1dC5hZGRFdmVudExpc3RlbmVyKCdpbnB1dCcsIHVwZGF0ZSk7CgogICAgZm9yICh2YXIgciA9IDA7IHIgPCByYWRpb3MubGVuZ3RoOyByKyspIHsKICAgICAgcmFkaW9zW3JdLmFkZEV2ZW50TGlzdGVuZXIoJ2NoYW5nZScsIHVwZGF0ZSk7CiAgICB9CgogICAgZnVuY3Rpb24gc2hvd1RvYXN0KG1zZykgewogICAgICBpZiAoIXRvYXN0KSByZXR1cm47CiAgICAgIHRvYXN0LnRleHRDb250ZW50ID0gbXNnOwogICAgICB0b2FzdC5jbGFzc0xpc3QuYWRkKCdzaG93Jyk7CiAgICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gKCkgeyB0b2FzdC5jbGFzc0xpc3QucmVtb3ZlKCdzaG93Jyk7IH0sIDIyMDApOwogICAgfQoKICAgIGlmIChjb3B5QnRuKSB7CiAgICAgIGNvcHlCdG4uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCBmdW5jdGlvbiAoKSB7CiAgICAgICAgdmFyIHRleHQgPSBpbnB1dC52YWx1ZSB8fCAnJzsKICAgICAgICBpZiAoIXRleHQpIHsgc2hvd1RvYXN0KCdOb3RoaW5nIHRvIGNvcHknKTsgcmV0dXJuOyB9CiAgICAgICAgaWYgKG5hdmlnYXRvci5jbGlwYm9hcmQgJiYgbmF2aWdhdG9yLmNsaXBib2FyZC53cml0ZVRleHQpIHsKICAgICAgICAgIG5hdmlnYXRvci5jbGlwYm9hcmQud3JpdGVUZXh0KHRleHQpLnRoZW4oZnVuY3Rpb24gKCkgewogICAgICAgICAgICBzaG93VG9hc3QoJ1R3ZWV0IGNvcGllZCB0byBjbGlwYm9hcmQnKTsKICAgICAgICAgIH0pLmNhdGNoKGZ1bmN0aW9uICgpIHsKICAgICAgICAgICAgZmFsbGJhY2tDb3B5KHRleHQpOwogICAgICAgICAgfSk7CiAgICAgICAgfSBlbHNlIHsKICAgICAgICAgIGZhbGxiYWNrQ29weSh0ZXh0KTsKICAgICAgICB9CiAgICAgIH0pOwogICAgfQoKICAgIGZ1bmN0aW9uIGZhbGxiYWNrQ29weSh0ZXh0KSB7CiAgICAgIHZhciB0YSA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ3RleHRhcmVhJyk7CiAgICAgIHRhLnZhbHVlID0gdGV4dDsKICAgICAgdGEuc3R5bGUucG9zaXRpb24gPSAnZml4ZWQnOwogICAgICB0YS5zdHlsZS5sZWZ0ID0gJy05OTk5cHgnOwogICAgICBkb2N1bWVudC5ib2R5LmFwcGVuZENoaWxkKHRhKTsKICAgICAgdGEuc2VsZWN0KCk7CiAgICAgIHRyeSB7CiAgICAgICAgZG9jdW1lbnQuZXhlY0NvbW1hbmQoJ2NvcHknKTsKICAgICAgICBzaG93VG9hc3QoJ1R3ZWV0IGNvcGllZCB0byBjbGlwYm9hcmQnKTsKICAgICAgfSBjYXRjaCAoZSkgewogICAgICAgIHNob3dUb2FzdCgnQ29weSBmYWlsZWQsIHBsZWFzZSBjb3B5IG1hbnVhbGx5Jyk7CiAgICAgIH0KICAgICAgZG9jdW1lbnQuYm9keS5yZW1vdmVDaGlsZCh0YSk7CiAgICB9CgogICAgaWYgKGNsZWFyQnRuKSB7CiAgICAgIGNsZWFyQnRuLmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywgZnVuY3Rpb24gKCkgewogICAgICAgIGlucHV0LnZhbHVlID0gJyc7CiAgICAgICAgdXBkYXRlKCk7CiAgICAgICAgaW5wdXQuZm9jdXMoKTsKICAgICAgfSk7CiAgICB9CgogICAgaWYgKHNhbXBsZUJ0bikgewogICAgICBzYW1wbGVCdG4uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCBmdW5jdGlvbiAoKSB7CiAgICAgICAgaW5wdXQudmFsdWUgPSAnSnVzdCBsYXVuY2hlZCBvdXIgbmV3IGZyZWUgVHdpdHRlciBjaGFyYWN0ZXIgY291bnRlciB0b29sISBDaGVjayBjaGFyYWN0ZXIgbGltaXRzLCBjb3VudCBoYXNodGFncyBhbmQgbWVudGlvbnMgaW4gcmVhbCB0aW1lLiBUcnkgaXQgbm93ICNDb250ZW50TWFya2V0aW5nICNTRU8gQGJyaWdodGx5ZnV0dXJlIGh0dHBzOi8vYnJpZ2h0bHlmdXR1cmUuY28udWsvdG9vbHMnOwogICAgICAgIHVwZGF0ZSgpOwogICAgICB9KTsKICAgIH0KCiAgICBpZiAoY3RhQnRuKSB7CiAgICAgIGN0YUJ0bi5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsIGZ1bmN0aW9uICgpIHsKICAgICAgICB2YXIgdG9vbFNlY3Rpb24gPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCcudGNjLXRvb2wnKTsKICAgICAgICBpZiAodG9vbFNlY3Rpb24pIHsKICAgICAgICAgIHRvb2xTZWN0aW9uLnNjcm9sbEludG9WaWV3KHsgYmVoYXZpb3I6ICdzbW9vdGgnLCBibG9jazogJ3N0YXJ0JyB9KTsKICAgICAgICB9CiAgICAgICAgaW5wdXQuZm9jdXMoKTsKICAgICAgfSk7CiAgICB9CgogICAgdmFyIGZhcUl0ZW1zID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbCgnLmZhcS1pdGVtJyk7CiAgICBmb3IgKHZhciBpID0gMDsgaSA8IGZhcUl0ZW1zLmxlbmd0aDsgaSsrKSB7CiAgICAgIHZhciBpdGVtID0gZmFxSXRlbXNbaV07CiAgICAgIHZhciBxID0gaXRlbS5xdWVyeVNlbGVjdG9yKCcuZmFxLXEnKTsKICAgICAgaWYgKHEpIHsKICAgICAgICBxLmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywgZnVuY3Rpb24gKCkgewogICAgICAgICAgdmFyIGl0ID0gdGhpcy5wYXJlbnRFbGVtZW50OwogICAgICAgICAgdmFyIGlzT3BlbiA9IGl0LmNsYXNzTGlzdC5jb250YWlucygnb3BlbicpOwogICAgICAgICAgZm9yICh2YXIgaiA9IDA7IGogPCBmYXFJdGVtcy5sZW5ndGg7IGorKykgewogICAgICAgICAgICBmYXFJdGVtc1tqXS5jbGFzc0xpc3QucmVtb3ZlKCdvcGVuJyk7CiAgICAgICAgICB9CiAgICAgICAgICBpZiAoIWlzT3BlbikgaXQuY2xhc3NMaXN0LmFkZCgnb3BlbicpOwogICAgICAgIH0pOwogICAgICB9CiAgICB9CgogICAgdXBkYXRlKCk7CiAgfQoKICBpZiAoZG9jdW1lbnQucmVhZHlTdGF0ZSA9PT0gJ2xvYWRpbmcnKSB7CiAgICBkb2N1bWVudC5hZGRFdmVudExpc3RlbmVyKCdET01Db250ZW50TG9hZGVkJywgaW5pdCk7CiAgfSBlbHNlIHsKICAgIGluaXQoKTsKICB9CiAgc2V0VGltZW91dChpbml0LCAyMDApOwp9KSgpOwo="));</script>
+</body>
+</html>
