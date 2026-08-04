@@ -50,7 +50,7 @@
 
 /* Tool */
 #aew-wrap .aew-tool { max-width: 1100px !important; margin: 0 auto !important; padding: 0 1.5rem 3rem !important; }
-#aew-wrap .tool-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 1.5rem !important; align-items: start !important; }
+#aew-wrap .tool-grid { display: grid !important; grid-template-columns: 1fr !important; gap: 1.5rem !important; align-items: start !important; max-width: 750px !important; margin: 0 auto !important; }
 #aew-wrap .aew-box { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 16px !important; padding: 1.75rem !important; box-shadow: 0 2px 12px rgba(108,92,231,0.06) !important; }
 #aew-wrap .aew-box h3 { font-size: 1.05rem !important; font-weight: 800 !important; color: var(--heading) !important; margin-bottom: 1rem !important; }
 #aew-wrap .field-row { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 0.9rem !important; }
@@ -67,7 +67,7 @@
 #aew-wrap .radio-opt input[type="radio"] { width: auto !important; accent-color: var(--pri) !important; cursor: pointer !important; }
 #aew-wrap .radio-opt.checked { border-color: var(--pri) !important; background: rgba(108,92,231,0.08) !important; }
 
-#aew-wrap .output-col { position: sticky !important; top: 1rem !important; }
+#aew-wrap .output-col { width: 100% !important; }
 #aew-wrap #resultsWrap { display: none !important; }
 #aew-wrap .subject-line { background: var(--input-bg) !important; border: 1px solid var(--input-border) !important; border-radius: 10px 10px 0 0 !important; padding: 0.85rem 1.1rem !important; font-size: 0.85rem !important; color: var(--muted) !important; font-weight: 600 !important; }
 #aew-wrap .subject-line span.lbl { color: var(--pri) !important; text-transform: uppercase !important; font-size: 0.7rem !important; letter-spacing: 0.05em !important; display: block !important; margin-bottom: 0.25rem !important; }
@@ -125,11 +125,9 @@
 #aew-wrap .faq-item.open .faq-a { max-height: 400px !important; padding: 0 1.4rem 1.25rem !important; }
 
 @media (max-width: 820px) {
-  #aew-wrap .tool-grid { grid-template-columns: 1fr !important; }
   #aew-wrap .field-row { grid-template-columns: 1fr !important; }
   #aew-wrap .feature-grid { grid-template-columns: 1fr !important; }
   #aew-wrap .tone-grid { grid-template-columns: 1fr !important; }
-  #aew-wrap .output-col { position: static !important; }
   #aew-wrap .aew-hero h1 { font-size: 1.8rem !important; }
 }
 </style>
