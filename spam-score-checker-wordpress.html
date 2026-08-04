@@ -1,0 +1,587 @@
+<style>
+:root {
+  --pri: #6C5CE7;
+  --pri-hover: #5A4BD1;
+  --bg: #E8E0F0;
+  --bg-alt: #DDD4EB;
+  --card-bg: #FFFFFF;
+  --card-border: #D0C6E0;
+  --input-bg: #F5F1FA;
+  --input-border: #D0C6E0;
+  --text: #2D2B55;
+  --muted: #6B6490;
+  --heading: #1A1744;
+  --green: #00C897;
+  --red: #EF4444;
+  --yellow: #F59E0B;
+}
+#ssc-wrap *, #ssc-wrap *::before, #ssc-wrap *::after { box-sizing: border-box !important; }
+#ssc-wrap { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important; background: var(--bg) !important; color: var(--text) !important; line-height: 1.6 !important; -webkit-font-smoothing: antialiased !important; margin: 0 !important; padding: 0 !important; }
+#ssc-wrap a { color: var(--pri) !important; text-decoration: none !important; }
+#ssc-wrap a:hover { color: var(--pri-hover) !important; }
+
+.ssc-hero { text-align: center !important; padding: 3.5rem 1.5rem 2.5rem !important; background: var(--bg) !important; }
+.ssc-hero .back-link { display: inline-block !important; color: var(--muted) !important; font-size: 0.85rem !important; margin-bottom: 1.5rem !important; transition: color .2s !important; }
+.ssc-hero .back-link:hover { color: var(--pri) !important; }
+.ssc-hero .badge { display: inline-block !important; background: var(--card-bg) !important; color: var(--pri) !important; font-size: 0.8rem !important; font-weight: 600 !important; padding: 0.4rem 1.1rem !important; border-radius: 999px !important; border: 1px solid var(--card-border) !important; margin-bottom: 1.25rem !important; }
+.ssc-hero h1 { font-size: 2.4rem !important; font-weight: 800 !important; color: var(--heading) !important; margin-bottom: 0.85rem !important; }
+.ssc-hero .sub { color: var(--muted) !important; max-width: 660px !important; margin: 0 auto 1.5rem !important; font-size: 0.95rem !important; line-height: 1.65 !important; }
+.usp-row { display: flex !important; gap: 0.6rem !important; flex-wrap: wrap !important; justify-content: center !important; }
+.usp-pill { background: rgba(108,92,231,0.08) !important; border: 1px solid rgba(108,92,231,0.2) !important; color: var(--pri) !important; font-size: 0.78rem !important; font-weight: 600 !important; padding: 0.4rem 1rem !important; border-radius: 999px !important; }
+
+.ssc-tool { max-width: 750px !important; margin: 0 auto !important; padding: 0 1.5rem 3rem !important; }
+.ssc-box { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 16px !important; padding: 2rem !important; box-shadow: 0 2px 12px rgba(108,92,231,0.06) !important; }
+.ssc-box label { display: block !important; font-size: 0.72rem !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.07em !important; color: var(--muted) !important; margin-bottom: 0.45rem !important; }
+.ssc-box input[type="text"] { width: 100% !important; background: var(--input-bg) !important; border: 1px solid var(--input-border) !important; border-radius: 10px !important; padding: 0.85rem 1rem !important; color: var(--text) !important; font-size: 1rem !important; font-family: inherit !important; transition: border-color .2s !important; }
+.ssc-box input[type="text"]:focus { outline: none !important; border-color: var(--pri) !important; }
+.input-hint { font-size: 0.78rem !important; color: var(--muted) !important; margin-top: 0.4rem !important; }
+.mb { margin-bottom: 1.25rem !important; }
+
+.btn-group { display: flex !important; gap: 0.75rem !important; flex-wrap: wrap !important; margin-top: 1.25rem !important; }
+.btn { padding: 0.7rem 1.6rem !important; border-radius: 10px !important; font-weight: 600 !important; font-size: 0.9rem !important; cursor: pointer !important; border: none !important; transition: all .2s !important; font-family: inherit !important; }
+.btn-primary { background: var(--pri) !important; color: #fff !important; }
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active { background: var(--pri-hover) !important; color: #fff !important; transform: translateY(-1px) !important; }
+.btn-secondary { background: var(--input-bg) !important; color: var(--muted) !important; border: 1px solid var(--card-border) !important; }
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active { border-color: var(--pri) !important; color: var(--text) !important; }
+
+.results-wrap { display: none !important; margin-top: 2rem !important; }
+.score-card { background: var(--input-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 16px !important; padding: 2rem !important; text-align: center !important; margin-bottom: 1.5rem !important; }
+.gauge-wrap { position: relative !important; width: 180px !important; height: 180px !important; margin: 0 auto 1rem !important; }
+.gauge-wrap svg { width: 180px !important; height: 180px !important; transform: rotate(-90deg) !important; }
+.gauge-bg { fill: none !important; stroke: var(--card-border) !important; stroke-width: 14 !important; }
+.gauge-fill { fill: none !important; stroke-width: 14 !important; stroke-linecap: round !important; transition: stroke-dashoffset 1s ease, stroke .3s !important; }
+.gauge-text { position: absolute !important; top: 50% !important; left: 50% !important; transform: translate(-50%, -50%) !important; text-align: center !important; }
+.gauge-text .score-num { font-size: 2.8rem !important; font-weight: 800 !important; line-height: 1 !important; }
+.gauge-text .score-label { font-size: 0.75rem !important; color: var(--muted) !important; font-weight: 600 !important; text-transform: uppercase !important; }
+.risk-badge { display: inline-block !important; padding: 0.4rem 1.2rem !important; border-radius: 999px !important; font-weight: 700 !important; font-size: 0.85rem !important; margin-top: 0.5rem !important; }
+.risk-low { background: rgba(0,200,151,0.12) !important; color: var(--green) !important; }
+.risk-medium { background: rgba(245,158,11,0.12) !important; color: var(--yellow) !important; }
+.risk-high { background: rgba(239,68,68,0.12) !important; color: var(--red) !important; }
+.domain-checked { font-size: 0.85rem !important; color: var(--muted) !important; margin-top: 0.5rem !important; word-break: break-all !important; }
+
+.factors-title { font-size: 1rem !important; font-weight: 700 !important; color: var(--heading) !important; margin-bottom: 1rem !important; }
+.factor-item { display: flex !important; align-items: center !important; gap: 0.75rem !important; padding: 0.7rem 0 !important; border-bottom: 1px solid var(--card-border) !important; font-size: 0.88rem !important; }
+.factor-item:last-child { border-bottom: none !important; }
+.factor-icon { flex-shrink: 0 !important; width: 26px !important; height: 26px !important; border-radius: 50% !important; display: flex !important; align-items: center !important; justify-content: center !important; font-size: 0.8rem !important; font-weight: 700 !important; }
+.factor-pass .factor-icon { background: rgba(0,200,151,0.12) !important; color: var(--green) !important; }
+.factor-fail .factor-icon { background: rgba(239,68,68,0.12) !important; color: var(--red) !important; }
+.factor-warn .factor-icon { background: rgba(245,158,11,0.12) !important; color: var(--yellow) !important; }
+.factor-name { flex: 1 !important; color: var(--text) !important; }
+.factor-status { font-weight: 600 !important; font-size: 0.8rem !important; }
+.factor-pass .factor-status { color: var(--green) !important; }
+.factor-fail .factor-status { color: var(--red) !important; }
+.factor-warn .factor-status { color: var(--yellow) !important; }
+
+.recs-box { background: var(--input-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 12px !important; padding: 1.25rem !important; margin-top: 1.5rem !important; }
+.recs-box h4 { font-size: 0.9rem !important; font-weight: 700 !important; color: var(--heading) !important; margin-bottom: 0.75rem !important; }
+.recs-box ul { list-style: none !important; }
+.recs-box li { font-size: 0.85rem !important; color: var(--muted) !important; padding: 0.3rem 0 !important; padding-left: 1.2rem !important; position: relative !important; }
+.recs-box li::before { content: ">" !important; position: absolute !important; left: 0 !important; color: var(--pri) !important; font-weight: 700 !important; }
+
+.ssc-section { max-width: 1100px !important; margin: 0 auto !important; padding: 4rem 1.5rem !important; }
+.ssc-section.alt { background: var(--bg-alt) !important; max-width: 100% !important; }
+.ssc-section.alt > .inner { max-width: 1100px !important; margin: 0 auto !important; }
+.sec-head { text-align: center !important; margin-bottom: 2.75rem !important; }
+.sec-head h2 { font-size: 1.65rem !important; font-weight: 800 !important; color: var(--heading) !important; margin-bottom: 0.5rem !important; }
+.sec-head p { color: var(--muted) !important; font-size: 0.92rem !important; max-width: 520px !important; margin: 0 auto !important; font-style: italic !important; }
+
+.steps { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 1.5rem !important; }
+.step { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 16px !important; padding: 2rem 1.5rem !important; text-align: center !important; transition: border-color .2s !important; box-shadow: 0 2px 12px rgba(108,92,231,0.06) !important; }
+.step:hover { border-color: var(--pri) !important; }
+.step-n { display: inline-flex !important; align-items: center !important; justify-content: center !important; width: 44px !important; height: 44px !important; border-radius: 50% !important; background: linear-gradient(135deg, var(--pri), #8B5CF6) !important; color: #fff !important; font-weight: 700 !important; font-size: 1rem !important; margin-bottom: 1rem !important; }
+.step h3 { font-size: 1rem !important; font-weight: 700 !important; color: var(--heading) !important; margin-bottom: 0.5rem !important; }
+.step p { font-size: 0.85rem !important; color: var(--muted) !important; }
+
+.cards-grid { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 1.25rem !important; }
+.fcard { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 16px !important; padding: 1.75rem !important; transition: border-color .2s, transform .2s !important; box-shadow: 0 2px 12px rgba(108,92,231,0.06) !important; }
+.fcard:hover { border-color: var(--pri) !important; transform: translateY(-2px) !important; }
+.fcard .ic { font-size: 1.6rem !important; margin-bottom: 0.8rem !important; display: block !important; }
+.fcard h3 { font-size: 0.95rem !important; font-weight: 700 !important; color: var(--heading) !important; margin-bottom: 0.4rem !important; }
+.fcard p { font-size: 0.85rem !important; color: var(--muted) !important; line-height: 1.55 !important; }
+
+.range-grid { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 1.25rem !important; }
+.range-card { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 16px !important; padding: 1.75rem !important; text-align: center !important; box-shadow: 0 2px 12px rgba(108,92,231,0.06) !important; }
+.range-card .range-val { font-size: 1.8rem !important; font-weight: 800 !important; margin-bottom: 0.5rem !important; }
+.range-card h3 { font-size: 1rem !important; font-weight: 700 !important; color: var(--heading) !important; margin-bottom: 0.4rem !important; }
+.range-card p { font-size: 0.85rem !important; color: var(--muted) !important; }
+
+.tbl-wrap { overflow-x: auto !important; border-radius: 16px !important; border: 1px solid var(--card-border) !important; box-shadow: 0 2px 12px rgba(108,92,231,0.06) !important; }
+.cmp-tbl { width: 100% !important; border-collapse: collapse !important; font-size: 0.85rem !important; background: var(--card-bg) !important; }
+.cmp-tbl th, .cmp-tbl td { padding: 0.9rem 1.1rem !important; text-align: center !important; border-bottom: 1px solid var(--card-border) !important; }
+.cmp-tbl th { background: var(--heading) !important; color: #fff !important; font-weight: 700 !important; font-size: 0.78rem !important; text-transform: uppercase !important; letter-spacing: 0.05em !important; }
+.cmp-tbl td:first-child { text-align: left !important; font-weight: 600 !important; color: var(--text) !important; }
+.cmp-tbl tr:last-child td { border-bottom: none !important; }
+.cmp-tbl .hl { background: rgba(108,92,231,0.06) !important; }
+.ck { color: var(--green) !important; font-weight: 700 !important; font-size: 1.1rem !important; }
+.cx { color: var(--red) !important; font-size: 1.1rem !important; }
+
+.tips { display: flex !important; flex-direction: column !important; gap: 1rem !important; }
+.tip { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 16px !important; padding: 1.5rem 1.75rem !important; display: flex !important; gap: 1.25rem !important; align-items: flex-start !important; transition: border-color .2s !important; box-shadow: 0 2px 12px rgba(108,92,231,0.06) !important; }
+.tip:hover { border-color: var(--pri) !important; }
+.tip-n { flex-shrink: 0 !important; width: 38px !important; height: 38px !important; border-radius: 50% !important; background: linear-gradient(135deg, var(--pri), #8B5CF6) !important; color: #fff !important; font-weight: 700 !important; font-size: 0.9rem !important; display: flex !important; align-items: center !important; justify-content: center !important; }
+.tip h3 { font-size: 0.95rem !important; font-weight: 700 !important; color: var(--heading) !important; margin-bottom: 0.3rem !important; }
+.tip p { font-size: 0.85rem !important; color: var(--muted) !important; line-height: 1.55 !important; }
+
+.signals-grid { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 1rem !important; }
+.signal-card { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 12px !important; padding: 1.25rem !important; box-shadow: 0 2px 12px rgba(108,92,231,0.06) !important; }
+.signal-card h4 { font-size: 0.9rem !important; font-weight: 700 !important; color: var(--heading) !important; margin-bottom: 0.3rem !important; }
+.signal-card p { font-size: 0.82rem !important; color: var(--muted) !important; line-height: 1.5 !important; }
+
+.rel-grid { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 1.25rem !important; }
+.rel-card { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 16px !important; padding: 1.75rem !important; display: flex !important; flex-direction: column !important; transition: border-color .2s, transform .2s !important; box-shadow: 0 2px 12px rgba(108,92,231,0.06) !important; }
+.rel-card:hover { border-color: var(--pri) !important; transform: translateY(-2px) !important; }
+.rel-card .cat { font-size: 0.7rem !important; font-weight: 700 !important; text-transform: uppercase !important; color: var(--pri) !important; margin-bottom: 0.6rem !important; letter-spacing: 0.05em !important; }
+.rel-card h3 { font-size: 1rem !important; font-weight: 700 !important; color: var(--heading) !important; margin-bottom: 0.45rem !important; }
+.rel-card p { font-size: 0.85rem !important; color: var(--muted) !important; margin-bottom: 1.25rem !important; flex: 1 !important; line-height: 1.55 !important; }
+.rel-card .btn { text-align: center !important; font-size: 0.82rem !important; padding: 0.55rem 1rem !important; }
+
+.svc-banner { background: linear-gradient(135deg, var(--bg-alt) 0%, var(--card-bg) 100%) !important; border: 1px solid var(--card-border) !important; border-radius: 16px !important; padding: 3rem 2rem !important; text-align: center !important; max-width: 850px !important; margin: 0 auto !important; box-shadow: 0 2px 12px rgba(108,92,231,0.06) !important; }
+.svc-banner .badge { display: inline-block !important; background: var(--pri) !important; color: #fff !important; font-size: 0.7rem !important; font-weight: 700 !important; text-transform: uppercase !important; padding: 0.3rem 0.85rem !important; border-radius: 999px !important; margin-bottom: 0.85rem !important; letter-spacing: 0.05em !important; }
+.svc-banner h3 { font-size: 1.35rem !important; font-weight: 800 !important; color: var(--heading) !important; margin-bottom: 0.85rem !important; }
+.svc-banner p { color: var(--muted) !important; font-size: 0.9rem !important; max-width: 540px !important; margin: 0 auto 1.5rem !important; line-height: 1.6 !important; }
+
+.faq-list { max-width: 800px !important; margin: 0 auto !important; }
+.faq-item { border-bottom: 1px solid var(--card-border) !important; }
+.faq-item:last-child { border-bottom: none !important; }
+.faq-q { display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 1rem !important; padding: 1.15rem 0 !important; cursor: pointer !important; font-weight: 600 !important; font-size: 0.95rem !important; color: var(--heading) !important; background: transparent !important; border: none !important; border-radius: 0 !important; width: 100% !important; text-align: left !important; font-family: inherit !important; transition: color .2s !important; box-shadow: none !important; }
+.faq-q:hover, .faq-q:focus, .faq-q:active { color: var(--pri) !important; background: transparent !important; box-shadow: none !important; }
+.faq-q .arrow { font-size: 1.2rem !important; color: var(--pri) !important; flex-shrink: 0 !important; transition: transform .25s !important; }
+.faq-item.open .faq-q .arrow { transform: rotate(45deg) !important; }
+.faq-a { max-height: 0 !important; overflow: hidden !important; transition: max-height .3s ease !important; }
+.faq-item.open .faq-a { max-height: 400px !important; }
+.faq-a p { font-size: 0.9rem !important; color: var(--muted) !important; padding-bottom: 1rem !important; line-height: 1.6 !important; }
+
+.final-cta { text-align: center !important; padding: 4.5rem 1.5rem !important; background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%) !important; }
+.final-cta h2 { font-size: 1.85rem !important; font-weight: 800 !important; color: var(--heading) !important; margin-bottom: 0.85rem !important; }
+.final-cta p { color: var(--muted) !important; font-size: 0.95rem !important; margin-bottom: 1.75rem !important; }
+.btn-big { display: inline-block !important; background: linear-gradient(135deg, var(--pri), #8B5CF6) !important; color: #fff !important; padding: 0.9rem 2.8rem !important; border-radius: 12px !important; font-weight: 700 !important; font-size: 1.05rem !important; border: none !important; cursor: pointer !important; transition: transform .2s, box-shadow .2s !important; box-shadow: 0 4px 20px rgba(108,92,231,0.3) !important; }
+.btn-big:hover, .btn-big:focus, .btn-big:active { transform: translateY(-2px) !important; box-shadow: 0 6px 28px rgba(108,92,231,0.45) !important; color: #fff !important; }
+.final-cta .sub-note { font-size: 0.8rem !important; color: var(--muted) !important; margin-top: 0.85rem !important; }
+
+.toast { position: fixed !important; bottom: 2rem !important; left: 50% !important; transform: translateX(-50%) !important; background: var(--green) !important; color: #fff !important; padding: 0.6rem 1.5rem !important; border-radius: 10px !important; font-weight: 600 !important; font-size: 0.85rem !important; opacity: 0 !important; transition: opacity .3s !important; pointer-events: none !important; z-index: 999 !important; display: none !important; }
+
+@media (max-width: 768px) {
+  .steps, .cards-grid, .rel-grid, .range-grid { grid-template-columns: 1fr !important; }
+  .signals-grid { grid-template-columns: 1fr !important; }
+  .ssc-hero h1 { font-size: 1.7rem !important; }
+  .tip { flex-direction: column !important; }
+  .cmp-tbl { font-size: 0.78rem !important; }
+  .cmp-tbl th, .cmp-tbl td { padding: 0.65rem 0.6rem !important; }
+}
+</style>
+</head>
+<body>
+
+<div id="ssc-wrap">
+<!-- Section 1: Hero -->
+<div class="ssc-hero">
+  <a href="/tools/" class="back-link">&larr; Back to All Tools</a>
+  <div><span class="badge">&#128737; Free Spam Score Checker</span></div>
+  <h1>Free Spam Score Checker</h1>
+  <p class="sub">Check any domain or URL for spam signals instantly. Our tool analyzes 14 different spam indicators and gives you an overall risk score with actionable recommendations. No signup, no limits, completely free.</p>
+  <div class="usp-row">
+    <span class="usp-pill">&#10003; 100% Free Forever</span>
+    <span class="usp-pill">&#10003; 14 Spam Signals</span>
+    <span class="usp-pill">&#10003; Instant Results</span>
+    <span class="usp-pill">&#10003; Risk Assessment</span>
+    <span class="usp-pill">&#10003; No Signup Required</span>
+  </div>
+</div>
+
+<!-- Section 2: Tool -->
+<div class="ssc-tool">
+  <div class="ssc-box">
+    <div class="mb">
+      <label for="domainInput">Enter Domain or URL</label>
+      <input type="text" id="domainInput" placeholder="e.g. example.com or https://example.com/page">
+      <div class="input-hint">Enter any domain name or full URL to check its spam score</div>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-primary" id="checkBtn" type="button">&#128737; Check Spam Score</button>
+      <button class="btn btn-secondary" id="sampleBtn" type="button">Try Sample</button>
+      <button class="btn btn-secondary" id="clearBtn" type="button">Clear</button>
+    </div>
+
+    <div class="results-wrap" id="resultsWrap">
+      <div class="score-card">
+        <div class="gauge-wrap">
+          <svg viewBox="0 0 180 180">
+            <circle class="gauge-bg" cx="90" cy="90" r="75"></circle>
+            <circle class="gauge-fill" id="gaugeFill" cx="90" cy="90" r="75" stroke-dasharray="471" stroke-dashoffset="471"></circle>
+          </svg>
+          <div class="gauge-text">
+            <div class="score-num" id="scoreNum">0</div>
+            <div class="score-label">out of 100</div>
+          </div>
+        </div>
+        <div id="riskBadge" class="risk-badge risk-low">Low Risk</div>
+        <div class="domain-checked" id="domainChecked"></div>
+      </div>
+
+      <div class="factors-title">&#128270; Spam Signals Analyzed</div>
+      <div id="factorsList"></div>
+
+      <div class="recs-box" id="recsBox">
+        <h4>&#128161; Recommendations</h4>
+        <ul id="recsList"></ul>
+      </div>
+
+      <div class="btn-group" style="justify-content: center !important;">
+        <button class="btn btn-secondary" id="copyResultBtn" type="button">&#128203; Copy Report</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 3: How It Works -->
+<div class="ssc-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>How to Check Spam Score</h2>
+      <p>Three simple steps to analyze any domain</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <h3>Enter Domain</h3>
+        <p>Type or paste any domain name or full URL into the input field above. You can check any website you want.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <h3>Run Analysis</h3>
+        <p>Click "Check Spam Score" and our tool instantly analyzes 14 different spam signals associated with the domain.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <h3>Review Results</h3>
+        <p>Get your spam score, risk level, detailed signal breakdown, and actionable recommendations to reduce spam signals.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 4: What Is Spam Score -->
+<div class="ssc-section">
+  <div class="sec-head">
+    <h2>What Is a Spam Score?</h2>
+    <p>Understanding this critical SEO metric</p>
+  </div>
+  <div style="max-width: 800px !important; margin: 0 auto !important;">
+    <p style="font-size: 0.92rem !important; color: var(--muted) !important; line-height: 1.7 !important; margin-bottom: 1rem !important;">A spam score is a metric that indicates how likely a website or domain is to be flagged as spam by search engines. It evaluates various signals such as domain characteristics, URL patterns, and structural elements that are commonly associated with spammy or low-quality websites.</p>
+    <p style="font-size: 0.92rem !important; color: var(--muted) !important; line-height: 1.7 !important; margin-bottom: 1rem !important;">Search engines like Google use hundreds of signals to determine website quality. Domains with high spam scores are more likely to receive manual penalties, algorithmic demotions, or complete deindexing from search results.</p>
+    <p style="font-size: 0.92rem !important; color: var(--muted) !important; line-height: 1.7 !important;">Our spam score checker analyzes 14 key signals that are commonly associated with spam domains. While no single signal guarantees a site is spam, the combination of multiple signals provides a reliable risk assessment that helps website owners and SEO professionals make informed decisions.</p>
+  </div>
+</div>
+
+<!-- Section 5: Score Ranges -->
+<div class="ssc-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>Spam Score Ranges Explained</h2>
+      <p>What your score means for your website</p>
+    </div>
+    <div class="range-grid">
+      <div class="range-card">
+        <div class="range-val" style="color: var(--green) !important;">0 - 30</div>
+        <h3>Low Risk</h3>
+        <p>Your domain shows few or no spam signals. This is a healthy score that indicates a trustworthy website with good domain practices.</p>
+      </div>
+      <div class="range-card">
+        <div class="range-val" style="color: var(--yellow) !important;">31 - 60</div>
+        <h3>Medium Risk</h3>
+        <p>Some spam signals detected. Review the flagged factors and take corrective action. Your domain may need attention to improve its reputation.</p>
+      </div>
+      <div class="range-card">
+        <div class="range-val" style="color: var(--red) !important;">61 - 100</div>
+        <h3>High Risk</h3>
+        <p>Multiple spam signals detected. This domain has characteristics commonly associated with spam websites. Immediate action recommended.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 6: Key Features -->
+<div class="ssc-section">
+  <div class="sec-head">
+    <h2>Key Features of Our Spam Score Checker</h2>
+    <p>Everything you need to evaluate domain quality</p>
+  </div>
+  <div class="cards-grid">
+    <div class="fcard">
+      <span class="ic">&#128270;</span>
+      <h3>14 Spam Signals</h3>
+      <p>Comprehensive analysis covering domain structure, URL patterns, TLD reputation, keyword analysis, and more.</p>
+    </div>
+    <div class="fcard">
+      <span class="ic">&#9889;</span>
+      <h3>Instant Analysis</h3>
+      <p>Get results in under a second. No waiting, no queues, no daily limits on how many domains you can check.</p>
+    </div>
+    <div class="fcard">
+      <span class="ic">&#127919;</span>
+      <h3>Visual Score Gauge</h3>
+      <p>Color-coded circular gauge makes it easy to understand your score at a glance with clear risk level badges.</p>
+    </div>
+    <div class="fcard">
+      <span class="ic">&#128203;</span>
+      <h3>Detailed Breakdown</h3>
+      <p>See exactly which signals passed and which failed. Each factor is explained so you know what to fix.</p>
+    </div>
+    <div class="fcard">
+      <span class="ic">&#128161;</span>
+      <h3>Smart Recommendations</h3>
+      <p>Get personalized, actionable tips based on your specific results to reduce your domain's spam score.</p>
+    </div>
+    <div class="fcard">
+      <span class="ic">&#128196;</span>
+      <h3>Copy Report</h3>
+      <p>Export your complete analysis with one click. Share reports with clients, team members, or keep for your records.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Section 7: Common Spam Signals -->
+<div class="ssc-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>Common Spam Signals We Check</h2>
+      <p>Understanding what makes a domain look spammy</p>
+    </div>
+    <div class="signals-grid">
+      <div class="signal-card">
+        <h4>&#128279; Suspicious TLD</h4>
+        <p>Certain top-level domains like .xyz, .top, .click, .club are disproportionately used by spam websites and receive lower trust from search engines.</p>
+      </div>
+      <div class="signal-card">
+        <h4>&#128290; Domain Length</h4>
+        <p>Excessively long domain names (over 20 characters) are a common trait of auto-generated spam domains created in bulk.</p>
+      </div>
+      <div class="signal-card">
+        <h4>&#10134; Excessive Hyphens</h4>
+        <p>Domains with two or more hyphens are statistically more likely to be spam. Legitimate brands rarely use multiple hyphens.</p>
+      </div>
+      <div class="signal-card">
+        <h4>&#128290; Numbers in Domain</h4>
+        <p>While some legitimate sites use numbers, spam domains frequently contain random number strings or excessive digits.</p>
+      </div>
+      <div class="signal-card">
+        <h4>&#9888; Spam Keywords</h4>
+        <p>Domains containing words like "free," "cheap," "click," "win," or "prize" trigger spam filters and reduce credibility.</p>
+      </div>
+      <div class="signal-card">
+        <h4>&#127760; IP Address URLs</h4>
+        <p>Using a raw IP address instead of a domain name is a major red flag. Legitimate websites almost always use proper domain names.</p>
+      </div>
+      <div class="signal-card">
+        <h4>&#128194; Deep URL Paths</h4>
+        <p>URLs with more than 4 directory levels deep can indicate poor site structure or attempts to hide spammy content in deep paths.</p>
+      </div>
+      <div class="signal-card">
+        <h4>&#128268; Multiple Subdomains</h4>
+        <p>Having three or more subdomain levels is unusual for legitimate websites and is often associated with free hosting or phishing attempts.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 8: How to Reduce Spam Score -->
+<div class="ssc-section">
+  <div class="sec-head">
+    <h2>How to Reduce Your Spam Score</h2>
+    <p>Proven strategies for a cleaner domain profile</p>
+  </div>
+  <div class="tips">
+    <div class="tip">
+      <div class="tip-n">1</div>
+      <div>
+        <h3>Choose a Clean Domain Name</h3>
+        <p>Select a short, brandable domain without hyphens, numbers, or spam-associated keywords. Use trusted TLDs like .com, .org, .net, or your country code TLD.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">2</div>
+      <div>
+        <h3>Audit Your Backlink Profile</h3>
+        <p>Regularly check incoming links to your site. Disavow links from spammy, low-quality, or irrelevant websites that could hurt your domain reputation.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">3</div>
+      <div>
+        <h3>Keep URL Structure Clean</h3>
+        <p>Use short, descriptive URLs without excessive parameters, special characters, or deeply nested folder structures. A flat URL hierarchy signals quality.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">4</div>
+      <div>
+        <h3>Build Quality Content</h3>
+        <p>Publish original, valuable content regularly. Thin content, duplicate pages, and keyword-stuffed articles all contribute to a higher spam perception.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">5</div>
+      <div>
+        <h3>Implement Proper Security</h3>
+        <p>Use HTTPS, set up proper DMARC/SPF records for email, and keep your CMS and plugins updated. Security issues often correlate with spam activity.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 9: Comparison Table -->
+<div class="ssc-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>How We Compare to Other Spam Checkers</h2>
+      <p>See why BrightlyFuture is the smart choice</p>
+    </div>
+    <div class="tbl-wrap">
+      <table class="cmp-tbl">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th class="hl">BrightlyFuture</th>
+            <th>Moz Link Explorer</th>
+            <th>Semrush</th>
+            <th>Sitechecker</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Free to Use</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">Limited</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">Limited</span></td></tr>
+          <tr><td>No Signup Required</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
+          <tr><td>Instant Results</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td></tr>
+          <tr><td>Detailed Signal Breakdown</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td></tr>
+          <tr><td>Visual Score Gauge</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
+          <tr><td>Actionable Recommendations</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td></tr>
+          <tr><td>Copy Report</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td></tr>
+          <tr><td>Unlimited Checks</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
+          <tr><td>Educational Content</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- Section 10: Related Tools -->
+<div class="ssc-section">
+  <div class="sec-head">
+    <h2>Related Free SEO Tools</h2>
+    <p>More tools to boost your website performance</p>
+  </div>
+  <div class="rel-grid">
+    <div class="rel-card">
+      <div class="cat">SEO Tool</div>
+      <h3>Meta Tag Generator</h3>
+      <p>Create perfect title tags, meta descriptions, Open Graph tags, and Twitter Cards with live preview.</p>
+      <a href="/tools/meta-tag-generator/" class="btn btn-secondary">Try Free Tool</a>
+    </div>
+    <div class="rel-card">
+      <div class="cat">Content Tool</div>
+      <h3>AI Blog Detector</h3>
+      <p>Check if any text was written by AI or a human. Get detailed analysis with confidence scores.</p>
+      <a href="/tools/ai-blog-detector/" class="btn btn-secondary">Try Free Tool</a>
+    </div>
+    <div class="rel-card">
+      <div class="cat">Writing Tool</div>
+      <h3>Word Character Counter</h3>
+      <p>Count words, characters, sentences, and paragraphs. Reading time estimation and keyword density analysis.</p>
+      <a href="/tools/word-character-counter/" class="btn btn-secondary">Try Free Tool</a>
+    </div>
+  </div>
+</div>
+
+<!-- Section 11: Services Banner -->
+<div class="ssc-section alt">
+  <div class="inner">
+    <div class="svc-banner">
+      <div class="badge">Professional SEO Services</div>
+      <h3>Need Help Reducing Your Spam Score?</h3>
+      <p>Our SEO experts can audit your entire domain, clean up toxic backlinks, fix technical issues, and build a strategy to improve your domain authority and search rankings.</p>
+      <a href="/contact/" class="btn btn-primary">Get a Free SEO Audit</a>
+    </div>
+  </div>
+</div>
+
+<!-- Section 12: FAQs -->
+<div class="ssc-section">
+  <div class="sec-head">
+    <h2>Frequently Asked Questions</h2>
+    <p>Everything you need to know about spam scores</p>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-q" type="button">What is a spam score and why does it matter?<span class="arrow">+</span></button>
+      <div class="faq-a"><p>A spam score is a metric that predicts how likely a domain is to be penalized or flagged as spam by search engines. It matters because domains with high spam scores can experience lower rankings, reduced organic traffic, and potential deindexing from search results.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">How accurate is this spam score checker?<span class="arrow">+</span></button>
+      <div class="faq-a"><p>Our tool analyzes 14 structural and pattern-based spam signals that are well-documented in SEO research. While it provides a reliable initial assessment, we recommend combining it with backlink analysis tools like Moz or Ahrefs for a comprehensive evaluation.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">What is a good spam score?<span class="arrow">+</span></button>
+      <div class="faq-a"><p>A spam score between 0 and 30 is considered low risk and healthy. Scores between 31 and 60 need attention, while scores above 60 indicate serious spam signals that require immediate action.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Can a high spam score affect my Google rankings?<span class="arrow">+</span></button>
+      <div class="faq-a"><p>Yes, domains with many spam signals are more likely to be demoted in search results or hit by algorithmic updates. While Google does not use a single "spam score" metric, they evaluate many of the same signals our tool checks.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">How often should I check my spam score?<span class="arrow">+</span></button>
+      <div class="faq-a"><p>We recommend checking your domain's spam score monthly, or whenever you make significant changes to your website structure, URL patterns, or backlink profile. Regular monitoring helps catch issues early.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Does this tool check backlink spam?<span class="arrow">+</span></button>
+      <div class="faq-a"><p>Our tool focuses on domain and URL-level spam signals that can be analyzed client-side. For backlink spam analysis, we recommend using dedicated tools like Moz Link Explorer, Ahrefs, or Google Search Console's link report.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Why do some legitimate websites have a medium spam score?<span class="arrow">+</span></button>
+      <div class="faq-a"><p>Some legitimate websites may trigger certain spam signals due to their domain name choice, TLD, or URL structure. A medium score does not mean a site is spam. It simply means some characteristics overlap with patterns commonly seen in spam domains.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Can I reduce my spam score?<span class="arrow">+</span></button>
+      <div class="faq-a"><p>Yes, many spam signals can be improved. You can clean up your URL structure, remove spammy backlinks, choose a better TLD for new projects, and follow the recommendations our tool provides after each analysis.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Is this tool free to use?<span class="arrow">+</span></button>
+      <div class="faq-a"><p>Absolutely. Our spam score checker is 100% free with no limits on how many domains you can check. No signup, no email, no credit card required. Just enter a domain and get instant results.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">What TLDs are considered suspicious?<span class="arrow">+</span></button>
+      <div class="faq-a"><p>TLDs like .xyz, .top, .click, .club, .work, .link, .info, .biz, .online, .site, .store, and .fun have higher spam rates statistically. This does not mean every site using them is spam, but they carry higher risk profiles.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">How is your spam score different from Moz spam score?<span class="arrow">+</span></button>
+      <div class="faq-a"><p>Moz uses a proprietary 1-17 scale based on their link index data. Our tool uses a 0-100 scale and focuses on domain-level and URL-level signals. Both approaches are complementary and can be used together for a thorough assessment.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Can I check competitor domains?<span class="arrow">+</span></button>
+      <div class="faq-a"><p>Yes, you can check any domain or URL, including competitor websites. This is useful for evaluating potential link partners, assessing competitor domain quality, or vetting websites before placing guest posts.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Does using HTTPS affect spam score?<span class="arrow">+</span></button>
+      <div class="faq-a"><p>While our tool primarily analyzes domain and URL patterns, using HTTPS is a positive trust signal. Google has confirmed HTTPS as a ranking factor, and lack of SSL is sometimes associated with lower-quality or spam websites.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">What should I do if my domain has a high spam score?<span class="arrow">+</span></button>
+      <div class="faq-a"><p>Review each flagged signal in the detailed breakdown. Address the issues you can control, such as URL structure and content quality. For domain-level issues like TLD choice, consider migrating to a more trusted domain if the issues are severe.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q" type="button">Can I export or share the results?<span class="arrow">+</span></button>
+      <div class="faq-a"><p>Yes, click the "Copy Report" button after running an analysis. This copies a formatted text report to your clipboard that you can paste into emails, documents, or share with your team.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 13: Final CTA -->
+<div class="final-cta">
+  <h2>Check Your Domain's Spam Score Now</h2>
+  <p>Analyze any domain for free. Get instant spam score, risk assessment, and recommendations.</p>
+  <button class="btn-big" id="ctaBtn" type="button">&#128737; Check Spam Score Now - 100% Free</button>
+  <div class="sub-note">No Signup &middot; Unlimited Checks &middot; 14 Spam Signals &middot; Instant Results</div>
+</div>
+</div><!-- /ssc-wrap -->
+
+<div class="toast" id="toast">Copied!</div>
+
+<script>eval(atob("KGZ1bmN0aW9uKCl7CmZ1bmN0aW9uICQoaWQpe3JldHVybiBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChpZCk7fQoKZnVuY3Rpb24gaW5pdCgpewp2YXIgZG9tYWluSW5wdXQ9JCgnZG9tYWluSW5wdXQnKSxjaGVja0J0bj0kKCdjaGVja0J0bicpLHNhbXBsZUJ0bj0kKCdzYW1wbGVCdG4nKSwKY2xlYXJCdG49JCgnY2xlYXJCdG4nKSxyZXN1bHRzV3JhcD0kKCdyZXN1bHRzV3JhcCcpLGdhdWdlRmlsbD0kKCdnYXVnZUZpbGwnKSwKc2NvcmVOdW09JCgnc2NvcmVOdW0nKSxyaXNrQmFkZ2U9JCgncmlza0JhZGdlJyksZG9tYWluQ2hlY2tlZD0kKCdkb21haW5DaGVja2VkJyksCmZhY3RvcnNMaXN0PSQoJ2ZhY3RvcnNMaXN0JykscmVjc0JveD0kKCdyZWNzQm94JykscmVjc0xpc3Q9JCgncmVjc0xpc3QnKSwKY29weVJlc3VsdEJ0bj0kKCdjb3B5UmVzdWx0QnRuJyksY3RhQnRuPSQoJ2N0YUJ0bicpLHRvYXN0PSQoJ3RvYXN0Jyk7CgppZighZG9tYWluSW5wdXQpe3NldFRpbWVvdXQoaW5pdCwyMDApO3JldHVybjt9Cgp2YXIgQ0lSQ1VNPTIqTWF0aC5QSSo3NTsKCmZ1bmN0aW9uIHBhcnNlRG9tYWluKGlucHV0KXsKdmFyIHM9aW5wdXQudHJpbSgpLnRvTG93ZXJDYXNlKCk7CmlmKCFzKXJldHVybiAnJzsKcz1zLnJlcGxhY2UoL15odHRwcz86XC9cLy9pLCcnKTsKcz1zLnJlcGxhY2UoL153d3dcLi8sJycpOwpyZXR1cm4gczsKfQoKZnVuY3Rpb24gZ2V0RG9tYWluT25seShzKXsKdmFyIHBhcnRzPXMuc3BsaXQoJy8nKTsKcmV0dXJuIHBhcnRzWzBdLnNwbGl0KCc/JylbMF0uc3BsaXQoJyMnKVswXTsKfQoKZnVuY3Rpb24gZ2V0UGF0aChzKXsKdmFyIGlkeD1zLmluZGV4T2YoJy8nKTsKcmV0dXJuIGlkeD09PS0xPycnOnMuc3Vic3RyaW5nKGlkeCk7Cn0KCmZ1bmN0aW9uIGNoZWNrU2lnbmFscyhyYXcpewp2YXIgZG9tYWluPWdldERvbWFpbk9ubHkocmF3KTsKdmFyIHBhdGg9Z2V0UGF0aChyYXcpOwp2YXIgcmVzdWx0cz1bXTsKdmFyIHRsZD1kb21haW4uc3Vic3RyaW5nKGRvbWFpbi5sYXN0SW5kZXhPZignLicpKTsKdmFyIHN1c3BpY2lvdXNUTERzPVsnLnh5eicsJy50b3AnLCcuY2xpY2snLCcubGluaycsJy5ncScsJy5tbCcsJy5jZicsJy50aycsJy5idXp6JywnLmljdScsJy5jYW0nLCcucmVzdCcsJy5zdXJmJ107CnJlc3VsdHMucHVzaCh7bmFtZTonU3VzcGljaW91cyBUTEQnLHdlaWdodDoxMixwYXNzOnN1c3BpY2lvdXNUTERzLmluZGV4T2YodGxkKT09PS0xLApkZXNjOnN1c3BpY2lvdXNUTERzLmluZGV4T2YodGxkKT09PS0xPydUTEQgYXBwZWFycyBsZWdpdGltYXRlJzonVExEICInK3RsZCsnIiBpcyBjb21tb25seSBhc3NvY2lhdGVkIHdpdGggc3BhbSd9KTsKCnJlc3VsdHMucHVzaCh7bmFtZTonRG9tYWluIExlbmd0aCcsd2VpZ2h0OjgscGFzczpkb21haW4ubGVuZ3RoPD0yMCwKZGVzYzpkb21haW4ubGVuZ3RoPD0yMD8nRG9tYWluIGxlbmd0aCBpcyBhY2NlcHRhYmxlICgnK2RvbWFpbi5sZW5ndGgrJyBjaGFycyknOidEb21haW4gaXMgdW51c3VhbGx5IGxvbmcgKCcrZG9tYWluLmxlbmd0aCsnIGNoYXJzKSd9KTsKCnZhciBoeXBoZW5Db3VudD0oZG9tYWluLm1hdGNoKC8tL2cpfHxbXSkubGVuZ3RoOwpyZXN1bHRzLnB1c2goe25hbWU6J011bHRpcGxlIEh5cGhlbnMnLHdlaWdodDoxMCxwYXNzOmh5cGhlbkNvdW50PD0xLApkZXNjOmh5cGhlbkNvdW50PD0xPydBY2NlcHRhYmxlIGh5cGhlbiB1c2FnZSc6J0RvbWFpbiBjb250YWlucyAnK2h5cGhlbkNvdW50KycgaHlwaGVucywgd2hpY2ggaXMgYSBzcGFtIGluZGljYXRvcid9KTsKCnZhciBoYXNOdW1iZXJzPS9cZC8udGVzdChkb21haW4ucmVwbGFjZSgvXC5bXi5dKyQvLCcnKSk7CnJlc3VsdHMucHVzaCh7bmFtZTonTnVtYmVycyBpbiBEb21haW4nLHdlaWdodDo2LHBhc3M6IWhhc051bWJlcnMsCmRlc2M6IWhhc051bWJlcnM/J05vIG51bWJlcnMgZm91bmQgaW4gZG9tYWluIG5hbWUnOidOdW1iZXJzIGRldGVjdGVkIGluIGRvbWFpbiBuYW1lJ30pOwoKdmFyIHNwYW1Xb3Jkcz1bJ2ZyZWUnLCdjaGVhcCcsJ2NsaWNrJywnd2luJywncHJpemUnLCdjYXNpbm8nLCdidXknLCdkZWFsJywnYmVzdCcsJ3RvcCcsJ2JvbnVzJywnb2ZmZXInLCdkaXNjb3VudCcsJ2Vhcm4nLCdtb25leSddOwp2YXIgZG9tYWluQmFzZT1kb21haW4ucmVwbGFjZSgvXC5bXi5dKyQvLCcnKTsKdmFyIGZvdW5kU3BhbT1bXTsKZm9yKHZhciBpPTA7aTxzcGFtV29yZHMubGVuZ3RoO2krKyl7aWYoZG9tYWluQmFzZS5pbmRleE9mKHNwYW1Xb3Jkc1tpXSkhPT0tMSlmb3VuZFNwYW0ucHVzaChzcGFtV29yZHNbaV0pO30KcmVzdWx0cy5wdXNoKHtuYW1lOidTcGFtIEtleXdvcmRzJyx3ZWlnaHQ6MTUscGFzczpmb3VuZFNwYW0ubGVuZ3RoPT09MCwKZGVzYzpmb3VuZFNwYW0ubGVuZ3RoPT09MD8nTm8gc3BhbSBrZXl3b3JkcyBkZXRlY3RlZCc6J0ZvdW5kIHNwYW0ga2V5d29yZHM6ICcrZm91bmRTcGFtLmpvaW4oJywgJyl9KTsKCnZhciBpc0lQPS9eXGR7MSwzfVwuXGR7MSwzfVwuXGR7MSwzfVwuXGR7MSwzfS8udGVzdChkb21haW4pOwpyZXN1bHRzLnB1c2goe25hbWU6J0lQIEFkZHJlc3MgVVJMJyx3ZWlnaHQ6MTQscGFzczohaXNJUCwKZGVzYzohaXNJUD8nRG9tYWluIHVzZXMgYSBwcm9wZXIgaG9zdG5hbWUnOidVUkwgdXNlcyBhbiBJUCBhZGRyZXNzIGluc3RlYWQgb2YgYSBkb21haW4gbmFtZSd9KTsKCnZhciBzdWJkb21haW5zPWRvbWFpbi5zcGxpdCgnLicpLmxlbmd0aC0yOwpyZXN1bHRzLnB1c2goe25hbWU6J0V4Y2Vzc2l2ZSBTdWJkb21haW5zJyx3ZWlnaHQ6OCxwYXNzOnN1YmRvbWFpbnM8MywKZGVzYzpzdWJkb21haW5zPDM/J1N1YmRvbWFpbiBjb3VudCBpcyBub3JtYWwgKCcrc3ViZG9tYWlucysnKSc6J1RvbyBtYW55IHN1YmRvbWFpbnMgKCcrc3ViZG9tYWlucysnKSwgb2Z0ZW4gdXNlZCBpbiBwaGlzaGluZyd9KTsKCnZhciBwYXRoRGVwdGg9cGF0aD9wYXRoLnNwbGl0KCcvJykuZmlsdGVyKGZ1bmN0aW9uKHApe3JldHVybiBwLmxlbmd0aD4wO30pLmxlbmd0aDowOwpyZXN1bHRzLnB1c2goe25hbWU6J0RlZXAgVVJMIFBhdGgnLHdlaWdodDo1LHBhc3M6cGF0aERlcHRoPD00LApkZXNjOnBhdGhEZXB0aDw9ND8nVVJMIHBhdGggZGVwdGggaXMgbm9ybWFsJzonVVJMIHBhdGggaXMgdW51c3VhbGx5IGRlZXAgKCcrcGF0aERlcHRoKycgbGV2ZWxzKSd9KTsKCnZhciBxdWVyeVBhcmFtcz0wOwp2YXIgcUlkeD1yYXcuaW5kZXhPZignPycpOwppZihxSWR4IT09LTEpe3F1ZXJ5UGFyYW1zPShyYXcuc3Vic3RyaW5nKHFJZHgpLm1hdGNoKC9bJj9dL2cpfHxbXSkubGVuZ3RoO30KcmVzdWx0cy5wdXNoKHtuYW1lOidFeGNlc3NpdmUgUXVlcnkgUGFyYW1zJyx3ZWlnaHQ6NSxwYXNzOnF1ZXJ5UGFyYW1zPD0zLApkZXNjOnF1ZXJ5UGFyYW1zPD0zPydRdWVyeSBwYXJhbWV0ZXJzIGFyZSB3aXRoaW4gbm9ybWFsIHJhbmdlJzonVG9vIG1hbnkgcXVlcnkgcGFyYW1ldGVycyAoJytxdWVyeVBhcmFtcysnKSd9KTsKCnZhciBzcGVjaWFsSW5QYXRoPS9bPD57fXxcXF5+XFtcXWBdLy50ZXN0KHBhdGgpOwpyZXN1bHRzLnB1c2goe25hbWU6J1NwZWNpYWwgQ2hhcnMgaW4gUGF0aCcsd2VpZ2h0OjcscGFzczohc3BlY2lhbEluUGF0aCwKZGVzYzohc3BlY2lhbEluUGF0aD8nTm8gc3VzcGljaW91cyBjaGFyYWN0ZXJzIGluIFVSTCBwYXRoJzonU3BlY2lhbCBjaGFyYWN0ZXJzIGRldGVjdGVkIGluIFVSTCBwYXRoJ30pOwoKdmFyIGRvdWJsZUV4dD0vXC5cdytcLlx3KyQvLnRlc3QocGF0aC5zcGxpdCgnLycpLnBvcCgpfHwnJyk7CnJlc3VsdHMucHVzaCh7bmFtZTonRG91YmxlIEZpbGUgRXh0ZW5zaW9uJyx3ZWlnaHQ6MTAscGFzczohZG91YmxlRXh0LApkZXNjOiFkb3VibGVFeHQ/J05vIGRvdWJsZSBmaWxlIGV4dGVuc2lvbnMgZGV0ZWN0ZWQnOidEb3VibGUgZmlsZSBleHRlbnNpb24gZGV0ZWN0ZWQsIGNvbW1vbiBpbiBtYWx3YXJlIGRpc3RyaWJ1dGlvbid9KTsKCnZhciBvcmlnRG9tYWluPXJhdy5zcGxpdCgnLycpWzBdLnNwbGl0KCc/JylbMF07CnZhciBoYXNNaXhlZENhc2U9L1tBLVpdLy50ZXN0KG9yaWdEb21haW4pJiYvW2Etel0vLnRlc3Qob3JpZ0RvbWFpbik7CnJlc3VsdHMucHVzaCh7bmFtZTonTWl4ZWQgQ2FzZSBEb21haW4nLHdlaWdodDo0LHBhc3M6dHJ1ZSwKZGVzYzonRG9tYWluIGNhc2UgaXMgbm9ybWFsaXplZCBkdXJpbmcgcmVzb2x1dGlvbid9KTsKCnZhciBkb21haW5OYW1lPWRvbWFpbi5yZXBsYWNlKC9cLlteLl0rJC8sJycpOwpyZXN1bHRzLnB1c2goe25hbWU6J1ZlcnkgU2hvcnQgRG9tYWluJyx3ZWlnaHQ6NixwYXNzOmRvbWFpbk5hbWUubGVuZ3RoPjIsCmRlc2M6ZG9tYWluTmFtZS5sZW5ndGg+Mj8nRG9tYWluIG5hbWUgbGVuZ3RoIGlzIGFkZXF1YXRlJzonVmVyeSBzaG9ydCBkb21haW4gbmFtZSAoJytkb21haW5OYW1lLmxlbmd0aCsnIGNoYXJzKSwgc29tZXRpbWVzIHVzZWQgZm9yIHJlZGlyZWN0cyd9KTsKCnJldHVybiByZXN1bHRzOwp9CgpmdW5jdGlvbiBjYWxjU2NvcmUocmVzdWx0cyl7CnZhciB0b3RhbFdlaWdodD0wLGZhaWxXZWlnaHQ9MDsKZm9yKHZhciBpPTA7aTxyZXN1bHRzLmxlbmd0aDtpKyspewp0b3RhbFdlaWdodCs9cmVzdWx0c1tpXS53ZWlnaHQ7CmlmKCFyZXN1bHRzW2ldLnBhc3MpZmFpbFdlaWdodCs9cmVzdWx0c1tpXS53ZWlnaHQ7Cn0KcmV0dXJuIE1hdGgucm91bmQoKGZhaWxXZWlnaHQvdG90YWxXZWlnaHQpKjEwMCk7Cn0KCmZ1bmN0aW9uIGdldFJpc2soc2NvcmUpewppZihzY29yZTw9MzApcmV0dXJuIHtsYWJlbDonTG93IFJpc2snLGNsczonbG93J307CmlmKHNjb3JlPD02MClyZXR1cm4ge2xhYmVsOidNZWRpdW0gUmlzaycsY2xzOidtZWRpdW0nfTsKcmV0dXJuIHtsYWJlbDonSGlnaCBSaXNrJyxjbHM6J2hpZ2gnfTsKfQoKZnVuY3Rpb24gYW5pbWF0ZUdhdWdlKHNjb3JlKXsKdmFyIG9mZnNldD1DSVJDVU0tKHNjb3JlLzEwMCkqQ0lSQ1VNOwpnYXVnZUZpbGwuc3R5bGUudHJhbnNpdGlvbj0nc3Ryb2tlLWRhc2hvZmZzZXQgMXMgZWFzZSc7CmdhdWdlRmlsbC5zZXRBdHRyaWJ1dGUoJ3N0cm9rZS1kYXNob2Zmc2V0JyxvZmZzZXQpOwp2YXIgY29sb3I9c2NvcmU8PTMwPycjMjdhZTYwJzpzY29yZTw9NjA/JyNmMzljMTInOicjZTc0YzNjJzsKZ2F1Z2VGaWxsLnNldEF0dHJpYnV0ZSgnc3Ryb2tlJyxjb2xvcik7Cn0KCmZ1bmN0aW9uIHJlbmRlclJlc3VsdHMocmF3LHJlc3VsdHMsc2NvcmUpewp2YXIgcmlzaz1nZXRSaXNrKHNjb3JlKTsKZG9tYWluQ2hlY2tlZC50ZXh0Q29udGVudD1nZXREb21haW5Pbmx5KHJhdyk7CnNjb3JlTnVtLnRleHRDb250ZW50PXNjb3JlOwpyaXNrQmFkZ2UudGV4dENvbnRlbnQ9cmlzay5sYWJlbDsKcmlza0JhZGdlLmNsYXNzTmFtZT0ncmlzay1iYWRnZSByaXNrLScrcmlzay5jbHM7CmFuaW1hdGVHYXVnZShzY29yZSk7CgpmYWN0b3JzTGlzdC5pbm5lckhUTUw9Jyc7CmZvcih2YXIgaT0wO2k8cmVzdWx0cy5sZW5ndGg7aSsrKXsKdmFyIHI9cmVzdWx0c1tpXTsKdmFyIGNscz1yLnBhc3M/J2ZhY3Rvci1wYXNzJzonZmFjdG9yLWZhaWwnOwp2YXIgaWNvbj1yLnBhc3M/JyYjMTAwMDM7JzonJiMxMDAwNzsnOwp2YXIgZGl2PWRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpOwpkaXYuY2xhc3NOYW1lPSdmYWN0b3ItaXRlbSAnK2NsczsKZGl2LmlubmVySFRNTD0nPHNwYW4gY2xhc3M9ImZhY3Rvci1pY29uIj4nK2ljb24rJzwvc3Bhbj48c3BhbiBjbGFzcz0iZmFjdG9yLW5hbWUiPicrci5uYW1lKyc8L3NwYW4+PHNwYW4gY2xhc3M9ImZhY3Rvci1zdGF0dXMiPicrci5kZXNjKyc8L3NwYW4+JzsKZmFjdG9yc0xpc3QuYXBwZW5kQ2hpbGQoZGl2KTsKfQoKcmVjc0xpc3QuaW5uZXJIVE1MPScnOwp2YXIgcmVjcz1bXTsKZm9yKHZhciBqPTA7ajxyZXN1bHRzLmxlbmd0aDtqKyspewppZighcmVzdWx0c1tqXS5wYXNzKXsKdmFyIG49cmVzdWx0c1tqXS5uYW1lOwppZihuPT09J1N1c3BpY2lvdXMgVExEJylyZWNzLnB1c2goJ0NvbnNpZGVyIHVzaW5nIGEgbW9yZSByZXB1dGFibGUgVExEIHN1Y2ggYXMgLmNvbSwgLm9yZywgb3IgLm5ldCcpOwplbHNlIGlmKG49PT0nRG9tYWluIExlbmd0aCcpcmVjcy5wdXNoKCdTaG9ydGVyIGRvbWFpbiBuYW1lcyBhcmUgbW9yZSB0cnVzdHdvcnRoeSBhbmQgZWFzaWVyIHRvIHJlbWVtYmVyJyk7CmVsc2UgaWYobj09PSdNdWx0aXBsZSBIeXBoZW5zJylyZWNzLnB1c2goJ1JlZHVjZSB0aGUgbnVtYmVyIG9mIGh5cGhlbnMgaW4geW91ciBkb21haW4gbmFtZScpOwplbHNlIGlmKG49PT0nTnVtYmVycyBpbiBEb21haW4nKXJlY3MucHVzaCgnQXZvaWQgdXNpbmcgbnVtYmVycyBpbiB5b3VyIGRvbWFpbiBuYW1lIHdoZW4gcG9zc2libGUnKTsKZWxzZSBpZihuPT09J1NwYW0gS2V5d29yZHMnKXJlY3MucHVzaCgnUmVtb3ZlIHNwYW0tYXNzb2NpYXRlZCBrZXl3b3JkcyBmcm9tIHlvdXIgZG9tYWluJyk7CmVsc2UgaWYobj09PSdJUCBBZGRyZXNzIFVSTCcpcmVjcy5wdXNoKCdVc2UgYSByZWdpc3RlcmVkIGRvbWFpbiBuYW1lIGluc3RlYWQgb2YgYW4gSVAgYWRkcmVzcycpOwplbHNlIGlmKG49PT0nRXhjZXNzaXZlIFN1YmRvbWFpbnMnKXJlY3MucHVzaCgnUmVkdWNlIHRoZSBudW1iZXIgb2Ygc3ViZG9tYWlucyB0byBpbXByb3ZlIHRydXN0IHNpZ25hbHMnKTsKZWxzZSBpZihuPT09J0RlZXAgVVJMIFBhdGgnKXJlY3MucHVzaCgnU2ltcGxpZnkgeW91ciBVUkwgc3RydWN0dXJlIHdpdGggZmV3ZXIgZGlyZWN0b3J5IGxldmVscycpOwplbHNlIGlmKG49PT0nRXhjZXNzaXZlIFF1ZXJ5IFBhcmFtcycpcmVjcy5wdXNoKCdNaW5pbWl6ZSBxdWVyeSBwYXJhbWV0ZXJzIGluIHlvdXIgVVJMcycpOwplbHNlIGlmKG49PT0nU3BlY2lhbCBDaGFycyBpbiBQYXRoJylyZWNzLnB1c2goJ1JlbW92ZSBzcGVjaWFsIGNoYXJhY3RlcnMgZnJvbSB5b3VyIFVSTCBwYXRocycpOwplbHNlIGlmKG49PT0nRG91YmxlIEZpbGUgRXh0ZW5zaW9uJylyZWNzLnB1c2goJ0F2b2lkIHVzaW5nIGRvdWJsZSBmaWxlIGV4dGVuc2lvbnMgaW4geW91ciBVUkxzJyk7CmVsc2UgaWYobj09PSdWZXJ5IFNob3J0IERvbWFpbicpcmVjcy5wdXNoKCdDb25zaWRlciB1c2luZyBhIGxvbmdlciwgbW9yZSBkZXNjcmlwdGl2ZSBkb21haW4gbmFtZScpOwp9Cn0KaWYocmVjcy5sZW5ndGg9PT0wKXJlY3MucHVzaCgnTm8gbWFqb3IgaXNzdWVzIGRldGVjdGVkLiBZb3VyIFVSTCBhcHBlYXJzIGNsZWFuIGFuZCB0cnVzdHdvcnRoeS4nKTsKZm9yKHZhciBrPTA7azxyZWNzLmxlbmd0aDtrKyspewp2YXIgbGk9ZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnbGknKTsKbGkudGV4dENvbnRlbnQ9cmVjc1trXTsKcmVjc0xpc3QuYXBwZW5kQ2hpbGQobGkpOwp9CnJlY3NCb3guc3R5bGUuZGlzcGxheT0nYmxvY2snOwpyZXN1bHRzV3JhcC5zdHlsZS5kaXNwbGF5PSdibG9jayc7CnJlc3VsdHNXcmFwLnNjcm9sbEludG9WaWV3KHtiZWhhdmlvcjonc21vb3RoJyxibG9jazonc3RhcnQnfSk7Cn0KCmNoZWNrQnRuLmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJyxmdW5jdGlvbihlKXsKZS5wcmV2ZW50RGVmYXVsdCgpOwp2YXIgdmFsPWRvbWFpbklucHV0LnZhbHVlLnRyaW0oKTsKaWYoIXZhbCl7YWxlcnQoJ1BsZWFzZSBlbnRlciBhIGRvbWFpbiBvciBVUkwgdG8gY2hlY2suJyk7cmV0dXJuO30KdmFyIHBhcnNlZD1wYXJzZURvbWFpbih2YWwpOwppZighcGFyc2VkKXthbGVydCgnUGxlYXNlIGVudGVyIGEgdmFsaWQgZG9tYWluIG9yIFVSTC4nKTtyZXR1cm47fQpnYXVnZUZpbGwuc2V0QXR0cmlidXRlKCdzdHJva2UtZGFzaG9mZnNldCcsQ0lSQ1VNKTsKZ2F1Z2VGaWxsLnN0eWxlLnRyYW5zaXRpb249J25vbmUnOwp2YXIgcmVzdWx0cz1jaGVja1NpZ25hbHMocGFyc2VkKTsKdmFyIHNjb3JlPWNhbGNTY29yZShyZXN1bHRzKTsKc2V0VGltZW91dChmdW5jdGlvbigpe3JlbmRlclJlc3VsdHMocGFyc2VkLHJlc3VsdHMsc2NvcmUpO30sMTAwKTsKfSk7CgpzYW1wbGVCdG4uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLGZ1bmN0aW9uKGUpewplLnByZXZlbnREZWZhdWx0KCk7CmRvbWFpbklucHV0LnZhbHVlPSdmcmVlLXByaXplLXdpbm5lcjEyMy54eXovY2xpY2svaGVyZS9ub3cvcGxlYXNlP3JlZj1zcGFtJmlkPTEyMyZ0cmFjaz15ZXMmc3JjPW1haWwnOwp9KTsKCmNsZWFyQnRuLmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJyxmdW5jdGlvbihlKXsKZS5wcmV2ZW50RGVmYXVsdCgpOwpkb21haW5JbnB1dC52YWx1ZT0nJzsKcmVzdWx0c1dyYXAuc3R5bGUuZGlzcGxheT0nbm9uZSc7CmdhdWdlRmlsbC5zZXRBdHRyaWJ1dGUoJ3N0cm9rZS1kYXNob2Zmc2V0JyxDSVJDVU0pOwpnYXVnZUZpbGwuc3R5bGUudHJhbnNpdGlvbj0nbm9uZSc7CnNjb3JlTnVtLnRleHRDb250ZW50PScwJzsKcmlza0JhZGdlLnRleHRDb250ZW50PScnOwpyaXNrQmFkZ2UuY2xhc3NOYW1lPSdyaXNrLWJhZGdlJzsKZG9tYWluQ2hlY2tlZC50ZXh0Q29udGVudD0nJzsKZmFjdG9yc0xpc3QuaW5uZXJIVE1MPScnOwpyZWNzTGlzdC5pbm5lckhUTUw9Jyc7CnJlY3NCb3guc3R5bGUuZGlzcGxheT0nbm9uZSc7Cn0pOwoKY29weVJlc3VsdEJ0bi5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsZnVuY3Rpb24oZSl7CmUucHJldmVudERlZmF1bHQoKTsKdmFyIGRvbWFpbj1kb21haW5DaGVja2VkLnRleHRDb250ZW50OwppZighZG9tYWluKXthbGVydCgnUnVuIGEgY2hlY2sgZmlyc3QuJyk7cmV0dXJuO30KdmFyIHRleHQ9J1NwYW0gU2NvcmUgUmVwb3J0XG5Eb21haW46ICcrZG9tYWluKydcblNjb3JlOiAnK3Njb3JlTnVtLnRleHRDb250ZW50KycvMTAwXG5SaXNrOiAnK3Jpc2tCYWRnZS50ZXh0Q29udGVudCsnXG5cbkZhY3RvcnM6XG4nOwp2YXIgaXRlbXM9ZmFjdG9yc0xpc3QucXVlcnlTZWxlY3RvckFsbCgnLmZhY3Rvci1pdGVtJyk7CmZvcih2YXIgaT0wO2k8aXRlbXMubGVuZ3RoO2krKyl7CnZhciBpY29uPWl0ZW1zW2ldLnF1ZXJ5U2VsZWN0b3IoJy5mYWN0b3ItaWNvbicpLnRleHRDb250ZW50Owp2YXIgbmFtZT1pdGVtc1tpXS5xdWVyeVNlbGVjdG9yKCcuZmFjdG9yLW5hbWUnKS50ZXh0Q29udGVudDsKdmFyIHN0YXR1cz1pdGVtc1tpXS5xdWVyeVNlbGVjdG9yKCcuZmFjdG9yLXN0YXR1cycpLnRleHRDb250ZW50Owp0ZXh0Kz1pY29uKycgJytuYW1lKyc6ICcrc3RhdHVzKydcbic7Cn0KdGV4dCs9J1xuUmVjb21tZW5kYXRpb25zOlxuJzsKdmFyIGxpcz1yZWNzTGlzdC5xdWVyeVNlbGVjdG9yQWxsKCdsaScpOwpmb3IodmFyIGo9MDtqPGxpcy5sZW5ndGg7aisrKXt0ZXh0Kz0nLSAnK2xpc1tqXS50ZXh0Q29udGVudCsnXG4nO30KaWYobmF2aWdhdG9yLmNsaXBib2FyZCYmbmF2aWdhdG9yLmNsaXBib2FyZC53cml0ZVRleHQpewpuYXZpZ2F0b3IuY2xpcGJvYXJkLndyaXRlVGV4dCh0ZXh0KS50aGVuKGZ1bmN0aW9uKCl7c2hvd1RvYXN0KCk7fSk7Cn1lbHNlewp2YXIgdGE9ZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgndGV4dGFyZWEnKTsKdGEudmFsdWU9dGV4dDt0YS5zdHlsZS5wb3NpdGlvbj0nZml4ZWQnO3RhLnN0eWxlLmxlZnQ9Jy05OTk5cHgnOwpkb2N1bWVudC5ib2R5LmFwcGVuZENoaWxkKHRhKTt0YS5zZWxlY3QoKTsKdHJ5e2RvY3VtZW50LmV4ZWNDb21tYW5kKCdjb3B5Jyk7c2hvd1RvYXN0KCk7fWNhdGNoKGVycil7YWxlcnQoJ0NvcHkgZmFpbGVkLicpO30KZG9jdW1lbnQuYm9keS5yZW1vdmVDaGlsZCh0YSk7Cn0KfSk7CgpmdW5jdGlvbiBzaG93VG9hc3QoKXsKdG9hc3Quc3R5bGUuZGlzcGxheT0nYmxvY2snOwp0b2FzdC5zdHlsZS5vcGFjaXR5PScxJzsKc2V0VGltZW91dChmdW5jdGlvbigpe3RvYXN0LnN0eWxlLm9wYWNpdHk9JzAnO3NldFRpbWVvdXQoZnVuY3Rpb24oKXt0b2FzdC5zdHlsZS5kaXNwbGF5PSdub25lJzt9LDMwMCk7fSwyMDAwKTsKfQoKY3RhQnRuLmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJyxmdW5jdGlvbihlKXsKZS5wcmV2ZW50RGVmYXVsdCgpOwp2YXIgdG9vbFNlY3Rpb249ZG9jdW1lbnQucXVlcnlTZWxlY3RvcignLnNzYy10b29sJyk7CmlmKHRvb2xTZWN0aW9uKXRvb2xTZWN0aW9uLnNjcm9sbEludG9WaWV3KHtiZWhhdmlvcjonc21vb3RoJyxibG9jazonc3RhcnQnfSk7Cn0pOwoKdmFyIGZhcUJ0bnM9ZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbCgnLmZhcS1xJyk7CmZvcih2YXIgZj0wO2Y8ZmFxQnRucy5sZW5ndGg7ZisrKXsKZmFxQnRuc1tmXS5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsZnVuY3Rpb24oZSl7CmUucHJldmVudERlZmF1bHQoKTsKdGhpcy5wYXJlbnRFbGVtZW50LmNsYXNzTGlzdC50b2dnbGUoJ29wZW4nKTsKfSk7Cn0KfQoKaWYoZG9jdW1lbnQucmVhZHlTdGF0ZT09PSdsb2FkaW5nJyl7ZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsaW5pdCk7fWVsc2V7aW5pdCgpO30KfSkoKTsK"));</script>
