@@ -1,0 +1,546 @@
+<style>
+:root {
+  --pri: #6C5CE7;
+  --pri-hover: #5A4BD1;
+  --bg: #E8E0F0;
+  --bg-alt: #DDD4EB;
+  --card-bg: #FFFFFF;
+  --card-border: #D0C6E0;
+  --input-bg: #F5F1FA;
+  --input-border: #D0C6E0;
+  --text: #2D2B55;
+  --muted: #6B6490;
+  --heading: #1A1744;
+  --green: #00C897;
+  --red: #EF4444;
+  --yellow: #F59E0B;
+}
+#aew-wrap *, #aew-wrap *::before, #aew-wrap *::after { box-sizing: border-box !important; }
+#aew-wrap { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important; background: var(--bg) !important; color: var(--text) !important; line-height: 1.6 !important; -webkit-font-smoothing: antialiased !important; margin: 0 !important; padding: 0 !important; }
+#aew-wrap a { color: var(--pri) !important; text-decoration: none !important; }
+#aew-wrap a:hover { color: var(--pri-hover) !important; }
+#aew-wrap h1, #aew-wrap h2, #aew-wrap h3, #aew-wrap p, #aew-wrap ul, #aew-wrap ol, #aew-wrap li, #aew-wrap table, #aew-wrap td, #aew-wrap th { margin: 0 !important; padding: 0 !important; }
+#aew-wrap section { padding: 3rem 1.5rem !important; }
+#aew-wrap .inner { max-width: 1000px !important; margin: 0 auto !important; }
+
+/* Hero */
+#aew-wrap .aew-hero { text-align: center !important; padding: 3.5rem 1.5rem 2.5rem !important; background: var(--bg) !important; }
+#aew-wrap .aew-hero .badge { display: inline-block !important; background: var(--card-bg) !important; color: var(--pri) !important; font-size: 0.8rem !important; font-weight: 600 !important; padding: 0.4rem 1.1rem !important; border-radius: 999px !important; border: 1px solid var(--card-border) !important; margin-bottom: 1.25rem !important; }
+#aew-wrap .aew-hero h1 { font-size: 2.4rem !important; font-weight: 800 !important; color: var(--heading) !important; margin-bottom: 0.85rem !important; }
+#aew-wrap .aew-hero .sub { color: var(--muted) !important; max-width: 660px !important; margin: 0 auto 1.75rem !important; font-size: 0.98rem !important; line-height: 1.65 !important; }
+#aew-wrap .usp-row { display: flex !important; gap: 0.6rem !important; flex-wrap: wrap !important; justify-content: center !important; margin-bottom: 1.75rem !important; }
+#aew-wrap .usp-pill { background: rgba(108,92,231,0.08) !important; border: 1px solid rgba(108,92,231,0.2) !important; color: var(--pri) !important; font-size: 0.78rem !important; font-weight: 600 !important; padding: 0.4rem 1rem !important; border-radius: 999px !important; }
+
+/* Buttons */
+#aew-wrap .btn { padding: 0.75rem 1.8rem !important; border-radius: 10px !important; font-weight: 700 !important; font-size: 0.95rem !important; cursor: pointer !important; border: none !important; transition: all .2s !important; font-family: inherit !important; display: inline-block !important; }
+#aew-wrap .btn-primary { background: var(--pri) !important; color: #fff !important; }
+#aew-wrap .btn-primary:hover { background: var(--pri-hover) !important; color: #fff !important; transform: translateY(-1px) !important; }
+#aew-wrap .btn-secondary { background: var(--card-bg) !important; color: var(--pri) !important; border: 1px solid var(--card-border) !important; }
+#aew-wrap .btn-secondary:hover { border-color: var(--pri) !important; }
+#aew-wrap .btn-ghost { background: transparent !important; color: var(--muted) !important; border: 1px solid var(--card-border) !important; }
+#aew-wrap .btn-ghost:hover { color: var(--red) !important; border-color: var(--red) !important; }
+#aew-wrap .btn-sm { padding: 0.55rem 1.2rem !important; font-size: 0.85rem !important; }
+
+/* Tool */
+#aew-wrap .aew-tool { max-width: 1100px !important; margin: 0 auto !important; padding: 0 1.5rem 3rem !important; }
+#aew-wrap .tool-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 1.5rem !important; align-items: start !important; }
+#aew-wrap .aew-box { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 16px !important; padding: 1.75rem !important; box-shadow: 0 2px 12px rgba(108,92,231,0.06) !important; }
+#aew-wrap .aew-box h3 { font-size: 1.05rem !important; font-weight: 800 !important; color: var(--heading) !important; margin-bottom: 1rem !important; }
+#aew-wrap .field-row { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 0.9rem !important; }
+#aew-wrap .mb { margin-bottom: 1rem !important; }
+#aew-wrap label { display: block !important; font-size: 0.72rem !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.06em !important; color: var(--muted) !important; margin-bottom: 0.4rem !important; }
+#aew-wrap input[type="text"], #aew-wrap textarea, #aew-wrap select { width: 100% !important; background: var(--input-bg) !important; border: 1px solid var(--input-border) !important; border-radius: 10px !important; padding: 0.75rem 0.9rem !important; color: var(--text) !important; font-size: 0.92rem !important; font-family: inherit !important; transition: border-color .2s !important; }
+#aew-wrap input:focus, #aew-wrap select:focus, #aew-wrap textarea:focus { outline: none !important; border-color: var(--pri) !important; }
+#aew-wrap textarea { resize: vertical !important; min-height: 90px !important; }
+#aew-wrap .section-label { font-size: 0.8rem !important; font-weight: 800 !important; color: var(--pri) !important; margin: 1.25rem 0 0.75rem !important; text-transform: uppercase !important; letter-spacing: 0.05em !important; }
+#aew-wrap .btn-group { display: flex !important; gap: 0.6rem !important; flex-wrap: wrap !important; margin-top: 1.5rem !important; }
+
+#aew-wrap .radio-row { display: flex !important; gap: 0.9rem !important; flex-wrap: wrap !important; }
+#aew-wrap .radio-opt { display: flex !important; align-items: center !important; gap: 0.4rem !important; background: var(--input-bg) !important; border: 1px solid var(--input-border) !important; border-radius: 10px !important; padding: 0.6rem 0.9rem !important; cursor: pointer !important; font-size: 0.85rem !important; color: var(--text) !important; }
+#aew-wrap .radio-opt input[type="radio"] { width: auto !important; accent-color: var(--pri) !important; cursor: pointer !important; }
+#aew-wrap .radio-opt.checked { border-color: var(--pri) !important; background: rgba(108,92,231,0.08) !important; }
+
+#aew-wrap .output-col { position: sticky !important; top: 1rem !important; }
+#aew-wrap #resultsWrap { display: none !important; }
+#aew-wrap .subject-line { background: var(--input-bg) !important; border: 1px solid var(--input-border) !important; border-radius: 10px 10px 0 0 !important; padding: 0.85rem 1.1rem !important; font-size: 0.85rem !important; color: var(--muted) !important; font-weight: 600 !important; }
+#aew-wrap .subject-line span.lbl { color: var(--pri) !important; text-transform: uppercase !important; font-size: 0.7rem !important; letter-spacing: 0.05em !important; display: block !important; margin-bottom: 0.25rem !important; }
+#aew-wrap .subject-line span.val { color: var(--heading) !important; font-size: 0.98rem !important; font-weight: 700 !important; }
+#aew-wrap .email-card { background: #FDFCFF !important; border: 1px solid var(--input-border) !important; border-top: none !important; border-radius: 0 0 10px 10px !important; padding: 1.5rem !important; min-height: 220px !important; }
+#aew-wrap .email-body { white-space: pre-wrap !important; font-size: 0.92rem !important; color: var(--text) !important; line-height: 1.75 !important; font-family: 'Georgia', 'Times New Roman', serif !important; }
+#aew-wrap .empty-hint { color: var(--muted) !important; font-size: 0.9rem !important; text-align: center !important; padding: 2rem 1rem !important; }
+#aew-wrap .word-count { text-align: right !important; font-size: 0.78rem !important; color: var(--muted) !important; margin-top: 0.6rem !important; }
+
+#aew-wrap .toast { position: fixed !important; bottom: 24px !important; left: 50% !important; transform: translateX(-50%) translateY(20px) !important; background: var(--heading) !important; color: #fff !important; padding: 0.75rem 1.5rem !important; border-radius: 999px !important; font-size: 0.85rem !important; font-weight: 600 !important; opacity: 0 !important; pointer-events: none !important; transition: all .25s !important; z-index: 9999 !important; box-shadow: 0 8px 24px rgba(0,0,0,0.2) !important; }
+#aew-wrap .toast.show { opacity: 1 !important; transform: translateX(-50%) translateY(0) !important; }
+
+/* Content sections */
+#aew-wrap .content-section { max-width: 900px !important; margin: 0 auto !important; padding: 3rem 1.5rem !important; }
+#aew-wrap .content-section.alt { background: var(--bg-alt) !important; max-width: 100% !important; }
+#aew-wrap .content-section.alt .inner-narrow { max-width: 900px !important; margin: 0 auto !important; }
+#aew-wrap h2 { font-size: 1.85rem !important; font-weight: 800 !important; color: var(--heading) !important; margin-bottom: 1rem !important; }
+#aew-wrap h3.sub-h { font-size: 1.15rem !important; font-weight: 700 !important; color: var(--heading) !important; margin: 1.25rem 0 0.5rem !important; }
+#aew-wrap .content-section p { color: var(--text) !important; margin-bottom: 1rem !important; font-size: 0.98rem !important; }
+#aew-wrap .content-section ul, #aew-wrap .content-section ol { color: var(--text) !important; margin: 0 0 1rem 1.4rem !important; font-size: 0.96rem !important; }
+#aew-wrap .content-section li { margin-bottom: 0.5rem !important; }
+#aew-wrap .content-section ol { list-style: decimal !important; }
+#aew-wrap .content-section ul { list-style: disc !important; }
+
+#aew-wrap .feature-grid { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 1.25rem !important; margin-top: 1.5rem !important; }
+#aew-wrap .feature-card { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 14px !important; padding: 1.5rem !important; }
+#aew-wrap .feature-card .icon { width: 42px !important; height: 42px !important; border-radius: 10px !important; background: rgba(108,92,231,0.1) !important; color: var(--pri) !important; display: flex !important; align-items: center !important; justify-content: center !important; font-weight: 800 !important; margin-bottom: 0.85rem !important; font-size: 1.1rem !important; }
+#aew-wrap .feature-card h4 { font-size: 1rem !important; font-weight: 700 !important; color: var(--heading) !important; margin-bottom: 0.4rem !important; }
+#aew-wrap .feature-card p { font-size: 0.88rem !important; color: var(--muted) !important; margin: 0 !important; }
+
+#aew-wrap .table-wrap { overflow-x: auto !important; margin-top: 1.5rem !important; border-radius: 14px !important; border: 1px solid var(--card-border) !important; }
+#aew-wrap table.cmp { width: 100% !important; border-collapse: collapse !important; background: var(--card-bg) !important; min-width: 700px !important; }
+#aew-wrap table.cmp th, #aew-wrap table.cmp td { padding: 0.85rem 1rem !important; text-align: left !important; font-size: 0.85rem !important; border-bottom: 1px solid var(--card-border) !important; }
+#aew-wrap table.cmp th { background: var(--heading) !important; color: #fff !important; font-weight: 700 !important; }
+#aew-wrap table.cmp th.us { background: var(--pri) !important; }
+#aew-wrap table.cmp td.us { background: rgba(108,92,231,0.06) !important; font-weight: 700 !important; color: var(--pri) !important; }
+#aew-wrap table.cmp tr:last-child td { border-bottom: none !important; }
+
+#aew-wrap .tone-grid { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 1.25rem !important; margin-top: 1.5rem !important; }
+#aew-wrap .tone-card { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 14px !important; padding: 1.5rem !important; }
+#aew-wrap .tone-card h4 { color: var(--pri) !important; font-size: 1rem !important; font-weight: 700 !important; margin-bottom: 0.5rem !important; }
+#aew-wrap .tone-card p { font-size: 0.88rem !important; color: var(--muted) !important; margin: 0 !important; }
+
+#aew-wrap .mistake-list { display: grid !important; gap: 0.9rem !important; margin-top: 1.5rem !important; }
+#aew-wrap .mistake-item { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-left: 4px solid var(--red) !important; border-radius: 10px !important; padding: 1rem 1.25rem !important; }
+#aew-wrap .mistake-item strong { color: var(--heading) !important; display: block !important; margin-bottom: 0.25rem !important; font-size: 0.95rem !important; }
+#aew-wrap .mistake-item span { color: var(--muted) !important; font-size: 0.88rem !important; }
+
+/* FAQ */
+#aew-wrap .faq-item { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 12px !important; margin-bottom: 0.75rem !important; overflow: hidden !important; }
+#aew-wrap .faq-q { width: 100% !important; text-align: left !important; background: transparent !important; border: none !important; padding: 1.1rem 1.4rem !important; font-size: 0.95rem !important; font-weight: 700 !important; color: var(--heading) !important; cursor: pointer !important; font-family: inherit !important; position: relative !important; padding-right: 2.5rem !important; }
+#aew-wrap .faq-q::after { content: "+" !important; position: absolute !important; right: 1.4rem !important; top: 50% !important; transform: translateY(-50%) !important; color: var(--pri) !important; font-size: 1.3rem !important; font-weight: 700 !important; transition: transform .2s !important; }
+#aew-wrap .faq-item.open .faq-q::after { transform: translateY(-50%) rotate(45deg) !important; }
+#aew-wrap .faq-a { max-height: 0 !important; overflow: hidden !important; padding: 0 1.4rem !important; color: var(--muted) !important; font-size: 0.9rem !important; transition: all .25s ease !important; }
+#aew-wrap .faq-item.open .faq-a { max-height: 400px !important; padding: 0 1.4rem 1.25rem !important; }
+
+@media (max-width: 820px) {
+  #aew-wrap .tool-grid { grid-template-columns: 1fr !important; }
+  #aew-wrap .field-row { grid-template-columns: 1fr !important; }
+  #aew-wrap .feature-grid { grid-template-columns: 1fr !important; }
+  #aew-wrap .tone-grid { grid-template-columns: 1fr !important; }
+  #aew-wrap .output-col { position: static !important; }
+  #aew-wrap .aew-hero h1 { font-size: 1.8rem !important; }
+}
+</style>
+</head>
+<body>
+<div id="aew-wrap">
+
+<!-- Hero -->
+<section class="aew-hero">
+  <span class="badge">Free Tool</span>
+  <h1>Free AI Email Writer</h1>
+  <p class="sub">Write professional, well-structured emails in seconds. Pick an email type and tone, add your key points, and get a complete email with subject line ready to copy into Gmail or Outlook.</p>
+  <div class="usp-row">
+    <span class="usp-pill">No signup required</span>
+    <span class="usp-pill">15 email types</span>
+    <span class="usp-pill">8 tone options</span>
+    <span class="usp-pill">Instant subject lines</span>
+  </div>
+  <button type="button" class="btn btn-primary" id="ctaBtn">Write My Email</button>
+</section>
+
+<!-- Tool -->
+<section class="aew-tool">
+  <div class="tool-grid">
+    <div class="aew-box">
+      <h3>Email Details</h3>
+      <div class="field-row">
+        <div class="mb">
+          <label for="emailType">Email Type</label>
+          <select id="emailType">
+            <option>Business Proposal</option>
+            <option>Follow Up</option>
+            <option>Cold Outreach</option>
+            <option>Thank You</option>
+            <option>Meeting Request</option>
+            <option>Introduction</option>
+            <option>Complaint</option>
+            <option>Apology</option>
+            <option>Job Application</option>
+            <option>Newsletter</option>
+            <option>Invitation</option>
+            <option>Announcement</option>
+            <option>Feedback Request</option>
+            <option>Recommendation Request</option>
+            <option>Resignation</option>
+          </select>
+        </div>
+        <div class="mb">
+          <label for="toneSelect">Tone</label>
+          <select id="toneSelect">
+            <option value="professional">Professional</option>
+            <option value="friendly">Friendly</option>
+            <option value="formal">Formal</option>
+            <option value="casual">Casual</option>
+            <option value="persuasive">Persuasive</option>
+            <option value="urgent">Urgent</option>
+            <option value="empathetic">Empathetic</option>
+            <option value="confident">Confident</option>
+          </select>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="mb">
+          <label for="recipientInput">Recipient Name</label>
+          <input type="text" id="recipientInput" placeholder="Sarah Johnson">
+        </div>
+        <div class="mb">
+          <label for="senderInput">Your Name</label>
+          <input type="text" id="senderInput" placeholder="Alex Carter">
+        </div>
+      </div>
+      <div class="mb">
+        <label for="subjectInput">Subject or Topic</label>
+        <input type="text" id="subjectInput" placeholder="the partnership opportunity we discussed">
+      </div>
+      <div class="mb">
+        <label for="keyPointsInput">Key Points</label>
+        <textarea id="keyPointsInput" placeholder="Enter key points, one per line or separated by commas. For example: pricing starts at 500 dollars a month, includes onboarding support, three month minimum term"></textarea>
+      </div>
+      <div class="field-row">
+        <div class="mb">
+          <label for="companyInput">Company or Organization (optional)</label>
+          <input type="text" id="companyInput" placeholder="BrightlyFuture Ltd">
+        </div>
+        <div class="mb">
+          <label for="ctaInput">Call to Action (optional)</label>
+          <input type="text" id="ctaInput" placeholder="schedule a 15 minute call this week">
+        </div>
+      </div>
+
+      <div class="section-label">Email Length</div>
+      <div class="radio-row">
+        <label class="radio-opt"><input type="radio" name="emailLength" value="short"> Short (3-4 sentences)</label>
+        <label class="radio-opt"><input type="radio" name="emailLength" value="medium" checked> Medium (2-3 paragraphs)</label>
+        <label class="radio-opt"><input type="radio" name="emailLength" value="long"> Long (4-5 paragraphs)</label>
+      </div>
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary" id="generateBtn">Generate Email</button>
+        <button type="button" class="btn btn-secondary" id="regenBtn">Regenerate</button>
+        <button type="button" class="btn btn-ghost btn-sm" id="clearBtn">Clear All</button>
+      </div>
+    </div>
+
+    <div class="output-col">
+      <div class="aew-box" id="resultsWrap">
+        <h3>Generated Email</h3>
+        <div class="subject-line">
+          <span class="lbl">Subject Line</span>
+          <span class="val" id="subjectOutput"></span>
+        </div>
+        <div class="email-card">
+          <div class="email-body" id="emailOutput"></div>
+        </div>
+        <div class="word-count" id="wordCount">0 words</div>
+        <div class="btn-group">
+          <button type="button" class="btn btn-secondary btn-sm" id="copyBtn">Copy Email</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What Is -->
+<section class="content-section">
+  <h2>What Is an AI Email Writer</h2>
+  <p>An AI email writer is a tool that turns a few pieces of information, such as who you are writing to, what you want to say and how you want it to sound, into a complete, ready-to-send email. Instead of staring at a blank compose window trying to find the right opening line, you fill in a short form and the tool assembles a structured email with an appropriate greeting, body and closing.</p>
+  <p>This tool builds emails entirely in your browser using template-based generation. It selects from multiple opening lines, transition phrases and closings for each combination of email type and tone, then weaves in your key points to produce a natural sounding message. There is no data sent anywhere, no account needed and no waiting on an external service.</p>
+</section>
+
+<!-- Why Use -->
+<section class="content-section alt">
+  <div class="inner-narrow">
+    <h2>Why Use an AI Email Writer</h2>
+    <p>Writing emails well and quickly is a skill that takes time to build, and even experienced writers can lose minutes second-guessing tone and structure. An AI email writer removes that friction so you can focus on what actually matters, the content and the outcome you want.</p>
+    <h3 class="sub-h">Save time on every email</h3>
+    <p>Instead of drafting from scratch, you describe your key points and let the tool handle sentence structure, transitions and formatting, cutting drafting time down from minutes to seconds.</p>
+    <h3 class="sub-h">Consistent professional tone</h3>
+    <p>Every generated email follows a proven structure, greeting, opening, body, call to action and closing, so your correspondence always reads as polished, regardless of how rushed you feel.</p>
+    <h3 class="sub-h">Fewer awkward first drafts</h3>
+    <p>Choosing the right words for a complaint, an apology or a cold outreach message is hard. This tool offers tone-matched vocabulary and phrasing so your message lands the way you intend.</p>
+  </div>
+</section>
+
+<!-- How to Use -->
+<section class="content-section">
+  <h2>How to Use This Tool</h2>
+  <ol>
+    <li>Select the type of email you need from the Email Type dropdown, such as Follow Up, Cold Outreach or Job Application.</li>
+    <li>Choose a tone that fits the situation, for example Professional, Friendly or Urgent.</li>
+    <li>Enter the recipient name and your own name so the email is addressed correctly.</li>
+    <li>Add a short subject or topic description and list your key points, one per line or separated by commas.</li>
+    <li>Optionally add a company name and a call to action describing what you want the recipient to do next.</li>
+    <li>Choose a length, then click Generate Email to see your finished draft. Use Regenerate for a different variation, or Copy Email to paste it straight into your inbox.</li>
+  </ol>
+</section>
+
+<!-- Key Features -->
+<section class="content-section alt">
+  <div class="inner-narrow">
+    <h2>Key Features</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="icon">1</div>
+        <h4>15 Email Types</h4>
+        <p>From business proposals to resignations, choose the exact category that matches your situation.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">2</div>
+        <h4>8 Tone Options</h4>
+        <p>Switch between professional, friendly, formal, casual, persuasive, urgent, empathetic and confident tones.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">3</div>
+        <h4>Automatic Subject Lines</h4>
+        <p>Every generated email includes a matching subject line so you never have to write one from scratch.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">4</div>
+        <h4>Key Points Weaving</h4>
+        <p>Enter your details as bullet points or a comma separated list and watch them woven naturally into the body.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">5</div>
+        <h4>Regenerate Variations</h4>
+        <p>Not happy with the first draft? Click Regenerate to shuffle templates and get a fresh version instantly.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">6</div>
+        <h4>One-Click Copy</h4>
+        <p>Copy the finished email, subject line included, straight to your clipboard ready to paste anywhere.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Best Practices -->
+<section class="content-section">
+  <h2>Email Writing Best Practices</h2>
+  <ul>
+    <li>Lead with the purpose of your email in the first sentence so the recipient does not have to guess why you are writing.</li>
+    <li>Keep paragraphs short, two to four sentences works best for readability on both desktop and mobile.</li>
+    <li>Always include a clear call to action so the recipient knows exactly what to do next.</li>
+    <li>Match your tone to the relationship and context, a cold outreach message should not read the same as an email to a close colleague.</li>
+    <li>Proofread the generated draft and personalize any details specific to your situation before sending.</li>
+    <li>Keep your subject line specific and honest, vague subject lines are more likely to be ignored or marked as spam.</li>
+  </ul>
+</section>
+
+<!-- Types of Emails -->
+<section class="content-section alt">
+  <div class="inner-narrow">
+    <h2>Types of Emails You Can Write</h2>
+    <p>This tool covers the most common professional email scenarios, from sales and outreach to HR and personal communication.</p>
+    <ul>
+      <li><strong>Business Proposal:</strong> Present an offer, service or partnership idea to a prospective client or partner.</li>
+      <li><strong>Follow Up:</strong> Re-engage someone after a meeting, application or previous email that went unanswered.</li>
+      <li><strong>Cold Outreach:</strong> Introduce yourself and your offer to someone who has not heard from you before.</li>
+      <li><strong>Thank You:</strong> Express genuine gratitude for help, time, a gift or an opportunity.</li>
+      <li><strong>Meeting Request:</strong> Ask to schedule time with someone to discuss a specific topic.</li>
+      <li><strong>Introduction:</strong> Introduce yourself or connect two people who should know each other.</li>
+      <li><strong>Complaint:</strong> Raise a concern or issue in a clear, professional and constructive way.</li>
+      <li><strong>Apology:</strong> Acknowledge a mistake and rebuild trust with the recipient.</li>
+      <li><strong>Job Application:</strong> Apply for a role and explain why you are a strong fit.</li>
+      <li><strong>Newsletter:</strong> Share updates, news or announcements with a list of subscribers or contacts.</li>
+      <li><strong>Invitation:</strong> Invite someone to an event, webinar or gathering.</li>
+      <li><strong>Announcement:</strong> Share important news, whether a product launch, policy change or milestone.</li>
+      <li><strong>Feedback Request:</strong> Ask a colleague, client or manager for their thoughts on something.</li>
+      <li><strong>Recommendation Request:</strong> Ask someone to write a reference or recommendation on your behalf.</li>
+      <li><strong>Resignation:</strong> Formally notify an employer that you are leaving your role.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Comparison Table -->
+<section class="content-section">
+  <h2>How This Tool Compares</h2>
+  <p>See how our free AI email writer stacks up against paid tools like Copy.ai, Jasper and Rytr.</p>
+  <div class="table-wrap">
+    <table class="cmp">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th class="us">BrightlyFuture</th>
+          <th>Copy.ai</th>
+          <th>Jasper</th>
+          <th>Rytr</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Price</td><td class="us">Free</td><td>From $49/mo</td><td>From $49/mo</td><td>From $9/mo</td></tr>
+        <tr><td>Email Types</td><td class="us">15 built in</td><td>Several templates</td><td>Several templates</td><td>10+ use cases</td></tr>
+        <tr><td>Tone Options</td><td class="us">8 tones</td><td>Adjustable</td><td>Adjustable</td><td>Adjustable</td></tr>
+        <tr><td>No Signup</td><td class="us">Yes</td><td>No</td><td>No</td><td>No</td></tr>
+        <tr><td>Key Points Input</td><td class="us">Yes, freeform</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+        <tr><td>Subject Line Generation</td><td class="us">Automatic</td><td>Separate tool</td><td>Separate tool</td><td>Separate tool</td></tr>
+        <tr><td>Copy to Clipboard</td><td class="us">One click</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+        <tr><td>Instant Generation</td><td class="us">Yes, in browser</td><td>Server based</td><td>Server based</td><td>Server based</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Tone Guide -->
+<section class="content-section alt">
+  <div class="inner-narrow">
+    <h2>Email Tone Guide</h2>
+    <div class="tone-grid">
+      <div class="tone-card">
+        <h4>Professional</h4>
+        <p>The safe default for most business communication, balanced, clear and respectful without being stiff.</p>
+      </div>
+      <div class="tone-card">
+        <h4>Friendly</h4>
+        <p>Best for colleagues or contacts you already have a relationship with, warm and approachable.</p>
+      </div>
+      <div class="tone-card">
+        <h4>Formal</h4>
+        <p>Use for legal, official or unfamiliar senior contacts where a more traditional register is expected.</p>
+      </div>
+      <div class="tone-card">
+        <h4>Casual</h4>
+        <p>Suited to internal team messages or informal check-ins where a relaxed style fits the culture.</p>
+      </div>
+      <div class="tone-card">
+        <h4>Persuasive</h4>
+        <p>Ideal for proposals and pitches where you need to build a compelling case for action.</p>
+      </div>
+      <div class="tone-card">
+        <h4>Urgent</h4>
+        <p>Use sparingly for time-sensitive matters that genuinely require a prompt response.</p>
+      </div>
+      <div class="tone-card">
+        <h4>Empathetic</h4>
+        <p>Best for apologies, complaints or sensitive personal topics where understanding matters most.</p>
+      </div>
+      <div class="tone-card">
+        <h4>Confident</h4>
+        <p>Great for job applications and recommendation requests where you need to state your case with assurance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mistakes -->
+<section class="content-section">
+  <h2>Common Email Writing Mistakes</h2>
+  <div class="mistake-list">
+    <div class="mistake-item">
+      <strong>Burying the point</strong>
+      <span>Making the recipient read three paragraphs before understanding why you are emailing wastes their time and yours.</span>
+    </div>
+    <div class="mistake-item">
+      <strong>Vague subject lines</strong>
+      <span>Subjects like "Hello" or "Quick question" get ignored, be specific about what the email contains.</span>
+    </div>
+    <div class="mistake-item">
+      <strong>No clear call to action</strong>
+      <span>If you do not tell the recipient what to do next, many emails simply go unanswered.</span>
+    </div>
+    <div class="mistake-item">
+      <strong>Mismatched tone</strong>
+      <span>Being overly casual with a stranger or overly formal with a close colleague can undermine your message.</span>
+    </div>
+    <div class="mistake-item">
+      <strong>Skipping the proofread</strong>
+      <span>Even AI-generated drafts should be checked for accuracy and personalized before hitting send.</span>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="content-section alt">
+  <div class="inner-narrow">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">Is this AI email writer completely free to use?</button>
+      <div class="faq-a"><p>Yes. There is no cost to generate, preview or copy your emails, and you can create as many as you like.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">Do I need to create an account or sign up?</button>
+      <div class="faq-a"><p>No account or email address is required. Simply fill in the form and generate your email right away.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">How does the AI generate emails without an internet connection?</button>
+      <div class="faq-a"><p>This tool uses template-based generation that runs entirely in your browser. It combines proven email structures, tone-matched vocabulary and your input to assemble a complete email without calling an external server.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">Can I customize the tone of my emails?</button>
+      <div class="faq-a"><p>Yes. Choose from eight tones, professional, friendly, formal, casual, persuasive, urgent, empathetic and confident, to match your situation.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">What types of emails can I write with this tool?</button>
+      <div class="faq-a"><p>You can write 15 types of emails, including business proposals, follow ups, cold outreach, thank you notes, meeting requests, job applications, resignations and more.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">Will the generated emails sound natural?</button>
+      <div class="faq-a"><p>Yes. The tool uses multiple template variations per email type, varied sentence structures and natural transitions so each email reads smoothly rather than robotically.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">Can I edit the email after it is generated?</button>
+      <div class="faq-a"><p>Absolutely. Treat the generated draft as a strong starting point, then personalize any details before copying it into your email client.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">How do I copy the generated email?</button>
+      <div class="faq-a"><p>Click the Copy Email button beneath the generated draft, and both the subject line and body will be copied to your clipboard ready to paste.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">Is my data stored or shared with anyone?</button>
+      <div class="faq-a"><p>No. All processing happens locally in your browser. Your names, key points and email content are never sent to or stored on a server.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">Can I generate multiple versions of the same email?</button>
+      <div class="faq-a"><p>Yes. Click the Regenerate button to shuffle the templates and produce a different variation using the same input details.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">What should I include in the key points field?</button>
+      <div class="faq-a"><p>List the specific facts, figures or details you want mentioned, one per line or separated by commas, such as pricing, dates, deliverables or context.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">Does this tool support multiple languages?</button>
+      <div class="faq-a"><p>Currently the tool generates emails in English only. Support for additional languages may be added in the future.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">Can I use this for business emails?</button>
+      <div class="faq-a"><p>Yes. It is built specifically for professional and business communication, covering proposals, outreach, applications and internal announcements.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">How long are the generated emails?</button>
+      <div class="faq-a"><p>You control the length. Choose Short for three to four sentences, Medium for two to three paragraphs, or Long for four to five paragraphs.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">What makes this different from ChatGPT for writing emails?</button>
+      <div class="faq-a"><p>This tool is purpose built for email writing with structured fields for recipient, tone, key points and call to action, so you get a formatted result instantly without needing to write a prompt or sign up for an account.</p></div>
+    </div>
+
+  </div>
+</section>
+
+<div class="toast" id="toast"></div>
+
+</div><!-- /aew-wrap -->
+
+<script>
+eval(atob("KGZ1bmN0aW9uKCl7CiAgZnVuY3Rpb24gaW5pdCgpewogICAgdmFyICQgPSBmdW5jdGlvbihpZCl7IHJldHVybiBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChpZCk7IH07CgogICAgdmFyIGVtYWlsVHlwZSA9ICQoJ2VtYWlsVHlwZScpOwogICAgdmFyIHRvbmVTZWxlY3QgPSAkKCd0b25lU2VsZWN0Jyk7CiAgICB2YXIgcmVjaXBpZW50SW5wdXQgPSAkKCdyZWNpcGllbnRJbnB1dCcpOwogICAgdmFyIHNlbmRlcklucHV0ID0gJCgnc2VuZGVySW5wdXQnKTsKICAgIHZhciBzdWJqZWN0SW5wdXQgPSAkKCdzdWJqZWN0SW5wdXQnKTsKICAgIHZhciBrZXlQb2ludHNJbnB1dCA9ICQoJ2tleVBvaW50c0lucHV0Jyk7CiAgICB2YXIgY29tcGFueUlucHV0ID0gJCgnY29tcGFueUlucHV0Jyk7CiAgICB2YXIgY3RhSW5wdXQgPSAkKCdjdGFJbnB1dCcpOwogICAgdmFyIGdlbmVyYXRlQnRuID0gJCgnZ2VuZXJhdGVCdG4nKTsKICAgIHZhciBjb3B5QnRuID0gJCgnY29weUJ0bicpOwogICAgdmFyIHJlZ2VuQnRuID0gJCgncmVnZW5CdG4nKTsKICAgIHZhciBjbGVhckJ0biA9ICQoJ2NsZWFyQnRuJyk7CiAgICB2YXIgY3RhQnRuID0gJCgnY3RhQnRuJyk7CiAgICB2YXIgZW1haWxPdXRwdXQgPSAkKCdlbWFpbE91dHB1dCcpOwogICAgdmFyIHN1YmplY3RPdXRwdXQgPSAkKCdzdWJqZWN0T3V0cHV0Jyk7CiAgICB2YXIgcmVzdWx0c1dyYXAgPSAkKCdyZXN1bHRzV3JhcCcpOwogICAgdmFyIHdvcmRDb3VudCA9ICQoJ3dvcmRDb3VudCcpOwogICAgdmFyIHRvYXN0ID0gJCgndG9hc3QnKTsKCiAgICBpZiAoIWVtYWlsVHlwZSB8fCAhdG9uZVNlbGVjdCB8fCAhZ2VuZXJhdGVCdG4gfHwgIWVtYWlsT3V0cHV0IHx8ICFyZXN1bHRzV3JhcCkgeyByZXR1cm4gZmFsc2U7IH0KCiAgICBmdW5jdGlvbiBwaWNrKGFycil7IHJldHVybiBhcnJbTWF0aC5mbG9vcihNYXRoLnJhbmRvbSgpKmFyci5sZW5ndGgpXTsgfQogICAgZnVuY3Rpb24gZXNjKHMpewogICAgICBpZiAoIXMpIHJldHVybiAnJzsKICAgICAgcmV0dXJuIFN0cmluZyhzKS5yZXBsYWNlKC8mL2csJyZhbXA7JykucmVwbGFjZSgvPC9nLCcmbHQ7JykucmVwbGFjZSgvPi9nLCcmZ3Q7Jyk7CiAgICB9CgogICAgZnVuY3Rpb24gc3BsaXRQb2ludHModGV4dCl7CiAgICAgIGlmICghdGV4dCkgcmV0dXJuIFtdOwogICAgICB2YXIgcGFydHMgPSB0ZXh0LnNwbGl0KC9cbnwsLyk7CiAgICAgIHZhciBvdXQgPSBbXTsKICAgICAgZm9yICh2YXIgaT0wO2k8cGFydHMubGVuZ3RoO2krKyl7CiAgICAgICAgdmFyIHAgPSBwYXJ0c1tpXS5yZXBsYWNlKC9eW1xzXC3igKJcKl0rLywnJykudHJpbSgpOwogICAgICAgIGlmIChwKSBvdXQucHVzaChwKTsKICAgICAgfQogICAgICByZXR1cm4gb3V0OwogICAgfQoKICAgIGZ1bmN0aW9uIGNhcChzKXsKICAgICAgaWYgKCFzKSByZXR1cm4gczsKICAgICAgcmV0dXJuIHMuY2hhckF0KDApLnRvVXBwZXJDYXNlKCkgKyBzLnNsaWNlKDEpOwogICAgfQoKICAgIHZhciBncmVldGluZ3MgPSB7CiAgICAgIHByb2Zlc3Npb25hbDogZnVuY3Rpb24obil7IHJldHVybiBuID8gJ0RlYXIgJyArIG4gKyAnLCcgOiAnRGVhciBTaXIgb3IgTWFkYW0sJzsgfSwKICAgICAgZnJpZW5kbHk6IGZ1bmN0aW9uKG4peyByZXR1cm4gbiA/ICdIaSAnICsgbiArICcsJyA6ICdIaSB0aGVyZSwnOyB9LAogICAgICBmb3JtYWw6IGZ1bmN0aW9uKG4peyByZXR1cm4gbiA/ICdEZWFyICcgKyBuICsgJywnIDogJ1RvIFdob20gSXQgTWF5IENvbmNlcm4sJzsgfSwKICAgICAgY2FzdWFsOiBmdW5jdGlvbihuKXsgcmV0dXJuIG4gPyAnSGV5ICcgKyBuICsgJywnIDogJ0hleSwnOyB9LAogICAgICBwZXJzdWFzaXZlOiBmdW5jdGlvbihuKXsgcmV0dXJuIG4gPyAnRGVhciAnICsgbiArICcsJyA6ICdEZWFyIFNpciBvciBNYWRhbSwnOyB9LAogICAgICB1cmdlbnQ6IGZ1bmN0aW9uKG4peyByZXR1cm4gbiA/ICdEZWFyICcgKyBuICsgJywnIDogJ0RlYXIgU2lyIG9yIE1hZGFtLCc7IH0sCiAgICAgIGVtcGF0aGV0aWM6IGZ1bmN0aW9uKG4peyByZXR1cm4gbiA/ICdEZWFyICcgKyBuICsgJywnIDogJ0hlbGxvLCc7IH0sCiAgICAgIGNvbmZpZGVudDogZnVuY3Rpb24obil7IHJldHVybiBuID8gJ0hpICcgKyBuICsgJywnIDogJ0hlbGxvLCc7IH0KICAgIH07CgogICAgdmFyIGNsb3NpbmdzID0gewogICAgICBwcm9mZXNzaW9uYWw6IFsnQmVzdCByZWdhcmRzLCcsICdLaW5kIHJlZ2FyZHMsJywgJ1JlZ2FyZHMsJ10sCiAgICAgIGZyaWVuZGx5OiBbJ0NoZWVycywnLCAnV2FybSByZWdhcmRzLCcsICdUYWtlIGNhcmUsJ10sCiAgICAgIGZvcm1hbDogWydZb3VycyBzaW5jZXJlbHksJywgJ1Jlc3BlY3RmdWxseSwnLCAnWW91cnMgZmFpdGhmdWxseSwnXSwKICAgICAgY2FzdWFsOiBbJ0NoZWVycywnLCAnVGhhbmtzLCcsICdUYWxrIHNvb24sJ10sCiAgICAgIHBlcnN1YXNpdmU6IFsnQmVzdCByZWdhcmRzLCcsICdMb29raW5nIGZvcndhcmQgdG8gaGVhcmluZyBmcm9tIHlvdSwnLCAnUmVnYXJkcywnXSwKICAgICAgdXJnZW50OiBbJ0Jlc3QgcmVnYXJkcywnLCAnVGhhbmsgeW91IGZvciB5b3VyIHByb21wdCBhdHRlbnRpb24sJywgJ1JlZ2FyZHMsJ10sCiAgICAgIGVtcGF0aGV0aWM6IFsnV2l0aCB3YXJtIHJlZ2FyZHMsJywgJ1NpbmNlcmVseSwnLCAnVGFrZSBjYXJlLCddLAogICAgICBjb25maWRlbnQ6IFsnQmVzdCwnLCAnUmVnYXJkcywnLCAnQ29uZmlkZW50bHkgeW91cnMsJ10KICAgIH07CgogICAgdmFyIG9wZW5lcnMgPSB7CiAgICAgICdCdXNpbmVzcyBQcm9wb3NhbCc6IFsKICAgICAgICAnSSBob3BlIHRoaXMgZW1haWwgZmluZHMgeW91IHdlbGwuIEkgYW0gcmVhY2hpbmcgb3V0IHRvIHByZXNlbnQgYSBwcm9wb3NhbCByZWdhcmRpbmcge3N1YmplY3R9IHRoYXQgSSBiZWxpZXZlIGNvdWxkIGJyaW5nIHJlYWwgdmFsdWUgdG8ge2NvbXBhbnl9LicsCiAgICAgICAgJ0kgYW0gd3JpdGluZyB0byBzaGFyZSBhIHByb3Bvc2FsIGZvciB7c3ViamVjdH0gdGhhdCBJIHRoaW5rIGFsaWducyB3ZWxsIHdpdGggdGhlIGdvYWxzIG9mIHtjb21wYW55fS4nLAogICAgICAgICdJIHdhbnRlZCB0byByZWFjaCBvdXQgd2l0aCBhbiBleGNpdGluZyBvcHBvcnR1bml0eSByZWxhdGVkIHRvIHtzdWJqZWN0fSB0aGF0IGNvdWxkIGJlbmVmaXQge2NvbXBhbnl9LicKICAgICAgXSwKICAgICAgJ0ZvbGxvdyBVcCc6IFsKICAgICAgICAnSSB3YW50ZWQgdG8gZm9sbG93IHVwIG9uIG91ciBwcmV2aW91cyBjb252ZXJzYXRpb24gcmVnYXJkaW5nIHtzdWJqZWN0fS4nLAogICAgICAgICdJIGFtIGNoZWNraW5nIGluIHRvIHNlZSBpZiB5b3UgaGFkIGEgY2hhbmNlIHRvIHJldmlldyB7c3ViamVjdH0uJywKICAgICAgICAnSXQgaGFzIGJlZW4gYSBsaXR0bGUgd2hpbGUgc2luY2Ugd2UgbGFzdCBzcG9rZSBhYm91dCB7c3ViamVjdH0sIHNvIEkgd2FudGVkIHRvIHJlY29ubmVjdC4nCiAgICAgIF0sCiAgICAgICdDb2xkIE91dHJlYWNoJzogWwogICAgICAgICdNeSBuYW1lIGlzIHtzZW5kZXJ9IGFuZCBJIGFtIHJlYWNoaW5nIG91dCBiZWNhdXNlIEkgYmVsaWV2ZSB7c3ViamVjdH0gY291bGQgYmUgYSBncmVhdCBmaXQgZm9yIHlvdS4nLAogICAgICAgICdJIGhvcGUgeW91IGRvIG5vdCBtaW5kIHRoZSB1bnNvbGljaXRlZCBlbWFpbC4gSSB3YW50ZWQgdG8gaW50cm9kdWNlIG15c2VsZiBhbmQgdGFsayBhYm91dCB7c3ViamVjdH0uJywKICAgICAgICAnSSBjYW1lIGFjcm9zcyB5b3VyIHdvcmsgYW5kIHRob3VnaHQgeW91IHdvdWxkIGJlIGludGVyZXN0ZWQgaW4gbGVhcm5pbmcgbW9yZSBhYm91dCB7c3ViamVjdH0uJwogICAgICBdLAogICAgICAnVGhhbmsgWW91JzogWwogICAgICAgICdJIHdhbnRlZCB0byB0YWtlIGEgbW9tZW50IHRvIHRoYW5rIHlvdSBmb3Ige3N1YmplY3R9LicsCiAgICAgICAgJ0kgYW0gd3JpdGluZyB0byBleHByZXNzIG15IHNpbmNlcmUgZ3JhdGl0dWRlIGZvciB7c3ViamVjdH0uJywKICAgICAgICAnVGhhbmsgeW91IHNvIG11Y2ggZm9yIHtzdWJqZWN0fSwgaXQgdHJ1bHkgbWVhbnQgYSBsb3QuJwogICAgICBdLAogICAgICAnTWVldGluZyBSZXF1ZXN0JzogWwogICAgICAgICdJIHdvdWxkIGxpa2UgdG8gc2NoZWR1bGUgYSBtZWV0aW5nIHRvIGRpc2N1c3Mge3N1YmplY3R9IGF0IGEgdGltZSB0aGF0IHdvcmtzIGZvciB5b3UuJywKICAgICAgICAnSSBhbSByZWFjaGluZyBvdXQgdG8gcmVxdWVzdCBhIG1lZXRpbmcgcmVnYXJkaW5nIHtzdWJqZWN0fS4nLAogICAgICAgICdXb3VsZCB5b3UgYmUgYXZhaWxhYmxlIGZvciBhIGNhbGwgb3IgbWVldGluZyB0byB0YWxrIHRocm91Z2gge3N1YmplY3R9PycKICAgICAgXSwKICAgICAgJ0ludHJvZHVjdGlvbic6IFsKICAgICAgICAnSSB3YW50ZWQgdG8gaW50cm9kdWNlIG15c2VsZiwgbXkgbmFtZSBpcyB7c2VuZGVyfSwgYW5kIEkgYW0gcmVhY2hpbmcgb3V0IHJlZ2FyZGluZyB7c3ViamVjdH0uJywKICAgICAgICAnQWxsb3cgbWUgdG8gaW50cm9kdWNlIG15c2VsZi4gSSBhbSB7c2VuZGVyfSwgYW5kIEkgYW0gd3JpdGluZyBhYm91dCB7c3ViamVjdH0uJywKICAgICAgICAnSSBhbSBwbGVhc2VkIHRvIGludHJvZHVjZSBteXNlbGYgaW4gcmVsYXRpb24gdG8ge3N1YmplY3R9LicKICAgICAgXSwKICAgICAgJ0NvbXBsYWludCc6IFsKICAgICAgICAnSSBhbSB3cml0aW5nIHRvIHJhaXNlIGEgY29uY2VybiByZWdhcmRpbmcge3N1YmplY3R9LicsCiAgICAgICAgJ0kgd2FudGVkIHRvIGJyaW5nIHRvIHlvdXIgYXR0ZW50aW9uIGFuIGlzc3VlIEkgZXhwZXJpZW5jZWQgd2l0aCB7c3ViamVjdH0uJywKICAgICAgICAnSSBhbSByZWFjaGluZyBvdXQgdG8gZm9ybWFsbHkgYWRkcmVzcyBhIHByb2JsZW0gcmVsYXRlZCB0byB7c3ViamVjdH0uJwogICAgICBdLAogICAgICAnQXBvbG9neSc6IFsKICAgICAgICAnSSB3YW50IHRvIHNpbmNlcmVseSBhcG9sb2dpemUgZm9yIHtzdWJqZWN0fS4nLAogICAgICAgICdJIGFtIHdyaXRpbmcgdG8gYXBvbG9naXplIGZvciB7c3ViamVjdH0gYW5kIHRvIGV4cGxhaW4gd2hhdCBoYXBwZW5lZC4nLAogICAgICAgICdQbGVhc2UgYWNjZXB0IG15IGFwb2xvZ2llcyByZWdhcmRpbmcge3N1YmplY3R9LicKICAgICAgXSwKICAgICAgJ0pvYiBBcHBsaWNhdGlvbic6IFsKICAgICAgICAnSSBhbSB3cml0aW5nIHRvIGV4cHJlc3MgbXkgaW50ZXJlc3QgaW4ge3N1YmplY3R9IGF0IHtjb21wYW55fS4nLAogICAgICAgICdJIHdvdWxkIGxpa2UgdG8gYXBwbHkgZm9yIHtzdWJqZWN0fSwgYW5kIEkgYW0gZXhjaXRlZCBhYm91dCB0aGUgb3Bwb3J0dW5pdHkgdG8gam9pbiB7Y29tcGFueX0uJywKICAgICAgICAnUGxlYXNlIGFjY2VwdCB0aGlzIGVtYWlsIGFzIG15IGZvcm1hbCBhcHBsaWNhdGlvbiBmb3Ige3N1YmplY3R9LicKICAgICAgXSwKICAgICAgJ05ld3NsZXR0ZXInOiBbCiAgICAgICAgJ1dlbGNvbWUgdG8gdGhpcyB1cGRhdGUgb24ge3N1YmplY3R9LCB3ZSBoYXZlIHNvbWUgZXhjaXRpbmcgbmV3cyB0byBzaGFyZS4nLAogICAgICAgICdIZXJlIGlzIHRoZSBsYXRlc3QgbmV3cyBhbmQgdXBkYXRlcyByZWdhcmRpbmcge3N1YmplY3R9LicsCiAgICAgICAgJ1dlIGFyZSBleGNpdGVkIHRvIHNoYXJlIHRoZSBuZXdlc3QgZGV2ZWxvcG1lbnRzIGFib3V0IHtzdWJqZWN0fS4nCiAgICAgIF0sCiAgICAgICdJbnZpdGF0aW9uJzogWwogICAgICAgICdZb3UgYXJlIGNvcmRpYWxseSBpbnZpdGVkIHRvIGpvaW4gdXMgZm9yIHtzdWJqZWN0fS4nLAogICAgICAgICdJIHdvdWxkIGxpa2UgdG8gcGVyc29uYWxseSBpbnZpdGUgeW91IHRvIHtzdWJqZWN0fS4nLAogICAgICAgICdXZSBhcmUgZXhjaXRlZCB0byBpbnZpdGUgeW91IHRvIHtzdWJqZWN0fS4nCiAgICAgIF0sCiAgICAgICdBbm5vdW5jZW1lbnQnOiBbCiAgICAgICAgJ0kgYW0gcGxlYXNlZCB0byBhbm5vdW5jZSB7c3ViamVjdH0uJywKICAgICAgICAnSSB3YW50ZWQgdG8gc2hhcmUgc29tZSBpbXBvcnRhbnQgbmV3cyByZWdhcmRpbmcge3N1YmplY3R9LicsCiAgICAgICAgJ1dlIGFyZSBleGNpdGVkIHRvIGFubm91bmNlIHtzdWJqZWN0fS4nCiAgICAgIF0sCiAgICAgICdGZWVkYmFjayBSZXF1ZXN0JzogWwogICAgICAgICdJIHdvdWxkIGdyZWF0bHkgYXBwcmVjaWF0ZSB5b3VyIGZlZWRiYWNrIG9uIHtzdWJqZWN0fS4nLAogICAgICAgICdJIGFtIHJlYWNoaW5nIG91dCB0byBhc2sgZm9yIHlvdXIgdGhvdWdodHMgb24ge3N1YmplY3R9LicsCiAgICAgICAgJ1lvdXIgZmVlZGJhY2sgb24ge3N1YmplY3R9IHdvdWxkIGJlIGV4dHJlbWVseSB2YWx1YWJsZSB0byB1cy4nCiAgICAgIF0sCiAgICAgICdSZWNvbW1lbmRhdGlvbiBSZXF1ZXN0JzogWwogICAgICAgICdJIGFtIHdyaXRpbmcgdG8gYXNrIGlmIHlvdSB3b3VsZCBiZSB3aWxsaW5nIHRvIHByb3ZpZGUgYSByZWNvbW1lbmRhdGlvbiByZWdhcmRpbmcge3N1YmplY3R9LicsCiAgICAgICAgJ0kgaG9wZSB5b3UgYXJlIGRvaW5nIHdlbGwuIEkgd2FudGVkIHRvIGFzayBmb3IgeW91ciBzdXBwb3J0IHdpdGggYSByZWNvbW1lbmRhdGlvbiBmb3Ige3N1YmplY3R9LicsCiAgICAgICAgJ1dvdWxkIHlvdSBiZSBhYmxlIHRvIHdyaXRlIGEgcmVjb21tZW5kYXRpb24gbGV0dGVyIGNvbmNlcm5pbmcge3N1YmplY3R9PycKICAgICAgXSwKICAgICAgJ1Jlc2lnbmF0aW9uJzogWwogICAgICAgICdJIGFtIHdyaXRpbmcgdG8gZm9ybWFsbHkgbm90aWZ5IHlvdSBvZiBteSByZXNpZ25hdGlvbiBmcm9tIHtzdWJqZWN0fS4nLAogICAgICAgICdQbGVhc2UgYWNjZXB0IHRoaXMgZW1haWwgYXMgZm9ybWFsIG5vdGljZSBvZiBteSByZXNpZ25hdGlvbiByZWdhcmRpbmcge3N1YmplY3R9LicsCiAgICAgICAgJ0kgYW0gd3JpdGluZyB0byBpbmZvcm0geW91IHRoYXQgSSB3aWxsIGJlIHJlc2lnbmluZyBmcm9tIHtzdWJqZWN0fS4nCiAgICAgIF0KICAgIH07CgogICAgdmFyIHRyYW5zaXRpb25zID0gWwogICAgICAnSW4gYWRkaXRpb24sJywgJ0Z1cnRoZXJtb3JlLCcsICdPbiB0b3Agb2YgdGhhdCwnLCAnQmV5b25kIHRoaXMsJywgJ1doYXQgaXMgbW9yZSwnLCAnQWxvbmcgd2l0aCB0aGlzLCcKICAgIF07CgogICAgdmFyIHRvbmVBZGogPSB7CiAgICAgIHByb2Zlc3Npb25hbDogJ3Byb2Zlc3Npb25hbCcsCiAgICAgIGZyaWVuZGx5OiAnZnJpZW5kbHknLAogICAgICBmb3JtYWw6ICdmb3JtYWwnLAogICAgICBjYXN1YWw6ICdyZWxheGVkJywKICAgICAgcGVyc3Vhc2l2ZTogJ2NvbXBlbGxpbmcnLAogICAgICB1cmdlbnQ6ICd0aW1lIHNlbnNpdGl2ZScsCiAgICAgIGVtcGF0aGV0aWM6ICdjb25zaWRlcmF0ZScsCiAgICAgIGNvbmZpZGVudDogJ2NvbmZpZGVudCcKICAgIH07CgogICAgZnVuY3Rpb24gZmlsbFRlbXBsYXRlKHQsIGRhdGEpewogICAgICByZXR1cm4gdAogICAgICAgIC5yZXBsYWNlKC9ce3N1YmplY3RcfS9nLCBkYXRhLnN1YmplY3QgfHwgJ3RoaXMgbWF0dGVyJykKICAgICAgICAucmVwbGFjZSgvXHtjb21wYW55XH0vZywgZGF0YS5jb21wYW55IHx8ICd5b3VyIG9yZ2FuaXphdGlvbicpCiAgICAgICAgLnJlcGxhY2UoL1x7c2VuZGVyXH0vZywgZGF0YS5zZW5kZXIgfHwgJ21lJykKICAgICAgICAucmVwbGFjZSgvXHtyZWNpcGllbnRcfS9nLCBkYXRhLnJlY2lwaWVudCB8fCAndGhlcmUnKTsKICAgIH0KCiAgICBmdW5jdGlvbiBidWlsZFBhcmFncmFwaHMoZGF0YSl7CiAgICAgIHZhciBwb2ludHMgPSBzcGxpdFBvaW50cyhkYXRhLmtleVBvaW50cyk7CiAgICAgIHZhciBwYXJhcyA9IFtdOwogICAgICBpZiAocG9pbnRzLmxlbmd0aCl7CiAgICAgICAgdmFyIHNlbnRlbmNlID0gJ0kgd2FudGVkIHRvIHNoYXJlIGEgZmV3IGtleSBkZXRhaWxzOiAnICsgcG9pbnRzLnNsaWNlKDAsMykuam9pbignLCAnKSArICcuJzsKICAgICAgICBwYXJhcy5wdXNoKHNlbnRlbmNlKTsKICAgICAgICBpZiAocG9pbnRzLmxlbmd0aCA+IDMpewogICAgICAgICAgcGFyYXMucHVzaChwaWNrKHRyYW5zaXRpb25zKSArICcgJyArIHBvaW50cy5zbGljZSgzKS5qb2luKCcsICcpICsgJy4nKTsKICAgICAgICB9CiAgICAgIH0gZWxzZSB7CiAgICAgICAgcGFyYXMucHVzaCgnSSB3YW50ZWQgdG8gZ2l2ZSB5b3UgYSBiaXQgbW9yZSBjb250ZXh0IGFuZCBzaGFyZSB0aGUga2V5IGRldGFpbHMgYXJvdW5kICcgKyAoZGF0YS5zdWJqZWN0IHx8ICd0aGlzJykgKyAnLicpOwogICAgICB9CiAgICAgIHJldHVybiBwYXJhczsKICAgIH0KCiAgICBmdW5jdGlvbiBnZW5lcmF0ZUVtYWlsKCl7CiAgICAgIHZhciB0eXBlID0gZW1haWxUeXBlLnZhbHVlIHx8ICdGb2xsb3cgVXAnOwogICAgICB2YXIgdG9uZSA9IHRvbmVTZWxlY3QudmFsdWUgfHwgJ3Byb2Zlc3Npb25hbCc7CiAgICAgIHZhciByZWNpcGllbnQgPSAocmVjaXBpZW50SW5wdXQudmFsdWUgfHwgJycpLnRyaW0oKTsKICAgICAgdmFyIHNlbmRlciA9IChzZW5kZXJJbnB1dC52YWx1ZSB8fCAnJykudHJpbSgpOwogICAgICB2YXIgc3ViamVjdCA9IChzdWJqZWN0SW5wdXQudmFsdWUgfHwgJycpLnRyaW0oKTsKICAgICAgdmFyIGNvbXBhbnkgPSAoY29tcGFueUlucHV0LnZhbHVlIHx8ICcnKS50cmltKCk7CiAgICAgIHZhciBjdGEgPSAoY3RhSW5wdXQudmFsdWUgfHwgJycpLnRyaW0oKTsKICAgICAgdmFyIGxlbmd0aEVsID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcignaW5wdXRbbmFtZT0iZW1haWxMZW5ndGgiXTpjaGVja2VkJyk7CiAgICAgIHZhciBsZW5ndGggPSBsZW5ndGhFbCA/IGxlbmd0aEVsLnZhbHVlIDogJ21lZGl1bSc7CgogICAgICB2YXIgZGF0YSA9IHsgc3ViamVjdDogc3ViamVjdCwgY29tcGFueTogY29tcGFueSwgc2VuZGVyOiBzZW5kZXIsIHJlY2lwaWVudDogcmVjaXBpZW50LCBrZXlQb2ludHM6IGtleVBvaW50c0lucHV0LnZhbHVlIH07CgogICAgICB2YXIgb3BlbmVyTGlzdCA9IG9wZW5lcnNbdHlwZV0gfHwgb3BlbmVyc1snRm9sbG93IFVwJ107CiAgICAgIHZhciBvcGVuZXIgPSBmaWxsVGVtcGxhdGUocGljayhvcGVuZXJMaXN0KSwgZGF0YSk7CgogICAgICB2YXIgZ3JlZXQgPSBncmVldGluZ3NbdG9uZV0gPyBncmVldGluZ3NbdG9uZV0ocmVjaXBpZW50KSA6IGdyZWV0aW5ncy5wcm9mZXNzaW9uYWwocmVjaXBpZW50KTsKICAgICAgdmFyIGNsb3NlID0gcGljayhjbG9zaW5nc1t0b25lXSB8fCBjbG9zaW5ncy5wcm9mZXNzaW9uYWwpOwoKICAgICAgdmFyIHBhcmFzID0gYnVpbGRQYXJhZ3JhcGhzKGRhdGEpOwogICAgICB2YXIgYm9keVBhcmFzID0gW29wZW5lcl07CgogICAgICBpZiAobGVuZ3RoID09PSAnc2hvcnQnKXsKICAgICAgICBib2R5UGFyYXMgPSBbb3BlbmVyXTsKICAgICAgICBpZiAocGFyYXMubGVuZ3RoKSBib2R5UGFyYXMucHVzaChwYXJhc1swXSk7CiAgICAgIH0gZWxzZSBpZiAobGVuZ3RoID09PSAnbWVkaXVtJyl7CiAgICAgICAgYm9keVBhcmFzLnB1c2gocGFyYXMuam9pbignICcpKTsKICAgICAgfSBlbHNlIHsKICAgICAgICBib2R5UGFyYXMucHVzaChwYXJhcy5qb2luKCcgJykpOwogICAgICAgIGJvZHlQYXJhcy5wdXNoKCdJIGFtIGNvbmZpZGVudCB0aGF0ICcgKyAoc3ViamVjdCB8fCAndGhpcycpICsgJyB3aWxsIGJyaW5nIG1lYW5pbmdmdWwgdmFsdWUsIGFuZCBJIGFtIGhhcHB5IHRvIHByb3ZpZGUgYW55IGZ1cnRoZXIgaW5mb3JtYXRpb24geW91IG1heSBuZWVkLicpOwogICAgICB9CgogICAgICBpZiAoY3RhKXsKICAgICAgICBib2R5UGFyYXMucHVzaCgnQXMgYSBuZXh0IHN0ZXAsICcgKyBjdGEuY2hhckF0KDApLnRvTG93ZXJDYXNlKCkgKyBjdGEuc2xpY2UoMSkucmVwbGFjZSgvXC4kLywnJykgKyAnLicpOwogICAgICB9CgogICAgICB2YXIgdGhhbmtzTGluZSA9IHRvbmUgPT09ICdlbXBhdGhldGljJyA/ICdUaGFuayB5b3UgZm9yIHlvdXIgdW5kZXJzdGFuZGluZyBhbmQgdGltZS4nIDogJ1RoYW5rIHlvdSBmb3IgeW91ciB0aW1lIGFuZCBjb25zaWRlcmF0aW9uLic7CiAgICAgIGJvZHlQYXJhcy5wdXNoKHRoYW5rc0xpbmUpOwoKICAgICAgdmFyIGZ1bGxCb2R5ID0gYm9keVBhcmFzLmpvaW4oJ1xuXG4nKTsKICAgICAgdmFyIHNpZ25PZmYgPSBjbG9zZSArICdcbicgKyAoc2VuZGVyIHx8ICdZb3VyIE5hbWUnKTsKCiAgICAgIHZhciBzdWJqTGluZSA9IGJ1aWxkU3ViamVjdCh0eXBlLCBzdWJqZWN0LCB0b25lKTsKCiAgICAgIHJldHVybiB7CiAgICAgICAgZ3JlZXQ6IGdyZWV0LAogICAgICAgIGJvZHk6IGZ1bGxCb2R5LAogICAgICAgIHNpZ25PZmY6IHNpZ25PZmYsCiAgICAgICAgc3ViamVjdDogc3ViakxpbmUKICAgICAgfTsKICAgIH0KCiAgICBmdW5jdGlvbiBidWlsZFN1YmplY3QodHlwZSwgc3ViamVjdCwgdG9uZSl7CiAgICAgIHZhciBzdWJqVGVtcGxhdGVzID0gewogICAgICAgICdCdXNpbmVzcyBQcm9wb3NhbCc6IFsnUHJvcG9zYWw6ICcgKyAoc3ViamVjdCB8fCAnTmV3IE9wcG9ydHVuaXR5JyksIChzdWJqZWN0IHx8ICdCdXNpbmVzcyBQcm9wb3NhbCcpICsgJyAtIExldCB1cyBDb25uZWN0JywgJ0EgUHJvcG9zYWwgUmVnYXJkaW5nICcgKyAoc3ViamVjdCB8fCAnT3VyIFBhcnRuZXJzaGlwJyldLAogICAgICAgICdGb2xsb3cgVXAnOiBbJ0ZvbGxvd2luZyBVcDogJyArIChzdWJqZWN0IHx8ICdPdXIgQ29udmVyc2F0aW9uJyksICdRdWljayBGb2xsb3cgVXAgb24gJyArIChzdWJqZWN0IHx8ICdQcmV2aW91cyBEaXNjdXNzaW9uJyksICdDaGVja2luZyBJbjogJyArIChzdWJqZWN0IHx8ICdOZXh0IFN0ZXBzJyldLAogICAgICAgICdDb2xkIE91dHJlYWNoJzogWyhzdWJqZWN0IHx8ICdBIFF1aWNrIEludHJvZHVjdGlvbicpLCAnUmVhY2hpbmcgT3V0IEFib3V0ICcgKyAoc3ViamVjdCB8fCAnYW4gT3Bwb3J0dW5pdHknKSwgJ0lkZWEgV29ydGggRXhwbG9yaW5nOiAnICsgKHN1YmplY3QgfHwgJ1BhcnRuZXJzaGlwJyldLAogICAgICAgICdUaGFuayBZb3UnOiBbJ1RoYW5rIFlvdSBmb3IgJyArIChzdWJqZWN0IHx8ICdZb3VyIFN1cHBvcnQnKSwgJ01hbnkgVGhhbmtzOiAnICsgKHN1YmplY3QgfHwgJ1lvdXIgSGVscCcpLCAnR3JhdGVmdWwgZm9yICcgKyAoc3ViamVjdCB8fCAnWW91ciBUaW1lJyldLAogICAgICAgICdNZWV0aW5nIFJlcXVlc3QnOiBbJ01lZXRpbmcgUmVxdWVzdDogJyArIChzdWJqZWN0IHx8ICdEaXNjdXNzaW9uJyksICdSZXF1ZXN0IHRvIE1lZXQgQWJvdXQgJyArIChzdWJqZWN0IHx8ICdPdXIgUHJvamVjdCcpLCAnU2NoZWR1bGluZyBUaW1lIHRvIERpc2N1c3MgJyArIChzdWJqZWN0IHx8ICdEZXRhaWxzJyldLAogICAgICAgICdJbnRyb2R1Y3Rpb24nOiBbJ0ludHJvZHVjdGlvbjogJyArIChzdWJqZWN0IHx8ICdHZXR0aW5nIEFjcXVhaW50ZWQnKSwgJ05pY2UgdG8gTWVldCBZb3UgUmVnYXJkaW5nICcgKyAoc3ViamVjdCB8fCAnVGhpcycpLCAnSW50cm9kdWNpbmcgTXlzZWxmIEFib3V0ICcgKyAoc3ViamVjdCB8fCAnVGhpcyBPcHBvcnR1bml0eScpXSwKICAgICAgICAnQ29tcGxhaW50JzogWydDb25jZXJuIFJlZ2FyZGluZyAnICsgKHN1YmplY3QgfHwgJ1JlY2VudCBFeHBlcmllbmNlJyksICdJc3N1ZSBXaXRoICcgKyAoc3ViamVjdCB8fCAnU2VydmljZScpLCAnRm9ybWFsIENvbXBsYWludDogJyArIChzdWJqZWN0IHx8ICdEZXRhaWxzJyldLAogICAgICAgICdBcG9sb2d5JzogWydNeSBBcG9sb2dpZXMgZm9yICcgKyAoc3ViamVjdCB8fCAndGhlIEluY29udmVuaWVuY2UnKSwgJ1NpbmNlcmUgQXBvbG9neTogJyArIChzdWJqZWN0IHx8ICdUaGlzIE1hdHRlcicpLCAnUmVnYXJkaW5nICcgKyAoc3ViamVjdCB8fCAnV2hhdCBIYXBwZW5lZCcpICsgJyAtIEFuIEFwb2xvZ3knXSwKICAgICAgICAnSm9iIEFwcGxpY2F0aW9uJzogWydBcHBsaWNhdGlvbiBmb3IgJyArIChzdWJqZWN0IHx8ICd0aGUgUG9zaXRpb24nKSwgKHN1YmplY3QgfHwgJ1Bvc2l0aW9uJykgKyAnIEFwcGxpY2F0aW9uJywgJ0FwcGx5aW5nIGZvciAnICsgKHN1YmplY3QgfHwgJ3RoaXMgUm9sZScpXSwKICAgICAgICAnTmV3c2xldHRlcic6IFsoc3ViamVjdCB8fCAnTmV3c2xldHRlcicpICsgJyBVcGRhdGUnLCAnTGF0ZXN0IE5ld3M6ICcgKyAoc3ViamVjdCB8fCAnVGhpcyBNb250aCcpLCAnWW91ciAnICsgKHN1YmplY3QgfHwgJ05ld3NsZXR0ZXInKSArICcgVXBkYXRlJ10sCiAgICAgICAgJ0ludml0YXRpb24nOiBbJ1lvdSBBcmUgSW52aXRlZDogJyArIChzdWJqZWN0IHx8ICdPdXIgRXZlbnQnKSwgJ0ludml0YXRpb24gdG8gJyArIChzdWJqZWN0IHx8ICdKb2luIFVzJyksICdKb2luIFVzIGZvciAnICsgKHN1YmplY3QgfHwgJ1RoaXMgRXZlbnQnKV0sCiAgICAgICAgJ0Fubm91bmNlbWVudCc6IFsnQW5ub3VuY2VtZW50OiAnICsgKHN1YmplY3QgfHwgJ0JpZyBOZXdzJyksICdFeGNpdGluZyBOZXdzIEFib3V0ICcgKyAoc3ViamVjdCB8fCAnVGhpcycpLCAnSW1wb3J0YW50IFVwZGF0ZTogJyArIChzdWJqZWN0IHx8ICdBbm5vdW5jZW1lbnQnKV0sCiAgICAgICAgJ0ZlZWRiYWNrIFJlcXVlc3QnOiBbJ1JlcXVlc3RpbmcgWW91ciBGZWVkYmFjayBvbiAnICsgKHN1YmplY3QgfHwgJ1RoaXMnKSwgJ1lvdXIgVGhvdWdodHMgb24gJyArIChzdWJqZWN0IHx8ICdUaGlzIFdvdWxkIEhlbHAnKSwgJ0ZlZWRiYWNrIE5lZWRlZDogJyArIChzdWJqZWN0IHx8ICdEZXRhaWxzJyldLAogICAgICAgICdSZWNvbW1lbmRhdGlvbiBSZXF1ZXN0JzogWydSZWNvbW1lbmRhdGlvbiBSZXF1ZXN0OiAnICsgKHN1YmplY3QgfHwgJ1lvdXIgU3VwcG9ydCcpLCAnQ291bGQgWW91IEhlbHAgV2l0aCBhIFJlY29tbWVuZGF0aW9uIGZvciAnICsgKHN1YmplY3QgfHwgJ1RoaXMnKSArICc/JywgJ1JlcXVlc3RpbmcgYSBSZWZlcmVuY2UgZm9yICcgKyAoc3ViamVjdCB8fCAnVGhpcycpXSwKICAgICAgICAnUmVzaWduYXRpb24nOiBbJ1Jlc2lnbmF0aW9uIE5vdGljZTogJyArIChzdWJqZWN0IHx8ICdNeSBQb3NpdGlvbicpLCAnTm90aWNlIG9mIFJlc2lnbmF0aW9uIFJlZ2FyZGluZyAnICsgKHN1YmplY3QgfHwgJ015IFJvbGUnKSwgJ0Zvcm1hbCBSZXNpZ25hdGlvbjogJyArIChzdWJqZWN0IHx8ICdEZXRhaWxzJyldCiAgICAgIH07CiAgICAgIHZhciBsaXN0ID0gc3VialRlbXBsYXRlc1t0eXBlXSB8fCBbJ1JlZ2FyZGluZyAnICsgKHN1YmplY3QgfHwgJ1RoaXMgTWF0dGVyJyldOwogICAgICByZXR1cm4gcGljayhsaXN0KTsKICAgIH0KCiAgICBmdW5jdGlvbiBjb3VudFdvcmRzKHRleHQpewogICAgICB2YXIgdCA9IHRleHQucmVwbGFjZSgvW1xuXHJdKy9nLCcgJykudHJpbSgpOwogICAgICBpZiAoIXQpIHJldHVybiAwOwogICAgICByZXR1cm4gdC5zcGxpdCgvXHMrLykubGVuZ3RoOwogICAgfQoKICAgIGZ1bmN0aW9uIHJlbmRlckVtYWlsKCl7CiAgICAgIHZhciByZXN1bHQgPSBnZW5lcmF0ZUVtYWlsKCk7CiAgICAgIHZhciBmdWxsVGV4dCA9IHJlc3VsdC5ncmVldCArICdcblxuJyArIHJlc3VsdC5ib2R5ICsgJ1xuXG4nICsgcmVzdWx0LnNpZ25PZmY7CiAgICAgIGVtYWlsT3V0cHV0LnRleHRDb250ZW50ID0gZnVsbFRleHQ7CiAgICAgIGlmIChzdWJqZWN0T3V0cHV0KSBzdWJqZWN0T3V0cHV0LnRleHRDb250ZW50ID0gcmVzdWx0LnN1YmplY3Q7CiAgICAgIHJlc3VsdHNXcmFwLnN0eWxlLmRpc3BsYXkgPSAnYmxvY2snOwogICAgICBpZiAod29yZENvdW50KSB3b3JkQ291bnQudGV4dENvbnRlbnQgPSBjb3VudFdvcmRzKGZ1bGxUZXh0KSArICcgd29yZHMnOwogICAgICByZXR1cm4gZnVsbFRleHQ7CiAgICB9CgogICAgZnVuY3Rpb24gc2hvd1RvYXN0KG1zZyl7CiAgICAgIGlmICghdG9hc3QpIHJldHVybjsKICAgICAgdG9hc3QudGV4dENvbnRlbnQgPSBtc2c7CiAgICAgIHRvYXN0LmNsYXNzTGlzdC5hZGQoJ3Nob3cnKTsKICAgICAgc2V0VGltZW91dChmdW5jdGlvbigpeyB0b2FzdC5jbGFzc0xpc3QucmVtb3ZlKCdzaG93Jyk7IH0sIDIyMDApOwogICAgfQoKICAgIGZ1bmN0aW9uIGNvcHlUZXh0KHRleHQpewogICAgICBpZiAobmF2aWdhdG9yLmNsaXBib2FyZCAmJiBuYXZpZ2F0b3IuY2xpcGJvYXJkLndyaXRlVGV4dCl7CiAgICAgICAgbmF2aWdhdG9yLmNsaXBib2FyZC53cml0ZVRleHQodGV4dCkudGhlbihmdW5jdGlvbigpeyBzaG93VG9hc3QoJ0VtYWlsIGNvcGllZCB0byBjbGlwYm9hcmQnKTsgfSwgZnVuY3Rpb24oKXsgZmFsbGJhY2tDb3B5KHRleHQpOyB9KTsKICAgICAgfSBlbHNlIHsKICAgICAgICBmYWxsYmFja0NvcHkodGV4dCk7CiAgICAgIH0KICAgIH0KCiAgICBmdW5jdGlvbiBmYWxsYmFja0NvcHkodGV4dCl7CiAgICAgIHZhciB0YSA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ3RleHRhcmVhJyk7CiAgICAgIHRhLnZhbHVlID0gdGV4dDsKICAgICAgdGEuc3R5bGUucG9zaXRpb24gPSAnZml4ZWQnOwogICAgICB0YS5zdHlsZS5sZWZ0ID0gJy05OTk5cHgnOwogICAgICBkb2N1bWVudC5ib2R5LmFwcGVuZENoaWxkKHRhKTsKICAgICAgdGEuZm9jdXMoKTsKICAgICAgdGEuc2VsZWN0KCk7CiAgICAgIHRyeSB7IGRvY3VtZW50LmV4ZWNDb21tYW5kKCdjb3B5Jyk7IHNob3dUb2FzdCgnRW1haWwgY29waWVkIHRvIGNsaXBib2FyZCcpOyB9IGNhdGNoKGUpeyBzaG93VG9hc3QoJ0NvcHkgZmFpbGVkLCBwbGVhc2Ugc2VsZWN0IGFuZCBjb3B5IG1hbnVhbGx5Jyk7IH0KICAgICAgZG9jdW1lbnQuYm9keS5yZW1vdmVDaGlsZCh0YSk7CiAgICB9CgogICAgaWYgKGdlbmVyYXRlQnRuKXsKICAgICAgZ2VuZXJhdGVCdG4uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCBmdW5jdGlvbigpewogICAgICAgIGlmICghKHN1YmplY3RJbnB1dC52YWx1ZSB8fCAnJykudHJpbSgpICYmICEoa2V5UG9pbnRzSW5wdXQudmFsdWUgfHwgJycpLnRyaW0oKSl7CiAgICAgICAgICBzaG93VG9hc3QoJ0FkZCBhIHN1YmplY3Qgb3Iga2V5IHBvaW50cyB0byBnZXQgc3RhcnRlZCcpOwogICAgICAgIH0KICAgICAgICByZW5kZXJFbWFpbCgpOwogICAgICAgIHJlc3VsdHNXcmFwLnNjcm9sbEludG9WaWV3KHtiZWhhdmlvcjonc21vb3RoJywgYmxvY2s6J3N0YXJ0J30pOwogICAgICB9KTsKICAgIH0KCiAgICBpZiAocmVnZW5CdG4pewogICAgICByZWdlbkJ0bi5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsIGZ1bmN0aW9uKCl7CiAgICAgICAgcmVuZGVyRW1haWwoKTsKICAgICAgICBzaG93VG9hc3QoJ05ldyB2ZXJzaW9uIGdlbmVyYXRlZCcpOwogICAgICB9KTsKICAgIH0KCiAgICBpZiAoY29weUJ0bil7CiAgICAgIGNvcHlCdG4uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCBmdW5jdGlvbigpewogICAgICAgIHZhciB0ZXh0ID0gZW1haWxPdXRwdXQudGV4dENvbnRlbnQgfHwgJyc7CiAgICAgICAgaWYgKCF0ZXh0LnRyaW0oKSl7IHNob3dUb2FzdCgnR2VuZXJhdGUgYW4gZW1haWwgZmlyc3QnKTsgcmV0dXJuOyB9CiAgICAgICAgdmFyIGZ1bGwgPSAoc3ViamVjdE91dHB1dCAmJiBzdWJqZWN0T3V0cHV0LnRleHRDb250ZW50ID8gJ1N1YmplY3Q6ICcgKyBzdWJqZWN0T3V0cHV0LnRleHRDb250ZW50ICsgJ1xuXG4nIDogJycpICsgdGV4dDsKICAgICAgICBjb3B5VGV4dChmdWxsKTsKICAgICAgfSk7CiAgICB9CgogICAgaWYgKGNsZWFyQnRuKXsKICAgICAgY2xlYXJCdG4uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCBmdW5jdGlvbigpewogICAgICAgIGVtYWlsVHlwZS5zZWxlY3RlZEluZGV4ID0gMDsKICAgICAgICB0b25lU2VsZWN0LnNlbGVjdGVkSW5kZXggPSAwOwogICAgICAgIHJlY2lwaWVudElucHV0LnZhbHVlID0gJyc7CiAgICAgICAgc2VuZGVySW5wdXQudmFsdWUgPSAnJzsKICAgICAgICBzdWJqZWN0SW5wdXQudmFsdWUgPSAnJzsKICAgICAgICBrZXlQb2ludHNJbnB1dC52YWx1ZSA9ICcnOwogICAgICAgIGNvbXBhbnlJbnB1dC52YWx1ZSA9ICcnOwogICAgICAgIGN0YUlucHV0LnZhbHVlID0gJyc7CiAgICAgICAgdmFyIHJhZGlvcyA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3JBbGwoJ2lucHV0W25hbWU9ImVtYWlsTGVuZ3RoIl0nKTsKICAgICAgICBmb3IgKHZhciBpPTA7aTxyYWRpb3MubGVuZ3RoO2krKyl7IHJhZGlvc1tpXS5jaGVja2VkID0gKHJhZGlvc1tpXS52YWx1ZSA9PT0gJ21lZGl1bScpOyB9CiAgICAgICAgZW1haWxPdXRwdXQudGV4dENvbnRlbnQgPSAnJzsKICAgICAgICBpZiAoc3ViamVjdE91dHB1dCkgc3ViamVjdE91dHB1dC50ZXh0Q29udGVudCA9ICcnOwogICAgICAgIHJlc3VsdHNXcmFwLnN0eWxlLmRpc3BsYXkgPSAnbm9uZSc7CiAgICAgICAgaWYgKHdvcmRDb3VudCkgd29yZENvdW50LnRleHRDb250ZW50ID0gJzAgd29yZHMnOwogICAgICAgIHNob3dUb2FzdCgnQWxsIGZpZWxkcyBjbGVhcmVkJyk7CiAgICAgIH0pOwogICAgfQoKICAgIGlmIChjdGFCdG4pewogICAgICBjdGFCdG4uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCBmdW5jdGlvbigpewogICAgICAgIHZhciB0b29sRWwgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCcuYWV3LXRvb2wnKTsKICAgICAgICBpZiAodG9vbEVsKSB0b29sRWwuc2Nyb2xsSW50b1ZpZXcoe2JlaGF2aW9yOidzbW9vdGgnLCBibG9jazonc3RhcnQnfSk7CiAgICAgIH0pOwogICAgfQoKICAgIHZhciBmYXFJdGVtcyA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3JBbGwoJyNhZXctd3JhcCAuZmFxLWl0ZW0nKTsKICAgIGZvciAodmFyIGY9MDsgZjxmYXFJdGVtcy5sZW5ndGg7IGYrKyl7CiAgICAgIChmdW5jdGlvbihpdGVtKXsKICAgICAgICB2YXIgcSA9IGl0ZW0ucXVlcnlTZWxlY3RvcignLmZhcS1xJyk7CiAgICAgICAgaWYgKCFxKSByZXR1cm47CiAgICAgICAgcS5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsIGZ1bmN0aW9uKCl7CiAgICAgICAgICBpdGVtLmNsYXNzTGlzdC50b2dnbGUoJ29wZW4nKTsKICAgICAgICB9KTsKICAgICAgfSkoZmFxSXRlbXNbZl0pOwogICAgfQoKICAgIHJldHVybiB0cnVlOwogIH0KCiAgZnVuY3Rpb24gdHJ5SW5pdCgpewogICAgaWYgKCFpbml0KCkpewogICAgICBzZXRUaW1lb3V0KHRyeUluaXQsIDIwMCk7CiAgICB9CiAgfQoKICBpZiAoZG9jdW1lbnQucmVhZHlTdGF0ZSA9PT0gJ2xvYWRpbmcnKXsKICAgIGRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoJ0RPTUNvbnRlbnRMb2FkZWQnLCB0cnlJbml0KTsKICB9IGVsc2UgewogICAgdHJ5SW5pdCgpOwogIH0KICBzZXRUaW1lb3V0KHRyeUluaXQsIDUwMCk7CiAgc2V0VGltZW91dCh0cnlJbml0LCAxNTAwKTsKfSkoKTsK"));
+</script>
