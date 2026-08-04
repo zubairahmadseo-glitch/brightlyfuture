@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Instagram Bio Generator | Create the Perfect Bio Instantly | BrightlyFuture</title>
+<meta name="description" content="Free Instagram bio generator with 8 styles and 25 niches. Create 4 unique, optimized bio variations in seconds. No signup, no limits, no ads.">
+<meta name="keywords" content="instagram bio generator, free instagram bio generator, aesthetic bio generator, instagram bio ideas, bio generator for instagram, instagram bio maker, cute instagram bio generator, instagram bio generator free no signup, business instagram bio generator, funny instagram bio generator, instagram bio character limit, best instagram bio generator, instagram bio creator online">
+<style>
+#ibg-wrap {
+  --pri: #6C5CE7;
+  --pri-hover: #5A4BD1;
+  --bg: #E8E0F0;
+  --bg-alt: #DDD4EB;
+  --card-bg: #FFFFFF;
+  --card-border: #D0C6E0;
+  --input-bg: #F5F1FA;
+  --input-border: #D0C6E0;
+  --text: #2D2B55;
+  --muted: #6B6490;
+  --heading: #1A1744;
+  --green: #00C897;
+  --red: #EF4444;
+  --yellow: #F59E0B;
+}
+#ibg-wrap *, #ibg-wrap *::before, #ibg-wrap *::after { box-sizing: border-box !important; }
+#ibg-wrap { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important; background: var(--bg) !important; color: var(--text) !important; line-height: 1.6 !important; -webkit-font-smoothing: antialiased !important; margin: 0 !important; padding: 0 !important; }
+#ibg-wrap a { color: var(--pri) !important; text-decoration: none !important; }
+#ibg-wrap a:hover { color: var(--pri-hover) !important; }
+#ibg-wrap h1, #ibg-wrap h2, #ibg-wrap h3, #ibg-wrap p, #ibg-wrap ul, #ibg-wrap ol { margin: 0 !important; padding: 0 !important; }
+#ibg-wrap ul, #ibg-wrap ol { padding-left: 1.3rem !important; }
+
+#ibg-wrap .ibg-hero { text-align: center !important; padding: 3.5rem 1.5rem 2.5rem !important; background: var(--bg) !important; }
+#ibg-wrap .ibg-hero .badge { display: inline-block !important; background: var(--card-bg) !important; color: var(--pri) !important; font-size: 0.8rem !important; font-weight: 600 !important; padding: 0.4rem 1.1rem !important; border-radius: 999px !important; border: 1px solid var(--card-border) !important; margin-bottom: 1.25rem !important; }
+#ibg-wrap .ibg-hero h1 { font-size: 2.3rem !important; font-weight: 800 !important; color: var(--heading) !important; margin-bottom: 0.85rem !important; }
+#ibg-wrap .ibg-hero .sub { color: var(--muted) !important; max-width: 680px !important; margin: 0 auto 1.5rem !important; font-size: 0.95rem !important; line-height: 1.65 !important; }
+#ibg-wrap .usp-row { display: flex !important; gap: 0.6rem !important; flex-wrap: wrap !important; justify-content: center !important; margin-bottom: 1.75rem !important; }
+#ibg-wrap .usp-pill { background: rgba(108,92,231,0.08) !important; border: 1px solid rgba(108,92,231,0.2) !important; color: var(--pri) !important; font-size: 0.78rem !important; font-weight: 600 !important; padding: 0.4rem 1rem !important; border-radius: 999px !important; }
+
+#ibg-wrap .btn { padding: 0.75rem 1.8rem !important; border-radius: 10px !important; font-weight: 700 !important; font-size: 0.92rem !important; cursor: pointer !important; border: none !important; transition: all .2s !important; font-family: inherit !important; }
+#ibg-wrap .btn-primary { background: var(--pri) !important; color: #fff !important; }
+#ibg-wrap .btn-primary:hover, #ibg-wrap .btn-primary:focus { background: var(--pri-hover) !important; transform: translateY(-1px) !important; }
+#ibg-wrap .btn-secondary { background: var(--input-bg) !important; color: var(--muted) !important; border: 1px solid var(--card-border) !important; }
+#ibg-wrap .btn-secondary:hover, #ibg-wrap .btn-secondary:focus { border-color: var(--pri) !important; color: var(--text) !important; }
+
+#ibg-wrap .ibg-tool { max-width: 750px !important; margin: 0 auto !important; padding: 0 1.5rem 3rem !important; }
+#ibg-wrap .ibg-box { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 16px !important; padding: 2rem !important; box-shadow: 0 2px 12px rgba(108,92,231,0.06) !important; }
+#ibg-wrap .ibg-box label { display: block !important; font-size: 0.72rem !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.07em !important; color: var(--muted) !important; margin-bottom: 0.45rem !important; }
+#ibg-wrap .form-group { margin-bottom: 1.25rem !important; }
+#ibg-wrap input[type="text"], #ibg-wrap select { width: 100% !important; background: var(--input-bg) !important; border: 1px solid var(--input-border) !important; border-radius: 10px !important; padding: 0.75rem 1rem !important; color: var(--text) !important; font-size: 0.9rem !important; font-family: inherit !important; transition: border-color .2s !important; }
+#ibg-wrap input:focus, #ibg-wrap select:focus { outline: none !important; border-color: var(--pri) !important; }
+#ibg-wrap select { cursor: pointer !important; appearance: none !important; -webkit-appearance: none !important; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B6490' stroke-width='2' fill='none'/%3E%3C/svg%3E") !important; background-repeat: no-repeat !important; background-position: right 1rem center !important; padding-right: 2.5rem !important; }
+
+#ibg-wrap .form-row { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 1rem !important; }
+
+#ibg-wrap .check-row { display: flex !important; gap: 1.5rem !important; flex-wrap: wrap !important; align-items: center !important; margin-bottom: 1.25rem !important; }
+#ibg-wrap .check-item { display: flex !important; align-items: center !important; gap: 0.45rem !important; font-size: 0.85rem !important; color: var(--text) !important; cursor: pointer !important; }
+#ibg-wrap .check-item input[type="checkbox"] { width: 18px !important; height: 18px !important; accent-color: var(--pri) !important; cursor: pointer !important; }
+
+#ibg-wrap .btn-row { display: flex !important; gap: 0.75rem !important; flex-wrap: wrap !important; }
+
+#ibg-wrap .results-wrap { margin-top: 1.75rem !important; display: none !important; }
+#ibg-wrap .results-wrap h3 { font-size: 1.05rem !important; font-weight: 700 !important; color: var(--heading) !important; margin-bottom: 1rem !important; }
+#ibg-wrap .bio-card { background: var(--input-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 12px !important; padding: 1.25rem 1.5rem !important; margin-bottom: 1rem !important; }
+#ibg-wrap .bio-head { display: flex !important; justify-content: space-between !important; align-items: center !important; margin-bottom: 0.65rem !important; }
+#ibg-wrap .bio-num { font-size: 0.72rem !important; font-weight: 700 !important; text-transform: uppercase !important; color: var(--pri) !important; letter-spacing: 0.05em !important; }
+#ibg-wrap .char-count { font-size: 0.75rem !important; font-weight: 700 !important; }
+#ibg-wrap .char-count.ok { color: var(--green) !important; }
+#ibg-wrap .char-count.over { color: var(--red) !important; }
+#ibg-wrap .bio-text { font-size: 0.92rem !important; color: var(--text) !important; line-height: 1.7 !important; white-space: pre-wrap !important; margin-bottom: 0.85rem !important; }
+#ibg-wrap .btn-copy-bio { font-size: 0.8rem !important; font-weight: 600 !important; color: var(--pri) !important; cursor: pointer !important; background: transparent !important; border: 1px solid var(--pri) !important; border-radius: 8px !important; padding: 0.4rem 1rem !important; transition: all .2s !important; }
+#ibg-wrap .btn-copy-bio:hover { background: var(--pri) !important; color: #fff !important; }
+
+#ibg-wrap section { max-width: 900px !important; margin: 0 auto !important; padding: 2.5rem 1.5rem !important; }
+#ibg-wrap section h2 { font-size: 1.6rem !important; font-weight: 800 !important; color: var(--heading) !important; margin-bottom: 1rem !important; }
+#ibg-wrap section h3 { font-size: 1.1rem !important; font-weight: 700 !important; color: var(--heading) !important; margin-bottom: 0.5rem !important; }
+#ibg-wrap section p { color: var(--text) !important; margin-bottom: 0.9rem !important; font-size: 0.95rem !important; line-height: 1.7 !important; }
+#ibg-wrap section ul, #ibg-wrap section ol { color: var(--text) !important; margin-bottom: 0.9rem !important; font-size: 0.95rem !important; line-height: 1.8 !important; }
+#ibg-wrap section li { margin-bottom: 0.4rem !important; }
+#ibg-wrap .alt-bg { background: var(--bg-alt) !important; }
+
+#ibg-wrap .feature-grid { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 1.25rem !important; margin-top: 1.25rem !important; }
+#ibg-wrap .feature-card { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 14px !important; padding: 1.5rem !important; }
+#ibg-wrap .feature-card .ficon { font-size: 1.6rem !important; margin-bottom: 0.6rem !important; }
+#ibg-wrap .feature-card h3 { font-size: 1rem !important; margin-bottom: 0.4rem !important; }
+#ibg-wrap .feature-card p { font-size: 0.87rem !important; margin-bottom: 0 !important; }
+
+#ibg-wrap .niche-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 1.25rem !important; margin-top: 1.25rem !important; }
+#ibg-wrap .niche-card { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 14px !important; padding: 1.25rem 1.5rem !important; }
+#ibg-wrap .niche-card h3 { font-size: 0.95rem !important; margin-bottom: 0.5rem !important; }
+#ibg-wrap .niche-card .example { font-size: 0.85rem !important; color: var(--muted) !important; background: var(--input-bg) !important; border-radius: 8px !important; padding: 0.6rem 0.85rem !important; margin-bottom: 0.5rem !important; white-space: pre-wrap !important; line-height: 1.6 !important; }
+
+#ibg-wrap .table-wrap { overflow-x: auto !important; margin-top: 1.25rem !important; }
+#ibg-wrap table { width: 100% !important; border-collapse: collapse !important; min-width: 620px !important; background: var(--card-bg) !important; border-radius: 12px !important; overflow: hidden !important; }
+#ibg-wrap th, #ibg-wrap td { padding: 0.75rem 1rem !important; text-align: left !important; font-size: 0.86rem !important; border-bottom: 1px solid var(--card-border) !important; }
+#ibg-wrap th { background: var(--pri) !important; color: #fff !important; font-weight: 700 !important; }
+#ibg-wrap td { color: var(--text) !important; }
+#ibg-wrap tr:last-child td { border-bottom: none !important; }
+#ibg-wrap td.brand-col { font-weight: 700 !important; color: var(--pri) !important; }
+
+#ibg-wrap .faq-item { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 12px !important; margin-bottom: 0.75rem !important; overflow: hidden !important; }
+#ibg-wrap .faq-q { width: 100% !important; text-align: left !important; background: transparent !important; border: none !important; padding: 1.1rem 1.4rem !important; font-size: 0.95rem !important; font-weight: 700 !important; color: var(--heading) !important; cursor: pointer !important; font-family: inherit !important; position: relative !important; padding-right: 2.5rem !important; }
+#ibg-wrap .faq-q::after { content: "+" !important; position: absolute !important; right: 1.4rem !important; top: 50% !important; transform: translateY(-50%) !important; color: var(--pri) !important; font-size: 1.3rem !important; font-weight: 700 !important; transition: transform .2s !important; }
+#ibg-wrap .faq-item.open .faq-q::after { content: "\00d7" !important; transform: translateY(-50%) !important; }
+#ibg-wrap .faq-a { max-height: 0 !important; overflow: hidden !important; padding: 0 1.4rem !important; color: var(--muted) !important; font-size: 0.9rem !important; transition: all .25s ease !important; }
+#ibg-wrap .faq-item.open .faq-a { max-height: 400px !important; padding: 0 1.4rem 1.25rem !important; }
+#ibg-wrap .faq-a p { margin-bottom: 0 !important; font-size: 0.9rem !important; }
+
+#ibg-wrap .toast { position: fixed !important; bottom: 1.5rem !important; left: 50% !important; transform: translateX(-50%) translateY(20px) !important; background: var(--heading) !important; color: #fff !important; padding: 0.75rem 1.5rem !important; border-radius: 10px !important; font-size: 0.88rem !important; font-weight: 600 !important; opacity: 0 !important; pointer-events: none !important; transition: all .25s ease !important; z-index: 9999 !important; }
+#ibg-wrap .toast.show { opacity: 1 !important; transform: translateX(-50%) translateY(0) !important; }
+
+@media (max-width: 700px) {
+  #ibg-wrap .form-row { grid-template-columns: 1fr !important; }
+  #ibg-wrap .feature-grid { grid-template-columns: 1fr !important; }
+  #ibg-wrap .niche-grid { grid-template-columns: 1fr !important; }
+  #ibg-wrap .ibg-hero h1 { font-size: 1.7rem !important; }
+}
+
+@media (prefers-color-scheme: dark) {
+  #ibg-wrap {
+    --bg: #17142B; --bg-alt: #1E1A38; --card-bg: #211D3D; --card-border: #383260;
+    --input-bg: #2A2450; --input-border: #423B70; --text: #E4E0F5; --muted: #A79FD1; --heading: #F0EDFB;
+  }
+  #ibg-wrap .ibg-hero .badge { background: var(--card-bg) !important; }
+}
+#ibg-wrap[data-theme="dark"] {
+  --bg: #17142B; --bg-alt: #1E1A38; --card-bg: #211D3D; --card-border: #383260;
+  --input-bg: #2A2450; --input-border: #423B70; --text: #E4E0F5; --muted: #A79FD1; --heading: #F0EDFB;
+}
+#ibg-wrap[data-theme="light"] {
+  --bg: #E8E0F0; --bg-alt: #DDD4EB; --card-bg: #FFFFFF; --card-border: #D0C6E0;
+  --input-bg: #F5F1FA; --input-border: #D0C6E0; --text: #2D2B55; --muted: #6B6490; --heading: #1A1744;
+}
+</style>
+</head>
+<body>
+<div id="ibg-wrap">
+
+<section class="ibg-hero">
+  <span class="badge">Free Tool</span>
+  <h1>Free Instagram Bio Generator</h1>
+  <p class="sub">Create a scroll-stopping Instagram bio in seconds. Pick your niche and style, add a few keywords, and get 4 unique, character-perfect bio variations ready to copy and paste.</p>
+  <div class="usp-row">
+    <span class="usp-pill">No signup required</span>
+    <span class="usp-pill">8 bio styles</span>
+    <span class="usp-pill">25 niches</span>
+    <span class="usp-pill">150 char counter</span>
+  </div>
+  <button type="button" class="btn btn-primary" id="ctaBtn">Generate My Bio</button>
+</section>
+
+<section class="ibg-tool">
+  <div class="ibg-box">
+    <div class="form-group">
+      <label for="nameInput">Name or Brand</label>
+      <input type="text" id="nameInput" placeholder="e.g. Sarah Jones or Bright Coffee Co">
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="nicheSelect">Niche / Industry</label>
+        <select id="nicheSelect">
+          <option>Blogger</option>
+          <option>Business Owner</option>
+          <option>Content Creator</option>
+          <option>Designer</option>
+          <option>Developer</option>
+          <option>Entrepreneur</option>
+          <option>Fashion</option>
+          <option>Fitness</option>
+          <option>Food</option>
+          <option>Freelancer</option>
+          <option>Gaming</option>
+          <option>Health & Wellness</option>
+          <option>Influencer</option>
+          <option>Marketing</option>
+          <option>Music</option>
+          <option>Photography</option>
+          <option>Real Estate</option>
+          <option>Student</option>
+          <option>Teacher</option>
+          <option>Travel</option>
+          <option>Tech</option>
+          <option>Writer</option>
+          <option>Artist</option>
+          <option>Coach</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="styleSelect">Bio Style</label>
+        <select id="styleSelect">
+          <option>Professional</option>
+          <option>Creative</option>
+          <option>Funny/Witty</option>
+          <option>Minimalist</option>
+          <option>Aesthetic</option>
+          <option>Bold & Confident</option>
+          <option>Inspirational</option>
+          <option>Casual & Chill</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="keywordsInput">Keywords / Interests</label>
+      <input type="text" id="keywordsInput" placeholder="e.g. coffee lover, dog mom, NYC">
+    </div>
+
+    <div class="check-row">
+      <label class="check-item"><input type="checkbox" id="emojiToggle" checked> Include Emoji</label>
+      <label class="check-item"><input type="checkbox" id="ctaToggle" checked> Include Call to Action</label>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="ctaType">CTA Type</label>
+        <select id="ctaType">
+          <option>Link in Bio</option>
+          <option>DM for Collabs</option>
+          <option>Shop Now</option>
+          <option>Book Now</option>
+          <option>Follow for More</option>
+          <option>Subscribe</option>
+          <option>Contact Me</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="linkInput">Website / Link (optional)</label>
+        <input type="text" id="linkInput" placeholder="e.g. www.yoursite.com">
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button type="button" class="btn btn-primary" id="generateBtn">Generate Bios</button>
+      <button type="button" class="btn btn-secondary" id="regenBtn">Regenerate</button>
+      <button type="button" class="btn btn-secondary" id="clearBtn">Clear All</button>
+    </div>
+
+    <div class="results-wrap" id="resultsWrap">
+      <h3>Your Bio Variations</h3>
+      <div id="resultsGrid"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>What Is an Instagram Bio Generator</h2>
+  <p>An Instagram bio generator is a free tool that helps you write the short block of text that appears at the top of your Instagram profile. Instead of staring at a blank box trying to sum up who you are in 150 characters, this tool assembles a bio for you based on your name, niche, chosen style, and a few keywords, giving you several ready-to-use options in seconds.</p>
+  <p>This generator does not rely on any external AI service or API. It uses smart, template-based text assembly with built-in phrase pools for 25 niches and 8 distinct writing styles, so every bio it produces feels tailored, natural, and different from the last one.</p>
+</section>
+
+<section class="alt-bg">
+  <h2>Why Your Instagram Bio Matters</h2>
+  <p>Your Instagram bio is often the very first thing a potential follower, client, or customer reads about you. It loads before your posts, before your story highlights, and before anything else, which makes it the single most important piece of copy on your entire profile.</p>
+  <ul>
+    <li><strong>First impressions:</strong> Visitors decide whether to follow you within seconds, and your bio is a huge part of that decision.</li>
+    <li><strong>Personal branding:</strong> A clear, well-written bio tells people exactly who you are and what you stand for.</li>
+    <li><strong>Discoverability:</strong> Keywords in your bio can help the right audience find and recognize your profile.</li>
+    <li><strong>Conversions:</strong> A strong call to action in your bio can turn casual visitors into followers, subscribers, or customers.</li>
+  </ul>
+</section>
+
+<section>
+  <h2>How to Use This Tool</h2>
+  <ol>
+    <li>Enter your name or brand name in the first field.</li>
+    <li>Choose the niche or industry that best matches what you do.</li>
+    <li>Select a bio style, such as Professional, Funny/Witty, or Aesthetic.</li>
+    <li>Add a few comma-separated keywords or interests that describe you.</li>
+    <li>Toggle emoji and call to action on or off, and choose your CTA type.</li>
+    <li>Click Generate Bios to see 4 unique variations, each with a live character count.</li>
+    <li>Click Regenerate for fresh options, or Copy Bio to grab your favourite instantly.</li>
+  </ol>
+</section>
+
+<section class="alt-bg">
+  <h2>Key Features</h2>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="ficon">🎨</div>
+      <h3>8 Bio Styles</h3>
+      <p>From Professional to Aesthetic to Funny/Witty, choose the tone that fits your brand.</p>
+    </div>
+    <div class="feature-card">
+      <div class="ficon">🏷️</div>
+      <h3>25 Niche Options</h3>
+      <p>Tailored phrase pools for creators, businesses, fitness, fashion, tech and more.</p>
+    </div>
+    <div class="feature-card">
+      <div class="ficon">🔢</div>
+      <h3>Live Character Counter</h3>
+      <p>Instantly see if your bio fits within Instagram's 150 character limit.</p>
+    </div>
+    <div class="feature-card">
+      <div class="ficon">✨</div>
+      <h3>4 Variations at Once</h3>
+      <p>Never settle for one option. Compare four different bios side by side.</p>
+    </div>
+    <div class="feature-card">
+      <div class="ficon">🔒</div>
+      <h3>No Signup Needed</h3>
+      <p>Everything runs in your browser. No account, no email, no personal data stored.</p>
+    </div>
+    <div class="feature-card">
+      <div class="ficon">📋</div>
+      <h3>One-Click Copy</h3>
+      <p>Copy any bio straight to your clipboard, ready to paste into Instagram.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Instagram Bio Tips and Best Practices</h2>
+  <ul>
+    <li><strong>Lead with clarity, not cleverness.</strong> People should understand what you do within two seconds of reading.</li>
+    <li><strong>Use line breaks wisely.</strong> Short, separated lines are easier to scan than one long paragraph.</li>
+    <li><strong>Include one clear call to action.</strong> Tell visitors exactly what to do next, whether that is following, shopping, or clicking your link.</li>
+    <li><strong>Add a personality touch.</strong> A keyword, hobby, or bit of humour makes you memorable and human.</li>
+    <li><strong>Use emojis to save space.</strong> A well-placed emoji can replace a whole word and add visual structure.</li>
+    <li><strong>Keep it updated.</strong> Refresh your bio when you launch something new or shift focus.</li>
+  </ul>
+</section>
+
+<section class="alt-bg">
+  <h2>Bio Ideas by Niche</h2>
+  <div class="niche-grid">
+    <div class="niche-card">
+      <h3>Business Owner</h3>
+      <div class="example">Bright Coffee Co | Business Owner
+Turning ideas into reality
+Shop now 🔗</div>
+    </div>
+    <div class="niche-card">
+      <h3>Content Creator</h3>
+      <div class="example">Jess ✨
+Creating content that connects
+Photography • Travel • Food
+Link in bio 👇</div>
+    </div>
+    <div class="niche-card">
+      <h3>Fitness Coach</h3>
+      <div class="example">MIKE T | FITNESS!
+Unstoppable Coach. Built different!
+DM for collabs 🔗</div>
+    </div>
+    <div class="niche-card">
+      <h3>Personal / Casual</h3>
+      <div class="example">hey, it's Alex :) into travel and good vibes
+Follow for more</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Comparison Table</h2>
+  <div class="table-wrap">
+    <table>
+      <tr><th>Feature</th><th>BrightlyFuture</th><th>Hootsuite Bio Generator</th><th>Simplified</th><th>Pallyy</th><th>Copy.ai</th></tr>
+      <tr><td>Price</td><td class="brand-col">Free</td><td>Free</td><td>Free tier limited</td><td>Free tier limited</td><td>Free tier limited</td></tr>
+      <tr><td>Bio Styles</td><td class="brand-col">8 styles</td><td>Limited</td><td>Few templates</td><td>Few templates</td><td>Prompt based</td></tr>
+      <tr><td>Niche Options</td><td class="brand-col">25 niches</td><td>Generic</td><td>Generic</td><td>Generic</td><td>Generic</td></tr>
+      <tr><td>Emoji Support</td><td class="brand-col">Yes, toggleable</td><td>Limited</td><td>Limited</td><td>Limited</td><td>Manual</td></tr>
+      <tr><td>Character Counter</td><td class="brand-col">Yes, live</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
+      <tr><td>Multiple Variations</td><td class="brand-col">4 at once</td><td>1 at a time</td><td>1 at a time</td><td>1 at a time</td><td>Varies</td></tr>
+      <tr><td>No Signup</td><td class="brand-col">Yes</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
+      <tr><td>Copy to Clipboard</td><td class="brand-col">Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="alt-bg">
+  <h2>Instagram Bio Character Limit Guide</h2>
+  <p>Instagram limits bios to 150 characters, including spaces, emojis, and punctuation. That is roughly two short sentences, so every word needs to earn its place.</p>
+  <ul>
+    <li><strong>Line breaks count as characters.</strong> Each new line uses up part of your 150 character limit, so use them purposefully.</li>
+    <li><strong>Emojis count as one or more characters.</strong> Most single emojis use one character, but some combined emojis can use two or more.</li>
+    <li><strong>Special characters and symbols</strong> like dots, stars, and arrows also count toward the total.</li>
+    <li><strong>Links are separate.</strong> Your clickable website link sits in its own field and does not count toward the bio character limit.</li>
+  </ul>
+  <p>This tool automatically counts characters for every generated bio, showing green when you are under 150 characters and red when you go over, so you always know where you stand before copying.</p>
+</section>
+
+<section>
+  <h2>Common Instagram Bio Mistakes</h2>
+  <ul>
+    <li><strong>Being too vague.</strong> "Living my best life" tells visitors nothing about who you are or what you offer.</li>
+    <li><strong>Overloading with hashtags.</strong> Hashtags do not function as links in a bio and clutter the space.</li>
+    <li><strong>Skipping the call to action.</strong> Without a clear next step, visitors simply move on.</li>
+    <li><strong>Using outdated information.</strong> Old job titles, dead links, or past events confuse visitors.</li>
+    <li><strong>Ignoring mobile formatting.</strong> Most bios are read on a phone screen, so keep lines short and scannable.</li>
+    <li><strong>Copying someone else's bio word for word.</strong> Generic, unoriginal bios blend into the crowd instead of standing out.</li>
+  </ul>
+</section>
+
+<section class="alt-bg">
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <button type="button" class="faq-q">Is this Instagram bio generator completely free?</button>
+    <div class="faq-a"><p>Yes. There is no cost to generate, view, or copy your bios, and you can create as many as you like with no limits.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <button type="button" class="faq-q">Do I need to sign up or create an account?</button>
+    <div class="faq-a"><p>No account or email address is required. Simply fill in the form and generate your bio instantly.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <button type="button" class="faq-q">How many bio variations can I generate?</button>
+    <div class="faq-a"><p>Each click of Generate Bios produces 4 unique variations. You can click Regenerate as many times as you like to see fresh options.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <button type="button" class="faq-q">Will the bios fit within Instagram's character limit?</button>
+    <div class="faq-a"><p>Each generated bio shows a live character count against Instagram's 150 character limit, displayed in green when it fits and red when it exceeds the limit.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <button type="button" class="faq-q">Can I include emojis in my bio?</button>
+    <div class="faq-a"><p>Yes. Toggle the Include Emoji option on or off, and the generator will add niche-appropriate emojis to your bios automatically when enabled.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <button type="button" class="faq-q">What bio styles are available?</button>
+    <div class="faq-a"><p>You can choose from Professional, Creative, Funny/Witty, Minimalist, Aesthetic, Bold & Confident, Inspirational, and Casual & Chill.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <button type="button" class="faq-q">Can I use this for a business account?</button>
+    <div class="faq-a"><p>Absolutely. Select the Business Owner, Entrepreneur, or another relevant niche, and use the Professional or Bold & Confident style for a brand-ready bio.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <button type="button" class="faq-q">How do I copy the generated bio to Instagram?</button>
+    <div class="faq-a"><p>Click the Copy Bio button on any variation, then paste it directly into the bio field of your Instagram profile edit screen.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <button type="button" class="faq-q">Will the bios look good on mobile?</button>
+    <div class="faq-a"><p>Yes. The generated bios use short lines and line breaks designed to display cleanly on the mobile screens most Instagram users browse with.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <button type="button" class="faq-q">Can I customize the generated bios?</button>
+    <div class="faq-a"><p>Yes. After copying a bio, you can edit it freely in Instagram's bio field before saving, using the generated text as a strong starting point.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <button type="button" class="faq-q">Do you save or store my information?</button>
+    <div class="faq-a"><p>No. Everything happens locally in your browser. Your name, keywords, and generated bios are never sent to or stored on any server.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <button type="button" class="faq-q">Can I generate bios for different niches?</button>
+    <div class="faq-a"><p>Yes. Choose from 25 niches including Blogger, Fitness, Fashion, Tech, Photography, Real Estate, and many more, each with its own phrase pool.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <button type="button" class="faq-q">What makes a good Instagram bio?</button>
+    <div class="faq-a"><p>A good bio is clear about who you are, shows a bit of personality, and includes a call to action, all within the 150 character limit.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <button type="button" class="faq-q">How often should I update my Instagram bio?</button>
+    <div class="faq-a"><p>Update your bio whenever your focus, offers, or goals change, or at minimum every few months to keep it fresh and relevant.</p></div>
+  </div>
+
+  <div class="faq-item">
+    <button type="button" class="faq-q">Can I add line breaks to my Instagram bio?</button>
+    <div class="faq-a"><p>Yes. Instagram supports line breaks in bios, and several styles in this generator, such as Creative and Aesthetic, use them by default for a cleaner layout.</p></div>
+  </div>
+
+</section>
+
+<div class="toast" id="toast"></div>
+
+</div><!-- /ibg-wrap -->
+
+<script>
+eval(atob("KGZ1bmN0aW9uKCl7CiAgZnVuY3Rpb24gaW5pdCgpewogICAgdmFyICQgPSBmdW5jdGlvbihpZCl7IHJldHVybiBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChpZCk7IH07CiAgICB2YXIgbmFtZUlucHV0ID0gJCgnbmFtZUlucHV0Jyk7CiAgICB2YXIgbmljaGVTZWxlY3QgPSAkKCduaWNoZVNlbGVjdCcpOwogICAgdmFyIHN0eWxlU2VsZWN0ID0gJCgnc3R5bGVTZWxlY3QnKTsKICAgIHZhciBrZXl3b3Jkc0lucHV0ID0gJCgna2V5d29yZHNJbnB1dCcpOwogICAgdmFyIGVtb2ppVG9nZ2xlID0gJCgnZW1vamlUb2dnbGUnKTsKICAgIHZhciBjdGFUb2dnbGUgPSAkKCdjdGFUb2dnbGUnKTsKICAgIHZhciBjdGFUeXBlID0gJCgnY3RhVHlwZScpOwogICAgdmFyIGxpbmtJbnB1dCA9ICQoJ2xpbmtJbnB1dCcpOwogICAgdmFyIGdlbmVyYXRlQnRuID0gJCgnZ2VuZXJhdGVCdG4nKTsKICAgIHZhciByZWdlbkJ0biA9ICQoJ3JlZ2VuQnRuJyk7CiAgICB2YXIgY2xlYXJCdG4gPSAkKCdjbGVhckJ0bicpOwogICAgdmFyIGN0YUJ0biA9ICQoJ2N0YUJ0bicpOwogICAgdmFyIHJlc3VsdHNXcmFwID0gJCgncmVzdWx0c1dyYXAnKTsKICAgIHZhciByZXN1bHRzR3JpZCA9ICQoJ3Jlc3VsdHNHcmlkJyk7CiAgICB2YXIgdG9hc3QgPSAkKCd0b2FzdCcpOwoKICAgIGlmICghbmFtZUlucHV0IHx8ICFuaWNoZVNlbGVjdCB8fCAhc3R5bGVTZWxlY3QgfHwgIWdlbmVyYXRlQnRuIHx8ICFyZXN1bHRzV3JhcCB8fCAhcmVzdWx0c0dyaWQpIHJldHVybiBmYWxzZTsKCiAgICB2YXIgTklDSEVfREFUQSA9IHsKICAgICAgIkJsb2dnZXIiOiB7IGVtb2ppOiBbIvCfk50iLCLinI3vuI8iLCLwn5OaIiwi8J+SrSJdLCBkZXNjOiBbIlNoYXJpbmcgc3RvcmllcyB3b3J0aCByZWFkaW5nIiwiV3JpdGluZyBteSB3YXkgdGhyb3VnaCBsaWZlIiwiV29yZHMsIHRob3VnaHRzIGFuZCBldmVyeXRoaW5nIGJldHdlZW4iLCJCbG9nZ2luZyBhYm91dCBsaWZlIGFuZCBiZXlvbmQiXSB9LAogICAgICAiQnVzaW5lc3MgT3duZXIiOiB7IGVtb2ppOiBbIvCfkrwiLCLwn5OIIiwi8J+PoiIsIuKcqCJdLCBkZXNjOiBbIkJ1aWxkaW5nIHNvbWV0aGluZyB3b3J0aCB0YWxraW5nIGFib3V0IiwiVHVybmluZyBpZGVhcyBpbnRvIHJlYWxpdHkiLCJTbWFsbCBidXNpbmVzcywgYmlnIGRyZWFtcyIsIk93bmVyLiBEb2VyLiBEcmVhbWVyLiJdIH0sCiAgICAgICJDb250ZW50IENyZWF0b3IiOiB7IGVtb2ppOiBbIvCfjqUiLCLinKgiLCLwn5OxIiwi8J+OrCJdLCBkZXNjOiBbIkNyZWF0aW5nIGNvbnRlbnQgdGhhdCBjb25uZWN0cyIsIk1ha2luZyB0aGluZ3Mgd29ydGggd2F0Y2hpbmciLCJTdG9yeXRlbGxlciBiZWhpbmQgdGhlIHNjcmVlbiIsIkNvbnRlbnQgd2l0aCBhIHB1cnBvc2UiXSB9LAogICAgICAiRGVzaWduZXIiOiB7IGVtb2ppOiBbIvCfjqgiLCLinI/vuI8iLCLwn5aM77iPIiwi8J+SoSJdLCBkZXNjOiBbIkRlc2lnbmluZyBwaXhlbCBieSBwaXhlbCIsIlR1cm5pbmcgaWRlYXMgaW50byB2aXN1YWxzIiwiQ3JlYXRpdmUgZXllLCBzaGFycCBtaW5kIiwiRGVzaWduIHRoYXQgc3BlYWtzIl0gfSwKICAgICAgIkRldmVsb3BlciI6IHsgZW1vamk6IFsi8J+SuyIsIuKaoSIsIvCfmoAiLCLwn5Go4oCN8J+SuyJdLCBkZXNjOiBbIkJ1aWxkaW5nIHRoaW5ncyB0aGF0IHdvcmsiLCJDb2RlIGJ5IGRheSwgY29mZmVlIGFsd2F5cyIsIlR1cm5pbmcgY29mZmVlIGludG8gY29kZSIsIkRlYnVnZ2luZyBsaWZlIG9uZSBsaW5lIGF0IGEgdGltZSJdIH0sCiAgICAgICJFbnRyZXByZW5ldXIiOiB7IGVtb2ppOiBbIvCfmoAiLCLwn5KhIiwi8J+TiiIsIvCflKUiXSwgZGVzYzogWyJCdWlsZGluZyB0aGUgZnV0dXJlLCBvbmUgc3RlcCBhdCBhIHRpbWUiLCJGb3VuZGVyIHdpdGggYSB2aXNpb24iLCJIdXN0bGluZyB0b3dhcmQgdGhlIG5leHQgYmlnIHRoaW5nIiwiVHVybmluZyBpZGVhcyBpbnRvIHZlbnR1cmVzIl0gfSwKICAgICAgIkZhc2hpb24iOiB7IGVtb2ppOiBbIvCfkZciLCLinKgiLCLwn5GgIiwi8J+ShCJdLCBkZXNjOiBbIlN0eWxlIGlzIGEgd2F5IG9mIHNheWluZyB3aG8geW91IGFyZSIsIkZhc2hpb24gZm9yd2FyZCwgYWx3YXlzIiwiQ3VyYXRpbmcgbG9va3MgdGhhdCBsYXN0IiwiVHJlbmRzIGNvbWUgYW5kIGdvLCBzdHlsZSBzdGF5cyJdIH0sCiAgICAgICJGaXRuZXNzIjogeyBlbW9qaTogWyLwn5KqIiwi8J+Pi++4jyIsIvCflKUiLCLwn6WXIl0sIGRlc2M6IFsiU3Ryb25nZXIgZXZlcnkgc2luZ2xlIGRheSIsIlN3ZWF0IG5vdywgc2hpbmUgbGF0ZXIiLCJGaXRuZXNzIGlzIGEgbGlmZXN0eWxlLCBub3QgYSBwaGFzZSIsIkNoYXNpbmcgZ2FpbnMgYW5kIGdvb2QgaGFiaXRzIl0gfSwKICAgICAgIkZvb2QiOiB7IGVtb2ppOiBbIvCfjbQiLCLwn42zIiwi8J+YiyIsIvCfpZgiXSwgZGVzYzogWyJGZWVkaW5nIHlvdXIgZmVlZCBvbmUgYml0ZSBhdCBhIHRpbWUiLCJDb29raW5nIHVwIGdvb2QgdmliZXMiLCJGb29kIGlzIG15IGxvdmUgbGFuZ3VhZ2UiLCJSZWNpcGVzIHdvcnRoIHNhdmluZyJdIH0sCiAgICAgICJGcmVlbGFuY2VyIjogeyBlbW9qaTogWyLwn5K7Iiwi4pyoIiwi8J+TiyIsIvCfjI0iXSwgZGVzYzogWyJGcmVlbGFuY2VyIHdvcmtpbmcgZnJvbSBhbnl3aGVyZSIsIkluZGVwZW5kZW50IGJ5IGNob2ljZSIsIkF2YWlsYWJsZSBmb3IgbmV3IHByb2plY3RzIiwiVHVybmluZyBza2lsbHMgaW50byBmcmVlZG9tIl0gfSwKICAgICAgIkdhbWluZyI6IHsgZW1vamk6IFsi8J+OriIsIvCflbnvuI8iLCLimqEiLCLwn4+GIl0sIGRlc2M6IFsiTGV2ZWxpbmcgdXAgZGFpbHkiLCJHYW1lciBhdCBoZWFydCwgc3RyYXRlZ2lzdCBieSBtaW5kIiwiUGxheWluZyB0byB3aW4sIHN0cmVhbWluZyB0byBzaGFyZSIsIlBpeGVscywgcXVlc3RzIGFuZCBnb29kIHZpYmVzIl0gfSwKICAgICAgIkhlYWx0aCAmIFdlbGxuZXNzIjogeyBlbW9qaTogWyLwn4y/Iiwi8J+nmCIsIvCfkpoiLCLinKgiXSwgZGVzYzogWyJXZWxsbmVzcyBpcyBhIGRhaWx5IHByYWN0aWNlIiwiSGVhbHRoeSBib2R5LCBjYWxtIG1pbmQiLCJMaXZpbmcgaW50ZW50aW9uYWxseSwgb25lIGhhYml0IGF0IGEgdGltZSIsIkJhbGFuY2Ugb3ZlciBwZXJmZWN0aW9uIl0gfSwKICAgICAgIkluZmx1ZW5jZXIiOiB7IGVtb2ppOiBbIuKcqCIsIvCfk7EiLCLwn5KrIiwi8J+MnyJdLCBkZXNjOiBbIlNoYXJpbmcgdGhlIG1vbWVudHMgdGhhdCBtYXR0ZXIiLCJCdWlsZGluZyBhIGNvbW11bml0eSwgbm90IGp1c3QgYSBmb2xsb3dpbmciLCJSZWFsIGxpZmUsIHJlYWwgY29udGVudCIsIkluZmx1ZW5jaW5nIHdpdGggaW50ZW50aW9uIl0gfSwKICAgICAgIk1hcmtldGluZyI6IHsgZW1vamk6IFsi8J+TiiIsIvCfjq8iLCLwn5OIIiwi8J+SoSJdLCBkZXNjOiBbIlR1cm5pbmcgc3RyYXRlZ3kgaW50byByZXN1bHRzIiwiTWFya2V0aW5nIHdpdGggYSBwdXJwb3NlIiwiR3Jvd3RoIG1pbmRlZCwgZGF0YSBkcml2ZW4iLCJJZGVhcyB0aGF0IGNvbnZlcnQiXSB9LAogICAgICAiTXVzaWMiOiB7IGVtb2ppOiBbIvCfjrUiLCLwn46nIiwi8J+OpCIsIvCfjrYiXSwgZGVzYzogWyJNYWtpbmcgbXVzaWMgdGhhdCBtb3ZlcyBwZW9wbGUiLCJTb3VuZCBpcyBteSBsYW5ndWFnZSIsIkNoYXNpbmcgbWVsb2RpZXMgYW5kIG1vbWVudHMiLCJBcnRpc3QgYmVoaW5kIHRoZSBzb3VuZCJdIH0sCiAgICAgICJQaG90b2dyYXBoeSI6IHsgZW1vamk6IFsi8J+TtyIsIuKcqCIsIvCfjIUiLCLwn5a877iPIl0sIGRlc2M6IFsiQ2FwdHVyaW5nIG1vbWVudHMgd29ydGggcmVtZW1iZXJpbmciLCJCZWhpbmQgdGhlIGxlbnMsIGFsd2F5cyBsb29raW5nIiwiTGlnaHQsIHNoYWRvdyBhbmQgZXZlcnl0aGluZyBiZXR3ZWVuIiwiUGhvdG9ncmFwaHkgdGVsbHMgdGhlIHN0b3J5Il0gfSwKICAgICAgIlJlYWwgRXN0YXRlIjogeyBlbW9qaTogWyLwn4+hIiwi8J+UkSIsIvCfk40iLCLwn5K8Il0sIGRlc2M6IFsiSGVscGluZyB5b3UgZmluZCBob21lIiwiUmVhbCBlc3RhdGUgbWFkZSBzaW1wbGUiLCJLZXlzIHRvIHlvdXIgbmV4dCBjaGFwdGVyIiwiVHVybmluZyBsaXN0aW5ncyBpbnRvIGhvbWVzIl0gfSwKICAgICAgIlN0dWRlbnQiOiB7IGVtb2ppOiBbIvCfk5oiLCLwn46TIiwi4pyP77iPIiwi8J+MsSJdLCBkZXNjOiBbIkxlYXJuaW5nIHNvbWV0aGluZyBuZXcgZXZlcnkgZGF5IiwiU3R1ZGVudCBuYXZpZ2F0aW5nIHRoZSBqb3VybmV5IiwiQm9va3MsIGRyZWFtcyBhbmQgYmlnIGdvYWxzIiwiQ3VycmVudGx5IGZpZ3VyaW5nIGl0IG91dCJdIH0sCiAgICAgICJUZWFjaGVyIjogeyBlbW9qaTogWyLwn5OaIiwi8J+NjiIsIuKcj++4jyIsIvCfjJ8iXSwgZGVzYzogWyJUZWFjaGluZywgbGVhcm5pbmcgYW5kIGdyb3dpbmcgdG9nZXRoZXIiLCJTaGFwaW5nIG1pbmRzIG9uZSBsZXNzb24gYXQgYSB0aW1lIiwiRWR1Y2F0b3Igd2l0aCBhIHBhc3Npb24gZm9yIGdyb3d0aCIsIkluc3BpcmluZyB0aGUgbmV4dCBnZW5lcmF0aW9uIl0gfSwKICAgICAgIlRyYXZlbCI6IHsgZW1vamk6IFsi4pyI77iPIiwi8J+MjSIsIvCfp7MiLCLwn5e677iPIl0sIGRlc2M6IFsiQ29sbGVjdGluZyBwbGFjZXMsIG5vdCB0aGluZ3MiLCJXYW5kZXJpbmcgdGhlIHdvcmxkIG9uZSB0cmlwIGF0IGEgdGltZSIsIlRyYXZlbCBpcyBteSB0aGVyYXB5IiwiUGFzc3BvcnQgZnVsbCwgaGVhcnQgZnVsbGVyIl0gfSwKICAgICAgIlRlY2giOiB7IGVtb2ppOiBbIvCfkrsiLCLimpnvuI8iLCLwn5qAIiwi8J+UpyJdLCBkZXNjOiBbIkV4cGxvcmluZyB3aGF0J3MgbmV4dCBpbiB0ZWNoIiwiQ3VyaW91cyBhYm91dCBhbGwgdGhpbmdzIHRlY2hub2xvZ3kiLCJCdWlsZGluZyB0aGUgZnV0dXJlIHdpdGggY29kZSBhbmQgaWRlYXMiLCJUZWNoIGVudGh1c2lhc3QgYW5kIGxpZmVsb25nIGxlYXJuZXIiXSB9LAogICAgICAiV3JpdGVyIjogeyBlbW9qaTogWyLinI3vuI8iLCLwn5OWIiwi8J+TnSIsIvCfkq0iXSwgZGVzYzogWyJUZWxsaW5nIHN0b3JpZXMgd29ydGggcmVhZGluZyIsIldvcmRzIGFyZSBteSBjcmFmdCIsIldyaXRlciBjaGFzaW5nIHRoZSBwZXJmZWN0IHNlbnRlbmNlIiwiVHVybmluZyB0aG91Z2h0cyBpbnRvIHN0b3JpZXMiXSB9LAogICAgICAiQXJ0aXN0IjogeyBlbW9qaTogWyLwn46oIiwi8J+WjO+4jyIsIuKcqCIsIvCflrzvuI8iXSwgZGVzYzogWyJDcmVhdGluZyBvbmUgcGllY2UgYXQgYSB0aW1lIiwiQXJ0IGlzIGhvdyBJIHNlZSB0aGUgd29ybGQiLCJUdXJuaW5nIGltYWdpbmF0aW9uIGludG8gcmVhbGl0eSIsIlBhaW50ZXIgb2YgbW9tZW50cyBhbmQgbW9vZHMiXSB9LAogICAgICAiQ29hY2giOiB7IGVtb2ppOiBbIvCfjq8iLCLwn5KqIiwi8J+MnyIsIvCfk4giXSwgZGVzYzogWyJIZWxwaW5nIHlvdSBiZWNvbWUgeW91ciBiZXN0IHNlbGYiLCJDb2FjaCBjb21taXR0ZWQgdG8geW91ciBncm93dGgiLCJHdWlkaW5nIHlvdSB0b3dhcmQgeW91ciBnb2FscyIsIlR1cm5pbmcgcG90ZW50aWFsIGludG8gcHJvZ3Jlc3MiXSB9LAogICAgICAiT3RoZXIiOiB7IGVtb2ppOiBbIuKcqCIsIvCfjJ8iLCLwn5KrIiwi8J+UpSJdLCBkZXNjOiBbIkxpdmluZyBsaWZlIG9uIG15IG93biB0ZXJtcyIsIkp1c3QgaGVyZSBkb2luZyBteSB0aGluZyIsIk1ha2luZyB0aGUgbW9zdCBvZiBldmVyeSBkYXkiLCJIZXJlIGZvciBnb29kIHZpYmVzIGFuZCByZWFsIG1vbWVudHMiXSB9CiAgICB9OwoKICAgIHZhciBDVEFfVEVYVCA9IHsKICAgICAgIkxpbmsgaW4gQmlvIjogIkxpbmsgaW4gYmlvIiwKICAgICAgIkRNIGZvciBDb2xsYWJzIjogIkRNIGZvciBjb2xsYWJzIiwKICAgICAgIlNob3AgTm93IjogIlNob3Agbm93IiwKICAgICAgIkJvb2sgTm93IjogIkJvb2sgbm93IiwKICAgICAgIkZvbGxvdyBmb3IgTW9yZSI6ICJGb2xsb3cgZm9yIG1vcmUiLAogICAgICAiU3Vic2NyaWJlIjogIlN1YnNjcmliZSBiZWxvdyIsCiAgICAgICJDb250YWN0IE1lIjogIkNvbnRhY3QgbWUiCiAgICB9OwoKICAgIHZhciBDVEFfQVJST1dTID0gWyLwn5GHIiwi4p6h77iPIiwi8J+UlyJdOwoKICAgIGZ1bmN0aW9uIHBpY2soYXJyKXsgcmV0dXJuIGFycltNYXRoLmZsb29yKE1hdGgucmFuZG9tKCkgKiBhcnIubGVuZ3RoKV07IH0KCiAgICBmdW5jdGlvbiBzaHVmZmxlKGFycil7CiAgICAgIHZhciBhID0gYXJyLnNsaWNlKCk7CiAgICAgIGZvciAodmFyIGkgPSBhLmxlbmd0aCAtIDE7IGkgPiAwOyBpLS0pewogICAgICAgIHZhciBqID0gTWF0aC5mbG9vcihNYXRoLnJhbmRvbSgpICogKGkgKyAxKSk7CiAgICAgICAgdmFyIHQgPSBhW2ldOyBhW2ldID0gYVtqXTsgYVtqXSA9IHQ7CiAgICAgIH0KICAgICAgcmV0dXJuIGE7CiAgICB9CgogICAgZnVuY3Rpb24gZ2V0S2V5d29yZHMoKXsKICAgICAgdmFyIHJhdyA9IGtleXdvcmRzSW5wdXQudmFsdWUudHJpbSgpOwogICAgICBpZiAoIXJhdykgcmV0dXJuIFtdOwogICAgICB2YXIgcGFydHMgPSByYXcuc3BsaXQoJywnKTsKICAgICAgdmFyIG91dCA9IFtdOwogICAgICBmb3IgKHZhciBpID0gMDsgaSA8IHBhcnRzLmxlbmd0aDsgaSsrKXsKICAgICAgICB2YXIgcCA9IHBhcnRzW2ldLnRyaW0oKTsKICAgICAgICBpZiAocCkgb3V0LnB1c2gocCk7CiAgICAgIH0KICAgICAgcmV0dXJuIG91dDsKICAgIH0KCiAgICBmdW5jdGlvbiBjYXBpdGFsaXplKHMpewogICAgICBpZiAoIXMpIHJldHVybiBzOwogICAgICByZXR1cm4gcy5jaGFyQXQoMCkudG9VcHBlckNhc2UoKSArIHMuc2xpY2UoMSk7CiAgICB9CgogICAgZnVuY3Rpb24gY3RhTGluZSgpewogICAgICBpZiAoIWN0YVRvZ2dsZS5jaGVja2VkKSByZXR1cm4gJyc7CiAgICAgIHZhciB0eXBlID0gY3RhVHlwZS52YWx1ZSB8fCAnTGluayBpbiBCaW8nOwogICAgICB2YXIgdGV4dCA9IENUQV9URVhUW3R5cGVdIHx8ICdMaW5rIGluIGJpbyc7CiAgICAgIHZhciBhcnJvdyA9IGVtb2ppVG9nZ2xlLmNoZWNrZWQgPyAoJyAnICsgcGljayhDVEFfQVJST1dTKSkgOiAnJzsKICAgICAgaWYgKGxpbmtJbnB1dC52YWx1ZS50cmltKCkgJiYgdHlwZSA9PT0gJ0xpbmsgaW4gQmlvJyl7CiAgICAgICAgcmV0dXJuIHRleHQgKyBhcnJvdzsKICAgICAgfQogICAgICByZXR1cm4gdGV4dCArIGFycm93OwogICAgfQoKICAgIGZ1bmN0aW9uIGdldERhdGEoKXsKICAgICAgdmFyIG5hbWUgPSBuYW1lSW5wdXQudmFsdWUudHJpbSgpIHx8ICdZb3VyIE5hbWUnOwogICAgICB2YXIgbmljaGUgPSBuaWNoZVNlbGVjdC52YWx1ZSB8fCAnT3RoZXInOwogICAgICB2YXIgc3R5bGUgPSBzdHlsZVNlbGVjdC52YWx1ZSB8fCAnUHJvZmVzc2lvbmFsJzsKICAgICAgdmFyIGtleXdvcmRzID0gZ2V0S2V5d29yZHMoKTsKICAgICAgdmFyIG5pY2hlSW5mbyA9IE5JQ0hFX0RBVEFbbmljaGVdIHx8IE5JQ0hFX0RBVEFbJ090aGVyJ107CiAgICAgIHJldHVybiB7IG5hbWU6IG5hbWUsIG5pY2hlOiBuaWNoZSwgc3R5bGU6IHN0eWxlLCBrZXl3b3Jkczoga2V5d29yZHMsIG5pY2hlSW5mbzogbmljaGVJbmZvIH07CiAgICB9CgogICAgZnVuY3Rpb24gZW0obmljaGVJbmZvLCB1c2VFbW9qaSl7CiAgICAgIGlmICghdXNlRW1vamkpIHJldHVybiAnJzsKICAgICAgcmV0dXJuIHBpY2sobmljaGVJbmZvLmVtb2ppKTsKICAgIH0KCiAgICAvLyAtLS0tLS0tLS0tIFN0eWxlIGJ1aWxkZXJzIC0tLS0tLS0tLS0KICAgIC8vIEVhY2ggcmV0dXJucyBhbiBhcnJheSBvZiBjYW5kaWRhdGUgYmlvIHN0cmluZ3MgKGJlZm9yZSBDVEEgYXBwZW5kZWQpCgogICAgZnVuY3Rpb24gYnVpbGRQcm9mZXNzaW9uYWwoZCwgdXNlRW1vamkpewogICAgICB2YXIgZGVzYyA9IHNodWZmbGUoZC5uaWNoZUluZm8uZGVzYyk7CiAgICAgIHZhciBlID0gdXNlRW1vamkgPyBlbShkLm5pY2hlSW5mbywgdHJ1ZSkgKyAnICcgOiAnJzsKICAgICAgdmFyIGt3ID0gZC5rZXl3b3Jkcy5sZW5ndGggPyBjYXBpdGFsaXplKGQua2V5d29yZHNbMF0pIDogZC5uaWNoZTsKICAgICAgdmFyIG91dCA9IFtdOwogICAgICBvdXQucHVzaChlICsgZC5uYW1lICsgJyB8ICcgKyBkLm5pY2hlICsgJyB8ICcgKyBkZXNjWzBdKTsKICAgICAgb3V0LnB1c2goZSArIGQubmljaGUgKyAnIHwgJyArIGQubmFtZSArICcgfCBTcGVjaWFsaXNpbmcgaW4gJyArIGt3LnRvTG93ZXJDYXNlKCkpOwogICAgICBvdXQucHVzaChlICsgZC5uYW1lICsgJyB8ICcgKyBjYXBpdGFsaXplKGt3KSArICcgfCAnICsgZGVzY1sxICUgZGVzYy5sZW5ndGhdKTsKICAgICAgb3V0LnB1c2goZSArIGQubmljaGUgKyAnIGJhc2VkIGhlcmUgfCAnICsgZGVzY1syICUgZGVzYy5sZW5ndGhdICsgJyB8ICcgKyBkLm5hbWUpOwogICAgICBvdXQucHVzaChlICsgZC5uYW1lICsgJywgJyArIGQubmljaGUgKyAnIHwgJyArIChkLmtleXdvcmRzLmxlbmd0aCA/IGQua2V5d29yZHMuam9pbignLCAnKSA6IGRlc2NbMyAlIGRlc2MubGVuZ3RoXSkpOwogICAgICBvdXQucHVzaChlICsgJ1Byb2Zlc3Npb25hbCAnICsgZC5uaWNoZSArICcgfCAnICsgZC5uYW1lICsgJyB8ICcgKyBkZXNjWzBdKTsKICAgICAgcmV0dXJuIG91dDsKICAgIH0KCiAgICBmdW5jdGlvbiBidWlsZENyZWF0aXZlKGQsIHVzZUVtb2ppKXsKICAgICAgdmFyIGRlc2MgPSBzaHVmZmxlKGQubmljaGVJbmZvLmRlc2MpOwogICAgICB2YXIgZTEgPSB1c2VFbW9qaSA/IGVtKGQubmljaGVJbmZvLCB0cnVlKSArICcgJyA6ICcnOwogICAgICB2YXIgZTIgPSB1c2VFbW9qaSA/ICcgJyArIGVtKGQubmljaGVJbmZvLCB0cnVlKSA6ICcnOwogICAgICB2YXIga3dMaW5lID0gZC5rZXl3b3Jkcy5sZW5ndGggPyBkLmtleXdvcmRzLm1hcChjYXBpdGFsaXplKS5qb2luKCcg4oCiICcpIDogZGVzY1sxICUgZGVzYy5sZW5ndGhdOwogICAgICB2YXIgb3V0ID0gW107CiAgICAgIG91dC5wdXNoKGUxICsgZC5uYW1lICsgJ1xuJyArIGRlc2NbMF0gKyBlMiArICdcbicgKyBrd0xpbmUpOwogICAgICBvdXQucHVzaChkLm5hbWUgKyBlMiArICdcbicgKyBkLm5pY2hlICsgJyB3aXRoIGEgc3RvcnkgdG8gdGVsbFxuJyArIGRlc2NbMSAlIGRlc2MubGVuZ3RoXSk7CiAgICAgIG91dC5wdXNoKGUxICsgZGVzY1syICUgZGVzYy5sZW5ndGhdICsgJ1xuJyArIGQubmFtZSArICcg4oCiICcgKyBkLm5pY2hlICsgJ1xuJyArIGt3TGluZSk7CiAgICAgIG91dC5wdXNoKGQubmFtZSArICdcbicgKyBlMSArIGt3TGluZSArICdcbicgKyBkZXNjWzMgJSBkZXNjLmxlbmd0aF0pOwogICAgICBvdXQucHVzaChlMSArIGQubmljaGUgKyAnIHN0b3J5dGVsbGVyXG4nICsgZC5uYW1lICsgJ1xuJyArIGRlc2NbMF0pOwogICAgICBvdXQucHVzaChkZXNjWzEgJSBkZXNjLmxlbmd0aF0gKyBlMiArICdcbicgKyBkLm5hbWUgKyAnIHwgJyArIGQubmljaGUgKyAnXG4nICsga3dMaW5lKTsKICAgICAgcmV0dXJuIG91dDsKICAgIH0KCiAgICBmdW5jdGlvbiBidWlsZEZ1bm55KGQsIHVzZUVtb2ppKXsKICAgICAgdmFyIGUgPSB1c2VFbW9qaSA/IGVtKGQubmljaGVJbmZvLCB0cnVlKSArICcgJyA6ICcnOwogICAgICB2YXIga3cgPSBkLmtleXdvcmRzLmxlbmd0aCA/IGQua2V5d29yZHNbMF0gOiAnc25hY2tzJzsKICAgICAgdmFyIG91dCA9IFtdOwogICAgICBvdXQucHVzaChlICsgZC5uYW1lICsgJyB8IFByb2Zlc3Npb25hbCAnICsgZC5uaWNoZS50b0xvd2VyQ2FzZSgpICsgJywgYW1hdGV1ciBhZHVsdCcpOwogICAgICBvdXQucHVzaChlICsgJzkwJSAnICsgZC5uaWNoZS50b0xvd2VyQ2FzZSgpICsgJywgMTAlICcgKyBrdyArICcsIDEwMCUgY2hhb3MnKTsKICAgICAgb3V0LnB1c2goZSArIGQubmFtZSArICcgaGVyZSwgcG93ZXJlZCBieSAnICsga3cgKyAnIGFuZCBxdWVzdGlvbmFibGUgZGVjaXNpb25zJyk7CiAgICAgIG91dC5wdXNoKGUgKyAnSnVzdCBhICcgKyBkLm5pY2hlLnRvTG93ZXJDYXNlKCkgKyAnIHRyeWluZyB0byBmaWd1cmUgb3V0IGNhcHRpb25zIHRvbycpOwogICAgICBvdXQucHVzaChlICsgZC5uYW1lICsgJyB8IFNlbmQgaGVscCwgc25hY2tzLCBvciAnICsga3cpOwogICAgICBvdXQucHVzaChlICsgJ0NlcnRpZmllZCAnICsgZC5uaWNoZS50b0xvd2VyQ2FzZSgpICsgJy4gTm90IGNlcnRpZmllZCB0byBhZHVsdCcpOwogICAgICByZXR1cm4gb3V0OwogICAgfQoKICAgIGZ1bmN0aW9uIGJ1aWxkTWluaW1hbGlzdChkLCB1c2VFbW9qaSl7CiAgICAgIHZhciBlID0gdXNlRW1vamkgPyBlbShkLm5pY2hlSW5mbywgdHJ1ZSkgOiAnJzsKICAgICAgdmFyIGt3ID0gZC5rZXl3b3Jkcy5sZW5ndGggPyBkLmtleXdvcmRzWzBdIDogZC5uaWNoZTsKICAgICAgdmFyIG91dCA9IFtdOwogICAgICBvdXQucHVzaChkLm5hbWUgKyAoZSA/ICcgJyArIGUgOiAnJykpOwogICAgICBvdXQucHVzaChkLm5pY2hlICsgKGUgPyAnICcgKyBlIDogJycpKTsKICAgICAgb3V0LnB1c2goZC5uYW1lICsgJ1xuJyArIGQubmljaGUpOwogICAgICBvdXQucHVzaChjYXBpdGFsaXplKGt3KSArIChlID8gJyAnICsgZSA6ICcnKSk7CiAgICAgIG91dC5wdXNoKGQubmFtZSArICcgwrcgJyArIGQubmljaGUpOwogICAgICBvdXQucHVzaCgoZSA/IGUgKyAnICcgOiAnJykgKyBkLm5pY2hlICsgJ1xuJyArIGNhcGl0YWxpemUoa3cpKTsKICAgICAgcmV0dXJuIG91dDsKICAgIH0KCiAgICBmdW5jdGlvbiBidWlsZEFlc3RoZXRpYyhkLCB1c2VFbW9qaSl7CiAgICAgIHZhciBkZXNjID0gc2h1ZmZsZShkLm5pY2hlSW5mby5kZXNjKTsKICAgICAgdmFyIGUgPSB1c2VFbW9qaSA/IGVtKGQubmljaGVJbmZvLCB0cnVlKSA6ICfinKcnOwogICAgICB2YXIgc2VwID0gcGljayhbJ+KLhu+9ocKw4pypJywgJ+KcpiDinKYg4pymJywgJ+KKuSDiirkg4oq5JywgJ8uaIOC8mCDgs4AnXSk7CiAgICAgIHZhciBrdyA9IGQua2V5d29yZHMubGVuZ3RoID8gZC5rZXl3b3Jkcy5tYXAoY2FwaXRhbGl6ZSkuam9pbignIC4gJykgOiBkZXNjWzBdOwogICAgICB2YXIgb3V0ID0gW107CiAgICAgIG91dC5wdXNoKGUgKyAnICcgKyBkLm5hbWUgKyAnXG4nICsgc2VwICsgJ1xuJyArIGRlc2NbMF0udG9Mb3dlckNhc2UoKSk7CiAgICAgIG91dC5wdXNoKGQubmFtZSArICdcbicgKyBkLm5pY2hlLnRvTG93ZXJDYXNlKCkgKyAnXG4nICsgc2VwICsgJ1xuJyArIGt3LnRvTG93ZXJDYXNlKCkpOwogICAgICBvdXQucHVzaChzZXAgKyAnXG4nICsgZSArICcgJyArIGQubmFtZSArICcgJyArIGUgKyAnXG4nICsgZGVzY1sxICUgZGVzYy5sZW5ndGhdLnRvTG93ZXJDYXNlKCkpOwogICAgICBvdXQucHVzaChkLm5hbWUgKyAnICcgKyBlICsgJ1xuJyArIGt3LnRvTG93ZXJDYXNlKCkgKyAnXG4nICsgc2VwKTsKICAgICAgb3V0LnB1c2goZSArICcgJyArIGRlc2NbMiAlIGRlc2MubGVuZ3RoXS50b0xvd2VyQ2FzZSgpICsgJyAnICsgZSArICdcbicgKyBkLm5hbWUpOwogICAgICBvdXQucHVzaChzZXAgKyAnXG4nICsgZC5uYW1lICsgJ1xuJyArIGQubmljaGUudG9Mb3dlckNhc2UoKSArICcgLiAnICsga3cudG9Mb3dlckNhc2UoKSk7CiAgICAgIHJldHVybiBvdXQ7CiAgICB9CgogICAgZnVuY3Rpb24gYnVpbGRCb2xkKGQsIHVzZUVtb2ppKXsKICAgICAgdmFyIGUgPSB1c2VFbW9qaSA/IGVtKGQubmljaGVJbmZvLCB0cnVlKSArICcgJyA6ICcnOwogICAgICB2YXIga3cgPSBkLmtleXdvcmRzLmxlbmd0aCA/IGNhcGl0YWxpemUoZC5rZXl3b3Jkc1swXSkgOiBkLm5pY2hlOwogICAgICB2YXIgb3V0ID0gW107CiAgICAgIG91dC5wdXNoKGUgKyBkLm5hbWUudG9VcHBlckNhc2UoKSArICcgfCAnICsgZC5uaWNoZS50b1VwcGVyQ2FzZSgpICsgJyEnKTsKICAgICAgb3V0LnB1c2goZSArICdVbnN0b3BwYWJsZSAnICsgZC5uaWNoZSArICcuIFRoaXMgaXMgJyArIGQubmFtZSArICchJyk7CiAgICAgIG91dC5wdXNoKGUgKyBkLm5hbWUgKyAnIHwgQnVpbHQgZGlmZmVyZW50LiBCdWlsdCAnICsga3cgKyAnIScpOwogICAgICBvdXQucHVzaChlICsgJ05vIGV4Y3VzZXMsIGp1c3QgcmVzdWx0cyB8ICcgKyBkLm5hbWUgKyAnLCAnICsgZC5uaWNoZSArICchJyk7CiAgICAgIG91dC5wdXNoKGUgKyBkLm5pY2hlLnRvVXBwZXJDYXNlKCkgKyAnIE9OIEEgTUlTU0lPTiB8ICcgKyBkLm5hbWUgKyAnIScpOwogICAgICBvdXQucHVzaChlICsgZC5uYW1lICsgJyB8IE93bmluZyAnICsgZC5uaWNoZS50b0xvd2VyQ2FzZSgpICsgJywgdW5hcG9sb2dldGljYWxseSEnKTsKICAgICAgcmV0dXJuIG91dDsKICAgIH0KCiAgICBmdW5jdGlvbiBidWlsZEluc3BpcmF0aW9uYWwoZCwgdXNlRW1vamkpewogICAgICB2YXIgZSA9IHVzZUVtb2ppID8gZW0oZC5uaWNoZUluZm8sIHRydWUpICsgJyAnIDogJyc7CiAgICAgIHZhciBrdyA9IGQua2V5d29yZHMubGVuZ3RoID8gZC5rZXl3b3Jkc1swXSA6ICdwdXJwb3NlJzsKICAgICAgdmFyIG91dCA9IFtdOwogICAgICBvdXQucHVzaChlICsgJyJEcmVhbSBpdCwgYnVpbGQgaXQsIGxpdmUgaXQiXG4nICsgZC5uYW1lICsgJyB8ICcgKyBkLm5pY2hlKTsKICAgICAgb3V0LnB1c2goZC5uYW1lICsgJ1xuJyArIGUgKyAnR3Jvd2luZyBhIGxpdHRsZSBldmVyeSBkYXlcbkRyaXZlbiBieSAnICsga3cpOwogICAgICBvdXQucHVzaChlICsgJ1Byb2dyZXNzIG92ZXIgcGVyZmVjdGlvblxuJyArIGQubmFtZSArICcsICcgKyBkLm5pY2hlKTsKICAgICAgb3V0LnB1c2goJyJTbWFsbCBzdGVwcywgYmlnIGpvdXJuZXkiXG4nICsgZSArIGQubmFtZSk7CiAgICAgIG91dC5wdXNoKGQubmljaGUgKyAnIHdpdGggaGVhcnQgJyArIGUgKyAnXG4nICsgZC5uYW1lICsgJ1xuSGVyZSBmb3IgdGhlICcgKyBrdyk7CiAgICAgIG91dC5wdXNoKGUgKyAnVHVybmluZyBkcmVhbXMgaW50byBkYWlseSBoYWJpdHNcbicgKyBkLm5hbWUgKyAnIHwgJyArIGQubmljaGUpOwogICAgICByZXR1cm4gb3V0OwogICAgfQoKICAgIGZ1bmN0aW9uIGJ1aWxkQ2FzdWFsKGQsIHVzZUVtb2ppKXsKICAgICAgdmFyIGUgPSB1c2VFbW9qaSA/IGVtKGQubmljaGVJbmZvLCB0cnVlKSArICcgJyA6ICcnOwogICAgICB2YXIga3cgPSBkLmtleXdvcmRzLmxlbmd0aCA/IGQua2V5d29yZHNbMF0gOiAnZ29vZCB2aWJlcyc7CiAgICAgIHZhciBvdXQgPSBbXTsKICAgICAgb3V0LnB1c2goZSArICdoZXksIGl0XCdzICcgKyBkLm5hbWUgKyAnIDopIGludG8gJyArIGQubmljaGUudG9Mb3dlckNhc2UoKSArICcgYW5kICcgKyBrdyk7CiAgICAgIG91dC5wdXNoKGQubmFtZSArICcgaGVyZSAnICsgZSArICdcbmp1c3QgdmliaW5nIHRocm91Z2ggJyArIGQubmljaGUudG9Mb3dlckNhc2UoKSk7CiAgICAgIG91dC5wdXNoKGUgKyBkLm5pY2hlICsgJyBzdHVmZiwgbW9zdGx5ICcgKyBrdyArICcsIG9jY2FzaW9uYWxseSBjaGFvcycpOwogICAgICBvdXQucHVzaCgnaGksICcgKyBkLm5hbWUgKyAnICcgKyBlICsgJ1xuJyArIGQubmljaGUudG9Mb3dlckNhc2UoKSArICcgKyAnICsga3cgKyAnLCB0aGF0XCdzIGFib3V0IGl0Jyk7CiAgICAgIG91dC5wdXNoKGUgKyAnanVzdCBoZXJlIGZvciB0aGUgJyArIGt3ICsgJyBhbmQgdGhlICcgKyBkLm5pY2hlLnRvTG93ZXJDYXNlKCkgKyAnIGxpZmUnKTsKICAgICAgb3V0LnB1c2goZC5uYW1lICsgJyAnICsgZSArICdcbm5vIGNhcCwganVzdCAnICsgZC5uaWNoZS50b0xvd2VyQ2FzZSgpICsgJyBhbmQgZ29vZCB2aWJlcycpOwogICAgICByZXR1cm4gb3V0OwogICAgfQoKICAgIHZhciBTVFlMRV9CVUlMREVSUyA9IHsKICAgICAgIlByb2Zlc3Npb25hbCI6IGJ1aWxkUHJvZmVzc2lvbmFsLAogICAgICAiQ3JlYXRpdmUiOiBidWlsZENyZWF0aXZlLAogICAgICAiRnVubnkvV2l0dHkiOiBidWlsZEZ1bm55LAogICAgICAiTWluaW1hbGlzdCI6IGJ1aWxkTWluaW1hbGlzdCwKICAgICAgIkFlc3RoZXRpYyI6IGJ1aWxkQWVzdGhldGljLAogICAgICAiQm9sZCAmIENvbmZpZGVudCI6IGJ1aWxkQm9sZCwKICAgICAgIkluc3BpcmF0aW9uYWwiOiBidWlsZEluc3BpcmF0aW9uYWwsCiAgICAgICJDYXN1YWwgJiBDaGlsbCI6IGJ1aWxkQ2FzdWFsCiAgICB9OwoKICAgIGZ1bmN0aW9uIGdlbmVyYXRlQmlvcygpewogICAgICB2YXIgZCA9IGdldERhdGEoKTsKICAgICAgdmFyIHVzZUVtb2ppID0gISFlbW9qaVRvZ2dsZS5jaGVja2VkOwogICAgICB2YXIgYnVpbGRlciA9IFNUWUxFX0JVSUxERVJTW2Quc3R5bGVdIHx8IGJ1aWxkUHJvZmVzc2lvbmFsOwogICAgICB2YXIgY2FuZGlkYXRlcyA9IHNodWZmbGUoYnVpbGRlcihkLCB1c2VFbW9qaSkpOwogICAgICB2YXIgY3RhID0gY3RhTGluZSgpOwogICAgICB2YXIgY2hvc2VuID0gY2FuZGlkYXRlcy5zbGljZSgwLCA0KTsKICAgICAgdmFyIGJpb3MgPSBbXTsKICAgICAgZm9yICh2YXIgaSA9IDA7IGkgPCBjaG9zZW4ubGVuZ3RoOyBpKyspewogICAgICAgIHZhciBiaW8gPSBjaG9zZW5baV07CiAgICAgICAgaWYgKGN0YSl7CiAgICAgICAgICBiaW8gPSBiaW8gKyAnXG4nICsgY3RhOwogICAgICAgIH0KICAgICAgICBiaW9zLnB1c2goYmlvKTsKICAgICAgfQogICAgICByZXR1cm4gYmlvczsKICAgIH0KCiAgICBmdW5jdGlvbiBlc2Mocyl7CiAgICAgIGlmICghcykgcmV0dXJuICcnOwogICAgICByZXR1cm4gU3RyaW5nKHMpLnJlcGxhY2UoLyYvZywnJmFtcDsnKS5yZXBsYWNlKC88L2csJyZsdDsnKS5yZXBsYWNlKC8+L2csJyZndDsnKTsKICAgIH0KCiAgICBmdW5jdGlvbiByZW5kZXJSZXN1bHRzKGJpb3MpewogICAgICB2YXIgaHRtbCA9ICcnOwogICAgICBmb3IgKHZhciBpID0gMDsgaSA8IGJpb3MubGVuZ3RoOyBpKyspewogICAgICAgIHZhciBsZW4gPSBiaW9zW2ldLmxlbmd0aDsKICAgICAgICB2YXIgY2xzID0gbGVuIDw9IDE1MCA/ICdvaycgOiAnb3Zlcic7CiAgICAgICAgaHRtbCArPSAnPGRpdiBjbGFzcz0iYmlvLWNhcmQiPic7CiAgICAgICAgaHRtbCArPSAnPGRpdiBjbGFzcz0iYmlvLWhlYWQiPjxzcGFuIGNsYXNzPSJiaW8tbnVtIj5WYXJpYXRpb24gJyArIChpICsgMSkgKyAnPC9zcGFuPic7CiAgICAgICAgaHRtbCArPSAnPHNwYW4gY2xhc3M9ImNoYXItY291bnQgJyArIGNscyArICciPicgKyBsZW4gKyAnIC8gMTUwPC9zcGFuPjwvZGl2Pic7CiAgICAgICAgaHRtbCArPSAnPGRpdiBjbGFzcz0iYmlvLXRleHQiPicgKyBlc2MoYmlvc1tpXSkgKyAnPC9kaXY+JzsKICAgICAgICBodG1sICs9ICc8YnV0dG9uIHR5cGU9ImJ1dHRvbiIgY2xhc3M9ImJ0biBidG4tY29weS1iaW8iIGRhdGEtaWR4PSInICsgaSArICciPkNvcHkgQmlvPC9idXR0b24+JzsKICAgICAgICBodG1sICs9ICc8L2Rpdj4nOwogICAgICB9CiAgICAgIHJlc3VsdHNHcmlkLmlubmVySFRNTCA9IGh0bWw7CiAgICAgIHJlc3VsdHNXcmFwLnN0eWxlLmRpc3BsYXkgPSAnYmxvY2snOwoKICAgICAgdmFyIGNvcHlCdG5zID0gcmVzdWx0c0dyaWQucXVlcnlTZWxlY3RvckFsbCgnLmJ0bi1jb3B5LWJpbycpOwogICAgICBmb3IgKHZhciBqID0gMDsgaiA8IGNvcHlCdG5zLmxlbmd0aDsgaisrKXsKICAgICAgICAoZnVuY3Rpb24oYnRuKXsKICAgICAgICAgIGJ0bi5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsIGZ1bmN0aW9uKCl7CiAgICAgICAgICAgIHZhciBpZHggPSBwYXJzZUludChidG4uZ2V0QXR0cmlidXRlKCdkYXRhLWlkeCcpLCAxMCk7CiAgICAgICAgICAgIGNvcHlUZXh0KGJpb3NbaWR4XSk7CiAgICAgICAgICB9KTsKICAgICAgICB9KShjb3B5QnRuc1tqXSk7CiAgICAgIH0KICAgIH0KCiAgICBmdW5jdGlvbiBzaG93VG9hc3QobXNnKXsKICAgICAgaWYgKCF0b2FzdCkgcmV0dXJuOwogICAgICB0b2FzdC50ZXh0Q29udGVudCA9IG1zZzsKICAgICAgdG9hc3QuY2xhc3NMaXN0LmFkZCgnc2hvdycpOwogICAgICBzZXRUaW1lb3V0KGZ1bmN0aW9uKCl7IHRvYXN0LmNsYXNzTGlzdC5yZW1vdmUoJ3Nob3cnKTsgfSwgMjIwMCk7CiAgICB9CgogICAgZnVuY3Rpb24gY29weVRleHQodGV4dCl7CiAgICAgIGlmIChuYXZpZ2F0b3IuY2xpcGJvYXJkICYmIG5hdmlnYXRvci5jbGlwYm9hcmQud3JpdGVUZXh0KXsKICAgICAgICBuYXZpZ2F0b3IuY2xpcGJvYXJkLndyaXRlVGV4dCh0ZXh0KS50aGVuKGZ1bmN0aW9uKCl7IHNob3dUb2FzdCgnQmlvIGNvcGllZCB0byBjbGlwYm9hcmQnKTsgfSwgZnVuY3Rpb24oKXsgZmFsbGJhY2tDb3B5KHRleHQpOyB9KTsKICAgICAgfSBlbHNlIHsKICAgICAgICBmYWxsYmFja0NvcHkodGV4dCk7CiAgICAgIH0KICAgIH0KCiAgICBmdW5jdGlvbiBmYWxsYmFja0NvcHkodGV4dCl7CiAgICAgIHZhciB0YSA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ3RleHRhcmVhJyk7CiAgICAgIHRhLnZhbHVlID0gdGV4dDsKICAgICAgdGEuc3R5bGUucG9zaXRpb24gPSAnZml4ZWQnOwogICAgICB0YS5zdHlsZS5sZWZ0ID0gJy05OTk5cHgnOwogICAgICBkb2N1bWVudC5ib2R5LmFwcGVuZENoaWxkKHRhKTsKICAgICAgdGEuZm9jdXMoKTsKICAgICAgdGEuc2VsZWN0KCk7CiAgICAgIHRyeSB7IGRvY3VtZW50LmV4ZWNDb21tYW5kKCdjb3B5Jyk7IHNob3dUb2FzdCgnQmlvIGNvcGllZCB0byBjbGlwYm9hcmQnKTsgfSBjYXRjaChlKXsgc2hvd1RvYXN0KCdDb3B5IGZhaWxlZCwgcGxlYXNlIHNlbGVjdCBhbmQgY29weSBtYW51YWxseScpOyB9CiAgICAgIGRvY3VtZW50LmJvZHkucmVtb3ZlQ2hpbGQodGEpOwogICAgfQoKICAgIGZ1bmN0aW9uIGRvR2VuZXJhdGUoKXsKICAgICAgdmFyIGJpb3MgPSBnZW5lcmF0ZUJpb3MoKTsKICAgICAgcmVuZGVyUmVzdWx0cyhiaW9zKTsKICAgICAgcmVzdWx0c1dyYXAuc2Nyb2xsSW50b1ZpZXcoe2JlaGF2aW9yOidzbW9vdGgnLCBibG9jazonc3RhcnQnfSk7CiAgICB9CgogICAgZ2VuZXJhdGVCdG4uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCBkb0dlbmVyYXRlKTsKICAgIGlmIChyZWdlbkJ0bikgcmVnZW5CdG4uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCBkb0dlbmVyYXRlKTsKCiAgICBpZiAoY2xlYXJCdG4pewogICAgICBjbGVhckJ0bi5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsIGZ1bmN0aW9uKCl7CiAgICAgICAgbmFtZUlucHV0LnZhbHVlID0gJyc7CiAgICAgICAgbmljaGVTZWxlY3QudmFsdWUgPSAnQmxvZ2dlcic7CiAgICAgICAgc3R5bGVTZWxlY3QudmFsdWUgPSAnUHJvZmVzc2lvbmFsJzsKICAgICAgICBrZXl3b3Jkc0lucHV0LnZhbHVlID0gJyc7CiAgICAgICAgZW1vamlUb2dnbGUuY2hlY2tlZCA9IHRydWU7CiAgICAgICAgY3RhVG9nZ2xlLmNoZWNrZWQgPSB0cnVlOwogICAgICAgIGN0YVR5cGUudmFsdWUgPSAnTGluayBpbiBCaW8nOwogICAgICAgIGxpbmtJbnB1dC52YWx1ZSA9ICcnOwogICAgICAgIHJlc3VsdHNXcmFwLnN0eWxlLmRpc3BsYXkgPSAnbm9uZSc7CiAgICAgICAgcmVzdWx0c0dyaWQuaW5uZXJIVE1MID0gJyc7CiAgICAgICAgc2hvd1RvYXN0KCdBbGwgZmllbGRzIHJlc2V0Jyk7CiAgICAgIH0pOwogICAgfQoKICAgIGlmIChjdGFCdG4pewogICAgICBjdGFCdG4uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCBmdW5jdGlvbigpewogICAgICAgIHZhciB0b29sRWwgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCcuaWJnLXRvb2wnKTsKICAgICAgICBpZiAodG9vbEVsKSB0b29sRWwuc2Nyb2xsSW50b1ZpZXcoe2JlaGF2aW9yOidzbW9vdGgnLCBibG9jazonc3RhcnQnfSk7CiAgICAgIH0pOwogICAgfQoKICAgIHZhciBmYXFJdGVtcyA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3JBbGwoJyNpYmctd3JhcCAuZmFxLWl0ZW0nKTsKICAgIGZvciAodmFyIGYgPSAwOyBmIDwgZmFxSXRlbXMubGVuZ3RoOyBmKyspewogICAgICAoZnVuY3Rpb24oaXRlbSl7CiAgICAgICAgdmFyIHEgPSBpdGVtLnF1ZXJ5U2VsZWN0b3IoJy5mYXEtcScpOwogICAgICAgIGlmICghcSkgcmV0dXJuOwogICAgICAgIHEuYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCBmdW5jdGlvbigpewogICAgICAgICAgaXRlbS5jbGFzc0xpc3QudG9nZ2xlKCdvcGVuJyk7CiAgICAgICAgfSk7CiAgICAgIH0pKGZhcUl0ZW1zW2ZdKTsKICAgIH0KCiAgICByZXR1cm4gdHJ1ZTsKICB9CgogIGZ1bmN0aW9uIHRyeUluaXQoKXsKICAgIGlmICghaW5pdCgpKXsKICAgICAgc2V0VGltZW91dCh0cnlJbml0LCAyMDApOwogICAgfQogIH0KCiAgaWYgKGRvY3VtZW50LnJlYWR5U3RhdGUgPT09ICdsb2FkaW5nJyl7CiAgICBkb2N1bWVudC5hZGRFdmVudExpc3RlbmVyKCdET01Db250ZW50TG9hZGVkJywgdHJ5SW5pdCk7CiAgfSBlbHNlIHsKICAgIHRyeUluaXQoKTsKICB9CiAgc2V0VGltZW91dCh0cnlJbml0LCA1MDApOwogIHNldFRpbWVvdXQodHJ5SW5pdCwgMTUwMCk7Cn0pKCk7Cg=="));
+</script>
+</body>
+</html>
