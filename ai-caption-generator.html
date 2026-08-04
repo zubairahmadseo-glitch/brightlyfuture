@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free AI Caption Generator for Instagram, TikTok, LinkedIn &amp; More | BrightlyFuture</title>
+<meta name="description" content="Free AI caption generator for Instagram, TikTok, Twitter/X, LinkedIn, Facebook, and YouTube. Generate engaging social media captions with hashtags in seconds. No signup, no limits, no ads.">
+<meta name="keywords" content="ai caption generator, instagram caption generator, tiktok caption generator, social media caption generator, free caption generator, linkedin post generator, facebook caption generator, youtube description generator, ai caption generator free no signup, caption generator for business, instagram caption ideas, social media post generator, caption writer online free, generate captions for social media, ai social media post generator">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --pri: #6C5CE7;
+  --pri-hover: #5A4BD1;
+  --bg: #E8E0F0;
+  --bg-alt: #DDD4EB;
+  --card-bg: #FFFFFF;
+  --card-border: #D0C6E0;
+  --input-bg: #F5F1FA;
+  --input-border: #D0C6E0;
+  --text: #2D2B55;
+  --muted: #6B6490;
+  --heading: #1A1744;
+  --green: #00C897;
+  --red: #EF4444;
+  --yellow: #F59E0B;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important; background: var(--bg) !important; color: var(--text) !important; line-height: 1.6 !important; -webkit-font-smoothing: antialiased; }
+a { color: var(--pri) !important; text-decoration: none !important; }
+a:hover { color: var(--pri-hover) !important; }
+
+.cg-hero { text-align: center; padding: 3.5rem 1.5rem 2.5rem; background: var(--bg) !important; }
+.cg-hero .back-link { display: inline-block; color: var(--muted) !important; font-size: 0.85rem; margin-bottom: 1.5rem; transition: color .2s; }
+.cg-hero .back-link:hover { color: var(--pri) !important; }
+.cg-hero .badge { display: inline-block; background: var(--card-bg) !important; color: var(--pri) !important; font-size: 0.8rem; font-weight: 600; padding: 0.4rem 1.1rem; border-radius: 999px; border: 1px solid var(--card-border); margin-bottom: 1.25rem; }
+.cg-hero h1 { font-size: 2.3rem; font-weight: 800; color: var(--heading) !important; margin-bottom: 0.85rem; }
+.cg-hero .sub { color: var(--muted) !important; max-width: 680px; margin: 0 auto 1.5rem; font-size: 0.95rem; line-height: 1.65; }
+.usp-row { display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; }
+.usp-pill { background: rgba(108,92,231,0.08) !important; border: 1px solid rgba(108,92,231,0.2); color: var(--pri) !important; font-size: 0.78rem; font-weight: 600; padding: 0.4rem 1rem; border-radius: 999px; }
+
+.cg-tool { max-width: 1050px; margin: 0 auto; padding: 0 1.5rem 3rem; }
+.cg-box { background: var(--card-bg) !important; border: 1px solid var(--card-border); border-radius: 16px; padding: 2rem; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.cg-box label { display: block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted) !important; margin-bottom: 0.45rem; }
+.cg-box .form-group { margin-bottom: 1.25rem; }
+.cg-box input[type="text"], .cg-box textarea, .cg-box select { width: 100%; background: var(--input-bg) !important; border: 1px solid var(--input-border) !important; border-radius: 10px; padding: 0.75rem 1rem; color: var(--text) !important; font-size: 0.9rem; font-family: inherit; transition: border-color .2s; }
+.cg-box input:focus, .cg-box textarea:focus, .cg-box select:focus { outline: none !important; border-color: var(--pri) !important; }
+.cg-box textarea { resize: vertical; min-height: 80px; line-height: 1.65; }
+.cg-box select { cursor: pointer; appearance: none; -webkit-appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236B6490' stroke-width='2' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; }
+
+.check-row { display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: center; margin-bottom: 1.25rem; }
+.check-item { display: flex; align-items: center; gap: 0.45rem; font-size: 0.85rem; color: var(--text) !important; cursor: pointer; }
+.check-item input[type="checkbox"] { width: 18px; height: 18px; accent-color: var(--pri); cursor: pointer; }
+
+.btn-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.btn { padding: 0.7rem 1.6rem; border-radius: 10px; font-weight: 600; font-size: 0.9rem; cursor: pointer; border: none !important; transition: all .2s; font-family: inherit; }
+.btn-primary { background: var(--pri) !important; color: #fff !important; }
+.btn-primary:hover, .btn-primary:focus { background: var(--pri-hover) !important; transform: translateY(-1px); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+.btn-secondary { background: var(--input-bg) !important; color: var(--muted) !important; border: 1px solid var(--card-border) !important; }
+.btn-secondary:hover, .btn-secondary:focus { border-color: var(--pri) !important; color: var(--text) !important; }
+
+.progress-wrap { margin-top: 1.5rem; display: none; }
+.progress-bar { height: 8px; border-radius: 4px; background: var(--input-bg) !important; overflow: hidden; margin-bottom: 0.5rem; }
+.progress-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--pri), #8B5CF6) !important; transition: width .4s; }
+.progress-label { font-size: 0.8rem; color: var(--muted) !important; }
+
+.results-area { margin-top: 1.5rem; display: none; }
+.caption-card { background: var(--input-bg) !important; border: 1px solid var(--card-border); border-radius: 12px; padding: 1.25rem 1.5rem; margin-bottom: 1rem; position: relative; }
+.caption-card .cap-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.65rem; }
+.caption-card .cap-num { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; color: var(--pri) !important; letter-spacing: 0.05em; }
+.caption-card .cap-copy { font-size: 0.78rem; font-weight: 600; color: var(--pri) !important; cursor: pointer; background: transparent !important; border: 1px solid var(--pri) !important; border-radius: 8px; padding: 0.3rem 0.8rem; transition: all .2s; }
+.caption-card .cap-copy:hover { background: var(--pri) !important; color: #fff !important; }
+.caption-card .cap-text { font-size: 0.9rem; color: var(--text) !important; line-height: 1.7; white-space: pre-wrap; }
+.caption-card .cap-hashtags { font-size: 0.82rem; color: var(--pri) !important; margin-top: 0.6rem; font-weight: 500; line-height: 1.6; }
+.caption-card .cap-meta { display: flex; gap: 1rem; margin-top: 0.6rem; flex-wrap: wrap; }
+.caption-card .cap-meta span { font-size: 0.72rem; color: var(--muted) !important; font-weight: 600; }
+
+.cg-section { max-width: 1100px; margin: 0 auto; padding: 4rem 1.5rem; }
+.cg-section.alt { background: var(--bg-alt) !important; max-width: 100%; }
+.cg-section.alt > .inner { max-width: 1100px; margin: 0 auto; }
+.sec-head { text-align: center; margin-bottom: 2.75rem; }
+.sec-head h2 { font-size: 1.65rem; font-weight: 800; color: var(--heading) !important; margin-bottom: 0.5rem; }
+.sec-head p { color: var(--muted) !important; font-size: 0.92rem; max-width: 560px; margin: 0 auto; font-style: italic; }
+
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.step { background: var(--card-bg) !important; border: 1px solid var(--card-border); border-radius: 16px; padding: 2rem 1.5rem; text-align: center; transition: border-color .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.step:hover { border-color: var(--pri); }
+.step-n { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--pri), #8B5CF6) !important; color: #fff !important; font-weight: 700; font-size: 1rem; margin-bottom: 1rem; }
+.step h3 { font-size: 1rem; font-weight: 700; color: var(--heading) !important; margin-bottom: 0.5rem; }
+.step p { font-size: 0.85rem; color: var(--muted) !important; }
+
+.cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.fcard { background: var(--card-bg) !important; border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; transition: border-color .2s, transform .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.fcard:hover { border-color: var(--pri); transform: translateY(-2px); }
+.fcard .ic { font-size: 1.6rem; margin-bottom: 0.8rem; display: block; }
+.fcard h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading) !important; margin-bottom: 0.4rem; }
+.fcard p { font-size: 0.85rem; color: var(--muted) !important; line-height: 1.55; }
+
+.tbl-wrap { overflow-x: auto; border-radius: 16px; border: 1px solid var(--card-border); box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.cmp-tbl { width: 100%; border-collapse: collapse; font-size: 0.85rem; background: var(--card-bg) !important; }
+.cmp-tbl th, .cmp-tbl td { padding: 0.9rem 1.1rem; text-align: center; border-bottom: 1px solid var(--card-border); }
+.cmp-tbl th { background: var(--heading) !important; color: #fff !important; font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.cmp-tbl td:first-child { text-align: left; font-weight: 600; color: var(--text) !important; }
+.cmp-tbl tr:last-child td { border-bottom: none; }
+.cmp-tbl .hl { background: rgba(108,92,231,0.06) !important; }
+.ck { color: var(--green) !important; font-weight: 700; font-size: 1.1rem; }
+.cx { color: var(--red) !important; font-size: 1.1rem; }
+
+.plat-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.plat-card { background: var(--card-bg) !important; border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; text-align: center; transition: border-color .2s, transform .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.plat-card:hover { border-color: var(--pri); transform: translateY(-2px); }
+.plat-card .ic { font-size: 2rem; margin-bottom: 0.65rem; display: block; }
+.plat-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading) !important; margin-bottom: 0.35rem; }
+.plat-card p { font-size: 0.85rem; color: var(--muted) !important; }
+
+.tips { display: flex; flex-direction: column; gap: 1rem; }
+.tip { background: var(--card-bg) !important; border: 1px solid var(--card-border); border-radius: 16px; padding: 1.5rem 1.75rem; display: flex; gap: 1.25rem; align-items: flex-start; transition: border-color .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.tip:hover { border-color: var(--pri); }
+.tip-n { flex-shrink: 0; width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--pri), #8B5CF6) !important; color: #fff !important; font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; }
+.tip h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading) !important; margin-bottom: 0.3rem; }
+.tip p { font-size: 0.85rem; color: var(--muted) !important; line-height: 1.55; }
+
+.rel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.rel-card { background: var(--card-bg) !important; border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; display: flex; flex-direction: column; transition: border-color .2s, transform .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.rel-card:hover { border-color: var(--pri); transform: translateY(-2px); }
+.rel-card .cat { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--pri) !important; margin-bottom: 0.6rem; letter-spacing: 0.05em; }
+.rel-card h3 { font-size: 1rem; font-weight: 700; color: var(--heading) !important; margin-bottom: 0.45rem; }
+.rel-card p { font-size: 0.85rem; color: var(--muted) !important; margin-bottom: 1.25rem; flex: 1; line-height: 1.55; }
+.rel-card .btn { text-align: center; font-size: 0.82rem; padding: 0.55rem 1rem; }
+
+.svc-banner { background: linear-gradient(135deg, var(--bg-alt) 0%, var(--card-bg) 100%) !important; border: 1px solid var(--card-border); border-radius: 16px; padding: 3rem 2rem; text-align: center; max-width: 850px; margin: 0 auto; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.svc-banner .badge { display: inline-block; background: var(--pri) !important; color: #fff !important; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; padding: 0.3rem 0.85rem; border-radius: 999px; margin-bottom: 0.85rem; letter-spacing: 0.05em; }
+.svc-banner h3 { font-size: 1.35rem; font-weight: 800; color: var(--heading) !important; margin-bottom: 0.85rem; }
+.svc-banner p { color: var(--muted) !important; font-size: 0.9rem; max-width: 540px; margin: 0 auto 1.5rem; line-height: 1.6; }
+
+.faq-list { max-width: 800px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--card-border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.15rem 0; cursor: pointer; font-weight: 600; font-size: 0.95rem; color: var(--heading) !important; background: transparent !important; border: none !important; border-radius: 0 !important; width: 100%; text-align: left; font-family: inherit; transition: color .2s; box-shadow: none !important; }
+.faq-q:hover, .faq-q:focus, .faq-q:active { color: var(--pri) !important; background: transparent !important; box-shadow: none !important; }
+.faq-q .arrow { font-size: 1.2rem; color: var(--pri) !important; flex-shrink: 0; transition: transform .25s; }
+.faq-item.open .faq-q .arrow { transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+.faq-item.open .faq-a { max-height: 500px; }
+.faq-a p { font-size: 0.9rem; color: var(--muted) !important; padding-bottom: 1rem; line-height: 1.6; }
+
+.final-cta { text-align: center; padding: 4.5rem 1.5rem; background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%) !important; }
+.final-cta h2 { font-size: 1.85rem; font-weight: 800; color: var(--heading) !important; margin-bottom: 0.85rem; }
+.final-cta p { color: var(--muted) !important; font-size: 0.95rem; margin-bottom: 1.75rem; }
+.btn-big { display: inline-block; background: linear-gradient(135deg, var(--pri), #8B5CF6) !important; color: #fff !important; padding: 0.9rem 2.8rem; border-radius: 12px; font-weight: 700; font-size: 1.05rem; border: none !important; cursor: pointer; transition: transform .2s, box-shadow .2s; box-shadow: 0 4px 20px rgba(108,92,231,0.3); }
+.btn-big:hover, .btn-big:focus, .btn-big:active { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(108,92,231,0.45); color: #fff !important; }
+.final-cta .sub-note { font-size: 0.8rem; color: var(--muted) !important; margin-top: 0.85rem; }
+
+.toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); background: var(--green) !important; color: #fff !important; padding: 0.6rem 1.5rem; border-radius: 10px; font-weight: 600; font-size: 0.85rem; opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 999; }
+.toast.show { opacity: 1; }
+
+@media (max-width: 768px) {
+  .form-row, .form-row3 { grid-template-columns: 1fr; }
+  .steps, .cards-grid, .rel-grid, .plat-cards { grid-template-columns: 1fr; }
+  .cg-hero h1 { font-size: 1.7rem; }
+  .tip { flex-direction: column; }
+  .cmp-tbl { font-size: 0.78rem; }
+  .cmp-tbl th, .cmp-tbl td { padding: 0.65rem 0.6rem; }
+  .check-row { gap: 0.75rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- Section 1: Hero -->
+<div class="cg-hero">
+  <a href="/tools/" class="back-link">&larr; Back to All Tools</a>
+  <div><span class="badge">&#128172; AI Caption Generator</span></div>
+  <h1>Free AI Caption Generator for Social Media</h1>
+  <p class="sub">Generate engaging captions for Instagram, TikTok, Twitter/X, LinkedIn, Facebook, and YouTube in seconds. Get hashtag suggestions, multiple variations, and platform-optimised lengths. No signup, no limits, no ads. Better than Hootsuite and Copy.ai because every feature is free.</p>
+  <div class="usp-row">
+    <span class="usp-pill">&#10003; 100% Free Forever</span>
+    <span class="usp-pill">&#10003; No Signup Required</span>
+    <span class="usp-pill">&#10003; 6 Platforms Supported</span>
+    <span class="usp-pill">&#10003; 7 Tone Options</span>
+    <span class="usp-pill">&#10003; Hashtag Suggestions</span>
+  </div>
+</div>
+
+<!-- Section 2: Tool Widget -->
+<div class="cg-tool">
+  <div class="cg-box">
+    <div class="form-group">
+      <label>What is your post about? (Topic or Description)</label>
+      <textarea id="topicInput" placeholder="Example: Launching our new organic skincare line, summer collection announcement, Monday motivation for entrepreneurs, behind the scenes at our coffee shop..."></textarea>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Platform</label>
+        <select id="platformSelect">
+          <option value="instagram">&#128247; Instagram</option>
+          <option value="tiktok">&#127916; TikTok</option>
+          <option value="twitter">&#128038; Twitter / X</option>
+          <option value="linkedin">&#128188; LinkedIn</option>
+          <option value="facebook">&#128101; Facebook</option>
+          <option value="youtube">&#127909; YouTube Description</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Tone / Style</label>
+        <select id="toneSelect">
+          <option value="professional">&#128188; Professional</option>
+          <option value="casual">&#128075; Casual &amp; Friendly</option>
+          <option value="funny">&#128514; Funny &amp; Witty</option>
+          <option value="inspirational">&#10024; Inspirational</option>
+          <option value="educational">&#128218; Educational</option>
+          <option value="promotional">&#128226; Promotional</option>
+          <option value="storytelling">&#128214; Storytelling</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row3">
+      <div class="form-group">
+        <label>Keywords (Optional, comma-separated)</label>
+        <input type="text" id="keywordsInput" placeholder="e.g. skincare, organic, summer">
+      </div>
+      <div class="form-group">
+        <label>Target Audience (Optional)</label>
+        <input type="text" id="audienceInput" placeholder="e.g. small business owners, mums, fitness lovers">
+      </div>
+      <div class="form-group">
+        <label>Number of Captions</label>
+        <select id="countSelect">
+          <option value="3">3 Captions</option>
+          <option value="5" selected>5 Captions</option>
+          <option value="8">8 Captions</option>
+          <option value="10">10 Captions</option>
+        </select>
+      </div>
+    </div>
+    <div class="check-row">
+      <label class="check-item"><input type="checkbox" id="chkHashtags" checked> Include Hashtags</label>
+      <label class="check-item"><input type="checkbox" id="chkEmoji" checked> Include Emojis</label>
+      <label class="check-item"><input type="checkbox" id="chkCTA"> Include Call-to-Action</label>
+    </div>
+    <div class="btn-row">
+      <button class="btn btn-primary" id="generateBtn" onclick="generateCaptions()">&#9889; Generate Captions</button>
+      <button class="btn btn-secondary" onclick="clearAll()">Clear All</button>
+    </div>
+
+    <div class="progress-wrap" id="progressWrap">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+      <div class="progress-label" id="progressLabel">Initialising...</div>
+    </div>
+
+    <div class="results-area" id="resultsArea"></div>
+  </div>
+</div>
+
+<!-- Section 3: How It Works -->
+<div class="cg-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>How to Generate Social Media Captions in 3 Steps</h2>
+      <p>Create scroll-stopping captions for any platform in seconds.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <h3>Describe Your Post</h3>
+        <p>Type what your post is about. It can be a product launch, a motivational quote, a behind-the-scenes moment, or any topic you want to post about on social media.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <h3>Choose Platform &amp; Tone</h3>
+        <p>Select the social media platform (Instagram, TikTok, Twitter/X, LinkedIn, Facebook, or YouTube) and the tone you want. Add optional keywords and your target audience for better results.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <h3>Get Instant Captions</h3>
+        <p>Click Generate and get up to 10 unique caption variations with hashtags, emojis, and character counts. Copy any caption with one click and paste directly into your social media app.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 4: Platform-Specific Captions -->
+<div class="cg-section">
+  <div class="sec-head">
+    <h2>AI Captions Optimised for Every Social Media Platform</h2>
+    <p>Each platform has different audiences, character limits, and best practices. We optimise for all of them.</p>
+  </div>
+  <div class="plat-cards">
+    <div class="plat-card">
+      <span class="ic">&#128247;</span>
+      <h3>Instagram Captions</h3>
+      <p>Up to 2,200 characters. Our Instagram caption generator creates engaging captions with relevant hashtags, emojis, and line breaks that drive likes, comments, and saves.</p>
+    </div>
+    <div class="plat-card">
+      <span class="ic">&#127916;</span>
+      <h3>TikTok Captions</h3>
+      <p>Up to 2,200 characters. Short, punchy captions that grab attention in the first 2 seconds. Optimised with trending hooks and hashtags for the TikTok algorithm.</p>
+    </div>
+    <div class="plat-card">
+      <span class="ic">&#128038;</span>
+      <h3>Twitter / X Posts</h3>
+      <p>280 character limit. Our Twitter caption generator creates concise, shareable tweets that fit the character limit while maximising engagement and retweets.</p>
+    </div>
+    <div class="plat-card">
+      <span class="ic">&#128188;</span>
+      <h3>LinkedIn Posts</h3>
+      <p>Up to 3,000 characters. Professional captions with thought leadership positioning, storytelling hooks, and engagement-driving questions for your professional network.</p>
+    </div>
+    <div class="plat-card">
+      <span class="ic">&#128101;</span>
+      <h3>Facebook Posts</h3>
+      <p>Up to 63,206 characters. Conversational captions optimised for Facebook's algorithm that prioritises meaningful interactions, comments, and shares over passive consumption.</p>
+    </div>
+    <div class="plat-card">
+      <span class="ic">&#127909;</span>
+      <h3>YouTube Descriptions</h3>
+      <p>Up to 5,000 characters. SEO-optimised video descriptions with keyword placement, timestamps structure, and call-to-action sections that help your videos rank in search.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Section 5: Key Features -->
+<div class="cg-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>Why BrightlyFuture Beats Hootsuite, Copy.ai, and Simplified Caption Generators</h2>
+      <p>Built for social media managers, creators, and small business owners who need captions fast.</p>
+    </div>
+    <div class="cards-grid">
+      <div class="fcard">
+        <span class="ic">&#128275;</span>
+        <h3>Unlimited Free Captions</h3>
+        <p>Copy.ai limits free users to 2,000 words per month. Hootsuite requires a paid plan for AI captions. BrightlyFuture has zero limits. Generate as many captions as you need, forever free.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128100;</span>
+        <h3>No Signup or Account</h3>
+        <p>Hootsuite and Copy.ai both force account creation before you can generate a single caption. We require nothing. Open the page, describe your post, and get captions instantly.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#127760;</span>
+        <h3>6 Platforms, 7 Tones</h3>
+        <p>Most free caption generators only support Instagram. Ours generates optimised captions for Instagram, TikTok, Twitter/X, LinkedIn, Facebook, and YouTube in 7 different tones.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128290;</span>
+        <h3>Auto Hashtag Suggestions</h3>
+        <p>Get relevant, niche-specific hashtags generated automatically based on your topic and keywords. No need to research hashtags separately. Simplified charges for hashtag features. We include them free.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128202;</span>
+        <h3>Character Count Per Caption</h3>
+        <p>Every generated caption shows its character count so you know instantly whether it fits your platform limit. No need to copy to a separate character counter tool.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128274;</span>
+        <h3>100% Private</h3>
+        <p>Your topics, keywords, and generated captions are processed entirely in your browser. Nothing is uploaded to any server. Copy.ai and Hootsuite store your data on their servers.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128161;</span>
+        <h3>Multiple Variations at Once</h3>
+        <p>Generate 3, 5, 8, or 10 caption variations in a single click. Most free tools give you just one caption at a time. More options mean better content for A/B testing.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#127919;</span>
+        <h3>Call-to-Action Options</h3>
+        <p>Enable CTA to automatically add engagement-driving calls to action like "Save this for later", "Link in bio", "Drop a comment below", or "Share with someone who needs this".</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128581;</span>
+        <h3>Zero Ads, Clean Experience</h3>
+        <p>No pop-ups, no banner ads, no upsell modals. Just a clean, fast caption generator. Simplified and most free tools show aggressive ads and upgrade prompts.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 6: Comparison Table -->
+<div class="cg-section">
+  <div class="sec-head">
+    <h2>BrightlyFuture vs Hootsuite vs Copy.ai vs Simplified - Honest Comparison</h2>
+    <p>We compared every major AI caption generator so you can decide fairly.</p>
+  </div>
+  <div class="tbl-wrap">
+    <table class="cmp-tbl">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th class="hl">BrightlyFuture</th>
+          <th>Hootsuite</th>
+          <th>Copy.ai</th>
+          <th>Simplified</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Free Caption Generation</td><td class="hl"><span class="ck">&#10003;</span> Unlimited</td><td><span class="cx">&#10007;</span> Paid Only</td><td>2,000 words/mo</td><td>Limited Free</td></tr>
+        <tr><td>No Signup Required</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
+        <tr><td>Platforms Supported</td><td class="hl">6 Platforms</td><td>Multiple</td><td>Instagram Only</td><td>3 Platforms</td></tr>
+        <tr><td>Tone / Style Options</td><td class="hl">7 Tones</td><td>3 Tones</td><td>5 Tones</td><td>4 Tones</td></tr>
+        <tr><td>Hashtag Generation</td><td class="hl"><span class="ck">&#10003;</span> Free</td><td><span class="ck">&#10003;</span> Paid</td><td><span class="cx">&#10007;</span></td><td><span class="ck">&#10003;</span> Paid</td></tr>
+        <tr><td>Multiple Variations</td><td class="hl">Up to 10</td><td>3</td><td>4</td><td>3</td></tr>
+        <tr><td>Character Count Display</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
+        <tr><td>CTA Suggestions</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
+        <tr><td>Ad-Free</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span> Has Ads</td></tr>
+        <tr><td>Data Privacy</td><td class="hl"><span class="ck">&#10003;</span> Browser Only</td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Section 7: Who Is This For -->
+<div class="cg-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>Who Uses Our Free AI Caption Generator?</h2>
+      <p>Built for anyone who posts on social media and wants better captions, faster.</p>
+    </div>
+    <div class="cards-grid">
+      <div class="fcard">
+        <span class="ic">&#128188;</span>
+        <h3>Small Business Owners</h3>
+        <p>Create professional captions for your products, services, and brand updates without hiring a social media manager. Save hours every week on content creation.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#127908;</span>
+        <h3>Content Creators &amp; Influencers</h3>
+        <p>Generate fresh caption ideas for Instagram reels, TikTok videos, and YouTube descriptions. Beat creative block and post consistently across all your platforms.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128640;</span>
+        <h3>Social Media Managers</h3>
+        <p>Manage multiple accounts? Generate batches of captions for different brands, tones, and platforms. Our multi-variation feature lets you create A/B test options instantly.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128187;</span>
+        <h3>Digital Marketing Agencies</h3>
+        <p>Speed up client content creation. Generate caption drafts in seconds, then refine with your brand voice. Works for Instagram, LinkedIn, Facebook, and every major platform.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#127891;</span>
+        <h3>Students &amp; Personal Brands</h3>
+        <p>Build your personal brand on LinkedIn and Instagram with professional captions. Whether you are sharing achievements, insights, or daily life, our tool helps you sound polished.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128722;</span>
+        <h3>E-commerce Sellers</h3>
+        <p>Write product captions that convert browsers into buyers. Our promotional tone generates sales-focused captions with urgency, benefits, and clear calls to action.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 8: Caption Writing Tips -->
+<div class="cg-section">
+  <div class="sec-head">
+    <h2>5 Expert Tips for Writing Social Media Captions That Get Engagement</h2>
+    <p>Use these strategies alongside our AI caption generator for maximum results.</p>
+  </div>
+  <div class="tips">
+    <div class="tip">
+      <div class="tip-n">1</div>
+      <div>
+        <h3>Hook Readers in the First Line</h3>
+        <p>Instagram shows only the first 125 characters before the "more" link. TikTok captions get scanned in under 2 seconds. Put your strongest hook, question, or bold statement first. Our AI caption generator front-loads every caption with an attention-grabbing opener.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">2</div>
+      <div>
+        <h3>Match the Tone to Your Platform and Audience</h3>
+        <p>LinkedIn audiences respond to professional insights and data. Instagram users prefer casual, relatable content. TikTok rewards humour and authenticity. Use our 7 tone options to generate captions that feel native to each platform instead of copy-pasting the same text everywhere.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">3</div>
+      <div>
+        <h3>Use 3 to 5 Hashtags on Instagram, Not 30</h3>
+        <p>Instagram's own guidance recommends 3 to 5 highly relevant hashtags. Using 30 random hashtags looks spammy and does not improve reach. Our hashtag generator picks topic-relevant hashtags that align with your content rather than generic high-volume tags.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">4</div>
+      <div>
+        <h3>Always Include a Call-to-Action</h3>
+        <p>Posts with CTAs get significantly more engagement than those without. Ask a question, invite comments, encourage saves, or direct followers to your link in bio. Enable the CTA option in our tool to automatically add platform-appropriate calls to action.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">5</div>
+      <div>
+        <h3>Generate Multiple Variations and A/B Test</h3>
+        <p>The best social media managers test different caption styles to see what resonates with their audience. Generate 5 to 10 variations, pick 2 to 3 favourites, and test them across different posting times. Data-driven caption selection outperforms guesswork every time.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 9: Related Tools -->
+<div class="cg-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>More Free AI Tools from BrightlyFuture</h2>
+      <p>Explore our growing collection of free content and marketing tools.</p>
+    </div>
+    <div class="rel-grid">
+      <div class="rel-card">
+        <span class="cat">Content &middot; AI</span>
+        <h3>AI Blog Generator</h3>
+        <p>Generate SEO-optimised, human-sounding blog posts in 30 seconds. No signup, no credit card, unlimited use.</p>
+        <a href="/tools/ai-blog-generator/" class="btn btn-secondary">Try Free &rarr;</a>
+      </div>
+      <div class="rel-card">
+        <span class="cat">Content &middot; AI</span>
+        <h3>AI Paraphraser &amp; Rewriter</h3>
+        <p>Rephrase text in 6 modes: Standard, Formal, Casual, Creative, Simple, and Academic. Unlimited and free.</p>
+        <a href="/tools/ai-paraphraser-rewriter/" class="btn btn-secondary">Try Free &rarr;</a>
+      </div>
+      <div class="rel-card">
+        <span class="cat">Content &middot; SEO</span>
+        <h3>Word &amp; Character Counter</h3>
+        <p>Count words, characters, sentences, and paragraphs with keyword density and social media limit tracking.</p>
+        <a href="/tools/word-character-counter/" class="btn btn-secondary">Try Free &rarr;</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 10: Service Banner -->
+<div class="cg-section">
+  <div class="svc-banner">
+    <span class="badge">Done-for-you</span>
+    <h3>Need a Full Social Media Strategy, Not Just Captions?</h3>
+    <p>Our team creates complete social media content calendars, designs posts, writes captions, and manages your accounts. Strategy, execution, and growth handled by experts.</p>
+    <a href="/services/social-media-marketing/" class="btn btn-primary">Get a Free Quote &rarr;</a>
+  </div>
+</div>
+
+<!-- Section 11: FAQ -->
+<div class="cg-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>Frequently Asked Questions About AI Caption Generation</h2>
+      <p>Everything you need to know about generating social media captions with AI.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is this AI caption generator really free?<span class="arrow">+</span></button><div class="faq-a"><p>Yes, completely free with no hidden costs. Unlike Hootsuite (requires paid plan), Copy.ai (2,000 words per month limit), and Simplified (limited free tier), our caption generator has zero usage limits, no signup required, and all features are free forever.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do I need to create an account?<span class="arrow">+</span></button><div class="faq-a"><p>No. Hootsuite, Copy.ai, and Simplified all require account creation before generating captions. BrightlyFuture requires nothing. Open the page, enter your topic, select your platform and tone, and generate captions instantly. No email, no password, no registration.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Which social media platforms are supported?<span class="arrow">+</span></button><div class="faq-a"><p>We support 6 platforms: Instagram, TikTok, Twitter/X, LinkedIn, Facebook, and YouTube descriptions. Each platform gets captions optimised for its character limits, audience expectations, and algorithm preferences. Most free caption generators only support Instagram.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What tone options are available?<span class="arrow">+</span></button><div class="faq-a"><p>Choose from 7 tones: Professional, Casual and Friendly, Funny and Witty, Inspirational, Educational, Promotional, and Storytelling. Each tone adjusts the vocabulary, sentence structure, and overall feel of the generated captions to match your brand voice.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Are the generated hashtags relevant to my topic?<span class="arrow">+</span></button><div class="faq-a"><p>Yes. Our hashtag generator creates topic-specific hashtags based on your description and keywords. We avoid generic high-volume hashtags like #love and #instagood that provide no targeting value. Instead, you get niche-relevant hashtags that help your content reach the right audience.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How many captions can I generate at once?<span class="arrow">+</span></button><div class="faq-a"><p>You can generate 3, 5, 8, or 10 caption variations in a single click. This gives you multiple options to choose from and enables A/B testing different caption styles to see which gets the most engagement.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I use these captions for business accounts?<span class="arrow">+</span></button><div class="faq-a"><p>Absolutely. Our Professional and Promotional tones are designed specifically for business accounts. You can also add your target audience (e.g., "small business owners" or "fitness enthusiasts") to get captions that speak directly to your customers.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is my data stored or sent to a server?<span class="arrow">+</span></button><div class="faq-a"><p>No. All caption generation happens entirely in your browser using JavaScript. Your topics, keywords, and generated captions are never uploaded to any server, stored in any database, or shared with third parties. Complete privacy by design.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Will these captions pass as human-written?<span class="arrow">+</span></button><div class="faq-a"><p>Our captions are generated using natural language patterns and platform-specific writing styles. They sound conversational and authentic. However, we always recommend reviewing and personalising the output with your own brand voice, specific details, and personal touches for best results.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is the best caption length for Instagram?<span class="arrow">+</span></button><div class="faq-a"><p>Instagram allows up to 2,200 characters but research shows that captions between 138 and 150 characters get the highest engagement rate. However, longer captions of 300 to 500 characters work well for educational and storytelling content. Our Instagram caption generator creates captions at optimal lengths based on your selected tone.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I edit the generated captions before posting?<span class="arrow">+</span></button><div class="faq-a"><p>Yes, and we recommend it. Generated captions are excellent starting points. Add your personal experiences, specific product details, brand-specific language, and any timely references to make each caption uniquely yours. Copy any caption with one click and edit in your notes app before posting.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How is this different from ChatGPT for writing captions?<span class="arrow">+</span></button><div class="faq-a"><p>ChatGPT requires a signup and is a general-purpose AI. Our tool is purpose-built for social media captions with platform-specific optimisation, automatic hashtag generation, character count tracking, tone selection, and CTA options. You get better results faster because the tool is designed specifically for this task.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How many hashtags should I use on Instagram?<span class="arrow">+</span></button><div class="faq-a"><p>Instagram officially recommends 3 to 5 relevant hashtags per post. Studies show that 5 to 11 targeted hashtags perform best. Avoid using 30 hashtags as it looks spammy and does not improve reach. Our generator suggests 5 to 8 relevant hashtags based on your topic.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Does this work for TikTok captions too?<span class="arrow">+</span></button><div class="faq-a"><p>Yes. Select "TikTok" from the platform dropdown and our TikTok caption generator creates short, hook-driven captions optimised for the TikTok algorithm. TikTok captions with strong opening hooks get significantly more views because they encourage users to stop scrolling and watch.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I generate YouTube video descriptions?<span class="arrow">+</span></button><div class="faq-a"><p>Yes. Select "YouTube Description" from the platform dropdown. Our tool generates SEO-friendly video descriptions with keyword placement, content summaries, and structured sections that help your videos rank in YouTube search and Google video results.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 12: Final CTA -->
+<div class="final-cta">
+  <h2>Ready to Create Scroll-Stopping Captions?</h2>
+  <p>Enter your topic, pick your platform and tone, and get instant captions. Free forever, no signup, no limits.</p>
+  <a href="#topicInput" class="btn-big" onclick="setTimeout(function(){document.getElementById('topicInput').focus()},400)">&#9889; Generate Captions Now - 100% Free</a>
+  <div class="sub-note">No Signup &middot; 6 Platforms &middot; 7 Tones &middot; Hashtags Included &middot; Ad-Free</div>
+</div>
+
+<div class="toast" id="toast">Copied!</div>
+
+<script>
+<script>eval(atob("KGZ1bmN0aW9uKCl7CgpmdW5jdGlvbiBpbml0KCkgewogIGlmICghZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3RvcGljSW5wdXQnKSkgeyBzZXRUaW1lb3V0KGluaXQsIDIwMCk7IHJldHVybjsgfQp9CmlmIChkb2N1bWVudC5yZWFkeVN0YXRlID09PSAnbG9hZGluZycpIHsKICBkb2N1bWVudC5hZGRFdmVudExpc3RlbmVyKCdET01Db250ZW50TG9hZGVkJywgaW5pdCk7Cn0gZWxzZSB7IGluaXQoKTsgfQoKd2luZG93LnRvZ2dsZUZhcSA9IGZ1bmN0aW9uKGJ0bikgewogIGJ0bi5wYXJlbnRFbGVtZW50LmNsYXNzTGlzdC50b2dnbGUoJ29wZW4nKTsKfTsKCnZhciBwbGF0Zm9ybURhdGEgPSB7CiAgaW5zdGFncmFtOiB7CiAgICBtYXhMZW46IDIyMDAsCiAgICBob29rczogWwogICAgICAnU3RvcCBzY3JvbGxpbmcuIFRoaXMgaXMgZm9yIHlvdS4nLAogICAgICAnSGVyZSBpcyBzb21ldGhpbmcgbm9ib2R5IHRhbGtzIGFib3V0LicsCiAgICAgICdJIHdpc2ggSSBrbmV3IHRoaXMgc29vbmVyLicsCiAgICAgICdSZWFsIHRhbGsgZm9yIGEgc2Vjb25kLicsCiAgICAgICdUaGlzIGNoYW5nZWQgZXZlcnl0aGluZyBmb3IgbWUuJywKICAgICAgJ1JlYWQgdGhpcyBiZWZvcmUgeW91IHNjcm9sbCBwYXN0LicsCiAgICAgICdUaGUgdHJ1dGggYWJvdXQge3RvcGljfSB0aGF0IG5vYm9keSBzaGFyZXMuJywKICAgICAgJ1BPVjogWW91IGp1c3QgZGlzY292ZXJlZCB7dG9waWN9LicsCiAgICAgICdTYXZlIHRoaXMgZm9yIHdoZW4geW91IG5lZWQgaXQuJywKICAgICAgJ0lmIHlvdSBhcmUgc3RydWdnbGluZyB3aXRoIHt0b3BpY30sIHJlYWQgdGhpcy4nCiAgICBdLAogICAgY3RhczogWwogICAgICAnU2F2ZSB0aGlzIHBvc3QgZm9yIGxhdGVyIScsCiAgICAgICdEb3VibGUgdGFwIGlmIHlvdSBhZ3JlZSEnLAogICAgICAnVGFnIHNvbWVvbmUgd2hvIG5lZWRzIHRvIHNlZSB0aGlzLicsCiAgICAgICdEcm9wIGEgY29tbWVudCBiZWxvdyB3aXRoIHlvdXIgdGhvdWdodHMuJywKICAgICAgJ0xpbmsgaW4gYmlvIGZvciBtb3JlLicsCiAgICAgICdTaGFyZSB0aGlzIHdpdGggYSBmcmllbmQgd2hvIG5lZWRzIGl0LicsCiAgICAgICdGb2xsb3cgZm9yIG1vcmUgdGlwcyBsaWtlIHRoaXMuJywKICAgICAgJ1doYXQgZG8geW91IHRoaW5rPyBUZWxsIG1lIGluIHRoZSBjb21tZW50cy4nCiAgICBdCiAgfSwKICB0aWt0b2s6IHsKICAgIG1heExlbjogMjIwMCwKICAgIGhvb2tzOiBbCiAgICAgICdXYWl0IGZvciBpdC4uLicsCiAgICAgICdOb2JvZHkgaXMgdGFsa2luZyBhYm91dCB0aGlzLicsCiAgICAgICdUaGlzIGlzIHlvdXIgc2lnbiB0byB7dG9waWN9LicsCiAgICAgICdQT1Y6IHt0b3BpY30nLAogICAgICAnVGhpbmdzIEkgd2lzaCBJIGtuZXcgYWJvdXQge3RvcGljfS4nLAogICAgICAnWW91IG5lZWQgdG8gdHJ5IHRoaXMuJywKICAgICAgJ1RoZSB7dG9waWN9IGhhY2sgdGhhdCBhY3R1YWxseSB3b3Jrcy4nLAogICAgICAnV2F0Y2ggdW50aWwgdGhlIGVuZC4nLAogICAgICAnVGhpcyBibGV3IG15IG1pbmQuJywKICAgICAgJ1RlbGwgbWUgSSBhbSBub3QgdGhlIG9ubHkgb25lLicKICAgIF0sCiAgICBjdGFzOiBbCiAgICAgICdGb2xsb3cgZm9yIG1vcmUhJywKICAgICAgJ1NhdmUgdGhpcyBmb3IgbGF0ZXIuJywKICAgICAgJ1NoYXJlIHdpdGggc29tZW9uZSB3aG8gbmVlZHMgdGhpcyEnLAogICAgICAnU3RpdGNoIHRoaXMgd2l0aCB5b3VyIGV4cGVyaWVuY2UhJywKICAgICAgJ0NvbW1lbnQgeW91ciB0aG91Z2h0cyBiZWxvdy4nLAogICAgICAnTGlrZSBpZiB0aGlzIHdhcyBoZWxwZnVsIScKICAgIF0KICB9LAogIHR3aXR0ZXI6IHsKICAgIG1heExlbjogMjgwLAogICAgaG9va3M6IFsKICAgICAgJ0hvdCB0YWtlOicsCiAgICAgICdVbnBvcHVsYXIgb3BpbmlvbjonLAogICAgICAnVGhyZWFkIG9uIHt0b3BpY306JywKICAgICAgJ1RoZSBiaWdnZXN0IG1pc3Rha2UgcGVvcGxlIG1ha2Ugd2l0aCB7dG9waWN9OicsCiAgICAgICdTdG9wIGRvaW5nIHRoaXMgd2l0aCB7dG9waWN9LicsCiAgICAgICdIZXJlIGlzIHdoYXQgbm9ib2R5IHRlbGxzIHlvdSBhYm91dCB7dG9waWN9LicsCiAgICAgICd7dG9waWN9IGlzIG5vdCB3aGF0IHlvdSB0aGluayBpdCBpcy4nLAogICAgICAnSSBzcGVudCB5ZWFycyBsZWFybmluZyBhYm91dCB7dG9waWN9LiBIZXJlIGlzIHdoYXQgSSBmb3VuZDonLAogICAgICAnVGhlIHRydXRoIGFib3V0IHt0b3BpY306JywKICAgICAgJ1F1aWNrIHRpcCBhYm91dCB7dG9waWN9OicKICAgIF0sCiAgICBjdGFzOiBbCiAgICAgICdSVCBpZiB5b3UgYWdyZWUuJywKICAgICAgJ1Rob3VnaHRzPycsCiAgICAgICdXaGF0IGlzIHlvdXIgdGFrZT8nLAogICAgICAnQm9va21hcmsgdGhpcy4nLAogICAgICAnRm9sbG93IGZvciBtb3JlIGluc2lnaHRzLicsCiAgICAgICdSZXBseSB3aXRoIHlvdXJzLicKICAgIF0KICB9LAogIGxpbmtlZGluOiB7CiAgICBtYXhMZW46IDMwMDAsCiAgICBob29rczogWwogICAgICAnSSBoYXZlIGJlZW4gdGhpbmtpbmcgYSBsb3QgYWJvdXQge3RvcGljfSBsYXRlbHkuJywKICAgICAgJ0hlcmUgaXMgYW4gdW5wb3B1bGFyIG9waW5pb24gYWJvdXQge3RvcGljfS4nLAogICAgICAnQWZ0ZXIgeWVhcnMgb2YgZXhwZXJpZW5jZSB3aXRoIHt0b3BpY30sIEkgbGVhcm5lZCBzb21ldGhpbmcgaW1wb3J0YW50LicsCiAgICAgICdNb3N0IHBlb3BsZSBnZXQge3RvcGljfSB3cm9uZy4gSGVyZSBpcyB3aHkuJywKICAgICAgJ1RocmVlIHRoaW5ncyBJIHdpc2ggSSBrbmV3IGFib3V0IHt0b3BpY30gZWFybGllci4nLAogICAgICAnVGhlIGNvbnZlcnNhdGlvbiBhcm91bmQge3RvcGljfSBuZWVkcyB0byBjaGFuZ2UuJywKICAgICAgJ3t0b3BpY30gaXMgbm90IGp1c3QgYSB0cmVuZC4gSXQgaXMgdGhlIGZ1dHVyZS4nLAogICAgICAnSSBtYWRlIGEgYmlnIG1pc3Rha2Ugd2l0aCB7dG9waWN9LiBIZXJlIGlzIHdoYXQgSSBsZWFybmVkLicsCiAgICAgICdMZXQgbWUgc2hhcmUgYSBwZXJzcGVjdGl2ZSBvbiB7dG9waWN9IHRoYXQgbWlnaHQgc3VycHJpc2UgeW91LicsCiAgICAgICdXaHkge3RvcGljfSBtYXR0ZXJzIG1vcmUgdGhhbiBldmVyIHJpZ2h0IG5vdy4nCiAgICBdLAogICAgY3RhczogWwogICAgICAnV2hhdCBoYXMgYmVlbiB5b3VyIGV4cGVyaWVuY2U/IFNoYXJlIGluIHRoZSBjb21tZW50cy4nLAogICAgICAnQWdyZWUgb3IgZGlzYWdyZWU/IEkgd291bGQgbG92ZSB0byBoZWFyIHlvdXIgcGVyc3BlY3RpdmUuJywKICAgICAgJ0lmIHRoaXMgcmVzb25hdGVkIHdpdGggeW91LCBzaGFyZSBpdCB3aXRoIHlvdXIgbmV0d29yay4nLAogICAgICAnRm9sbG93IG1lIGZvciBtb3JlIGluc2lnaHRzIG9uIHRoaXMgdG9waWMuJywKICAgICAgJ1doYXQgd291bGQgeW91IGFkZCB0byB0aGlzIGxpc3Q/JywKICAgICAgJ0xldCBtZSBrbm93IHlvdXIgdGhvdWdodHMgaW4gdGhlIGNvbW1lbnRzIGJlbG93LicKICAgIF0KICB9LAogIGZhY2Vib29rOiB7CiAgICBtYXhMZW46IDYzMjA2LAogICAgaG9va3M6IFsKICAgICAgJ0NhbiB3ZSB0YWxrIGFib3V0IHt0b3BpY30gZm9yIGEgbW9tZW50PycsCiAgICAgICdJIGNhbm5vdCBiZWxpZXZlIG1vcmUgcGVvcGxlIGFyZSBub3QgdGFsa2luZyBhYm91dCB7dG9waWN9LicsCiAgICAgICdXaG8gZWxzZSBoYXMgZXhwZXJpZW5jZWQgdGhpcyB3aXRoIHt0b3BpY30/JywKICAgICAgJ1N0b3J5IHRpbWUhIExldCBtZSB0ZWxsIHlvdSBhYm91dCB7dG9waWN9LicsCiAgICAgICdRdWljayBxdWVzdGlvbiBmb3IgZXZlcnlvbmU6IFdoYXQgZG8geW91IHRoaW5rIGFib3V0IHt0b3BpY30/JywKICAgICAgJ1RoaXMgaXMgc29tZXRoaW5nIEkgaGF2ZSBiZWVuIHdhbnRpbmcgdG8gc2hhcmUgYWJvdXQge3RvcGljfS4nLAogICAgICAnUmFpc2UgeW91ciBoYW5kIGlmIHt0b3BpY30gaGFzIGV2ZXIgYWZmZWN0ZWQgeW91LicsCiAgICAgICdUaGUgYmVzdCBhZHZpY2UgSSBldmVyIGdvdCBhYm91dCB7dG9waWN9IHdhcyB0aGlzLicsCiAgICAgICdXZSBuZWVkIHRvIGhhdmUgYW4gaG9uZXN0IGNvbnZlcnNhdGlvbiBhYm91dCB7dG9waWN9LicsCiAgICAgICdIZXJlIGlzIHdoeSB7dG9waWN9IGtlZXBzIGNvbWluZyB1cCBpbiBteSBmZWVkLicKICAgIF0sCiAgICBjdGFzOiBbCiAgICAgICdTaGFyZSB5b3VyIHRob3VnaHRzIGluIHRoZSBjb21tZW50cyEnLAogICAgICAnU2hhcmUgdGhpcyB3aXRoIHNvbWVvbmUgd2hvIG5lZWRzIHRvIGhlYXIgaXQuJywKICAgICAgJ0xpa2UgdGhpcyBpZiB5b3UgYWdyZWUhJywKICAgICAgJ1RhZyBhIGZyaWVuZCB3aG8gd291bGQgcmVsYXRlIHRvIHRoaXMuJywKICAgICAgJ1doYXQgd291bGQgeW91IGRvIGluIHRoaXMgc2l0dWF0aW9uPycsCiAgICAgICdEcm9wIGFuIGVtb2ppIHRoYXQgZGVzY3JpYmVzIGhvdyB5b3UgZmVlbCBhYm91dCB0aGlzLicKICAgIF0KICB9LAogIHlvdXR1YmU6IHsKICAgIG1heExlbjogNTAwMCwKICAgIGhvb2tzOiBbCiAgICAgICdJbiB0aGlzIHZpZGVvLCBJIGNvdmVyIGV2ZXJ5dGhpbmcgeW91IG5lZWQgdG8ga25vdyBhYm91dCB7dG9waWN9LicsCiAgICAgICdXZWxjb21lIGJhY2sgdG8gdGhlIGNoYW5uZWwhIFRvZGF5IHdlIGFyZSBkaXZpbmcgZGVlcCBpbnRvIHt0b3BpY30uJywKICAgICAgJ0lmIHlvdSBoYXZlIGV2ZXIgd29uZGVyZWQgYWJvdXQge3RvcGljfSwgdGhpcyB2aWRlbyBpcyBmb3IgeW91LicsCiAgICAgICd7dG9waWN9IGV4cGxhaW5lZCBpbiBzaW1wbGUgdGVybXMgdGhhdCBhbnlvbmUgY2FuIHVuZGVyc3RhbmQuJywKICAgICAgJ1RoZSBjb21wbGV0ZSBndWlkZSB0byB7dG9waWN9IHRoYXQgeW91IGhhdmUgYmVlbiBsb29raW5nIGZvci4nLAogICAgICAnRXZlcnl0aGluZyBhYm91dCB7dG9waWN9IHRoYXQgeW91IG5lZWQgdG8ga25vdyBpbiBvbmUgdmlkZW8uJwogICAgXSwKICAgIGN0YXM6IFsKICAgICAgJ1N1YnNjcmliZSBhbmQgaGl0IHRoZSBiZWxsIGZvciBtb3JlIHZpZGVvcyBsaWtlIHRoaXMhJywKICAgICAgJ0xlYXZlIGEgY29tbWVudCBiZWxvdyB3aXRoIHlvdXIgcXVlc3Rpb25zIGFib3V0IHRoaXMgdG9waWMuJywKICAgICAgJ0lmIHRoaXMgdmlkZW8gaGVscGVkIHlvdSwgZ2l2ZSBpdCBhIHRodW1icyB1cCEnLAogICAgICAnQ2hlY2sgb3V0IG15IG90aGVyIHZpZGVvcyBvbiByZWxhdGVkIHRvcGljcy4nLAogICAgICAnU2hhcmUgdGhpcyB2aWRlbyB3aXRoIHNvbWVvbmUgd2hvIHdvdWxkIGZpbmQgaXQgdXNlZnVsLicKICAgIF0KICB9Cn07Cgp2YXIgdG9uZURhdGEgPSB7CiAgcHJvZmVzc2lvbmFsOiB7CiAgICBtb2RpZmllcnM6IFsnZWZmZWN0aXZlbHknLCdzdHJhdGVnaWNhbGx5JywnY29uc2lzdGVudGx5Jywnc2lnbmlmaWNhbnRseScsJ2Z1bmRhbWVudGFsbHknLCdzeXN0ZW1hdGljYWxseSddLAogICAgcGhyYXNlczogWwogICAgICAnVGhpcyBhcHByb2FjaCBkZWxpdmVycyBtZWFzdXJhYmxlIHJlc3VsdHMgZm9yIHt0b3BpY30uJywKICAgICAgJ1RoZSBrZXkgdG8gc3VjY2VzcyB3aXRoIHt0b3BpY30gbGllcyBpbiBzdHJhdGVneSBhbmQgY29uc2lzdGVuY3kuJywKICAgICAgJ1Byb2Zlc3Npb25hbHMgd2hvIHVuZGVyc3RhbmQge3RvcGljfSBnYWluIGEgc2lnbmlmaWNhbnQgYWR2YW50YWdlLicsCiAgICAgICd7dG9waWN9IGlzIHRyYW5zZm9ybWluZyBob3cgYnVzaW5lc3NlcyBvcGVyYXRlIHRvZGF5LicsCiAgICAgICdVbmRlcnN0YW5kaW5nIHt0b3BpY30gaXMgZXNzZW50aWFsIGZvciBncm93dGggaW4gdG9kYXlceDI3cyBtYXJrZXQuJywKICAgICAgJ091ciBhcHByb2FjaCB0byB7dG9waWN9IGZvY3VzZXMgb24gZGVsaXZlcmluZyByZWFsLCBtZWFzdXJhYmxlIG91dGNvbWVzLicsCiAgICAgICdUaGUgZGF0YSBpcyBjbGVhcjoge3RvcGljfSBkcml2ZXMgbWVhbmluZ2Z1bCBidXNpbmVzcyByZXN1bHRzLicsCiAgICAgICdTbWFydCBwcm9mZXNzaW9uYWxzIGFyZSBhbHJlYWR5IGxldmVyYWdpbmcge3RvcGljfSB0byBnZXQgYWhlYWQuJwogICAgXQogIH0sCiAgY2FzdWFsOiB7CiAgICBtb2RpZmllcnM6IFsnaG9uZXN0bHknLCdsaXRlcmFsbHknLCd0b3RhbGx5Jywnc2VyaW91c2x5JywnYmFzaWNhbGx5JywnYWN0dWFsbHknXSwKICAgIHBocmFzZXM6IFsKICAgICAgJ09rYXkgYnV0IGNhbiB3ZSB0YWxrIGFib3V0IGhvdyBhbWF6aW5nIHt0b3BpY30gaXM/JywKICAgICAgJ05vdCBnb25uYSBsaWUsIHt0b3BpY30gaXMgYSB0b3RhbCBnYW1lIGNoYW5nZXIuJywKICAgICAgJ0p1c3QgZGlzY292ZXJlZCBzb21ldGhpbmcgY29vbCBhYm91dCB7dG9waWN9IGFuZCBoYWQgdG8gc2hhcmUuJywKICAgICAgJ1dobyBlbHNlIGlzIG9ic2Vzc2VkIHdpdGgge3RvcGljfSByaWdodCBub3c/JywKICAgICAgJ1JlYWwgdGFsazoge3RvcGljfSBoYXMgY29tcGxldGVseSBjaGFuZ2VkIG15IHJvdXRpbmUuJywKICAgICAgJ3t0b3BpY30gdmliZXMgYWxsIGRheSwgZXZlcnkgZGF5LicsCiAgICAgICdMaXRlcmFsbHkgY2Fubm90IHN0b3AgdGhpbmtpbmcgYWJvdXQge3RvcGljfS4nLAogICAgICAnSWYgeW91IGtub3csIHlvdSBrbm93LiB7dG9waWN9IGhpdHMgZGlmZmVyZW50LicKICAgIF0KICB9LAogIGZ1bm55OiB7CiAgICBtb2RpZmllcnM6IFsnYXBwYXJlbnRseScsJ3NvbWVob3cnLCdzdXJwcmlzaW5nbHknLCdhbGxlZ2VkbHknLCdteXN0ZXJpb3VzbHknXSwKICAgIHBocmFzZXM6IFsKICAgICAgJ01lIHRyeWluZyB0byBleHBsYWluIHt0b3BpY30gdG8gbXkgZnJpZW5kczogKmluc2VydCBjb25mdXNlZCBnaWYqJywKICAgICAgJ05vYm9keTogLi4uIEFic29sdXRlbHkgbm9ib2R5OiAuLi4gTWU6IExldCBtZSB0ZWxsIHlvdSBhYm91dCB7dG9waWN9LicsCiAgICAgICdQbG90IHR3aXN0OiB7dG9waWN9IGlzIGFjdHVhbGx5IHRoZSBhbnN3ZXIgdG8gZXZlcnl0aGluZy4nLAogICAgICAnTXkgdGhlcmFwaXN0OiAie3RvcGljfSBjYW5ceDI3dCBodXJ0IHlvdS4iIHt0b3BpY306JywKICAgICAgJ1doZW4gc29tZW9uZSBzYXlzIHRoZXkgZG9uXHgyN3QgY2FyZSBhYm91dCB7dG9waWN9Li4uIHN1cmUsIEphbi4nLAogICAgICAnQnJhaW4gYXQgM2FtOiBSZW1lbWJlciB7dG9waWN9PyBMZXRceDI3cyB0aGluayBhYm91dCB0aGF0IGFsbCBuaWdodC4nLAogICAgICAnRXhwZWN0YXRpb24gdnMgcmVhbGl0eSBvZiB7dG9waWN9OiBhIHRocmVhZC4nLAogICAgICAnUE9WOiBZb3UgZmluYWxseSBmaWd1cmVkIG91dCB7dG9waWN9IGFuZCBub3cgeW91IHdvblx4Mjd0IHNodXQgdXAgYWJvdXQgaXQuJwogICAgXQogIH0sCiAgaW5zcGlyYXRpb25hbDogewogICAgbW9kaWZpZXJzOiBbJ3RydWx5JywnZGVlcGx5JywncG93ZXJmdWxseScsJ2JlYXV0aWZ1bGx5JywncmVtYXJrYWJseSddLAogICAgcGhyYXNlczogWwogICAgICAnRXZlcnkgZ3JlYXQgam91cm5leSB3aXRoIHt0b3BpY30gc3RhcnRzIHdpdGggYSBzaW5nbGUgc3RlcC4nLAogICAgICAnQmVsaWV2ZSBpbiB0aGUgcG93ZXIgb2Yge3RvcGljfS4gSXQgY2FuIGNoYW5nZSB5b3VyIGxpZmUuJywKICAgICAgJ1RoZSBiZXN0IHRpbWUgdG8gc3RhcnQgd2l0aCB7dG9waWN9IHdhcyB5ZXN0ZXJkYXkuIFRoZSBzZWNvbmQgYmVzdCB0aW1lIGlzIG5vdy4nLAogICAgICAnWW91ciBwb3RlbnRpYWwgd2l0aCB7dG9waWN9IGlzIGxpbWl0bGVzcy4gTmV2ZXIgc3RvcCBncm93aW5nLicsCiAgICAgICd7dG9waWN9IHRhdWdodCBtZSB0aGF0IGdyb3d0aCBoYXBwZW5zIG91dHNpZGUgeW91ciBjb21mb3J0IHpvbmUuJywKICAgICAgJ1NtYWxsIHN0ZXBzIHdpdGgge3RvcGljfSBsZWFkIHRvIGV4dHJhb3JkaW5hcnkgcmVzdWx0cyBvdmVyIHRpbWUuJywKICAgICAgJ1N1Y2Nlc3Mgd2l0aCB7dG9waWN9IGlzIG5vdCBhYm91dCBwZXJmZWN0aW9uLiBJdCBpcyBhYm91dCBwcm9ncmVzcy4nLAogICAgICAnTGV0IHt0b3BpY30gaW5zcGlyZSB5b3UgdG8gYmVjb21lIHRoZSBiZXN0IHZlcnNpb24gb2YgeW91cnNlbGYuJwogICAgXQogIH0sCiAgZWR1Y2F0aW9uYWw6IHsKICAgIG1vZGlmaWVyczogWydpbXBvcnRhbnRseScsJ25vdGFibHknLCdzcGVjaWZpY2FsbHknLCdlc3NlbnRpYWxseScsJ3BhcnRpY3VsYXJseSddLAogICAgcGhyYXNlczogWwogICAgICAnSGVyZSBhcmUgMyB0aGluZ3MgeW91IHNob3VsZCBrbm93IGFib3V0IHt0b3BpY30uJywKICAgICAgJ0RpZCB5b3Uga25vdz8ge3RvcGljfSBoYXMgbW9yZSBpbXBhY3QgdGhhbiBtb3N0IHBlb3BsZSByZWFsaXNlLicsCiAgICAgICdMZXQgbWUgYnJlYWsgZG93biB7dG9waWN9IGluIHNpbXBsZSB0ZXJtcy4nLAogICAgICAnVGhlIG1vc3QgY29tbW9uIG1pc2NvbmNlcHRpb24gYWJvdXQge3RvcGljfSBpcyB0aGlzLicsCiAgICAgICdRdWljayBsZXNzb246IFdoeSB7dG9waWN9IG1hdHRlcnMgYW5kIGhvdyB0byBnZXQgc3RhcnRlZC4nLAogICAgICAnRXZlcnl0aGluZyBiZWdpbm5lcnMgbmVlZCB0byBrbm93IGFib3V0IHt0b3BpY30sIGV4cGxhaW5lZCBzaW1wbHkuJywKICAgICAgJ1RoZSBzY2llbmNlIGJlaGluZCB7dG9waWN9IGlzIGZhc2NpbmF0aW5nLiBIZXJlIGlzIHdoYXQgcmVzZWFyY2ggc2hvd3MuJywKICAgICAgJzUgZmFjdHMgYWJvdXQge3RvcGljfSB0aGF0IHdpbGwgY2hhbmdlIGhvdyB5b3UgdGhpbmsgYWJvdXQgaXQuJwogICAgXQogIH0sCiAgcHJvbW90aW9uYWw6IHsKICAgIG1vZGlmaWVyczogWydleGNsdXNpdmVseScsJ2ZpbmFsbHknLCdvZmZpY2lhbGx5JywnaW5jcmVkaWJseScsJ2Fic29sdXRlbHknXSwKICAgIHBocmFzZXM6IFsKICAgICAgJ0ludHJvZHVjaW5nIG91ciBsYXRlc3Qge3RvcGljfSEgQXZhaWxhYmxlIG5vdy4nLAogICAgICAnWW91IGFza2VkIGZvciBpdC4gSGVyZSBpdCBpcy4ge3RvcGljfSB0aGF0IGRlbGl2ZXJzIHJlYWwgcmVzdWx0cy4nLAogICAgICAnTGltaXRlZCB0aW1lIG9ubHkhIERpc2NvdmVyIHt0b3BpY30gYmVmb3JlIGV2ZXJ5b25lIGVsc2UuJywKICAgICAgJ1doeSB0aG91c2FuZHMgb2YgY3VzdG9tZXJzIHRydXN0IHVzIGZvciB7dG9waWN9LicsCiAgICAgICdUaGUgd2FpdCBpcyBvdmVyLiB7dG9waWN9IGlzIGhlcmUgYW5kIGl0IGlzIGJldHRlciB0aGFuIGV2ZXIuJywKICAgICAgJ1RyYW5zZm9ybSB5b3VyIGV4cGVyaWVuY2Ugd2l0aCB7dG9waWN9LiBTZWUgdGhlIGRpZmZlcmVuY2UgZm9yIHlvdXJzZWxmLicsCiAgICAgICdKb2luIHRob3VzYW5kcyB3aG8gaGF2ZSBhbHJlYWR5IGRpc2NvdmVyZWQge3RvcGljfS4nLAogICAgICAnVGhpcyBpcyB0aGUge3RvcGljfSBzb2x1dGlvbiB5b3UgaGF2ZSBiZWVuIGxvb2tpbmcgZm9yLicKICAgIF0KICB9LAogIHN0b3J5dGVsbGluZzogewogICAgbW9kaWZpZXJzOiBbJ3VuZXhwZWN0ZWRseScsJ2dyYWR1YWxseScsJ2V2ZW50dWFsbHknLCdzdWRkZW5seScsJ3F1aWV0bHknXSwKICAgIHBocmFzZXM6IFsKICAgICAgJ0xldCBtZSB0ZWxsIHlvdSBhIHN0b3J5IGFib3V0IHt0b3BpY30gdGhhdCBjaGFuZ2VkIG15IHBlcnNwZWN0aXZlLicsCiAgICAgICdJdCBhbGwgc3RhcnRlZCB3aGVuIEkgZmlyc3QgZGlzY292ZXJlZCB7dG9waWN9LicsCiAgICAgICdJIG5ldmVyIGV4cGVjdGVkIHt0b3BpY30gdG8gaGF2ZSB0aGlzIGtpbmQgb2YgaW1wYWN0IG9uIG15IGxpZmUuJywKICAgICAgJ1RocmVlIHllYXJzIGFnbywgSSBrbmV3IG5vdGhpbmcgYWJvdXQge3RvcGljfS4gSGVyZSBpcyB3aGF0IGhhcHBlbmVkIG5leHQuJywKICAgICAgJ1RoZSBtb21lbnQgSSB1bmRlcnN0b29kIHt0b3BpY30sIGV2ZXJ5dGhpbmcgY2xpY2tlZCBpbnRvIHBsYWNlLicsCiAgICAgICdUaGlzIGlzIHRoZSBzdG9yeSBvZiBob3cge3RvcGljfSB0cmFuc2Zvcm1lZCBteSBhcHByb2FjaCB0byBldmVyeXRoaW5nLicsCiAgICAgICdXaGVuIEkgZmlyc3QgaGVhcmQgYWJvdXQge3RvcGljfSwgSSB3YXMgc2NlcHRpY2FsLiBUaGVuIHRoaXMgaGFwcGVuZWQuJywKICAgICAgJ1BpY3R1cmUgdGhpczogWW91IGRpc2NvdmVyIHt0b3BpY30gZm9yIHRoZSBmaXJzdCB0aW1lLiBUaGF0IHdhcyBtZSBsYXN0IHllYXIuJwogICAgXQogIH0KfTsKCnZhciBoYXNodGFnU2V0cyA9IHsKICBidXNpbmVzczogWycjYnVzaW5lc3MnLCcjZW50cmVwcmVuZXVyJywnI3NtYWxsYnVzaW5lc3MnLCcjc3RhcnR1cCcsJyNidXNpbmVzc3RpcHMnLCcjZ3Jvd3RobWluZHNldCcsJyNodXN0bGUnLCcjYnVzaW5lc3Nvd25lcicsJyNzdWNjZXNzJywnI2xlYWRlcnNoaXAnXSwKICBtYXJrZXRpbmc6IFsnI21hcmtldGluZycsJyNkaWdpdGFsbWFya2V0aW5nJywnI3NvY2lhbG1lZGlhJywnI2NvbnRlbnRtYXJrZXRpbmcnLCcjYnJhbmRpbmcnLCcjbWFya2V0aW5ndGlwcycsJyNzZW8nLCcjb25saW5lbWFya2V0aW5nJywnI3N0cmF0ZWd5JywnI2dyb3d0aCddLAogIGZpdG5lc3M6IFsnI2ZpdG5lc3MnLCcjd29ya291dCcsJyNneW0nLCcjZml0bmVzc21vdGl2YXRpb24nLCcjaGVhbHRoJywnI2V4ZXJjaXNlJywnI3RyYWluaW5nJywnI2ZpdGxpZmUnLCcjd2VsbG5lc3MnLCcjaGVhbHRoeSddLAogIGZvb2Q6IFsnI2Zvb2QnLCcjZm9vZGllJywnI3JlY2lwZScsJyNjb29raW5nJywnI2hvbWVtYWRlJywnI2RlbGljaW91cycsJyNmb29kcGhvdG9ncmFwaHknLCcjeXVtbXknLCcjaW5zdGFmb29kJywnI2hlYWx0aHlmb29kJ10sCiAgZmFzaGlvbjogWycjZmFzaGlvbicsJyNzdHlsZScsJyNvb3RkJywnI2Zhc2hpb25pc3RhJywnI291dGZpdCcsJyNzdHJlZXRzdHlsZScsJyNmYXNoaW9uYmxvZ2dlcicsJyN0cmVuZHknLCcjY2xvdGhpbmcnLCcjbG9va29mdGhlZGF5J10sCiAgdHJhdmVsOiBbJyN0cmF2ZWwnLCcjd2FuZGVybHVzdCcsJyN0cmF2ZWxncmFtJywnI2V4cGxvcmUnLCcjYWR2ZW50dXJlJywnI3RyYXZlbHBob3RvZ3JhcGh5JywnI3ZhY2F0aW9uJywnI2Rpc2NvdmVyJywnI3RyYXZlbGVyJywnI3RyaXAnXSwKICB0ZWNoOiBbJyN0ZWNobm9sb2d5JywnI3RlY2gnLCcjaW5ub3ZhdGlvbicsJyNhaScsJyNkaWdpdGFsJywnI3NvZnR3YXJlJywnI2NvZGluZycsJyNwcm9ncmFtbWluZycsJyN0ZWNodHJlbmRzJywnI2Z1dHVyZSddLAogIGJlYXV0eTogWycjYmVhdXR5JywnI3NraW5jYXJlJywnI21ha2V1cCcsJyNiZWF1dHl0aXBzJywnI3NlbGZjYXJlJywnI2Nvc21ldGljcycsJyNnbG93aW5nJywnI3NraW5jYXJlcm91dGluZScsJyNiZWF1dHlibG9nZ2VyJywnI25hdHVyYWwnXSwKICBlZHVjYXRpb246IFsnI2VkdWNhdGlvbicsJyNsZWFybmluZycsJyNzdHVkZW50cycsJyNrbm93bGVkZ2UnLCcjc3R1ZHknLCcjdGVhY2hlcicsJyNzY2hvb2wnLCcjb25saW5lbGVhcm5pbmcnLCcjZWR0ZWNoJywnI3NraWxscyddLAogIG1vdGl2YXRpb246IFsnI21vdGl2YXRpb24nLCcjaW5zcGlyYXRpb24nLCcjbWluZHNldCcsJyNzdWNjZXNzJywnI2dvYWxzJywnI3Bvc2l0aXZpdHknLCcjYmVsaWV2ZScsJyNuZXZlcmdpdmV1cCcsJyNkYWlseW1vdGl2YXRpb24nLCcjZ3JpbmQnXSwKICBsaWZlc3R5bGU6IFsnI2xpZmVzdHlsZScsJyNsaWZlJywnI2luc3RhZ29vZCcsJyNkYWlseScsJyNoYXBweScsJyNsb3ZlJywnI3Bob3Rvb2Z0aGVkYXknLCcjaW5zcGlyYXRpb24nLCcjZ29hbHMnLCcjdmliZXMnXSwKICBwaG90b2dyYXBoeTogWycjcGhvdG9ncmFwaHknLCcjcGhvdG8nLCcjcGhvdG9ncmFwaGVyJywnI3Bob3Rvb2Z0aGVkYXknLCcjcGljb2Z0aGVkYXknLCcjY2FtZXJhJywnI3BvcnRyYWl0JywnI25hdHVyZXBob3RvZ3JhcGh5JywnI2FydCcsJyNjcmVhdGl2ZSddLAogIGdlbmVyYWw6IFsnI3RyZW5kaW5nJywnI3ZpcmFsJywnI2Z5cCcsJyNleHBsb3JlJywnI2luc3RhZ29vZCcsJyNyZWVscycsJyNjb250ZW50JywnI2NyZWF0b3InLCcjY29tbXVuaXR5JywnI3NoYXJlJ10KfTsKCmZ1bmN0aW9uIHBpY2tSYW5kb20oYXJyLCBjb3VudCkgewogIHZhciBzaHVmZmxlZCA9IGFyci5zbGljZSgpOwogIGZvciAodmFyIGkgPSBzaHVmZmxlZC5sZW5ndGggLSAxOyBpID4gMDsgaS0tKSB7CiAgICB2YXIgaiA9IE1hdGguZmxvb3IoTWF0aC5yYW5kb20oKSAqIChpICsgMSkpOwogICAgdmFyIHRtcCA9IHNodWZmbGVkW2ldOwogICAgc2h1ZmZsZWRbaV0gPSBzaHVmZmxlZFtqXTsKICAgIHNodWZmbGVkW2pdID0gdG1wOwogIH0KICByZXR1cm4gc2h1ZmZsZWQuc2xpY2UoMCwgY291bnQpOwp9CgpmdW5jdGlvbiBmaWxsVG9waWMoc3RyLCB0b3BpYykgewogIHJldHVybiBzdHIucmVwbGFjZSgvXHt0b3BpY1x9L2dpLCB0b3BpYyk7Cn0KCmZ1bmN0aW9uIGRldGVjdENhdGVnb3J5KHRleHQpIHsKICB0ZXh0ID0gdGV4dC50b0xvd2VyQ2FzZSgpOwogIHZhciBrZXl3b3JkcyA9IHsKICAgIGJ1c2luZXNzOiBbJ2J1c2luZXNzJywnZW50cmVwcmVuZXVyJywnc3RhcnR1cCcsJ2NvbXBhbnknLCdicmFuZCcsJ3JldmVudWUnLCdwcm9maXQnLCdzYWxlcycsJ2NsaWVudCcsJ2N1c3RvbWVyJywnYjJiJywnYjJjJywnZWNvbW1lcmNlJ10sCiAgICBtYXJrZXRpbmc6IFsnbWFya2V0aW5nJywnc2VvJywnY29udGVudCcsJ3NvY2lhbCBtZWRpYScsJ2NhbXBhaWduJywnYWRzJywnYWR2ZXJ0aXNpbmcnLCdlbWFpbCcsJ2Z1bm5lbCcsJ2NvbnZlcnNpb24nLCd0cmFmZmljJ10sCiAgICBmaXRuZXNzOiBbJ2ZpdG5lc3MnLCd3b3Jrb3V0JywnZ3ltJywnZXhlcmNpc2UnLCd0cmFpbmluZycsJ211c2NsZScsJ2NhcmRpbycsJ3lvZ2EnLCdoZWFsdGgnLCd3ZWlnaHQnLCdkaWV0JywncHJvdGVpbiddLAogICAgZm9vZDogWydmb29kJywncmVjaXBlJywnY29va2luZycsJ2tpdGNoZW4nLCdtZWFsJywncmVzdGF1cmFudCcsJ2VhdCcsJ2NoZWYnLCdiYWtpbmcnLCdpbmdyZWRpZW50cycsJ2RlbGljaW91cyddLAogICAgZmFzaGlvbjogWydmYXNoaW9uJywnc3R5bGUnLCdvdXRmaXQnLCdjbG90aGluZycsJ3dlYXInLCdkcmVzcycsJ3Nob2VzJywnZGVzaWduZXInLCd0cmVuZCcsJ2NvbGxlY3Rpb24nLCd3YXJkcm9iZSddLAogICAgdHJhdmVsOiBbJ3RyYXZlbCcsJ3RyaXAnLCd2YWNhdGlvbicsJ2FkdmVudHVyZScsJ2Rlc3RpbmF0aW9uJywnZXhwbG9yZScsJ2ZsaWdodCcsJ2hvdGVsJywndG91cmlzbScsJ2JhY2twYWNrJ10sCiAgICB0ZWNoOiBbJ3RlY2gnLCd0ZWNobm9sb2d5Jywnc29mdHdhcmUnLCdhcHAnLCdhaScsJ2NvZGUnLCdwcm9ncmFtbWluZycsJ2RpZ2l0YWwnLCdjb21wdXRlcicsJ2RhdGEnLCdpbm5vdmF0aW9uJ10sCiAgICBiZWF1dHk6IFsnYmVhdXR5Jywnc2tpbmNhcmUnLCdtYWtldXAnLCdjb3NtZXRpY3MnLCdza2luJywnaGFpcicsJ2dsb3cnLCdyb3V0aW5lJywnc2VydW0nLCdtb2lzdHVyaXNlciddLAogICAgZWR1Y2F0aW9uOiBbJ2VkdWNhdGlvbicsJ2xlYXJuJywnc3R1ZGVudCcsJ3NjaG9vbCcsJ2NvdXJzZScsJ3RlYWNoJywnc3R1ZHknLCdrbm93bGVkZ2UnLCd0cmFpbmluZycsJ3NraWxscyddLAogICAgbW90aXZhdGlvbjogWydtb3RpdmF0aW9uJywnaW5zcGlyZScsJ2dvYWwnLCdzdWNjZXNzJywnbWluZHNldCcsJ2JlbGlldmUnLCdkcmVhbScsJ2FjaGlldmUnLCdncm93JywnaHVzdGxlJ10sCiAgICBsaWZlc3R5bGU6IFsnbGlmZXN0eWxlJywnbGlmZScsJ2RhaWx5Jywncm91dGluZScsJ2hvbWUnLCdmYW1pbHknLCdzZWxmIGNhcmUnLCd3ZWxsbmVzcycsJ2JhbGFuY2UnLCdtb3JuaW5nJ10sCiAgICBwaG90b2dyYXBoeTogWydwaG90bycsJ3Bob3RvZ3JhcGh5JywnY2FtZXJhJywnc2hvb3QnLCdwb3J0cmFpdCcsJ2xhbmRzY2FwZScsJ2VkaXRpbmcnLCdsaWdodHJvb20nLCd2aXN1YWwnXQogIH07CiAgZm9yICh2YXIgY2F0IGluIGtleXdvcmRzKSB7CiAgICBmb3IgKHZhciBpID0gMDsgaSA8IGtleXdvcmRzW2NhdF0ubGVuZ3RoOyBpKyspIHsKICAgICAgaWYgKHRleHQuaW5kZXhPZihrZXl3b3Jkc1tjYXRdW2ldKSAhPT0gLTEpIHJldHVybiBjYXQ7CiAgICB9CiAgfQogIHJldHVybiAnZ2VuZXJhbCc7Cn0KCmZ1bmN0aW9uIGdlbmVyYXRlT25lQ2FwdGlvbih0b3BpYywgcGxhdGZvcm0sIHRvbmUsIGluY2x1ZGVIYXNodGFncywgaW5jbHVkZUVtb2ppLCBpbmNsdWRlQ1RBLCBrZXl3b3JkcywgYXVkaWVuY2UpIHsKICB2YXIgcERhdGEgPSBwbGF0Zm9ybURhdGFbcGxhdGZvcm1dOwogIHZhciB0RGF0YSA9IHRvbmVEYXRhW3RvbmVdOwoKICB2YXIgaG9vayA9IGZpbGxUb3BpYyhwaWNrUmFuZG9tKHBEYXRhLmhvb2tzLCAxKVswXSwgdG9waWMpOwogIHZhciBib2R5ID0gZmlsbFRvcGljKHBpY2tSYW5kb20odERhdGEucGhyYXNlcywgMSlbMF0sIHRvcGljKTsKICB2YXIgbW9kaWZpZXIgPSBwaWNrUmFuZG9tKHREYXRhLm1vZGlmaWVycywgMSlbMF07CgogIGlmIChhdWRpZW5jZSkgewogICAgdmFyIGF1ZFBocmFzZXMgPSBbCiAgICAgICdUaGlzIGlzIGVzcGVjaWFsbHkgaW1wb3J0YW50IGZvciAnICsgYXVkaWVuY2UgKyAnLicsCiAgICAgICdJZiB5b3UgYXJlIGEgJyArIGF1ZGllbmNlICsgJywgcGF5IGF0dGVudGlvbiB0byB0aGlzLicsCiAgICAgICdFdmVyeSAnICsgYXVkaWVuY2UgKyAnIHNob3VsZCBrbm93IGFib3V0IHRoaXMuJywKICAgICAgJ0J1aWx0IGZvciAnICsgYXVkaWVuY2UgKyAnIHdobyB3YW50IHJlYWwgcmVzdWx0cy4nLAogICAgICAnRGVzaWduZWQgd2l0aCAnICsgYXVkaWVuY2UgKyAnIGluIG1pbmQuJwogICAgXTsKICAgIGJvZHkgKz0gJyAnICsgcGlja1JhbmRvbShhdWRQaHJhc2VzLCAxKVswXTsKICB9CgogIHZhciBjYXB0aW9uID0gaG9vayArICdcblxuJyArIGJvZHk7CgogIGlmIChpbmNsdWRlQ1RBKSB7CiAgICBjYXB0aW9uICs9ICdcblxuJyArIHBpY2tSYW5kb20ocERhdGEuY3RhcywgMSlbMF07CiAgfQoKICB2YXIgZW1vamlzID0gWycmIzEwMDI0OycsJyYjMTI4MjkzOycsJyYjMTI4NjQwOycsJyYjMTI4MTYxOycsJyYjMTI3Nzc1OycsJyYjMTI4MTcwOycsJyYjOTk4OTsnLCcmIzEyODA3MzsnLCcmIzEyODE3MTsnLCcmIzEyNzg4MTsnLCcmIzk4Mjk7JywnJiMxMjg1ODg7J107CiAgaWYgKGluY2x1ZGVFbW9qaSkgewogICAgdmFyIGVtID0gcGlja1JhbmRvbShlbW9qaXMsIDIpOwogICAgY2FwdGlvbiA9IGVtWzBdICsgJyAnICsgY2FwdGlvbiArICcgJyArIGVtWzFdOwogIH0KCiAgaWYgKHBsYXRmb3JtID09PSAndHdpdHRlcicgJiYgY2FwdGlvbi5sZW5ndGggPiAyNTAgJiYgIWluY2x1ZGVIYXNodGFncykgewogICAgY2FwdGlvbiA9IGNhcHRpb24uc3Vic3RyaW5nKDAsIDI1MCk7CiAgICB2YXIgbGFzdFNwYWNlID0gY2FwdGlvbi5sYXN0SW5kZXhPZignICcpOwogICAgaWYgKGxhc3RTcGFjZSA+IDIwMCkgY2FwdGlvbiA9IGNhcHRpb24uc3Vic3RyaW5nKDAsIGxhc3RTcGFjZSk7CiAgfQoKICB2YXIgaGFzaHRhZ3MgPSAnJzsKICBpZiAoaW5jbHVkZUhhc2h0YWdzKSB7CiAgICB2YXIgY2F0ZWdvcnkgPSBkZXRlY3RDYXRlZ29yeSh0b3BpYyArICcgJyArIChrZXl3b3JkcyB8fCAnJykpOwogICAgdmFyIGNhdFRhZ3MgPSBoYXNodGFnU2V0c1tjYXRlZ29yeV0gfHwgaGFzaHRhZ1NldHMuZ2VuZXJhbDsKICAgIHZhciBzZWxlY3RlZFRhZ3MgPSBwaWNrUmFuZG9tKGNhdFRhZ3MsIDQpOwoKICAgIGlmIChrZXl3b3JkcykgewogICAgICB2YXIga3dBcnIgPSBrZXl3b3Jkcy5zcGxpdCgnLCcpOwogICAgICBmb3IgKHZhciBrID0gMDsgayA8IE1hdGgubWluKGt3QXJyLmxlbmd0aCwgMyk7IGsrKykgewogICAgICAgIHZhciBrdyA9IGt3QXJyW2tdLnRyaW0oKS5yZXBsYWNlKC9ccysvZywgJycpLnRvTG93ZXJDYXNlKCk7CiAgICAgICAgaWYgKGt3KSBzZWxlY3RlZFRhZ3MucHVzaCgnIycgKyBrdyk7CiAgICAgIH0KICAgIH0KICAgIGhhc2h0YWdzID0gc2VsZWN0ZWRUYWdzLmpvaW4oJyAnKTsKCiAgICBpZiAocGxhdGZvcm0gPT09ICd0d2l0dGVyJykgewogICAgICB2YXIgdHdlZXRXaXRoVGFncyA9IGNhcHRpb24gKyAnXG5cbicgKyBoYXNodGFnczsKICAgICAgaWYgKHR3ZWV0V2l0aFRhZ3MubGVuZ3RoID4gMjgwKSB7CiAgICAgICAgd2hpbGUgKHNlbGVjdGVkVGFncy5sZW5ndGggPiAyICYmIChjYXB0aW9uICsgJ1xuXG4nICsgc2VsZWN0ZWRUYWdzLmpvaW4oJyAnKSkubGVuZ3RoID4gMjgwKSB7CiAgICAgICAgICBzZWxlY3RlZFRhZ3MucG9wKCk7CiAgICAgICAgfQogICAgICAgIGhhc2h0YWdzID0gc2VsZWN0ZWRUYWdzLmpvaW4oJyAnKTsKICAgICAgICBpZiAoKGNhcHRpb24gKyAnXG5cbicgKyBoYXNodGFncykubGVuZ3RoID4gMjgwKSB7CiAgICAgICAgICB2YXIgbWF4Q2FwTGVuID0gMjgwIC0gaGFzaHRhZ3MubGVuZ3RoIC0gNDsKICAgICAgICAgIGNhcHRpb24gPSBjYXB0aW9uLnN1YnN0cmluZygwLCBtYXhDYXBMZW4pOwogICAgICAgICAgdmFyIGxzID0gY2FwdGlvbi5sYXN0SW5kZXhPZignICcpOwogICAgICAgICAgaWYgKGxzID4gbWF4Q2FwTGVuIC0gNDApIGNhcHRpb24gPSBjYXB0aW9uLnN1YnN0cmluZygwLCBscyk7CiAgICAgICAgfQogICAgICB9CiAgICB9CiAgfQoKICByZXR1cm4geyB0ZXh0OiBjYXB0aW9uLCBoYXNodGFnczogaGFzaHRhZ3MsIGNoYXJzOiBjYXB0aW9uLmxlbmd0aCArIChoYXNodGFncyA/IGhhc2h0YWdzLmxlbmd0aCArIDIgOiAwKSwgbWF4TGVuOiBwRGF0YS5tYXhMZW4gfTsKfQoKd2luZG93LmdlbmVyYXRlQ2FwdGlvbnMgPSBmdW5jdGlvbigpIHsKICB2YXIgdG9waWMgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgndG9waWNJbnB1dCcpLnZhbHVlLnRyaW0oKTsKICBpZiAoIXRvcGljKSB7IGFsZXJ0KCdQbGVhc2UgZW50ZXIgYSB0b3BpYyBvciBkZXNjcmlwdGlvbiBmb3IgeW91ciBwb3N0LicpOyByZXR1cm47IH0KICBpZiAodG9waWMubGVuZ3RoIDwgMykgeyBhbGVydCgnUGxlYXNlIGVudGVyIGEgbW9yZSBkZXRhaWxlZCBkZXNjcmlwdGlvbiAoYXQgbGVhc3QgYSBmZXcgd29yZHMpLicpOyByZXR1cm47IH0KCiAgdmFyIHBsYXRmb3JtID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3BsYXRmb3JtU2VsZWN0JykudmFsdWU7CiAgdmFyIHRvbmUgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgndG9uZVNlbGVjdCcpLnZhbHVlOwogIHZhciBrZXl3b3JkcyA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdrZXl3b3Jkc0lucHV0JykudmFsdWUudHJpbSgpOwogIHZhciBhdWRpZW5jZSA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdhdWRpZW5jZUlucHV0JykudmFsdWUudHJpbSgpOwogIHZhciBjb3VudCA9IHBhcnNlSW50KGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdjb3VudFNlbGVjdCcpLnZhbHVlKTsKICB2YXIgaW5jbHVkZUhhc2h0YWdzID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2Noa0hhc2h0YWdzJykuY2hlY2tlZDsKICB2YXIgaW5jbHVkZUVtb2ppID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2Noa0Vtb2ppJykuY2hlY2tlZDsKICB2YXIgaW5jbHVkZUNUQSA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdjaGtDVEEnKS5jaGVja2VkOwoKICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgncHJvZ3Jlc3NXcmFwJykuc3R5bGUuZGlzcGxheSA9ICcnOwogIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdnZW5lcmF0ZUJ0bicpLmRpc2FibGVkID0gdHJ1ZTsKICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgncmVzdWx0c0FyZWEnKS5zdHlsZS5kaXNwbGF5ID0gJ25vbmUnOwoKICB2YXIgcHJvZyA9IDA7CiAgdmFyIGZpbGwgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgncHJvZ3Jlc3NGaWxsJyk7CiAgdmFyIGxhYmVsID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3Byb2dyZXNzTGFiZWwnKTsKICB2YXIgc3RlcHMgPSBbJ0FuYWx5c2luZyB5b3VyIHRvcGljLi4uJywgJ0dlbmVyYXRpbmcgY2FwdGlvbiBob29rcy4uLicsICdDcmFmdGluZyB2YXJpYXRpb25zLi4uJywgJ0FkZGluZyBoYXNodGFncy4uLicsICdQb2xpc2hpbmcgb3V0cHV0Li4uJ107CiAgdmFyIHN0ZXBJID0gMDsKCiAgdmFyIGludGVydmFsID0gc2V0SW50ZXJ2YWwoZnVuY3Rpb24oKSB7CiAgICBwcm9nID0gTWF0aC5taW4ocHJvZyArIDMsIDkyKTsKICAgIGZpbGwuc3R5bGUud2lkdGggPSBwcm9nICsgJyUnOwogICAgaWYgKHByb2cgJSAxOCA9PT0gMCAmJiBzdGVwSSA8IHN0ZXBzLmxlbmd0aCkgeyBsYWJlbC50ZXh0Q29udGVudCA9IHN0ZXBzW3N0ZXBJXTsgc3RlcEkrKzsgfQogIH0sIDMwKTsKCiAgc2V0VGltZW91dChmdW5jdGlvbigpIHsKICAgIGNsZWFySW50ZXJ2YWwoaW50ZXJ2YWwpOwogICAgZmlsbC5zdHlsZS53aWR0aCA9ICcxMDAlJzsKICAgIGxhYmVsLnRleHRDb250ZW50ID0gJ0RvbmUhJzsKCiAgICBzZXRUaW1lb3V0KGZ1bmN0aW9uKCkgewogICAgICB2YXIgY2FwdGlvbnMgPSBbXTsKICAgICAgZm9yICh2YXIgaSA9IDA7IGkgPCBjb3VudDsgaSsrKSB7CiAgICAgICAgY2FwdGlvbnMucHVzaChnZW5lcmF0ZU9uZUNhcHRpb24odG9waWMsIHBsYXRmb3JtLCB0b25lLCBpbmNsdWRlSGFzaHRhZ3MsIGluY2x1ZGVFbW9qaSwgaW5jbHVkZUNUQSwga2V5d29yZHMsIGF1ZGllbmNlKSk7CiAgICAgIH0KCiAgICAgIHZhciBwbGF0Zm9ybU5hbWVzID0geyBpbnN0YWdyYW06ICdJbnN0YWdyYW0nLCB0aWt0b2s6ICdUaWtUb2snLCB0d2l0dGVyOiAnVHdpdHRlci9YJywgbGlua2VkaW46ICdMaW5rZWRJbicsIGZhY2Vib29rOiAnRmFjZWJvb2snLCB5b3V0dWJlOiAnWW91VHViZScgfTsKICAgICAgdmFyIHRvbmVOYW1lcyA9IHsgcHJvZmVzc2lvbmFsOiAnUHJvZmVzc2lvbmFsJywgY2FzdWFsOiAnQ2FzdWFsJywgZnVubnk6ICdGdW5ueScsIGluc3BpcmF0aW9uYWw6ICdJbnNwaXJhdGlvbmFsJywgZWR1Y2F0aW9uYWw6ICdFZHVjYXRpb25hbCcsIHByb21vdGlvbmFsOiAnUHJvbW90aW9uYWwnLCBzdG9yeXRlbGxpbmc6ICdTdG9yeXRlbGxpbmcnIH07CgogICAgICB2YXIgaHRtbCA9ICcnOwogICAgICBmb3IgKHZhciBjID0gMDsgYyA8IGNhcHRpb25zLmxlbmd0aDsgYysrKSB7CiAgICAgICAgdmFyIGNhcCA9IGNhcHRpb25zW2NdOwogICAgICAgIGh0bWwgKz0gJzxkaXYgY2xhc3M9ImNhcHRpb24tY2FyZCI+JzsKICAgICAgICBodG1sICs9ICc8ZGl2IGNsYXNzPSJjYXAtaGVhZCI+PHNwYW4gY2xhc3M9ImNhcC1udW0iPkNhcHRpb24gJyArIChjKzEpICsgJyBvZiAnICsgY291bnQgKyAnPC9zcGFuPic7CiAgICAgICAgaHRtbCArPSAnPGJ1dHRvbiBjbGFzcz0iY2FwLWNvcHkiIG9uY2xpY2s9ImNvcHlDYXAodGhpcykiPkNvcHkgQ2FwdGlvbjwvYnV0dG9uPjwvZGl2Pic7CiAgICAgICAgaHRtbCArPSAnPGRpdiBjbGFzcz0iY2FwLXRleHQiPicgKyBjYXAudGV4dC5yZXBsYWNlKC88L2csJyZsdDsnKS5yZXBsYWNlKC8+L2csJyZndDsnKS5yZXBsYWNlKC9cbi9nLCc8YnI+JykgKyAnPC9kaXY+JzsKICAgICAgICBpZiAoY2FwLmhhc2h0YWdzKSB7CiAgICAgICAgICBodG1sICs9ICc8ZGl2IGNsYXNzPSJjYXAtaGFzaHRhZ3MiPicgKyBjYXAuaGFzaHRhZ3MgKyAnPC9kaXY+JzsKICAgICAgICB9CiAgICAgICAgaHRtbCArPSAnPGRpdiBjbGFzcz0iY2FwLW1ldGEiPic7CiAgICAgICAgaHRtbCArPSAnPHNwYW4+JyArIGNhcC5jaGFycyArICcgLyAnICsgY2FwLm1heExlbiArICcgY2hhcnM8L3NwYW4+JzsKICAgICAgICBodG1sICs9ICc8c3Bhbj4nICsgcGxhdGZvcm1OYW1lc1twbGF0Zm9ybV0gKyAnPC9zcGFuPic7CiAgICAgICAgaHRtbCArPSAnPHNwYW4+JyArIHRvbmVOYW1lc1t0b25lXSArICc8L3NwYW4+JzsKICAgICAgICBodG1sICs9ICc8L2Rpdj48L2Rpdj4nOwogICAgICB9CgogICAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgncmVzdWx0c0FyZWEnKS5pbm5lckhUTUwgPSBodG1sOwogICAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgncmVzdWx0c0FyZWEnKS5zdHlsZS5kaXNwbGF5ID0gJyc7CiAgICAgIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdwcm9ncmVzc1dyYXAnKS5zdHlsZS5kaXNwbGF5ID0gJ25vbmUnOwogICAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnZ2VuZXJhdGVCdG4nKS5kaXNhYmxlZCA9IGZhbHNlOwogICAgfSwgNDAwKTsKICB9LCAxNjAwKTsKfTsKCndpbmRvdy5jb3B5Q2FwID0gZnVuY3Rpb24oYnRuKSB7CiAgdmFyIGNhcmQgPSBidG4uY2xvc2VzdCgnLmNhcHRpb24tY2FyZCcpOwogIHZhciB0ZXh0RWwgPSBjYXJkLnF1ZXJ5U2VsZWN0b3IoJy5jYXAtdGV4dCcpOwogIHZhciBoYXNoRWwgPSBjYXJkLnF1ZXJ5U2VsZWN0b3IoJy5jYXAtaGFzaHRhZ3MnKTsKICB2YXIgdGV4dCA9IHRleHRFbC50ZXh0Q29udGVudCB8fCB0ZXh0RWwuaW5uZXJUZXh0OwogIGlmIChoYXNoRWwpIHRleHQgKz0gJ1xuXG4nICsgKGhhc2hFbC50ZXh0Q29udGVudCB8fCBoYXNoRWwuaW5uZXJUZXh0KTsKCiAgaWYgKG5hdmlnYXRvci5jbGlwYm9hcmQgJiYgbmF2aWdhdG9yLmNsaXBib2FyZC53cml0ZVRleHQpIHsKICAgIG5hdmlnYXRvci5jbGlwYm9hcmQud3JpdGVUZXh0KHRleHQpLnRoZW4oZnVuY3Rpb24oKSB7CiAgICAgIHZhciB0ID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3RvYXN0Jyk7CiAgICAgIHQuY2xhc3NMaXN0LmFkZCgnc2hvdycpOwogICAgICBzZXRUaW1lb3V0KGZ1bmN0aW9uKCkgeyB0LmNsYXNzTGlzdC5yZW1vdmUoJ3Nob3cnKTsgfSwgMjAwMCk7CiAgICB9KTsKICB9IGVsc2UgewogICAgdmFyIHRhID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgndGV4dGFyZWEnKTsKICAgIHRhLnZhbHVlID0gdGV4dDsKICAgIGRvY3VtZW50LmJvZHkuYXBwZW5kQ2hpbGQodGEpOwogICAgdGEuc2VsZWN0KCk7CiAgICBkb2N1bWVudC5leGVjQ29tbWFuZCgnY29weScpOwogICAgZG9jdW1lbnQuYm9keS5yZW1vdmVDaGlsZCh0YSk7CiAgICB2YXIgdCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCd0b2FzdCcpOwogICAgdC5jbGFzc0xpc3QuYWRkKCdzaG93Jyk7CiAgICBzZXRUaW1lb3V0KGZ1bmN0aW9uKCkgeyB0LmNsYXNzTGlzdC5yZW1vdmUoJ3Nob3cnKTsgfSwgMjAwMCk7CiAgfQp9OwoKd2luZG93LmNsZWFyQWxsID0gZnVuY3Rpb24oKSB7CiAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3RvcGljSW5wdXQnKS52YWx1ZSA9ICcnOwogIGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdrZXl3b3Jkc0lucHV0JykudmFsdWUgPSAnJzsKICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnYXVkaWVuY2VJbnB1dCcpLnZhbHVlID0gJyc7CiAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3Jlc3VsdHNBcmVhJykuc3R5bGUuZGlzcGxheSA9ICdub25lJzsKICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgncmVzdWx0c0FyZWEnKS5pbm5lckhUTUwgPSAnJzsKICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgncHJvZ3Jlc3NXcmFwJykuc3R5bGUuZGlzcGxheSA9ICdub25lJzsKfTsKCn0pKCk7Cg=="))</script>
+</body>
+</html>
