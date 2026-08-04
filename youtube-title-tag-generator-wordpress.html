@@ -1,0 +1,386 @@
+<style>
+#ytg-wrap {
+  --pri: #6C5CE7;
+  --pri-hover: #5A4BD1;
+  --bg: #E8E0F0;
+  --bg-alt: #DDD4EB;
+  --card-bg: #FFFFFF;
+  --card-border: #D0C6E0;
+  --input-bg: #F5F1FA;
+  --input-border: #D0C6E0;
+  --text: #2D2B55;
+  --muted: #6B6490;
+  --heading: #1A1744;
+  --green: #00C897;
+  --red: #EF4444;
+  --yellow: #F59E0B;
+}
+#ytg-wrap *, #ytg-wrap *::before, #ytg-wrap *::after { box-sizing: border-box !important; }
+#ytg-wrap { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important; background: var(--bg) !important; color: var(--text) !important; line-height: 1.6 !important; -webkit-font-smoothing: antialiased !important; margin: 0 !important; padding: 0 !important; }
+#ytg-wrap a { color: var(--pri) !important; text-decoration: none !important; }
+#ytg-wrap a:hover { color: var(--pri-hover) !important; }
+#ytg-wrap h1, #ytg-wrap h2, #ytg-wrap h3 { color: var(--heading) !important; margin: 0 0 0.75rem 0 !important; }
+#ytg-wrap p { margin: 0 0 1rem 0 !important; }
+#ytg-wrap img { max-width: 100% !important; }
+
+/* Hero */
+.ytg-hero { text-align: center !important; padding: 3.5rem 1.5rem 2.5rem !important; background: var(--bg) !important; }
+.ytg-hero .badge { display: inline-block !important; background: var(--card-bg) !important; color: var(--pri) !important; font-size: 0.8rem !important; font-weight: 600 !important; padding: 0.4rem 1.1rem !important; border-radius: 999px !important; border: 1px solid var(--card-border) !important; margin-bottom: 1.25rem !important; }
+.ytg-hero h1 { font-size: 2.4rem !important; font-weight: 800 !important; margin-bottom: 0.85rem !important; }
+.ytg-hero .sub { color: var(--muted) !important; max-width: 660px !important; margin: 0 auto 1.5rem !important; font-size: 0.95rem !important; line-height: 1.65 !important; }
+.usp-row { display: flex !important; gap: 0.6rem !important; flex-wrap: wrap !important; justify-content: center !important; margin-bottom: 1.75rem !important; }
+.usp-pill { background: rgba(108,92,231,0.08) !important; border: 1px solid rgba(108,92,231,0.2) !important; color: var(--pri) !important; font-size: 0.78rem !important; font-weight: 600 !important; padding: 0.4rem 1rem !important; border-radius: 999px !important; }
+.btn { display: inline-block !important; border: none !important; border-radius: 10px !important; padding: 0.85rem 2rem !important; font-size: 0.95rem !important; font-weight: 700 !important; cursor: pointer !important; font-family: inherit !important; transition: transform .15s, background .2s !important; }
+.btn:hover { transform: translateY(-1px) !important; }
+.btn-primary { background: var(--pri) !important; color: #fff !important; }
+.btn-primary:hover { background: var(--pri-hover) !important; }
+.btn-outline { background: var(--card-bg) !important; color: var(--pri) !important; border: 1px solid var(--card-border) !important; }
+.btn-outline:hover { background: var(--bg-alt) !important; }
+.btn-sm { padding: 0.5rem 1rem !important; font-size: 0.8rem !important; }
+
+/* Tool */
+.ytg-tool { max-width: 750px !important; margin: 0 auto !important; padding: 0 1.5rem 3rem !important; }
+.ytg-box { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 16px !important; padding: 2rem !important; box-shadow: 0 2px 12px rgba(108,92,231,0.06) !important; }
+.ytg-box label { display: block !important; font-size: 0.72rem !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.07em !important; color: var(--muted) !important; margin-bottom: 0.45rem !important; }
+.ytg-box input[type="text"], .ytg-box select { width: 100% !important; background: var(--input-bg) !important; border: 1px solid var(--input-border) !important; border-radius: 10px !important; padding: 0.7rem 1rem !important; color: var(--text) !important; font-size: 0.9rem !important; font-family: inherit !important; transition: border-color .2s !important; }
+.ytg-box input[type="text"]:focus, .ytg-box select:focus { outline: none !important; border-color: var(--pri) !important; }
+.mb { margin-bottom: 1.25rem !important; }
+.row2 { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 1.25rem !important; }
+.chk-row { display: flex !important; align-items: center !important; gap: 0.5rem !important; margin-bottom: 1.25rem !important; }
+.chk-row input[type="checkbox"] { width: 16px !important; height: 16px !important; accent-color: var(--pri) !important; }
+.chk-row label { margin-bottom: 0 !important; text-transform: none !important; letter-spacing: 0 !important; font-size: 0.88rem !important; color: var(--text) !important; font-weight: 500 !important; cursor: pointer !important; }
+.btn-group { display: flex !important; gap: 0.75rem !important; flex-wrap: wrap !important; margin-top: 0.5rem !important; }
+
+/* Results */
+#resultsWrap { margin-top: 2rem !important; }
+.res-section { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 16px !important; padding: 1.75rem !important; margin-bottom: 1.5rem !important; }
+.res-head { display: flex !important; justify-content: space-between !important; align-items: center !important; margin-bottom: 1.1rem !important; flex-wrap: wrap !important; gap: 0.6rem !important; }
+.res-head h3 { margin: 0 !important; font-size: 1.1rem !important; }
+.title-card { background: var(--input-bg) !important; border: 1px solid var(--input-border) !important; border-radius: 10px !important; padding: 0.9rem 1.1rem !important; margin-bottom: 0.75rem !important; display: flex !important; justify-content: space-between !important; align-items: center !important; gap: 1rem !important; flex-wrap: wrap !important; }
+.title-card:last-child { margin-bottom: 0 !important; }
+.title-text { font-size: 0.95rem !important; color: var(--text) !important; font-weight: 600 !important; flex: 1 1 260px !important; }
+.title-meta { display: flex !important; align-items: center !important; gap: 0.6rem !important; flex-shrink: 0 !important; }
+.count-badge { font-size: 0.72rem !important; font-weight: 700 !important; padding: 0.25rem 0.6rem !important; border-radius: 999px !important; color: #fff !important; }
+.count-badge.good { background: var(--green) !important; }
+.count-badge.warn { background: var(--yellow) !important; }
+.count-badge.bad { background: var(--red) !important; }
+.copy-btn { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; color: var(--pri) !important; font-size: 0.75rem !important; font-weight: 600 !important; padding: 0.4rem 0.8rem !important; border-radius: 8px !important; cursor: pointer !important; font-family: inherit !important; }
+.copy-btn:hover { background: var(--bg-alt) !important; }
+.tag-pills { display: flex !important; flex-wrap: wrap !important; gap: 0.5rem !important; margin-bottom: 1rem !important; }
+.tag-pill { background: rgba(108,92,231,0.08) !important; border: 1px solid rgba(108,92,231,0.2) !important; color: var(--pri) !important; font-size: 0.8rem !important; font-weight: 600 !important; padding: 0.35rem 0.9rem !important; border-radius: 999px !important; }
+.tag-chars { font-size: 0.8rem !important; color: var(--muted) !important; }
+.tag-chars strong { color: var(--text) !important; }
+
+/* Content sections */
+.ytg-section { max-width: 900px !important; margin: 0 auto !important; padding: 2.5rem 1.5rem !important; }
+.ytg-section h2 { font-size: 1.7rem !important; margin-bottom: 1rem !important; }
+.ytg-section p { color: var(--text) !important; font-size: 0.96rem !important; }
+.ytg-section.alt { background: var(--bg-alt) !important; max-width: 100% !important; }
+.ytg-section.alt .inner { max-width: 900px !important; margin: 0 auto !important; }
+.steps-list { list-style: none !important; padding: 0 !important; margin: 0 !important; counter-reset: step !important; }
+.steps-list li { counter-increment: step !important; position: relative !important; padding: 0.75rem 0 0.75rem 3rem !important; font-size: 0.95rem !important; }
+.steps-list li::before { content: counter(step) !important; position: absolute !important; left: 0 !important; top: 0.6rem !important; width: 2rem !important; height: 2rem !important; background: var(--pri) !important; color: #fff !important; border-radius: 50% !important; display: flex !important; align-items: center !important; justify-content: center !important; font-weight: 700 !important; font-size: 0.85rem !important; }
+.feature-grid { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 1.25rem !important; }
+.feature-card { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 14px !important; padding: 1.5rem !important; }
+.feature-card .icon { font-size: 1.6rem !important; margin-bottom: 0.6rem !important; }
+.feature-card h3 { font-size: 1rem !important; margin-bottom: 0.4rem !important; }
+.feature-card p { font-size: 0.86rem !important; color: var(--muted) !important; margin-bottom: 0 !important; }
+.tips-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 1.25rem !important; }
+.tip-card { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 12px !important; padding: 1.25rem !important; }
+.tip-card h3 { font-size: 0.95rem !important; margin-bottom: 0.4rem !important; }
+.tip-card p { font-size: 0.86rem !important; color: var(--muted) !important; margin-bottom: 0 !important; }
+.table-wrap { overflow-x: auto !important; }
+table.cmp { width: 100% !important; border-collapse: collapse !important; background: var(--card-bg) !important; border-radius: 12px !important; overflow: hidden !important; font-size: 0.85rem !important; }
+table.cmp th, table.cmp td { padding: 0.75rem 1rem !important; border-bottom: 1px solid var(--card-border) !important; text-align: left !important; }
+table.cmp th { background: var(--bg-alt) !important; color: var(--heading) !important; font-weight: 700 !important; }
+table.cmp td.brand { color: var(--pri) !important; font-weight: 700 !important; }
+.mistake-list { list-style: none !important; padding: 0 !important; margin: 0 !important; }
+.mistake-list li { padding: 0.7rem 0 0.7rem 1.9rem !important; position: relative !important; font-size: 0.92rem !important; border-bottom: 1px solid var(--card-border) !important; }
+.mistake-list li:last-child { border-bottom: none !important; }
+.mistake-list li::before { content: "\2715" !important; position: absolute !important; left: 0 !important; color: var(--red) !important; font-weight: 700 !important; }
+
+/* FAQ */
+.faq-item { border: 1px solid var(--card-border) !important; border-radius: 10px !important; margin-bottom: 0.75rem !important; background: var(--card-bg) !important; overflow: hidden !important; }
+.faq-q { width: 100% !important; text-align: left !important; background: none !important; border: none !important; padding: 1rem 1.25rem !important; font-size: 0.95rem !important; font-weight: 700 !important; color: var(--heading) !important; cursor: pointer !important; display: flex !important; justify-content: space-between !important; align-items: center !important; font-family: inherit !important; }
+.faq-q::after { content: "+" !important; font-size: 1.3rem !important; color: var(--pri) !important; transition: transform .2s !important; }
+.faq-item.open .faq-q::after { transform: rotate(45deg) !important; }
+.faq-a { max-height: 0 !important; overflow: hidden !important; transition: max-height .25s ease !important; padding: 0 1.25rem !important; }
+.faq-item.open .faq-a { max-height: 400px !important; padding: 0 1.25rem 1.1rem !important; }
+.faq-a p { font-size: 0.9rem !important; color: var(--muted) !important; margin-bottom: 0 !important; }
+
+/* Toast */
+#toast { position: fixed !important; bottom: 1.5rem !important; left: 50% !important; transform: translateX(-50%) translateY(100px) !important; background: var(--heading) !important; color: #fff !important; padding: 0.75rem 1.5rem !important; border-radius: 10px !important; font-size: 0.85rem !important; font-weight: 600 !important; z-index: 9999 !important; transition: transform .3s ease !important; box-shadow: 0 6px 20px rgba(0,0,0,0.2) !important; }
+#toast.show { transform: translateX(-50%) translateY(0) !important; }
+
+@media (max-width: 700px) {
+  .row2 { grid-template-columns: 1fr !important; }
+  .feature-grid { grid-template-columns: 1fr !important; }
+  .tips-grid { grid-template-columns: 1fr !important; }
+  .ytg-hero h1 { font-size: 1.8rem !important; }
+}
+</style>
+</head>
+<body>
+<div id="ytg-wrap">
+
+<section class="ytg-hero">
+  <div class="badge">Free Tool No Signup Required</div>
+  <h1>Free YouTube Title &amp; Tag Generator</h1>
+  <p class="sub">Generate 5 scroll-stopping title variations and 20 relevant tags for any video in seconds. Boost your click-through rate and get discovered on YouTube, all without an account or API key.</p>
+  <div class="usp-row">
+    <span class="usp-pill">100% Free</span>
+    <span class="usp-pill">No Login</span>
+    <span class="usp-pill">Instant Results</span>
+    <span class="usp-pill">8 Title Styles</span>
+  </div>
+  <button type="button" id="ctaBtn" class="btn btn-primary">Generate My Titles &amp; Tags</button>
+</section>
+
+<section class="ytg-tool">
+  <div class="ytg-box">
+    <div class="mb">
+      <label for="topicInput">Video Topic / Subject</label>
+      <input type="text" id="topicInput" placeholder="e.g. iPhone 16 camera settings">
+    </div>
+    <div class="row2 mb">
+      <div>
+        <label for="categorySelect">Video Category</label>
+        <select id="categorySelect">
+          <option>Tutorial/How-To</option>
+          <option>Review</option>
+          <option>Vlog</option>
+          <option>Gaming</option>
+          <option>Music</option>
+          <option>Comedy</option>
+          <option>Education</option>
+          <option>News</option>
+          <option>Tech</option>
+          <option>Cooking/Recipe</option>
+          <option>Fitness</option>
+          <option>Travel</option>
+          <option>Unboxing</option>
+          <option>Reaction</option>
+          <option>Interview</option>
+          <option>Podcast</option>
+          <option>Listicle</option>
+          <option>Challenge</option>
+          <option>Behind the Scenes</option>
+          <option>Motivation</option>
+        </select>
+      </div>
+      <div>
+        <label for="audienceSelect">Target Audience</label>
+        <select id="audienceSelect">
+          <option>General</option>
+          <option>Beginners</option>
+          <option>Professionals</option>
+          <option>Students</option>
+          <option>Kids</option>
+          <option>Teens</option>
+          <option>Parents</option>
+          <option>Entrepreneurs</option>
+          <option>Developers</option>
+          <option>Marketers</option>
+        </select>
+      </div>
+    </div>
+    <div class="row2 mb">
+      <div>
+        <label for="styleSelect">Title Style</label>
+        <select id="styleSelect">
+          <option value="clickbait">Clickbait (Curiosity)</option>
+          <option value="howto">How-To/Tutorial</option>
+          <option value="listicle">Listicle (Top 5/10)</option>
+          <option value="question">Question-Based</option>
+          <option value="emotional">Emotional/Power Words</option>
+          <option value="comparison">Comparison (vs)</option>
+          <option value="review">Review Style</option>
+          <option value="story">Story/Personal</option>
+        </select>
+      </div>
+      <div>
+        <label for="keywordsInput">Keywords (comma-separated, optional)</label>
+        <input type="text" id="keywordsInput" placeholder="e.g. tips, 2026, guide">
+      </div>
+    </div>
+    <div class="chk-row">
+      <input type="checkbox" id="yearToggle" checked>
+      <label for="yearToggle">Include current year in titles</label>
+    </div>
+    <div class="btn-group">
+      <button type="button" id="generateBtn" class="btn btn-primary">Generate Titles &amp; Tags</button>
+      <button type="button" id="regenBtn" class="btn btn-outline">Regenerate</button>
+      <button type="button" id="clearBtn" class="btn btn-outline">Clear All</button>
+    </div>
+  </div>
+
+  <div id="resultsWrap" style="display:none;">
+    <div class="res-section">
+      <div class="res-head">
+        <h3>5 Title Variations</h3>
+      </div>
+      <div id="titlesOutput"></div>
+    </div>
+    <div class="res-section">
+      <div class="res-head">
+        <h3>20 Suggested Tags</h3>
+        <button type="button" id="copyTagsBtn" class="copy-btn">Copy All Tags</button>
+      </div>
+      <div class="tag-pills" id="tagsOutput"></div>
+      <div class="tag-chars">Total tag characters: <strong id="tagCharCount">0</strong> / 500 (YouTube limit)</div>
+    </div>
+  </div>
+</section>
+
+<section class="ytg-section">
+  <h2>What Is a YouTube Title &amp; Tag Generator</h2>
+  <p>A YouTube title and tag generator is a tool that helps creators quickly produce catchy, search-friendly titles and relevant tags for their videos without spending hours brainstorming. Instead of staring at a blank title field, you enter your video topic and let the tool assemble proven title formulas and keyword-rich tags around it. This BrightlyFuture tool runs entirely in your browser, uses smart template assembly, and requires no account, no API key, and no payment.</p>
+  <p>Whether you are a beginner uploading your first video or a seasoned creator managing multiple channels, having a fast way to test different title angles and generate a solid starting tag list saves real time in your upload workflow.</p>
+</section>
+
+<section class="ytg-section alt">
+  <div class="inner">
+    <h2>Why YouTube Titles and Tags Matter</h2>
+    <p>Your title is the single biggest factor in whether someone clicks your video after seeing the thumbnail. A weak or vague title gets scrolled past, even if the content inside is excellent. A strong title creates curiosity, promises a clear benefit, and matches what viewers are actually searching for, which directly improves click-through rate (CTR), one of the strongest ranking signals YouTube's algorithm uses.</p>
+    <p>Tags, while less powerful than they used to be, still help YouTube understand the context of your video, especially for misspellings, closely related topics, and content categorization. Combined with a strong title and description, well-chosen tags round out a video's discoverability and can help you show up in related video suggestions.</p>
+  </div>
+</section>
+
+<section class="ytg-section">
+  <h2>How to Use This Tool</h2>
+  <ol class="steps-list">
+    <li>Enter your video topic or subject in the input field, keep it specific for best results.</li>
+    <li>Select the video category that best matches your content.</li>
+    <li>Choose your target audience so the tone fits your viewers.</li>
+    <li>Pick a title style, such as How-To, Listicle, or Question-Based.</li>
+    <li>Optionally add your own keywords, then click Generate Titles &amp; Tags.</li>
+    <li>Copy your favorite title and the full tag list with one click, or hit Regenerate for fresh options.</li>
+  </ol>
+</section>
+
+<section class="ytg-section alt">
+  <div class="inner">
+    <h2>Key Features</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="icon">🎯</div>
+        <h3>8 Title Styles</h3>
+        <p>Clickbait, How-To, Listicle, Question, Emotional, Comparison, Review, and Story formats.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">📏</div>
+        <h3>Live Character Counter</h3>
+        <p>See exactly how long each title is with color-coded good, warn, and over-limit badges.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🏷️</div>
+        <h3>20 Smart Tags</h3>
+        <p>Auto-generated tags based on your topic, category, and optional custom keywords.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">⚡</div>
+        <h3>Instant Results</h3>
+        <p>Everything runs client-side, no waiting on servers or APIs to respond.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">📋</div>
+        <h3>One-Click Copy</h3>
+        <p>Copy any title or the entire tag list to your clipboard instantly.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">🔒</div>
+        <h3>No Signup Needed</h3>
+        <p>No account, no email, no data stored. Just open the tool and generate.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ytg-section">
+  <h2>YouTube Title Best Practices</h2>
+  <div class="tips-grid">
+    <div class="tip-card">
+      <h3>Keep It Under 60-70 Characters</h3>
+      <p>Titles longer than that get truncated in search results and suggested video feeds on most devices.</p>
+    </div>
+    <div class="tip-card">
+      <h3>Front-Load Your Keyword</h3>
+      <p>Put your main keyword near the start of the title so it is visible even when truncated.</p>
+    </div>
+    <div class="tip-card">
+      <h3>Create Curiosity or Value</h3>
+      <p>A great title promises a clear benefit or sparks curiosity without misleading the viewer.</p>
+    </div>
+    <div class="tip-card">
+      <h3>Match Search Intent</h3>
+      <p>Use phrasing your audience is likely to type into the YouTube search bar.</p>
+    </div>
+    <div class="tip-card">
+      <h3>Avoid All Caps Overuse</h3>
+      <p>A few capitalized power words work, but an entire title in caps looks spammy.</p>
+    </div>
+    <div class="tip-card">
+      <h3>Test Multiple Variations</h3>
+      <p>Generate several options and pick the one that feels most natural and clickable for your niche.</p>
+    </div>
+  </div>
+</section>
+
+<section class="ytg-section alt">
+  <div class="inner">
+    <h2>YouTube Tag Optimization Guide</h2>
+    <p>Tags are keywords attached to your video behind the scenes. They are not shown to viewers directly but help YouTube's system classify your content correctly, especially useful for correcting common misspellings of your main keyword or connecting your video to a broader topic cluster. YouTube recommends keeping your combined tags under 500 characters total.</p>
+    <p>A good tag mix includes your exact topic, a broad category term, a few long-tail variations like "how to" phrases, and any brand or product names mentioned in the video. Avoid stuffing irrelevant or unrelated tags, as this can actually confuse the algorithm rather than help it, and in some cases can flag your content as misleading.</p>
+  </div>
+</section>
+
+<section class="ytg-section">
+  <h2>How BrightlyFuture Compares</h2>
+  <div class="table-wrap">
+    <table class="cmp">
+      <tr><th>Feature</th><th>BrightlyFuture</th><th>TubeBuddy</th><th>VidIQ</th><th>RapidTags</th></tr>
+      <tr><td>Price</td><td class="brand">Free</td><td>Paid plans</td><td>Paid plans</td><td>Free (limited)</td></tr>
+      <tr><td>Title Generation</td><td class="brand">Yes</td><td>Limited</td><td>Yes</td><td>No</td></tr>
+      <tr><td>Tag Generation</td><td class="brand">Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+      <tr><td>Character Counter</td><td class="brand">Yes</td><td>Yes</td><td>Yes</td><td>No</td></tr>
+      <tr><td>Style Options</td><td class="brand">8 styles</td><td>No</td><td>Limited</td><td>No</td></tr>
+      <tr><td>Category Support</td><td class="brand">20 categories</td><td>Limited</td><td>Limited</td><td>No</td></tr>
+      <tr><td>No Signup</td><td class="brand">Yes</td><td>No</td><td>No</td><td>Yes</td></tr>
+      <tr><td>Copy to Clipboard</td><td class="brand">Yes</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="ytg-section alt">
+  <div class="inner">
+    <h2>YouTube SEO Tips</h2>
+    <p>Beyond titles and tags, a few other elements influence how well your videos rank and get recommended. Write a detailed description that naturally includes your target keyword in the first two lines, since that text is often what shows up in search snippets. Add timestamps for longer videos to improve watch time and viewer satisfaction signals.</p>
+    <p>Custom thumbnails that pair with your title's promise consistently outperform auto-generated ones. Also consider adding closed captions, since YouTube can index that text for search, and organizing related videos into playlists to keep viewers watching longer, which is a strong positive ranking signal.</p>
+  </div>
+</section>
+
+<section class="ytg-section">
+  <h2>Common Title and Tag Mistakes</h2>
+  <ul class="mistake-list">
+    <li>Writing vague titles that do not describe what the video actually covers.</li>
+    <li>Using clickbait that misleads viewers, which hurts audience retention and trust.</li>
+    <li>Going over 100 characters so the title gets cut off in search results.</li>
+    <li>Stuffing tags with irrelevant keywords unrelated to the video content.</li>
+    <li>Copying a competitor's exact tags without adapting them to your own video.</li>
+    <li>Never updating tags or titles even after a video underperforms.</li>
+    <li>Ignoring keyword research and guessing what viewers might search for.</li>
+  </ul>
+</section>
+
+<section class="ytg-section alt">
+  <div class="inner">
+    <h2>Frequently Asked Questions</h2>
+    <div id="faqList"></div>
+  </div>
+</section>
+
+</div><!-- /ytg-wrap -->
+
+<div id="toast"></div>
+
+<script>eval(atob("KGZ1bmN0aW9uKCl7CiAgZnVuY3Rpb24gaW5pdCgpewogICAgdmFyIHdyYXAgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgneXRnLXdyYXAnKTsKICAgIGlmKCF3cmFwKSByZXR1cm47CgogICAgdmFyIHRvcGljSW5wdXQgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgndG9waWNJbnB1dCcpOwogICAgdmFyIGNhdGVnb3J5U2VsZWN0ID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2NhdGVnb3J5U2VsZWN0Jyk7CiAgICB2YXIgYXVkaWVuY2VTZWxlY3QgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnYXVkaWVuY2VTZWxlY3QnKTsKICAgIHZhciBzdHlsZVNlbGVjdCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdzdHlsZVNlbGVjdCcpOwogICAgdmFyIGtleXdvcmRzSW5wdXQgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgna2V5d29yZHNJbnB1dCcpOwogICAgdmFyIHllYXJUb2dnbGUgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgneWVhclRvZ2dsZScpOwogICAgdmFyIGdlbmVyYXRlQnRuID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2dlbmVyYXRlQnRuJyk7CiAgICB2YXIgcmVnZW5CdG4gPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgncmVnZW5CdG4nKTsKICAgIHZhciBjbGVhckJ0biA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdjbGVhckJ0bicpOwogICAgdmFyIGN0YUJ0biA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdjdGFCdG4nKTsKICAgIHZhciByZXN1bHRzV3JhcCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdyZXN1bHRzV3JhcCcpOwogICAgdmFyIHRpdGxlc091dHB1dCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCd0aXRsZXNPdXRwdXQnKTsKICAgIHZhciB0YWdzT3V0cHV0ID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3RhZ3NPdXRwdXQnKTsKICAgIHZhciB0YWdDaGFyQ291bnQgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgndGFnQ2hhckNvdW50Jyk7CiAgICB2YXIgY29weVRhZ3NCdG4gPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnY29weVRhZ3NCdG4nKTsKICAgIHZhciB0b2FzdCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCd0b2FzdCcpOwoKICAgIHZhciBjdXJyZW50WWVhciA9IG5ldyBEYXRlKCkuZ2V0RnVsbFllYXIoKTsKCiAgICB2YXIgdGVtcGxhdGVzID0gewogICAgICBjbGlja2JhaXQ6IFsKICAgICAgICAiWW91IFdvbid0IEJlbGlldmUgV2hhdCBIYXBwZW5zIFdoZW4ge3R9IiwKICAgICAgICAiSSBUcmllZCB7dH0gZm9yIDMwIERheXMgYW5kIFRoaXMgSGFwcGVuZWQiLAogICAgICAgICJUaGUgVHJ1dGggQWJvdXQge3R9IE5vYm9keSBUZWxscyBZb3UiLAogICAgICAgICJTdG9wIERvaW5nIHt0fSBXcm9uZyIsCiAgICAgICAgIldoeSBFdmVyeW9uZSBJcyBUYWxraW5nIEFib3V0IHt0fSIsCiAgICAgICAgInt0fSBDaGFuZ2VkIE15IExpZmUgRm9yZXZlciIKICAgICAgXSwKICAgICAgaG93dG86IFsKICAgICAgICAiSG93IHRvIHt0fSBTdGVwIGJ5IFN0ZXAge3l9IiwKICAgICAgICAiQ29tcGxldGUge3R9IFR1dG9yaWFsIGZvciBCZWdpbm5lcnMiLAogICAgICAgICJ7dH0gTWFkZSBFYXN5OiBBIENvbXBsZXRlIEd1aWRlIiwKICAgICAgICAiTGVhcm4ge3R9IGluIDEwIE1pbnV0ZXMiLAogICAgICAgICJUaGUgVWx0aW1hdGUgR3VpZGUgdG8ge3R9IgogICAgICBdLAogICAgICBsaXN0aWNsZTogWwogICAgICAgICJUb3AgMTAge3R9IFRpcHMgWW91IE5lZWQgdG8gS25vdyIsCiAgICAgICAgIjUge3R9IE1pc3Rha2VzIEV2ZXJ5b25lIE1ha2VzIiwKICAgICAgICAiNyBCZXN0IHt0fSBTdHJhdGVnaWVzIFRoYXQgQWN0dWFsbHkgV29yayIsCiAgICAgICAgIjEwIHt0fSBIYWNrcyBZb3UgU2hvdWxkIFRyeSBUb2RheSIKICAgICAgXSwKICAgICAgcXVlc3Rpb246IFsKICAgICAgICAiSXMge3R9IFdvcnRoIEl0IGluIHt5fT8iLAogICAgICAgICJXaGF0IElzIHt0fSBhbmQgV2h5IFNob3VsZCBZb3UgQ2FyZT8iLAogICAgICAgICJXaHkgSXMge3R9IFNvIFBvcHVsYXIgUmlnaHQgTm93PyIsCiAgICAgICAgIkNhbiB7dH0gUmVhbGx5IEhlbHAgWW91IFN1Y2NlZWQ/IgogICAgICBdLAogICAgICBlbW90aW9uYWw6IFsKICAgICAgICAie3R9OiBUaGUgQ29tcGxldGUgQnJlYWtkb3duIFlvdSBORUVEIiwKICAgICAgICAiSU5TQU5FIHt0fSBSZXN1bHRzIGluIEp1c3QgT25lIFdlZWsiLAogICAgICAgICJUaGlzIHt0fSBTdHJhdGVneSBpcyBHQU1FIENIQU5HSU5HIiwKICAgICAgICAiV0FSTklORzoge3R9IFdpbGwgQmxvdyBZb3VyIE1pbmQiCiAgICAgIF0sCiAgICAgIGNvbXBhcmlzb246IFsKICAgICAgICAie3R9IHZzIFRoZSBDb21wZXRpdGlvbjogV2hpY2ggSXMgQmV0dGVyPyIsCiAgICAgICAgIkJlc3Qge3R9IENvbXBhcmVkOiBVbHRpbWF0ZSBTaG93ZG93biIsCiAgICAgICAgInt0fSBBIHZzIEI6IEhvbmVzdCBDb21wYXJpc29uIHt5fSIKICAgICAgXSwKICAgICAgcmV2aWV3OiBbCiAgICAgICAgInt0fSBSZXZpZXc6IElzIEl0IFdvcnRoIFlvdXIgTW9uZXk/IiwKICAgICAgICAiSG9uZXN0IHt0fSBSZXZpZXcgQWZ0ZXIgMzAgRGF5cyIsCiAgICAgICAgInt0fSBSZXZpZXcge3l9OiBFdmVyeXRoaW5nIFlvdSBOZWVkIHRvIEtub3ciCiAgICAgIF0sCiAgICAgIHN0b3J5OiBbCiAgICAgICAgIkhvdyBJIE1hc3RlcmVkIHt0fSBpbiAzMCBEYXlzIiwKICAgICAgICAiTXkge3R9IEpvdXJuZXk6IFdoYXQgSSBMZWFybmVkIiwKICAgICAgICAiSSBUcmllZCB7dH0gU28gWW91IERvbid0IEhhdmUgVG8iCiAgICAgIF0KICAgIH07CgogICAgdmFyIGNhdGVnb3J5VGFncyA9IHsKICAgICAgIlR1dG9yaWFsL0hvdy1UbyI6IFsidHV0b3JpYWwiLCJob3cgdG8iLCJzdGVwIGJ5IHN0ZXAiLCJkaXkiLCJsZWFybiJdLAogICAgICAiUmV2aWV3IjogWyJyZXZpZXciLCJob25lc3QgcmV2aWV3IiwidW5ib3hpbmcgcmV2aWV3Iiwid29ydGggaXQiLCJwcm9kdWN0IHJldmlldyJdLAogICAgICAiVmxvZyI6IFsidmxvZyIsImRhaWx5IHZsb2ciLCJsaWZlc3R5bGUiLCJkYXkgaW4gdGhlIGxpZmUiLCJ2bG9nZ2VyIl0sCiAgICAgICJHYW1pbmciOiBbImdhbWluZyIsImdhbWVwbGF5IiwibGV0J3MgcGxheSIsImdhbWVyIiwid2Fsa3Rocm91Z2giXSwKICAgICAgIk11c2ljIjogWyJtdXNpYyIsICJvZmZpY2lhbCBhdWRpbyIsICJuZXcgc29uZyIsICJjb3ZlciIsICJwbGF5bGlzdCJdLAogICAgICAiQ29tZWR5IjogWyJjb21lZHkiLCAiZnVubnkiLCAic2tldGNoIiwgImh1bW9yIiwgImxhdWdoIl0sCiAgICAgICJFZHVjYXRpb24iOiBbImVkdWNhdGlvbiIsICJsZWFybmluZyIsICJleHBsYWluZWQiLCAibGVzc29uIiwgInN0dWR5Il0sCiAgICAgICJOZXdzIjogWyJuZXdzIiwgImJyZWFraW5nIG5ld3MiLCAidXBkYXRlIiwgImN1cnJlbnQgZXZlbnRzIiwgInJlcG9ydCJdLAogICAgICAiVGVjaCI6IFsidGVjaCIsICJ0ZWNobm9sb2d5IiwgImdhZGdldHMiLCAidGVjaCByZXZpZXciLCAiaW5ub3ZhdGlvbiJdLAogICAgICAiQ29va2luZy9SZWNpcGUiOiBbInJlY2lwZSIsICJjb29raW5nIiwgImZvb2QiLCAiaG93IHRvIGNvb2siLCAia2l0Y2hlbiJdLAogICAgICAiRml0bmVzcyI6IFsiZml0bmVzcyIsICJ3b3Jrb3V0IiwgImV4ZXJjaXNlIiwgImhlYWx0aCIsICJ0cmFpbmluZyJdLAogICAgICAiVHJhdmVsIjogWyJ0cmF2ZWwiLCAidHJhdmVsIHZsb2ciLCAiZGVzdGluYXRpb24iLCAidHJpcCIsICJleHBsb3JlIl0sCiAgICAgICJVbmJveGluZyI6IFsidW5ib3hpbmciLCAiZmlyc3QgbG9vayIsICJuZXcgcHJvZHVjdCIsICJoYXVsIiwgInVuYm94Il0sCiAgICAgICJSZWFjdGlvbiI6IFsicmVhY3Rpb24iLCAicmVhY3RpbmcgdG8iLCAiZmlyc3QgdGltZSB3YXRjaGluZyIsICJyZWFjdCIsICJyZXNwb25zZSJdLAogICAgICAiSW50ZXJ2aWV3IjogWyJpbnRlcnZpZXciLCAiY29udmVyc2F0aW9uIiwgInBvZGNhc3QgaW50ZXJ2aWV3IiwgInEmYSIsICJndWVzdCJdLAogICAgICAiUG9kY2FzdCI6IFsicG9kY2FzdCIsICJwb2RjYXN0IGVwaXNvZGUiLCAiYXVkaW8iLCAidGFsayBzaG93IiwgImRpc2N1c3Npb24iXSwKICAgICAgIkxpc3RpY2xlIjogWyJsaXN0IiwgInRvcCAxMCIsICJiZXN0IG9mIiwgInJhbmtpbmciLCAiY291bnRkb3duIl0sCiAgICAgICJDaGFsbGVuZ2UiOiBbImNoYWxsZW5nZSIsICIyNCBob3VyIGNoYWxsZW5nZSIsICJleHRyZW1lIGNoYWxsZW5nZSIsICJkYXJlIiwgInRyeWluZyJdLAogICAgICAiQmVoaW5kIHRoZSBTY2VuZXMiOiBbImJlaGluZCB0aGUgc2NlbmVzIiwgImJ0cyIsICJtYWtpbmcgb2YiLCAiYmFja3N0YWdlIiwgInByb2Nlc3MiXSwKICAgICAgIk1vdGl2YXRpb24iOiBbIm1vdGl2YXRpb24iLCAiaW5zcGlyYXRpb24iLCAibW90aXZhdGlvbmFsIiwgIm1pbmRzZXQiLCAic3VjY2VzcyJdCiAgICB9OwoKICAgIGZ1bmN0aW9uIHNodWZmbGUoYXJyKXsKICAgICAgdmFyIGEgPSBhcnIuc2xpY2UoKTsKICAgICAgZm9yKHZhciBpPWEubGVuZ3RoLTE7aT4wO2ktLSl7CiAgICAgICAgdmFyIGogPSBNYXRoLmZsb29yKE1hdGgucmFuZG9tKCkqKGkrMSkpOwogICAgICAgIHZhciB0bXAgPSBhW2ldOyBhW2ldPWFbal07IGFbal09dG1wOwogICAgICB9CiAgICAgIHJldHVybiBhOwogICAgfQoKICAgIGZ1bmN0aW9uIHRpdGxlQ2FzZShzdHIpewogICAgICB2YXIgc21hbGwgPSBbImEiLCJhbiIsInRoZSIsImFuZCIsIm9yIiwiYnV0Iiwib2YiLCJpbiIsIm9uIiwiZm9yIiwidG8iLCJ3aXRoIiwiaXMiLCJhdCIsImJ5Il07CiAgICAgIHZhciB3b3JkcyA9IHN0ci5zcGxpdCgnICcpOwogICAgICByZXR1cm4gd29yZHMubWFwKGZ1bmN0aW9uKHcsIGkpewogICAgICAgIGlmKHcgPT09IHcudG9VcHBlckNhc2UoKSAmJiB3Lmxlbmd0aCA+IDEgJiYgL1tBLVpdLy50ZXN0KHcpKSByZXR1cm4gdzsKICAgICAgICB2YXIgbG93ZXIgPSB3LnRvTG93ZXJDYXNlKCk7CiAgICAgICAgaWYoaSAhPT0gMCAmJiBzbWFsbC5pbmRleE9mKGxvd2VyKSAhPT0gLTEpIHJldHVybiBsb3dlcjsKICAgICAgICByZXR1cm4gdy5jaGFyQXQoMCkudG9VcHBlckNhc2UoKSArIHcuc2xpY2UoMSk7CiAgICAgIH0pLmpvaW4oJyAnKTsKICAgIH0KCiAgICBmdW5jdGlvbiBzaG93VG9hc3QobXNnKXsKICAgICAgdG9hc3QudGV4dENvbnRlbnQgPSBtc2c7CiAgICAgIHRvYXN0LmNsYXNzTmFtZSA9ICdzaG93JzsKICAgICAgc2V0VGltZW91dChmdW5jdGlvbigpeyB0b2FzdC5jbGFzc05hbWUgPSAnJzsgfSwgMjIwMCk7CiAgICB9CgogICAgZnVuY3Rpb24gZ2VuZXJhdGVUaXRsZXModG9waWMsIHN0eWxlKXsKICAgICAgdmFyIHllYXJPbiA9IHllYXJUb2dnbGUuY2hlY2tlZDsKICAgICAgdmFyIHlTdHIgPSB5ZWFyT24gPyBTdHJpbmcoY3VycmVudFllYXIpIDogJyc7CiAgICAgIHZhciBwb29sID0gdGVtcGxhdGVzW3N0eWxlXSB8fCB0ZW1wbGF0ZXMuY2xpY2tiYWl0OwogICAgICB2YXIgcGlja3MgPSBzaHVmZmxlKHBvb2wpLnNsaWNlKDAsIE1hdGgubWluKDUsIHBvb2wubGVuZ3RoKSk7CiAgICAgIHdoaWxlKHBpY2tzLmxlbmd0aCA8IDUpewogICAgICAgIHBpY2tzLnB1c2gocG9vbFtNYXRoLmZsb29yKE1hdGgucmFuZG9tKCkqcG9vbC5sZW5ndGgpXSk7CiAgICAgIH0KICAgICAgdmFyIHRvcGljQ2FzZWQgPSB0aXRsZUNhc2UodG9waWMpOwogICAgICByZXR1cm4gcGlja3MubWFwKGZ1bmN0aW9uKHRwbCl7CiAgICAgICAgdmFyIG91dCA9IHRwbC5yZXBsYWNlKC9ce3RcfS9nLCB0b3BpY0Nhc2VkKS5yZXBsYWNlKC9ce3lcfS9nLCB5U3RyKTsKICAgICAgICBvdXQgPSBvdXQucmVwbGFjZSgvXHMrL2csICcgJykucmVwbGFjZSgvXHMoWz86IV0pL2csICckMScpLnRyaW0oKTsKICAgICAgICBpZigheWVhck9uKXsKICAgICAgICAgIG91dCA9IG91dC5yZXBsYWNlKC9ccypcKFxzKlwpL2csICcnKS5yZXBsYWNlKC9cc3syLH0vZywgJyAnKS50cmltKCk7CiAgICAgICAgfQogICAgICAgIHJldHVybiBvdXQ7CiAgICAgIH0pOwogICAgfQoKICAgIGZ1bmN0aW9uIGdlbmVyYXRlVGFncyh0b3BpYywgY2F0ZWdvcnksIGtleXdvcmRzU3RyKXsKICAgICAgdmFyIHlTdHIgPSBTdHJpbmcoY3VycmVudFllYXIpOwogICAgICB2YXIgdG9waWNMb3dlciA9IHRvcGljLnRvTG93ZXJDYXNlKCkudHJpbSgpOwogICAgICB2YXIgc2V0ID0gW107CiAgICAgIGZ1bmN0aW9uIGFkZCh0KXsKICAgICAgICB0ID0gdC50cmltKCk7CiAgICAgICAgaWYodCAmJiBzZXQuaW5kZXhPZih0KSA9PT0gLTEpIHNldC5wdXNoKHQpOwogICAgICB9CiAgICAgIGFkZCh0b3BpY0xvd2VyKTsKICAgICAgYWRkKHRvcGljTG93ZXIgKyAiIHR1dG9yaWFsIik7CiAgICAgIGFkZCh0b3BpY0xvd2VyICsgIiAiICsgeVN0cik7CiAgICAgIGFkZCgiYmVzdCAiICsgdG9waWNMb3dlcik7CiAgICAgIGFkZCgiaG93IHRvICIgKyB0b3BpY0xvd2VyKTsKICAgICAgYWRkKHRvcGljTG93ZXIgKyAiIHRpcHMiKTsKICAgICAgYWRkKHRvcGljTG93ZXIgKyAiIGZvciBiZWdpbm5lcnMiKTsKICAgICAgYWRkKHRvcGljTG93ZXIgKyAiIGd1aWRlIik7CiAgICAgIGFkZChjYXRlZ29yeS50b0xvd2VyQ2FzZSgpICsgIiAiICsgdG9waWNMb3dlcik7CiAgICAgIGFkZCh0b3BpY0xvd2VyICsgIiBleHBsYWluZWQiKTsKICAgICAgYWRkKHRvcGljTG93ZXIgKyAiIHJldmlldyIpOwoKICAgICAgdmFyIHdvcmRzID0gdG9waWNMb3dlci5zcGxpdCgvXHMrLykuZmlsdGVyKGZ1bmN0aW9uKHcpeyByZXR1cm4gdy5sZW5ndGggPiAyOyB9KTsKICAgICAgd29yZHMuZm9yRWFjaChmdW5jdGlvbih3KXsgYWRkKHcpOyB9KTsKCiAgICAgIHZhciBjYXRUYWdzID0gY2F0ZWdvcnlUYWdzW2NhdGVnb3J5XSB8fCBbXTsKICAgICAgY2F0VGFncy5mb3JFYWNoKGZ1bmN0aW9uKGN0KXsgYWRkKGN0KTsgfSk7CgogICAgICBpZihrZXl3b3Jkc1N0cil7CiAgICAgICAga2V5d29yZHNTdHIuc3BsaXQoJywnKS5mb3JFYWNoKGZ1bmN0aW9uKGspewogICAgICAgICAgdmFyIGtrID0gay50cmltKCkudG9Mb3dlckNhc2UoKTsKICAgICAgICAgIGlmKGtrKSBhZGQoa2spOwogICAgICAgIH0pOwogICAgICB9CgogICAgICBhZGQodG9waWNMb3dlciArICIgIiArIGNhdGVnb3J5LnRvTG93ZXJDYXNlKCkpOwogICAgICBhZGQoInRvcCAiICsgdG9waWNMb3dlcik7CiAgICAgIGFkZCh0b3BpY0xvd2VyICsgIiBpZGVhcyIpOwogICAgICBhZGQodG9waWNMb3dlciArICIgaGFja3MiKTsKCiAgICAgIHNldCA9IHNodWZmbGUoc2V0KTsKICAgICAgcmV0dXJuIHNldC5zbGljZSgwLCAyMCk7CiAgICB9CgogICAgZnVuY3Rpb24gYmFkZ2VDbGFzcyhsZW4pewogICAgICBpZihsZW4gPD0gNzApIHJldHVybiAnZ29vZCc7CiAgICAgIGlmKGxlbiA8PSAxMDApIHJldHVybiAnd2Fybic7CiAgICAgIHJldHVybiAnYmFkJzsKICAgIH0KCiAgICBmdW5jdGlvbiBjb3B5VGV4dCh0ZXh0LCBtc2cpewogICAgICBpZihuYXZpZ2F0b3IuY2xpcGJvYXJkICYmIG5hdmlnYXRvci5jbGlwYm9hcmQud3JpdGVUZXh0KXsKICAgICAgICBuYXZpZ2F0b3IuY2xpcGJvYXJkLndyaXRlVGV4dCh0ZXh0KS50aGVuKGZ1bmN0aW9uKCl7IHNob3dUb2FzdChtc2cpOyB9KS5jYXRjaChmdW5jdGlvbigpeyBmYWxsYmFja0NvcHkodGV4dCwgbXNnKTsgfSk7CiAgICAgIH0gZWxzZSB7CiAgICAgICAgZmFsbGJhY2tDb3B5KHRleHQsIG1zZyk7CiAgICAgIH0KICAgIH0KCiAgICBmdW5jdGlvbiBmYWxsYmFja0NvcHkodGV4dCwgbXNnKXsKICAgICAgdmFyIHRhID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgndGV4dGFyZWEnKTsKICAgICAgdGEudmFsdWUgPSB0ZXh0OwogICAgICB0YS5zdHlsZS5wb3NpdGlvbiA9ICdmaXhlZCc7CiAgICAgIHRhLnN0eWxlLmxlZnQgPSAnLTk5OTlweCc7CiAgICAgIGRvY3VtZW50LmJvZHkuYXBwZW5kQ2hpbGQodGEpOwogICAgICB0YS5zZWxlY3QoKTsKICAgICAgdHJ5IHsgZG9jdW1lbnQuZXhlY0NvbW1hbmQoJ2NvcHknKTsgc2hvd1RvYXN0KG1zZyk7IH0gY2F0Y2goZSl7fQogICAgICBkb2N1bWVudC5ib2R5LnJlbW92ZUNoaWxkKHRhKTsKICAgIH0KCiAgICBmdW5jdGlvbiByZW5kZXJUaXRsZXModGl0bGVzKXsKICAgICAgdGl0bGVzT3V0cHV0LmlubmVySFRNTCA9ICcnOwogICAgICB0aXRsZXMuZm9yRWFjaChmdW5jdGlvbih0aXRsZSwgaWR4KXsKICAgICAgICB2YXIgY2FyZCA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpOwogICAgICAgIGNhcmQuY2xhc3NOYW1lID0gJ3RpdGxlLWNhcmQnOwoKICAgICAgICB2YXIgdGV4dERpdiA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpOwogICAgICAgIHRleHREaXYuY2xhc3NOYW1lID0gJ3RpdGxlLXRleHQnOwogICAgICAgIHRleHREaXYudGV4dENvbnRlbnQgPSB0aXRsZTsKCiAgICAgICAgdmFyIG1ldGFEaXYgPSBkb2N1bWVudC5jcmVhdGVFbGVtZW50KCdkaXYnKTsKICAgICAgICBtZXRhRGl2LmNsYXNzTmFtZSA9ICd0aXRsZS1tZXRhJzsKCiAgICAgICAgdmFyIGJhZGdlID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnc3BhbicpOwogICAgICAgIGJhZGdlLmNsYXNzTmFtZSA9ICdjb3VudC1iYWRnZSAnICsgYmFkZ2VDbGFzcyh0aXRsZS5sZW5ndGgpOwogICAgICAgIGJhZGdlLnRleHRDb250ZW50ID0gdGl0bGUubGVuZ3RoICsgJyBjaGFycyc7CgogICAgICAgIHZhciBjb3B5QnRuID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnYnV0dG9uJyk7CiAgICAgICAgY29weUJ0bi50eXBlID0gJ2J1dHRvbic7CiAgICAgICAgY29weUJ0bi5jbGFzc05hbWUgPSAnY29weS1idG4nOwogICAgICAgIGNvcHlCdG4udGV4dENvbnRlbnQgPSAnQ29weSc7CiAgICAgICAgY29weUJ0bi5zZXRBdHRyaWJ1dGUoJ2RhdGEtdGl0bGUnLCB0aXRsZSk7CiAgICAgICAgY29weUJ0bi5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsIGZ1bmN0aW9uKCl7CiAgICAgICAgICBjb3B5VGV4dCh0aXRsZSwgJ1RpdGxlIGNvcGllZCB0byBjbGlwYm9hcmQnKTsKICAgICAgICB9KTsKCiAgICAgICAgbWV0YURpdi5hcHBlbmRDaGlsZChiYWRnZSk7CiAgICAgICAgbWV0YURpdi5hcHBlbmRDaGlsZChjb3B5QnRuKTsKICAgICAgICBjYXJkLmFwcGVuZENoaWxkKHRleHREaXYpOwogICAgICAgIGNhcmQuYXBwZW5kQ2hpbGQobWV0YURpdik7CiAgICAgICAgdGl0bGVzT3V0cHV0LmFwcGVuZENoaWxkKGNhcmQpOwogICAgICB9KTsKICAgIH0KCiAgICBmdW5jdGlvbiByZW5kZXJUYWdzKHRhZ3MpewogICAgICB0YWdzT3V0cHV0LmlubmVySFRNTCA9ICcnOwogICAgICB0YWdzLmZvckVhY2goZnVuY3Rpb24odGFnKXsKICAgICAgICB2YXIgcGlsbCA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ3NwYW4nKTsKICAgICAgICBwaWxsLmNsYXNzTmFtZSA9ICd0YWctcGlsbCc7CiAgICAgICAgcGlsbC50ZXh0Q29udGVudCA9IHRhZzsKICAgICAgICB0YWdzT3V0cHV0LmFwcGVuZENoaWxkKHBpbGwpOwogICAgICB9KTsKICAgICAgdmFyIHRvdGFsQ2hhcnMgPSB0YWdzLmpvaW4oJywgJykubGVuZ3RoOwogICAgICB0YWdDaGFyQ291bnQudGV4dENvbnRlbnQgPSB0b3RhbENoYXJzOwogICAgICB0YWdDaGFyQ291bnQuc3R5bGUuY29sb3IgPSB0b3RhbENoYXJzID4gNTAwID8gJ3ZhcigtLXJlZCknIDogJyc7CiAgICB9CgogICAgdmFyIGxhc3RUYWdzID0gW107CgogICAgZnVuY3Rpb24gcnVuR2VuZXJhdGUoKXsKICAgICAgdmFyIHRvcGljID0gdG9waWNJbnB1dC52YWx1ZS50cmltKCk7CiAgICAgIGlmKCF0b3BpYyl7CiAgICAgICAgc2hvd1RvYXN0KCdQbGVhc2UgZW50ZXIgYSB2aWRlbyB0b3BpYyBmaXJzdCcpOwogICAgICAgIHRvcGljSW5wdXQuZm9jdXMoKTsKICAgICAgICByZXR1cm47CiAgICAgIH0KICAgICAgdmFyIGNhdGVnb3J5ID0gY2F0ZWdvcnlTZWxlY3QudmFsdWU7CiAgICAgIHZhciBzdHlsZSA9IHN0eWxlU2VsZWN0LnZhbHVlOwogICAgICB2YXIga2V5d29yZHNTdHIgPSBrZXl3b3Jkc0lucHV0LnZhbHVlOwoKICAgICAgdmFyIHRpdGxlcyA9IGdlbmVyYXRlVGl0bGVzKHRvcGljLCBzdHlsZSk7CiAgICAgIHZhciB0YWdzID0gZ2VuZXJhdGVUYWdzKHRvcGljLCBjYXRlZ29yeSwga2V5d29yZHNTdHIpOwogICAgICBsYXN0VGFncyA9IHRhZ3M7CgogICAgICByZW5kZXJUaXRsZXModGl0bGVzKTsKICAgICAgcmVuZGVyVGFncyh0YWdzKTsKCiAgICAgIHJlc3VsdHNXcmFwLnN0eWxlLmRpc3BsYXkgPSAnYmxvY2snOwogICAgICByZXN1bHRzV3JhcC5zY3JvbGxJbnRvVmlldyh7IGJlaGF2aW9yOiAnc21vb3RoJywgYmxvY2s6ICdzdGFydCcgfSk7CiAgICB9CgogICAgZ2VuZXJhdGVCdG4uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCBydW5HZW5lcmF0ZSk7CiAgICByZWdlbkJ0bi5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsIGZ1bmN0aW9uKCl7CiAgICAgIGlmKCF0b3BpY0lucHV0LnZhbHVlLnRyaW0oKSl7CiAgICAgICAgc2hvd1RvYXN0KCdQbGVhc2UgZW50ZXIgYSB2aWRlbyB0b3BpYyBmaXJzdCcpOwogICAgICAgIHJldHVybjsKICAgICAgfQogICAgICBydW5HZW5lcmF0ZSgpOwogICAgfSk7CgogICAgY2xlYXJCdG4uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCBmdW5jdGlvbigpewogICAgICB0b3BpY0lucHV0LnZhbHVlID0gJyc7CiAgICAgIGtleXdvcmRzSW5wdXQudmFsdWUgPSAnJzsKICAgICAgY2F0ZWdvcnlTZWxlY3Quc2VsZWN0ZWRJbmRleCA9IDA7CiAgICAgIGF1ZGllbmNlU2VsZWN0LnNlbGVjdGVkSW5kZXggPSAwOwogICAgICBzdHlsZVNlbGVjdC5zZWxlY3RlZEluZGV4ID0gMDsKICAgICAgeWVhclRvZ2dsZS5jaGVja2VkID0gdHJ1ZTsKICAgICAgcmVzdWx0c1dyYXAuc3R5bGUuZGlzcGxheSA9ICdub25lJzsKICAgICAgdGl0bGVzT3V0cHV0LmlubmVySFRNTCA9ICcnOwogICAgICB0YWdzT3V0cHV0LmlubmVySFRNTCA9ICcnOwogICAgICB0YWdDaGFyQ291bnQudGV4dENvbnRlbnQgPSAnMCc7CiAgICAgIHNob3dUb2FzdCgnQWxsIGZpZWxkcyBjbGVhcmVkJyk7CiAgICB9KTsKCiAgICBjdGFCdG4uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCBmdW5jdGlvbigpewogICAgICB2YXIgdG9vbFNlY3Rpb24gPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKCcueXRnLXRvb2wnKTsKICAgICAgaWYodG9vbFNlY3Rpb24pewogICAgICAgIHRvb2xTZWN0aW9uLnNjcm9sbEludG9WaWV3KHsgYmVoYXZpb3I6ICdzbW9vdGgnLCBibG9jazogJ3N0YXJ0JyB9KTsKICAgICAgICB0b3BpY0lucHV0LmZvY3VzKCk7CiAgICAgIH0KICAgIH0pOwoKICAgIGNvcHlUYWdzQnRuLmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywgZnVuY3Rpb24oKXsKICAgICAgaWYoIWxhc3RUYWdzLmxlbmd0aCl7CiAgICAgICAgc2hvd1RvYXN0KCdHZW5lcmF0ZSB0YWdzIGZpcnN0Jyk7CiAgICAgICAgcmV0dXJuOwogICAgICB9CiAgICAgIGNvcHlUZXh0KGxhc3RUYWdzLmpvaW4oJywgJyksICdBbGwgdGFncyBjb3BpZWQgdG8gY2xpcGJvYXJkJyk7CiAgICB9KTsKCiAgICB2YXIgZmFxcyA9IFsKICAgICAgWyJJcyB0aGlzIFlvdVR1YmUgdGl0bGUgYW5kIHRhZyBnZW5lcmF0b3IgZnJlZT8iLCAiWWVzLCB0aGlzIHRvb2wgaXMgY29tcGxldGVseSBmcmVlIHRvIHVzZSB3aXRoIG5vIGhpZGRlbiBmZWVzLCBzdWJzY3JpcHRpb25zLCBvciB1c2FnZSBsaW1pdHMuIl0sCiAgICAgIFsiRG8gSSBuZWVkIHRvIGNyZWF0ZSBhbiBhY2NvdW50PyIsICJObyBhY2NvdW50IG9yIHNpZ251cCBpcyByZXF1aXJlZC4gU2ltcGx5IG9wZW4gdGhlIHRvb2wgYW5kIHN0YXJ0IGdlbmVyYXRpbmcgdGl0bGVzIGFuZCB0YWdzIHJpZ2h0IGF3YXkuIl0sCiAgICAgIFsiSG93IG1hbnkgdGl0bGVzIGRvZXMgaXQgZ2VuZXJhdGU/IiwgIlRoZSB0b29sIGdlbmVyYXRlcyA1IHVuaXF1ZSB0aXRsZSB2YXJpYXRpb25zIGJhc2VkIG9uIHlvdXIgY2hvc2VuIHN0eWxlIGVhY2ggdGltZSB5b3UgY2xpY2sgR2VuZXJhdGUuIl0sCiAgICAgIFsiV2hhdCBpcyB0aGUgaWRlYWwgWW91VHViZSB0aXRsZSBsZW5ndGg/IiwgIkFpbSBmb3IgNjAgdG8gNzAgY2hhcmFjdGVycy4gVGl0bGVzIHVwIHRvIDEwMCBjaGFyYWN0ZXJzIGFyZSBhbGxvd2VkLCBidXQgbG9uZ2VyIG9uZXMgb2Z0ZW4gZ2V0IHRydW5jYXRlZCBpbiBzZWFyY2ggYW5kIHN1Z2dlc3Rpb25zLiJdLAogICAgICBbIkhvdyBtYW55IHRhZ3Mgc2hvdWxkIEkgdXNlIG9uIFlvdVR1YmU/IiwgIlRoZXJlIGlzIG5vIGZpeGVkIG51bWJlciwgYnV0IG1vc3QgY3JlYXRvcnMgdXNlIGVub3VnaCB0YWdzIHRvIGZpbGwgY2xvc2UgdG8gdGhlIDUwMCBjaGFyYWN0ZXIgbGltaXQgd2l0aG91dCBzdHVmZmluZyBpcnJlbGV2YW50IHRlcm1zLiJdLAogICAgICBbIldpbGwgdGhlc2UgdGl0bGVzIGhlbHAgbXkgdmlkZW9zIHJhbms/IiwgIkEgc3Ryb25nIHRpdGxlIGltcHJvdmVzIGNsaWNrLXRocm91Z2ggcmF0ZSwgd2hpY2ggaXMgYSBtYWpvciByYW5raW5nIGZhY3RvciwgYnV0IG92ZXJhbGwgcGVyZm9ybWFuY2UgYWxzbyBkZXBlbmRzIG9uIHdhdGNoIHRpbWUsIHRodW1ibmFpbCwgYW5kIGNvbnRlbnQgcXVhbGl0eS4iXSwKICAgICAgWyJDYW4gSSBlZGl0IHRoZSBnZW5lcmF0ZWQgdGl0bGVzPyIsICJZZXMsIHRyZWF0IHRoZSBnZW5lcmF0ZWQgdGl0bGVzIGFzIGEgc3Ryb25nIHN0YXJ0aW5nIHBvaW50LiBGZWVsIGZyZWUgdG8gdHdlYWsgd29yZGluZyB0byBtYXRjaCB5b3VyIHZvaWNlIGJlZm9yZSBwdWJsaXNoaW5nLiJdLAogICAgICBbIldoYXQgaXMgdGhlIFlvdVR1YmUgdGFnIGNoYXJhY3RlciBsaW1pdD8iLCAiWW91VHViZSBhbGxvd3MgdXAgdG8gNTAwIGNoYXJhY3RlcnMgdG90YWwgYWNyb3NzIGFsbCB5b3VyIHRhZ3MgY29tYmluZWQuIl0sCiAgICAgIFsiRG8gWW91VHViZSB0YWdzIHN0aWxsIG1hdHRlciBmb3IgU0VPPyIsICJUYWdzIGNhcnJ5IGxlc3Mgd2VpZ2h0IHRoYW4gdGhleSB1c2VkIHRvLCBidXQgdGhleSBzdGlsbCBoZWxwIHdpdGggbWlzc3BlbGxpbmdzIGFuZCB0b3BpYyBjb250ZXh0LCBzbyB0aGV5IHJlbWFpbiB3b3J0aCB1c2luZy4iXSwKICAgICAgWyJDYW4gSSB1c2UgdGhpcyBmb3IgWW91VHViZSBTaG9ydHM/IiwgIlllcywgdGhlIGdlbmVyYXRlZCB0aXRsZXMgYW5kIHRhZ3Mgd29yayBmb3IgYm90aCBsb25nLWZvcm0gdmlkZW9zIGFuZCBZb3VUdWJlIFNob3J0cy4iXSwKICAgICAgWyJIb3cgZG8gSSBjb3B5IHRoZSBnZW5lcmF0ZWQgdGFncz8iLCAiQ2xpY2sgdGhlIENvcHkgQWxsIFRhZ3MgYnV0dG9uIGFib3ZlIHRoZSB0YWcgbGlzdCB0byBjb3B5IGV2ZXJ5IHRhZyBhcyBhIGNvbW1hLXNlcGFyYXRlZCBsaXN0IGluc3RhbnRseS4iXSwKICAgICAgWyJXaGF0IHRpdGxlIHN0eWxlIHNob3VsZCBJIGNob29zZT8iLCAiUGljayB0aGUgc3R5bGUgdGhhdCBmaXRzIHlvdXIgY29udGVudCB0eXBlLiBIb3ctVG8gd29ya3Mgd2VsbCBmb3IgdHV0b3JpYWxzLCB3aGlsZSBDbGlja2JhaXQgb3IgRW1vdGlvbmFsIHN0eWxlcyBzdWl0IGVudGVydGFpbm1lbnQgY29udGVudC4iXSwKICAgICAgWyJDYW4gSSBpbmNsdWRlIG15IG93biBrZXl3b3Jkcz8iLCAiWWVzLCBlbnRlciBjb21tYS1zZXBhcmF0ZWQga2V5d29yZHMgaW4gdGhlIEtleXdvcmRzIGZpZWxkIGFuZCB0aGV5IHdpbGwgYmUgd292ZW4gaW50byB0aGUgZ2VuZXJhdGVkIHRhZ3MuIl0sCiAgICAgIFsiRG9lcyB0aGUgdG9vbCBzYXZlIG15IGRhdGE/IiwgIk5vLCBldmVyeXRoaW5nIHJ1bnMgbG9jYWxseSBpbiB5b3VyIGJyb3dzZXIuIE5vdGhpbmcgeW91IHR5cGUgaXMgc3RvcmVkIG9yIHNlbnQgYW55d2hlcmUuIl0sCiAgICAgIFsiSG93IG9mdGVuIHNob3VsZCBJIHVwZGF0ZSBteSB2aWRlbyB0YWdzPyIsICJSZXZpc2l0IHRhZ3MgaWYgYSB2aWRlbyB1bmRlcnBlcmZvcm1zIG9yIGlmIHRyZW5kcyBhcm91bmQgeW91ciB0b3BpYyBzaGlmdCwgdXBkYXRpbmcgZXZlcnkgZmV3IG1vbnRocyBpcyBhIHJlYXNvbmFibGUgcHJhY3RpY2UuIl0KICAgIF07CgogICAgdmFyIGZhcUxpc3QgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnZmFxTGlzdCcpOwogICAgaWYoZmFxTGlzdCl7CiAgICAgIGZhcXMuZm9yRWFjaChmdW5jdGlvbihpdGVtKXsKICAgICAgICB2YXIgZGl2ID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnZGl2Jyk7CiAgICAgICAgZGl2LmNsYXNzTmFtZSA9ICdmYXEtaXRlbSc7CgogICAgICAgIHZhciBxQnRuID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnYnV0dG9uJyk7CiAgICAgICAgcUJ0bi50eXBlID0gJ2J1dHRvbic7CiAgICAgICAgcUJ0bi5jbGFzc05hbWUgPSAnZmFxLXEnOwogICAgICAgIHFCdG4udGV4dENvbnRlbnQgPSBpdGVtWzBdOwoKICAgICAgICB2YXIgYURpdiA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpOwogICAgICAgIGFEaXYuY2xhc3NOYW1lID0gJ2ZhcS1hJzsKICAgICAgICB2YXIgcCA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ3AnKTsKICAgICAgICBwLnRleHRDb250ZW50ID0gaXRlbVsxXTsKICAgICAgICBhRGl2LmFwcGVuZENoaWxkKHApOwoKICAgICAgICBxQnRuLmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywgZnVuY3Rpb24oKXsKICAgICAgICAgIGRpdi5jbGFzc0xpc3QudG9nZ2xlKCdvcGVuJyk7CiAgICAgICAgfSk7CgogICAgICAgIGRpdi5hcHBlbmRDaGlsZChxQnRuKTsKICAgICAgICBkaXYuYXBwZW5kQ2hpbGQoYURpdik7CiAgICAgICAgZmFxTGlzdC5hcHBlbmRDaGlsZChkaXYpOwogICAgICB9KTsKICAgIH0KICB9CgogIGlmKGRvY3VtZW50LnJlYWR5U3RhdGUgPT09ICdsb2FkaW5nJyl7CiAgICBkb2N1bWVudC5hZGRFdmVudExpc3RlbmVyKCdET01Db250ZW50TG9hZGVkJywgaW5pdCk7CiAgfSBlbHNlIHsKICAgIGluaXQoKTsKICB9CiAgc2V0VGltZW91dChpbml0LCAyMDApOwp9KSgpOwo="));</script>
