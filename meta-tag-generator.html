@@ -22,10 +22,10 @@
   --red: #EF4444;
   --yellow: #F59E0B;
 }
-*, *::before, *::after { box-sizing: border-box !important; margin: 0 !important; padding: 0 !important; }
-body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important; background: var(--bg) !important; color: var(--text) !important; line-height: 1.6 !important; -webkit-font-smoothing: antialiased !important; }
-a { color: var(--pri) !important; text-decoration: none !important; }
-a:hover { color: var(--pri-hover) !important; }
+#mtg-wrap *, #mtg-wrap *::before, #mtg-wrap *::after { box-sizing: border-box !important; }
+#mtg-wrap { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important; background: var(--bg) !important; color: var(--text) !important; line-height: 1.6 !important; -webkit-font-smoothing: antialiased !important; margin: 0 !important; padding: 0 !important; }
+#mtg-wrap a { color: var(--pri) !important; text-decoration: none !important; }
+#mtg-wrap a:hover { color: var(--pri-hover) !important; }
 
 .mtg-hero { text-align: center !important; padding: 3.5rem 1.5rem 2.5rem !important; background: var(--bg) !important; }
 .mtg-hero .back-link { display: inline-block !important; color: var(--muted) !important; font-size: 0.85rem !important; margin-bottom: 1.5rem !important; transition: color .2s !important; }
@@ -179,6 +179,7 @@ a:hover { color: var(--pri-hover) !important; }
 </head>
 <body>
 
+<div id="mtg-wrap">
 <!-- Section 1: Hero -->
 <div class="mtg-hero">
   <a href="/tools/" class="back-link">&larr; Back to All Tools</a>
@@ -683,6 +684,8 @@ a:hover { color: var(--pri-hover) !important; }
   <button class="btn-big" id="ctaBtn" type="button">&#127991; Create Meta Tags Now - 100% Free</button>
   <div class="sub-note">No Signup &middot; Unlimited Use &middot; Google Preview &middot; One-Click Copy</div>
 </div>
+
+</div><!-- /mtg-wrap -->
 
 <div class="toast" id="toast">Copied!</div>
 
