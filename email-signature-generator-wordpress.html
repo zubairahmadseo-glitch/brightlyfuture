@@ -1,0 +1,523 @@
+<style>
+:root {
+  --pri: #6C5CE7;
+  --pri-hover: #5A4BD1;
+  --bg: #E8E0F0;
+  --bg-alt: #DDD4EB;
+  --card-bg: #FFFFFF;
+  --card-border: #D0C6E0;
+  --input-bg: #F5F1FA;
+  --input-border: #D0C6E0;
+  --text: #2D2B55;
+  --muted: #6B6490;
+  --heading: #1A1744;
+  --green: #00C897;
+  --red: #EF4444;
+  --yellow: #F59E0B;
+}
+#esg-wrap *, #esg-wrap *::before, #esg-wrap *::after { box-sizing: border-box !important; }
+#esg-wrap { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important; background: var(--bg) !important; color: var(--text) !important; line-height: 1.6 !important; -webkit-font-smoothing: antialiased !important; margin: 0 !important; padding: 0 !important; }
+#esg-wrap a { color: var(--pri) !important; text-decoration: none !important; }
+#esg-wrap a:hover { color: var(--pri-hover) !important; }
+#esg-wrap h1, #esg-wrap h2, #esg-wrap h3, #esg-wrap p, #esg-wrap ul, #esg-wrap ol, #esg-wrap li, #esg-wrap table, #esg-wrap td, #esg-wrap th { margin: 0 !important; padding: 0 !important; }
+#esg-wrap section { padding: 3rem 1.5rem !important; }
+#esg-wrap .inner { max-width: 1000px !important; margin: 0 auto !important; }
+
+/* Hero */
+#esg-wrap .esg-hero { text-align: center !important; padding: 3.5rem 1.5rem 2.5rem !important; background: var(--bg) !important; }
+#esg-wrap .esg-hero .badge { display: inline-block !important; background: var(--card-bg) !important; color: var(--pri) !important; font-size: 0.8rem !important; font-weight: 600 !important; padding: 0.4rem 1.1rem !important; border-radius: 999px !important; border: 1px solid var(--card-border) !important; margin-bottom: 1.25rem !important; }
+#esg-wrap .esg-hero h1 { font-size: 2.4rem !important; font-weight: 800 !important; color: var(--heading) !important; margin-bottom: 0.85rem !important; }
+#esg-wrap .esg-hero .sub { color: var(--muted) !important; max-width: 660px !important; margin: 0 auto 1.75rem !important; font-size: 0.98rem !important; line-height: 1.65 !important; }
+#esg-wrap .usp-row { display: flex !important; gap: 0.6rem !important; flex-wrap: wrap !important; justify-content: center !important; margin-bottom: 1.75rem !important; }
+#esg-wrap .usp-pill { background: rgba(108,92,231,0.08) !important; border: 1px solid rgba(108,92,231,0.2) !important; color: var(--pri) !important; font-size: 0.78rem !important; font-weight: 600 !important; padding: 0.4rem 1rem !important; border-radius: 999px !important; }
+
+/* Buttons */
+#esg-wrap .btn { padding: 0.75rem 1.8rem !important; border-radius: 10px !important; font-weight: 700 !important; font-size: 0.95rem !important; cursor: pointer !important; border: none !important; transition: all .2s !important; font-family: inherit !important; display: inline-block !important; }
+#esg-wrap .btn-primary { background: var(--pri) !important; color: #fff !important; }
+#esg-wrap .btn-primary:hover { background: var(--pri-hover) !important; color: #fff !important; transform: translateY(-1px) !important; }
+#esg-wrap .btn-secondary { background: var(--card-bg) !important; color: var(--pri) !important; border: 1px solid var(--card-border) !important; }
+#esg-wrap .btn-secondary:hover { border-color: var(--pri) !important; }
+#esg-wrap .btn-ghost { background: transparent !important; color: var(--muted) !important; border: 1px solid var(--card-border) !important; }
+#esg-wrap .btn-ghost:hover { color: var(--red) !important; border-color: var(--red) !important; }
+#esg-wrap .btn-sm { padding: 0.55rem 1.2rem !important; font-size: 0.85rem !important; }
+
+/* Tool */
+#esg-wrap .esg-tool { max-width: 1100px !important; margin: 0 auto !important; padding: 0 1.5rem 3rem !important; }
+#esg-wrap .tool-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 1.5rem !important; align-items: start !important; }
+#esg-wrap .esg-box { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 16px !important; padding: 1.75rem !important; box-shadow: 0 2px 12px rgba(108,92,231,0.06) !important; }
+#esg-wrap .esg-box h3 { font-size: 1.05rem !important; font-weight: 800 !important; color: var(--heading) !important; margin-bottom: 1rem !important; }
+#esg-wrap .field-row { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 0.9rem !important; }
+#esg-wrap .mb { margin-bottom: 1rem !important; }
+#esg-wrap label { display: block !important; font-size: 0.72rem !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.06em !important; color: var(--muted) !important; margin-bottom: 0.4rem !important; }
+#esg-wrap input[type="text"], #esg-wrap input[type="email"], #esg-wrap input[type="tel"], #esg-wrap input[type="url"], #esg-wrap select { width: 100% !important; background: var(--input-bg) !important; border: 1px solid var(--input-border) !important; border-radius: 10px !important; padding: 0.75rem 0.9rem !important; color: var(--text) !important; font-size: 0.92rem !important; font-family: inherit !important; transition: border-color .2s !important; }
+#esg-wrap input:focus, #esg-wrap select:focus { outline: none !important; border-color: var(--pri) !important; }
+#esg-wrap input[type="color"] { width: 60px !important; height: 40px !important; border: 1px solid var(--input-border) !important; border-radius: 8px !important; padding: 2px !important; background: var(--input-bg) !important; cursor: pointer !important; }
+#esg-wrap .color-row { display: flex !important; align-items: center !important; gap: 0.75rem !important; }
+#esg-wrap .color-row span { font-size: 0.85rem !important; color: var(--muted) !important; }
+#esg-wrap .section-label { font-size: 0.8rem !important; font-weight: 800 !important; color: var(--pri) !important; margin: 1.25rem 0 0.75rem !important; text-transform: uppercase !important; letter-spacing: 0.05em !important; }
+#esg-wrap .btn-group { display: flex !important; gap: 0.6rem !important; flex-wrap: wrap !important; margin-top: 1.5rem !important; }
+
+#esg-wrap .preview-col { position: sticky !important; top: 1rem !important; }
+#esg-wrap .preview-frame { background: #F9F7FC !important; border: 1px dashed var(--card-border) !important; border-radius: 10px !important; padding: 1.5rem !important; min-height: 160px !important; overflow-x: auto !important; }
+#esg-wrap .code-box { margin-top: 1.25rem !important; }
+#esg-wrap textarea#codeOutput { width: 100% !important; min-height: 140px !important; background: var(--input-bg) !important; border: 1px solid var(--input-border) !important; border-radius: 10px !important; padding: 0.85rem !important; font-family: 'Courier New', monospace !important; font-size: 0.75rem !important; color: var(--text) !important; resize: vertical !important; }
+
+#esg-wrap .toast { position: fixed !important; bottom: 24px !important; left: 50% !important; transform: translateX(-50%) translateY(20px) !important; background: var(--heading) !important; color: #fff !important; padding: 0.75rem 1.5rem !important; border-radius: 999px !important; font-size: 0.85rem !important; font-weight: 600 !important; opacity: 0 !important; pointer-events: none !important; transition: all .25s !important; z-index: 9999 !important; box-shadow: 0 8px 24px rgba(0,0,0,0.2) !important; }
+#esg-wrap .toast.show { opacity: 1 !important; transform: translateX(-50%) translateY(0) !important; }
+
+/* Content sections */
+#esg-wrap .content-section { max-width: 900px !important; margin: 0 auto !important; padding: 3rem 1.5rem !important; }
+#esg-wrap .content-section.alt { background: var(--bg-alt) !important; max-width: 100% !important; }
+#esg-wrap .content-section.alt .inner-narrow { max-width: 900px !important; margin: 0 auto !important; }
+#esg-wrap h2 { font-size: 1.85rem !important; font-weight: 800 !important; color: var(--heading) !important; margin-bottom: 1rem !important; }
+#esg-wrap h3.sub-h { font-size: 1.15rem !important; font-weight: 700 !important; color: var(--heading) !important; margin: 1.25rem 0 0.5rem !important; }
+#esg-wrap .content-section p { color: var(--text) !important; margin-bottom: 1rem !important; font-size: 0.98rem !important; }
+#esg-wrap .content-section ul, #esg-wrap .content-section ol { color: var(--text) !important; margin: 0 0 1rem 1.4rem !important; font-size: 0.96rem !important; }
+#esg-wrap .content-section li { margin-bottom: 0.5rem !important; }
+#esg-wrap .content-section ol { list-style: decimal !important; }
+#esg-wrap .content-section ul { list-style: disc !important; }
+
+#esg-wrap .feature-grid { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 1.25rem !important; margin-top: 1.5rem !important; }
+#esg-wrap .feature-card { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 14px !important; padding: 1.5rem !important; }
+#esg-wrap .feature-card .icon { width: 42px !important; height: 42px !important; border-radius: 10px !important; background: rgba(108,92,231,0.1) !important; color: var(--pri) !important; display: flex !important; align-items: center !important; justify-content: center !important; font-weight: 800 !important; margin-bottom: 0.85rem !important; font-size: 1.1rem !important; }
+#esg-wrap .feature-card h4 { font-size: 1rem !important; font-weight: 700 !important; color: var(--heading) !important; margin-bottom: 0.4rem !important; }
+#esg-wrap .feature-card p { font-size: 0.88rem !important; color: var(--muted) !important; margin: 0 !important; }
+
+#esg-wrap .table-wrap { overflow-x: auto !important; margin-top: 1.5rem !important; border-radius: 14px !important; border: 1px solid var(--card-border) !important; }
+#esg-wrap table.cmp { width: 100% !important; border-collapse: collapse !important; background: var(--card-bg) !important; min-width: 700px !important; }
+#esg-wrap table.cmp th, #esg-wrap table.cmp td { padding: 0.85rem 1rem !important; text-align: left !important; font-size: 0.85rem !important; border-bottom: 1px solid var(--card-border) !important; }
+#esg-wrap table.cmp th { background: var(--heading) !important; color: #fff !important; font-weight: 700 !important; }
+#esg-wrap table.cmp th.us { background: var(--pri) !important; }
+#esg-wrap table.cmp td.us { background: rgba(108,92,231,0.06) !important; font-weight: 700 !important; color: var(--pri) !important; }
+#esg-wrap table.cmp tr:last-child td { border-bottom: none !important; }
+
+#esg-wrap .client-grid { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 1.25rem !important; margin-top: 1.5rem !important; }
+#esg-wrap .client-card { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 14px !important; padding: 1.5rem !important; }
+#esg-wrap .client-card h4 { color: var(--pri) !important; font-size: 1rem !important; font-weight: 700 !important; margin-bottom: 0.5rem !important; }
+#esg-wrap .client-card p { font-size: 0.88rem !important; color: var(--muted) !important; margin: 0 !important; }
+
+#esg-wrap .mistake-list { display: grid !important; gap: 0.9rem !important; margin-top: 1.5rem !important; }
+#esg-wrap .mistake-item { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-left: 4px solid var(--red) !important; border-radius: 10px !important; padding: 1rem 1.25rem !important; }
+#esg-wrap .mistake-item strong { color: var(--heading) !important; display: block !important; margin-bottom: 0.25rem !important; font-size: 0.95rem !important; }
+#esg-wrap .mistake-item span { color: var(--muted) !important; font-size: 0.88rem !important; }
+
+/* FAQ */
+#esg-wrap .faq-item { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 12px !important; margin-bottom: 0.75rem !important; overflow: hidden !important; }
+#esg-wrap .faq-q { width: 100% !important; text-align: left !important; background: transparent !important; border: none !important; padding: 1.1rem 1.4rem !important; font-size: 0.95rem !important; font-weight: 700 !important; color: var(--heading) !important; cursor: pointer !important; font-family: inherit !important; position: relative !important; padding-right: 2.5rem !important; }
+#esg-wrap .faq-q::after { content: "+" !important; position: absolute !important; right: 1.4rem !important; top: 50% !important; transform: translateY(-50%) !important; color: var(--pri) !important; font-size: 1.3rem !important; font-weight: 700 !important; transition: transform .2s !important; }
+#esg-wrap .faq-item.open .faq-q::after { transform: translateY(-50%) rotate(45deg) !important; }
+#esg-wrap .faq-a { max-height: 0 !important; overflow: hidden !important; padding: 0 1.4rem !important; color: var(--muted) !important; font-size: 0.9rem !important; transition: all .25s ease !important; }
+#esg-wrap .faq-item.open .faq-a { max-height: 400px !important; padding: 0 1.4rem 1.25rem !important; }
+
+@media (max-width: 820px) {
+  #esg-wrap .tool-grid { grid-template-columns: 1fr !important; }
+  #esg-wrap .field-row { grid-template-columns: 1fr !important; }
+  #esg-wrap .feature-grid { grid-template-columns: 1fr !important; }
+  #esg-wrap .client-grid { grid-template-columns: 1fr !important; }
+  #esg-wrap .preview-col { position: static !important; }
+  #esg-wrap .esg-hero h1 { font-size: 1.8rem !important; }
+}
+</style>
+</head>
+<body>
+<div id="esg-wrap">
+
+<!-- Hero -->
+<section class="esg-hero">
+  <span class="badge">Free Tool</span>
+  <h1>Free Email Signature Generator</h1>
+  <p class="sub">Create a professional HTML email signature in under two minutes. Add your photo, job title, contact details and social links, choose a template, then copy the finished signature straight into Gmail, Outlook or Apple Mail.</p>
+  <div class="usp-row">
+    <span class="usp-pill">No signup required</span>
+    <span class="usp-pill">3 templates</span>
+    <span class="usp-pill">Custom brand colors</span>
+    <span class="usp-pill">Works in every email client</span>
+  </div>
+  <button type="button" class="btn btn-primary" id="ctaBtn">Build My Signature</button>
+</section>
+
+<!-- Tool -->
+<section class="esg-tool">
+  <div class="tool-grid">
+    <div class="esg-box">
+      <h3>Your Details</h3>
+      <div class="field-row">
+        <div class="mb">
+          <label for="nameInput">Full Name</label>
+          <input type="text" id="nameInput" placeholder="John Smith">
+        </div>
+        <div class="mb">
+          <label for="titleInput">Job Title</label>
+          <input type="text" id="titleInput" placeholder="Marketing Manager">
+        </div>
+      </div>
+      <div class="mb">
+        <label for="companyInput">Company Name</label>
+        <input type="text" id="companyInput" placeholder="Bright Future Ltd">
+      </div>
+      <div class="field-row">
+        <div class="mb">
+          <label for="emailInput">Email</label>
+          <input type="email" id="emailInput" placeholder="john@brightfuture.co.uk">
+        </div>
+        <div class="mb">
+          <label for="phoneInput">Phone Number</label>
+          <input type="tel" id="phoneInput" placeholder="+44 20 1234 5678">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="mb">
+          <label for="websiteInput">Website URL</label>
+          <input type="text" id="websiteInput" placeholder="www.brightfuture.co.uk">
+        </div>
+        <div class="mb">
+          <label for="photoInput">Photo or Logo URL</label>
+          <input type="text" id="photoInput" placeholder="https://example.com/photo.jpg">
+        </div>
+      </div>
+      <div class="mb">
+        <label for="addressInput">Company Address (optional)</label>
+        <input type="text" id="addressInput" placeholder="1 High Street, London, UK">
+      </div>
+      <div class="mb">
+        <label for="colorInput">Accent Color</label>
+        <div class="color-row">
+          <input type="color" id="colorInput" value="#6C5CE7">
+          <span>Used for accents, links and social icons</span>
+        </div>
+      </div>
+
+      <div class="section-label">Social Media (optional)</div>
+      <div class="field-row">
+        <div class="mb">
+          <label for="linkedinInput">LinkedIn URL</label>
+          <input type="text" id="linkedinInput" placeholder="linkedin.com/in/johnsmith">
+        </div>
+        <div class="mb">
+          <label for="twitterInput">Twitter or X URL</label>
+          <input type="text" id="twitterInput" placeholder="x.com/johnsmith">
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="mb">
+          <label for="facebookInput">Facebook URL</label>
+          <input type="text" id="facebookInput" placeholder="facebook.com/johnsmith">
+        </div>
+        <div class="mb">
+          <label for="instagramInput">Instagram URL</label>
+          <input type="text" id="instagramInput" placeholder="instagram.com/johnsmith">
+        </div>
+      </div>
+      <div class="mb">
+        <label for="youtubeInput">YouTube URL</label>
+        <input type="text" id="youtubeInput" placeholder="youtube.com/@johnsmith">
+      </div>
+
+      <div class="section-label">Template Style</div>
+      <div class="mb">
+        <label for="templateSelect">Choose a Template</label>
+        <select id="templateSelect">
+          <option value="classic">Classic Horizontal</option>
+          <option value="card">Modern Card</option>
+          <option value="minimal">Minimal Clean</option>
+        </select>
+      </div>
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary" id="generateBtn">Generate Signature</button>
+        <button type="button" class="btn btn-ghost btn-sm" id="resetBtn">Reset All</button>
+      </div>
+    </div>
+
+    <div class="preview-col">
+      <div class="esg-box" id="previewWrap">
+        <h3>Live Preview</h3>
+        <div class="preview-frame">
+          <div id="signaturePreview"></div>
+        </div>
+        <div class="btn-group">
+          <button type="button" class="btn btn-secondary btn-sm" id="copySignatureBtn">Copy Signature</button>
+          <button type="button" class="btn btn-secondary btn-sm" id="copyCodeBtn">Copy HTML Code</button>
+        </div>
+        <div class="code-box">
+          <label for="codeOutput">HTML Source</label>
+          <textarea id="codeOutput" readonly></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What Is -->
+<section class="content-section">
+  <h2>What Is an Email Signature Generator</h2>
+  <p>An email signature generator is a tool that builds a ready-to-use HTML email signature from the information you provide, such as your name, job title, company, contact details and social profiles. Instead of manually formatting text and hoping it renders correctly in every inbox, the generator produces clean, table-based HTML with inline styling that email clients understand.</p>
+  <p>This matters because email signatures are notoriously fiddly to build by hand. Modern email clients strip out external stylesheets, ignore certain CSS properties and render fonts inconsistently. A dedicated generator handles all of that formatting work for you, so the signature you preview is the signature your recipients actually see.</p>
+</section>
+
+<!-- Why Use -->
+<section class="content-section alt">
+  <div class="inner-narrow">
+    <h2>Why Use a Professional Email Signature</h2>
+    <p>Every email you send is a small piece of marketing collateral. A well-designed signature reinforces your brand, builds trust with new contacts and gives people an easy way to reach you or find you on social media.</p>
+    <h3 class="sub-h">Branding consistency</h3>
+    <p>Using the same colors, fonts and layout across your team creates a polished, consistent brand image in every conversation, whether it is a sales email or an internal memo.</p>
+    <h3 class="sub-h">Credibility and trust</h3>
+    <p>A signature with a clear name, title, company and photo makes it easier for recipients to verify who they are talking to, which reduces the chance your email is mistaken for spam or a phishing attempt.</p>
+    <h3 class="sub-h">Passive marketing</h3>
+    <p>Social links, a website URL or a call to action button turn every outgoing email into a small marketing touchpoint, driving traffic back to your profiles and pages without any extra effort.</p>
+  </div>
+</section>
+
+<!-- How to Use -->
+<section class="content-section">
+  <h2>How to Use This Tool</h2>
+  <ol>
+    <li>Fill in your name, job title, company name, email, phone number and website in the form above.</li>
+    <li>Add an optional company address and a link to your photo or company logo image.</li>
+    <li>Pick an accent color that matches your brand using the color picker.</li>
+    <li>Add links to your LinkedIn, Twitter or X, Facebook, Instagram and YouTube profiles if you want social icons in your signature.</li>
+    <li>Choose one of the three template styles: Classic Horizontal, Modern Card or Minimal Clean.</li>
+    <li>Watch the live preview update automatically as you type.</li>
+    <li>Click Generate Signature to finalize the layout, then use Copy Signature to copy the rich formatted version directly into your email client's signature settings, or use Copy HTML Code if your email provider requires you to paste raw HTML.</li>
+  </ol>
+</section>
+
+<!-- Key Features -->
+<section class="content-section alt">
+  <div class="inner-narrow">
+    <h2>Key Features</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="icon">1</div>
+        <h4>Live Preview</h4>
+        <p>See your signature update in real time as you fill in each field, so there are no surprises when you copy it.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">2</div>
+        <h4>Three Templates</h4>
+        <p>Choose from Classic Horizontal, Modern Card or Minimal Clean to match your personal or company style.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">3</div>
+        <h4>Custom Colors</h4>
+        <p>Pick any accent color to match your brand palette across links, dividers and social icons.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">4</div>
+        <h4>Social Icons</h4>
+        <p>Add LinkedIn, Twitter or X, Facebook, Instagram and YouTube links as clean circular text icons.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">5</div>
+        <h4>Table-Based HTML</h4>
+        <p>Signatures are built with table layout and inline CSS for maximum compatibility across email clients.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">6</div>
+        <h4>No Signup Needed</h4>
+        <p>Generate and copy as many signatures as you like, instantly, without creating an account.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Best Practices -->
+<section class="content-section">
+  <h2>Email Signature Best Practices</h2>
+  <ul>
+    <li>Keep your signature to four or five lines of text so it does not overwhelm the email body.</li>
+    <li>Include only one clear call to action, such as a website link or booking page, rather than several competing links.</li>
+    <li>Use your real name and job title exactly as they appear on your business card or LinkedIn profile.</li>
+    <li>Make your phone number and email clickable so recipients can act immediately on mobile devices.</li>
+    <li>Avoid inspirational quotes or personal taglines in a business signature, they can appear unprofessional.</li>
+    <li>Test your signature by sending yourself an email before rolling it out to your whole team.</li>
+  </ul>
+</section>
+
+<!-- Design Tips -->
+<section class="content-section alt">
+  <div class="inner-narrow">
+    <h2>Email Signature Design Tips</h2>
+    <ul>
+      <li>Stick to one or two accent colors that match your brand, plus a neutral text color for readability.</li>
+      <li>Use a single web-safe font family such as Arial or Helvetica, since custom fonts are not supported by most email clients.</li>
+      <li>Keep photos and logos small, ideally under 100 pixels wide, so they load quickly and do not dominate the layout.</li>
+      <li>Leave enough whitespace between elements so the signature does not look cramped on small screens.</li>
+      <li>Avoid large background images or full-width banners, they often get blocked by default in many inboxes.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Comparison Table -->
+<section class="content-section">
+  <h2>How This Tool Compares</h2>
+  <p>See how our free email signature generator stacks up against paid tools like Wisestamp, HubSpot, MySignature and Newoldstamp.</p>
+  <div class="table-wrap">
+    <table class="cmp">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th class="us">BrightlyFuture</th>
+          <th>Wisestamp</th>
+          <th>HubSpot</th>
+          <th>MySignature</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Price</td><td class="us">Free</td><td>From $3.90/mo</td><td>Free with limits</td><td>From $4/mo</td></tr>
+        <tr><td>Templates</td><td class="us">3 built in</td><td>25+</td><td>Several</td><td>20+</td></tr>
+        <tr><td>Social Icons</td><td class="us">Yes, 5 platforms</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+        <tr><td>Custom Colors</td><td class="us">Yes, full picker</td><td>Yes</td><td>Limited</td><td>Yes</td></tr>
+        <tr><td>HTML Export</td><td class="us">Yes, one click</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+        <tr><td>No Signup Required</td><td class="us">Yes</td><td>No</td><td>No</td><td>No</td></tr>
+        <tr><td>Email Client Compatibility</td><td class="us">Table based, inline CSS</td><td>Table based</td><td>Table based</td><td>Table based</td></tr>
+        <tr><td>CTA Buttons</td><td class="us">Website link included</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Mistakes -->
+<section class="content-section alt">
+  <div class="inner-narrow">
+    <h2>Common Email Signature Mistakes</h2>
+    <div class="mistake-list">
+      <div class="mistake-item">
+        <strong>Too much information</strong>
+        <span>Cramming every phone number, address and social link into one signature makes it cluttered and hard to scan.</span>
+      </div>
+      <div class="mistake-item">
+        <strong>Oversized images</strong>
+        <span>Large photos or banners slow down email load times and can be blocked by default in many clients.</span>
+      </div>
+      <div class="mistake-item">
+        <strong>Broken or missing links</strong>
+        <span>Always double check your website and social links are complete URLs, not just usernames.</span>
+      </div>
+      <div class="mistake-item">
+        <strong>Inconsistent branding across a team</strong>
+        <span>Different colors, fonts or layouts across employees undermine the professional image you are trying to build.</span>
+      </div>
+      <div class="mistake-item">
+        <strong>Using CSS that email clients strip out</strong>
+        <span>External stylesheets, custom fonts and JavaScript will not render, always use inline styles and table layout.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Client Compatibility -->
+<section class="content-section">
+  <h2>Email Client Compatibility Guide</h2>
+  <p>Once you have generated your signature, follow these tips to install it correctly in your email client.</p>
+  <div class="client-grid">
+    <div class="client-card">
+      <h4>Gmail</h4>
+      <p>Go to Settings, See all settings, General tab, scroll to Signature. Click Create new, paste your copied signature into the editor box, then save changes at the bottom of the page.</p>
+    </div>
+    <div class="client-card">
+      <h4>Outlook</h4>
+      <p>Open Settings, Mail, Compose and reply, then Signatures. Paste the copied signature into the editor. Outlook desktop uses File, Options, Mail, Signatures instead.</p>
+    </div>
+    <div class="client-card">
+      <h4>Apple Mail</h4>
+      <p>Open Mail Preferences, Signatures tab, select your account, click the plus button, then paste your signature into the preview pane on the right.</p>
+    </div>
+    <div class="client-card">
+      <h4>Thunderbird</h4>
+      <p>Open Account Settings for your email address, check the HTML signature box, then paste the raw HTML code using Copy HTML Code into the signature field.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="content-section alt">
+  <div class="inner-narrow">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">Is this email signature generator completely free?</button>
+      <div class="faq-a"><p>Yes. There is no cost to generate, preview or copy your signature, and you can create as many as you like.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">Do I need to sign up or create an account?</button>
+      <div class="faq-a"><p>No account or email address is required. Simply fill in the form and copy your finished signature.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">Will the signature work in Gmail?</button>
+      <div class="faq-a"><p>Yes. The generated signature uses table-based layout and inline CSS, which is fully compatible with Gmail's signature editor.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">Can I add my company logo?</button>
+      <div class="faq-a"><p>Yes. Paste a direct link to your logo or headshot image in the Photo or Logo URL field and it will appear in your signature.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">How do I install the signature in Outlook?</button>
+      <div class="faq-a"><p>Copy the signature using the Copy Signature button, then paste it into Outlook's signature editor under Settings, Mail, Compose and reply, Signatures.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">Are the signatures mobile responsive?</button>
+      <div class="faq-a"><p>The signatures use fixed table widths for maximum email client compatibility, and they display cleanly within the narrower message view used on most mobile email apps.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">Can I use custom brand colors?</button>
+      <div class="faq-a"><p>Yes. Use the color picker to choose any accent color, which is applied to your name divider, links and social icons.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">How many signatures can I create?</button>
+      <div class="faq-a"><p>There is no limit. You can generate as many different signatures as you need, for example one per team member.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">Do you store my personal information?</button>
+      <div class="faq-a"><p>No. All processing happens in your browser. Your details are never sent to or stored on a server.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">Can I add social media links?</button>
+      <div class="faq-a"><p>Yes. You can add LinkedIn, Twitter or X, Facebook, Instagram and YouTube links, which appear as small colored icon circles.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">Will the signature work in Apple Mail?</button>
+      <div class="faq-a"><p>Yes. Paste the copied signature into the Signatures panel of Apple Mail preferences and it will render correctly.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">Can I include a call to action button?</button>
+      <div class="faq-a"><p>Your website link acts as a call to action in every template, giving recipients a clear next step to visit your site.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">What image size should I use for my photo?</button>
+      <div class="faq-a"><p>A square image around 200 by 200 pixels works best. The signature will display it at a smaller fixed size automatically.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">Can I edit the signature after generating it?</button>
+      <div class="faq-a"><p>Yes. Simply update any field and the live preview and generated HTML update automatically, so you can regenerate at any time.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">Why does my signature look different in some email clients?</button>
+      <div class="faq-a"><p>Different email clients render fonts and spacing slightly differently. Using table layout and inline CSS, as this tool does, minimizes those differences as much as possible.</p></div>
+    </div>
+
+  </div>
+</section>
+
+<div class="toast" id="toast"></div>
+
+</div><!-- /esg-wrap -->
+
+<script>
+eval(atob("KGZ1bmN0aW9uKCl7CiAgZnVuY3Rpb24gaW5pdCgpewogICAgdmFyICQgPSBmdW5jdGlvbihpZCl7IHJldHVybiBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChpZCk7IH07CiAgICB2YXIgZmllbGRzID0gWyduYW1lSW5wdXQnLCd0aXRsZUlucHV0JywnY29tcGFueUlucHV0JywnZW1haWxJbnB1dCcsJ3Bob25lSW5wdXQnLCd3ZWJzaXRlSW5wdXQnLCdhZGRyZXNzSW5wdXQnLCdwaG90b0lucHV0JywnY29sb3JJbnB1dCcsJ2xpbmtlZGluSW5wdXQnLCd0d2l0dGVySW5wdXQnLCdmYWNlYm9va0lucHV0JywnaW5zdGFncmFtSW5wdXQnLCd5b3V0dWJlSW5wdXQnLCd0ZW1wbGF0ZVNlbGVjdCddOwogICAgdmFyIGVscyA9IHt9OwogICAgdmFyIHJlYWR5ID0gdHJ1ZTsKICAgIGZvciAodmFyIGk9MDtpPGZpZWxkcy5sZW5ndGg7aSsrKXsKICAgICAgZWxzW2ZpZWxkc1tpXV0gPSAkKGZpZWxkc1tpXSk7CiAgICAgIGlmICghZWxzW2ZpZWxkc1tpXV0pIHJlYWR5ID0gZmFsc2U7CiAgICB9CiAgICB2YXIgcHJldmlld1dyYXAgPSAkKCdwcmV2aWV3V3JhcCcpOwogICAgdmFyIHNpZ25hdHVyZVByZXZpZXcgPSAkKCdzaWduYXR1cmVQcmV2aWV3Jyk7CiAgICB2YXIgY29kZU91dHB1dCA9ICQoJ2NvZGVPdXRwdXQnKTsKICAgIHZhciB0b2FzdCA9ICQoJ3RvYXN0Jyk7CiAgICB2YXIgZ2VuZXJhdGVCdG4gPSAkKCdnZW5lcmF0ZUJ0bicpOwogICAgdmFyIGNvcHlDb2RlQnRuID0gJCgnY29weUNvZGVCdG4nKTsKICAgIHZhciBjb3B5U2lnbmF0dXJlQnRuID0gJCgnY29weVNpZ25hdHVyZUJ0bicpOwogICAgdmFyIHJlc2V0QnRuID0gJCgncmVzZXRCdG4nKTsKICAgIHZhciBjdGFCdG4gPSAkKCdjdGFCdG4nKTsKCiAgICBpZiAoIXJlYWR5IHx8ICFzaWduYXR1cmVQcmV2aWV3KSB7IHJldHVybiBmYWxzZTsgfQoKICAgIGZ1bmN0aW9uIGVzYyhzKXsKICAgICAgaWYgKCFzKSByZXR1cm4gJyc7CiAgICAgIHJldHVybiBTdHJpbmcocykucmVwbGFjZSgvJi9nLCcmYW1wOycpLnJlcGxhY2UoLzwvZywnJmx0OycpLnJlcGxhY2UoLz4vZywnJmd0OycpOwogICAgfQoKICAgIGZ1bmN0aW9uIG5vcm1hbGl6ZVVybCh1KXsKICAgICAgaWYgKCF1KSByZXR1cm4gJyc7CiAgICAgIHUgPSB1LnRyaW0oKTsKICAgICAgaWYgKCF1KSByZXR1cm4gJyc7CiAgICAgIGlmICghL15odHRwcz86XC9cLy9pLnRlc3QodSkpIHUgPSAnaHR0cHM6Ly8nICsgdTsKICAgICAgcmV0dXJuIHU7CiAgICB9CgogICAgZnVuY3Rpb24gZ2V0RGF0YSgpewogICAgICByZXR1cm4gewogICAgICAgIG5hbWU6IGVscy5uYW1lSW5wdXQudmFsdWUudHJpbSgpIHx8ICdKb2huIFNtaXRoJywKICAgICAgICB0aXRsZTogZWxzLnRpdGxlSW5wdXQudmFsdWUudHJpbSgpIHx8ICdNYXJrZXRpbmcgTWFuYWdlcicsCiAgICAgICAgY29tcGFueTogZWxzLmNvbXBhbnlJbnB1dC52YWx1ZS50cmltKCkgfHwgJ0JyaWdodCBGdXR1cmUgTHRkJywKICAgICAgICBlbWFpbDogZWxzLmVtYWlsSW5wdXQudmFsdWUudHJpbSgpIHx8ICdqb2huQGJyaWdodGZ1dHVyZS5jby51aycsCiAgICAgICAgcGhvbmU6IGVscy5waG9uZUlucHV0LnZhbHVlLnRyaW0oKSB8fCAnKzQ0IDIwIDEyMzQgNTY3OCcsCiAgICAgICAgd2Vic2l0ZTogZWxzLndlYnNpdGVJbnB1dC52YWx1ZS50cmltKCkgfHwgJ3d3dy5icmlnaHRmdXR1cmUuY28udWsnLAogICAgICAgIGFkZHJlc3M6IGVscy5hZGRyZXNzSW5wdXQudmFsdWUudHJpbSgpLAogICAgICAgIHBob3RvOiBlbHMucGhvdG9JbnB1dC52YWx1ZS50cmltKCksCiAgICAgICAgY29sb3I6IGVscy5jb2xvcklucHV0LnZhbHVlIHx8ICcjNkM1Q0U3JywKICAgICAgICBsaW5rZWRpbjogZWxzLmxpbmtlZGluSW5wdXQudmFsdWUudHJpbSgpLAogICAgICAgIHR3aXR0ZXI6IGVscy50d2l0dGVySW5wdXQudmFsdWUudHJpbSgpLAogICAgICAgIGZhY2Vib29rOiBlbHMuZmFjZWJvb2tJbnB1dC52YWx1ZS50cmltKCksCiAgICAgICAgaW5zdGFncmFtOiBlbHMuaW5zdGFncmFtSW5wdXQudmFsdWUudHJpbSgpLAogICAgICAgIHlvdXR1YmU6IGVscy55b3V0dWJlSW5wdXQudmFsdWUudHJpbSgpLAogICAgICAgIHRlbXBsYXRlOiBlbHMudGVtcGxhdGVTZWxlY3QudmFsdWUgfHwgJ2NsYXNzaWMnCiAgICAgIH07CiAgICB9CgogICAgZnVuY3Rpb24gc29jaWFsSWNvbnMoZCwgYWxpZ24pewogICAgICB2YXIgaWNvbnMgPSBbCiAgICAgICAge3VybDogZC5saW5rZWRpbiwgbGFiZWw6ICdMbid9LAogICAgICAgIHt1cmw6IGQudHdpdHRlciwgbGFiZWw6ICdYJ30sCiAgICAgICAge3VybDogZC5mYWNlYm9vaywgbGFiZWw6ICdGYid9LAogICAgICAgIHt1cmw6IGQuaW5zdGFncmFtLCBsYWJlbDogJ0lnJ30sCiAgICAgICAge3VybDogZC55b3V0dWJlLCBsYWJlbDogJ1l0J30KICAgICAgXTsKICAgICAgdmFyIG91dCA9ICcnOwogICAgICBmb3IgKHZhciBpPTA7aTxpY29ucy5sZW5ndGg7aSsrKXsKICAgICAgICBpZiAoIWljb25zW2ldLnVybCkgY29udGludWU7CiAgICAgICAgdmFyIGhyZWYgPSBub3JtYWxpemVVcmwoaWNvbnNbaV0udXJsKTsKICAgICAgICBvdXQgKz0gJzxhIGhyZWY9IicgKyBlc2MoaHJlZikgKyAnIiB0YXJnZXQ9Il9ibGFuayIgc3R5bGU9InRleHQtZGVjb3JhdGlvbjpub25lO2Rpc3BsYXk6aW5saW5lLWJsb2NrO21hcmdpbjowIDZweCAwIDA7Ij4nICsKICAgICAgICAgICc8c3BhbiBzdHlsZT0iZGlzcGxheTppbmxpbmUtYmxvY2s7d2lkdGg6MjZweDtoZWlnaHQ6MjZweDtsaW5lLWhlaWdodDoyNnB4O3RleHQtYWxpZ246Y2VudGVyO2JvcmRlci1yYWRpdXM6NTAlO2JhY2tncm91bmQ6JyArIGVzYyhkLmNvbG9yKSArICc7Y29sb3I6I2ZmZmZmZjtmb250LWZhbWlseTpBcmlhbCxIZWx2ZXRpY2Esc2Fucy1zZXJpZjtmb250LXNpemU6MTFweDtmb250LXdlaWdodDpib2xkOyI+JyArIGljb25zW2ldLmxhYmVsICsgJzwvc3Bhbj48L2E+JzsKICAgICAgfQogICAgICBpZiAoIW91dCkgcmV0dXJuICcnOwogICAgICByZXR1cm4gJzx0YWJsZSByb2xlPSJwcmVzZW50YXRpb24iIGNlbGxwYWRkaW5nPSIwIiBjZWxsc3BhY2luZz0iMCIgYm9yZGVyPSIwIiBzdHlsZT0ibWFyZ2luLXRvcDoxMHB4OycgKyAoYWxpZ249PT0nY2VudGVyJyA/ICdtYXJnaW4tbGVmdDphdXRvO21hcmdpbi1yaWdodDphdXRvOycgOiAnJykgKyAnIj48dHI+PHRkPicgKyBvdXQgKyAnPC90ZD48L3RyPjwvdGFibGU+JzsKICAgIH0KCiAgICBmdW5jdGlvbiBwaG90b0ltZyhkLCBzaXplKXsKICAgICAgaWYgKCFkLnBob3RvKSByZXR1cm4gJyc7CiAgICAgIHJldHVybiAnPGltZyBzcmM9IicgKyBlc2MoZC5waG90bykgKyAnIiB3aWR0aD0iJyArIHNpemUgKyAnIiBoZWlnaHQ9IicgKyBzaXplICsgJyIgYWx0PSInICsgZXNjKGQubmFtZSkgKyAnIiBzdHlsZT0iZGlzcGxheTpibG9jaztib3JkZXItcmFkaXVzOjhweDt3aWR0aDonICsgc2l6ZSArICdweDtoZWlnaHQ6JyArIHNpemUgKyAncHg7b2JqZWN0LWZpdDpjb3Zlcjtib3JkZXI6MDsiPic7CiAgICB9CgogICAgZnVuY3Rpb24gYnVpbGRDbGFzc2ljKGQpewogICAgICB2YXIgcGhvdG8gPSBwaG90b0ltZyhkLCA5MCk7CiAgICAgIHZhciB3ZWIgPSBub3JtYWxpemVVcmwoZC53ZWJzaXRlKTsKICAgICAgdmFyIGh0bWwgPSAnPHRhYmxlIHJvbGU9InByZXNlbnRhdGlvbiIgY2VsbHBhZGRpbmc9IjAiIGNlbGxzcGFjaW5nPSIwIiBib3JkZXI9IjAiIHN0eWxlPSJmb250LWZhbWlseTpBcmlhbCxIZWx2ZXRpY2Esc2Fucy1zZXJpZjtjb2xvcjojMkQyQjU1O21heC13aWR0aDo1MjBweDsiPic7CiAgICAgIGh0bWwgKz0gJzx0cj4nOwogICAgICBpZiAocGhvdG8pewogICAgICAgIGh0bWwgKz0gJzx0ZCBzdHlsZT0icGFkZGluZy1yaWdodDoxNnB4O3ZlcnRpY2FsLWFsaWduOnRvcDsiPicgKyBwaG90byArICc8L3RkPic7CiAgICAgIH0KICAgICAgaHRtbCArPSAnPHRkIHN0eWxlPSJ2ZXJ0aWNhbC1hbGlnbjp0b3A7Ym9yZGVyLWxlZnQ6M3B4IHNvbGlkICcgKyBlc2MoZC5jb2xvcikgKyAnO3BhZGRpbmctbGVmdDoxNnB4OyI+JzsKICAgICAgaHRtbCArPSAnPGRpdiBzdHlsZT0iZm9udC1zaXplOjE3cHg7Zm9udC13ZWlnaHQ6Ym9sZDtjb2xvcjojMUExNzQ0OyI+JyArIGVzYyhkLm5hbWUpICsgJzwvZGl2Pic7CiAgICAgIGh0bWwgKz0gJzxkaXYgc3R5bGU9ImZvbnQtc2l6ZToxM3B4O2NvbG9yOicgKyBlc2MoZC5jb2xvcikgKyAnO2ZvbnQtd2VpZ2h0OmJvbGQ7bWFyZ2luLXRvcDoycHg7Ij4nICsgZXNjKGQudGl0bGUpICsgKGQuY29tcGFueSA/ICcgYXQgJyArIGVzYyhkLmNvbXBhbnkpIDogJycpICsgJzwvZGl2Pic7CiAgICAgIGh0bWwgKz0gJzx0YWJsZSByb2xlPSJwcmVzZW50YXRpb24iIGNlbGxwYWRkaW5nPSIwIiBjZWxsc3BhY2luZz0iMCIgYm9yZGVyPSIwIiBzdHlsZT0ibWFyZ2luLXRvcDoxMHB4O2ZvbnQtc2l6ZToxMnB4O2NvbG9yOiM0YTQ3NzA7Ij4nOwogICAgICBpZiAoZC5waG9uZSkgaHRtbCArPSAnPHRyPjx0ZCBzdHlsZT0icGFkZGluZzoycHggMDsiPlRlbDogJyArIGVzYyhkLnBob25lKSArICc8L3RkPjwvdHI+JzsKICAgICAgaWYgKGQuZW1haWwpIGh0bWwgKz0gJzx0cj48dGQgc3R5bGU9InBhZGRpbmc6MnB4IDA7Ij5FbWFpbDogPGEgaHJlZj0ibWFpbHRvOicgKyBlc2MoZC5lbWFpbCkgKyAnIiBzdHlsZT0iY29sb3I6JyArIGVzYyhkLmNvbG9yKSArICc7dGV4dC1kZWNvcmF0aW9uOm5vbmU7Ij4nICsgZXNjKGQuZW1haWwpICsgJzwvYT48L3RkPjwvdHI+JzsKICAgICAgaWYgKGQud2Vic2l0ZSkgaHRtbCArPSAnPHRyPjx0ZCBzdHlsZT0icGFkZGluZzoycHggMDsiPldlYjogPGEgaHJlZj0iJyArIGVzYyh3ZWIpICsgJyIgc3R5bGU9ImNvbG9yOicgKyBlc2MoZC5jb2xvcikgKyAnO3RleHQtZGVjb3JhdGlvbjpub25lOyI+JyArIGVzYyhkLndlYnNpdGUpICsgJzwvYT48L3RkPjwvdHI+JzsKICAgICAgaWYgKGQuYWRkcmVzcykgaHRtbCArPSAnPHRyPjx0ZCBzdHlsZT0icGFkZGluZzoycHggMDsiPicgKyBlc2MoZC5hZGRyZXNzKSArICc8L3RkPjwvdHI+JzsKICAgICAgaHRtbCArPSAnPC90YWJsZT4nOwogICAgICBodG1sICs9IHNvY2lhbEljb25zKGQsICdsZWZ0Jyk7CiAgICAgIGh0bWwgKz0gJzwvdGQ+PC90cj48L3RhYmxlPic7CiAgICAgIHJldHVybiBodG1sOwogICAgfQoKICAgIGZ1bmN0aW9uIGJ1aWxkQ2FyZChkKXsKICAgICAgdmFyIHBob3RvID0gcGhvdG9JbWcoZCwgODApOwogICAgICB2YXIgd2ViID0gbm9ybWFsaXplVXJsKGQud2Vic2l0ZSk7CiAgICAgIHZhciBodG1sID0gJzx0YWJsZSByb2xlPSJwcmVzZW50YXRpb24iIGNlbGxwYWRkaW5nPSIwIiBjZWxsc3BhY2luZz0iMCIgYm9yZGVyPSIwIiBzdHlsZT0iZm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7Y29sb3I6IzJEMkI1NTttYXgtd2lkdGg6MzgwcHg7Ym9yZGVyOjFweCBzb2xpZCAjRTBEQUYwO2JvcmRlci1yYWRpdXM6MTJweDsiPic7CiAgICAgIGh0bWwgKz0gJzx0cj48dGQgc3R5bGU9InBhZGRpbmc6MjBweDt0ZXh0LWFsaWduOmNlbnRlcjsiPic7CiAgICAgIGlmIChwaG90byl7CiAgICAgICAgaHRtbCArPSAnPHRhYmxlIHJvbGU9InByZXNlbnRhdGlvbiIgY2VsbHBhZGRpbmc9IjAiIGNlbGxzcGFjaW5nPSIwIiBib3JkZXI9IjAiIHN0eWxlPSJtYXJnaW46MCBhdXRvIDEwcHg7Ij48dHI+PHRkPicgKyBwaG90byArICc8L3RkPjwvdHI+PC90YWJsZT4nOwogICAgICB9CiAgICAgIGh0bWwgKz0gJzxkaXYgc3R5bGU9ImZvbnQtc2l6ZToxOHB4O2ZvbnQtd2VpZ2h0OmJvbGQ7Y29sb3I6IzFBMTc0NDsiPicgKyBlc2MoZC5uYW1lKSArICc8L2Rpdj4nOwogICAgICBodG1sICs9ICc8ZGl2IHN0eWxlPSJmb250LXNpemU6MTNweDtjb2xvcjonICsgZXNjKGQuY29sb3IpICsgJztmb250LXdlaWdodDpib2xkO21hcmdpbi10b3A6M3B4OyI+JyArIGVzYyhkLnRpdGxlKSArICc8L2Rpdj4nOwogICAgICBodG1sICs9ICc8ZGl2IHN0eWxlPSJmb250LXNpemU6MTNweDtjb2xvcjojNkI2NDkwO21hcmdpbi10b3A6MXB4OyI+JyArIGVzYyhkLmNvbXBhbnkpICsgJzwvZGl2Pic7CiAgICAgIGh0bWwgKz0gJzx0YWJsZSByb2xlPSJwcmVzZW50YXRpb24iIGNlbGxwYWRkaW5nPSIwIiBjZWxsc3BhY2luZz0iMCIgYm9yZGVyPSIwIiBzdHlsZT0ibWFyZ2luOjEycHggYXV0byAwO2ZvbnQtc2l6ZToxMnB4O2NvbG9yOiM0YTQ3NzA7Ij4nOwogICAgICBodG1sICs9ICc8dHI+JzsKICAgICAgaHRtbCArPSAnPHRkIHN0eWxlPSJwYWRkaW5nOjJweCAxMHB4O3RleHQtYWxpZ246cmlnaHQ7Ij4nOwogICAgICBpZiAoZC5lbWFpbCkgaHRtbCArPSAnRW1haWw6IDxhIGhyZWY9Im1haWx0bzonICsgZXNjKGQuZW1haWwpICsgJyIgc3R5bGU9ImNvbG9yOicgKyBlc2MoZC5jb2xvcikgKyAnO3RleHQtZGVjb3JhdGlvbjpub25lOyI+JyArIGVzYyhkLmVtYWlsKSArICc8L2E+PGJyPic7CiAgICAgIGlmIChkLnBob25lKSBodG1sICs9ICdUZWw6ICcgKyBlc2MoZC5waG9uZSk7CiAgICAgIGh0bWwgKz0gJzwvdGQ+JzsKICAgICAgaHRtbCArPSAnPHRkIHN0eWxlPSJwYWRkaW5nOjJweCAxMHB4O3RleHQtYWxpZ246bGVmdDtib3JkZXItbGVmdDoxcHggc29saWQgI0UwREFGMDsiPic7CiAgICAgIGlmIChkLndlYnNpdGUpIGh0bWwgKz0gJ1dlYjogPGEgaHJlZj0iJyArIGVzYyh3ZWIpICsgJyIgc3R5bGU9ImNvbG9yOicgKyBlc2MoZC5jb2xvcikgKyAnO3RleHQtZGVjb3JhdGlvbjpub25lOyI+JyArIGVzYyhkLndlYnNpdGUpICsgJzwvYT48YnI+JzsKICAgICAgaWYgKGQuYWRkcmVzcykgaHRtbCArPSBlc2MoZC5hZGRyZXNzKTsKICAgICAgaHRtbCArPSAnPC90ZD4nOwogICAgICBodG1sICs9ICc8L3RyPjwvdGFibGU+JzsKICAgICAgaHRtbCArPSBzb2NpYWxJY29ucyhkLCAnY2VudGVyJyk7CiAgICAgIGh0bWwgKz0gJzwvdGQ+PC90cj48L3RhYmxlPic7CiAgICAgIHJldHVybiBodG1sOwogICAgfQoKICAgIGZ1bmN0aW9uIGJ1aWxkTWluaW1hbChkKXsKICAgICAgdmFyIHdlYiA9IG5vcm1hbGl6ZVVybChkLndlYnNpdGUpOwogICAgICB2YXIgcGFydHMgPSBbXTsKICAgICAgaWYgKGQucGhvbmUpIHBhcnRzLnB1c2goZXNjKGQucGhvbmUpKTsKICAgICAgaWYgKGQuZW1haWwpIHBhcnRzLnB1c2goJzxhIGhyZWY9Im1haWx0bzonICsgZXNjKGQuZW1haWwpICsgJyIgc3R5bGU9ImNvbG9yOicgKyBlc2MoZC5jb2xvcikgKyAnO3RleHQtZGVjb3JhdGlvbjpub25lOyI+JyArIGVzYyhkLmVtYWlsKSArICc8L2E+Jyk7CiAgICAgIGlmIChkLndlYnNpdGUpIHBhcnRzLnB1c2goJzxhIGhyZWY9IicgKyBlc2Mod2ViKSArICciIHN0eWxlPSJjb2xvcjonICsgZXNjKGQuY29sb3IpICsgJzt0ZXh0LWRlY29yYXRpb246bm9uZTsiPicgKyBlc2MoZC53ZWJzaXRlKSArICc8L2E+Jyk7CiAgICAgIHZhciBjb250YWN0TGluZSA9IHBhcnRzLmpvaW4oJyAmbmJzcDt8Jm5ic3A7ICcpOwogICAgICB2YXIgc29jaWFscyA9IFtdOwogICAgICB2YXIgc29jaWFsRGVmcyA9IFsKICAgICAgICB7dXJsOiBkLmxpbmtlZGluLCBsYWJlbDogJ0xpbmtlZEluJ30sCiAgICAgICAge3VybDogZC50d2l0dGVyLCBsYWJlbDogJ1R3aXR0ZXIvWCd9LAogICAgICAgIHt1cmw6IGQuZmFjZWJvb2ssIGxhYmVsOiAnRmFjZWJvb2snfSwKICAgICAgICB7dXJsOiBkLmluc3RhZ3JhbSwgbGFiZWw6ICdJbnN0YWdyYW0nfSwKICAgICAgICB7dXJsOiBkLnlvdXR1YmUsIGxhYmVsOiAnWW91VHViZSd9CiAgICAgIF07CiAgICAgIGZvciAodmFyIGk9MDtpPHNvY2lhbERlZnMubGVuZ3RoO2krKyl7CiAgICAgICAgaWYgKCFzb2NpYWxEZWZzW2ldLnVybCkgY29udGludWU7CiAgICAgICAgc29jaWFscy5wdXNoKCc8YSBocmVmPSInICsgZXNjKG5vcm1hbGl6ZVVybChzb2NpYWxEZWZzW2ldLnVybCkpICsgJyIgc3R5bGU9ImNvbG9yOicgKyBlc2MoZC5jb2xvcikgKyAnO3RleHQtZGVjb3JhdGlvbjpub25lOyI+JyArIHNvY2lhbERlZnNbaV0ubGFiZWwgKyAnPC9hPicpOwogICAgICB9CiAgICAgIHZhciBodG1sID0gJzx0YWJsZSByb2xlPSJwcmVzZW50YXRpb24iIGNlbGxwYWRkaW5nPSIwIiBjZWxsc3BhY2luZz0iMCIgYm9yZGVyPSIwIiBzdHlsZT0iZm9udC1mYW1pbHk6QXJpYWwsSGVsdmV0aWNhLHNhbnMtc2VyaWY7Y29sb3I6IzJEMkI1NTttYXgtd2lkdGg6NDgwcHg7Ij4nOwogICAgICBodG1sICs9ICc8dHI+PHRkIHN0eWxlPSJmb250LXNpemU6MTZweDtmb250LXdlaWdodDpib2xkO2NvbG9yOiMxQTE3NDQ7cGFkZGluZy1ib3R0b206MnB4OyI+JyArIGVzYyhkLm5hbWUpICsgJzwvdGQ+PC90cj4nOwogICAgICBodG1sICs9ICc8dHI+PHRkIHN0eWxlPSJmb250LXNpemU6MTNweDtjb2xvcjonICsgZXNjKGQuY29sb3IpICsgJztwYWRkaW5nLWJvdHRvbTo4cHg7Ij4nICsgZXNjKGQudGl0bGUpICsgKGQuY29tcGFueSA/ICcsICcgKyBlc2MoZC5jb21wYW55KSA6ICcnKSArICc8L3RkPjwvdHI+JzsKICAgICAgaWYgKGNvbnRhY3RMaW5lKSBodG1sICs9ICc8dHI+PHRkIHN0eWxlPSJmb250LXNpemU6MTJweDtjb2xvcjojNGE0NzcwO3BhZGRpbmctYm90dG9tOjZweDsiPicgKyBjb250YWN0TGluZSArICc8L3RkPjwvdHI+JzsKICAgICAgaWYgKGQuYWRkcmVzcykgaHRtbCArPSAnPHRyPjx0ZCBzdHlsZT0iZm9udC1zaXplOjEycHg7Y29sb3I6IzZCNjQ5MDtwYWRkaW5nLWJvdHRvbTo2cHg7Ij4nICsgZXNjKGQuYWRkcmVzcykgKyAnPC90ZD48L3RyPic7CiAgICAgIGlmIChzb2NpYWxzLmxlbmd0aCkgaHRtbCArPSAnPHRyPjx0ZCBzdHlsZT0iZm9udC1zaXplOjEycHg7Ij4nICsgc29jaWFscy5qb2luKCcgJm5ic3A7fCZuYnNwOyAnKSArICc8L3RkPjwvdHI+JzsKICAgICAgaHRtbCArPSAnPC90YWJsZT4nOwogICAgICByZXR1cm4gaHRtbDsKICAgIH0KCiAgICBmdW5jdGlvbiBidWlsZFNpZ25hdHVyZSgpewogICAgICB2YXIgZCA9IGdldERhdGEoKTsKICAgICAgdmFyIGh0bWw7CiAgICAgIGlmIChkLnRlbXBsYXRlID09PSAnY2FyZCcpIGh0bWwgPSBidWlsZENhcmQoZCk7CiAgICAgIGVsc2UgaWYgKGQudGVtcGxhdGUgPT09ICdtaW5pbWFsJykgaHRtbCA9IGJ1aWxkTWluaW1hbChkKTsKICAgICAgZWxzZSBodG1sID0gYnVpbGRDbGFzc2ljKGQpOwogICAgICByZXR1cm4gaHRtbDsKICAgIH0KCiAgICBmdW5jdGlvbiB1cGRhdGVQcmV2aWV3KCl7CiAgICAgIHZhciBodG1sID0gYnVpbGRTaWduYXR1cmUoKTsKICAgICAgc2lnbmF0dXJlUHJldmlldy5pbm5lckhUTUwgPSBodG1sOwogICAgICBpZiAoY29kZU91dHB1dCkgY29kZU91dHB1dC52YWx1ZSA9IGh0bWw7CiAgICB9CgogICAgZnVuY3Rpb24gc2hvd1RvYXN0KG1zZyl7CiAgICAgIGlmICghdG9hc3QpIHJldHVybjsKICAgICAgdG9hc3QudGV4dENvbnRlbnQgPSBtc2c7CiAgICAgIHRvYXN0LmNsYXNzTGlzdC5hZGQoJ3Nob3cnKTsKICAgICAgc2V0VGltZW91dChmdW5jdGlvbigpeyB0b2FzdC5jbGFzc0xpc3QucmVtb3ZlKCdzaG93Jyk7IH0sIDIyMDApOwogICAgfQoKICAgIGZ1bmN0aW9uIGNvcHlQbGFpblRleHQodGV4dCl7CiAgICAgIGlmIChuYXZpZ2F0b3IuY2xpcGJvYXJkICYmIG5hdmlnYXRvci5jbGlwYm9hcmQud3JpdGVUZXh0KXsKICAgICAgICBuYXZpZ2F0b3IuY2xpcGJvYXJkLndyaXRlVGV4dCh0ZXh0KS50aGVuKGZ1bmN0aW9uKCl7IHNob3dUb2FzdCgnSFRNTCBjb2RlIGNvcGllZCcpOyB9LCBmdW5jdGlvbigpeyBmYWxsYmFja0NvcHkodGV4dCk7IH0pOwogICAgICB9IGVsc2UgewogICAgICAgIGZhbGxiYWNrQ29weSh0ZXh0KTsKICAgICAgfQogICAgfQoKICAgIGZ1bmN0aW9uIGZhbGxiYWNrQ29weSh0ZXh0KXsKICAgICAgdmFyIHRhID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgndGV4dGFyZWEnKTsKICAgICAgdGEudmFsdWUgPSB0ZXh0OwogICAgICB0YS5zdHlsZS5wb3NpdGlvbiA9ICdmaXhlZCc7CiAgICAgIHRhLnN0eWxlLmxlZnQgPSAnLTk5OTlweCc7CiAgICAgIGRvY3VtZW50LmJvZHkuYXBwZW5kQ2hpbGQodGEpOwogICAgICB0YS5mb2N1cygpOwogICAgICB0YS5zZWxlY3QoKTsKICAgICAgdHJ5IHsgZG9jdW1lbnQuZXhlY0NvbW1hbmQoJ2NvcHknKTsgc2hvd1RvYXN0KCdDb3BpZWQgdG8gY2xpcGJvYXJkJyk7IH0gY2F0Y2goZSl7IHNob3dUb2FzdCgnQ29weSBmYWlsZWQsIHBsZWFzZSBzZWxlY3QgYW5kIGNvcHkgbWFudWFsbHknKTsgfQogICAgICBkb2N1bWVudC5ib2R5LnJlbW92ZUNoaWxkKHRhKTsKICAgIH0KCiAgICBmdW5jdGlvbiBjb3B5UmljaEh0bWwoaHRtbCl7CiAgICAgIGlmIChuYXZpZ2F0b3IuY2xpcGJvYXJkICYmIHdpbmRvdy5DbGlwYm9hcmRJdGVtKXsKICAgICAgICB0cnkgewogICAgICAgICAgdmFyIGJsb2JIdG1sID0gbmV3IEJsb2IoW2h0bWxdLCB7dHlwZTogJ3RleHQvaHRtbCd9KTsKICAgICAgICAgIHZhciBibG9iVGV4dCA9IG5ldyBCbG9iKFtodG1sXSwge3R5cGU6ICd0ZXh0L3BsYWluJ30pOwogICAgICAgICAgdmFyIGl0ZW0gPSBuZXcgd2luZG93LkNsaXBib2FyZEl0ZW0oeyd0ZXh0L2h0bWwnOiBibG9iSHRtbCwgJ3RleHQvcGxhaW4nOiBibG9iVGV4dH0pOwogICAgICAgICAgbmF2aWdhdG9yLmNsaXBib2FyZC53cml0ZShbaXRlbV0pLnRoZW4oZnVuY3Rpb24oKXsgc2hvd1RvYXN0KCdTaWduYXR1cmUgY29waWVkLCBwYXN0ZSBpbnRvIHlvdXIgZW1haWwgY2xpZW50Jyk7IH0sIGZ1bmN0aW9uKCl7IGNvcHlSaWNoRmFsbGJhY2soaHRtbCk7IH0pOwogICAgICAgICAgcmV0dXJuOwogICAgICAgIH0gY2F0Y2goZSl7IGNvcHlSaWNoRmFsbGJhY2soaHRtbCk7IHJldHVybjsgfQogICAgICB9CiAgICAgIGNvcHlSaWNoRmFsbGJhY2soaHRtbCk7CiAgICB9CgogICAgZnVuY3Rpb24gY29weVJpY2hGYWxsYmFjayhodG1sKXsKICAgICAgdmFyIGNvbnRhaW5lciA9IGRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoJ2RpdicpOwogICAgICBjb250YWluZXIuY29udGVudEVkaXRhYmxlID0gdHJ1ZTsKICAgICAgY29udGFpbmVyLmlubmVySFRNTCA9IGh0bWw7CiAgICAgIGNvbnRhaW5lci5zdHlsZS5wb3NpdGlvbiA9ICdmaXhlZCc7CiAgICAgIGNvbnRhaW5lci5zdHlsZS5sZWZ0ID0gJy05OTk5cHgnOwogICAgICBkb2N1bWVudC5ib2R5LmFwcGVuZENoaWxkKGNvbnRhaW5lcik7CiAgICAgIHZhciByYW5nZSA9IGRvY3VtZW50LmNyZWF0ZVJhbmdlKCk7CiAgICAgIHJhbmdlLnNlbGVjdE5vZGVDb250ZW50cyhjb250YWluZXIpOwogICAgICB2YXIgc2VsID0gd2luZG93LmdldFNlbGVjdGlvbigpOwogICAgICBzZWwucmVtb3ZlQWxsUmFuZ2VzKCk7CiAgICAgIHNlbC5hZGRSYW5nZShyYW5nZSk7CiAgICAgIHRyeSB7IGRvY3VtZW50LmV4ZWNDb21tYW5kKCdjb3B5Jyk7IHNob3dUb2FzdCgnU2lnbmF0dXJlIGNvcGllZCwgcGFzdGUgaW50byB5b3VyIGVtYWlsIGNsaWVudCcpOyB9IGNhdGNoKGUpeyBzaG93VG9hc3QoJ0NvcHkgZmFpbGVkLCBwbGVhc2Ugc2VsZWN0IGFuZCBjb3B5IG1hbnVhbGx5Jyk7IH0KICAgICAgc2VsLnJlbW92ZUFsbFJhbmdlcygpOwogICAgICBkb2N1bWVudC5ib2R5LnJlbW92ZUNoaWxkKGNvbnRhaW5lcik7CiAgICB9CgogICAgZm9yICh2YXIgaT0wO2k8ZmllbGRzLmxlbmd0aDtpKyspewogICAgICAoZnVuY3Rpb24oZWwpewogICAgICAgIGlmICghZWwpIHJldHVybjsKICAgICAgICB2YXIgZXZ0ID0gKGVsLnRhZ05hbWUgPT09ICdTRUxFQ1QnIHx8IGVsLnR5cGUgPT09ICdjb2xvcicpID8gJ2NoYW5nZScgOiAnaW5wdXQnOwogICAgICAgIGVsLmFkZEV2ZW50TGlzdGVuZXIoZXZ0LCB1cGRhdGVQcmV2aWV3KTsKICAgICAgICBpZiAoZXZ0ID09PSAnaW5wdXQnKSBlbC5hZGRFdmVudExpc3RlbmVyKCdjaGFuZ2UnLCB1cGRhdGVQcmV2aWV3KTsKICAgICAgfSkoZWxzW2ZpZWxkc1tpXV0pOwogICAgfQoKICAgIGlmIChnZW5lcmF0ZUJ0bil7CiAgICAgIGdlbmVyYXRlQnRuLmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywgZnVuY3Rpb24oKXsKICAgICAgICB1cGRhdGVQcmV2aWV3KCk7CiAgICAgICAgaWYgKHByZXZpZXdXcmFwKSBwcmV2aWV3V3JhcC5zY3JvbGxJbnRvVmlldyh7YmVoYXZpb3I6J3Ntb290aCcsIGJsb2NrOidjZW50ZXInfSk7CiAgICAgICAgc2hvd1RvYXN0KCdTaWduYXR1cmUgZ2VuZXJhdGVkJyk7CiAgICAgIH0pOwogICAgfQoKICAgIGlmIChjb3B5Q29kZUJ0bil7CiAgICAgIGNvcHlDb2RlQnRuLmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywgZnVuY3Rpb24oKXsKICAgICAgICB2YXIgaHRtbCA9IGJ1aWxkU2lnbmF0dXJlKCk7CiAgICAgICAgY29weVBsYWluVGV4dChodG1sKTsKICAgICAgfSk7CiAgICB9CgogICAgaWYgKGNvcHlTaWduYXR1cmVCdG4pewogICAgICBjb3B5U2lnbmF0dXJlQnRuLmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywgZnVuY3Rpb24oKXsKICAgICAgICB2YXIgaHRtbCA9IGJ1aWxkU2lnbmF0dXJlKCk7CiAgICAgICAgY29weVJpY2hIdG1sKGh0bWwpOwogICAgICB9KTsKICAgIH0KCiAgICBpZiAocmVzZXRCdG4pewogICAgICByZXNldEJ0bi5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsIGZ1bmN0aW9uKCl7CiAgICAgICAgZWxzLm5hbWVJbnB1dC52YWx1ZSA9ICcnOwogICAgICAgIGVscy50aXRsZUlucHV0LnZhbHVlID0gJyc7CiAgICAgICAgZWxzLmNvbXBhbnlJbnB1dC52YWx1ZSA9ICcnOwogICAgICAgIGVscy5lbWFpbElucHV0LnZhbHVlID0gJyc7CiAgICAgICAgZWxzLnBob25lSW5wdXQudmFsdWUgPSAnJzsKICAgICAgICBlbHMud2Vic2l0ZUlucHV0LnZhbHVlID0gJyc7CiAgICAgICAgZWxzLmFkZHJlc3NJbnB1dC52YWx1ZSA9ICcnOwogICAgICAgIGVscy5waG90b0lucHV0LnZhbHVlID0gJyc7CiAgICAgICAgZWxzLmNvbG9ySW5wdXQudmFsdWUgPSAnIzZDNUNFNyc7CiAgICAgICAgZWxzLmxpbmtlZGluSW5wdXQudmFsdWUgPSAnJzsKICAgICAgICBlbHMudHdpdHRlcklucHV0LnZhbHVlID0gJyc7CiAgICAgICAgZWxzLmZhY2Vib29rSW5wdXQudmFsdWUgPSAnJzsKICAgICAgICBlbHMuaW5zdGFncmFtSW5wdXQudmFsdWUgPSAnJzsKICAgICAgICBlbHMueW91dHViZUlucHV0LnZhbHVlID0gJyc7CiAgICAgICAgZWxzLnRlbXBsYXRlU2VsZWN0LnZhbHVlID0gJ2NsYXNzaWMnOwogICAgICAgIHVwZGF0ZVByZXZpZXcoKTsKICAgICAgICBzaG93VG9hc3QoJ0FsbCBmaWVsZHMgcmVzZXQnKTsKICAgICAgfSk7CiAgICB9CgogICAgaWYgKGN0YUJ0bil7CiAgICAgIGN0YUJ0bi5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsIGZ1bmN0aW9uKCl7CiAgICAgICAgdmFyIHRvb2xFbCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoJy5lc2ctdG9vbCcpOwogICAgICAgIGlmICh0b29sRWwpIHRvb2xFbC5zY3JvbGxJbnRvVmlldyh7YmVoYXZpb3I6J3Ntb290aCcsIGJsb2NrOidzdGFydCd9KTsKICAgICAgfSk7CiAgICB9CgogICAgdmFyIGZhcUl0ZW1zID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvckFsbCgnI2VzZy13cmFwIC5mYXEtaXRlbScpOwogICAgZm9yICh2YXIgZj0wOyBmPGZhcUl0ZW1zLmxlbmd0aDsgZisrKXsKICAgICAgKGZ1bmN0aW9uKGl0ZW0pewogICAgICAgIHZhciBxID0gaXRlbS5xdWVyeVNlbGVjdG9yKCcuZmFxLXEnKTsKICAgICAgICBpZiAoIXEpIHJldHVybjsKICAgICAgICBxLmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywgZnVuY3Rpb24oKXsKICAgICAgICAgIGl0ZW0uY2xhc3NMaXN0LnRvZ2dsZSgnb3BlbicpOwogICAgICAgIH0pOwogICAgICB9KShmYXFJdGVtc1tmXSk7CiAgICB9CgogICAgdXBkYXRlUHJldmlldygpOwogICAgcmV0dXJuIHRydWU7CiAgfQoKICBmdW5jdGlvbiB0cnlJbml0KCl7CiAgICBpZiAoIWluaXQoKSl7CiAgICAgIHNldFRpbWVvdXQodHJ5SW5pdCwgMjAwKTsKICAgIH0KICB9CgogIGlmIChkb2N1bWVudC5yZWFkeVN0YXRlID09PSAnbG9hZGluZycpewogICAgZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsIHRyeUluaXQpOwogIH0gZWxzZSB7CiAgICB0cnlJbml0KCk7CiAgfQogIHNldFRpbWVvdXQodHJ5SW5pdCwgNTAwKTsKICBzZXRUaW1lb3V0KHRyeUluaXQsIDE1MDApOwp9KSgpOwo="));
+</script>
