@@ -1,0 +1,684 @@
+<style>
+:root {
+  --pri: #6C5CE7;
+  --pri-hover: #5A4BD1;
+  --bg: #E8E0F0;
+  --bg-alt: #DDD4EB;
+  --card-bg: #FFFFFF;
+  --card-border: #D0C6E0;
+  --input-bg: #F5F1FA;
+  --input-border: #D0C6E0;
+  --text: #2D2B55;
+  --muted: #6B6490;
+  --heading: #1A1744;
+  --green: #00C897;
+  --red: #EF4444;
+  --yellow: #F59E0B;
+}
+*, *::before, *::after { box-sizing: border-box !important; margin: 0 !important; padding: 0 !important; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important; background: var(--bg) !important; color: var(--text) !important; line-height: 1.6 !important; -webkit-font-smoothing: antialiased !important; }
+a { color: var(--pri) !important; text-decoration: none !important; }
+a:hover { color: var(--pri-hover) !important; }
+
+.mtg-hero { text-align: center !important; padding: 3.5rem 1.5rem 2.5rem !important; background: var(--bg) !important; }
+.mtg-hero .back-link { display: inline-block !important; color: var(--muted) !important; font-size: 0.85rem !important; margin-bottom: 1.5rem !important; transition: color .2s !important; }
+.mtg-hero .back-link:hover { color: var(--pri) !important; }
+.mtg-hero .badge { display: inline-block !important; background: var(--card-bg) !important; color: var(--pri) !important; font-size: 0.8rem !important; font-weight: 600 !important; padding: 0.4rem 1.1rem !important; border-radius: 999px !important; border: 1px solid var(--card-border) !important; margin-bottom: 1.25rem !important; }
+.mtg-hero h1 { font-size: 2.4rem !important; font-weight: 800 !important; color: var(--heading) !important; margin-bottom: 0.85rem !important; }
+.mtg-hero .sub { color: var(--muted) !important; max-width: 660px !important; margin: 0 auto 1.5rem !important; font-size: 0.95rem !important; line-height: 1.65 !important; }
+.usp-row { display: flex !important; gap: 0.6rem !important; flex-wrap: wrap !important; justify-content: center !important; }
+.usp-pill { background: rgba(108,92,231,0.08) !important; border: 1px solid rgba(108,92,231,0.2) !important; color: var(--pri) !important; font-size: 0.78rem !important; font-weight: 600 !important; padding: 0.4rem 1rem !important; border-radius: 999px !important; }
+
+.mtg-tool { max-width: 950px !important; margin: 0 auto !important; padding: 0 1.5rem 3rem !important; }
+.mtg-box { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 16px !important; padding: 2rem !important; box-shadow: 0 2px 12px rgba(108,92,231,0.06) !important; }
+.mtg-box label { display: block !important; font-size: 0.72rem !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.07em !important; color: var(--muted) !important; margin-bottom: 0.45rem !important; }
+.mtg-box input[type="text"], .mtg-box input[type="url"], .mtg-box textarea, .mtg-box select { width: 100% !important; background: var(--input-bg) !important; border: 1px solid var(--input-border) !important; border-radius: 10px !important; padding: 0.7rem 1rem !important; color: var(--text) !important; font-size: 0.9rem !important; font-family: inherit !important; transition: border-color .2s !important; }
+.mtg-box input[type="text"]:focus, .mtg-box input[type="url"]:focus, .mtg-box textarea:focus, .mtg-box select:focus { outline: none !important; border-color: var(--pri) !important; }
+.mtg-box textarea { resize: vertical !important; min-height: 80px !important; line-height: 1.7 !important; }
+.char-hint { font-size: 0.75rem !important; color: var(--muted) !important; text-align: right !important; margin-top: 0.3rem !important; }
+.char-hint .count { font-weight: 600 !important; }
+.char-hint .good { color: var(--green) !important; }
+.char-hint .warn { color: var(--yellow) !important; }
+.char-hint .bad { color: var(--red) !important; }
+.mb { margin-bottom: 1.25rem !important; }
+.row2 { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 1.25rem !important; }
+.row3 { display: grid !important; grid-template-columns: 1fr 1fr 1fr !important; gap: 1.25rem !important; }
+.divider { border: none !important; border-top: 1px solid var(--card-border) !important; margin: 1.75rem 0 !important; }
+.section-label { font-size: 0.85rem !important; font-weight: 700 !important; color: var(--heading) !important; margin-bottom: 1rem !important; display: flex !important; align-items: center !important; gap: 0.5rem !important; }
+.section-label span { font-size: 1.2rem !important; }
+.chk-row { display: flex !important; gap: 1.5rem !important; flex-wrap: wrap !important; margin-bottom: 1.25rem !important; align-items: center !important; }
+.chk-row label { display: flex !important; align-items: center !important; gap: 0.4rem !important; font-size: 0.85rem !important; color: var(--text) !important; cursor: pointer !important; font-weight: 500 !important; text-transform: none !important; letter-spacing: 0 !important; margin-bottom: 0 !important; }
+.chk-row input[type="checkbox"] { width: 16px !important; height: 16px !important; accent-color: var(--pri) !important; }
+
+.btn-group { display: flex !important; gap: 0.75rem !important; flex-wrap: wrap !important; margin-top: 1.25rem !important; }
+.btn { padding: 0.7rem 1.6rem !important; border-radius: 10px !important; font-weight: 600 !important; font-size: 0.9rem !important; cursor: pointer !important; border: none !important; transition: all .2s !important; font-family: inherit !important; }
+.btn-primary { background: var(--pri) !important; color: #fff !important; }
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active { background: var(--pri-hover) !important; color: #fff !important; transform: translateY(-1px) !important; }
+.btn-secondary { background: var(--input-bg) !important; color: var(--muted) !important; border: 1px solid var(--card-border) !important; }
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active { border-color: var(--pri) !important; color: var(--text) !important; }
+
+/* Preview */
+.preview-wrap { display: none !important; margin-top: 2rem !important; }
+.preview-tabs { display: flex !important; gap: 0 !important; margin-bottom: 0 !important; border-bottom: 2px solid var(--card-border) !important; }
+.preview-tab { padding: 0.65rem 1.25rem !important; font-size: 0.82rem !important; font-weight: 600 !important; color: var(--muted) !important; cursor: pointer !important; border: none !important; background: transparent !important; border-bottom: 2px solid transparent !important; margin-bottom: -2px !important; transition: all .2s !important; font-family: inherit !important; }
+.preview-tab.active { color: var(--pri) !important; border-bottom-color: var(--pri) !important; }
+.preview-panel { display: none !important; background: var(--input-bg) !important; border: 1px solid var(--card-border) !important; border-top: none !important; border-radius: 0 0 12px 12px !important; padding: 1.5rem !important; }
+.preview-panel.active { display: block !important; }
+
+/* Google Preview */
+.goog-preview { font-family: Arial, sans-serif !important; max-width: 600px !important; }
+.goog-preview .gp-title { font-size: 1.2rem !important; color: #1a0dab !important; font-weight: 400 !important; margin-bottom: 0.2rem !important; line-height: 1.3 !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: nowrap !important; }
+.goog-preview .gp-url { font-size: 0.82rem !important; color: #006621 !important; margin-bottom: 0.2rem !important; overflow: hidden !important; text-overflow: ellipsis !important; white-space: nowrap !important; }
+.goog-preview .gp-desc { font-size: 0.85rem !important; color: #545454 !important; line-height: 1.5 !important; display: -webkit-box !important; -webkit-line-clamp: 2 !important; -webkit-box-orient: vertical !important; overflow: hidden !important; }
+
+/* Social Preview */
+.social-preview { max-width: 500px !important; border: 1px solid #ddd !important; border-radius: 12px !important; overflow: hidden !important; background: #fff !important; }
+.social-preview .sp-img { height: 260px !important; background: linear-gradient(135deg, var(--bg-alt), var(--card-bg)) !important; display: flex !important; align-items: center !important; justify-content: center !important; color: var(--muted) !important; font-size: 0.85rem !important; }
+.social-preview .sp-body { padding: 1rem !important; }
+.social-preview .sp-domain { font-size: 0.75rem !important; color: #65676b !important; text-transform: uppercase !important; margin-bottom: 0.25rem !important; }
+.social-preview .sp-title { font-size: 1rem !important; font-weight: 700 !important; color: #1d2129 !important; margin-bottom: 0.2rem !important; line-height: 1.3 !important; }
+.social-preview .sp-desc { font-size: 0.85rem !important; color: #65676b !important; line-height: 1.4 !important; }
+
+/* Code output */
+.code-wrap { display: none !important; margin-top: 1.5rem !important; }
+.code-box { background: #1A1744 !important; border-radius: 12px !important; padding: 1.25rem !important; overflow-x: auto !important; position: relative !important; }
+.code-box pre { margin: 0 !important; white-space: pre-wrap !important; word-break: break-all !important; font-family: 'Courier New', monospace !important; font-size: 0.82rem !important; line-height: 1.7 !important; color: #E8E0F0 !important; }
+.code-box .tag { color: #FF79C6 !important; }
+.code-box .attr { color: #50FA7B !important; }
+.code-box .val { color: #F1FA8C !important; }
+
+/* Sections */
+.mtg-section { max-width: 1100px !important; margin: 0 auto !important; padding: 4rem 1.5rem !important; }
+.mtg-section.alt { background: var(--bg-alt) !important; max-width: 100% !important; }
+.mtg-section.alt > .inner { max-width: 1100px !important; margin: 0 auto !important; }
+.sec-head { text-align: center !important; margin-bottom: 2.75rem !important; }
+.sec-head h2 { font-size: 1.65rem !important; font-weight: 800 !important; color: var(--heading) !important; margin-bottom: 0.5rem !important; }
+.sec-head p { color: var(--muted) !important; font-size: 0.92rem !important; max-width: 520px !important; margin: 0 auto !important; font-style: italic !important; }
+
+.steps { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 1.5rem !important; }
+.step { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 16px !important; padding: 2rem 1.5rem !important; text-align: center !important; transition: border-color .2s !important; box-shadow: 0 2px 12px rgba(108,92,231,0.06) !important; }
+.step:hover { border-color: var(--pri) !important; }
+.step-n { display: inline-flex !important; align-items: center !important; justify-content: center !important; width: 44px !important; height: 44px !important; border-radius: 50% !important; background: linear-gradient(135deg, var(--pri), #8B5CF6) !important; color: #fff !important; font-weight: 700 !important; font-size: 1rem !important; margin-bottom: 1rem !important; }
+.step h3 { font-size: 1rem !important; font-weight: 700 !important; color: var(--heading) !important; margin-bottom: 0.5rem !important; }
+.step p { font-size: 0.85rem !important; color: var(--muted) !important; }
+
+.cards-grid { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 1.25rem !important; }
+.fcard { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 16px !important; padding: 1.75rem !important; transition: border-color .2s, transform .2s !important; box-shadow: 0 2px 12px rgba(108,92,231,0.06) !important; }
+.fcard:hover { border-color: var(--pri) !important; transform: translateY(-2px) !important; }
+.fcard .ic { font-size: 1.6rem !important; margin-bottom: 0.8rem !important; display: block !important; }
+.fcard h3 { font-size: 0.95rem !important; font-weight: 700 !important; color: var(--heading) !important; margin-bottom: 0.4rem !important; }
+.fcard p { font-size: 0.85rem !important; color: var(--muted) !important; line-height: 1.55 !important; }
+
+.tbl-wrap { overflow-x: auto !important; border-radius: 16px !important; border: 1px solid var(--card-border) !important; box-shadow: 0 2px 12px rgba(108,92,231,0.06) !important; }
+.cmp-tbl { width: 100% !important; border-collapse: collapse !important; font-size: 0.85rem !important; background: var(--card-bg) !important; }
+.cmp-tbl th, .cmp-tbl td { padding: 0.9rem 1.1rem !important; text-align: center !important; border-bottom: 1px solid var(--card-border) !important; }
+.cmp-tbl th { background: var(--heading) !important; color: #fff !important; font-weight: 700 !important; font-size: 0.78rem !important; text-transform: uppercase !important; letter-spacing: 0.05em !important; }
+.cmp-tbl td:first-child { text-align: left !important; font-weight: 600 !important; color: var(--text) !important; }
+.cmp-tbl tr:last-child td { border-bottom: none !important; }
+.cmp-tbl .hl { background: rgba(108,92,231,0.06) !important; }
+.ck { color: var(--green) !important; font-weight: 700 !important; font-size: 1.1rem !important; }
+.cx { color: var(--red) !important; font-size: 1.1rem !important; }
+
+.tips { display: flex !important; flex-direction: column !important; gap: 1rem !important; }
+.tip { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 16px !important; padding: 1.5rem 1.75rem !important; display: flex !important; gap: 1.25rem !important; align-items: flex-start !important; transition: border-color .2s !important; box-shadow: 0 2px 12px rgba(108,92,231,0.06) !important; }
+.tip:hover { border-color: var(--pri) !important; }
+.tip-n { flex-shrink: 0 !important; width: 38px !important; height: 38px !important; border-radius: 50% !important; background: linear-gradient(135deg, var(--pri), #8B5CF6) !important; color: #fff !important; font-weight: 700 !important; font-size: 0.9rem !important; display: flex !important; align-items: center !important; justify-content: center !important; }
+.tip h3 { font-size: 0.95rem !important; font-weight: 700 !important; color: var(--heading) !important; margin-bottom: 0.3rem !important; }
+.tip p { font-size: 0.85rem !important; color: var(--muted) !important; line-height: 1.55 !important; }
+
+.rel-grid { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 1.25rem !important; }
+.rel-card { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 16px !important; padding: 1.75rem !important; display: flex !important; flex-direction: column !important; transition: border-color .2s, transform .2s !important; box-shadow: 0 2px 12px rgba(108,92,231,0.06) !important; }
+.rel-card:hover { border-color: var(--pri) !important; transform: translateY(-2px) !important; }
+.rel-card .cat { font-size: 0.7rem !important; font-weight: 700 !important; text-transform: uppercase !important; color: var(--pri) !important; margin-bottom: 0.6rem !important; letter-spacing: 0.05em !important; }
+.rel-card h3 { font-size: 1rem !important; font-weight: 700 !important; color: var(--heading) !important; margin-bottom: 0.45rem !important; }
+.rel-card p { font-size: 0.85rem !important; color: var(--muted) !important; margin-bottom: 1.25rem !important; flex: 1 !important; line-height: 1.55 !important; }
+.rel-card .btn { text-align: center !important; font-size: 0.82rem !important; padding: 0.55rem 1rem !important; }
+
+.svc-banner { background: linear-gradient(135deg, var(--bg-alt) 0%, var(--card-bg) 100%) !important; border: 1px solid var(--card-border) !important; border-radius: 16px !important; padding: 3rem 2rem !important; text-align: center !important; max-width: 850px !important; margin: 0 auto !important; box-shadow: 0 2px 12px rgba(108,92,231,0.06) !important; }
+.svc-banner .badge { display: inline-block !important; background: var(--pri) !important; color: #fff !important; font-size: 0.7rem !important; font-weight: 700 !important; text-transform: uppercase !important; padding: 0.3rem 0.85rem !important; border-radius: 999px !important; margin-bottom: 0.85rem !important; letter-spacing: 0.05em !important; }
+.svc-banner h3 { font-size: 1.35rem !important; font-weight: 800 !important; color: var(--heading) !important; margin-bottom: 0.85rem !important; }
+.svc-banner p { color: var(--muted) !important; font-size: 0.9rem !important; max-width: 540px !important; margin: 0 auto 1.5rem !important; line-height: 1.6 !important; }
+
+.faq-list { max-width: 800px !important; margin: 0 auto !important; }
+.faq-item { border-bottom: 1px solid var(--card-border) !important; }
+.faq-item:last-child { border-bottom: none !important; }
+.faq-q { display: flex !important; align-items: center !important; justify-content: space-between !important; gap: 1rem !important; padding: 1.15rem 0 !important; cursor: pointer !important; font-weight: 600 !important; font-size: 0.95rem !important; color: var(--heading) !important; background: transparent !important; border: none !important; border-radius: 0 !important; width: 100% !important; text-align: left !important; font-family: inherit !important; transition: color .2s !important; box-shadow: none !important; }
+.faq-q:hover, .faq-q:focus, .faq-q:active { color: var(--pri) !important; background: transparent !important; box-shadow: none !important; }
+.faq-q .arrow { font-size: 1.2rem !important; color: var(--pri) !important; flex-shrink: 0 !important; transition: transform .25s !important; }
+.faq-item.open .faq-q .arrow { transform: rotate(45deg) !important; }
+.faq-a { max-height: 0 !important; overflow: hidden !important; transition: max-height .3s ease !important; }
+.faq-item.open .faq-a { max-height: 400px !important; }
+.faq-a p { font-size: 0.9rem !important; color: var(--muted) !important; padding-bottom: 1rem !important; line-height: 1.6 !important; }
+
+.final-cta { text-align: center !important; padding: 4.5rem 1.5rem !important; background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%) !important; }
+.final-cta h2 { font-size: 1.85rem !important; font-weight: 800 !important; color: var(--heading) !important; margin-bottom: 0.85rem !important; }
+.final-cta p { color: var(--muted) !important; font-size: 0.95rem !important; margin-bottom: 1.75rem !important; }
+.btn-big { display: inline-block !important; background: linear-gradient(135deg, var(--pri), #8B5CF6) !important; color: #fff !important; padding: 0.9rem 2.8rem !important; border-radius: 12px !important; font-weight: 700 !important; font-size: 1.05rem !important; border: none !important; cursor: pointer !important; transition: transform .2s, box-shadow .2s !important; box-shadow: 0 4px 20px rgba(108,92,231,0.3) !important; }
+.btn-big:hover, .btn-big:focus, .btn-big:active { transform: translateY(-2px) !important; box-shadow: 0 6px 28px rgba(108,92,231,0.45) !important; color: #fff !important; }
+.final-cta .sub-note { font-size: 0.8rem !important; color: var(--muted) !important; margin-top: 0.85rem !important; }
+
+.toast { position: fixed !important; bottom: 2rem !important; left: 50% !important; transform: translateX(-50%) !important; background: var(--green) !important; color: #fff !important; padding: 0.6rem 1.5rem !important; border-radius: 10px !important; font-weight: 600 !important; font-size: 0.85rem !important; opacity: 0 !important; transition: opacity .3s !important; pointer-events: none !important; z-index: 999 !important; }
+.toast.show { opacity: 1 !important; }
+
+@media (max-width: 768px) {
+  .steps, .cards-grid, .rel-grid { grid-template-columns: 1fr !important; }
+  .row2, .row3 { grid-template-columns: 1fr !important; }
+  .mtg-hero h1 { font-size: 1.7rem !important; }
+  .tip { flex-direction: column !important; }
+  .cmp-tbl { font-size: 0.78rem !important; }
+  .cmp-tbl th, .cmp-tbl td { padding: 0.65rem 0.6rem !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- Section 1: Hero -->
+<div class="mtg-hero">
+  <a href="/tools/" class="back-link">&larr; Back to All Tools</a>
+  <div><span class="badge">&#127991; Free Meta Tag Generator</span></div>
+  <h1>Free Meta Tag Generator for SEO</h1>
+  <p class="sub">Generate perfect meta tags for any webpage in seconds. Title tags, meta descriptions, Open Graph tags, Twitter Cards, robots directives, canonical URLs, and more. Live Google and social media preview with character counting. No signup, no limits, completely free.</p>
+  <div class="usp-row">
+    <span class="usp-pill">&#10003; 100% Free Forever</span>
+    <span class="usp-pill">&#10003; No Signup Required</span>
+    <span class="usp-pill">&#10003; Google SERP Preview</span>
+    <span class="usp-pill">&#10003; OG &amp; Twitter Cards</span>
+    <span class="usp-pill">&#10003; One-Click Copy Code</span>
+  </div>
+</div>
+
+<!-- Section 2: Tool Widget -->
+<div class="mtg-tool">
+  <div class="mtg-box">
+
+    <!-- Basic SEO -->
+    <div class="section-label"><span>&#128196;</span> Basic SEO Meta Tags</div>
+
+    <div class="mb">
+      <label>Page Title (Title Tag)</label>
+      <input type="text" id="titleInput" placeholder="e.g. Best Running Shoes for Beginners in 2025 | YourBrand">
+      <div class="char-hint"><span class="count" id="titleCount">0</span> / 60 characters <span id="titleStatus"></span></div>
+    </div>
+
+    <div class="mb">
+      <label>Meta Description</label>
+      <textarea id="descInput" placeholder="e.g. Discover the top 10 running shoes for beginners. Expert reviews, price comparisons, and buying guide to help you find the perfect pair."></textarea>
+      <div class="char-hint"><span class="count" id="descCount">0</span> / 160 characters <span id="descStatus"></span></div>
+    </div>
+
+    <div class="row2 mb">
+      <div>
+        <label>Meta Keywords (comma separated)</label>
+        <input type="text" id="keywordsInput" placeholder="e.g. running shoes, beginner shoes, best trainers 2025">
+      </div>
+      <div>
+        <label>Page URL (Canonical)</label>
+        <input type="url" id="urlInput" placeholder="e.g. https://example.com/running-shoes/">
+      </div>
+    </div>
+
+    <div class="row2 mb">
+      <div>
+        <label>Author Name</label>
+        <input type="text" id="authorInput" placeholder="e.g. John Smith">
+      </div>
+      <div>
+        <label>Language</label>
+        <select id="langSelect">
+          <option value="en">English</option>
+          <option value="es">Spanish</option>
+          <option value="fr">French</option>
+          <option value="de">German</option>
+          <option value="pt">Portuguese</option>
+          <option value="hi">Hindi</option>
+          <option value="ur">Urdu</option>
+          <option value="ar">Arabic</option>
+          <option value="zh">Chinese</option>
+          <option value="ja">Japanese</option>
+          <option value="ko">Korean</option>
+          <option value="nl">Dutch</option>
+          <option value="it">Italian</option>
+          <option value="ru">Russian</option>
+          <option value="tr">Turkish</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- Robots -->
+    <hr class="divider">
+    <div class="section-label"><span>&#129302;</span> Robots Meta Directives</div>
+    <div class="chk-row">
+      <label><input type="checkbox" id="chkIndex" checked> Index</label>
+      <label><input type="checkbox" id="chkFollow" checked> Follow</label>
+      <label><input type="checkbox" id="chkNoSnippet"> No Snippet</label>
+      <label><input type="checkbox" id="chkNoArchive"> No Archive</label>
+      <label><input type="checkbox" id="chkNoImageIndex"> No Image Index</label>
+    </div>
+
+    <!-- Open Graph -->
+    <hr class="divider">
+    <div class="section-label"><span>&#128240;</span> Open Graph Tags (Facebook, LinkedIn, WhatsApp)</div>
+
+    <div class="row2 mb">
+      <div>
+        <label>OG Title (leave blank to use page title)</label>
+        <input type="text" id="ogTitleInput" placeholder="Optional: Different title for social sharing">
+      </div>
+      <div>
+        <label>OG Type</label>
+        <select id="ogTypeSelect">
+          <option value="website">Website</option>
+          <option value="article">Article</option>
+          <option value="blog">Blog</option>
+          <option value="product">Product</option>
+          <option value="profile">Profile</option>
+          <option value="video.other">Video</option>
+          <option value="music.song">Music</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="mb">
+      <label>OG Description (leave blank to use meta description)</label>
+      <textarea id="ogDescInput" placeholder="Optional: Different description for social sharing"></textarea>
+    </div>
+
+    <div class="mb">
+      <label>OG Image URL</label>
+      <input type="url" id="ogImageInput" placeholder="e.g. https://example.com/images/og-banner.jpg (1200x630 recommended)">
+    </div>
+
+    <div class="mb">
+      <label>Site Name</label>
+      <input type="text" id="siteNameInput" placeholder="e.g. YourBrand">
+    </div>
+
+    <!-- Twitter Card -->
+    <hr class="divider">
+    <div class="section-label"><span>&#128038;</span> Twitter Card Tags</div>
+
+    <div class="row2 mb">
+      <div>
+        <label>Card Type</label>
+        <select id="twitterCardSelect">
+          <option value="summary_large_image">Summary with Large Image</option>
+          <option value="summary">Summary</option>
+          <option value="player">Player</option>
+          <option value="app">App</option>
+        </select>
+      </div>
+      <div>
+        <label>Twitter @Username</label>
+        <input type="text" id="twitterSiteInput" placeholder="e.g. @yourbrand">
+      </div>
+    </div>
+
+    <!-- Viewport & Charset -->
+    <hr class="divider">
+    <div class="section-label"><span>&#9881;</span> Additional Tags</div>
+    <div class="chk-row">
+      <label><input type="checkbox" id="chkViewport" checked> Viewport (Mobile Friendly)</label>
+      <label><input type="checkbox" id="chkCharset" checked> UTF-8 Charset</label>
+      <label><input type="checkbox" id="chkXUA"> X-UA-Compatible (IE Edge)</label>
+    </div>
+
+    <!-- Buttons -->
+    <div class="btn-group">
+      <button class="btn btn-primary" id="generateBtn" type="button">&#127991; Generate Meta Tags</button>
+      <button class="btn btn-secondary" id="resetBtn" type="button">Reset All</button>
+    </div>
+
+    <!-- Preview Tabs -->
+    <div class="preview-wrap" id="previewWrap">
+      <div class="preview-tabs">
+        <button class="preview-tab active" id="tabGoogle" type="button">Google Preview</button>
+        <button class="preview-tab" id="tabSocial" type="button">Social Preview</button>
+        <button class="preview-tab" id="tabCode" type="button">Generated Code</button>
+      </div>
+
+      <!-- Google Preview -->
+      <div class="preview-panel active" id="panelGoogle">
+        <div class="goog-preview">
+          <div class="gp-title" id="gpTitle">Your Page Title Here</div>
+          <div class="gp-url" id="gpUrl">https://example.com/your-page/</div>
+          <div class="gp-desc" id="gpDesc">Your meta description will appear here. Google typically displays the first 155-160 characters of your meta description in search results.</div>
+        </div>
+      </div>
+
+      <!-- Social Preview -->
+      <div class="preview-panel" id="panelSocial">
+        <div class="social-preview">
+          <div class="sp-img" id="spImg">1200 x 630 OG Image Preview</div>
+          <div class="sp-body">
+            <div class="sp-domain" id="spDomain">example.com</div>
+            <div class="sp-title" id="spTitle">Your Page Title Here</div>
+            <div class="sp-desc" id="spDesc">Your meta description will appear here when shared on Facebook, LinkedIn, WhatsApp and other social platforms.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code Output -->
+      <div class="preview-panel" id="panelCode">
+        <div class="code-box">
+          <pre id="codeOutput"></pre>
+        </div>
+        <div class="btn-group">
+          <button class="btn btn-primary" id="copyCodeBtn" type="button">&#128203; Copy All Code</button>
+          <button class="btn btn-secondary" id="downloadCodeBtn" type="button">&#11015; Download as .html</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Section 3: How It Works -->
+<div class="mtg-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>How to Use Our Free Meta Tag Generator</h2>
+      <p>Three simple steps to create SEO-optimised meta tags for any webpage.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <h3>Enter Your Page Details</h3>
+        <p>Fill in your page title, meta description, URL, and optional Open Graph and Twitter Card details. Character counters guide you to optimal lengths for search engines.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <h3>Preview in Real Time</h3>
+        <p>See exactly how your page will appear in Google search results and on social media platforms like Facebook, LinkedIn, and WhatsApp before publishing.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <h3>Copy or Download Your Code</h3>
+        <p>Click one button to copy all generated meta tags to your clipboard or download them as an HTML file. Paste directly into your website's head section.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 4: What Tags We Generate -->
+<div class="mtg-section">
+  <div class="sec-head">
+    <h2>Every Meta Tag You Need for Complete SEO Coverage</h2>
+    <p>We generate all essential meta tags that search engines and social platforms look for.</p>
+  </div>
+  <div class="cards-grid">
+    <div class="fcard">
+      <span class="ic">&#127991;</span>
+      <h3>Title Tag</h3>
+      <p>The most important on-page SEO element. We help you craft titles within Google's 60-character display limit with real-time character counting and SERP preview.</p>
+    </div>
+    <div class="fcard">
+      <span class="ic">&#128221;</span>
+      <h3>Meta Description</h3>
+      <p>Write compelling descriptions within the 155-160 character sweet spot. Our character counter shows exactly how much space you have left for maximum SERP visibility.</p>
+    </div>
+    <div class="fcard">
+      <span class="ic">&#128279;</span>
+      <h3>Canonical URL</h3>
+      <p>Prevent duplicate content issues by specifying the preferred version of your page URL. Essential for sites with similar or identical content across multiple URLs.</p>
+    </div>
+    <div class="fcard">
+      <span class="ic">&#128240;</span>
+      <h3>Open Graph Tags</h3>
+      <p>Control how your page appears when shared on Facebook, LinkedIn, WhatsApp, and other social platforms. Set custom titles, descriptions, images, and content type.</p>
+    </div>
+    <div class="fcard">
+      <span class="ic">&#128038;</span>
+      <h3>Twitter Card Tags</h3>
+      <p>Optimise your page for Twitter/X sharing with summary or large image cards. Set card type, site handle, and preview content for maximum engagement on Twitter.</p>
+    </div>
+    <div class="fcard">
+      <span class="ic">&#129302;</span>
+      <h3>Robots Meta Tag</h3>
+      <p>Control how search engines crawl and index your page. Set index/noindex, follow/nofollow, nosnippet, noarchive, and noimageindex directives with simple checkboxes.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Section 5: Key Features -->
+<div class="mtg-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>Why Choose BrightlyFuture Over Other Meta Tag Generators</h2>
+      <p>Built to fix the biggest frustrations with existing meta tag generator tools.</p>
+    </div>
+    <div class="cards-grid">
+      <div class="fcard">
+        <span class="ic">&#128064;</span>
+        <h3>Live Google SERP Preview</h3>
+        <p>See exactly how your title and description will appear in Google search results. SmallSEOTools and many others lack a real-time preview, so you are guessing blindly.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128247;</span>
+        <h3>Social Media Preview</h3>
+        <p>Preview your Open Graph tags as they will appear on Facebook, LinkedIn, and WhatsApp. Most meta tag generators skip social preview entirely.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128290;</span>
+        <h3>Smart Character Counting</h3>
+        <p>Real-time character counting with colour-coded feedback (green, yellow, red) for titles and descriptions. Stay within Google's optimal display limits every time.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128100;</span>
+        <h3>No Signup, No Limits</h3>
+        <p>Many competitors require accounts or limit daily usage. Our meta tag generator is completely free, unlimited, and requires zero registration to use.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128190;</span>
+        <h3>Download as HTML File</h3>
+        <p>Download your generated meta tags as a ready-to-use HTML file. No other free tool offers this alongside clipboard copy and syntax-highlighted code output.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128274;</span>
+        <h3>100% Private and Secure</h3>
+        <p>Everything runs in your browser. Your page titles, descriptions, and URLs are never uploaded to any server, stored, or shared with third parties.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 6: Comparison Table -->
+<div class="mtg-section">
+  <div class="sec-head">
+    <h2>BrightlyFuture vs SmallSEOTools vs SEOptimer vs Metatags.io</h2>
+    <p>An honest feature comparison with the most popular meta tag generators online.</p>
+  </div>
+  <div class="tbl-wrap">
+    <table class="cmp-tbl">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th class="hl">BrightlyFuture</th>
+          <th>SmallSEOTools</th>
+          <th>SEOptimer</th>
+          <th>Metatags.io</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Free to Use</td><td class="hl"><span class="ck">&#10003;</span> Unlimited</td><td><span class="ck">&#10003;</span></td><td>Limited</td><td><span class="ck">&#10003;</span></td></tr>
+        <tr><td>No Signup Required</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="ck">&#10003;</span></td></tr>
+        <tr><td>Google SERP Preview</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td></tr>
+        <tr><td>Social Media Preview</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td><td><span class="ck">&#10003;</span></td></tr>
+        <tr><td>Open Graph Tags</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td></tr>
+        <tr><td>Twitter Card Tags</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td><td><span class="ck">&#10003;</span></td></tr>
+        <tr><td>Robots Directives</td><td class="hl"><span class="ck">&#10003;</span> Full</td><td>Basic</td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
+        <tr><td>Character Counter</td><td class="hl"><span class="ck">&#10003;</span> Color-coded</td><td>Basic</td><td><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td></tr>
+        <tr><td>Download HTML File</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
+        <tr><td>No Ads or Popups</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span> Heavy ads</td><td><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td></tr>
+        <tr><td>Data Privacy</td><td class="hl"><span class="ck">&#10003;</span> Browser-only</td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Section 7: Who Is This For -->
+<div class="mtg-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>Who Uses Our Free Meta Tag Generator?</h2>
+      <p>Built for anyone who wants better search visibility and social sharing.</p>
+    </div>
+    <div class="cards-grid">
+      <div class="fcard">
+        <span class="ic">&#128187;</span>
+        <h3>Bloggers and Content Creators</h3>
+        <p>Generate properly formatted meta tags for every blog post without learning HTML. Improve your search rankings and social media click-through rates instantly.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128188;</span>
+        <h3>Small Business Owners</h3>
+        <p>Create professional meta tags for your business website without hiring an SEO agency. Our tool guides you through every field with optimal character limits.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128640;</span>
+        <h3>SEO Professionals</h3>
+        <p>Speed up your workflow with batch-ready meta tag code. Preview SERP and social appearances instantly, download HTML files, and deliver client-ready markup in seconds.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128104;</span>
+        <h3>Web Developers</h3>
+        <p>Skip the boilerplate. Generate complete head section meta tags with charset, viewport, canonical, OG, Twitter cards, and robots directives in one click.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#127891;</span>
+        <h3>WordPress Site Owners</h3>
+        <p>Create meta tags to paste into your WordPress theme header, Yoast SEO plugin, or custom head code. No technical knowledge required.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128736;</span>
+        <h3>Digital Marketing Agencies</h3>
+        <p>Generate meta tags for multiple client pages quickly. Download ready-to-use HTML files and present professional deliverables to clients.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 8: Meta Tag Best Practices -->
+<div class="mtg-section">
+  <div class="sec-head">
+    <h2>Meta Tag Best Practices for SEO in 2025</h2>
+    <p>Follow these expert tips to maximise your search engine visibility.</p>
+  </div>
+  <div class="tips">
+    <div class="tip">
+      <div class="tip-n">1</div>
+      <div>
+        <h3>Keep Title Tags Under 60 Characters</h3>
+        <p>Google truncates titles longer than approximately 60 characters (or 580 pixels wide) in search results. Front-load your primary keyword in the title for maximum SEO impact. Include your brand name at the end separated by a pipe (|) or dash for brand recognition.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">2</div>
+      <div>
+        <h3>Write Meta Descriptions Between 120 and 160 Characters</h3>
+        <p>Google displays approximately 155-160 characters of your meta description. Descriptions shorter than 120 characters may appear thin. Include a call-to-action and your target keyword naturally. Google may rewrite your description if it does not match the search query.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">3</div>
+      <div>
+        <h3>Always Set Open Graph Tags for Social Sharing</h3>
+        <p>Without OG tags, social platforms guess your title, description, and image from page content. The results are often poor. Set og:title, og:description, og:image (1200x630 pixels minimum), and og:url explicitly for every page you want shared on social media.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">4</div>
+      <div>
+        <h3>Use Canonical Tags to Prevent Duplicate Content</h3>
+        <p>If your page is accessible via multiple URLs (with and without www, with query parameters, or HTTP vs HTTPS), set a canonical URL to tell Google which version to index. This prevents diluted ranking signals across duplicate pages.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">5</div>
+      <div>
+        <h3>Set Unique Meta Tags for Every Page</h3>
+        <p>Each page on your website should have a unique title tag and meta description that accurately describes its specific content. Duplicate meta tags across multiple pages confuse search engines and reduce your overall site visibility in search results.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 9: Related Tools -->
+<div class="mtg-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>More Free SEO and Content Tools from BrightlyFuture</h2>
+      <p>Explore our growing library of free digital marketing tools.</p>
+    </div>
+    <div class="rel-grid">
+      <div class="rel-card">
+        <span class="cat">Content &middot; AI</span>
+        <h3>AI Blog Generator</h3>
+        <p>Generate SEO-optimised, human-sounding blog posts in 30 seconds. No signup, no credit card, unlimited use.</p>
+        <a href="/tools/ai-blog-generator/" class="btn btn-secondary">Try Free &rarr;</a>
+      </div>
+      <div class="rel-card">
+        <span class="cat">Content &middot; AI</span>
+        <h3>AI Content Detector</h3>
+        <p>Check whether any text was written by AI with sentence-level analysis, perplexity and burstiness scores.</p>
+        <a href="/tools/ai-blog-detector/" class="btn btn-secondary">Try Free &rarr;</a>
+      </div>
+      <div class="rel-card">
+        <span class="cat">Content &middot; SEO</span>
+        <h3>Word and Character Counter</h3>
+        <p>Count words, characters, sentences, paragraphs, and estimate reading time for SEO-optimal content length.</p>
+        <a href="/tools/word-character-counter/" class="btn btn-secondary">Try Free &rarr;</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 10: Service Banner -->
+<div class="mtg-section">
+  <div class="svc-banner">
+    <span class="badge">Done-for-you</span>
+    <h3>Need Expert SEO Setup for Your Entire Website?</h3>
+    <p>Beyond meta tags, our team handles complete technical SEO audits, on-page optimisation, content strategy, and everything you need to rank higher on Google.</p>
+    <a href="/services/seo/" class="btn btn-primary">Get a Free SEO Quote &rarr;</a>
+  </div>
+</div>
+
+<!-- Section 11: FAQ -->
+<div class="mtg-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>Frequently Asked Questions About Meta Tags and SEO</h2>
+      <p>Everything you need to know about creating effective meta tags.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q" type="button">What are meta tags and why do they matter for SEO?<span class="arrow">+</span></button><div class="faq-a"><p>Meta tags are HTML elements that provide information about your webpage to search engines and social media platforms. They do not appear on the visible page but exist in the source code inside the head section. The most important meta tags for SEO are the title tag (which directly affects rankings), meta description (which affects click-through rates from search results), canonical tags (which prevent duplicate content issues), and robots tags (which control how search engines crawl your site).</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">Is this meta tag generator tool really free?<span class="arrow">+</span></button><div class="faq-a"><p>Yes, 100% free with no hidden costs, no trial period, no credit limits, and no upgrade prompts. Unlike some tools that require paid subscriptions for advanced features like Open Graph tags or Twitter Cards, every feature on our generator is available to everyone for free, forever. No signup or email registration is required.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">What is the ideal title tag length for SEO?<span class="arrow">+</span></button><div class="faq-a"><p>Google displays approximately 60 characters (or 580 pixels) of your title tag in search results. Titles longer than this will be truncated with an ellipsis. For best results, keep your title between 50 and 60 characters, place your primary keyword near the beginning, and include your brand name at the end. Our tool shows a real-time character counter with colour-coded feedback to help you stay within the optimal range.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">What is the ideal meta description length?<span class="arrow">+</span></button><div class="faq-a"><p>Google typically displays between 155 and 160 characters of your meta description in search results. We recommend writing descriptions between 120 and 160 characters for optimal display. Descriptions shorter than 120 characters may appear thin and less compelling, while descriptions longer than 160 characters will be truncated. Include your target keyword naturally and add a call-to-action to encourage clicks.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">What are Open Graph (OG) tags and do I need them?<span class="arrow">+</span></button><div class="faq-a"><p>Open Graph tags control how your webpage appears when shared on Facebook, LinkedIn, WhatsApp, Slack, and other social platforms. Without OG tags, these platforms attempt to guess your title, description, and image from the page content, often producing poor results. If any page on your website gets shared on social media, OG tags are essential. The most important ones are og:title, og:description, og:image (1200x630 pixels recommended), og:url, and og:type.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">What is a Twitter Card and which type should I use?<span class="arrow">+</span></button><div class="faq-a"><p>Twitter Cards control how your links appear when shared on Twitter/X. The most common type is "Summary with Large Image" which displays a large image preview, title, and description. Use "Summary" for a smaller image card. "Player" is for video or audio content, and "App" is for mobile applications. For most websites and blog posts, "Summary with Large Image" provides the best engagement and click-through rates.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">What is a canonical tag and when should I use one?<span class="arrow">+</span></button><div class="faq-a"><p>A canonical tag (rel="canonical") tells search engines which version of a page is the "master" copy when similar or identical content exists at multiple URLs. Common scenarios include: pages accessible with and without "www", HTTP and HTTPS versions, pages with tracking parameters (like ?utm_source), and paginated content. Setting a canonical URL prevents duplicate content issues and consolidates ranking signals to one URL.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">What does the robots meta tag do?<span class="arrow">+</span></button><div class="faq-a"><p>The robots meta tag tells search engine crawlers how to handle your page. "index" allows the page to appear in search results. "follow" allows crawlers to follow links on the page. "noindex" prevents the page from appearing in search results (useful for thank-you pages, admin pages, or staging sites). "nofollow" prevents crawlers from following outbound links. "nosnippet" prevents Google from showing a text snippet in search results. "noarchive" prevents cached versions of your page.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">Are meta keywords still important for SEO?<span class="arrow">+</span></button><div class="faq-a"><p>Google officially stated in 2009 that they do not use the meta keywords tag as a ranking signal. Most major search engines have followed suit. However, some smaller search engines like Yandex may still consider them, and they can serve as an internal reference for your content strategy. We include the option in our generator for completeness, but it should not be your SEO priority. Focus on title tags, meta descriptions, and structured data instead.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">How do I add meta tags to my WordPress website?<span class="arrow">+</span></button><div class="faq-a"><p>There are several ways to add meta tags to WordPress. The easiest is using an SEO plugin like Yoast SEO or Rank Math which provide fields for title and description on each page. For custom meta tags (like OG tags or custom robots directives), you can paste the generated code into the plugin's custom head section, or add it via Appearance then Theme Header in your theme settings. Some themes also have built-in header code injection options.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">Can I use different meta descriptions for Google and social media?<span class="arrow">+</span></button><div class="faq-a"><p>Yes, that is exactly what Open Graph tags are designed for. Your regular meta description tag is what Google displays in search results. The og:description tag is what Facebook, LinkedIn, and WhatsApp display when your page is shared. They can be completely different. This is useful because search and social audiences often respond to different messaging styles and calls-to-action.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">How do I check if my meta tags are working correctly?<span class="arrow">+</span></button><div class="faq-a"><p>After adding meta tags to your page, you can verify them using several free tools. For Open Graph tags, use Facebook's Sharing Debugger. For Twitter Cards, use Twitter's Card Validator. For general meta tag inspection, right-click your page, select "View Page Source", and look inside the head section. Google Search Console also shows how Google interprets your title and description under the URL Inspection tool.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">What OG image size should I use?<span class="arrow">+</span></button><div class="faq-a"><p>The recommended Open Graph image size is 1200 x 630 pixels. This ensures your image displays correctly on all major platforms including Facebook, LinkedIn, WhatsApp, and Twitter. The minimum supported size is 600 x 315 pixels, but larger images appear higher quality on high-resolution displays. Use JPEG or PNG format and keep file size under 8MB. Always test your image using Facebook's Sharing Debugger before publishing.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">Does this tool store or share my data?<span class="arrow">+</span></button><div class="faq-a"><p>No. Our meta tag generator runs entirely in your browser using JavaScript. Nothing you enter, including your page titles, descriptions, URLs, or any other information, is ever sent to our servers, stored, logged, or shared with any third party. Your data stays on your device at all times. Complete privacy by design.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">Should I use the same meta tags on every page?<span class="arrow">+</span></button><div class="faq-a"><p>Absolutely not. Each page on your website should have unique meta tags that accurately describe its specific content. Duplicate title tags and meta descriptions across multiple pages confuse search engines and reduce your overall site visibility. Google may even filter out pages with identical meta descriptions from search results. Use our generator to create unique meta tags for each page of your website.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 12: Final CTA -->
+<div class="final-cta">
+  <h2>Generate Your Meta Tags Now</h2>
+  <p>Create SEO-optimised meta tags in seconds. Free, private, and professional.</p>
+  <button class="btn-big" id="ctaBtn" type="button">&#127991; Create Meta Tags Now - 100% Free</button>
+  <div class="sub-note">No Signup &middot; Unlimited Use &middot; Google Preview &middot; One-Click Copy</div>
+</div>
+
+<div class="toast" id="toast">Copied!</div>
+
+<script>
+eval(atob("KGZ1bmN0aW9uKCl7CmZ1bmN0aW9uICQoaWQpe3JldHVybiBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChpZCk7fQoKZnVuY3Rpb24gaW5pdCgpewp2YXIgdGl0bGVJbnB1dD0kKCd0aXRsZUlucHV0JyksZGVzY0lucHV0PSQoJ2Rlc2NJbnB1dCcpLGtleXdvcmRzSW5wdXQ9JCgna2V5d29yZHNJbnB1dCcpLAp1cmxJbnB1dD0kKCd1cmxJbnB1dCcpLGF1dGhvcklucHV0PSQoJ2F1dGhvcklucHV0JyksbGFuZ1NlbGVjdD0kKCdsYW5nU2VsZWN0JyksCm9nVGl0bGVJbnB1dD0kKCdvZ1RpdGxlSW5wdXQnKSxvZ1R5cGVTZWxlY3Q9JCgnb2dUeXBlU2VsZWN0Jyksb2dEZXNjSW5wdXQ9JCgnb2dEZXNjSW5wdXQnKSwKb2dJbWFnZUlucHV0PSQoJ29nSW1hZ2VJbnB1dCcpLHNpdGVOYW1lSW5wdXQ9JCgnc2l0ZU5hbWVJbnB1dCcpLAp0d2l0dGVyQ2FyZFNlbGVjdD0kKCd0d2l0dGVyQ2FyZFNlbGVjdCcpLHR3aXR0ZXJTaXRlSW5wdXQ9JCgndHdpdHRlclNpdGVJbnB1dCcpLApjaGtJbmRleD0kKCdjaGtJbmRleCcpLGNoa0ZvbGxvdz0kKCdjaGtGb2xsb3cnKSxjaGtOb1NuaXBwZXQ9JCgnY2hrTm9TbmlwcGV0JyksCmNoa05vQXJjaGl2ZT0kKCdjaGtOb0FyY2hpdmUnKSxjaGtOb0ltYWdlSW5kZXg9JCgnY2hrTm9JbWFnZUluZGV4JyksCmNoa1ZpZXdwb3J0PSQoJ2Noa1ZpZXdwb3J0JyksY2hrQ2hhcnNldD0kKCdjaGtDaGFyc2V0JyksY2hrWFVBPSQoJ2Noa1hVQScpLApnZW5lcmF0ZUJ0bj0kKCdnZW5lcmF0ZUJ0bicpLHJlc2V0QnRuPSQoJ3Jlc2V0QnRuJyksY29weUNvZGVCdG49JCgnY29weUNvZGVCdG4nKSwKZG93bmxvYWRDb2RlQnRuPSQoJ2Rvd25sb2FkQ29kZUJ0bicpLGN0YUJ0bj0kKCdjdGFCdG4nKSwKdGFiR29vZ2xlPSQoJ3RhYkdvb2dsZScpLHRhYlNvY2lhbD0kKCd0YWJTb2NpYWwnKSx0YWJDb2RlPSQoJ3RhYkNvZGUnKSwKcGFuZWxHb29nbGU9JCgncGFuZWxHb29nbGUnKSxwYW5lbFNvY2lhbD0kKCdwYW5lbFNvY2lhbCcpLHBhbmVsQ29kZT0kKCdwYW5lbENvZGUnKSwKZ3BUaXRsZT0kKCdncFRpdGxlJyksZ3BVcmw9JCgnZ3BVcmwnKSxncERlc2M9JCgnZ3BEZXNjJyksCnNwSW1nPSQoJ3NwSW1nJyksc3BEb21haW49JCgnc3BEb21haW4nKSxzcFRpdGxlPSQoJ3NwVGl0bGUnKSxzcERlc2M9JCgnc3BEZXNjJyksCmNvZGVPdXRwdXQ9JCgnY29kZU91dHB1dCcpLHByZXZpZXdXcmFwPSQoJ3ByZXZpZXdXcmFwJyksCnRpdGxlQ291bnQ9JCgndGl0bGVDb3VudCcpLHRpdGxlU3RhdHVzPSQoJ3RpdGxlU3RhdHVzJyksCmRlc2NDb3VudD0kKCdkZXNjQ291bnQnKSxkZXNjU3RhdHVzPSQoJ2Rlc2NTdGF0dXMnKSwKdG9hc3Q9JCgndG9hc3QnKTsKCmlmKCF0aXRsZUlucHV0KXtzZXRUaW1lb3V0KGluaXQsMjAwKTtyZXR1cm47fQoKZnVuY3Rpb24gZXNjKHMpe3JldHVybiBzLnJlcGxhY2UoLyYvZywnJmFtcDsnKS5yZXBsYWNlKC88L2csJyZsdDsnKS5yZXBsYWNlKC8+L2csJyZndDsnKS5yZXBsYWNlKC8iL2csJyZxdW90OycpO30KCmZ1bmN0aW9uIHVwZGF0ZVRpdGxlQ291bnQoKXsKdmFyIGxlbj10aXRsZUlucHV0LnZhbHVlLmxlbmd0aDsKdGl0bGVDb3VudC50ZXh0Q29udGVudD1sZW47CmlmKGxlbj09PTApe3RpdGxlU3RhdHVzLnRleHRDb250ZW50PScnO3RpdGxlQ291bnQuY2xhc3NOYW1lPSdjb3VudCc7fQplbHNlIGlmKGxlbjw9NjApe3RpdGxlU3RhdHVzLnRleHRDb250ZW50PSdHb29kIGxlbmd0aCc7dGl0bGVTdGF0dXMuY2xhc3NOYW1lPSdnb29kJzt0aXRsZUNvdW50LmNsYXNzTmFtZT0nY291bnQgZ29vZCc7fQplbHNlIGlmKGxlbjw9NzApe3RpdGxlU3RhdHVzLnRleHRDb250ZW50PSdTbGlnaHRseSBsb25nJzt0aXRsZVN0YXR1cy5jbGFzc05hbWU9J3dhcm4nO3RpdGxlQ291bnQuY2xhc3NOYW1lPSdjb3VudCB3YXJuJzt9CmVsc2V7dGl0bGVTdGF0dXMudGV4dENvbnRlbnQ9J1RvbyBsb25nJzt0aXRsZVN0YXR1cy5jbGFzc05hbWU9J2JhZCc7dGl0bGVDb3VudC5jbGFzc05hbWU9J2NvdW50IGJhZCc7fQp9CgpmdW5jdGlvbiB1cGRhdGVEZXNjQ291bnQoKXsKdmFyIGxlbj1kZXNjSW5wdXQudmFsdWUubGVuZ3RoOwpkZXNjQ291bnQudGV4dENvbnRlbnQ9bGVuOwppZihsZW49PT0wKXtkZXNjU3RhdHVzLnRleHRDb250ZW50PScnO2Rlc2NDb3VudC5jbGFzc05hbWU9J2NvdW50Jzt9CmVsc2UgaWYobGVuPj0xMjAmJmxlbjw9MTYwKXtkZXNjU3RhdHVzLnRleHRDb250ZW50PSdJZGVhbCBsZW5ndGgnO2Rlc2NTdGF0dXMuY2xhc3NOYW1lPSdnb29kJztkZXNjQ291bnQuY2xhc3NOYW1lPSdjb3VudCBnb29kJzt9CmVsc2UgaWYobGVuPDEyMCYmbGVuPjApe2Rlc2NTdGF0dXMudGV4dENvbnRlbnQ9J0NvdWxkIGJlIGxvbmdlcic7ZGVzY1N0YXR1cy5jbGFzc05hbWU9J3dhcm4nO2Rlc2NDb3VudC5jbGFzc05hbWU9J2NvdW50IHdhcm4nO30KZWxzZXtkZXNjU3RhdHVzLnRleHRDb250ZW50PSdUb28gbG9uZyc7ZGVzY1N0YXR1cy5jbGFzc05hbWU9J2JhZCc7ZGVzY0NvdW50LmNsYXNzTmFtZT0nY291bnQgYmFkJzt9Cn0KCnRpdGxlSW5wdXQuYWRkRXZlbnRMaXN0ZW5lcignaW5wdXQnLHVwZGF0ZVRpdGxlQ291bnQpOwpkZXNjSW5wdXQuYWRkRXZlbnRMaXN0ZW5lcignaW5wdXQnLHVwZGF0ZURlc2NDb3VudCk7CgpmdW5jdGlvbiBzd2l0Y2hUYWIoYWN0aXZlVGFiLGFjdGl2ZVBhbmVsKXsKdmFyIHRhYnM9W3RhYkdvb2dsZSx0YWJTb2NpYWwsdGFiQ29kZV07CnZhciBwYW5lbHM9W3BhbmVsR29vZ2xlLHBhbmVsU29jaWFsLHBhbmVsQ29kZV07CmZvcih2YXIgaT0wO2k8dGFicy5sZW5ndGg7aSsrKXsKdGFic1tpXS5jbGFzc05hbWU9J3ByZXZpZXctdGFiJzsKcGFuZWxzW2ldLmNsYXNzTmFtZT0ncHJldmlldy1wYW5lbCc7Cn0KYWN0aXZlVGFiLmNsYXNzTmFtZT0ncHJldmlldy10YWIgYWN0aXZlJzsKYWN0aXZlUGFuZWwuY2xhc3NOYW1lPSdwcmV2aWV3LXBhbmVsIGFjdGl2ZSc7Cn0KCnRhYkdvb2dsZS5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsZnVuY3Rpb24oZSl7ZS5wcmV2ZW50RGVmYXVsdCgpO3N3aXRjaFRhYih0YWJHb29nbGUscGFuZWxHb29nbGUpO30pOwp0YWJTb2NpYWwuYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLGZ1bmN0aW9uKGUpe2UucHJldmVudERlZmF1bHQoKTtzd2l0Y2hUYWIodGFiU29jaWFsLHBhbmVsU29jaWFsKTt9KTsKdGFiQ29kZS5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsZnVuY3Rpb24oZSl7ZS5wcmV2ZW50RGVmYXVsdCgpO3N3aXRjaFRhYih0YWJDb2RlLHBhbmVsQ29kZSk7fSk7CgpmdW5jdGlvbiB1cGRhdGVQcmV2aWV3cygpewp2YXIgdD10aXRsZUlucHV0LnZhbHVlfHwnWW91ciBQYWdlIFRpdGxlIEhlcmUnOwp2YXIgZD1kZXNjSW5wdXQudmFsdWV8fCdZb3VyIG1ldGEgZGVzY3JpcHRpb24gd2lsbCBhcHBlYXIgaGVyZS4gR29vZ2xlIHR5cGljYWxseSBkaXNwbGF5cyB0aGUgZmlyc3QgMTU1LTE2MCBjaGFyYWN0ZXJzIG9mIHlvdXIgbWV0YSBkZXNjcmlwdGlvbiBpbiBzZWFyY2ggcmVzdWx0cy4nOwp2YXIgdT11cmxJbnB1dC52YWx1ZXx8J2h0dHBzOi8vZXhhbXBsZS5jb20veW91ci1wYWdlLyc7CmdwVGl0bGUudGV4dENvbnRlbnQ9dDsKZ3BEZXNjLnRleHRDb250ZW50PWQubGVuZ3RoPjE2MD9kLnN1YnN0cmluZygwLDE1NykrJy4uLic6ZDsKZ3BVcmwudGV4dENvbnRlbnQ9dTsKc3BUaXRsZS50ZXh0Q29udGVudD1vZ1RpdGxlSW5wdXQudmFsdWV8fHQ7CnNwRGVzYy50ZXh0Q29udGVudD1vZ0Rlc2NJbnB1dC52YWx1ZXx8ZDsKdHJ5e3NwRG9tYWluLnRleHRDb250ZW50PW5ldyBVUkwodSkuaG9zdG5hbWU7fWNhdGNoKGUpe3NwRG9tYWluLnRleHRDb250ZW50PSdleGFtcGxlLmNvbSc7fQppZihvZ0ltYWdlSW5wdXQudmFsdWUpewpzcEltZy5zdHlsZS5iYWNrZ3JvdW5kSW1hZ2U9J3VybCgnK29nSW1hZ2VJbnB1dC52YWx1ZSsnKSc7CnNwSW1nLnN0eWxlLmJhY2tncm91bmRTaXplPSdjb3Zlcic7CnNwSW1nLnN0eWxlLmJhY2tncm91bmRQb3NpdGlvbj0nY2VudGVyJzsKc3BJbWcudGV4dENvbnRlbnQ9Jyc7Cn1lbHNlewpzcEltZy5zdHlsZS5iYWNrZ3JvdW5kSW1hZ2U9J25vbmUnOwpzcEltZy50ZXh0Q29udGVudD0nMTIwMCB4IDYzMCBPRyBJbWFnZSBQcmV2aWV3JzsKfQp9CgpmdW5jdGlvbiBnZW5lcmF0ZUNvZGUoKXsKdmFyIGxpbmVzPVtdOwppZihjaGtDaGFyc2V0LmNoZWNrZWQpbGluZXMucHVzaCgnPG1ldGEgY2hhcnNldD0iVVRGLTgiPicpOwppZihjaGtWaWV3cG9ydC5jaGVja2VkKWxpbmVzLnB1c2goJzxtZXRhIG5hbWU9InZpZXdwb3J0IiBjb250ZW50PSJ3aWR0aD1kZXZpY2Utd2lkdGgsIGluaXRpYWwtc2NhbGU9MS4wIj4nKTsKaWYoY2hrWFVBLmNoZWNrZWQpbGluZXMucHVzaCgnPG1ldGEgaHR0cC1lcXVpdj0iWC1VQS1Db21wYXRpYmxlIiBjb250ZW50PSJJRT1lZGdlIj4nKTsKaWYodGl0bGVJbnB1dC52YWx1ZSlsaW5lcy5wdXNoKCc8dGl0bGU+Jytlc2ModGl0bGVJbnB1dC52YWx1ZSkrJzwvdGl0bGU+Jyk7CmlmKGRlc2NJbnB1dC52YWx1ZSlsaW5lcy5wdXNoKCc8bWV0YSBuYW1lPSJkZXNjcmlwdGlvbiIgY29udGVudD0iJytlc2MoZGVzY0lucHV0LnZhbHVlKSsnIj4nKTsKaWYoa2V5d29yZHNJbnB1dC52YWx1ZSlsaW5lcy5wdXNoKCc8bWV0YSBuYW1lPSJrZXl3b3JkcyIgY29udGVudD0iJytlc2Moa2V5d29yZHNJbnB1dC52YWx1ZSkrJyI+Jyk7CmlmKGF1dGhvcklucHV0LnZhbHVlKWxpbmVzLnB1c2goJzxtZXRhIG5hbWU9ImF1dGhvciIgY29udGVudD0iJytlc2MoYXV0aG9ySW5wdXQudmFsdWUpKyciPicpOwp2YXIgcm9ib3RzPVtdOwppZihjaGtJbmRleC5jaGVja2VkKXJvYm90cy5wdXNoKCdpbmRleCcpO2Vsc2Ugcm9ib3RzLnB1c2goJ25vaW5kZXgnKTsKaWYoY2hrRm9sbG93LmNoZWNrZWQpcm9ib3RzLnB1c2goJ2ZvbGxvdycpO2Vsc2Ugcm9ib3RzLnB1c2goJ25vZm9sbG93Jyk7CmlmKGNoa05vU25pcHBldC5jaGVja2VkKXJvYm90cy5wdXNoKCdub3NuaXBwZXQnKTsKaWYoY2hrTm9BcmNoaXZlLmNoZWNrZWQpcm9ib3RzLnB1c2goJ25vYXJjaGl2ZScpOwppZihjaGtOb0ltYWdlSW5kZXguY2hlY2tlZClyb2JvdHMucHVzaCgnbm9pbWFnZWluZGV4Jyk7CmxpbmVzLnB1c2goJzxtZXRhIG5hbWU9InJvYm90cyIgY29udGVudD0iJytyb2JvdHMuam9pbignLCAnKSsnIj4nKTsKaWYodXJsSW5wdXQudmFsdWUpbGluZXMucHVzaCgnPGxpbmsgcmVsPSJjYW5vbmljYWwiIGhyZWY9IicrZXNjKHVybElucHV0LnZhbHVlKSsnIj4nKTsKaWYobGFuZ1NlbGVjdC52YWx1ZSlsaW5lcy5wdXNoKCc8bWV0YSBodHRwLWVxdWl2PSJjb250ZW50LWxhbmd1YWdlIiBjb250ZW50PSInK2VzYyhsYW5nU2VsZWN0LnZhbHVlKSsnIj4nKTsKdmFyIGhhc09HPWZhbHNlOwppZihvZ1RpdGxlSW5wdXQudmFsdWV8fHRpdGxlSW5wdXQudmFsdWUpe2xpbmVzLnB1c2goJzxtZXRhIHByb3BlcnR5PSJvZzp0aXRsZSIgY29udGVudD0iJytlc2Mob2dUaXRsZUlucHV0LnZhbHVlfHx0aXRsZUlucHV0LnZhbHVlKSsnIj4nKTtoYXNPRz10cnVlO30KaWYob2dUeXBlU2VsZWN0LnZhbHVlKXtsaW5lcy5wdXNoKCc8bWV0YSBwcm9wZXJ0eT0ib2c6dHlwZSIgY29udGVudD0iJytlc2Mob2dUeXBlU2VsZWN0LnZhbHVlKSsnIj4nKTtoYXNPRz10cnVlO30KaWYob2dEZXNjSW5wdXQudmFsdWV8fGRlc2NJbnB1dC52YWx1ZSl7bGluZXMucHVzaCgnPG1ldGEgcHJvcGVydHk9Im9nOmRlc2NyaXB0aW9uIiBjb250ZW50PSInK2VzYyhvZ0Rlc2NJbnB1dC52YWx1ZXx8ZGVzY0lucHV0LnZhbHVlKSsnIj4nKTtoYXNPRz10cnVlO30KaWYodXJsSW5wdXQudmFsdWUpe2xpbmVzLnB1c2goJzxtZXRhIHByb3BlcnR5PSJvZzp1cmwiIGNvbnRlbnQ9IicrZXNjKHVybElucHV0LnZhbHVlKSsnIj4nKTtoYXNPRz10cnVlO30KaWYob2dJbWFnZUlucHV0LnZhbHVlKXtsaW5lcy5wdXNoKCc8bWV0YSBwcm9wZXJ0eT0ib2c6aW1hZ2UiIGNvbnRlbnQ9IicrZXNjKG9nSW1hZ2VJbnB1dC52YWx1ZSkrJyI+Jyk7aGFzT0c9dHJ1ZTt9CmlmKHNpdGVOYW1lSW5wdXQudmFsdWUpe2xpbmVzLnB1c2goJzxtZXRhIHByb3BlcnR5PSJvZzpzaXRlX25hbWUiIGNvbnRlbnQ9IicrZXNjKHNpdGVOYW1lSW5wdXQudmFsdWUpKyciPicpO2hhc09HPXRydWU7fQppZih0d2l0dGVyQ2FyZFNlbGVjdC52YWx1ZSlsaW5lcy5wdXNoKCc8bWV0YSBuYW1lPSJ0d2l0dGVyOmNhcmQiIGNvbnRlbnQ9IicrZXNjKHR3aXR0ZXJDYXJkU2VsZWN0LnZhbHVlKSsnIj4nKTsKaWYodHdpdHRlclNpdGVJbnB1dC52YWx1ZSlsaW5lcy5wdXNoKCc8bWV0YSBuYW1lPSJ0d2l0dGVyOnNpdGUiIGNvbnRlbnQ9IicrZXNjKHR3aXR0ZXJTaXRlSW5wdXQudmFsdWUpKyciPicpOwppZihvZ1RpdGxlSW5wdXQudmFsdWV8fHRpdGxlSW5wdXQudmFsdWUpbGluZXMucHVzaCgnPG1ldGEgbmFtZT0idHdpdHRlcjp0aXRsZSIgY29udGVudD0iJytlc2Mob2dUaXRsZUlucHV0LnZhbHVlfHx0aXRsZUlucHV0LnZhbHVlKSsnIj4nKTsKaWYob2dEZXNjSW5wdXQudmFsdWV8fGRlc2NJbnB1dC52YWx1ZSlsaW5lcy5wdXNoKCc8bWV0YSBuYW1lPSJ0d2l0dGVyOmRlc2NyaXB0aW9uIiBjb250ZW50PSInK2VzYyhvZ0Rlc2NJbnB1dC52YWx1ZXx8ZGVzY0lucHV0LnZhbHVlKSsnIj4nKTsKaWYob2dJbWFnZUlucHV0LnZhbHVlKWxpbmVzLnB1c2goJzxtZXRhIG5hbWU9InR3aXR0ZXI6aW1hZ2UiIGNvbnRlbnQ9IicrZXNjKG9nSW1hZ2VJbnB1dC52YWx1ZSkrJyI+Jyk7CnJldHVybiBsaW5lcy5qb2luKCdcbicpOwp9CgpnZW5lcmF0ZUJ0bi5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsZnVuY3Rpb24oZSl7CmUucHJldmVudERlZmF1bHQoKTsKaWYoIXRpdGxlSW5wdXQudmFsdWUudHJpbSgpJiYhZGVzY0lucHV0LnZhbHVlLnRyaW0oKSl7YWxlcnQoJ1BsZWFzZSBlbnRlciBhdCBsZWFzdCBhIHRpdGxlIG9yIGRlc2NyaXB0aW9uIHRvIGdlbmVyYXRlIG1ldGEgdGFncy4nKTtyZXR1cm47fQp1cGRhdGVQcmV2aWV3cygpOwp2YXIgY29kZT1nZW5lcmF0ZUNvZGUoKTsKY29kZU91dHB1dC50ZXh0Q29udGVudD1jb2RlOwpwcmV2aWV3V3JhcC5zdHlsZS5kaXNwbGF5PSdibG9jayc7CnN3aXRjaFRhYih0YWJDb2RlLHBhbmVsQ29kZSk7CnByZXZpZXdXcmFwLnNjcm9sbEludG9WaWV3KHtiZWhhdmlvcjonc21vb3RoJyxibG9jazonc3RhcnQnfSk7Cn0pOwoKcmVzZXRCdG4uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLGZ1bmN0aW9uKGUpewplLnByZXZlbnREZWZhdWx0KCk7CnZhciBpbnB1dHM9W3RpdGxlSW5wdXQsZGVzY0lucHV0LGtleXdvcmRzSW5wdXQsdXJsSW5wdXQsYXV0aG9ySW5wdXQsb2dUaXRsZUlucHV0LG9nRGVzY0lucHV0LG9nSW1hZ2VJbnB1dCxzaXRlTmFtZUlucHV0LHR3aXR0ZXJTaXRlSW5wdXRdOwpmb3IodmFyIGk9MDtpPGlucHV0cy5sZW5ndGg7aSsrKWlucHV0c1tpXS52YWx1ZT0nJzsKbGFuZ1NlbGVjdC5zZWxlY3RlZEluZGV4PTA7Cm9nVHlwZVNlbGVjdC5zZWxlY3RlZEluZGV4PTA7CnR3aXR0ZXJDYXJkU2VsZWN0LnNlbGVjdGVkSW5kZXg9MDsKY2hrSW5kZXguY2hlY2tlZD10cnVlO2Noa0ZvbGxvdy5jaGVja2VkPXRydWU7CmNoa05vU25pcHBldC5jaGVja2VkPWZhbHNlO2Noa05vQXJjaGl2ZS5jaGVja2VkPWZhbHNlO2Noa05vSW1hZ2VJbmRleC5jaGVja2VkPWZhbHNlOwpjaGtWaWV3cG9ydC5jaGVja2VkPXRydWU7Y2hrQ2hhcnNldC5jaGVja2VkPXRydWU7Y2hrWFVBLmNoZWNrZWQ9ZmFsc2U7CnRpdGxlQ291bnQudGV4dENvbnRlbnQ9JzAnO3RpdGxlU3RhdHVzLnRleHRDb250ZW50PScnO3RpdGxlQ291bnQuY2xhc3NOYW1lPSdjb3VudCc7CmRlc2NDb3VudC50ZXh0Q29udGVudD0nMCc7ZGVzY1N0YXR1cy50ZXh0Q29udGVudD0nJztkZXNjQ291bnQuY2xhc3NOYW1lPSdjb3VudCc7CmNvZGVPdXRwdXQudGV4dENvbnRlbnQ9Jyc7CnByZXZpZXdXcmFwLnN0eWxlLmRpc3BsYXk9J25vbmUnOwpncFRpdGxlLnRleHRDb250ZW50PSdZb3VyIFBhZ2UgVGl0bGUgSGVyZSc7CmdwVXJsLnRleHRDb250ZW50PSdodHRwczovL2V4YW1wbGUuY29tL3lvdXItcGFnZS8nOwpncERlc2MudGV4dENvbnRlbnQ9J1lvdXIgbWV0YSBkZXNjcmlwdGlvbiB3aWxsIGFwcGVhciBoZXJlLiBHb29nbGUgdHlwaWNhbGx5IGRpc3BsYXlzIHRoZSBmaXJzdCAxNTUtMTYwIGNoYXJhY3RlcnMgb2YgeW91ciBtZXRhIGRlc2NyaXB0aW9uIGluIHNlYXJjaCByZXN1bHRzLic7CnNwVGl0bGUudGV4dENvbnRlbnQ9J1lvdXIgUGFnZSBUaXRsZSBIZXJlJzsKc3BEZXNjLnRleHRDb250ZW50PSdZb3VyIG1ldGEgZGVzY3JpcHRpb24gd2lsbCBhcHBlYXIgaGVyZSB3aGVuIHNoYXJlZCBvbiBGYWNlYm9vaywgTGlua2VkSW4sIFdoYXRzQXBwIGFuZCBvdGhlciBzb2NpYWwgcGxhdGZvcm1zLic7CnNwRG9tYWluLnRleHRDb250ZW50PSdleGFtcGxlLmNvbSc7CnNwSW1nLnN0eWxlLmJhY2tncm91bmRJbWFnZT0nbm9uZSc7CnNwSW1nLnRleHRDb250ZW50PScxMjAwIHggNjMwIE9HIEltYWdlIFByZXZpZXcnOwp9KTsKCmNvcHlDb2RlQnRuLmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJyxmdW5jdGlvbihlKXsKZS5wcmV2ZW50RGVmYXVsdCgpOwp2YXIgY29kZT1jb2RlT3V0cHV0LnRleHRDb250ZW50OwppZighY29kZSl7YWxlcnQoJ0dlbmVyYXRlIG1ldGEgdGFncyBmaXJzdC4nKTtyZXR1cm47fQppZihuYXZpZ2F0b3IuY2xpcGJvYXJkJiZuYXZpZ2F0b3IuY2xpcGJvYXJkLndyaXRlVGV4dCl7Cm5hdmlnYXRvci5jbGlwYm9hcmQud3JpdGVUZXh0KGNvZGUpLnRoZW4oZnVuY3Rpb24oKXtzaG93VG9hc3QoKTt9KTsKfWVsc2V7CnZhciB0YT1kb2N1bWVudC5jcmVhdGVFbGVtZW50KCd0ZXh0YXJlYScpOwp0YS52YWx1ZT1jb2RlO3RhLnN0eWxlLnBvc2l0aW9uPSdmaXhlZCc7dGEuc3R5bGUubGVmdD0nLTk5OTlweCc7CmRvY3VtZW50LmJvZHkuYXBwZW5kQ2hpbGQodGEpO3RhLnNlbGVjdCgpOwp0cnl7ZG9jdW1lbnQuZXhlY0NvbW1hbmQoJ2NvcHknKTtzaG93VG9hc3QoKTt9Y2F0Y2goZXJyKXthbGVydCgnQ29weSBmYWlsZWQuIFBsZWFzZSBzZWxlY3QgYW5kIGNvcHkgbWFudWFsbHkuJyk7fQpkb2N1bWVudC5ib2R5LnJlbW92ZUNoaWxkKHRhKTsKfQp9KTsKCmRvd25sb2FkQ29kZUJ0bi5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsZnVuY3Rpb24oZSl7CmUucHJldmVudERlZmF1bHQoKTsKdmFyIGNvZGU9Y29kZU91dHB1dC50ZXh0Q29udGVudDsKaWYoIWNvZGUpe2FsZXJ0KCdHZW5lcmF0ZSBtZXRhIHRhZ3MgZmlyc3QuJyk7cmV0dXJuO30KdmFyIGZ1bGw9JzwhRE9DVFlQRSBodG1sPlxuPGh0bWwgbGFuZz0iZW4iPlxuPGhlYWQ+XG4nK2NvZGUrJ1xuPC9oZWFkPlxuPGJvZHk+XG5cbjwvYm9keT5cbjwvaHRtbD4nOwp2YXIgYmxvYj1uZXcgQmxvYihbZnVsbF0se3R5cGU6J3RleHQvaHRtbCd9KTsKdmFyIGE9ZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnYScpOwphLmhyZWY9VVJMLmNyZWF0ZU9iamVjdFVSTChibG9iKTsKYS5kb3dubG9hZD0nbWV0YS10YWdzLmh0bWwnOwpkb2N1bWVudC5ib2R5LmFwcGVuZENoaWxkKGEpO2EuY2xpY2soKTsKZG9jdW1lbnQuYm9keS5yZW1vdmVDaGlsZChhKTtVUkwucmV2b2tlT2JqZWN0VVJMKGEuaHJlZik7Cn0pOwoKZnVuY3Rpb24gc2hvd1RvYXN0KCl7CnRvYXN0LnN0eWxlLmRpc3BsYXk9J2Jsb2NrJzsKdG9hc3Quc3R5bGUub3BhY2l0eT0nMSc7CnNldFRpbWVvdXQoZnVuY3Rpb24oKXt0b2FzdC5zdHlsZS5vcGFjaXR5PScwJztzZXRUaW1lb3V0KGZ1bmN0aW9uKCl7dG9hc3Quc3R5bGUuZGlzcGxheT0nbm9uZSc7fSwzMDApO30sMjAwMCk7Cn0KCmN0YUJ0bi5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsZnVuY3Rpb24oZSl7CmUucHJldmVudERlZmF1bHQoKTsKdmFyIHRvb2xTZWN0aW9uPWRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoJy5tdGctdG9vbCcpOwppZih0b29sU2VjdGlvbil0b29sU2VjdGlvbi5zY3JvbGxJbnRvVmlldyh7YmVoYXZpb3I6J3Ntb290aCcsYmxvY2s6J3N0YXJ0J30pOwp9KTsKCnZhciBmYXFCdG5zPWRvY3VtZW50LnF1ZXJ5U2VsZWN0b3JBbGwoJy5mYXEtcScpOwpmb3IodmFyIGY9MDtmPGZhcUJ0bnMubGVuZ3RoO2YrKyl7CmZhcUJ0bnNbZl0uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLGZ1bmN0aW9uKGUpewplLnByZXZlbnREZWZhdWx0KCk7CnRoaXMucGFyZW50RWxlbWVudC5jbGFzc0xpc3QudG9nZ2xlKCdvcGVuJyk7Cn0pOwp9Cn0KCmlmKGRvY3VtZW50LnJlYWR5U3RhdGU9PT0nbG9hZGluZycpe2RvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoJ0RPTUNvbnRlbnRMb2FkZWQnLGluaXQpO31lbHNle2luaXQoKTt9Cn0pKCk7Cg=="))
+</script>
