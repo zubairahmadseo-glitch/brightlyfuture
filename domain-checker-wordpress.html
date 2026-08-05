@@ -1,0 +1,360 @@
+<style>
+#dc-wrap {
+  --bg: #E8E0F0;
+  --pri: #6C5CE7;
+  --heading: #1A1744;
+  --card-bg: #FFFFFF;
+  --text: #2D2B55;
+  --muted: #6B6490;
+  --card-border: #D0C6E0;
+  --input-bg: #F5F1FA;
+  --input-border: #D0C6E0;
+  --bg-alt: #DDD4EB;
+  --green: #00C897;
+  --red: #EF4444;
+  --yellow: #F59E0B;
+  background: var(--bg) !important;
+  color: var(--text) !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  line-height: 1.6 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+#dc-wrap *, #dc-wrap *::before, #dc-wrap *::after { box-sizing: border-box !important; }
+#dc-wrap img { max-width: 100% !important; }
+#dc-wrap section { padding: 50px 20px !important; }
+#dc-wrap .dc-inner { max-width: 900px !important; margin: 0 auto !important; }
+#dc-wrap h1, #dc-wrap h2, #dc-wrap h3 { color: var(--heading) !important; margin: 0 0 16px 0 !important; font-weight: 800 !important; }
+#dc-wrap h1 { font-size: 2.4em !important; }
+#dc-wrap h2 { font-size: 1.8em !important; text-align: center !important; }
+#dc-wrap h3 { font-size: 1.2em !important; }
+#dc-wrap p { color: var(--text) !important; margin: 0 0 14px 0 !important; }
+#dc-wrap a { color: var(--pri) !important; }
+
+#dc-wrap .dc-hero { text-align: center !important; padding: 70px 20px 50px !important; background: linear-gradient(180deg, var(--bg-alt), var(--bg)) !important; }
+#dc-wrap .dc-hero p { max-width: 640px !important; margin: 0 auto 26px auto !important; color: var(--muted) !important; font-size: 1.1em !important; }
+#dc-wrap .dc-btn { display: inline-block !important; background: var(--pri) !important; color: #fff !important; border: none !important; padding: 14px 30px !important; border-radius: 10px !important; font-size: 1.05em !important; font-weight: 700 !important; cursor: pointer !important; }
+#dc-wrap .dc-btn:hover { opacity: 0.9 !important; }
+#dc-wrap .dc-btn-secondary { background: var(--input-bg) !important; color: var(--pri) !important; border: 2px solid var(--pri) !important; }
+#dc-wrap .dc-btn-ghost { background: transparent !important; color: var(--muted) !important; border: 2px solid var(--card-border) !important; }
+
+#dc-wrap .dc-tool { background: var(--bg-alt) !important; }
+#dc-wrap .dc-card { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 16px !important; padding: 30px !important; max-width: 750px !important; margin: 0 auto !important; box-shadow: 0 4px 18px rgba(108,92,231,0.08) !important; }
+#dc-wrap .dc-field { margin-bottom: 18px !important; text-align: left !important; }
+#dc-wrap label { display: block !important; font-weight: 700 !important; margin-bottom: 6px !important; color: var(--heading) !important; font-size: 0.95em !important; }
+#dc-wrap input[type="text"] {
+  width: 100% !important; padding: 12px 14px !important; border: 1px solid var(--input-border) !important;
+  border-radius: 8px !important; background: var(--input-bg) !important; color: var(--text) !important;
+  font-size: 1em !important; font-family: inherit !important;
+}
+#dc-wrap input[type="text"]:focus { outline: 2px solid var(--pri) !important; }
+#dc-wrap .dc-btnrow { display: flex !important; flex-wrap: wrap !important; gap: 12px !important; margin-top: 8px !important; }
+#dc-wrap .dc-btnrow .dc-btn, #dc-wrap .dc-btnrow .dc-btn-secondary, #dc-wrap .dc-btnrow .dc-btn-ghost { flex: 1 1 auto !important; }
+
+#dc-wrap #dcResultsWrap { display: none !important; max-width: 750px !important; margin: 26px auto 0 auto !important; }
+#dc-wrap #dcSpinner { display: none !important; text-align: center !important; padding: 30px !important; color: var(--pri) !important; font-weight: 700 !important; font-size: 1.1em !important; }
+#dc-wrap #dcSpinner::after { content: "Fetching DNS records..." !important; }
+#dc-wrap .dc-dns-group { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 12px !important; padding: 20px !important; margin-bottom: 16px !important; }
+#dc-wrap .dc-dns-group h3 { margin-bottom: 12px !important; }
+
+#dc-wrap .dc-status-active { color: var(--green) !important; font-weight: 700 !important; }
+#dc-wrap .dc-status-inactive { color: var(--red) !important; font-weight: 700 !important; }
+
+#dc-wrap .dc-tld-grid { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; margin-top: 12px !important; }
+#dc-wrap .dc-tld-card { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 10px !important; padding: 14px !important; display: flex !important; justify-content: space-between !important; align-items: center !important; }
+#dc-wrap .dc-tld-avail span { color: var(--green) !important; font-weight: 700 !important; font-size: 0.85em !important; }
+#dc-wrap .dc-tld-taken span { color: var(--red) !important; font-weight: 700 !important; font-size: 0.85em !important; }
+
+#dc-wrap #toast { position: fixed !important; bottom: 24px !important; left: 50% !important; transform: translateX(-50%) translateY(20px) !important; background: var(--heading) !important; color: #fff !important; padding: 12px 22px !important; border-radius: 10px !important; opacity: 0 !important; pointer-events: none !important; transition: opacity 0.25s, transform 0.25s !important; z-index: 9999 !important; font-size: 0.9em !important; }
+#dc-wrap #toast.show { opacity: 1 !important; transform: translateX(-50%) translateY(0) !important; }
+
+#dc-wrap .dc-features { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 18px !important; }
+#dc-wrap .dc-feature-card { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 14px !important; padding: 22px !important; }
+#dc-wrap .dc-feature-card .icon { font-size: 1.8em !important; margin-bottom: 10px !important; }
+
+#dc-wrap .dc-steps { counter-reset: dc-step !important; }
+#dc-wrap .dc-step { display: flex !important; gap: 16px !important; margin-bottom: 18px !important; align-items: flex-start !important; }
+#dc-wrap .dc-step-num { flex: 0 0 auto !important; width: 34px !important; height: 34px !important; border-radius: 50% !important; background: var(--pri) !important; color: #fff !important; display: flex !important; align-items: center !important; justify-content: center !important; font-weight: 800 !important; }
+
+#dc-wrap table.dc-compare { width: 100% !important; border-collapse: collapse !important; background: var(--card-bg) !important; border-radius: 12px !important; overflow: hidden !important; }
+#dc-wrap table.dc-compare th, #dc-wrap table.dc-compare td { padding: 12px 14px !important; text-align: left !important; border-bottom: 1px solid var(--card-border) !important; font-size: 0.92em !important; }
+#dc-wrap table.dc-compare th { background: var(--pri) !important; color: #fff !important; }
+#dc-wrap table.dc-compare tr:nth-child(even) td { background: var(--input-bg) !important; }
+#dc-wrap .dc-tablewrap { overflow-x: auto !important; }
+
+#dc-wrap .dc-doslist { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 20px !important; }
+#dc-wrap .dc-do, #dc-wrap .dc-dont { background: var(--card-bg) !important; border-radius: 14px !important; padding: 20px !important; border: 1px solid var(--card-border) !important; }
+#dc-wrap .dc-do { border-top: 4px solid var(--green) !important; }
+#dc-wrap .dc-dont { border-top: 4px solid var(--red) !important; }
+#dc-wrap .dc-do ul li, #dc-wrap .dc-dont ul li { margin-bottom: 8px !important; }
+
+#dc-wrap .dc-audience-grid { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 18px !important; }
+#dc-wrap .dc-audience-card { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 14px !important; padding: 22px !important; text-align: center !important; }
+#dc-wrap .dc-audience-card .icon { font-size: 2em !important; margin-bottom: 10px !important; }
+
+#dc-wrap .dc-dns-explain { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 16px !important; }
+#dc-wrap .dc-dns-card { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 14px !important; padding: 20px !important; }
+
+#dc-wrap .dc-tips-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 16px !important; }
+#dc-wrap .dc-tip-card { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 14px !important; padding: 20px !important; border-left: 4px solid var(--pri) !important; }
+
+#dc-wrap .faq-item { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 12px !important; margin-bottom: 10px !important; overflow: hidden !important; }
+#dc-wrap .faq-q { width: 100% !important; text-align: left !important; background: transparent !important; border: none !important; padding: 16px 18px !important; font-weight: 700 !important; color: var(--heading) !important; cursor: pointer !important; font-size: 1em !important; display: flex !important; justify-content: space-between !important; align-items: center !important; }
+#dc-wrap .faq-a { max-height: 0 !important; overflow: hidden !important; padding: 0 18px !important; color: var(--muted) !important; transition: max-height 0.25s ease, padding 0.25s ease !important; }
+#dc-wrap .faq-item.open .faq-a { max-height: 500px !important; padding: 0 18px 16px 18px !important; }
+#dc-wrap .faq-q::after { content: "+" !important; font-size: 1.3em !important; color: var(--pri) !important; }
+#dc-wrap .faq-item.open .faq-q::after { content: "\2212" !important; }
+
+@media (max-width: 640px) {
+  #dc-wrap .dc-features { grid-template-columns: 1fr !important; }
+  #dc-wrap .dc-doslist { grid-template-columns: 1fr !important; }
+  #dc-wrap .dc-audience-grid { grid-template-columns: 1fr !important; }
+  #dc-wrap .dc-dns-explain { grid-template-columns: 1fr !important; }
+  #dc-wrap .dc-tips-grid { grid-template-columns: 1fr !important; }
+  #dc-wrap .dc-tld-grid { grid-template-columns: 1fr !important; }
+  #dc-wrap h1 { font-size: 1.8em !important; }
+}
+</style>
+
+
+<div id="dc-wrap">
+
+<section class="dc-hero">
+  <div class="dc-inner">
+    <h1>Free Domain Checker</h1>
+    <p>Check any domain name instantly. Look up DNS records, analyse domain structure and check TLD availability across popular extensions. No signup needed.</p>
+    <button type="button" class="dc-btn" id="dcCtaBtn">Check a Domain Now</button>
+  </div>
+</section>
+
+<section class="dc-tool">
+  <div class="dc-inner">
+    <div class="dc-card">
+      <div class="dc-field">
+        <label for="dcDomainInput">Enter Domain Name</label>
+        <input type="text" id="dcDomainInput" placeholder="e.g. brightlyfuture.co.uk">
+      </div>
+      <div class="dc-btnrow">
+        <button type="button" class="dc-btn" id="dcCheckBtn">Check Domain</button>
+        <button type="button" class="dc-btn-secondary" id="dcCopyBtn" style="display:none !important;">Copy DNS Summary</button>
+        <button type="button" class="dc-btn-ghost" id="dcClearBtn">Clear All</button>
+      </div>
+    </div>
+
+    <div id="dcResultsWrap">
+      <div id="dcSpinner"></div>
+      <div id="dcInfoTable" class="dc-tablewrap"></div>
+      <div id="dcDnsResults"></div>
+      <div id="dcTldGrid"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="dc-inner">
+    <h2>What Is a Domain Checker</h2>
+    <p>A domain checker is a tool that lets you look up information about any domain name on the internet. It queries the Domain Name System (DNS) to retrieve records such as A, NS, MX and TXT entries, giving you a clear picture of how a domain is configured. This is useful for website owners, developers, marketers and anyone who wants to verify a domain before purchasing, troubleshoot email delivery issues or simply learn more about a website's infrastructure.</p>
+    <p>Our free domain checker works entirely in your browser. It connects to Cloudflare's DNS-over-HTTPS API to fetch live records, so results are fast, accurate and private. There is no signup, no download and no limit on the number of lookups you can perform.</p>
+  </div>
+</section>
+
+<section style="background:var(--bg-alt) !important;">
+  <div class="dc-inner">
+    <h2>How to Use This Free Domain Checker</h2>
+    <div class="dc-steps">
+      <div class="dc-step"><div class="dc-step-num">1</div><div><h3>Enter a domain</h3><p>Type or paste any domain name into the input field. You can include or leave out "https://" and "www" - the tool strips them automatically.</p></div></div>
+      <div class="dc-step"><div class="dc-step-num">2</div><div><h3>Click Check Domain</h3><p>Hit the button or press Enter. The tool sends four parallel DNS queries (A, NS, MX, TXT) to Cloudflare and displays results in seconds.</p></div></div>
+      <div class="dc-step"><div class="dc-step-num">3</div><div><h3>Review your results</h3><p>See a domain info table with the SLD, TLD, length and status. Below that, each DNS record type is grouped with its values and TTL.</p></div></div>
+      <div class="dc-step"><div class="dc-step-num">4</div><div><h3>Check TLD availability</h3><p>Scroll down to see simulated availability for the same name across 10 popular extensions like .com, .co.uk, .io and .dev.</p></div></div>
+      <div class="dc-step"><div class="dc-step-num">5</div><div><h3>Copy or clear</h3><p>Use the Copy DNS Summary button to save results to your clipboard, or hit Clear All to start a new lookup.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="dc-inner">
+    <h2>Key Features</h2>
+    <div class="dc-features">
+      <div class="dc-feature-card"><div class="icon">&#x1F50D;</div><h3>Live DNS Lookup</h3><p>Fetches real-time A, NS, MX and TXT records from Cloudflare DNS-over-HTTPS for any domain.</p></div>
+      <div class="dc-feature-card"><div class="icon">&#x1F310;</div><h3>TLD Availability</h3><p>Simulated availability check across 10 popular extensions so you can explore alternative domain options.</p></div>
+      <div class="dc-feature-card"><div class="icon">&#x1F4CB;</div><h3>Domain Analysis</h3><p>Breaks down the domain into SLD, TLD, character length and active status at a glance.</p></div>
+      <div class="dc-feature-card"><div class="icon">&#x1F4CB;</div><h3>Copy to Clipboard</h3><p>One click copies the entire DNS summary as plain text, ready to paste into reports or tickets.</p></div>
+      <div class="dc-feature-card"><div class="icon">&#x26A1;</div><h3>Instant Results</h3><p>All queries run in parallel so you get A, NS, MX and TXT results in under two seconds.</p></div>
+      <div class="dc-feature-card"><div class="icon">&#x1F512;</div><h3>Private and Free</h3><p>No data is stored, no account is required and all lookups happen directly from your browser.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg-alt) !important;">
+  <div class="dc-inner">
+    <h2>Understanding DNS Records</h2>
+    <div class="dc-dns-explain">
+      <div class="dc-dns-card"><h3>A Record</h3><p>Maps a domain name to an IPv4 address (e.g. 104.21.56.78). This is the most fundamental record that tells browsers which server to contact when loading a website.</p></div>
+      <div class="dc-dns-card"><h3>NS Record</h3><p>Specifies the authoritative name servers for a domain. These servers hold all DNS records and respond to queries from other DNS resolvers around the world.</p></div>
+      <div class="dc-dns-card"><h3>MX Record</h3><p>Points to the mail servers that handle email for the domain. Each MX record has a priority value so email is routed to the correct server in the right order.</p></div>
+      <div class="dc-dns-card"><h3>TXT Record</h3><p>Holds arbitrary text data, commonly used for email verification (SPF, DKIM, DMARC), domain ownership proof and security policies.</p></div>
+      <div class="dc-dns-card"><h3>CNAME Record</h3><p>Creates an alias from one domain to another. For example, www.example.com can point to example.com so both addresses reach the same site.</p></div>
+      <div class="dc-dns-card"><h3>AAAA Record</h3><p>The IPv6 version of an A record. It maps a domain to a 128-bit IPv6 address, supporting the newer internet addressing standard.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="dc-inner">
+    <h2>Domain vs Hosting</h2>
+    <div class="dc-tablewrap">
+      <table class="dc-compare">
+        <tr><th>Feature</th><th>Domain Name</th><th>Web Hosting</th></tr>
+        <tr><td>What it is</td><td>Your website's address (e.g. example.com)</td><td>The server space where your files live</td></tr>
+        <tr><td>Purpose</td><td>Makes your site findable on the internet</td><td>Stores and serves your website files</td></tr>
+        <tr><td>Cost</td><td>Typically $10 to $50 per year</td><td>$3 to $30+ per month depending on plan</td></tr>
+        <tr><td>Renewal</td><td>Annual renewal required or risk losing it</td><td>Monthly or annual billing cycles</td></tr>
+        <tr><td>Transferable</td><td>Yes, can transfer between registrars</td><td>Yes, can migrate between hosting providers</td></tr>
+        <tr><td>Needed to go live</td><td>Yes, visitors need a domain to reach you</td><td>Yes, files must be hosted somewhere</td></tr>
+        <tr><td>Example providers</td><td>Namecheap, GoDaddy, Google Domains</td><td>SiteGround, Bluehost, Cloudways</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg-alt) !important;">
+  <div class="dc-inner">
+    <h2>Popular Domain Extensions</h2>
+    <div class="dc-tablewrap">
+      <table class="dc-compare">
+        <tr><th>Extension</th><th>Best For</th><th>Approx. Price/Year</th><th>Trust Level</th></tr>
+        <tr><td>.com</td><td>Global businesses, universal choice</td><td>$10 - $15</td><td>Very High</td></tr>
+        <tr><td>.co.uk</td><td>UK-based businesses and audiences</td><td>$8 - $12</td><td>High</td></tr>
+        <tr><td>.net</td><td>Tech companies, networks</td><td>$10 - $15</td><td>High</td></tr>
+        <tr><td>.org</td><td>Non-profits, communities</td><td>$10 - $14</td><td>High</td></tr>
+        <tr><td>.io</td><td>Tech startups, SaaS products</td><td>$30 - $50</td><td>Medium-High</td></tr>
+        <tr><td>.dev</td><td>Developers, coding projects</td><td>$12 - $16</td><td>Medium-High</td></tr>
+        <tr><td>.ai</td><td>AI and machine learning companies</td><td>$50 - $90</td><td>Medium-High</td></tr>
+        <tr><td>.app</td><td>Mobile and web applications</td><td>$14 - $20</td><td>Medium</td></tr>
+        <tr><td>.tech</td><td>Technology blogs and companies</td><td>$5 - $50</td><td>Medium</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="dc-inner">
+    <h2>How to Choose the Right Domain Name</h2>
+    <div class="dc-tips-grid">
+      <div class="dc-tip-card"><h3>Keep it short</h3><p>Aim for 6 to 14 characters. Shorter domains are easier to type, remember and share on social media or business cards.</p></div>
+      <div class="dc-tip-card"><h3>Avoid hyphens and numbers</h3><p>They are hard to communicate verbally and look less professional. Stick to letters only when possible.</p></div>
+      <div class="dc-tip-card"><h3>Match your brand</h3><p>Your domain should reflect your business name or primary keyword. Consistency builds trust and helps with SEO.</p></div>
+      <div class="dc-tip-card"><h3>Choose the right TLD</h3><p>Use .com for global reach, a country code like .co.uk for local targeting, or a niche TLD like .dev for developer audiences.</p></div>
+      <div class="dc-tip-card"><h3>Check social availability</h3><p>Before buying a domain, verify that matching usernames are available on key social platforms for brand consistency.</p></div>
+      <div class="dc-tip-card"><h3>Think long term</h3><p>Pick a name that will not limit you if your business expands. Avoid overly specific geographic or product-based names unless you plan to stay niche.</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg-alt) !important;">
+  <div class="dc-inner">
+    <h2>Do's and Don'ts of Domain Names</h2>
+    <div class="dc-doslist">
+      <div class="dc-do">
+        <h3 style="color:var(--green) !important;">Do</h3>
+        <ul>
+          <li>Register your domain for multiple years to avoid accidental expiry</li>
+          <li>Enable auto-renewal with your registrar</li>
+          <li>Use WHOIS privacy protection to hide personal details</li>
+          <li>Keep your registrar login credentials secure</li>
+          <li>Set up DNS records properly for email and website</li>
+          <li>Buy common misspellings to protect your brand</li>
+          <li>Check trademark databases before registering</li>
+        </ul>
+      </div>
+      <div class="dc-dont">
+        <h3 style="color:var(--red) !important;">Don't</h3>
+        <ul>
+          <li>Don't use trademarked names belonging to other businesses</li>
+          <li>Don't choose a domain that is hard to spell or pronounce</li>
+          <li>Don't ignore renewal notices from your registrar</li>
+          <li>Don't register domains just to squat on them</li>
+          <li>Don't use free subdomain services for a professional business</li>
+          <li>Don't forget to lock your domain to prevent unauthorised transfers</li>
+          <li>Don't pick a name that limits your future growth</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="dc-inner">
+    <h2>Domain Checker vs Other Tools</h2>
+    <div class="dc-tablewrap">
+      <table class="dc-compare">
+        <tr><th>Feature</th><th>This Tool</th><th>GoDaddy</th><th>Namecheap</th><th>WHOIS Lookup</th></tr>
+        <tr><td>DNS Record Lookup</td><td>Yes (A, NS, MX, TXT)</td><td>Limited</td><td>Limited</td><td>No</td></tr>
+        <tr><td>TLD Availability</td><td>Yes (10 extensions)</td><td>Yes</td><td>Yes</td><td>No</td></tr>
+        <tr><td>Domain Analysis</td><td>SLD, TLD, length, status</td><td>No</td><td>No</td><td>Registration info</td></tr>
+        <tr><td>Signup Required</td><td>No</td><td>No (but pushes sales)</td><td>No (but pushes sales)</td><td>No</td></tr>
+        <tr><td>Ads or Upsells</td><td>None</td><td>Heavy</td><td>Moderate</td><td>Varies</td></tr>
+        <tr><td>Copy Results</td><td>One-click copy</td><td>No</td><td>No</td><td>Manual</td></tr>
+        <tr><td>Speed</td><td>Under 2 seconds</td><td>2 to 5 seconds</td><td>2 to 4 seconds</td><td>3 to 6 seconds</td></tr>
+        <tr><td>Privacy</td><td>No data stored</td><td>Tracks searches</td><td>Tracks searches</td><td>Varies</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg-alt) !important;">
+  <div class="dc-inner">
+    <h2>Who Should Use This Tool</h2>
+    <div class="dc-audience-grid">
+      <div class="dc-audience-card"><div class="icon">&#x1F4BC;</div><h3>Business Owners</h3><p>Verify your domain's DNS setup, check if your email records are configured correctly and explore new domain options for expansion.</p></div>
+      <div class="dc-audience-card"><div class="icon">&#x1F4BB;</div><h3>Web Developers</h3><p>Quickly check DNS propagation, debug name server issues and verify A records point to the correct server IP addresses.</p></div>
+      <div class="dc-audience-card"><div class="icon">&#x1F4E3;</div><h3>Digital Marketers</h3><p>Research competitor domains, verify tracking domain setup and check that campaign landing pages resolve correctly.</p></div>
+      <div class="dc-audience-card"><div class="icon">&#x1F393;</div><h3>Students and Learners</h3><p>Understand how DNS works by looking up real domains and seeing the records that make websites and email function.</p></div>
+      <div class="dc-audience-card"><div class="icon">&#x2709;</div><h3>Email Administrators</h3><p>Check MX records, verify SPF and DKIM setup through TXT records and troubleshoot email delivery problems.</p></div>
+      <div class="dc-audience-card"><div class="icon">&#x1F6E1;</div><h3>Security Researchers</h3><p>Investigate domain configurations, check for dangling DNS records and verify domain ownership through TXT entries.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="dc-inner">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item"><button type="button" class="faq-q">What is a domain name and how does it work?</button><div class="faq-a"><p>A domain name is a human-readable address (like example.com) that maps to a numeric IP address through the Domain Name System (DNS). When you type a domain into your browser, DNS servers translate it to an IP address so your browser knows which server to contact to load the website.</p></div></div>
+
+    <div class="faq-item"><button type="button" class="faq-q">What DNS records does this tool check?</button><div class="faq-a"><p>This tool fetches four types of DNS records: A records (IPv4 addresses), NS records (name servers), MX records (mail servers) and TXT records (text entries used for verification, SPF, DKIM and more). These are the most commonly needed records for troubleshooting and analysis.</p></div></div>
+
+    <div class="faq-item"><button type="button" class="faq-q">Is this domain checker really free?</button><div class="faq-a"><p>Yes, completely free with no signup, no account and no usage limits. The tool runs entirely in your browser and queries Cloudflare's public DNS-over-HTTPS service, so there are no server costs to pass on.</p></div></div>
+
+    <div class="faq-item"><button type="button" class="faq-q">How accurate are the DNS results?</button><div class="faq-a"><p>The results come directly from Cloudflare's DNS resolver (1.1.1.1), one of the fastest and most reliable public DNS services. Results reflect the current live state of DNS, though recently changed records may take time to propagate globally due to TTL caching.</p></div></div>
+
+    <div class="faq-item"><button type="button" class="faq-q">What is the difference between a domain and a URL?</button><div class="faq-a"><p>A domain is the core address (e.g. example.com), while a URL is the full web address including the protocol, path and query string (e.g. https://example.com/blog?page=2). The domain is one part of the complete URL.</p></div></div>
+
+    <div class="faq-item"><button type="button" class="faq-q">What is a TLD and why does it matter?</button><div class="faq-a"><p>TLD stands for Top Level Domain and is the extension at the end of a domain name, such as .com, .org or .co.uk. It matters because different TLDs carry different levels of trust, target different audiences and can affect SEO for local searches.</p></div></div>
+
+    <div class="faq-item"><button type="button" class="faq-q">Can I register a domain directly from this tool?</button><div class="faq-a"><p>No, this tool is for checking and analysing domains only. To register a domain, visit a registrar such as Namecheap, GoDaddy or Google Domains. Use this tool first to check availability and DNS records before you buy.</p></div></div>
+
+    <div class="faq-item"><button type="button" class="faq-q">What does it mean if no A record is found?</button><div class="faq-a"><p>If no A record is found, it means the domain does not currently point to any IPv4 web server. The domain might be parked, expired, not yet configured, or it may use only AAAA (IPv6) records or CNAME records instead.</p></div></div>
+
+    <div class="faq-item"><button type="button" class="faq-q">What is WHOIS and how is it different from DNS lookup?</button><div class="faq-a"><p>WHOIS is a protocol that returns registration information about a domain, such as the registrar, creation date, expiry date and registrant contact details. DNS lookup shows the technical records (A, NS, MX, TXT) that control how the domain functions. They are complementary but different tools.</p></div></div>
+
+    <div class="faq-item"><button type="button" class="faq-q">How long does it take for DNS changes to propagate?</button><div class="faq-a"><p>DNS propagation typically takes anywhere from a few minutes to 48 hours, depending on the TTL (Time to Live) values set on the records and how aggressively DNS resolvers cache data. Most changes are visible within 1 to 4 hours.</p></div></div>
+
+    <div class="faq-item"><button type="button" class="faq-q">What is domain privacy protection?</button><div class="faq-a"><p>Domain privacy protection (also called WHOIS privacy) replaces your personal contact information in the public WHOIS database with proxy details from your registrar. This prevents spam, identity theft and unwanted solicitation. Most registrars offer it free or for a small annual fee.</p></div></div>
+
+    <div class="faq-item"><button type="button" class="faq-q">Can I transfer my domain to a different registrar?</button><div class="faq-a"><p>Yes, domain transfers are standard. You need to unlock the domain at your current registrar, obtain an authorisation code (EPP code), and initiate the transfer at the new registrar. Transfers usually take 5 to 7 days and the domain must be at least 60 days old.</p></div></div>
+
+    <div class="faq-item"><button type="button" class="faq-q">What happens when a domain expires?</button><div class="faq-a"><p>When a domain expires, it typically enters a grace period (30 to 45 days) where the original owner can still renew it. After that, it enters a redemption period with higher renewal fees. Finally, it is released back to the public for anyone to register.</p></div></div>
+
+    <div class="faq-item"><button type="button" class="faq-q">Why are some TLDs more expensive than others?</button><div class="faq-a"><p>TLD pricing is set by the registry that manages each extension. Premium pricing reflects demand, scarcity and perceived value. Extensions like .ai and .io are popular with tech companies and command higher prices, while common ones like .com and .net are cheaper due to volume.</p></div></div>
+
+    <div class="faq-item"><button type="button" class="faq-q">Is the TLD availability check accurate?</button><div class="faq-a"><p>The TLD availability check in this tool is simulated for demonstration purposes. It uses randomised results to show you what the feature looks like. For real availability checks, use a domain registrar like Namecheap or GoDaddy which query their live inventory databases.</p></div></div>
+
+  </div>
+</section>
+
+<div id="toast"></div>
+</div><!-- /dc-wrap -->
+
+<script>eval(atob("KGZ1bmN0aW9uKCl7CiAgaWYod2luZG93Ll9fZGNJbml0KSByZXR1cm47CiAgZnVuY3Rpb24gaW5pdCgpewogICAgaWYod2luZG93Ll9fZGNJbml0KSByZXR1cm47CiAgICBpZighZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2RjLXdyYXAnKSkgcmV0dXJuOwogICAgd2luZG93Ll9fZGNJbml0ID0gdHJ1ZTsKCiAgICB2YXIgd3JhcCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdkYy13cmFwJyk7CiAgICB2YXIgZG9tYWluSW5wdXQgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnZGNEb21haW5JbnB1dCcpOwogICAgdmFyIGNoZWNrQnRuID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2RjQ2hlY2tCdG4nKTsKICAgIHZhciBjbGVhckJ0biA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdkY0NsZWFyQnRuJyk7CiAgICB2YXIgY29weUJ0biA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdkY0NvcHlCdG4nKTsKICAgIHZhciBjdGFCdG4gPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnZGNDdGFCdG4nKTsKICAgIHZhciByZXN1bHRzV3JhcCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdkY1Jlc3VsdHNXcmFwJyk7CiAgICB2YXIgc3Bpbm5lciA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdkY1NwaW5uZXInKTsKICAgIHZhciBpbmZvVGFibGUgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnZGNJbmZvVGFibGUnKTsKICAgIHZhciBkbnNSZXN1bHRzID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2RjRG5zUmVzdWx0cycpOwogICAgdmFyIHRsZEdyaWQgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnZGNUbGRHcmlkJyk7CiAgICB2YXIgdG9hc3QgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgndG9hc3QnKTsKCiAgICBpZihjdGFCdG4pewogICAgICBjdGFCdG4uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCBmdW5jdGlvbigpewogICAgICAgIHZhciB0b29sID0gd3JhcC5xdWVyeVNlbGVjdG9yKCcuZGMtdG9vbCcpOwogICAgICAgIGlmKHRvb2wpIHRvb2wuc2Nyb2xsSW50b1ZpZXcoe2JlaGF2aW9yOidzbW9vdGgnfSk7CiAgICAgIH0pOwogICAgfQoKICAgIGlmKGNoZWNrQnRuKSBjaGVja0J0bi5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsIGdlbmVyYXRlKTsKICAgIGlmKGNsZWFyQnRuKSBjbGVhckJ0bi5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsIGNsZWFyQWxsKTsKICAgIGlmKGNvcHlCdG4pIGNvcHlCdG4uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCBjb3B5U3VtbWFyeSk7CgogICAgaWYoZG9tYWluSW5wdXQpewogICAgICBkb21haW5JbnB1dC5hZGRFdmVudExpc3RlbmVyKCdrZXlkb3duJywgZnVuY3Rpb24oZSl7CiAgICAgICAgaWYoZS5rZXkgPT09ICdFbnRlcicpIGdlbmVyYXRlKCk7CiAgICAgIH0pOwogICAgfQoKICAgIC8vIEZBUSBhY2NvcmRpb24KICAgIHZhciBmYXFJdGVtcyA9IHdyYXAucXVlcnlTZWxlY3RvckFsbCgnLmZhcS1pdGVtJyk7CiAgICBmYXFJdGVtcy5mb3JFYWNoKGZ1bmN0aW9uKGl0ZW0pewogICAgICB2YXIgcSA9IGl0ZW0ucXVlcnlTZWxlY3RvcignLmZhcS1xJyk7CiAgICAgIGlmKHEpewogICAgICAgIHEuYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCBmdW5jdGlvbigpewogICAgICAgICAgdmFyIGlzT3BlbiA9IGl0ZW0uY2xhc3NMaXN0LmNvbnRhaW5zKCdvcGVuJyk7CiAgICAgICAgICBmYXFJdGVtcy5mb3JFYWNoKGZ1bmN0aW9uKGZpKXsgZmkuY2xhc3NMaXN0LnJlbW92ZSgnb3BlbicpOyB9KTsKICAgICAgICAgIGlmKCFpc09wZW4pIGl0ZW0uY2xhc3NMaXN0LmFkZCgnb3BlbicpOwogICAgICAgIH0pOwogICAgICB9CiAgICB9KTsKCiAgICB2YXIgbGFzdFJlc3VsdHMgPSBudWxsOwoKICAgIGZ1bmN0aW9uIGNsZWFuRG9tYWluKHJhdyl7CiAgICAgIHZhciBkID0gcmF3LnRyaW0oKS50b0xvd2VyQ2FzZSgpOwogICAgICBkID0gZC5yZXBsYWNlKC9eaHR0cHM/OlwvXC8vaSwgJycpOwogICAgICBkID0gZC5yZXBsYWNlKC9cLyskLywgJycpOwogICAgICBkID0gZC5yZXBsYWNlKC9ed3d3XC4vLCAnJyk7CiAgICAgIHJldHVybiBkOwogICAgfQoKICAgIGZ1bmN0aW9uIHZhbGlkYXRlRG9tYWluKGQpewogICAgICByZXR1cm4gL15bYS16MC05XShbYS16MC05LV0qW2EtejAtOV0pPyhcLlthLXowLTldKFthLXowLTktXSpbYS16MC05XSk/KSskLy50ZXN0KGQpOwogICAgfQoKICAgIGZ1bmN0aW9uIHBhcnNlRG9tYWluKGQpewogICAgICB2YXIgcGFydHMgPSBkLnNwbGl0KCcuJyk7CiAgICAgIHZhciBrbm93blNsZHMgPSBbJ2NvJywnb3JnJywnbmV0JywnYWMnLCdnb3YnLCdzY2gnLCduaHMnLCdtZScsJ2x0ZCddOwogICAgICB2YXIgdGxkLCBzbGQ7CiAgICAgIGlmKHBhcnRzLmxlbmd0aCA+PSAzICYmIGtub3duU2xkcy5pbmRleE9mKHBhcnRzW3BhcnRzLmxlbmd0aC0yXSkgIT09IC0xKXsKICAgICAgICB0bGQgPSBwYXJ0c1twYXJ0cy5sZW5ndGgtMl0gKyAnLicgKyBwYXJ0c1twYXJ0cy5sZW5ndGgtMV07CiAgICAgICAgc2xkID0gcGFydHMuc2xpY2UoMCwgcGFydHMubGVuZ3RoLTIpLmpvaW4oJy4nKTsKICAgICAgfSBlbHNlIHsKICAgICAgICB0bGQgPSBwYXJ0c1twYXJ0cy5sZW5ndGgtMV07CiAgICAgICAgc2xkID0gcGFydHMuc2xpY2UoMCwgcGFydHMubGVuZ3RoLTEpLmpvaW4oJy4nKTsKICAgICAgfQogICAgICByZXR1cm4ge3NsZDogc2xkLCB0bGQ6ICcuJyArIHRsZCwgZnVsbDogZCwgbGVuZ3RoOiBkLmxlbmd0aH07CiAgICB9CgogICAgZnVuY3Rpb24gZmV0Y2hETlMoZG9tYWluLCB0eXBlKXsKICAgICAgcmV0dXJuIGZldGNoKCdodHRwczovL2Nsb3VkZmxhcmUtZG5zLmNvbS9kbnMtcXVlcnk/bmFtZT0nICsgZW5jb2RlVVJJQ29tcG9uZW50KGRvbWFpbikgKyAnJnR5cGU9JyArIHR5cGUsIHsKICAgICAgICBoZWFkZXJzOiB7J0FjY2VwdCc6ICdhcHBsaWNhdGlvbi9kbnMtanNvbid9CiAgICAgIH0pLnRoZW4oZnVuY3Rpb24ocil7IHJldHVybiByLmpzb24oKTsgfSk7CiAgICB9CgogICAgZnVuY3Rpb24gZ2VuZXJhdGUoKXsKICAgICAgdmFyIHJhdyA9IGRvbWFpbklucHV0ID8gZG9tYWluSW5wdXQudmFsdWUgOiAnJzsKICAgICAgdmFyIGRvbWFpbiA9IGNsZWFuRG9tYWluKHJhdyk7CiAgICAgIGlmKCFkb21haW4gfHwgIXZhbGlkYXRlRG9tYWluKGRvbWFpbikpewogICAgICAgIHNob3dUb2FzdCgnUGxlYXNlIGVudGVyIGEgdmFsaWQgZG9tYWluIG5hbWUnKTsKICAgICAgICByZXR1cm47CiAgICAgIH0KCiAgICAgIHJlc3VsdHNXcmFwLnN0eWxlLmRpc3BsYXkgPSAnYmxvY2snOwogICAgICBzcGlubmVyLnN0eWxlLmRpc3BsYXkgPSAnYmxvY2snOwogICAgICBpbmZvVGFibGUuaW5uZXJIVE1MID0gJyc7CiAgICAgIGRuc1Jlc3VsdHMuaW5uZXJIVE1MID0gJyc7CiAgICAgIHRsZEdyaWQuaW5uZXJIVE1MID0gJyc7CiAgICAgIGNvcHlCdG4uc3R5bGUuZGlzcGxheSA9ICdub25lJzsKCiAgICAgIHZhciBpbmZvID0gcGFyc2VEb21haW4oZG9tYWluKTsKCiAgICAgIFByb21pc2UuYWxsKFsKICAgICAgICBmZXRjaEROUyhkb21haW4sICdBJykuY2F0Y2goZnVuY3Rpb24oKXsgcmV0dXJuIHtBbnN3ZXI6W119OyB9KSwKICAgICAgICBmZXRjaEROUyhkb21haW4sICdOUycpLmNhdGNoKGZ1bmN0aW9uKCl7IHJldHVybiB7QW5zd2VyOltdfTsgfSksCiAgICAgICAgZmV0Y2hETlMoZG9tYWluLCAnTVgnKS5jYXRjaChmdW5jdGlvbigpeyByZXR1cm4ge0Fuc3dlcjpbXX07IH0pLAogICAgICAgIGZldGNoRE5TKGRvbWFpbiwgJ1RYVCcpLmNhdGNoKGZ1bmN0aW9uKCl7IHJldHVybiB7QW5zd2VyOltdfTsgfSkKICAgICAgXSkudGhlbihmdW5jdGlvbihyZXN1bHRzKXsKICAgICAgICBzcGlubmVyLnN0eWxlLmRpc3BsYXkgPSAnbm9uZSc7CiAgICAgICAgdmFyIGFSZWNzID0gKHJlc3VsdHNbMF0uQW5zd2VyIHx8IFtdKS5maWx0ZXIoZnVuY3Rpb24ocil7IHJldHVybiByLnR5cGUgPT09IDE7IH0pOwogICAgICAgIHZhciBuc1JlY3MgPSAocmVzdWx0c1sxXS5BbnN3ZXIgfHwgW10pLmZpbHRlcihmdW5jdGlvbihyKXsgcmV0dXJuIHIudHlwZSA9PT0gMjsgfSk7CiAgICAgICAgdmFyIG14UmVjcyA9IChyZXN1bHRzWzJdLkFuc3dlciB8fCBbXSkuZmlsdGVyKGZ1bmN0aW9uKHIpeyByZXR1cm4gci50eXBlID09PSAxNTsgfSk7CiAgICAgICAgdmFyIHR4dFJlY3MgPSAocmVzdWx0c1szXS5BbnN3ZXIgfHwgW10pLmZpbHRlcihmdW5jdGlvbihyKXsgcmV0dXJuIHIudHlwZSA9PT0gMTY7IH0pOwoKICAgICAgICB2YXIgc3RhdHVzID0gYVJlY3MubGVuZ3RoID4gMCA/ICdBY3RpdmUgKEROUyByZXNvbHZlcyknIDogJ05vIEEgcmVjb3JkcyBmb3VuZCc7CiAgICAgICAgdmFyIHN0YXR1c0NsYXNzID0gYVJlY3MubGVuZ3RoID4gMCA/ICdkYy1zdGF0dXMtYWN0aXZlJyA6ICdkYy1zdGF0dXMtaW5hY3RpdmUnOwoKICAgICAgICBpbmZvVGFibGUuaW5uZXJIVE1MID0gJzx0YWJsZSBjbGFzcz0iZGMtY29tcGFyZSI+PHRyPjx0aD5Qcm9wZXJ0eTwvdGg+PHRoPlZhbHVlPC90aD48L3RyPicgKwogICAgICAgICAgJzx0cj48dGQ+RG9tYWluPC90ZD48dGQ+JyArIGVzYyhpbmZvLmZ1bGwpICsgJzwvdGQ+PC90cj4nICsKICAgICAgICAgICc8dHI+PHRkPlNMRCAoU2Vjb25kIExldmVsIERvbWFpbik8L3RkPjx0ZD4nICsgZXNjKGluZm8uc2xkKSArICc8L3RkPjwvdHI+JyArCiAgICAgICAgICAnPHRyPjx0ZD5UTEQgKEV4dGVuc2lvbik8L3RkPjx0ZD4nICsgZXNjKGluZm8udGxkKSArICc8L3RkPjwvdHI+JyArCiAgICAgICAgICAnPHRyPjx0ZD5Ub3RhbCBMZW5ndGg8L3RkPjx0ZD4nICsgaW5mby5sZW5ndGggKyAnIGNoYXJhY3RlcnM8L3RkPjwvdHI+JyArCiAgICAgICAgICAnPHRyPjx0ZD5TdGF0dXM8L3RkPjx0ZD48c3BhbiBjbGFzcz0iJyArIHN0YXR1c0NsYXNzICsgJyI+JyArIHN0YXR1cyArICc8L3NwYW4+PC90ZD48L3RyPicgKwogICAgICAgICAgJzwvdGFibGU+JzsKCiAgICAgICAgdmFyIGRuc0h0bWwgPSAnJzsKICAgICAgICBkbnNIdG1sICs9IHJlbmRlclJlY29yZHMoJ0EgUmVjb3JkcyAoSVB2NCknLCBhUmVjcywgZnVuY3Rpb24ocil7IHJldHVybiByLmRhdGE7IH0pOwogICAgICAgIGRuc0h0bWwgKz0gcmVuZGVyUmVjb3JkcygnTlMgUmVjb3JkcyAoTmFtZSBTZXJ2ZXJzKScsIG5zUmVjcywgZnVuY3Rpb24ocil7IHJldHVybiByLmRhdGE7IH0pOwogICAgICAgIGRuc0h0bWwgKz0gcmVuZGVyUmVjb3JkcygnTVggUmVjb3JkcyAoTWFpbCBTZXJ2ZXJzKScsIG14UmVjcywgZnVuY3Rpb24ocil7IHJldHVybiByLmRhdGE7IH0pOwogICAgICAgIGRuc0h0bWwgKz0gcmVuZGVyUmVjb3JkcygnVFhUIFJlY29yZHMnLCB0eHRSZWNzLCBmdW5jdGlvbihyKXsgcmV0dXJuIHIuZGF0YTsgfSk7CiAgICAgICAgZG5zUmVzdWx0cy5pbm5lckhUTUwgPSBkbnNIdG1sOwoKICAgICAgICAvLyBUTEQgYXZhaWxhYmlsaXR5IChzaW11bGF0ZWQpCiAgICAgICAgdmFyIHRsZHMgPSBbJy5jb20nLCcuY28udWsnLCcubmV0JywnLm9yZycsJy5pbycsJy5kZXYnLCcuYWknLCcuYXBwJywnLnRlY2gnLCcub25saW5lJ107CiAgICAgICAgdmFyIHRsZEh0bWwgPSAnPGgzIHN0eWxlPSJtYXJnaW4tdG9wOjI0cHggIWltcG9ydGFudDsiPlRMRCBBdmFpbGFiaWxpdHkgQ2hlY2s8L2gzPjxwIHN0eWxlPSJjb2xvcjp2YXIoLS1tdXRlZCkgIWltcG9ydGFudDtmb250LXNpemU6MC45ZW0gIWltcG9ydGFudDsiPlNpbXVsYXRlZCBhdmFpbGFiaWxpdHkgZm9yIDxzdHJvbmc+JyArIGVzYyhpbmZvLnNsZCkgKyAnPC9zdHJvbmc+IGFjcm9zcyBwb3B1bGFyIGV4dGVuc2lvbnMuPC9wPjxkaXYgY2xhc3M9ImRjLXRsZC1ncmlkIj4nOwogICAgICAgIHRsZHMuZm9yRWFjaChmdW5jdGlvbih0KXsKICAgICAgICAgIHZhciBhdmFpbCA9IE1hdGgucmFuZG9tKCkgPiAwLjQ1OwogICAgICAgICAgdmFyIGNscyA9IGF2YWlsID8gJ2RjLXRsZC1hdmFpbCcgOiAnZGMtdGxkLXRha2VuJzsKICAgICAgICAgIHZhciBsYWJlbCA9IGF2YWlsID8gJ0xpa2VseSBBdmFpbGFibGUnIDogJ0xpa2VseSBUYWtlbic7CiAgICAgICAgICB0bGRIdG1sICs9ICc8ZGl2IGNsYXNzPSJkYy10bGQtY2FyZCAnICsgY2xzICsgJyI+PHN0cm9uZz4nICsgZXNjKGluZm8uc2xkKSArIHQgKyAnPC9zdHJvbmc+PHNwYW4+JyArIGxhYmVsICsgJzwvc3Bhbj48L2Rpdj4nOwogICAgICAgIH0pOwogICAgICAgIHRsZEh0bWwgKz0gJzwvZGl2Pic7CiAgICAgICAgdGxkR3JpZC5pbm5lckhUTUwgPSB0bGRIdG1sOwoKICAgICAgICBsYXN0UmVzdWx0cyA9IHtkb21haW46IGluZm8uZnVsbCwgYTogYVJlY3MsIG5zOiBuc1JlY3MsIG14OiBteFJlY3MsIHR4dDogdHh0UmVjc307CiAgICAgICAgY29weUJ0bi5zdHlsZS5kaXNwbGF5ID0gJ2lubGluZS1ibG9jayc7CiAgICAgICAgc2hvd1RvYXN0KCdEb21haW4gY2hlY2sgY29tcGxldGUnKTsKICAgICAgfSkuY2F0Y2goZnVuY3Rpb24oKXsKICAgICAgICBzcGlubmVyLnN0eWxlLmRpc3BsYXkgPSAnbm9uZSc7CiAgICAgICAgZG5zUmVzdWx0cy5pbm5lckhUTUwgPSAnPHAgc3R5bGU9ImNvbG9yOnZhcigtLXJlZCkgIWltcG9ydGFudDsiPkZhaWxlZCB0byBmZXRjaCBETlMgcmVjb3Jkcy4gUGxlYXNlIGNoZWNrIHRoZSBkb21haW4gYW5kIHRyeSBhZ2Fpbi48L3A+JzsKICAgICAgfSk7CiAgICB9CgogICAgZnVuY3Rpb24gcmVuZGVyUmVjb3Jkcyh0aXRsZSwgcmVjcywgZm10KXsKICAgICAgaWYoIXJlY3MubGVuZ3RoKSByZXR1cm4gJzxkaXYgY2xhc3M9ImRjLWRucy1ncm91cCI+PGgzPicgKyB0aXRsZSArICc8L2gzPjxwIHN0eWxlPSJjb2xvcjp2YXIoLS1tdXRlZCkgIWltcG9ydGFudDsiPk5vIHJlY29yZHMgZm91bmQ8L3A+PC9kaXY+JzsKICAgICAgdmFyIGggPSAnPGRpdiBjbGFzcz0iZGMtZG5zLWdyb3VwIj48aDM+JyArIHRpdGxlICsgJzwvaDM+PHRhYmxlIGNsYXNzPSJkYy1jb21wYXJlIj48dHI+PHRoPlJlY29yZDwvdGg+PHRoPlZhbHVlPC90aD48dGg+VFRMPC90aD48L3RyPic7CiAgICAgIHJlY3MuZm9yRWFjaChmdW5jdGlvbihyKXsKICAgICAgICBoICs9ICc8dHI+PHRkPicgKyBlc2Moci5uYW1lIHx8ICcnKSArICc8L3RkPjx0ZCBzdHlsZT0id29yZC1icmVhazpicmVhay1hbGwgIWltcG9ydGFudDsiPicgKyBlc2MoZm10KHIpKSArICc8L3RkPjx0ZD4nICsgKHIuVFRMIHx8ICctJykgKyAnczwvdGQ+PC90cj4nOwogICAgICB9KTsKICAgICAgaCArPSAnPC90YWJsZT48L2Rpdj4nOwogICAgICByZXR1cm4gaDsKICAgIH0KCiAgICBmdW5jdGlvbiBlc2Mocyl7CiAgICAgIHZhciBkID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgnZGl2Jyk7CiAgICAgIGQudGV4dENvbnRlbnQgPSBzOwogICAgICByZXR1cm4gZC5pbm5lckhUTUw7CiAgICB9CgogICAgZnVuY3Rpb24gY29weVN1bW1hcnkoKXsKICAgICAgaWYoIWxhc3RSZXN1bHRzKSByZXR1cm47CiAgICAgIHZhciBsaW5lcyA9IFsnRG9tYWluOiAnICsgbGFzdFJlc3VsdHMuZG9tYWluLCAnJ107CiAgICAgIGxpbmVzLnB1c2goJ0EgUmVjb3JkczogJyArIChsYXN0UmVzdWx0cy5hLmxlbmd0aCA/IGxhc3RSZXN1bHRzLmEubWFwKGZ1bmN0aW9uKHIpe3JldHVybiByLmRhdGE7fSkuam9pbignLCAnKSA6ICdOb25lJykpOwogICAgICBsaW5lcy5wdXNoKCdOUyBSZWNvcmRzOiAnICsgKGxhc3RSZXN1bHRzLm5zLmxlbmd0aCA/IGxhc3RSZXN1bHRzLm5zLm1hcChmdW5jdGlvbihyKXtyZXR1cm4gci5kYXRhO30pLmpvaW4oJywgJykgOiAnTm9uZScpKTsKICAgICAgbGluZXMucHVzaCgnTVggUmVjb3JkczogJyArIChsYXN0UmVzdWx0cy5teC5sZW5ndGggPyBsYXN0UmVzdWx0cy5teC5tYXAoZnVuY3Rpb24ocil7cmV0dXJuIHIuZGF0YTt9KS5qb2luKCcsICcpIDogJ05vbmUnKSk7CiAgICAgIGxpbmVzLnB1c2goJ1RYVCBSZWNvcmRzOiAnICsgKGxhc3RSZXN1bHRzLnR4dC5sZW5ndGggPyBsYXN0UmVzdWx0cy50eHQubWFwKGZ1bmN0aW9uKHIpe3JldHVybiByLmRhdGE7fSkuam9pbignLCAnKSA6ICdOb25lJykpOwogICAgICB2YXIgdGV4dCA9IGxpbmVzLmpvaW4oJ1xuJyk7CiAgICAgIGlmKG5hdmlnYXRvci5jbGlwYm9hcmQgJiYgbmF2aWdhdG9yLmNsaXBib2FyZC53cml0ZVRleHQpewogICAgICAgIG5hdmlnYXRvci5jbGlwYm9hcmQud3JpdGVUZXh0KHRleHQpLnRoZW4oZnVuY3Rpb24oKXsgc2hvd1RvYXN0KCdETlMgc3VtbWFyeSBjb3BpZWQnKTsgfSk7CiAgICAgIH0gZWxzZSB7CiAgICAgICAgdmFyIHRhID0gZG9jdW1lbnQuY3JlYXRlRWxlbWVudCgndGV4dGFyZWEnKTsKICAgICAgICB0YS52YWx1ZSA9IHRleHQ7CiAgICAgICAgZG9jdW1lbnQuYm9keS5hcHBlbmRDaGlsZCh0YSk7CiAgICAgICAgdGEuc2VsZWN0KCk7CiAgICAgICAgZG9jdW1lbnQuZXhlY0NvbW1hbmQoJ2NvcHknKTsKICAgICAgICBkb2N1bWVudC5ib2R5LnJlbW92ZUNoaWxkKHRhKTsKICAgICAgICBzaG93VG9hc3QoJ0ROUyBzdW1tYXJ5IGNvcGllZCcpOwogICAgICB9CiAgICB9CgogICAgZnVuY3Rpb24gY2xlYXJBbGwoKXsKICAgICAgaWYoZG9tYWluSW5wdXQpIGRvbWFpbklucHV0LnZhbHVlID0gJyc7CiAgICAgIGlmKHJlc3VsdHNXcmFwKSByZXN1bHRzV3JhcC5zdHlsZS5kaXNwbGF5ID0gJ25vbmUnOwogICAgICBpbmZvVGFibGUuaW5uZXJIVE1MID0gJyc7CiAgICAgIGRuc1Jlc3VsdHMuaW5uZXJIVE1MID0gJyc7CiAgICAgIHRsZEdyaWQuaW5uZXJIVE1MID0gJyc7CiAgICAgIGxhc3RSZXN1bHRzID0gbnVsbDsKICAgICAgY29weUJ0bi5zdHlsZS5kaXNwbGF5ID0gJ25vbmUnOwogICAgICBzaG93VG9hc3QoJ0NsZWFyZWQnKTsKICAgIH0KCiAgICBmdW5jdGlvbiBzaG93VG9hc3QobXNnKXsKICAgICAgaWYoIXRvYXN0KSByZXR1cm47CiAgICAgIHRvYXN0LnRleHRDb250ZW50ID0gbXNnOwogICAgICB0b2FzdC5jbGFzc0xpc3QuYWRkKCdzaG93Jyk7CiAgICAgIHNldFRpbWVvdXQoZnVuY3Rpb24oKXsgdG9hc3QuY2xhc3NMaXN0LnJlbW92ZSgnc2hvdycpOyB9LCAyMjAwKTsKICAgIH0KICB9CgogIGlmKGRvY3VtZW50LnJlYWR5U3RhdGUgPT09ICdsb2FkaW5nJyl7CiAgICBkb2N1bWVudC5hZGRFdmVudExpc3RlbmVyKCdET01Db250ZW50TG9hZGVkJywgaW5pdCk7CiAgfSBlbHNlIHsKICAgIGluaXQoKTsKICB9CiAgc2V0VGltZW91dChpbml0LCAyMDApOwp9KSgpOwo="));</script>
