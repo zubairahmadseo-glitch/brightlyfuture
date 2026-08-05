@@ -1,0 +1,476 @@
+<style>
+#ssl-wrap {
+  --bg: #E8E0F0;
+  --pri: #6C5CE7;
+  --heading: #1A1744;
+  --card-bg: #FFFFFF;
+  --text: #2D2B55;
+  --muted: #6B6490;
+  --card-border: #D0C6E0;
+  --input-bg: #F5F1FA;
+  --input-border: #D0C6E0;
+  --bg-alt: #DDD4EB;
+  --green: #00C897;
+  --red: #EF4444;
+  --yellow: #F59E0B;
+  background: var(--bg) !important;
+  color: var(--text) !important;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  line-height: 1.6 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-sizing: border-box !important;
+}
+#ssl-wrap *, #ssl-wrap *::before, #ssl-wrap *::after { box-sizing: border-box !important; }
+#ssl-wrap img { max-width: 100% !important; }
+#ssl-wrap section { padding: 50px 20px !important; }
+#ssl-wrap .ssl-inner { max-width: 900px !important; margin: 0 auto !important; }
+#ssl-wrap h1, #ssl-wrap h2, #ssl-wrap h3 { color: var(--heading) !important; margin: 0 0 16px 0 !important; font-weight: 800 !important; }
+#ssl-wrap h1 { font-size: 2.4em !important; }
+#ssl-wrap h2 { font-size: 1.8em !important; text-align: center !important; }
+#ssl-wrap h3 { font-size: 1.2em !important; }
+#ssl-wrap p { color: var(--text) !important; margin: 0 0 14px 0 !important; }
+#ssl-wrap a { color: var(--pri) !important; }
+
+#ssl-wrap .ssl-hero { text-align: center !important; padding: 70px 20px 50px !important; background: linear-gradient(180deg, var(--bg-alt), var(--bg)) !important; }
+#ssl-wrap .ssl-hero p { max-width: 640px !important; margin: 0 auto 26px auto !important; color: var(--muted) !important; font-size: 1.1em !important; }
+#ssl-wrap .ssl-btn { display: inline-block !important; background: var(--pri) !important; color: #fff !important; border: none !important; padding: 14px 30px !important; border-radius: 10px !important; font-size: 1.05em !important; font-weight: 700 !important; cursor: pointer !important; }
+#ssl-wrap .ssl-btn:hover { opacity: 0.9 !important; }
+#ssl-wrap .ssl-btn-secondary { background: var(--input-bg) !important; color: var(--pri) !important; border: 2px solid var(--pri) !important; }
+#ssl-wrap .ssl-btn-ghost { background: transparent !important; color: var(--muted) !important; border: 2px solid var(--card-border) !important; }
+
+#ssl-wrap .ssl-tool { background: var(--bg-alt) !important; }
+#ssl-wrap .ssl-card { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 16px !important; padding: 30px !important; max-width: 750px !important; margin: 0 auto !important; box-shadow: 0 4px 18px rgba(108,92,231,0.08) !important; }
+#ssl-wrap .ssl-field { margin-bottom: 18px !important; text-align: left !important; }
+#ssl-wrap label { display: block !important; font-weight: 700 !important; margin-bottom: 6px !important; color: var(--heading) !important; font-size: 0.95em !important; }
+#ssl-wrap input[type="text"] {
+  width: 100% !important; padding: 12px 14px !important; border: 1px solid var(--input-border) !important;
+  border-radius: 8px !important; background: var(--input-bg) !important; color: var(--text) !important;
+  font-size: 1em !important; font-family: inherit !important;
+}
+#ssl-wrap input[type="text"]:focus { outline: 2px solid var(--pri) !important; }
+#ssl-wrap .ssl-btnrow { display: flex !important; flex-wrap: wrap !important; gap: 12px !important; margin-top: 8px !important; }
+#ssl-wrap .ssl-btnrow .ssl-btn, #ssl-wrap .ssl-btnrow .ssl-btn-secondary, #ssl-wrap .ssl-btnrow .ssl-btn-ghost { flex: 1 1 auto !important; }
+
+#ssl-wrap #loadingWrap { display: none !important; text-align: center !important; padding: 30px !important; }
+#ssl-wrap .ssl-spinner { display: inline-block !important; width: 36px !important; height: 36px !important; border: 4px solid var(--card-border) !important; border-top-color: var(--pri) !important; border-radius: 50% !important; animation: ssl-spin 0.8s linear infinite !important; }
+@keyframes ssl-spin { to { transform: rotate(360deg); } }
+
+#ssl-wrap #resultsWrap { display: none !important; max-width: 750px !important; margin: 26px auto 0 auto !important; }
+#ssl-wrap .ssl-grade-wrap { text-align: center !important; margin-bottom: 20px !important; }
+#ssl-wrap .ssl-grade-badge { display: inline-flex !important; align-items: center !important; justify-content: center !important; width: 80px !important; height: 80px !important; border-radius: 14px !important; color: #fff !important; font-size: 2.4em !important; font-weight: 900 !important; margin-bottom: 10px !important; }
+#ssl-wrap .ssl-grade-label { font-size: 1.05em !important; color: var(--muted) !important; }
+#ssl-wrap .ssl-checks { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 12px !important; padding: 18px !important; margin-bottom: 18px !important; }
+#ssl-wrap .ssl-check-item { padding: 8px 0 !important; border-bottom: 1px solid var(--input-bg) !important; font-size: 0.95em !important; }
+#ssl-wrap .ssl-check-item:last-child { border-bottom: none !important; }
+#ssl-wrap .ssl-ok { color: var(--green) !important; font-weight: 700 !important; }
+#ssl-wrap .ssl-fail { color: var(--red) !important; font-weight: 700 !important; }
+#ssl-wrap .ssl-expiry-bar-wrap { margin-top: 14px !important; }
+#ssl-wrap .ssl-expiry-label { font-size: 0.9em !important; color: var(--muted) !important; margin-bottom: 6px !important; }
+#ssl-wrap .ssl-expiry-bar { background: var(--input-bg) !important; border-radius: 8px !important; height: 14px !important; overflow: hidden !important; }
+#ssl-wrap .ssl-expiry-fill { height: 100% !important; border-radius: 8px !important; transition: width 0.5s ease !important; }
+
+#ssl-wrap .ssl-features { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 18px !important; }
+#ssl-wrap .ssl-feature-card { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 14px !important; padding: 22px !important; }
+#ssl-wrap .ssl-feature-card .icon { font-size: 1.8em !important; margin-bottom: 10px !important; }
+
+#ssl-wrap .ssl-steps { counter-reset: ssl-step !important; }
+#ssl-wrap .ssl-step { display: flex !important; gap: 16px !important; margin-bottom: 18px !important; align-items: flex-start !important; }
+#ssl-wrap .ssl-step-num { flex: 0 0 auto !important; width: 34px !important; height: 34px !important; border-radius: 50% !important; background: var(--pri) !important; color: #fff !important; display: flex !important; align-items: center !important; justify-content: center !important; font-weight: 800 !important; }
+
+#ssl-wrap table.ssl-compare { width: 100% !important; border-collapse: collapse !important; background: var(--card-bg) !important; border-radius: 12px !important; overflow: hidden !important; }
+#ssl-wrap table.ssl-compare th, #ssl-wrap table.ssl-compare td { padding: 12px 14px !important; text-align: left !important; border-bottom: 1px solid var(--card-border) !important; font-size: 0.92em !important; }
+#ssl-wrap table.ssl-compare th { background: var(--pri) !important; color: #fff !important; }
+#ssl-wrap table.ssl-compare tr:nth-child(even) td { background: var(--input-bg) !important; }
+#ssl-wrap .ssl-tablewrap { overflow-x: auto !important; }
+
+#ssl-wrap .ssl-doslist { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 20px !important; }
+#ssl-wrap .ssl-do, #ssl-wrap .ssl-dont { background: var(--card-bg) !important; border-radius: 14px !important; padding: 20px !important; border: 1px solid var(--card-border) !important; }
+#ssl-wrap .ssl-do { border-top: 4px solid var(--green) !important; }
+#ssl-wrap .ssl-dont { border-top: 4px solid var(--red) !important; }
+#ssl-wrap .ssl-do ul li, #ssl-wrap .ssl-dont ul li { margin-bottom: 8px !important; }
+
+#ssl-wrap .ssl-audience { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 18px !important; }
+#ssl-wrap .ssl-audience-card { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 14px !important; padding: 22px !important; }
+#ssl-wrap .ssl-audience-card .icon { font-size: 1.8em !important; margin-bottom: 10px !important; }
+
+#ssl-wrap .ssl-error-grid { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 16px !important; }
+#ssl-wrap .ssl-error-card { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 14px !important; padding: 20px !important; border-left: 4px solid var(--red) !important; }
+
+#ssl-wrap .ssl-cert-types { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 18px !important; }
+#ssl-wrap .ssl-cert-card { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 14px !important; padding: 22px !important; text-align: center !important; }
+
+#ssl-wrap .faq-item { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 12px !important; margin-bottom: 10px !important; overflow: hidden !important; }
+#ssl-wrap .faq-q { width: 100% !important; text-align: left !important; background: transparent !important; border: none !important; padding: 16px 18px !important; font-weight: 700 !important; color: var(--heading) !important; cursor: pointer !important; font-size: 1em !important; display: flex !important; justify-content: space-between !important; align-items: center !important; }
+#ssl-wrap .faq-a { max-height: 0 !important; overflow: hidden !important; padding: 0 18px !important; color: var(--muted) !important; transition: max-height 0.25s ease, padding 0.25s ease !important; }
+#ssl-wrap .faq-item.open .faq-a { max-height: 500px !important; padding: 0 18px 16px 18px !important; }
+#ssl-wrap .faq-q::after { content: "+" !important; font-size: 1.3em !important; color: var(--pri) !important; }
+#ssl-wrap .faq-item.open .faq-q::after { content: "\2212" !important; }
+
+#ssl-wrap #toast { position: fixed !important; bottom: 24px !important; left: 50% !important; transform: translateX(-50%) translateY(20px) !important; background: var(--heading) !important; color: #fff !important; padding: 12px 22px !important; border-radius: 10px !important; opacity: 0 !important; pointer-events: none !important; transition: opacity 0.25s, transform 0.25s !important; z-index: 9999 !important; font-size: 0.9em !important; }
+#ssl-wrap #toast.show { opacity: 1 !important; transform: translateX(-50%) translateY(0) !important; }
+
+@media (max-width: 640px) {
+  #ssl-wrap .ssl-features { grid-template-columns: 1fr !important; }
+  #ssl-wrap .ssl-audience { grid-template-columns: 1fr !important; }
+  #ssl-wrap .ssl-cert-types { grid-template-columns: 1fr !important; }
+  #ssl-wrap .ssl-error-grid { grid-template-columns: 1fr !important; }
+  #ssl-wrap .ssl-doslist { grid-template-columns: 1fr !important; }
+  #ssl-wrap h1 { font-size: 1.8em !important; }
+}
+</style>
+<div id="ssl-wrap">
+
+<section class="ssl-hero">
+  <div class="ssl-inner">
+    <h1>Free SSL Certificate Checker</h1>
+    <p>Instantly check any website's SSL/TLS certificate status, expiry date, issuer details, and security grade. No signup required, completely free, and unlimited checks.</p>
+    <button type="button" class="ssl-btn" id="ctaBtn">Check SSL Certificate Now</button>
+  </div>
+</section>
+
+<section class="ssl-tool">
+  <div class="ssl-inner">
+    <h2>SSL Certificate Checker Tool</h2>
+    <div class="ssl-card">
+      <div class="ssl-field">
+        <label for="domainInput">Domain Name or URL</label>
+        <input type="text" id="domainInput" placeholder="e.g. example.com or https://www.example.com">
+      </div>
+      <div class="ssl-btnrow">
+        <button type="button" class="ssl-btn" id="checkBtn">Check SSL Certificate</button>
+        <button type="button" class="ssl-btn-ghost" id="copyBtn" style="display:none">Copy Results</button>
+        <button type="button" class="ssl-btn-ghost" id="clearBtn">Clear All</button>
+      </div>
+    </div>
+    <div id="loadingWrap"><div class="ssl-spinner"></div><p>Checking SSL certificate...</p></div>
+    <div id="resultsWrap"></div>
+  </div>
+</section>
+
+<section>
+  <div class="ssl-inner">
+    <h2>What Is an SSL Certificate Checker?</h2>
+    <p>An SSL certificate checker is a tool that verifies the security status of a website's SSL/TLS certificate. SSL (Secure Sockets Layer) and its successor TLS (Transport Layer Security) are cryptographic protocols that encrypt data between a user's browser and a web server. When a site has a valid SSL certificate, the browser displays a padlock icon and uses HTTPS instead of HTTP.</p>
+    <p>Checking SSL certificates matters because expired, misconfigured, or missing certificates create security vulnerabilities and erode visitor trust. Browsers like Chrome and Firefox display prominent "Not Secure" warnings for sites without valid SSL, which drives visitors away and hurts search engine rankings.</p>
+    <p>This free SSL certificate checker uses Certificate Transparency logs and DNS resolution to verify your domain's certificate status, identify the issuing authority, check expiry dates, and assign a security grade from A (excellent) to F (failing). It gives you a quick snapshot of your site's SSL health without needing any technical expertise.</p>
+  </div>
+</section>
+
+<section style="background:var(--bg-alt)">
+  <div class="ssl-inner">
+    <h2>How to Use This Free SSL Checker</h2>
+    <div class="ssl-steps">
+      <div class="ssl-step">
+        <div class="ssl-step-num">1</div>
+        <div><h3>Enter Any Domain Name or Full URL</h3><p>Type or paste a domain like example.com or a full URL like https://www.example.com. The tool automatically strips the protocol, www prefix, and any path segments.</p></div>
+      </div>
+      <div class="ssl-step">
+        <div class="ssl-step-num">2</div>
+        <div><h3>Click "Check SSL Certificate"</h3><p>Press the button or hit Enter to start the check. The tool queries Certificate Transparency logs and performs a DNS resolution lookup simultaneously.</p></div>
+      </div>
+      <div class="ssl-step">
+        <div class="ssl-step-num">3</div>
+        <div><h3>View Your SSL Security Grade (A through F)</h3><p>A large colored badge displays your grade. Grade A means your certificate is valid with more than 30 days remaining and DNS resolves correctly. Grade F indicates an expired or missing certificate.</p></div>
+      </div>
+      <div class="ssl-step">
+        <div class="ssl-step-num">4</div>
+        <div><h3>Review Certificate Details Including Issuer and Expiry</h3><p>See the certificate authority that issued your SSL, the expiry date with a countdown in days, common name, serial number, and a visual progress bar showing remaining validity.</p></div>
+      </div>
+      <div class="ssl-step">
+        <div class="ssl-step-num">5</div>
+        <div><h3>Copy Results or Check Another Domain</h3><p>Use the Copy Results button to save your findings to the clipboard, or clear the form and check another domain. You can run unlimited checks with no restrictions.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="ssl-inner">
+    <h2>Key Features</h2>
+    <div class="ssl-features">
+      <div class="ssl-feature-card">
+        <div class="icon">&#128270;</div>
+        <h3>Certificate Transparency Lookup</h3>
+        <p>Queries the crt.sh database of Certificate Transparency logs to find publicly issued certificates for your domain, giving you verified certificate data.</p>
+      </div>
+      <div class="ssl-feature-card">
+        <div class="icon">&#127942;</div>
+        <h3>SSL Grade Rating (A to F)</h3>
+        <p>Assigns a clear letter grade based on certificate validity, days remaining before expiry, and DNS resolution status so you can see your site's health at a glance.</p>
+      </div>
+      <div class="ssl-feature-card">
+        <div class="icon">&#9200;</div>
+        <h3>Expiry Countdown</h3>
+        <p>Shows exactly how many days remain before your SSL certificate expires, with a color-coded progress bar that turns red when renewal is urgent.</p>
+      </div>
+      <div class="ssl-feature-card">
+        <div class="icon">&#127760;</div>
+        <h3>DNS Resolution Check</h3>
+        <p>Uses Cloudflare DNS-over-HTTPS to verify that your domain resolves to an IP address, confirming the site is reachable and properly configured.</p>
+      </div>
+      <div class="ssl-feature-card">
+        <div class="icon">&#128273;</div>
+        <h3>Issuer Identification</h3>
+        <p>Identifies the Certificate Authority that issued your SSL certificate, with friendly names for popular issuers like Let's Encrypt, DigiCert, Comodo, and more.</p>
+      </div>
+      <div class="ssl-feature-card">
+        <div class="icon">&#128203;</div>
+        <h3>One-Click Copy</h3>
+        <p>Copy your complete SSL check results to the clipboard with a single click. Perfect for sharing with your team, adding to reports, or documenting your site's security status.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg-alt)">
+  <div class="ssl-inner">
+    <h2>Understanding SSL/TLS Certificates</h2>
+    <p style="text-align:center;max-width:700px;margin:0 auto 24px auto;color:var(--muted)">SSL certificates come in three validation levels, each providing a different degree of identity verification and trust.</p>
+    <div class="ssl-cert-types">
+      <div class="ssl-cert-card">
+        <h3>DV - Domain Validation</h3>
+        <p>Verifies only that you own or control the domain. The Certificate Authority confirms domain ownership through email, DNS record, or file upload. This is the fastest and cheapest option, often free through providers like Let's Encrypt. Best for personal websites, blogs, and small projects.</p>
+      </div>
+      <div class="ssl-cert-card">
+        <h3>OV - Organization Validation</h3>
+        <p>Verifies domain ownership plus the legal identity of your organization. The CA checks business registration documents and confirms the organization exists. Takes 1 to 3 business days to issue. Best for business websites, corporate portals, and applications that handle user data.</p>
+      </div>
+      <div class="ssl-cert-card">
+        <h3>EV - Extended Validation</h3>
+        <p>The highest level of validation, requiring thorough vetting of your organization's legal, physical, and operational existence. The CA verifies government records, physical address, and authorized contacts. Takes up to 2 weeks. Best for e-commerce sites, banks, and high-trust applications.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="ssl-inner">
+    <h2>Free vs Paid SSL Certificates</h2>
+    <div class="ssl-tablewrap">
+      <table class="ssl-compare">
+        <tr><th>Feature</th><th>Free (Let's Encrypt)</th><th>Paid (Comodo, DigiCert)</th></tr>
+        <tr><td>Cost</td><td>$0</td><td>$10 to $1,500+ per year</td></tr>
+        <tr><td>Validation Level</td><td>DV only</td><td>DV, OV, or EV</td></tr>
+        <tr><td>Warranty</td><td>None</td><td>$10,000 to $1,750,000</td></tr>
+        <tr><td>Wildcard Support</td><td>Yes (via DNS challenge)</td><td>Yes</td></tr>
+        <tr><td>Auto-Renewal</td><td>Yes (every 90 days)</td><td>Annual renewal, some auto-renew</td></tr>
+        <tr><td>Trust Level</td><td>Standard browser trust</td><td>Higher with OV/EV indicators</td></tr>
+        <tr><td>Best For</td><td>Blogs, personal sites, small businesses</td><td>E-commerce, enterprise, financial sites</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg-alt)">
+  <div class="ssl-inner">
+    <h2>Why SSL Matters for SEO</h2>
+    <p>Google confirmed HTTPS as a ranking signal back in 2014, and its importance has only grown since then. Websites with valid SSL certificates receive a small but meaningful boost in search engine rankings compared to HTTP-only sites. While SSL alone will not push a site to position one, it is one of the many signals that Google considers when determining where to rank your pages.</p>
+    <p>Beyond rankings, SSL directly affects user behavior metrics that influence SEO. When Chrome displays a "Not Secure" warning on an HTTP page, visitors are more likely to bounce immediately. High bounce rates and low dwell time send negative signals to search engines, potentially dragging your rankings down over time.</p>
+    <p>Mixed content is another common SSL-related SEO issue. If your site loads over HTTPS but includes images, scripts, or stylesheets from HTTP sources, browsers may block that content or display warnings. This can break page functionality and harm Core Web Vitals scores, which are also ranking factors. Always audit your site for mixed content after installing an SSL certificate to ensure everything loads securely.</p>
+  </div>
+</section>
+
+<section>
+  <div class="ssl-inner">
+    <h2>Common SSL Errors and How to Fix Them</h2>
+    <div class="ssl-error-grid">
+      <div class="ssl-error-card">
+        <h3>ERR_CERT_DATE_INVALID</h3>
+        <p>Your SSL certificate has expired. Renew it through your Certificate Authority or hosting provider. If you use Let's Encrypt, check that your auto-renewal cron job or certbot timer is working correctly.</p>
+      </div>
+      <div class="ssl-error-card">
+        <h3>ERR_CERT_COMMON_NAME_INVALID</h3>
+        <p>The domain in your browser does not match the domain on the certificate. This happens when you access a site via a subdomain or alias not covered by the cert. Get a certificate that includes all your domain variations, or use a wildcard certificate.</p>
+      </div>
+      <div class="ssl-error-card">
+        <h3>ERR_CERT_AUTHORITY_INVALID</h3>
+        <p>The certificate was issued by an untrusted Certificate Authority, or it is self-signed. Replace it with a certificate from a trusted public CA. Self-signed certificates should only be used in development environments, never in production.</p>
+      </div>
+      <div class="ssl-error-card">
+        <h3>NET_ERR_CERT_REVOKED</h3>
+        <p>The Certificate Authority has revoked this certificate, usually due to a security compromise or key leak. You need to generate a new private key and request a completely new certificate from your CA.</p>
+      </div>
+      <div class="ssl-error-card">
+        <h3>Mixed Content Warnings</h3>
+        <p>Your HTTPS page loads some resources (images, scripts, CSS) over plain HTTP. Update all resource URLs to use HTTPS, or use protocol-relative URLs. Check your database and theme files for hardcoded HTTP links.</p>
+      </div>
+      <div class="ssl-error-card">
+        <h3>ERR_SSL_PROTOCOL_ERROR</h3>
+        <p>The server's SSL/TLS configuration is incorrect or uses outdated protocols. Ensure your server supports TLS 1.2 or TLS 1.3 and has disabled older protocols like SSL 3.0 and TLS 1.0. Check your web server configuration file for proper cipher suite settings.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg-alt)">
+  <div class="ssl-inner">
+    <h2>Do's and Don'ts of SSL Management</h2>
+    <div class="ssl-doslist">
+      <div class="ssl-do">
+        <h3>Do's</h3>
+        <ul>
+          <li>Renew your SSL certificate well before it expires, ideally 30 days in advance</li>
+          <li>Enable auto-renewal with your CA or hosting provider to avoid lapses</li>
+          <li>Set up 301 redirects from HTTP to HTTPS for all pages</li>
+          <li>Regularly audit your site for mixed content issues after enabling SSL</li>
+          <li>Monitor your certificate health monthly using tools like this SSL checker</li>
+        </ul>
+      </div>
+      <div class="ssl-dont">
+        <h3>Don'ts</h3>
+        <ul>
+          <li>Ignore browser security warnings about certificate problems</li>
+          <li>Use self-signed certificates on production or public-facing websites</li>
+          <li>Forget to update your SSL certificate after a domain name change</li>
+          <li>Let certificates expire, causing downtime and lost visitor trust</li>
+          <li>Skip regular certificate monitoring, assuming everything is always fine</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="ssl-inner">
+    <h2>SSL Checker vs Other Tools</h2>
+    <div class="ssl-tablewrap">
+      <table class="ssl-compare">
+        <tr><th>Feature</th><th>BrightlyFuture SSL Checker</th><th>SSL Labs</th><th>Why No SSL</th></tr>
+        <tr><td>Price</td><td>Free</td><td>Free</td><td>Free</td></tr>
+        <tr><td>Signup Required</td><td>No</td><td>No</td><td>No</td></tr>
+        <tr><td>Certificate Found</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+        <tr><td>Expiry Check</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+        <tr><td>Grade Rating</td><td>A to F</td><td>A+ to F</td><td>No</td></tr>
+        <tr><td>DNS Check</td><td>Yes</td><td>No</td><td>No</td></tr>
+        <tr><td>Speed</td><td>2 to 5 seconds</td><td>60 to 120 seconds</td><td>5 to 10 seconds</td></tr>
+        <tr><td>Full Chain Analysis</td><td>No</td><td>Yes</td><td>No</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg-alt)">
+  <div class="ssl-inner">
+    <h2>Who Should Use This Tool?</h2>
+    <div class="ssl-audience">
+      <div class="ssl-audience-card">
+        <div class="icon">&#127968;</div>
+        <h3>Website Owners</h3>
+        <p>Quickly verify your site's SSL status and catch expiring certificates before they cause browser warnings that scare away visitors and hurt your business.</p>
+      </div>
+      <div class="ssl-audience-card">
+        <div class="icon">&#128200;</div>
+        <h3>SEO Professionals</h3>
+        <p>Check client websites for SSL issues that could be dragging down search rankings. Include SSL audit results in your site health reports and recommendations.</p>
+      </div>
+      <div class="ssl-audience-card">
+        <div class="icon">&#128187;</div>
+        <h3>Web Developers</h3>
+        <p>Verify SSL configuration after deployments, domain migrations, or server changes. Confirm that new certificates are properly installed and recognized in CT logs.</p>
+      </div>
+      <div class="ssl-audience-card">
+        <div class="icon">&#128226;</div>
+        <h3>Digital Marketers</h3>
+        <p>Ensure landing pages and campaign URLs have valid SSL before launching ads. Broken SSL on a paid landing page wastes ad spend and kills conversion rates.</p>
+      </div>
+      <div class="ssl-audience-card">
+        <div class="icon">&#9881;</div>
+        <h3>System Administrators</h3>
+        <p>Monitor SSL expiry dates across multiple domains and servers. Set up regular checks to prevent certificate-related outages and maintain uptime SLAs.</p>
+      </div>
+      <div class="ssl-audience-card">
+        <div class="icon">&#9997;</div>
+        <h3>Bloggers and Content Creators</h3>
+        <p>Make sure your blog or portfolio has working SSL so readers see a secure connection. A "Not Secure" warning can instantly destroy credibility with your audience.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="ssl-inner">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">What is an SSL certificate?</button>
+      <div class="faq-a"><p>An SSL certificate is a digital file that authenticates a website's identity and enables encrypted communication between a web browser and a server. It contains the website's public key, the domain name it was issued for, the issuing Certificate Authority, and an expiry date. When installed correctly, it changes the site's URL from HTTP to HTTPS and displays a padlock icon in the browser address bar.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">How does this SSL checker work?</button>
+      <div class="faq-a"><p>This tool performs two lookups simultaneously. First, it queries the crt.sh Certificate Transparency database to find publicly logged certificates for your domain. Second, it uses Cloudflare DNS-over-HTTPS to verify that your domain resolves to a valid IP address. It then combines these results to calculate a security grade from A to F based on certificate validity, remaining days, and DNS status.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">Is this SSL checker free to use?</button>
+      <div class="faq-a"><p>Yes, this SSL certificate checker is completely free with no limits on the number of checks you can perform. There is no signup required, no email collection, and no hidden fees. You can check as many domains as you want, as often as you need, without creating an account or providing any personal information.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">What do the SSL grades (A, B, C, F) mean?</button>
+      <div class="faq-a"><p>Grade A means a valid certificate was found with more than 30 days until expiry and DNS resolves correctly. Grade B indicates a valid certificate with 8 to 30 days remaining. Grade C means the certificate expires within 7 days or fewer and needs immediate renewal. Grade F means no certificate was found in CT logs or the certificate has already expired.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">What is Certificate Transparency?</button>
+      <div class="faq-a"><p>Certificate Transparency (CT) is an open framework that logs all publicly issued SSL certificates in append-only, publicly auditable logs. It was created by Google to detect fraudulently or mistakenly issued certificates. When a Certificate Authority issues an SSL certificate, it submits a record to CT logs. This tool queries those logs through crt.sh to find certificate information for any domain.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">How often should I check my SSL certificate?</button>
+      <div class="faq-a"><p>You should check your SSL certificate at least once a month to ensure it is valid and not approaching expiry. If you use certificates with shorter validity periods (like Let's Encrypt's 90-day certificates), check more frequently, ideally every two weeks. You should also check immediately after making server changes, domain migrations, or hosting provider switches.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">What happens when an SSL certificate expires?</button>
+      <div class="faq-a"><p>When an SSL certificate expires, browsers display a full-page security warning that blocks visitors from accessing your site without manually overriding the warning. Most visitors will leave immediately rather than bypass the warning. This leads to lost traffic, lost revenue, damaged brand reputation, and potential drops in search engine rankings. Search engines may also demote your pages in results.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">What is the difference between SSL and TLS?</button>
+      <div class="faq-a"><p>TLS (Transport Layer Security) is the successor to SSL (Secure Sockets Layer). SSL was the original protocol but had security vulnerabilities that led to TLS being developed as a replacement. Today, all modern "SSL certificates" actually use TLS protocols (TLS 1.2 or TLS 1.3). The term "SSL" persists in common usage because it is more widely recognized, but technically the industry has moved entirely to TLS.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">Do I need an SSL certificate for my website?</button>
+      <div class="faq-a"><p>Yes. Every website should have an SSL certificate, regardless of whether it handles sensitive data. Google uses HTTPS as a ranking signal, and browsers mark HTTP sites as "Not Secure." Even a simple blog or portfolio benefits from SSL because it protects visitor privacy, builds trust, and prevents your content from being tampered with by intermediaries like ISPs or public WiFi networks.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">What is a wildcard SSL certificate?</button>
+      <div class="faq-a"><p>A wildcard SSL certificate secures a domain and all its first-level subdomains with a single certificate. For example, a wildcard certificate for *.example.com covers www.example.com, blog.example.com, shop.example.com, and any other subdomain. It does not cover second-level subdomains like dev.blog.example.com. Wildcard certificates are cost-effective when you manage many subdomains.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">How do I fix an expired SSL certificate?</button>
+      <div class="faq-a"><p>To fix an expired certificate, log into your Certificate Authority or hosting control panel and renew the certificate. If you use Let's Encrypt, run the certbot renew command on your server. After renewal, restart your web server (Apache, Nginx, or similar) to load the new certificate. Then use this SSL checker to confirm the new certificate is active and has a future expiry date.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">What is the difference between DV, OV, and EV certificates?</button>
+      <div class="faq-a"><p>DV (Domain Validation) certificates only verify domain ownership and can be issued in minutes. OV (Organization Validation) certificates verify both domain ownership and the legal existence of your organization, taking 1 to 3 days. EV (Extended Validation) certificates require the most thorough vetting of your organization and can take up to 2 weeks. All three provide the same level of encryption, but differ in the identity assurance they provide to visitors.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">Can I use a free SSL certificate for my online store?</button>
+      <div class="faq-a"><p>You can use a free DV certificate from Let's Encrypt for a small online store, and it will provide the same encryption strength as a paid certificate. However, for larger e-commerce operations, a paid OV or EV certificate is recommended because it provides warranty coverage against CA errors, organization identity verification, and may increase customer confidence at checkout.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">Why does my browser show "Not Secure" even with SSL?</button>
+      <div class="faq-a"><p>This usually happens because of mixed content. Your page loads over HTTPS, but some resources like images, scripts, or stylesheets are loaded over plain HTTP. To fix this, update all resource URLs in your HTML, CSS, and database to use HTTPS. It can also occur if your SSL certificate has expired, is self-signed, or does not match your current domain name.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">How long does it take for an SSL certificate to activate?</button>
+      <div class="faq-a"><p>DV certificates from providers like Let's Encrypt activate within minutes after domain verification. OV certificates typically take 1 to 3 business days because the CA must verify your organization's identity. EV certificates can take 1 to 2 weeks due to extensive vetting requirements. Once issued and installed on your server, the certificate is active immediately. It may take a few hours for Certificate Transparency logs to index the new certificate.</p></div>
+    </div>
+
+  </div>
+</section>
+
+<div id="toast"></div>
+
+</div><!-- /ssl-wrap -->
+<script>eval(atob("KGZ1bmN0aW9uKCl7CiAgZnVuY3Rpb24gaW5pdCgpewogICAgaWYod2luZG93Ll9fc3NsSW5pdCkgcmV0dXJuOwogICAgdmFyIHdyYXAgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnc3NsLXdyYXAnKTsKICAgIGlmKCF3cmFwKSByZXR1cm47CiAgICB3aW5kb3cuX19zc2xJbml0ID0gdHJ1ZTsKCiAgICB2YXIgY2hlY2tCdG4gPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnY2hlY2tCdG4nKTsKICAgIHZhciBjbGVhckJ0biA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdjbGVhckJ0bicpOwogICAgdmFyIGNvcHlCdG4gPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnY29weUJ0bicpOwogICAgdmFyIGN0YUJ0biA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdjdGFCdG4nKTsKICAgIHZhciBkb21haW5JbnB1dCA9IGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdkb21haW5JbnB1dCcpOwogICAgdmFyIHJlc3VsdHNXcmFwID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3Jlc3VsdHNXcmFwJyk7CiAgICB2YXIgbG9hZGluZ1dyYXAgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnbG9hZGluZ1dyYXAnKTsKICAgIHZhciB0b2FzdEVsID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3RvYXN0Jyk7CgogICAgZnVuY3Rpb24gc2hvd1RvYXN0KG1zZyl7CiAgICAgIGlmKCF0b2FzdEVsKSByZXR1cm47CiAgICAgIHRvYXN0RWwudGV4dENvbnRlbnQgPSBtc2c7CiAgICAgIHRvYXN0RWwuY2xhc3NMaXN0LmFkZCgnc2hvdycpOwogICAgICBzZXRUaW1lb3V0KGZ1bmN0aW9uKCl7IHRvYXN0RWwuY2xhc3NMaXN0LnJlbW92ZSgnc2hvdycpOyB9LCAyNTAwKTsKICAgIH0KCiAgICBmdW5jdGlvbiBjbGVhbkRvbWFpbihpbnB1dCl7CiAgICAgIHZhciBkID0gaW5wdXQudHJpbSgpLnRvTG93ZXJDYXNlKCk7CiAgICAgIGQgPSBkLnJlcGxhY2UoL15odHRwcz86XC9cLy8sICcnKTsKICAgICAgZCA9IGQucmVwbGFjZSgvXC8uKiQvLCAnJyk7CiAgICAgIGQgPSBkLnJlcGxhY2UoL153d3dcLi8sICcnKTsKICAgICAgZCA9IGQucmVwbGFjZSgvOi4qJC8sICcnKTsKICAgICAgcmV0dXJuIGQ7CiAgICB9CgogICAgZnVuY3Rpb24gaXNWYWxpZERvbWFpbihkKXsKICAgICAgcmV0dXJuIC9eW2EtejAtOV0oW2EtejAtOS1dKlthLXowLTldKT8oXC5bYS16MC05XShbYS16MC05LV0qW2EtejAtOV0pPykrJC8udGVzdChkKTsKICAgIH0KCiAgICBmdW5jdGlvbiBmcmllbmRseUlzc3Vlcihpc3N1ZXIpewogICAgICBpZighaXNzdWVyKSByZXR1cm4gJ1Vua25vd24nOwogICAgICB2YXIgaSA9IGlzc3Vlci50b0xvd2VyQ2FzZSgpOwogICAgICBpZihpLmluZGV4T2YoImxldCdzIGVuY3J5cHQiKSAhPT0gLTEgfHwgaS5pbmRleE9mKCdsZXRzZW5jcnlwdCcpICE9PSAtMSB8fCBpLmluZGV4T2YoJ3IzJykgIT09IC0xIHx8IGkuaW5kZXhPZigncjEwJykgIT09IC0xIHx8IGkuaW5kZXhPZigncjExJykgIT09IC0xIHx8IGkuaW5kZXhPZignZTUnKSAhPT0gLTEgfHwgaS5pbmRleE9mKCdlNicpICE9PSAtMSkgcmV0dXJuICJMZXQncyBFbmNyeXB0IjsKICAgICAgaWYoaS5pbmRleE9mKCdkaWdpY2VydCcpICE9PSAtMSkgcmV0dXJuICdEaWdpQ2VydCc7CiAgICAgIGlmKGkuaW5kZXhPZignY29tb2RvJykgIT09IC0xIHx8IGkuaW5kZXhPZignc2VjdGlnbycpICE9PSAtMSkgcmV0dXJuICdDb21vZG8gLyBTZWN0aWdvJzsKICAgICAgaWYoaS5pbmRleE9mKCdnZW90cnVzdCcpICE9PSAtMSkgcmV0dXJuICdHZW9UcnVzdCc7CiAgICAgIGlmKGkuaW5kZXhPZignZ2xvYmFsc2lnbicpICE9PSAtMSkgcmV0dXJuICdHbG9iYWxTaWduJzsKICAgICAgaWYoaS5pbmRleE9mKCdnb29nbGUnKSAhPT0gLTEpIHJldHVybiAnR29vZ2xlIFRydXN0IFNlcnZpY2VzJzsKICAgICAgaWYoaS5pbmRleE9mKCdhbWF6b24nKSAhPT0gLTEpIHJldHVybiAnQW1hem9uJzsKICAgICAgaWYoaS5pbmRleE9mKCdjbG91ZGZsYXJlJykgIT09IC0xKSByZXR1cm4gJ0Nsb3VkZmxhcmUnOwogICAgICBpZihpLmluZGV4T2YoJ2dvZGFkZHknKSAhPT0gLTEgfHwgaS5pbmRleE9mKCdnbyBkYWRkeScpICE9PSAtMSkgcmV0dXJuICdHb0RhZGR5JzsKICAgICAgcmV0dXJuIGlzc3Vlci5sZW5ndGggPiA2MCA/IGlzc3Vlci5zdWJzdHJpbmcoMCwgNTcpICsgJy4uLicgOiBpc3N1ZXI7CiAgICB9CgogICAgZnVuY3Rpb24gZ2V0R3JhZGUoY2VydEZvdW5kLCBleHBpcmVkLCBkYXlzTGVmdCwgZG5zT2spewogICAgICBpZighY2VydEZvdW5kIHx8IGV4cGlyZWQpIHJldHVybiAnRic7CiAgICAgIGlmKGRheXNMZWZ0ID4gMzAgJiYgZG5zT2spIHJldHVybiAnQSc7CiAgICAgIGlmKGRheXNMZWZ0ID4gNykgcmV0dXJuICdCJzsKICAgICAgcmV0dXJuICdDJzsKICAgIH0KCiAgICBmdW5jdGlvbiBncmFkZUNvbG9yKGdyYWRlKXsKICAgICAgaWYoZ3JhZGUgPT09ICdBJykgcmV0dXJuICcjMDBDODk3JzsKICAgICAgaWYoZ3JhZGUgPT09ICdCJykgcmV0dXJuICcjRjU5RTBCJzsKICAgICAgaWYoZ3JhZGUgPT09ICdDJykgcmV0dXJuICcjRjk3MzE2JzsKICAgICAgcmV0dXJuICcjRUY0NDQ0JzsKICAgIH0KCiAgICBmdW5jdGlvbiBiYXJDb2xvcihkYXlzKXsKICAgICAgaWYoZGF5cyA+IDYwKSByZXR1cm4gJyMwMEM4OTcnOwogICAgICBpZihkYXlzID4gMTQpIHJldHVybiAnI0Y1OUUwQic7CiAgICAgIHJldHVybiAnI0VGNDQ0NCc7CiAgICB9CgogICAgZnVuY3Rpb24gY2hlY2tTU0woKXsKICAgICAgdmFyIHJhdyA9IGRvbWFpbklucHV0ID8gZG9tYWluSW5wdXQudmFsdWUgOiAnJzsKICAgICAgdmFyIGRvbWFpbiA9IGNsZWFuRG9tYWluKHJhdyk7CiAgICAgIGlmKCFkb21haW4gfHwgIWlzVmFsaWREb21haW4oZG9tYWluKSl7CiAgICAgICAgc2hvd1RvYXN0KCdQbGVhc2UgZW50ZXIgYSB2YWxpZCBkb21haW4gbmFtZScpOwogICAgICAgIHJldHVybjsKICAgICAgfQoKICAgICAgaWYocmVzdWx0c1dyYXApIHJlc3VsdHNXcmFwLnN0eWxlLmRpc3BsYXkgPSAnbm9uZSc7CiAgICAgIGlmKGxvYWRpbmdXcmFwKSBsb2FkaW5nV3JhcC5zdHlsZS5kaXNwbGF5ID0gJ2Jsb2NrJzsKCiAgICAgIHZhciBjZXJ0RGF0YSA9IG51bGw7CiAgICAgIHZhciBkbnNPayA9IGZhbHNlOwoKICAgICAgdmFyIGNydFByb21pc2UgPSBmZXRjaCgnaHR0cHM6Ly9jcnQuc2gvP3E9JyArIGVuY29kZVVSSUNvbXBvbmVudChkb21haW4pICsgJyZvdXRwdXQ9anNvbicpCiAgICAgICAgLnRoZW4oZnVuY3Rpb24ocil7IHJldHVybiByLmpzb24oKTsgfSkKICAgICAgICAudGhlbihmdW5jdGlvbihkYXRhKXsKICAgICAgICAgIGlmKCFBcnJheS5pc0FycmF5KGRhdGEpIHx8IGRhdGEubGVuZ3RoID09PSAwKSByZXR1cm4gbnVsbDsKICAgICAgICAgIHZhciBmaWx0ZXJlZCA9IGRhdGEuZmlsdGVyKGZ1bmN0aW9uKGMpewogICAgICAgICAgICByZXR1cm4gYy5jb21tb25fbmFtZSAmJiBjLmNvbW1vbl9uYW1lLmluZGV4T2YoJyonKSAhPT0gMDsKICAgICAgICAgIH0pOwogICAgICAgICAgaWYoZmlsdGVyZWQubGVuZ3RoID09PSAwKSBmaWx0ZXJlZCA9IGRhdGE7CiAgICAgICAgICBmaWx0ZXJlZC5zb3J0KGZ1bmN0aW9uKGEsIGIpewogICAgICAgICAgICByZXR1cm4gbmV3IERhdGUoYi5ub3RfYWZ0ZXIpIC0gbmV3IERhdGUoYS5ub3RfYWZ0ZXIpOwogICAgICAgICAgfSk7CiAgICAgICAgICByZXR1cm4gZmlsdGVyZWRbMF07CiAgICAgICAgfSkKICAgICAgICAuY2F0Y2goZnVuY3Rpb24oKXsgcmV0dXJuIG51bGw7IH0pOwoKICAgICAgdmFyIGRuc1Byb21pc2UgPSBmZXRjaCgnaHR0cHM6Ly9jbG91ZGZsYXJlLWRucy5jb20vZG5zLXF1ZXJ5P25hbWU9JyArIGVuY29kZVVSSUNvbXBvbmVudChkb21haW4pICsgJyZ0eXBlPUEnLCB7CiAgICAgICAgaGVhZGVyczogeyAnQWNjZXB0JzogJ2FwcGxpY2F0aW9uL2Rucy1qc29uJyB9CiAgICAgIH0pCiAgICAgICAgLnRoZW4oZnVuY3Rpb24ocil7IHJldHVybiByLmpzb24oKTsgfSkKICAgICAgICAudGhlbihmdW5jdGlvbihkYXRhKXsKICAgICAgICAgIHJldHVybiBkYXRhICYmIGRhdGEuQW5zd2VyICYmIGRhdGEuQW5zd2VyLmxlbmd0aCA+IDA7CiAgICAgICAgfSkKICAgICAgICAuY2F0Y2goZnVuY3Rpb24oKXsgcmV0dXJuIGZhbHNlOyB9KTsKCiAgICAgIFByb21pc2UuYWxsKFtjcnRQcm9taXNlLCBkbnNQcm9taXNlXSkudGhlbihmdW5jdGlvbihyZXN1bHRzKXsKICAgICAgICBjZXJ0RGF0YSA9IHJlc3VsdHNbMF07CiAgICAgICAgZG5zT2sgPSByZXN1bHRzWzFdOwoKICAgICAgICBpZihsb2FkaW5nV3JhcCkgbG9hZGluZ1dyYXAuc3R5bGUuZGlzcGxheSA9ICdub25lJzsKICAgICAgICBpZighcmVzdWx0c1dyYXApIHJldHVybjsKCiAgICAgICAgdmFyIGNlcnRGb3VuZCA9ICEhY2VydERhdGE7CiAgICAgICAgdmFyIGV4cGlyZWQgPSBmYWxzZTsKICAgICAgICB2YXIgZGF5c0xlZnQgPSAwOwogICAgICAgIHZhciBub3RBZnRlciA9IG51bGw7CiAgICAgICAgdmFyIG5vdEJlZm9yZSA9IG51bGw7CiAgICAgICAgdmFyIGlzc3VlciA9ICcnOwogICAgICAgIHZhciBjbiA9ICcnOwogICAgICAgIHZhciBzZXJpYWwgPSAnJzsKCiAgICAgICAgaWYoY2VydEZvdW5kKXsKICAgICAgICAgIG5vdEFmdGVyID0gbmV3IERhdGUoY2VydERhdGEubm90X2FmdGVyKTsKICAgICAgICAgIG5vdEJlZm9yZSA9IG5ldyBEYXRlKGNlcnREYXRhLm5vdF9iZWZvcmUpOwogICAgICAgICAgdmFyIG5vdyA9IG5ldyBEYXRlKCk7CiAgICAgICAgICBleHBpcmVkID0gbm90QWZ0ZXIgPCBub3c7CiAgICAgICAgICBkYXlzTGVmdCA9IE1hdGgubWF4KDAsIE1hdGguY2VpbCgobm90QWZ0ZXIgLSBub3cpIC8gODY0MDAwMDApKTsKICAgICAgICAgIGlzc3VlciA9IGNlcnREYXRhLmlzc3Vlcl9uYW1lIHx8ICcnOwogICAgICAgICAgY24gPSBjZXJ0RGF0YS5jb21tb25fbmFtZSB8fCBkb21haW47CiAgICAgICAgICBzZXJpYWwgPSBjZXJ0RGF0YS5zZXJpYWxfbnVtYmVyIHx8ICdOL0EnOwogICAgICAgIH0KCiAgICAgICAgdmFyIGdyYWRlID0gZ2V0R3JhZGUoY2VydEZvdW5kLCBleHBpcmVkLCBkYXlzTGVmdCwgZG5zT2spOwogICAgICAgIHZhciBnYyA9IGdyYWRlQ29sb3IoZ3JhZGUpOwoKICAgICAgICB2YXIgdG90YWxEYXlzID0gY2VydEZvdW5kICYmIG5vdEJlZm9yZSA/IE1hdGguY2VpbCgobm90QWZ0ZXIgLSBub3RCZWZvcmUpIC8gODY0MDAwMDApIDogMzY1OwogICAgICAgIHZhciBwY3QgPSBjZXJ0Rm91bmQgPyBNYXRoLm1pbigxMDAsIE1hdGgubWF4KDAsIE1hdGgucm91bmQoKGRheXNMZWZ0IC8gdG90YWxEYXlzKSAqIDEwMCkpKSA6IDA7CiAgICAgICAgdmFyIGJjID0gYmFyQ29sb3IoZGF5c0xlZnQpOwoKICAgICAgICB2YXIgaHRtbCA9ICcnOwogICAgICAgIGh0bWwgKz0gJzxkaXYgY2xhc3M9InNzbC1ncmFkZS13cmFwIj4nOwogICAgICAgIGh0bWwgKz0gJzxkaXYgY2xhc3M9InNzbC1ncmFkZS1iYWRnZSIgc3R5bGU9ImJhY2tncm91bmQ6JyArIGdjICsgJyI+JyArIGdyYWRlICsgJzwvZGl2Pic7CiAgICAgICAgaHRtbCArPSAnPGRpdiBjbGFzcz0ic3NsLWdyYWRlLWxhYmVsIj5TU0wgR3JhZGUgZm9yIDxzdHJvbmc+JyArIGRvbWFpbiArICc8L3N0cm9uZz48L2Rpdj4nOwogICAgICAgIGh0bWwgKz0gJzwvZGl2Pic7CgogICAgICAgIGh0bWwgKz0gJzxkaXYgY2xhc3M9InNzbC1jaGVja3MiPic7CiAgICAgICAgaHRtbCArPSAnPGRpdiBjbGFzcz0ic3NsLWNoZWNrLWl0ZW0iPicgKyAoY2VydEZvdW5kID8gJzxzcGFuIGNsYXNzPSJzc2wtb2siPiYjMTAwMDM7PC9zcGFuPicgOiAnPHNwYW4gY2xhc3M9InNzbC1mYWlsIj4mIzEwMDA3Ozwvc3Bhbj4nKSArICcgQ2VydGlmaWNhdGUgRm91bmQ8L2Rpdj4nOwogICAgICAgIGh0bWwgKz0gJzxkaXYgY2xhc3M9InNzbC1jaGVjay1pdGVtIj4nICsgKGRuc09rID8gJzxzcGFuIGNsYXNzPSJzc2wtb2siPiYjMTAwMDM7PC9zcGFuPicgOiAnPHNwYW4gY2xhc3M9InNzbC1mYWlsIj4mIzEwMDA3Ozwvc3Bhbj4nKSArICcgRE5TIFJlc29sdmVzPC9kaXY+JzsKCiAgICAgICAgaWYoY2VydEZvdW5kKXsKICAgICAgICAgIGh0bWwgKz0gJzxkaXYgY2xhc3M9InNzbC1jaGVjay1pdGVtIj48c3BhbiBjbGFzcz0ic3NsLW9rIj4mIzEwMDAzOzwvc3Bhbj4gSXNzdWVyOiAnICsgZnJpZW5kbHlJc3N1ZXIoaXNzdWVyKSArICc8L2Rpdj4nOwogICAgICAgICAgaHRtbCArPSAnPGRpdiBjbGFzcz0ic3NsLWNoZWNrLWl0ZW0iPicgKyAoZXhwaXJlZCA/ICc8c3BhbiBjbGFzcz0ic3NsLWZhaWwiPiYjMTAwMDc7PC9zcGFuPicgOiAnPHNwYW4gY2xhc3M9InNzbC1vayI+JiMxMDAwMzs8L3NwYW4+JykgKyAnIEV4cGlyeTogJyArIG5vdEFmdGVyLnRvTG9jYWxlRGF0ZVN0cmluZygpICsgJyAoJyArIChleHBpcmVkID8gJ0V4cGlyZWQnIDogZGF5c0xlZnQgKyAnIGRheXMgcmVtYWluaW5nJykgKyAnKTwvZGl2Pic7CiAgICAgICAgICBodG1sICs9ICc8ZGl2IGNsYXNzPSJzc2wtY2hlY2staXRlbSI+PHNwYW4gY2xhc3M9InNzbC1vayI+JiMxMDAwMzs8L3NwYW4+IENvbW1vbiBOYW1lOiAnICsgY24gKyAnPC9kaXY+JzsKICAgICAgICAgIGh0bWwgKz0gJzxkaXYgY2xhc3M9InNzbC1jaGVjay1pdGVtIj48c3BhbiBjbGFzcz0ic3NsLW9rIj4mIzEwMDAzOzwvc3Bhbj4gU2VyaWFsOiAnICsgc2VyaWFsICsgJzwvZGl2Pic7CiAgICAgICAgfSBlbHNlIHsKICAgICAgICAgIGh0bWwgKz0gJzxkaXYgY2xhc3M9InNzbC1jaGVjay1pdGVtIj48c3BhbiBjbGFzcz0ic3NsLWZhaWwiPiYjMTAwMDc7PC9zcGFuPiBObyBjZXJ0aWZpY2F0ZSBmb3VuZCB2aWEgQ2VydGlmaWNhdGUgVHJhbnNwYXJlbmN5IGxvZ3MuIFRoZSBzaXRlIG1heSBzdGlsbCBoYXZlIFNTTCwgYnV0IGNydC5zaCBjb3VsZCBub3QgY29uZmlybSBpdC4gVHJ5IFNTTCBMYWJzIGZvciBhIGZ1bGwgYW5hbHlzaXMuPC9kaXY+JzsKICAgICAgICB9CiAgICAgICAgaHRtbCArPSAnPC9kaXY+JzsKCiAgICAgICAgaWYoY2VydEZvdW5kKXsKICAgICAgICAgIGh0bWwgKz0gJzxkaXYgY2xhc3M9InNzbC1leHBpcnktYmFyLXdyYXAiPic7CiAgICAgICAgICBodG1sICs9ICc8ZGl2IGNsYXNzPSJzc2wtZXhwaXJ5LWxhYmVsIj5DZXJ0aWZpY2F0ZSBWYWxpZGl0eTogJyArIGRheXNMZWZ0ICsgJyBvZiAnICsgdG90YWxEYXlzICsgJyBkYXlzIHJlbWFpbmluZzwvZGl2Pic7CiAgICAgICAgICBodG1sICs9ICc8ZGl2IGNsYXNzPSJzc2wtZXhwaXJ5LWJhciI+PGRpdiBjbGFzcz0ic3NsLWV4cGlyeS1maWxsIiBzdHlsZT0id2lkdGg6JyArIHBjdCArICclO2JhY2tncm91bmQ6JyArIGJjICsgJyI+PC9kaXY+PC9kaXY+JzsKICAgICAgICAgIGh0bWwgKz0gJzwvZGl2Pic7CiAgICAgICAgfQoKICAgICAgICByZXN1bHRzV3JhcC5pbm5lckhUTUwgPSBodG1sOwogICAgICAgIHJlc3VsdHNXcmFwLnN0eWxlLmRpc3BsYXkgPSAnYmxvY2snOwogICAgICAgIGlmKGNvcHlCdG4pIGNvcHlCdG4uc3R5bGUuZGlzcGxheSA9ICdpbmxpbmUtYmxvY2snOwogICAgICAgIHNob3dUb2FzdCgnU1NMIGNoZWNrIGNvbXBsZXRlJyk7CiAgICAgIH0pLmNhdGNoKGZ1bmN0aW9uKCl7CiAgICAgICAgaWYobG9hZGluZ1dyYXApIGxvYWRpbmdXcmFwLnN0eWxlLmRpc3BsYXkgPSAnbm9uZSc7CiAgICAgICAgc2hvd1RvYXN0KCdFcnJvciBjaGVja2luZyBTU0wuIFBsZWFzZSB0cnkgYWdhaW4uJyk7CiAgICAgIH0pOwogICAgfQoKICAgIGZ1bmN0aW9uIGNsZWFyQWxsKCl7CiAgICAgIGlmKGRvbWFpbklucHV0KSBkb21haW5JbnB1dC52YWx1ZSA9ICcnOwogICAgICBpZihyZXN1bHRzV3JhcCl7IHJlc3VsdHNXcmFwLmlubmVySFRNTCA9ICcnOyByZXN1bHRzV3JhcC5zdHlsZS5kaXNwbGF5ID0gJ25vbmUnOyB9CiAgICAgIGlmKGNvcHlCdG4pIGNvcHlCdG4uc3R5bGUuZGlzcGxheSA9ICdub25lJzsKICAgICAgc2hvd1RvYXN0KCdDbGVhcmVkJyk7CiAgICB9CgogICAgZnVuY3Rpb24gY29weVJlc3VsdHMoKXsKICAgICAgaWYoIXJlc3VsdHNXcmFwKSByZXR1cm47CiAgICAgIHZhciB0ZXh0ID0gcmVzdWx0c1dyYXAuaW5uZXJUZXh0IHx8IHJlc3VsdHNXcmFwLnRleHRDb250ZW50IHx8ICcnOwogICAgICBpZighdGV4dC50cmltKCkpeyBzaG93VG9hc3QoJ05vdGhpbmcgdG8gY29weScpOyByZXR1cm47IH0KICAgICAgaWYobmF2aWdhdG9yLmNsaXBib2FyZCAmJiBuYXZpZ2F0b3IuY2xpcGJvYXJkLndyaXRlVGV4dCl7CiAgICAgICAgbmF2aWdhdG9yLmNsaXBib2FyZC53cml0ZVRleHQodGV4dCkudGhlbihmdW5jdGlvbigpewogICAgICAgICAgc2hvd1RvYXN0KCdSZXN1bHRzIGNvcGllZCB0byBjbGlwYm9hcmQnKTsKICAgICAgICB9KS5jYXRjaChmdW5jdGlvbigpewogICAgICAgICAgc2hvd1RvYXN0KCdDb3VsZCBub3QgY29weSByZXN1bHRzJyk7CiAgICAgICAgfSk7CiAgICAgIH0gZWxzZSB7CiAgICAgICAgc2hvd1RvYXN0KCdDbGlwYm9hcmQgbm90IGF2YWlsYWJsZScpOwogICAgICB9CiAgICB9CgogICAgaWYoY2hlY2tCdG4pIGNoZWNrQnRuLmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywgY2hlY2tTU0wpOwogICAgaWYoY2xlYXJCdG4pIGNsZWFyQnRuLmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywgY2xlYXJBbGwpOwogICAgaWYoY29weUJ0bikgY29weUJ0bi5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsIGNvcHlSZXN1bHRzKTsKICAgIGlmKGN0YUJ0bikgY3RhQnRuLmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywgZnVuY3Rpb24oKXsKICAgICAgdmFyIHRvb2xTZWN0aW9uID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcignLnNzbC10b29sJyk7CiAgICAgIGlmKHRvb2xTZWN0aW9uKSB0b29sU2VjdGlvbi5zY3JvbGxJbnRvVmlldyh7IGJlaGF2aW9yOiAnc21vb3RoJyB9KTsKICAgIH0pOwogICAgaWYoZG9tYWluSW5wdXQpIGRvbWFpbklucHV0LmFkZEV2ZW50TGlzdGVuZXIoJ2tleWRvd24nLCBmdW5jdGlvbihlKXsKICAgICAgaWYoZS5rZXkgPT09ICdFbnRlcicpIGNoZWNrU1NMKCk7CiAgICB9KTsKCiAgICB2YXIgZmFxSXRlbXMgPSB3cmFwLnF1ZXJ5U2VsZWN0b3JBbGwoJy5mYXEtaXRlbScpOwogICAgZmFxSXRlbXMuZm9yRWFjaChmdW5jdGlvbihpdGVtKXsKICAgICAgdmFyIHEgPSBpdGVtLnF1ZXJ5U2VsZWN0b3IoJy5mYXEtcScpOwogICAgICBpZihxKSBxLmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJywgZnVuY3Rpb24oKXsKICAgICAgICB2YXIgaXNPcGVuID0gaXRlbS5jbGFzc0xpc3QuY29udGFpbnMoJ29wZW4nKTsKICAgICAgICBmYXFJdGVtcy5mb3JFYWNoKGZ1bmN0aW9uKGZpKXsgZmkuY2xhc3NMaXN0LnJlbW92ZSgnb3BlbicpOyB9KTsKICAgICAgICBpZighaXNPcGVuKSBpdGVtLmNsYXNzTGlzdC5hZGQoJ29wZW4nKTsKICAgICAgfSk7CiAgICB9KTsKICB9CgogIGlmKGRvY3VtZW50LnJlYWR5U3RhdGUgPT09ICdsb2FkaW5nJykgZG9jdW1lbnQuYWRkRXZlbnRMaXN0ZW5lcignRE9NQ29udGVudExvYWRlZCcsIGluaXQpOwogIGVsc2UgaW5pdCgpOwogIHNldFRpbWVvdXQoaW5pdCwgMjAwKTsKfSkoKTsK"));</script>
