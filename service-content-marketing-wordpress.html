@@ -1,0 +1,520 @@
+<style>
+#cmaw-wrap {
+  --bg: #E8E0F0;
+  --pri: #6C5CE7;
+  --pri-hover: #5A4BD1;
+  --heading: #1A1744;
+  --card-bg: #FFFFFF;
+  --text: #2D2B55;
+  --muted: #6B6490;
+  --card-border: #D0C6E0;
+  --input-bg: #F5F1FA;
+  --input-border: #D0C6E0;
+  --bg-alt: #DDD4EB;
+  --green: #00C897;
+  --red: #EF4444;
+  --yellow: #F59E0B;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+#cmaw-wrap *, #cmaw-wrap *::before, #cmaw-wrap *::after { box-sizing: border-box; }
+#cmaw-wrap .cmaw-inner { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+#cmaw-wrap h1, #cmaw-wrap h2, #cmaw-wrap h3, #cmaw-wrap h4 { color: var(--heading); line-height: 1.3; }
+#cmaw-wrap h1 { font-size: 2.4rem; font-weight: 800; margin-bottom: 16px; }
+#cmaw-wrap h2 { font-size: 1.8rem; font-weight: 700; margin-bottom: 12px; text-align: center; }
+#cmaw-wrap h3 { font-size: 1.15rem; font-weight: 600; margin-bottom: 8px; }
+#cmaw-wrap p { margin-bottom: 14px; }
+#cmaw-wrap a { color: var(--pri); text-decoration: none; }
+#cmaw-wrap a:hover { color: var(--pri-hover); }
+#cmaw-wrap .cmaw-section { padding: 60px 0; }
+#cmaw-wrap .cmaw-section-alt { background: var(--bg-alt); }
+#cmaw-wrap .cmaw-subtitle { color: var(--muted); font-size: 1.05rem; text-align: center; max-width: 680px; margin: 0 auto 40px; }
+
+/* Buttons */
+#cmaw-wrap .cmaw-btn {
+  display: inline-block; padding: 14px 32px; background: var(--pri); color: #fff; border: none;
+  border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: background .2s, transform .15s;
+  text-align: center; text-decoration: none;
+}
+#cmaw-wrap .cmaw-btn:hover { background: var(--pri-hover); transform: translateY(-1px); color: #fff; }
+#cmaw-wrap .cmaw-btn-outline {
+  background: transparent; color: var(--pri); border: 2px solid var(--pri);
+}
+#cmaw-wrap .cmaw-btn-outline:hover { background: var(--pri); color: #fff; }
+#cmaw-wrap .cmaw-btn-sm { padding: 10px 22px; font-size: 0.9rem; }
+
+/* Cards */
+#cmaw-wrap .cmaw-card {
+  background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px;
+  padding: 28px; transition: box-shadow .2s, transform .2s;
+}
+#cmaw-wrap .cmaw-card:hover { box-shadow: 0 8px 24px rgba(108,92,231,.12); transform: translateY(-2px); }
+
+/* Grid */
+#cmaw-wrap .cmaw-grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+#cmaw-wrap .cmaw-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+#cmaw-wrap .cmaw-grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+
+/* Hero */
+#cmaw-wrap .cmaw-hero { padding: 80px 0 60px; text-align: center; }
+#cmaw-wrap .cmaw-hero p { font-size: 1.15rem; color: var(--muted); max-width: 640px; margin: 0 auto 28px; }
+#cmaw-wrap .cmaw-trust-row { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; margin-top: 36px; }
+#cmaw-wrap .cmaw-trust-item { text-align: center; }
+#cmaw-wrap .cmaw-trust-num { font-size: 1.5rem; font-weight: 800; color: var(--pri); display: block; }
+#cmaw-wrap .cmaw-trust-label { font-size: 0.85rem; color: var(--muted); }
+
+/* Icon circle */
+#cmaw-wrap .cmaw-icon-circle {
+  width: 52px; height: 52px; border-radius: 50%; background: var(--input-bg); display: flex;
+  align-items: center; justify-content: center; margin-bottom: 14px; flex-shrink: 0;
+}
+#cmaw-wrap .cmaw-icon-circle svg { width: 24px; height: 24px; stroke: var(--pri); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Process steps */
+#cmaw-wrap .cmaw-step { display: flex; gap: 20px; margin-bottom: 32px; align-items: flex-start; }
+#cmaw-wrap .cmaw-step-num {
+  width: 48px; height: 48px; border-radius: 50%; background: var(--pri); color: #fff;
+  display: flex; align-items: center; justify-content: center; font-size: 1.2rem; font-weight: 700; flex-shrink: 0;
+}
+#cmaw-wrap .cmaw-step-content { flex: 1; }
+
+/* Stats */
+#cmaw-wrap .cmaw-stat-card { text-align: center; padding: 32px 20px; }
+#cmaw-wrap .cmaw-stat-num { font-size: 2rem; font-weight: 800; color: var(--pri); display: block; margin-bottom: 6px; }
+
+/* Table */
+#cmaw-wrap .cmaw-table-wrap { overflow-x: auto; }
+#cmaw-wrap table { width: 100%; border-collapse: collapse; background: var(--card-bg); border-radius: 12px; overflow: hidden; }
+#cmaw-wrap thead { background: var(--pri); color: #fff; }
+#cmaw-wrap th, #cmaw-wrap td { padding: 14px 18px; text-align: left; font-size: 0.95rem; }
+#cmaw-wrap tbody tr { border-bottom: 1px solid var(--card-border); }
+#cmaw-wrap tbody tr:last-child { border-bottom: none; }
+#cmaw-wrap .cmaw-check { color: var(--green); font-weight: 700; }
+#cmaw-wrap .cmaw-cross { color: var(--red); font-weight: 700; }
+
+/* Testimonials */
+#cmaw-wrap .cmaw-testimonial { position: relative; padding-top: 36px; }
+#cmaw-wrap .cmaw-testimonial::before { content: '\201C'; position: absolute; top: 0; left: 20px; font-size: 4rem; color: var(--pri); opacity: .2; line-height: 1; }
+#cmaw-wrap .cmaw-testimonial-author { font-weight: 600; color: var(--heading); margin-top: 12px; }
+#cmaw-wrap .cmaw-testimonial-role { font-size: 0.85rem; color: var(--muted); }
+
+/* FAQ */
+#cmaw-wrap .cmaw-faq-item { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+#cmaw-wrap .cmaw-faq-q {
+  width: 100%; padding: 18px 24px; background: none; border: none; text-align: left; cursor: pointer;
+  font-size: 1rem; font-weight: 600; color: var(--heading); display: flex; justify-content: space-between; align-items: center;
+  font-family: inherit;
+}
+#cmaw-wrap .cmaw-faq-q::after { content: '+'; font-size: 1.4rem; color: var(--pri); transition: transform .2s; }
+#cmaw-wrap .cmaw-faq-open .cmaw-faq-q::after { content: '\2212'; }
+#cmaw-wrap .cmaw-faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease, padding .3s ease; padding: 0 24px; color: var(--text); font-size: 0.95rem; line-height: 1.7; }
+#cmaw-wrap .cmaw-faq-open .cmaw-faq-a { max-height: 600px; padding: 0 24px 18px; }
+
+/* Tags grid */
+#cmaw-wrap .cmaw-tags { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+#cmaw-wrap .cmaw-tag {
+  background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; padding: 12px 22px;
+  font-weight: 600; font-size: 0.95rem; color: var(--heading); transition: border-color .2s;
+}
+#cmaw-wrap .cmaw-tag:hover { border-color: var(--pri); }
+
+/* CTA band */
+#cmaw-wrap .cmaw-cta-band { background: var(--pri); padding: 60px 0; text-align: center; border-radius: 16px; margin: 0 20px; }
+#cmaw-wrap .cmaw-cta-band h2 { color: #fff; }
+#cmaw-wrap .cmaw-cta-band p { color: rgba(255,255,255,.85); max-width: 560px; margin: 0 auto 28px; }
+#cmaw-wrap .cmaw-cta-band .cmaw-btn { background: #fff; color: var(--pri); }
+#cmaw-wrap .cmaw-cta-band .cmaw-btn:hover { background: var(--input-bg); }
+
+/* Industry badges */
+#cmaw-wrap .cmaw-ind-badge {
+  background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 10px; padding: 20px;
+  text-align: center; font-weight: 600; color: var(--heading); font-size: 0.95rem;
+}
+#cmaw-wrap .cmaw-ind-icon { font-size: 1.6rem; display: block; margin-bottom: 8px; }
+
+@media (max-width: 768px) {
+  #cmaw-wrap h1 { font-size: 1.8rem; }
+  #cmaw-wrap h2 { font-size: 1.4rem; }
+  #cmaw-wrap .cmaw-grid-2, #cmaw-wrap .cmaw-grid-3, #cmaw-wrap .cmaw-grid-4 { grid-template-columns: 1fr; }
+  #cmaw-wrap .cmaw-hero { padding: 50px 0 40px; }
+  #cmaw-wrap .cmaw-trust-row { gap: 20px; }
+}
+</style>
+
+<div id="cmaw-wrap">
+
+<!-- HERO -->
+<div class="cmaw-hero">
+<div class="cmaw-inner">
+<h1>Content Marketing &amp; AI Writing Services That Drive Real Revenue</h1>
+<p>We combine proven content strategy with AI-enhanced writing to produce SEO-optimized content that ranks, engages, and converts. Stop guessing what to publish. Start growing with data-backed content that works.</p>
+<a href="#cmaw-contact" class="cmaw-btn">Get a Free Content Strategy Consultation</a>
+<div class="cmaw-trust-row">
+<div class="cmaw-trust-item"><span class="cmaw-trust-num">50+</span><span class="cmaw-trust-label">Brands Served</span></div>
+<div class="cmaw-trust-item"><span class="cmaw-trust-num">10M+</span><span class="cmaw-trust-label">Words Written</span></div>
+<div class="cmaw-trust-item"><span class="cmaw-trust-num">98%</span><span class="cmaw-trust-label">Client Retention</span></div>
+<div class="cmaw-trust-item"><span class="cmaw-trust-num">300%</span><span class="cmaw-trust-label">Avg. Traffic Growth</span></div>
+</div>
+</div>
+</div>
+
+<!-- PAIN POINTS -->
+<div class="cmaw-section cmaw-section-alt">
+<div class="cmaw-inner">
+<h2>Sound Familiar?</h2>
+<p class="cmaw-subtitle">Most businesses struggle with the same content challenges. If any of these hit close to home, you are not alone.</p>
+<div class="cmaw-grid-2">
+<div class="cmaw-card">
+<div class="cmaw-icon-circle"><svg viewBox="0 0 24 24"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="10"/></svg></div>
+<h3>Inconsistent Publishing</h3>
+<p>You start a blog, post three articles, then go silent for months. Without a system, your content pipeline dries up and your audience forgets you exist.</p>
+</div>
+<div class="cmaw-card">
+<div class="cmaw-icon-circle"><svg viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div>
+<h3>Low Organic Traffic</h3>
+<p>You are creating content, but Google is not rewarding you. Without proper keyword research and on-page SEO, your articles sit on page five where nobody looks.</p>
+</div>
+<div class="cmaw-card">
+<div class="cmaw-icon-circle"><svg viewBox="0 0 24 24"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+<h3>Overpriced Agencies</h3>
+<p>Traditional content agencies charge thousands per month for mediocre output. You need enterprise-level quality at pricing that makes sense for your growth stage.</p>
+</div>
+<div class="cmaw-card">
+<div class="cmaw-icon-circle"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+<h3>Content That Does Not Convert</h3>
+<p>Traffic without conversions is vanity. If your content attracts visitors but fails to generate leads, sign-ups, or sales, your strategy needs a fundamental shift.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- SERVICES OVERVIEW -->
+<div class="cmaw-section">
+<div class="cmaw-inner">
+<h2>What Our Content Marketing Service Includes</h2>
+<p class="cmaw-subtitle">A full-spectrum content marketing solution designed to take your brand from invisible to industry authority.</p>
+<div class="cmaw-grid-3">
+<div class="cmaw-card" style="text-align:center;">
+<div class="cmaw-icon-circle" style="margin:0 auto 14px;"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M16 13H8M16 17H8M10 9H8"/></svg></div>
+<h3>Blog Writing</h3>
+<p>Long-form, research-backed blog posts optimized for search engines and written for real people. Every piece targets specific keywords with strategic intent.</p>
+</div>
+<div class="cmaw-card" style="text-align:center;">
+<div class="cmaw-icon-circle" style="margin:0 auto 14px;"><svg viewBox="0 0 24 24"><path d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"/><line x1="4" y1="22" x2="4" y2="15"/></svg></div>
+<h3>SEO Content Strategy</h3>
+<p>Keyword research, topic clustering, and editorial calendars that align your content with what your audience is actively searching for.</p>
+</div>
+<div class="cmaw-card" style="text-align:center;">
+<div class="cmaw-icon-circle" style="margin:0 auto 14px;"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg></div>
+<h3>AI-Assisted Creation</h3>
+<p>We use AI tools to accelerate research and drafting, then layer in human expertise, brand voice, and editorial quality that AI alone cannot deliver.</p>
+</div>
+<div class="cmaw-card" style="text-align:center;">
+<div class="cmaw-icon-circle" style="margin:0 auto 14px;"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+<h3>Content Audits</h3>
+<p>We review your existing content to find gaps, underperformers, and quick-win opportunities. Then we build a plan to fix, refresh, or replace what is not working.</p>
+</div>
+<div class="cmaw-card" style="text-align:center;">
+<div class="cmaw-icon-circle" style="margin:0 auto 14px;"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+<h3>Content Calendars</h3>
+<p>A structured publishing schedule that keeps your team aligned and your audience engaged. No more last-minute scrambles or weeks of silence.</p>
+</div>
+<div class="cmaw-card" style="text-align:center;">
+<div class="cmaw-icon-circle" style="margin:0 auto 14px;"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+<h3>Competitor Analysis</h3>
+<p>We study your competitors' top-performing content, identify their weaknesses, and build a strategy that positions you to outrank and outperform them.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- OUR PROCESS -->
+<div class="cmaw-section cmaw-section-alt">
+<div class="cmaw-inner">
+<h2>Our Proven 4-Step Process</h2>
+<p class="cmaw-subtitle">A repeatable system that turns raw ideas into published, ranking content. Here is exactly how we work with every client.</p>
+
+<div class="cmaw-step">
+<div class="cmaw-step-num">1</div>
+<div class="cmaw-step-content">
+<h3>Research &amp; Strategy</h3>
+<p>We start with deep keyword research, competitor analysis, and audience profiling. We identify the exact topics your market is searching for, map search intent, and build a content roadmap prioritized by opportunity and impact.</p>
+</div>
+</div>
+
+<div class="cmaw-step">
+<div class="cmaw-step-num">2</div>
+<div class="cmaw-step-content">
+<h3>Content Creation</h3>
+<p>Our writers produce well-researched, original content using AI-enhanced workflows. Every article is structured for readability, packed with value, and written in your brand voice. We handle outlines, drafts, graphics suggestions, and internal linking.</p>
+</div>
+</div>
+
+<div class="cmaw-step">
+<div class="cmaw-step-num">3</div>
+<div class="cmaw-step-content">
+<h3>Optimization &amp; Review</h3>
+<p>Each piece goes through SEO optimization (meta tags, headers, schema markup), AI detection checks, plagiarism scanning, and editorial review. We ensure every article is search-ready and authentically human before it reaches you.</p>
+</div>
+</div>
+
+<div class="cmaw-step">
+<div class="cmaw-step-num">4</div>
+<div class="cmaw-step-content">
+<h3>Publish &amp; Track</h3>
+<p>We can publish directly to your CMS or deliver ready-to-publish files. After publication, we track rankings, traffic, and engagement. Monthly reports show you exactly what is working and where we are heading next.</p>
+</div>
+</div>
+
+</div>
+</div>
+
+<!-- FREE TOOLS -->
+<div class="cmaw-section">
+<div class="cmaw-inner">
+<h2>Try Our Free Content Marketing Tools</h2>
+<p class="cmaw-subtitle">Experience the technology behind our services. These tools are free, no sign-up required, and available right now.</p>
+<div class="cmaw-grid-2">
+<div class="cmaw-card" style="text-align:center;">
+<h3>AI Blog Generator</h3>
+<p>Generate SEO-optimized blog posts in seconds. Enter your topic, choose a tone, and get a complete article ready for editing and publishing.</p>
+<a href="ai-blog-generator.html" class="cmaw-btn cmaw-btn-sm cmaw-btn-outline">Try Free</a>
+</div>
+<div class="cmaw-card" style="text-align:center;">
+<h3>AI Blog Detector</h3>
+<p>Check whether content was written by AI or a human. Paste any text and get an instant analysis score with detailed breakdowns.</p>
+<a href="ai-blog-detector.html" class="cmaw-btn cmaw-btn-sm cmaw-btn-outline">Try Free</a>
+</div>
+<div class="cmaw-card" style="text-align:center;">
+<h3>AI Paraphraser &amp; Rewriter</h3>
+<p>Rewrite content to improve clarity, change tone, or make it unique. Perfect for refreshing old articles or repurposing existing material.</p>
+<a href="ai-paraphraser-rewriter.html" class="cmaw-btn cmaw-btn-sm cmaw-btn-outline">Try Free</a>
+</div>
+<div class="cmaw-card" style="text-align:center;">
+<h3>Word &amp; Character Counter</h3>
+<p>Count words, characters, sentences, and paragraphs instantly. Track reading time and content length for any text you are working on.</p>
+<a href="word-character-counter.html" class="cmaw-btn cmaw-btn-sm cmaw-btn-outline">Try Free</a>
+</div>
+</div>
+</div>
+</div>
+
+<!-- WHY CHOOSE US -->
+<div class="cmaw-section cmaw-section-alt">
+<div class="cmaw-inner">
+<h2>Why Choose BrightlyFuture for Content Marketing</h2>
+<p class="cmaw-subtitle">Six reasons our clients stay with us year after year.</p>
+<div class="cmaw-grid-3">
+<div class="cmaw-card" style="text-align:center;">
+<div class="cmaw-icon-circle" style="margin:0 auto 14px;"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+<h3>AI-Enhanced Quality</h3>
+<p>We leverage AI for research speed and consistency, then apply human judgment, creativity, and brand alignment that technology cannot replicate.</p>
+</div>
+<div class="cmaw-card" style="text-align:center;">
+<div class="cmaw-icon-circle" style="margin:0 auto 14px;"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/><line x1="11" y1="8" x2="11" y2="14"/></svg></div>
+<h3>SEO-First Approach</h3>
+<p>Every piece of content starts with keyword data, search intent analysis, and competitive positioning. We write to rank, not just to fill a blog.</p>
+</div>
+<div class="cmaw-card" style="text-align:center;">
+<div class="cmaw-icon-circle" style="margin:0 auto 14px;"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+<h3>Industry Expertise</h3>
+<p>Our writers cover technology, e-commerce, SaaS, finance, healthcare, and more. We match subject-matter experts to your niche for accuracy and depth.</p>
+</div>
+<div class="cmaw-card" style="text-align:center;">
+<div class="cmaw-icon-circle" style="margin:0 auto 14px;"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+<h3>Fast Turnaround</h3>
+<p>Most content is delivered within 48 hours. AI-assisted workflows let us move faster without sacrificing depth, research quality, or editorial standards.</p>
+</div>
+<div class="cmaw-card" style="text-align:center;">
+<div class="cmaw-icon-circle" style="margin:0 auto 14px;"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+<h3>Data-Driven Results</h3>
+<p>Monthly performance reports track rankings, traffic, and conversions. We adjust strategy based on real numbers, not assumptions or gut feelings.</p>
+</div>
+<div class="cmaw-card" style="text-align:center;">
+<div class="cmaw-icon-circle" style="margin:0 auto 14px;"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+<h3>Affordable Pricing</h3>
+<p>AI-enhanced workflows reduce our costs, and we pass those savings to you. Get premium content marketing at a fraction of traditional agency prices.</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- RESULTS / STATS -->
+<div class="cmaw-section">
+<div class="cmaw-inner">
+<h2>Results Our Clients See</h2>
+<p class="cmaw-subtitle">These are real outcomes from brands that partnered with our content marketing team.</p>
+<div class="cmaw-grid-4">
+<div class="cmaw-card cmaw-stat-card">
+<span class="cmaw-stat-num">300%</span>
+<p>Average Traffic Increase Within 6 Months</p>
+</div>
+<div class="cmaw-card cmaw-stat-card">
+<span class="cmaw-stat-num">Top 10</span>
+<p>Google Rankings Achieved for Target Keywords</p>
+</div>
+<div class="cmaw-card cmaw-stat-card">
+<span class="cmaw-stat-num">5x</span>
+<p>Average Content ROI Compared to Paid Ads</p>
+</div>
+<div class="cmaw-card cmaw-stat-card">
+<span class="cmaw-stat-num">48 hrs</span>
+<p>Standard Turnaround on Content Deliverables</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- CONTENT TYPES -->
+<div class="cmaw-section cmaw-section-alt">
+<div class="cmaw-inner">
+<h2>Content Types We Create</h2>
+<p class="cmaw-subtitle">Whatever format your audience prefers, we produce it at scale with consistent quality.</p>
+<div class="cmaw-tags">
+<span class="cmaw-tag">Blog Posts</span>
+<span class="cmaw-tag">Landing Pages</span>
+<span class="cmaw-tag">Product Descriptions</span>
+<span class="cmaw-tag">Email Newsletters</span>
+<span class="cmaw-tag">Social Media Content</span>
+<span class="cmaw-tag">Case Studies</span>
+<span class="cmaw-tag">White Papers</span>
+<span class="cmaw-tag">Press Releases</span>
+</div>
+</div>
+</div>
+
+<!-- INDUSTRIES -->
+<div class="cmaw-section">
+<div class="cmaw-inner">
+<h2>Industries We Serve</h2>
+<p class="cmaw-subtitle">Deep domain knowledge across verticals that demand accuracy, compliance, and expertise.</p>
+<div class="cmaw-grid-4">
+<div class="cmaw-ind-badge"><span class="cmaw-ind-icon">&#9881;</span>Technology</div>
+<div class="cmaw-ind-badge"><span class="cmaw-ind-icon">&#9733;</span>E-commerce</div>
+<div class="cmaw-ind-badge"><span class="cmaw-ind-icon">&#9729;</span>SaaS</div>
+<div class="cmaw-ind-badge"><span class="cmaw-ind-icon">&#9764;</span>Healthcare</div>
+<div class="cmaw-ind-badge"><span class="cmaw-ind-icon">&#9830;</span>Finance</div>
+<div class="cmaw-ind-badge"><span class="cmaw-ind-icon">&#9998;</span>Education</div>
+<div class="cmaw-ind-badge"><span class="cmaw-ind-icon">&#8962;</span>Real Estate</div>
+<div class="cmaw-ind-badge"><span class="cmaw-ind-icon">&#9992;</span>Travel</div>
+</div>
+</div>
+</div>
+
+<!-- PRICING CTA -->
+<div class="cmaw-section cmaw-section-alt">
+<div class="cmaw-inner">
+<div class="cmaw-cta-band" id="cmaw-contact">
+<h2>Ready to Transform Your Content Strategy?</h2>
+<p>Book a free 30-minute consultation. We will review your current content, identify your biggest growth opportunities, and outline a custom plan tailored to your business goals.</p>
+<a href="mailto:hello@brightlyfuture.co.uk?subject=Content%20Marketing%20Consultation" class="cmaw-btn">Book Your Free Consultation</a>
+</div>
+</div>
+</div>
+
+<!-- COMPARISON TABLE -->
+<div class="cmaw-section">
+<div class="cmaw-inner">
+<h2>DIY Content vs. Professional Content Marketing</h2>
+<p class="cmaw-subtitle">See the difference between handling content in-house without a strategy and partnering with a dedicated content marketing team.</p>
+<div class="cmaw-table-wrap">
+<table>
+<thead>
+<tr><th>Aspect</th><th>DIY Content</th><th>Professional Content Marketing</th></tr>
+</thead>
+<tbody>
+<tr><td>Time Investment</td><td>8-12 hours per article</td><td>You review; we handle the rest</td></tr>
+<tr><td>SEO Optimization</td><td>Basic or none</td><td>Full keyword research, on-page SEO, schema</td></tr>
+<tr><td>Consistency</td><td>Sporadic, gaps of weeks or months</td><td>Scheduled calendar, never miss a deadline</td></tr>
+<tr><td>ROI Tracking</td><td>Guesswork</td><td>Monthly reports with traffic, rankings, conversions</td></tr>
+<tr><td>Content Quality</td><td>Varies widely</td><td>Professionally edited, brand-aligned, fact-checked</td></tr>
+<tr><td>Strategy</td><td>Random topics</td><td>Data-driven topic clusters and content roadmap</td></tr>
+<tr><td>Scalability</td><td>Limited by your bandwidth</td><td>Scale from 4 to 40 articles per month seamlessly</td></tr>
+<tr><td>Cost Efficiency</td><td>Hidden costs: time, opportunity, learning curve</td><td>Predictable pricing, measurable returns</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="cmaw-section cmaw-section-alt">
+<div class="cmaw-inner">
+<h2>What Our Clients Say</h2>
+<p class="cmaw-subtitle">Real feedback from businesses that trusted us with their content strategy.</p>
+<div class="cmaw-grid-3">
+<div class="cmaw-card cmaw-testimonial">
+<p>"Within four months, our organic traffic tripled. BrightlyFuture did not just write blog posts; they built a complete content engine that keeps delivering results month after month. The ROI has been outstanding."</p>
+<p class="cmaw-testimonial-author">Sarah Mitchell</p>
+<p class="cmaw-testimonial-role">Marketing Director, TechFlow Solutions (Sample)</p>
+</div>
+<div class="cmaw-card cmaw-testimonial">
+<p>"We tried three agencies before finding BrightlyFuture. The difference is their data-first approach. Every article they produce is backed by keyword research, and our rankings prove it. We now rank in the top 5 for 40+ keywords."</p>
+<p class="cmaw-testimonial-author">James Chen</p>
+<p class="cmaw-testimonial-role">Founder, ScaleUp Commerce (Sample)</p>
+</div>
+<div class="cmaw-card cmaw-testimonial">
+<p>"Their AI-enhanced workflow means we get content faster without sacrificing quality. The turnaround is incredible, and the content reads like it was written by someone who truly understands our industry. Highly recommended."</p>
+<p class="cmaw-testimonial-author">Amira Patel</p>
+<p class="cmaw-testimonial-role">CEO, HealthBridge Digital (Sample)</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- FAQs -->
+<div class="cmaw-section">
+<div class="cmaw-inner">
+<h2>Frequently Asked Questions</h2>
+<p class="cmaw-subtitle">Everything you need to know about our content marketing and AI writing services.</p>
+
+<div class="cmaw-faq-item"><button type="button" class="cmaw-faq-q">What is included in your content marketing service?</button><div class="cmaw-faq-a"><p>Our service includes keyword research, content strategy development, editorial calendar planning, professional article writing, SEO optimization, internal linking, image sourcing guidance, and monthly performance reporting. We handle the entire content pipeline from ideation to publication.</p></div></div>
+
+<div class="cmaw-faq-item"><button type="button" class="cmaw-faq-q">How do you use AI in your content creation process?</button><div class="cmaw-faq-a"><p>AI assists us with initial research, data gathering, topic expansion, and first-draft generation. Every piece then goes through extensive human editing where our writers add expertise, brand voice, original insights, and fact-checking. The final product is authentically human and undetectable by AI content detectors.</p></div></div>
+
+<div class="cmaw-faq-item"><button type="button" class="cmaw-faq-q">How much does your content marketing service cost?</button><div class="cmaw-faq-a"><p>Pricing depends on volume, content type, and industry complexity. Our plans start at an accessible price point for startups and scale for enterprises. Contact us for a custom quote tailored to your specific needs and budget.</p></div></div>
+
+<div class="cmaw-faq-item"><button type="button" class="cmaw-faq-q">What is the typical turnaround time for content?</button><div class="cmaw-faq-a"><p>Standard turnaround is 48 hours for blog posts and articles. Larger projects like white papers or comprehensive guides may take 5 to 7 business days. Rush delivery is available upon request for time-sensitive content needs.</p></div></div>
+
+<div class="cmaw-faq-item"><button type="button" class="cmaw-faq-q">Do you offer revisions?</button><div class="cmaw-faq-a"><p>Yes. Every piece includes two rounds of revisions at no extra cost. We want you to be completely satisfied with the content before it goes live. Additional revision rounds can be arranged if needed.</p></div></div>
+
+<div class="cmaw-faq-item"><button type="button" class="cmaw-faq-q">Will the content be original and plagiarism-free?</button><div class="cmaw-faq-a"><p>Absolutely. Every article passes through plagiarism detection software before delivery. We also run AI detection checks to ensure the content reads as naturally human-written. You receive a content quality report with each delivery.</p></div></div>
+
+<div class="cmaw-faq-item"><button type="button" class="cmaw-faq-q">Can you write for my specific industry or niche?</button><div class="cmaw-faq-a"><p>Yes. We have writers with expertise across technology, e-commerce, SaaS, healthcare, finance, education, real estate, and travel. For specialized niches, we conduct thorough research and can work with your internal subject-matter experts to ensure technical accuracy.</p></div></div>
+
+<div class="cmaw-faq-item"><button type="button" class="cmaw-faq-q">How do you measure content performance?</button><div class="cmaw-faq-a"><p>We track organic traffic growth, keyword rankings, click-through rates, time on page, bounce rates, and conversion metrics. You receive a monthly report with clear visualizations showing exactly how your content is performing and what we are optimizing next.</p></div></div>
+
+<div class="cmaw-faq-item"><button type="button" class="cmaw-faq-q">Do I own the content you create?</button><div class="cmaw-faq-a"><p>Yes. Once delivered and paid for, all content is 100% yours. You hold full copyright and can use, modify, or republish it however you choose. We do not retain any rights to client content.</p></div></div>
+
+<div class="cmaw-faq-item"><button type="button" class="cmaw-faq-q">How many articles per month do you recommend?</button><div class="cmaw-faq-a"><p>For most businesses, we recommend starting with 8 to 12 articles per month to build momentum. This gives search engines enough fresh content to index regularly while maintaining quality. We can scale up to 40 or more articles per month for aggressive growth campaigns.</p></div></div>
+
+<div class="cmaw-faq-item"><button type="button" class="cmaw-faq-q">Can you publish directly to our WordPress site?</button><div class="cmaw-faq-a"><p>Yes. We can integrate with your WordPress CMS and publish content directly, including formatting, images, meta tags, and internal links. Alternatively, we deliver content in ready-to-publish formats if you prefer to handle publishing internally.</p></div></div>
+
+<div class="cmaw-faq-item"><button type="button" class="cmaw-faq-q">What makes you different from other content agencies?</button><div class="cmaw-faq-a"><p>Three things set us apart: our AI-enhanced workflows deliver content faster and more affordably; our SEO-first approach means every piece is engineered to rank; and our data-driven reporting proves ROI instead of asking you to take our word for it.</p></div></div>
+
+<div class="cmaw-faq-item"><button type="button" class="cmaw-faq-q">Do you handle content strategy or just writing?</button><div class="cmaw-faq-a"><p>We handle both. In fact, strategy is where most of the value lies. We conduct competitor analysis, keyword gap research, and audience intent mapping before writing a single word. This ensures every article serves a strategic purpose in your growth plan.</p></div></div>
+
+<div class="cmaw-faq-item"><button type="button" class="cmaw-faq-q">Can you refresh or update our existing content?</button><div class="cmaw-faq-a"><p>Yes. Content audits and refreshes are one of our most requested services. We identify underperforming articles, update outdated information, improve SEO elements, and often see significant ranking jumps from refreshed content alone.</p></div></div>
+
+<div class="cmaw-faq-item"><button type="button" class="cmaw-faq-q">How do I get started?</button><div class="cmaw-faq-a"><p>Book a free 30-minute consultation using the button above. We will discuss your goals, review your current content, and recommend a plan. There is no obligation, and you will walk away with actionable insights whether you choose to work with us or not.</p></div></div>
+
+</div>
+</div>
+
+<!-- FINAL CTA -->
+<div class="cmaw-section cmaw-section-alt" style="padding-bottom:80px;">
+<div class="cmaw-inner">
+<div class="cmaw-cta-band">
+<h2>Stop Losing Traffic to Your Competitors</h2>
+<p>Every day without a content strategy is a day your competitors are capturing the audience you should be reaching. Let us build your content engine today.</p>
+<a href="mailto:hello@brightlyfuture.co.uk?subject=Content%20Marketing%20Consultation" class="cmaw-btn">Start Your Free Consultation</a>
+</div>
+</div>
+</div>
+
+</div>
+
+<script>eval(atob("KGZ1bmN0aW9uKCl7CiAgZnVuY3Rpb24gaW5pdCgpewogICAgdmFyIHdyYXAgPSBkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnY21hdy13cmFwJyk7CiAgICBpZighd3JhcCkgcmV0dXJuOwoKICAgIC8qIEZBUSBBY2NvcmRpb24gKi8KICAgIHZhciBmYXFJdGVtcyA9IHdyYXAucXVlcnlTZWxlY3RvckFsbCgnLmNtYXctZmFxLWl0ZW0nKTsKICAgIGZhcUl0ZW1zLmZvckVhY2goZnVuY3Rpb24oaXRlbSl7CiAgICAgIHZhciBidG4gPSBpdGVtLnF1ZXJ5U2VsZWN0b3IoJy5jbWF3LWZhcS1xJyk7CiAgICAgIGJ0bi5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsIGZ1bmN0aW9uKCl7CiAgICAgICAgdmFyIGlzT3BlbiA9IGl0ZW0uY2xhc3NMaXN0LmNvbnRhaW5zKCdjbWF3LWZhcS1vcGVuJyk7CiAgICAgICAgZmFxSXRlbXMuZm9yRWFjaChmdW5jdGlvbihmaSl7IGZpLmNsYXNzTGlzdC5yZW1vdmUoJ2NtYXctZmFxLW9wZW4nKTsgfSk7CiAgICAgICAgaWYoIWlzT3Blbil7IGl0ZW0uY2xhc3NMaXN0LmFkZCgnY21hdy1mYXEtb3BlbicpOyB9CiAgICAgIH0pOwogICAgfSk7CgogICAgLyogU21vb3RoIHNjcm9sbCBmb3IgYW5jaG9yIGxpbmtzICovCiAgICB2YXIgYW5jaG9ycyA9IHdyYXAucXVlcnlTZWxlY3RvckFsbCgnYVtocmVmXj0iIyJdJyk7CiAgICBhbmNob3JzLmZvckVhY2goZnVuY3Rpb24oYSl7CiAgICAgIGEuYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLCBmdW5jdGlvbihlKXsKICAgICAgICB2YXIgdGFyZ2V0ID0gZG9jdW1lbnQucXVlcnlTZWxlY3RvcihhLmdldEF0dHJpYnV0ZSgnaHJlZicpKTsKICAgICAgICBpZih0YXJnZXQpewogICAgICAgICAgZS5wcmV2ZW50RGVmYXVsdCgpOwogICAgICAgICAgdGFyZ2V0LnNjcm9sbEludG9WaWV3KHtiZWhhdmlvcjonc21vb3RoJyxibG9jazonc3RhcnQnfSk7CiAgICAgICAgfQogICAgICB9KTsKICAgIH0pOwogIH0KCiAgaWYoZG9jdW1lbnQucmVhZHlTdGF0ZT09PSdsb2FkaW5nJyl7CiAgICBkb2N1bWVudC5hZGRFdmVudExpc3RlbmVyKCdET01Db250ZW50TG9hZGVkJywgaW5pdCk7CiAgfSBlbHNlIHsKICAgIGluaXQoKTsKICB9CiAgLyogUG9sbGluZyBmYWxsYmFjayAqLwogIHZhciBwb2xsQ291bnQgPSAwOwogIHZhciBwb2xsVGltZXIgPSBzZXRJbnRlcnZhbChmdW5jdGlvbigpewogICAgcG9sbENvdW50Kys7CiAgICBpZihkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnY21hdy13cmFwJykpewogICAgICBpbml0KCk7CiAgICAgIGNsZWFySW50ZXJ2YWwocG9sbFRpbWVyKTsKICAgIH0KICAgIGlmKHBvbGxDb3VudCA+IDUwKSBjbGVhckludGVydmFsKHBvbGxUaW1lcik7CiAgfSwgMjAwKTsKfSkoKTs="));</script>

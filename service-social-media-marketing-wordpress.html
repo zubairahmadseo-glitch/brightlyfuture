@@ -1,0 +1,594 @@
+<div id="smm-wrap">
+<style>
+#smm-wrap {
+  --bg: #E8E0F0;
+  --pri: #6C5CE7;
+  --heading: #1A1744;
+  --card-bg: #FFFFFF;
+  --text: #2D2B55;
+  --muted: #6B6490;
+  --card-border: #D0C6E0;
+  --input-bg: #F5F1FA;
+  --input-border: #D0C6E0;
+  --bg-alt: #DDD4EB;
+  --green: #00C897;
+  --red: #EF4444;
+  --yellow: #F59E0B;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.7;
+  font-size: 16px;
+}
+#smm-wrap *, #smm-wrap *::before, #smm-wrap *::after { box-sizing: border-box; }
+#smm-wrap .smm-container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+#smm-wrap h1, #smm-wrap h2, #smm-wrap h3 { color: var(--heading); line-height: 1.3; margin: 0 0 16px; }
+#smm-wrap h1 { font-size: 2.4em; font-weight: 800; }
+#smm-wrap h2 { font-size: 1.9em; font-weight: 700; text-align: center; margin-bottom: 12px; }
+#smm-wrap h3 { font-size: 1.15em; font-weight: 600; }
+#smm-wrap p { margin: 0 0 16px; }
+#smm-wrap a { color: var(--pri); text-decoration: none; }
+#smm-wrap a:hover { text-decoration: underline; }
+#smm-wrap .smm-section { padding: 60px 0; }
+#smm-wrap .smm-section-alt { background: var(--bg-alt); }
+#smm-wrap .smm-sub { text-align: center; color: var(--muted); font-size: 1.05em; max-width: 680px; margin: 0 auto 40px; }
+#smm-wrap .smm-btn {
+  display: inline-block; background: var(--pri); color: #fff; padding: 14px 32px;
+  border-radius: 8px; font-size: 1.05em; font-weight: 600; border: none; cursor: pointer;
+  transition: opacity .2s, transform .2s; text-decoration: none;
+}
+#smm-wrap .smm-btn:hover { opacity: .9; transform: translateY(-1px); text-decoration: none; }
+#smm-wrap .smm-btn-outline {
+  background: transparent; color: var(--pri); border: 2px solid var(--pri);
+}
+#smm-wrap .smm-btn-outline:hover { background: var(--pri); color: #fff; }
+#smm-wrap .smm-grid { display: grid; gap: 24px; }
+#smm-wrap .smm-grid-2 { grid-template-columns: repeat(2, 1fr); }
+#smm-wrap .smm-grid-3 { grid-template-columns: repeat(3, 1fr); }
+#smm-wrap .smm-grid-4 { grid-template-columns: repeat(4, 1fr); }
+#smm-wrap .smm-card {
+  background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px;
+  padding: 28px; transition: transform .2s, box-shadow .2s;
+}
+#smm-wrap .smm-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(108,92,231,.12); }
+#smm-wrap .smm-card-icon { font-size: 2em; margin-bottom: 12px; display: block; }
+#smm-wrap .smm-card p { color: var(--muted); font-size: .95em; margin: 0; }
+/* Hero */
+#smm-wrap .smm-hero { padding: 80px 0 60px; text-align: center; background: linear-gradient(135deg, var(--bg) 0%, var(--bg-alt) 100%); }
+#smm-wrap .smm-hero h1 { margin-bottom: 20px; }
+#smm-wrap .smm-hero .smm-hero-sub { font-size: 1.2em; color: var(--muted); max-width: 640px; margin: 0 auto 32px; }
+#smm-wrap .smm-trust { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 40px; }
+#smm-wrap .smm-trust-item { text-align: center; }
+#smm-wrap .smm-trust-num { font-size: 1.8em; font-weight: 800; color: var(--pri); display: block; }
+#smm-wrap .smm-trust-label { font-size: .9em; color: var(--muted); }
+/* Stats bar */
+#smm-wrap .smm-stats { display: flex; justify-content: center; gap: 48px; flex-wrap: wrap; padding: 40px 0; }
+#smm-wrap .smm-stat { text-align: center; }
+#smm-wrap .smm-stat-num { font-size: 2.2em; font-weight: 800; color: var(--pri); display: block; }
+#smm-wrap .smm-stat-label { font-size: .9em; color: var(--muted); }
+/* Process steps */
+#smm-wrap .smm-steps { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+#smm-wrap .smm-step { flex: 1; min-width: 180px; max-width: 220px; text-align: center; position: relative; }
+#smm-wrap .smm-step-num {
+  width: 48px; height: 48px; background: var(--pri); color: #fff; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; font-weight: 700;
+  font-size: 1.2em; margin: 0 auto 14px;
+}
+#smm-wrap .smm-step p { color: var(--muted); font-size: .9em; }
+/* Comparison table */
+#smm-wrap .smm-table-wrap { overflow-x: auto; }
+#smm-wrap .smm-table {
+  width: 100%; border-collapse: collapse; background: var(--card-bg);
+  border-radius: 12px; overflow: hidden; border: 1px solid var(--card-border);
+}
+#smm-wrap .smm-table th, #smm-wrap .smm-table td { padding: 14px 20px; text-align: left; border-bottom: 1px solid var(--card-border); }
+#smm-wrap .smm-table th { background: var(--pri); color: #fff; font-weight: 600; }
+#smm-wrap .smm-table tr:last-child td { border-bottom: none; }
+#smm-wrap .smm-table tr:nth-child(even) td { background: var(--input-bg); }
+/* Testimonials */
+#smm-wrap .smm-testimonial { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 28px; }
+#smm-wrap .smm-testimonial blockquote { margin: 0 0 16px; font-style: italic; color: var(--text); line-height: 1.6; }
+#smm-wrap .smm-testimonial cite { font-style: normal; font-weight: 600; color: var(--heading); }
+#smm-wrap .smm-testimonial .smm-cite-role { color: var(--muted); font-size: .9em; font-weight: 400; }
+/* FAQ */
+#smm-wrap .smm-faq-item { border: 1px solid var(--card-border); border-radius: 10px; margin-bottom: 12px; background: var(--card-bg); overflow: hidden; }
+#smm-wrap .smm-faq-q {
+  width: 100%; padding: 18px 24px; background: none; border: none; cursor: pointer;
+  font-size: 1em; font-weight: 600; color: var(--heading); text-align: left;
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: inherit;
+}
+#smm-wrap .smm-faq-q::after { content: '+'; font-size: 1.4em; color: var(--pri); transition: transform .2s; flex-shrink: 0; margin-left: 16px; }
+#smm-wrap .smm-faq-open .smm-faq-q::after { content: '\2212'; }
+#smm-wrap .smm-faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease, padding .3s ease; padding: 0 24px; }
+#smm-wrap .smm-faq-open .smm-faq-a { max-height: 600px; padding: 0 24px 18px; }
+#smm-wrap .smm-faq-a p { color: var(--muted); margin: 0; }
+/* CTA */
+#smm-wrap .smm-cta-box { background: linear-gradient(135deg, var(--pri), #8B7CF7); border-radius: 16px; padding: 48px 40px; text-align: center; color: #fff; }
+#smm-wrap .smm-cta-box h2 { color: #fff; }
+#smm-wrap .smm-cta-box p { color: rgba(255,255,255,.85); }
+#smm-wrap .smm-cta-box .smm-btn { background: #fff; color: var(--pri); }
+/* Tags */
+#smm-wrap .smm-tags { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+#smm-wrap .smm-tag { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; padding: 12px 20px; font-weight: 500; font-size: .95em; }
+/* Responsive */
+@media (max-width: 768px) {
+  #smm-wrap h1 { font-size: 1.8em; }
+  #smm-wrap h2 { font-size: 1.5em; }
+  #smm-wrap .smm-grid-2, #smm-wrap .smm-grid-3, #smm-wrap .smm-grid-4 { grid-template-columns: 1fr; }
+  #smm-wrap .smm-trust { gap: 24px; }
+  #smm-wrap .smm-stats { gap: 24px; }
+  #smm-wrap .smm-hero { padding: 50px 0 40px; }
+  #smm-wrap .smm-cta-box { padding: 32px 20px; }
+}
+</style>
+
+<!-- HERO -->
+<div class="smm-hero">
+  <div class="smm-container">
+    <h1>Social Media Marketing That Drives Real Revenue</h1>
+    <p class="smm-hero-sub">Stop posting into the void. Our data-driven social media marketing services turn followers into customers, likes into leads, and platforms into profit centres for your business.</p>
+    <a href="#smm-contact" class="smm-btn">Get Your Free Social Media Audit</a>
+    <div class="smm-trust">
+      <div class="smm-trust-item"><span class="smm-trust-num">200+</span><span class="smm-trust-label">Campaigns Managed</span></div>
+      <div class="smm-trust-item"><span class="smm-trust-num">5M+</span><span class="smm-trust-label">Engagement Generated</span></div>
+      <div class="smm-trust-item"><span class="smm-trust-num">150%</span><span class="smm-trust-label">Avg Growth Rate</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PAIN POINTS -->
+<div class="smm-section">
+  <div class="smm-container">
+    <h2>Sound Familiar?</h2>
+    <p class="smm-sub">Most businesses struggle with social media because they treat it like an afterthought. These are the problems we solve every day.</p>
+    <div class="smm-grid smm-grid-2">
+      <div class="smm-card">
+        <span class="smm-card-icon">📉</span>
+        <h3>Low Engagement Rates</h3>
+        <p>You post consistently but the likes, comments and shares barely move. Your content reaches less than 3% of your audience, and the algorithm keeps burying your posts.</p>
+      </div>
+      <div class="smm-card">
+        <span class="smm-card-icon">📅</span>
+        <h3>Inconsistent Posting</h3>
+        <p>Some weeks you post daily, other weeks nothing at all. Without a content calendar and scheduling system, your audience forgets you exist between bursts of activity.</p>
+      </div>
+      <div class="smm-card">
+        <span class="smm-card-icon">🎯</span>
+        <h3>No Clear Strategy</h3>
+        <p>You are posting without purpose. No defined audience personas, no content pillars, no measurable goals. Every post is a shot in the dark with no connection to business objectives.</p>
+      </div>
+      <div class="smm-card">
+        <span class="smm-card-icon">💸</span>
+        <h3>Poor ROI on Social Ads</h3>
+        <p>You have boosted posts and run ads but the cost per lead keeps climbing. Without proper targeting, creative testing and funnel alignment, ad spend gets wasted fast.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PLATFORMS -->
+<div class="smm-section smm-section-alt">
+  <div class="smm-container">
+    <h2>Platforms We Manage</h2>
+    <p class="smm-sub">Each platform demands a unique strategy. We tailor content formats, posting schedules and engagement tactics to match how audiences behave on every channel.</p>
+    <div class="smm-grid smm-grid-3">
+      <div class="smm-card">
+        <span class="smm-card-icon">📸</span>
+        <h3>Instagram</h3>
+        <p>Reels-first strategy with carousel posts, Stories and shoppable content. Visual storytelling that builds brand affinity and drives direct sales.</p>
+      </div>
+      <div class="smm-card">
+        <span class="smm-card-icon">👍</span>
+        <h3>Facebook</h3>
+        <p>Community building through Groups, targeted ad campaigns with granular audience segmentation, and Marketplace integration for product businesses.</p>
+      </div>
+      <div class="smm-card">
+        <span class="smm-card-icon">🐦</span>
+        <h3>Twitter / X</h3>
+        <p>Real-time engagement, trending topic leverage, thread-based thought leadership, and rapid-response customer service that builds brand trust.</p>
+      </div>
+      <div class="smm-card">
+        <span class="smm-card-icon">🎬</span>
+        <h3>YouTube</h3>
+        <p>Long-form video strategy, Shorts production, SEO-optimised titles and descriptions, thumbnail design, and audience retention analysis.</p>
+      </div>
+      <div class="smm-card">
+        <span class="smm-card-icon">💼</span>
+        <h3>LinkedIn</h3>
+        <p>B2B thought leadership, employee advocacy programs, LinkedIn Ads for lead generation, and professional networking that converts connections into clients.</p>
+      </div>
+      <div class="smm-card">
+        <span class="smm-card-icon">🎵</span>
+        <h3>TikTok</h3>
+        <p>Trend-driven short video content, creator collaborations, TikTok Shop integration, and viral content strategies for younger demographics.</p>
+      </div>
+      <div class="smm-card">
+        <span class="smm-card-icon">📌</span>
+        <h3>Pinterest</h3>
+        <p>Pin-optimised visuals, rich pins for products, seasonal content calendars, and evergreen boards that drive traffic for months after posting.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES BREAKDOWN -->
+<div class="smm-section">
+  <div class="smm-container">
+    <h2>What Our Social Media Management Includes</h2>
+    <p class="smm-sub">A full-service social media agency approach. We handle everything from strategy to execution so you can focus on running your business.</p>
+    <div class="smm-grid smm-grid-3">
+      <div class="smm-card">
+        <span class="smm-card-icon">🧭</span>
+        <h3>Social Media Strategy</h3>
+        <p>Competitor analysis, audience research, platform selection, content pillars, KPI setting and a 90-day roadmap aligned with your revenue targets.</p>
+      </div>
+      <div class="smm-card">
+        <span class="smm-card-icon">✍️</span>
+        <h3>Content Creation</h3>
+        <p>Professional copywriting, graphic design, video editing, Reels production and carousel creation. Every piece crafted to stop the scroll and spark action.</p>
+      </div>
+      <div class="smm-card">
+        <span class="smm-card-icon">💬</span>
+        <h3>Community Management</h3>
+        <p>Daily monitoring, comment responses, DM management, review replies and proactive engagement with your target audience to build genuine relationships.</p>
+      </div>
+      <div class="smm-card">
+        <span class="smm-card-icon">📢</span>
+        <h3>Paid Social Ads</h3>
+        <p>Campaign setup, audience targeting, A/B creative testing, retargeting funnels, budget optimisation and conversion tracking across all major platforms.</p>
+      </div>
+      <div class="smm-card">
+        <span class="smm-card-icon">📊</span>
+        <h3>Analytics and Reporting</h3>
+        <p>Weekly performance dashboards, monthly strategy reviews, ROI tracking, audience insights, and actionable recommendations backed by real data.</p>
+      </div>
+      <div class="smm-card">
+        <span class="smm-card-icon">🤝</span>
+        <h3>Influencer Outreach</h3>
+        <p>Influencer identification, vetting, negotiation, campaign management and performance tracking. We connect you with creators who genuinely move the needle.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- OUR PROCESS -->
+<div class="smm-section smm-section-alt">
+  <div class="smm-container">
+    <h2>Our 4-Step Process</h2>
+    <p class="smm-sub">A proven framework that takes your social presence from forgettable to formidable in 90 days.</p>
+    <div class="smm-steps">
+      <div class="smm-step">
+        <div class="smm-step-num">1</div>
+        <h3>Audit and Research</h3>
+        <p>We analyse your current social presence, study your competitors, identify audience gaps and benchmark your performance metrics.</p>
+      </div>
+      <div class="smm-step">
+        <div class="smm-step-num">2</div>
+        <h3>Strategy Development</h3>
+        <p>Custom content pillars, posting schedules, platform priorities and campaign calendars built around your specific business goals.</p>
+      </div>
+      <div class="smm-step">
+        <div class="smm-step-num">3</div>
+        <h3>Content Creation and Scheduling</h3>
+        <p>Our creative team produces platform-native content, schedules it at optimal times, and prepares engagement protocols.</p>
+      </div>
+      <div class="smm-step">
+        <div class="smm-step-num">4</div>
+        <h3>Monitor, Engage and Optimise</h3>
+        <p>Real-time community management, weekly performance analysis, and continuous content refinement based on what the data shows.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FREE TOOLS -->
+<div class="smm-section">
+  <div class="smm-container">
+    <h2>Free Social Media Tools</h2>
+    <p class="smm-sub">Try our free tools to supercharge your social media workflow right now. No sign-up required.</p>
+    <div class="smm-grid smm-grid-3">
+      <div class="smm-card">
+        <span class="smm-card-icon">🤖</span>
+        <h3>AI Caption Generator</h3>
+        <p>Generate scroll-stopping captions for any platform in seconds. Powered by AI trained on high-performing social media copy.</p>
+        <br><a href="/ai-caption-generator.html" class="smm-btn smm-btn-outline" style="font-size:.9em;padding:10px 22px;">Try Free</a>
+      </div>
+      <div class="smm-card">
+        <span class="smm-card-icon">#️⃣</span>
+        <h3>Hashtag Generator</h3>
+        <p>Find trending and niche-relevant hashtags that expand your reach. Get hashtag sets tailored to your content and industry.</p>
+        <br><a href="/hashtag-generator.html" class="smm-btn smm-btn-outline" style="font-size:.9em;padding:10px 22px;">Try Free</a>
+      </div>
+      <div class="smm-card">
+        <span class="smm-card-icon">🐦</span>
+        <h3>Twitter/X Character Counter</h3>
+        <p>Craft the perfect tweet every time. Real-time character counting with alerts so you never exceed the limit.</p>
+        <br><a href="/twitter-character-counter.html" class="smm-btn smm-btn-outline" style="font-size:.9em;padding:10px 22px;">Try Free</a>
+      </div>
+      <div class="smm-card">
+        <span class="smm-card-icon">🎬</span>
+        <h3>YouTube Title and Tag Generator</h3>
+        <p>Create SEO-optimised YouTube titles and tags that boost discoverability and click-through rates for your videos.</p>
+        <br><a href="/youtube-title-tag-generator.html" class="smm-btn smm-btn-outline" style="font-size:.9em;padding:10px 22px;">Try Free</a>
+      </div>
+      <div class="smm-card">
+        <span class="smm-card-icon">📸</span>
+        <h3>Instagram Bio Generator</h3>
+        <p>Create a compelling Instagram bio that converts profile visitors into followers. Multiple styles and tones available.</p>
+        <br><a href="/instagram-bio-generator.html" class="smm-btn smm-btn-outline" style="font-size:.9em;padding:10px 22px;">Try Free</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY CHOOSE US -->
+<div class="smm-section smm-section-alt">
+  <div class="smm-container">
+    <h2>Why Choose BrightlyFuture for Social Media</h2>
+    <p class="smm-sub">We combine creative storytelling with performance marketing to deliver social media results that actually impact your bottom line.</p>
+    <div class="smm-grid smm-grid-3">
+      <div class="smm-card">
+        <span class="smm-card-icon">🏆</span>
+        <h3>Platform Expertise</h3>
+        <p>Certified specialists for every major platform. We stay ahead of algorithm changes so your content always reaches the right people.</p>
+      </div>
+      <div class="smm-card">
+        <span class="smm-card-icon">📈</span>
+        <h3>Data-Driven Campaigns</h3>
+        <p>Every decision backed by analytics. We track 30+ metrics across platforms and optimise campaigns based on what the numbers tell us.</p>
+      </div>
+      <div class="smm-card">
+        <span class="smm-card-icon">🎨</span>
+        <h3>Creative Content</h3>
+        <p>In-house designers, copywriters and video editors who create thumb-stopping content tailored to each platform's unique format requirements.</p>
+      </div>
+      <div class="smm-card">
+        <span class="smm-card-icon">👤</span>
+        <h3>Dedicated Manager</h3>
+        <p>One point of contact who knows your brand inside out. Direct Slack or WhatsApp access, weekly calls, and same-day response to urgent requests.</p>
+      </div>
+      <div class="smm-card">
+        <span class="smm-card-icon">📋</span>
+        <h3>Monthly Reports</h3>
+        <p>Transparent reporting with clear metrics, competitor benchmarks, content performance breakdowns and strategic recommendations for the month ahead.</p>
+      </div>
+      <div class="smm-card">
+        <span class="smm-card-icon">🔄</span>
+        <h3>Flexible Plans</h3>
+        <p>No long-term lock-in contracts. Scale up or down based on seasonal needs. Month-to-month plans with the freedom to adjust scope any time.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- RESULTS SECTION -->
+<div class="smm-section">
+  <div class="smm-container">
+    <h2>Results Our Clients See</h2>
+    <p class="smm-sub">These are average results across our client portfolio after 6 months of social media management.</p>
+    <div class="smm-stats">
+      <div class="smm-stat"><span class="smm-stat-num">250%</span><span class="smm-stat-label">Avg Engagement Increase</span></div>
+      <div class="smm-stat"><span class="smm-stat-num">10x</span><span class="smm-stat-label">Follower Growth</span></div>
+      <div class="smm-stat"><span class="smm-stat-num">40%</span><span class="smm-stat-label">Lower Ad Costs</span></div>
+      <div class="smm-stat"><span class="smm-stat-num">24hr</span><span class="smm-stat-label">Response Time</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT WE CREATE -->
+<div class="smm-section smm-section-alt">
+  <div class="smm-container">
+    <h2>Content We Create for You</h2>
+    <p class="smm-sub">From short-form video to interactive polls, we produce every content type that performs on modern social platforms.</p>
+    <div class="smm-tags">
+      <span class="smm-tag">🎥 Reels and Short Videos</span>
+      <span class="smm-tag">📱 Stories</span>
+      <span class="smm-tag">🎠 Carousel Posts</span>
+      <span class="smm-tag">📊 Infographics</span>
+      <span class="smm-tag">🔴 Live Streams</span>
+      <span class="smm-tag">📷 User-Generated Content Campaigns</span>
+      <span class="smm-tag">📊 Polls and Interactive Content</span>
+    </div>
+  </div>
+</div>
+
+<!-- INDUSTRIES -->
+<div class="smm-section">
+  <div class="smm-container">
+    <h2>Industries We Serve</h2>
+    <p class="smm-sub">We have delivered measurable social media growth across diverse sectors. Our strategies adapt to the nuances of each industry.</p>
+    <div class="smm-grid smm-grid-4">
+      <div class="smm-card" style="text-align:center;padding:20px;">
+        <span class="smm-card-icon">💻</span>
+        <h3>Tech</h3>
+      </div>
+      <div class="smm-card" style="text-align:center;padding:20px;">
+        <span class="smm-card-icon">👗</span>
+        <h3>Fashion</h3>
+      </div>
+      <div class="smm-card" style="text-align:center;padding:20px;">
+        <span class="smm-card-icon">🍔</span>
+        <h3>Food and Beverage</h3>
+      </div>
+      <div class="smm-card" style="text-align:center;padding:20px;">
+        <span class="smm-card-icon">💪</span>
+        <h3>Fitness</h3>
+      </div>
+      <div class="smm-card" style="text-align:center;padding:20px;">
+        <span class="smm-card-icon">📚</span>
+        <h3>Education</h3>
+      </div>
+      <div class="smm-card" style="text-align:center;padding:20px;">
+        <span class="smm-card-icon">🛒</span>
+        <h3>E-commerce</h3>
+      </div>
+      <div class="smm-card" style="text-align:center;padding:20px;">
+        <span class="smm-card-icon">🏠</span>
+        <h3>Real Estate</h3>
+      </div>
+      <div class="smm-card" style="text-align:center;padding:20px;">
+        <span class="smm-card-icon">🎬</span>
+        <h3>Entertainment</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- COMPARISON TABLE -->
+<div class="smm-section smm-section-alt">
+  <div class="smm-container">
+    <h2>In-House vs Agency Social Media Management</h2>
+    <p class="smm-sub">See why partnering with a specialist social media agency delivers better results at lower cost.</p>
+    <div class="smm-table-wrap">
+      <table class="smm-table">
+        <thead>
+          <tr><th>Factor</th><th>In-House Team</th><th>BrightlyFuture Agency</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Monthly Cost</td><td>$4,000 - $8,000+ (salary, tools, training)</td><td>From $1,500/month all-inclusive</td></tr>
+          <tr><td>Platform Expertise</td><td>1-2 platforms at most</td><td>All 7 major platforms covered</td></tr>
+          <tr><td>Content Volume</td><td>8-12 posts per month</td><td>30-60 posts per month</td></tr>
+          <tr><td>Creative Resources</td><td>Limited to one person's skills</td><td>Full creative team: designers, writers, videographers</td></tr>
+          <tr><td>Strategy Depth</td><td>Reactive, trend-following</td><td>Proactive, data-driven, competitor-aware</td></tr>
+          <tr><td>Reporting</td><td>Basic platform analytics</td><td>Custom dashboards with ROI tracking</td></tr>
+          <tr><td>Scalability</td><td>Hire more staff (slow, expensive)</td><td>Scale instantly with flexible plans</td></tr>
+          <tr><td>Tool Stack</td><td>Free or basic paid tools</td><td>Enterprise-grade scheduling, analytics and listening tools</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<div class="smm-section">
+  <div class="smm-container">
+    <h2>What Our Clients Say</h2>
+    <p class="smm-sub">Real feedback from businesses that transformed their social media presence with our help.</p>
+    <div class="smm-grid smm-grid-3">
+      <div class="smm-testimonial">
+        <blockquote>"BrightlyFuture took our Instagram from 2,000 followers to 28,000 in just 5 months. More importantly, our website traffic from social channels increased by 340%. The ROI has been incredible."</blockquote>
+        <cite>Sarah Mitchell</cite><br><span class="smm-cite-role">Founder, Luxe Skincare Co.</span>
+      </div>
+      <div class="smm-testimonial">
+        <blockquote>"We were spending $3,000 a month on Facebook ads with terrible results. BrightlyFuture restructured our campaigns, and within 60 days our cost per lead dropped from $45 to $12. Game changer."</blockquote>
+        <cite>James Thornton</cite><br><span class="smm-cite-role">Marketing Director, PropTech Solutions</span>
+      </div>
+      <div class="smm-testimonial">
+        <blockquote>"Their community management is outstanding. Response times went from 8 hours to under 30 minutes. Our customer satisfaction scores on social improved by 62% in the first quarter."</blockquote>
+        <cite>Priya Kapoor</cite><br><span class="smm-cite-role">Head of Digital, FreshBite Restaurants</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PRICING CTA -->
+<div class="smm-section smm-section-alt" id="smm-contact">
+  <div class="smm-container">
+    <div class="smm-cta-box">
+      <h2>Ready to Dominate Social Media?</h2>
+      <p>Get a free social media audit worth $500. We will analyse your current presence, identify quick wins, and map out a 90-day growth strategy tailored to your business goals.</p>
+      <br>
+      <a href="/contact" class="smm-btn">Get Your Free Audit Now</a>
+      <p style="margin-top:16px;font-size:.9em;">No commitment required. Results speak for themselves.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FAQs -->
+<div class="smm-section">
+  <div class="smm-container">
+    <h2>Frequently Asked Questions</h2>
+    <p class="smm-sub">Everything you need to know about our social media marketing services.</p>
+
+    <div class="smm-faq-item">
+      <button type="button" class="smm-faq-q">What social media platforms do you manage?</button>
+      <div class="smm-faq-a"><p>We manage all major platforms including Instagram, Facebook, Twitter/X, YouTube, LinkedIn, TikTok and Pinterest. During our initial strategy session, we identify which 2-4 platforms will deliver the highest ROI for your specific business and audience. We do not recommend spreading thin across every platform. Instead, we focus resources where your ideal customers actually spend their time.</p></div>
+    </div>
+
+    <div class="smm-faq-item">
+      <button type="button" class="smm-faq-q">How often will you post on our social media accounts?</button>
+      <div class="smm-faq-a"><p>Posting frequency depends on your plan and platform strategy. Typically, we publish 3-5 times per week on primary platforms and 2-3 times per week on secondary ones. This includes a mix of feed posts, Stories, Reels and other format-specific content. We schedule posts at optimal engagement times based on your audience analytics.</p></div>
+    </div>
+
+    <div class="smm-faq-item">
+      <button type="button" class="smm-faq-q">How much should I budget for social media ads?</button>
+      <div class="smm-faq-a"><p>We recommend a minimum ad spend of $500 per month per platform to generate meaningful data and results. Most of our clients invest between $1,000 and $5,000 monthly on paid social. Your ad budget is separate from our management fee. During the strategy phase, we provide specific budget recommendations based on your goals, industry benchmarks and competitive landscape.</p></div>
+    </div>
+
+    <div class="smm-faq-item">
+      <button type="button" class="smm-faq-q">How long before we see results from social media marketing?</button>
+      <div class="smm-faq-a"><p>Organic social media growth typically takes 3-6 months to show significant traction. You will see engagement improvements within the first 30 days, follower growth accelerating by month 2, and meaningful lead generation by month 3-4. Paid social campaigns can deliver results within the first week. We set clear 30, 60 and 90-day milestones so you always know what to expect.</p></div>
+    </div>
+
+    <div class="smm-faq-item">
+      <button type="button" class="smm-faq-q">Do you create the content or do we need to provide it?</button>
+      <div class="smm-faq-a"><p>We handle all content creation. Our team includes copywriters, graphic designers and video editors who produce platform-native content for your brand. We develop content based on approved brand guidelines, messaging frameworks and content pillars. You review and approve content before it goes live through our shared content calendar. If you have existing photos or footage you want us to incorporate, we are happy to work with those assets as well.</p></div>
+    </div>
+
+    <div class="smm-faq-item">
+      <button type="button" class="smm-faq-q">What reporting do you provide?</button>
+      <div class="smm-faq-a"><p>You receive weekly performance snapshots and a comprehensive monthly report. Monthly reports include follower growth, engagement rates, reach and impressions, top-performing content, audience demographics, competitor benchmarks, ad campaign performance with ROAS metrics, and strategic recommendations for the next month. We also schedule monthly video calls to review results and adjust strategy.</p></div>
+    </div>
+
+    <div class="smm-faq-item">
+      <button type="button" class="smm-faq-q">Can you manage our social media ads alongside organic content?</button>
+      <div class="smm-faq-a"><p>Absolutely. We strongly recommend combining organic and paid social strategies for the best results. Our paid social team works closely with the organic content team to ensure consistent messaging, repurpose top-performing organic posts as ads, and build retargeting audiences from organic engagement. This integrated approach typically delivers 2-3x better results than running either strategy in isolation.</p></div>
+    </div>
+
+    <div class="smm-faq-item">
+      <button type="button" class="smm-faq-q">Do you offer influencer marketing as part of your service?</button>
+      <div class="smm-faq-a"><p>Yes. Influencer outreach and campaign management is included in our Premium and Enterprise plans, and available as an add-on for other tiers. We handle influencer identification, vetting, contract negotiation, content approval, posting coordination and performance tracking. We focus on micro and mid-tier influencers (10K-500K followers) who deliver the strongest engagement rates and ROI.</p></div>
+    </div>
+
+    <div class="smm-faq-item">
+      <button type="button" class="smm-faq-q">How do you handle negative comments or social media crises?</button>
+      <div class="smm-faq-a"><p>We develop a crisis response protocol during onboarding that outlines escalation procedures, response templates and approval workflows. For day-to-day negative comments, our community managers respond promptly with empathetic, on-brand messaging aimed at resolving issues publicly and moving detailed conversations to DMs. For larger crises, we activate the pre-approved response plan and coordinate directly with your team.</p></div>
+    </div>
+
+    <div class="smm-faq-item">
+      <button type="button" class="smm-faq-q">What tools do you use for social media management?</button>
+      <div class="smm-faq-a"><p>We use enterprise-grade tools including Sprout Social for scheduling and analytics, Brandwatch for social listening, Canva Pro and Adobe Creative Suite for design, CapCut and Premiere Pro for video editing, and platform-native analytics for detailed audience insights. All tool costs are included in your management fee.</p></div>
+    </div>
+
+    <div class="smm-faq-item">
+      <button type="button" class="smm-faq-q">Is there a minimum contract length?</button>
+      <div class="smm-faq-a"><p>We recommend a minimum 3-month commitment because social media growth requires consistent effort over time. However, we offer month-to-month plans with no long-term lock-in. We are confident in our results and do not need contracts to keep clients. Our average client retention rate is 14 months, which speaks to the value we deliver.</p></div>
+    </div>
+
+    <div class="smm-faq-item">
+      <button type="button" class="smm-faq-q">How do you ensure the content matches our brand voice?</button>
+      <div class="smm-faq-a"><p>During onboarding, we conduct a brand voice workshop to document your tone, style, vocabulary, dos and don'ts. We create a brand voice guide that our entire team follows. The first month includes an extended approval process where you review every piece of content before publishing. As we align on your brand voice, we streamline the process so you only review weekly content batches.</p></div>
+    </div>
+
+    <div class="smm-faq-item">
+      <button type="button" class="smm-faq-q">Can we choose which platforms to focus on?</button>
+      <div class="smm-faq-a"><p>Yes. While we provide data-driven platform recommendations based on where your target audience is most active, the final decision is always yours. Most clients start with 2-3 platforms and expand as results grow. We can also run pilot campaigns on new platforms before committing full resources to test whether the audience and format are the right fit.</p></div>
+    </div>
+
+    <div class="smm-faq-item">
+      <button type="button" class="smm-faq-q">What industries do you specialise in?</button>
+      <div class="smm-faq-a"><p>We have delivered strong results across tech, fashion, food and beverage, fitness, education, e-commerce, real estate and entertainment. While we are not limited to these sectors, our deepest expertise and case studies come from these industries. Every new client engagement begins with thorough industry research to understand competitive dynamics, audience behaviour and platform-specific trends in your vertical.</p></div>
+    </div>
+
+    <div class="smm-faq-item">
+      <button type="button" class="smm-faq-q">How do you measure the ROI of social media marketing?</button>
+      <div class="smm-faq-a"><p>We track ROI through multiple lenses: direct revenue attribution via UTM tracking and conversion pixels, lead generation metrics (cost per lead, lead quality scores), brand awareness metrics (reach, impressions, share of voice), engagement metrics (rate, saves, shares), and customer acquisition cost from social channels. We set up proper tracking infrastructure during onboarding so every dollar of social spend is tied to measurable business outcomes.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- FINAL CTA -->
+<div class="smm-section smm-section-alt">
+  <div class="smm-container">
+    <div class="smm-cta-box">
+      <h2>Let Us Grow Your Social Media Presence</h2>
+      <p>Join 200+ brands that trust BrightlyFuture to manage their social media strategy. Book a free 30-minute consultation and discover how we can transform your social channels into revenue-generating assets.</p>
+      <br>
+      <a href="/contact" class="smm-btn">Book Your Free Consultation</a>
+    </div>
+  </div>
+</div>
+
+<script>eval(atob("KGZ1bmN0aW9uKCl7CiAgZnVuY3Rpb24gaW5pdCgpewogICAgdmFyIHdyYXA9ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3NtbS13cmFwJyk7CiAgICBpZighd3JhcClyZXR1cm47CgogICAgLy8gRkFRIGFjY29yZGlvbgogICAgdmFyIGZhcUJ0bnM9d3JhcC5xdWVyeVNlbGVjdG9yQWxsKCcuc21tLWZhcS1xJyk7CiAgICBmYXFCdG5zLmZvckVhY2goZnVuY3Rpb24oYnRuKXsKICAgICAgYnRuLmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJyxmdW5jdGlvbigpewogICAgICAgIHZhciBpdGVtPXRoaXMucGFyZW50RWxlbWVudDsKICAgICAgICB2YXIgaXNPcGVuPWl0ZW0uY2xhc3NMaXN0LmNvbnRhaW5zKCdzbW0tZmFxLW9wZW4nKTsKICAgICAgICB3cmFwLnF1ZXJ5U2VsZWN0b3JBbGwoJy5zbW0tZmFxLWl0ZW0nKS5mb3JFYWNoKGZ1bmN0aW9uKGVsKXtlbC5jbGFzc0xpc3QucmVtb3ZlKCdzbW0tZmFxLW9wZW4nKTt9KTsKICAgICAgICBpZighaXNPcGVuKWl0ZW0uY2xhc3NMaXN0LmFkZCgnc21tLWZhcS1vcGVuJyk7CiAgICAgIH0pOwogICAgfSk7CgogICAgLy8gU21vb3RoIHNjcm9sbCBmb3IgYW5jaG9yIGxpbmtzCiAgICB3cmFwLnF1ZXJ5U2VsZWN0b3JBbGwoJ2FbaHJlZl49IiMiXScpLmZvckVhY2goZnVuY3Rpb24oYSl7CiAgICAgIGEuYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLGZ1bmN0aW9uKGUpewogICAgICAgIHZhciB0YXJnZXQ9ZG9jdW1lbnQucXVlcnlTZWxlY3Rvcih0aGlzLmdldEF0dHJpYnV0ZSgnaHJlZicpKTsKICAgICAgICBpZih0YXJnZXQpe2UucHJldmVudERlZmF1bHQoKTt0YXJnZXQuc2Nyb2xsSW50b1ZpZXcoe2JlaGF2aW9yOidzbW9vdGgnLGJsb2NrOidzdGFydCd9KTt9CiAgICAgIH0pOwogICAgfSk7CiAgfQoKICBpZihkb2N1bWVudC5yZWFkeVN0YXRlPT09J2xvYWRpbmcnKXsKICAgIGRvY3VtZW50LmFkZEV2ZW50TGlzdGVuZXIoJ0RPTUNvbnRlbnRMb2FkZWQnLGluaXQpOwogIH1lbHNlewogICAgaW5pdCgpOwogIH0KICB2YXIgYXR0ZW1wdHM9MDsKICB2YXIgcG9sbD1zZXRJbnRlcnZhbChmdW5jdGlvbigpewogICAgYXR0ZW1wdHMrKzsKICAgIGlmKGRvY3VtZW50LmdldEVsZW1lbnRCeUlkKCdzbW0td3JhcCcpKXtpbml0KCk7Y2xlYXJJbnRlcnZhbChwb2xsKTt9CiAgICBpZihhdHRlbXB0cz41MCljbGVhckludGVydmFsKHBvbGwpOwogIH0sMjAwKTsKfSkoKTs="));</script>
+</div>

@@ -1,0 +1,420 @@
+<style>
+#ema-wrap {
+  --bg: #E8E0F0;
+  --pri: #6C5CE7;
+  --pri-hover: #5A4BD1;
+  --heading: #1A1744;
+  --card-bg: #FFFFFF;
+  --text: #2D2B55;
+  --muted: #6B6490;
+  --card-border: #D0C6E0;
+  --input-bg: #F5F1FA;
+  --bg-alt: #DDD4EB;
+  --green: #00C897;
+  --red: #EF4444;
+  --yellow: #F59E0B;
+}
+#ema-wrap { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: var(--text); line-height: 1.7; }
+#ema-wrap * { box-sizing: border-box; margin: 0; padding: 0; }
+#ema-wrap .ema-section { max-width: 900px; margin: 0 auto; padding: 50px 20px; }
+#ema-wrap .ema-section-alt { background: var(--bg-alt); }
+#ema-wrap h1 { font-size: 2.4rem; color: var(--heading); line-height: 1.2; margin-bottom: 16px; }
+#ema-wrap h2 { font-size: 1.8rem; color: var(--heading); margin-bottom: 12px; text-align: center; }
+#ema-wrap h3 { font-size: 1.15rem; color: var(--heading); margin-bottom: 8px; }
+#ema-wrap p { margin-bottom: 14px; color: var(--text); }
+#ema-wrap .ema-sub { color: var(--muted); font-size: 1.05rem; text-align: center; margin-bottom: 36px; max-width: 700px; margin-left: auto; margin-right: auto; }
+#ema-wrap .ema-hero { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, var(--bg) 0%, var(--bg-alt) 100%); }
+#ema-wrap .ema-hero p { font-size: 1.15rem; color: var(--muted); max-width: 650px; margin: 0 auto 24px; }
+#ema-wrap .ema-btn { display: inline-block; background: var(--pri); color: #fff !important; padding: 14px 32px; border-radius: 8px; font-size: 1.05rem; font-weight: 600; text-decoration: none; border: none; cursor: pointer; transition: background 0.2s; }
+#ema-wrap .ema-btn:hover { background: var(--pri-hover); }
+#ema-wrap .ema-btn-outline { background: transparent; color: var(--pri) !important; border: 2px solid var(--pri); }
+#ema-wrap .ema-btn-outline:hover { background: var(--pri); color: #fff !important; }
+#ema-wrap .ema-trust { display: flex; justify-content: center; gap: 32px; margin-top: 28px; flex-wrap: wrap; }
+#ema-wrap .ema-trust-item { text-align: center; }
+#ema-wrap .ema-trust-item strong { display: block; font-size: 1.5rem; color: var(--pri); }
+#ema-wrap .ema-trust-item span { font-size: 0.85rem; color: var(--muted); }
+#ema-wrap .ema-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+#ema-wrap .ema-grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+#ema-wrap .ema-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 28px 22px; }
+#ema-wrap .ema-card-icon { font-size: 2rem; margin-bottom: 12px; display: block; }
+#ema-wrap .ema-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; counter-reset: step; }
+#ema-wrap .ema-step { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 28px 22px; position: relative; text-align: center; }
+#ema-wrap .ema-step-num { width: 40px; height: 40px; background: var(--pri); color: #fff; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1rem; margin-bottom: 12px; }
+#ema-wrap .ema-tool-card { background: var(--card-bg); border: 2px solid var(--pri); border-radius: 12px; padding: 24px; text-align: center; }
+#ema-wrap .ema-tool-card h3 { color: var(--pri); }
+#ema-wrap .ema-tool-card p { color: var(--muted); font-size: 0.92rem; }
+#ema-wrap .ema-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; text-align: center; }
+#ema-wrap .ema-stat { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 28px 16px; }
+#ema-wrap .ema-stat strong { display: block; font-size: 1.8rem; color: var(--pri); margin-bottom: 4px; }
+#ema-wrap .ema-stat span { color: var(--muted); font-size: 0.92rem; }
+#ema-wrap .ema-table-wrap { overflow-x: auto; }
+#ema-wrap table { width: 100%; border-collapse: collapse; background: var(--card-bg); border-radius: 12px; overflow: hidden; border: 1px solid var(--card-border); }
+#ema-wrap th { background: var(--pri); color: #fff; padding: 14px 16px; text-align: left; font-weight: 600; }
+#ema-wrap td { padding: 12px 16px; border-bottom: 1px solid var(--card-border); }
+#ema-wrap tr:last-child td { border-bottom: none; }
+#ema-wrap .ema-check { color: var(--green); font-weight: 700; }
+#ema-wrap .ema-cross { color: var(--red); font-weight: 700; }
+#ema-wrap .ema-testimonial { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 28px; }
+#ema-wrap .ema-testimonial q { font-style: italic; display: block; margin-bottom: 12px; color: var(--text); }
+#ema-wrap .ema-testimonial cite { color: var(--muted); font-size: 0.9rem; }
+#ema-wrap .ema-cta-box { text-align: center; background: linear-gradient(135deg, var(--pri) 0%, #5A4BD1 100%); border-radius: 16px; padding: 48px 28px; color: #fff; }
+#ema-wrap .ema-cta-box h2 { color: #fff; }
+#ema-wrap .ema-cta-box p { color: rgba(255,255,255,0.9); }
+#ema-wrap .ema-cta-box .ema-btn { background: #fff; color: var(--pri) !important; }
+#ema-wrap .ema-cta-box .ema-btn:hover { background: #f0ecf7; }
+#ema-wrap .ema-faq-item { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
+#ema-wrap .ema-faq-q { width: 100%; background: none; border: none; padding: 18px 22px; text-align: left; font-size: 1rem; font-weight: 600; color: var(--heading); cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: inherit; }
+#ema-wrap .ema-faq-q::after { content: '+'; font-size: 1.4rem; color: var(--pri); transition: transform 0.2s; }
+#ema-wrap .ema-faq-open .ema-faq-q::after { content: '-'; }
+#ema-wrap .ema-faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+#ema-wrap .ema-faq-open .ema-faq-a { max-height: 500px; }
+#ema-wrap .ema-faq-a p { padding: 0 22px 18px; color: var(--muted); }
+#ema-wrap .ema-platforms { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+#ema-wrap .ema-platform-badge { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 8px; padding: 10px 20px; font-weight: 600; color: var(--heading); font-size: 0.95rem; }
+#ema-wrap .ema-checklist { list-style: none; }
+#ema-wrap .ema-checklist li { padding: 8px 0; padding-left: 28px; position: relative; color: var(--text); }
+#ema-wrap .ema-checklist li::before { content: '\2713'; position: absolute; left: 0; color: var(--green); font-weight: 700; }
+@media(max-width:600px){
+  #ema-wrap h1 { font-size: 1.7rem; }
+  #ema-wrap h2 { font-size: 1.4rem; }
+  #ema-wrap .ema-trust { gap: 16px; }
+}
+</style>
+
+<div id="ema-wrap">
+
+<!-- Hero -->
+<div class="ema-hero">
+  <div class="ema-section">
+    <h1>Email Marketing & Automation That Drives Revenue</h1>
+    <p>For every $1 spent on email marketing, businesses earn an average of $36 in return. We help you build automated email systems that nurture leads, convert customers, and grow revenue on autopilot.</p>
+    <a href="#ema-contact" class="ema-btn">Get Your Free Email Strategy Session</a>
+    <div class="ema-trust">
+      <div class="ema-trust-item"><strong>1M+</strong><span>Emails Delivered</span></div>
+      <div class="ema-trust-item"><strong>45%</strong><span>Avg Open Rate</span></div>
+      <div class="ema-trust-item"><strong>99.2%</strong><span>Deliverability</span></div>
+      <div class="ema-trust-item"><strong>300%</strong><span>Revenue Growth</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Pain Points -->
+<div class="ema-section">
+  <h2>Sound Familiar?</h2>
+  <p class="ema-sub">Most businesses struggle with email marketing because they lack strategy, automation, and expertise. Here are common challenges we solve.</p>
+  <div class="ema-grid">
+    <div class="ema-card">
+      <span class="ema-card-icon">&#128233;</span>
+      <h3>Low Open Rates</h3>
+      <p>Your emails are getting ignored. Poor subject lines, bad timing, and weak segmentation mean your messages go unread.</p>
+    </div>
+    <div class="ema-card">
+      <span class="ema-card-icon">&#9888;</span>
+      <h3>Landing in Spam</h3>
+      <p>Technical issues, spammy content, and poor sender reputation are sending your emails straight to the junk folder.</p>
+    </div>
+    <div class="ema-card">
+      <span class="ema-card-icon">&#9881;</span>
+      <h3>No Automation</h3>
+      <p>You are manually sending every email instead of building automated workflows that work while you sleep.</p>
+    </div>
+    <div class="ema-card">
+      <span class="ema-card-icon">&#128202;</span>
+      <h3>Poor Segmentation</h3>
+      <p>Sending the same message to everyone. Without proper list segmentation, your emails feel irrelevant and generic.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Services Overview -->
+<div class="ema-section-alt">
+  <div class="ema-section">
+    <h2>Our Email Marketing Services</h2>
+    <p class="ema-sub">From strategy to execution, we handle every aspect of your email marketing to maximize engagement and revenue.</p>
+    <div class="ema-grid">
+      <div class="ema-card">
+        <span class="ema-card-icon">&#127919;</span>
+        <h3>Email Campaign Strategy</h3>
+        <p>Data-driven email strategies tailored to your audience, goals, and industry. We plan every campaign for maximum impact.</p>
+      </div>
+      <div class="ema-card">
+        <span class="ema-card-icon">&#127912;</span>
+        <h3>Template Design</h3>
+        <p>Beautiful, responsive email templates that look perfect on every device and drive clicks with conversion-focused layouts.</p>
+      </div>
+      <div class="ema-card">
+        <span class="ema-card-icon">&#9889;</span>
+        <h3>Automation Workflows</h3>
+        <p>Set up automated email sequences that nurture leads, recover carts, onboard users, and re-engage inactive subscribers.</p>
+      </div>
+      <div class="ema-card">
+        <span class="ema-card-icon">&#128101;</span>
+        <h3>List Management</h3>
+        <p>Clean, segment, and grow your email list with smart strategies. Remove dead weight and target the right people.</p>
+      </div>
+      <div class="ema-card">
+        <span class="ema-card-icon">&#128300;</span>
+        <h3>A/B Testing</h3>
+        <p>Test subject lines, content, send times, and CTAs. We use data to continuously improve your email performance.</p>
+      </div>
+      <div class="ema-card">
+        <span class="ema-card-icon">&#128200;</span>
+        <h3>Analytics & Optimization</h3>
+        <p>Detailed reporting on open rates, click rates, conversions, and revenue. Every metric tracked, every campaign improved.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Process -->
+<div class="ema-section">
+  <h2>How We Work</h2>
+  <p class="ema-sub">Our proven 4-step process takes your email marketing from underperforming to revenue-generating machine.</p>
+  <div class="ema-steps">
+    <div class="ema-step">
+      <span class="ema-step-num">1</span>
+      <h3>Audit & Analysis</h3>
+      <p>We review your current email setup, list health, deliverability, and past campaign performance to identify gaps.</p>
+    </div>
+    <div class="ema-step">
+      <span class="ema-step-num">2</span>
+      <h3>Strategy & Design</h3>
+      <p>We build a custom email strategy with branded templates, segmentation plan, and content calendar.</p>
+    </div>
+    <div class="ema-step">
+      <span class="ema-step-num">3</span>
+      <h3>Automation Setup</h3>
+      <p>We configure automated workflows for welcome series, nurture sequences, cart recovery, and more.</p>
+    </div>
+    <div class="ema-step">
+      <span class="ema-step-num">4</span>
+      <h3>Launch & Optimize</h3>
+      <p>We launch campaigns, run A/B tests, monitor results, and continuously optimize for better performance.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Email Types -->
+<div class="ema-section-alt">
+  <div class="ema-section">
+    <h2>Email Types We Create</h2>
+    <p class="ema-sub">From welcome emails to win-back campaigns, we create every type of email your business needs to grow.</p>
+    <div class="ema-grid">
+      <div class="ema-card"><h3>Welcome Series</h3><p>Make a strong first impression with automated onboarding sequences that introduce your brand and drive first purchases.</p></div>
+      <div class="ema-card"><h3>Promotional Campaigns</h3><p>Sales, launches, seasonal offers, and flash deals designed to drive urgency and maximize conversions.</p></div>
+      <div class="ema-card"><h3>Newsletters</h3><p>Consistent, value-packed newsletters that keep your audience engaged and your brand top of mind.</p></div>
+      <div class="ema-card"><h3>Abandoned Cart</h3><p>Recover lost revenue with smart cart recovery emails that bring shoppers back to complete their purchase.</p></div>
+      <div class="ema-card"><h3>Re-engagement</h3><p>Win back inactive subscribers with targeted campaigns that reignite interest and reduce list churn.</p></div>
+      <div class="ema-card"><h3>Product Launch</h3><p>Build anticipation and drive day-one sales with strategic product launch email sequences.</p></div>
+      <div class="ema-card"><h3>Drip Campaigns</h3><p>Educate and nurture leads over time with carefully timed drip sequences that move prospects toward purchase.</p></div>
+      <div class="ema-card"><h3>Transactional Emails</h3><p>Order confirmations, shipping updates, and receipts that reinforce your brand and reduce support tickets.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- Free Tools -->
+<div class="ema-section">
+  <h2>Free Email Marketing Tools</h2>
+  <p class="ema-sub">Try our free tools to improve your email marketing right now. No signup required.</p>
+  <div class="ema-grid-3">
+    <div class="ema-tool-card">
+      <span class="ema-card-icon">&#9997;</span>
+      <h3>AI Email Writer</h3>
+      <p>Generate professional marketing emails, cold outreach, and follow-ups instantly with AI.</p>
+      <a href="/ai-email-writer/" class="ema-btn" style="margin-top:12px;font-size:0.95rem;padding:10px 24px;">Try Free</a>
+    </div>
+    <div class="ema-tool-card">
+      <span class="ema-card-icon">&#9998;</span>
+      <h3>Email Signature Generator</h3>
+      <p>Create professional HTML email signatures with your branding, photo, and social links.</p>
+      <a href="/email-signature-generator/" class="ema-btn" style="margin-top:12px;font-size:0.95rem;padding:10px 24px;">Try Free</a>
+    </div>
+    <div class="ema-tool-card">
+      <span class="ema-card-icon">&#128274;</span>
+      <h3>Spam Score Checker</h3>
+      <p>Check if your emails will land in spam. Analyze content, headers, and sender reputation.</p>
+      <a href="/spam-score-checker/" class="ema-btn" style="margin-top:12px;font-size:0.95rem;padding:10px 24px;">Try Free</a>
+    </div>
+  </div>
+</div>
+
+<!-- Platforms -->
+<div class="ema-section-alt">
+  <div class="ema-section">
+    <h2>Platforms We Work With</h2>
+    <p class="ema-sub">We are experts across all major email marketing platforms and can work with your existing setup or recommend the best fit.</p>
+    <div class="ema-platforms">
+      <span class="ema-platform-badge">Mailchimp</span>
+      <span class="ema-platform-badge">Klaviyo</span>
+      <span class="ema-platform-badge">HubSpot</span>
+      <span class="ema-platform-badge">SendGrid</span>
+      <span class="ema-platform-badge">ConvertKit</span>
+      <span class="ema-platform-badge">ActiveCampaign</span>
+      <span class="ema-platform-badge">Brevo</span>
+      <span class="ema-platform-badge">Constant Contact</span>
+    </div>
+  </div>
+</div>
+
+<!-- Why Choose Us -->
+<div class="ema-section">
+  <h2>Why Choose BrightlyFuture</h2>
+  <p class="ema-sub">We combine technical expertise with creative strategy to deliver email campaigns that actually convert.</p>
+  <div class="ema-grid">
+    <div class="ema-card"><span class="ema-card-icon">&#128231;</span><h3>Deliverability Experts</h3><p>We ensure your emails reach the inbox with proper authentication (SPF, DKIM, DMARC), warm-up strategies, and list hygiene.</p></div>
+    <div class="ema-card"><span class="ema-card-icon">&#127919;</span><h3>Conversion-Focused</h3><p>Every email is designed to drive action. From subject lines to CTAs, we optimize every element for conversions.</p></div>
+    <div class="ema-card"><span class="ema-card-icon">&#9889;</span><h3>Advanced Automation</h3><p>Complex workflows made simple. We build automation that saves you hours while generating revenue around the clock.</p></div>
+    <div class="ema-card"><span class="ema-card-icon">&#128275;</span><h3>GDPR Compliant</h3><p>We keep your email marketing fully compliant with GDPR, CAN-SPAM, and CCPA. No legal headaches.</p></div>
+    <div class="ema-card"><span class="ema-card-icon">&#128300;</span><h3>Data-Driven Testing</h3><p>We test everything. Subject lines, send times, content, CTAs. Every campaign gets smarter with data.</p></div>
+    <div class="ema-card"><span class="ema-card-icon">&#128222;</span><h3>Dedicated Support</h3><p>A dedicated email strategist who knows your business, audience, and goals inside out.</p></div>
+  </div>
+</div>
+
+<!-- Results -->
+<div class="ema-section-alt">
+  <div class="ema-section">
+    <h2>Results That Speak for Themselves</h2>
+    <p class="ema-sub">These are real averages across our client portfolio, not cherry-picked best cases.</p>
+    <div class="ema-stats">
+      <div class="ema-stat"><strong>45%</strong><span>Average Open Rate</span></div>
+      <div class="ema-stat"><strong>12%</strong><span>Click-Through Rate</span></div>
+      <div class="ema-stat"><strong>300%</strong><span>Revenue Increase</span></div>
+      <div class="ema-stat"><strong>99.2%</strong><span>Deliverability Rate</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- Comparison Table -->
+<div class="ema-section">
+  <h2>Basic Email Blasts vs Strategic Email Marketing</h2>
+  <p class="ema-sub">See the difference between sending random emails and running a professional email marketing program.</p>
+  <div class="ema-table-wrap">
+    <table>
+      <thead><tr><th>Feature</th><th>Basic Blasts</th><th>Strategic Email Marketing</th></tr></thead>
+      <tbody>
+        <tr><td>Segmentation</td><td class="ema-cross">&#10007; Same list for all</td><td class="ema-check">&#10003; Targeted segments</td></tr>
+        <tr><td>Personalization</td><td class="ema-cross">&#10007; Generic content</td><td class="ema-check">&#10003; Dynamic content</td></tr>
+        <tr><td>Automation</td><td class="ema-cross">&#10007; Manual sends</td><td class="ema-check">&#10003; Automated workflows</td></tr>
+        <tr><td>A/B Testing</td><td class="ema-cross">&#10007; No testing</td><td class="ema-check">&#10003; Continuous optimization</td></tr>
+        <tr><td>Deliverability</td><td class="ema-cross">&#10007; Often hits spam</td><td class="ema-check">&#10003; 99%+ inbox placement</td></tr>
+        <tr><td>Analytics</td><td class="ema-cross">&#10007; Basic opens only</td><td class="ema-check">&#10003; Full revenue tracking</td></tr>
+        <tr><td>ROI</td><td class="ema-cross">&#10007; Unpredictable</td><td class="ema-check">&#10003; $36 per $1 spent</td></tr>
+        <tr><td>List Growth</td><td class="ema-cross">&#10007; Stagnant</td><td class="ema-check">&#10003; Strategic growth</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Automation Workflows -->
+<div class="ema-section-alt">
+  <div class="ema-section">
+    <h2>Automation Workflows We Build</h2>
+    <p class="ema-sub">Set it once, earn forever. These automated workflows generate revenue while you focus on running your business.</p>
+    <div class="ema-grid">
+      <div class="ema-card"><h3>Welcome Series</h3><p>3 to 7 email sequence that introduces your brand, delivers value, and guides new subscribers toward their first purchase or conversion.</p></div>
+      <div class="ema-card"><h3>Cart Abandonment</h3><p>Triggered emails that remind shoppers about items they left behind, with urgency elements that recover 10 to 15% of abandoned carts.</p></div>
+      <div class="ema-card"><h3>Post-Purchase</h3><p>Thank you emails, review requests, cross-sells, and upsells that increase customer lifetime value by 20 to 30%.</p></div>
+      <div class="ema-card"><h3>Win-Back</h3><p>Re-engage subscribers who have not opened in 60+ days with special offers, surveys, or content that reignites interest.</p></div>
+      <div class="ema-card"><h3>Lead Nurture</h3><p>Educational drip sequences that move cold leads through your funnel with valuable content at every stage.</p></div>
+      <div class="ema-card"><h3>Birthday & Anniversary</h3><p>Personalized celebratory emails with exclusive offers that delight customers and drive purchases on special occasions.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- Industries -->
+<div class="ema-section">
+  <h2>Industries We Serve</h2>
+  <p class="ema-sub">Our email marketing strategies are tailored to the unique needs and audiences of each industry.</p>
+  <div class="ema-grid">
+    <div class="ema-card"><h3>E-commerce</h3><p>Cart recovery, product launches, and seasonal campaigns that drive repeat purchases and revenue.</p></div>
+    <div class="ema-card"><h3>SaaS</h3><p>Onboarding sequences, feature announcements, and churn prevention emails for software companies.</p></div>
+    <div class="ema-card"><h3>Healthcare</h3><p>Patient engagement, appointment reminders, and wellness newsletters with full HIPAA compliance.</p></div>
+    <div class="ema-card"><h3>Education</h3><p>Course promotions, student engagement, enrollment campaigns, and alumni communications.</p></div>
+    <div class="ema-card"><h3>Real Estate</h3><p>Property alerts, market updates, and lead nurture sequences for agents and brokerages.</p></div>
+    <div class="ema-card"><h3>Finance</h3><p>Client communications, market insights, and compliance-friendly campaigns for financial services.</p></div>
+    <div class="ema-card"><h3>Hospitality</h3><p>Booking confirmations, loyalty programs, seasonal promotions, and guest re-engagement campaigns.</p></div>
+    <div class="ema-card"><h3>Non-Profit</h3><p>Donor engagement, fundraising campaigns, volunteer communications, and impact storytelling.</p></div>
+  </div>
+</div>
+
+<!-- Testimonials -->
+<div class="ema-section-alt">
+  <div class="ema-section">
+    <h2>What Our Clients Say</h2>
+    <div class="ema-grid-3">
+      <div class="ema-testimonial">
+        <q>Our open rates jumped from 12% to 42% in the first two months. The automation workflows they built are generating sales every single day without us lifting a finger.</q>
+        <cite>Sarah Mitchell, E-commerce Store Owner</cite>
+      </div>
+      <div class="ema-testimonial">
+        <q>BrightlyFuture completely transformed our email strategy. We went from random blasts to a segmented, automated system that has tripled our email revenue.</q>
+        <cite>James Carter, SaaS Founder</cite>
+      </div>
+      <div class="ema-testimonial">
+        <q>Their deliverability expertise saved us. Our emails were going to spam for months. Within weeks, we had 99% inbox placement and our engagement skyrocketed.</q>
+        <cite>Priya Sharma, Marketing Director</cite>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="ema-section" id="ema-contact">
+  <div class="ema-cta-box">
+    <h2>Start Turning Emails Into Revenue</h2>
+    <p>Email marketing delivers the highest ROI of any digital channel. Let us build an email system that generates revenue on autopilot. Get a free strategy session today.</p>
+    <a href="/contact/" class="ema-btn" style="margin-top:16px;">Get Your Free Email Strategy Session</a>
+  </div>
+</div>
+
+<!-- FAQs -->
+<div class="ema-section-alt">
+  <div class="ema-section">
+    <h2>Frequently Asked Questions</h2>
+    <p class="ema-sub">Everything you need to know about our email marketing and automation services.</p>
+
+    <div class="ema-faq-item"><button type="button" class="ema-faq-q">What email marketing services do you offer?</button><div class="ema-faq-a"><p>We offer end-to-end email marketing including strategy development, template design, automation setup, list management, A/B testing, deliverability optimization, and detailed analytics reporting. We handle everything from planning to execution.</p></div></div>
+
+    <div class="ema-faq-item"><button type="button" class="ema-faq-q">Which email platforms do you work with?</button><div class="ema-faq-a"><p>We work with all major platforms including Mailchimp, Klaviyo, HubSpot, ActiveCampaign, ConvertKit, SendGrid, Brevo (Sendinblue), and Constant Contact. We can also recommend the best platform for your specific needs and budget.</p></div></div>
+
+    <div class="ema-faq-item"><button type="button" class="ema-faq-q">How much does email marketing cost?</button><div class="ema-faq-a"><p>Our pricing depends on the scope of services, list size, and campaign frequency. We offer flexible packages starting from basic campaign management to full-service automation. Contact us for a custom quote based on your needs.</p></div></div>
+
+    <div class="ema-faq-item"><button type="button" class="ema-faq-q">How do you improve email deliverability?</button><div class="ema-faq-a"><p>We implement proper email authentication (SPF, DKIM, DMARC), warm up new sending domains, clean your email list, optimize content to avoid spam triggers, and monitor sender reputation. This ensures your emails reach the inbox consistently.</p></div></div>
+
+    <div class="ema-faq-item"><button type="button" class="ema-faq-q">What open rates can I expect?</button><div class="ema-faq-a"><p>Our clients typically see open rates between 35% and 55%, well above the industry average of 20%. Results depend on your industry, list quality, and content relevance, but we consistently outperform benchmarks.</p></div></div>
+
+    <div class="ema-faq-item"><button type="button" class="ema-faq-q">Do you help build email lists?</button><div class="ema-faq-a"><p>Yes. We create lead magnets, opt-in forms, landing pages, and list-building strategies that attract quality subscribers who actually want to hear from you. We never buy lists or use shady growth tactics.</p></div></div>
+
+    <div class="ema-faq-item"><button type="button" class="ema-faq-q">What is email automation and do I need it?</button><div class="ema-faq-a"><p>Email automation sends targeted emails based on subscriber behavior or triggers, like signing up, abandoning a cart, or not opening emails in 30 days. If you want to scale your email marketing without scaling your team, automation is essential.</p></div></div>
+
+    <div class="ema-faq-item"><button type="button" class="ema-faq-q">How long before I see results?</button><div class="ema-faq-a"><p>Most clients see measurable improvements within the first 30 days. Deliverability fixes take 2 to 4 weeks, while automation workflows start generating revenue as soon as they are live. Full optimization typically shows strongest results by month 3.</p></div></div>
+
+    <div class="ema-faq-item"><button type="button" class="ema-faq-q">Are your emails GDPR compliant?</button><div class="ema-faq-a"><p>Absolutely. We ensure all email campaigns comply with GDPR, CAN-SPAM, and CCPA regulations. This includes proper consent management, unsubscribe mechanisms, data handling, and privacy policy alignment.</p></div></div>
+
+    <div class="ema-faq-item"><button type="button" class="ema-faq-q">Can you redesign my existing email templates?</button><div class="ema-faq-a"><p>Yes. We redesign email templates to be mobile-responsive, on-brand, and conversion-optimized. Whether you need a single template or a complete template library, we create designs that look great and drive action.</p></div></div>
+
+    <div class="ema-faq-item"><button type="button" class="ema-faq-q">How often should I send emails?</button><div class="ema-faq-a"><p>It depends on your audience and industry. Most businesses perform best with 2 to 4 emails per week. We test frequency as part of our strategy and find the sweet spot that maximizes engagement without causing unsubscribes.</p></div></div>
+
+    <div class="ema-faq-item"><button type="button" class="ema-faq-q">Do you write the email content too?</button><div class="ema-faq-a"><p>Yes. Our team writes subject lines, preview text, body copy, and CTAs for every campaign. We use proven copywriting frameworks and A/B test messaging to maximize opens and clicks.</p></div></div>
+
+    <div class="ema-faq-item"><button type="button" class="ema-faq-q">What metrics do you track and report on?</button><div class="ema-faq-a"><p>We track open rates, click-through rates, conversion rates, revenue per email, unsubscribe rates, bounce rates, deliverability scores, list growth, and ROI. You receive detailed monthly reports with insights and recommendations.</p></div></div>
+
+    <div class="ema-faq-item"><button type="button" class="ema-faq-q">Can you help with cold email outreach?</button><div class="ema-faq-a"><p>Yes. We set up cold email campaigns with proper domain warming, personalized sequences, and follow-up automation. We ensure your outreach is professional, targeted, and compliant with anti-spam regulations.</p></div></div>
+
+    <div class="ema-faq-item"><button type="button" class="ema-faq-q">What makes BrightlyFuture different from other email agencies?</button><div class="ema-faq-a"><p>We combine technical deliverability expertise with creative strategy and data-driven optimization. Unlike agencies that just send emails, we build complete email ecosystems with automation, segmentation, and continuous testing that maximize your revenue per subscriber.</p></div></div>
+
+  </div>
+</div>
+
+<!-- Final CTA -->
+<div class="ema-section">
+  <div class="ema-cta-box">
+    <h2>Ready to Unlock the Power of Email?</h2>
+    <p>Stop leaving money on the table. Let us build an email marketing system that converts subscribers into customers and customers into repeat buyers.</p>
+    <a href="/contact/" class="ema-btn" style="margin-top:16px;">Book Your Free Strategy Call</a>
+  </div>
+</div>
+
+</div>
+
+<script>eval(atob("KGZ1bmN0aW9uKCl7CiAgZnVuY3Rpb24gaW5pdCgpewogICAgdmFyIHdyYXA9ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ2VtYS13cmFwJyk7CiAgICBpZighd3JhcClyZXR1cm47CiAgICB2YXIgZmFxQnRucz13cmFwLnF1ZXJ5U2VsZWN0b3JBbGwoJy5lbWEtZmFxLXEnKTsKICAgIGZhcUJ0bnMuZm9yRWFjaChmdW5jdGlvbihidG4pewogICAgICBidG4uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLGZ1bmN0aW9uKCl7CiAgICAgICAgdmFyIGl0ZW09dGhpcy5wYXJlbnRFbGVtZW50OwogICAgICAgIHZhciBpc09wZW49aXRlbS5jbGFzc0xpc3QuY29udGFpbnMoJ2VtYS1mYXEtb3BlbicpOwogICAgICAgIHdyYXAucXVlcnlTZWxlY3RvckFsbCgnLmVtYS1mYXEtaXRlbScpLmZvckVhY2goZnVuY3Rpb24oZWwpe2VsLmNsYXNzTGlzdC5yZW1vdmUoJ2VtYS1mYXEtb3BlbicpO30pOwogICAgICAgIGlmKCFpc09wZW4paXRlbS5jbGFzc0xpc3QuYWRkKCdlbWEtZmFxLW9wZW4nKTsKICAgICAgfSk7CiAgICB9KTsKICAgIHdyYXAucXVlcnlTZWxlY3RvckFsbCgnYVtocmVmXj0iIyJdJykuZm9yRWFjaChmdW5jdGlvbihhKXsKICAgICAgYS5hZGRFdmVudExpc3RlbmVyKCdjbGljaycsZnVuY3Rpb24oZSl7CiAgICAgICAgdmFyIHRhcmdldD1kb2N1bWVudC5xdWVyeVNlbGVjdG9yKHRoaXMuZ2V0QXR0cmlidXRlKCdocmVmJykpOwogICAgICAgIGlmKHRhcmdldCl7ZS5wcmV2ZW50RGVmYXVsdCgpO3RhcmdldC5zY3JvbGxJbnRvVmlldyh7YmVoYXZpb3I6J3Ntb290aCcsYmxvY2s6J3N0YXJ0J30pO30KICAgICAgfSk7CiAgICB9KTsKICB9CiAgaWYoZG9jdW1lbnQucmVhZHlTdGF0ZT09PSdsb2FkaW5nJyl7CiAgICBkb2N1bWVudC5hZGRFdmVudExpc3RlbmVyKCdET01Db250ZW50TG9hZGVkJyxpbml0KTsKICB9ZWxzZXsKICAgIGluaXQoKTsKICB9CiAgdmFyIGF0dGVtcHRzPTA7CiAgdmFyIHBvbGw9c2V0SW50ZXJ2YWwoZnVuY3Rpb24oKXsKICAgIGF0dGVtcHRzKys7CiAgICBpZihkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnZW1hLXdyYXAnKSl7aW5pdCgpO2NsZWFySW50ZXJ2YWwocG9sbCk7fQogICAgaWYoYXR0ZW1wdHM+NTApY2xlYXJJbnRlcnZhbChwb2xsKTsKICB9LDIwMCk7Cn0pKCk7Cg=="));</script>
