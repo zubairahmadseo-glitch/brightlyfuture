@@ -1,0 +1,909 @@
+<style>
+#aew-wrap {
+  --pri: #6C5CE7;
+  --pri-hover: #5A4BD1;
+  --bg: #E8E0F0;
+  --bg-alt: #DDD4EB;
+  --card-bg: #FFFFFF;
+  --card-border: #D0C6E0;
+  --input-bg: #F5F1FA;
+  --input-border: #D0C6E0;
+  --text: #2D2B55;
+  --muted: #6B6490;
+  --heading: #1A1744;
+  --green: #00C897;
+  --red: #EF4444;
+  --yellow: #F59E0B;
+}
+#aew-wrap *, #aew-wrap *::before, #aew-wrap *::after { box-sizing: border-box !important; }
+#aew-wrap { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important; background: var(--bg) !important; color: var(--text) !important; line-height: 1.6 !important; -webkit-font-smoothing: antialiased !important; margin: 0 !important; padding: 0 !important; }
+#aew-wrap a { color: var(--pri) !important; text-decoration: none !important; }
+#aew-wrap a:hover { color: var(--pri-hover) !important; }
+#aew-wrap h1, #aew-wrap h2, #aew-wrap h3, #aew-wrap p, #aew-wrap ul, #aew-wrap ol, #aew-wrap li, #aew-wrap table, #aew-wrap td, #aew-wrap th { margin: 0 !important; padding: 0 !important; }
+#aew-wrap section { padding: 3rem 1.5rem !important; }
+#aew-wrap .inner { max-width: 1000px !important; margin: 0 auto !important; }
+
+/* Hero */
+#aew-wrap .aew-hero { text-align: center !important; padding: 3.5rem 1.5rem 2.5rem !important; background: var(--bg) !important; }
+#aew-wrap .aew-hero .badge { display: inline-block !important; background: var(--card-bg) !important; color: var(--pri) !important; font-size: 0.8rem !important; font-weight: 600 !important; padding: 0.4rem 1.1rem !important; border-radius: 999px !important; border: 1px solid var(--card-border) !important; margin-bottom: 1.25rem !important; }
+#aew-wrap .aew-hero h1 { font-size: 2.4rem !important; font-weight: 800 !important; color: var(--heading) !important; margin-bottom: 0.85rem !important; }
+#aew-wrap .aew-hero .sub { color: var(--muted) !important; max-width: 660px !important; margin: 0 auto 1.75rem !important; font-size: 0.98rem !important; line-height: 1.65 !important; }
+#aew-wrap .usp-row { display: flex !important; gap: 0.6rem !important; flex-wrap: wrap !important; justify-content: center !important; margin-bottom: 1.75rem !important; }
+#aew-wrap .usp-pill { background: rgba(108,92,231,0.08) !important; border: 1px solid rgba(108,92,231,0.2) !important; color: var(--pri) !important; font-size: 0.78rem !important; font-weight: 600 !important; padding: 0.4rem 1rem !important; border-radius: 999px !important; }
+
+/* Buttons */
+#aew-wrap .btn { padding: 0.75rem 1.8rem !important; border-radius: 10px !important; font-weight: 700 !important; font-size: 0.95rem !important; cursor: pointer !important; border: none !important; transition: all .2s !important; font-family: inherit !important; display: inline-block !important; }
+#aew-wrap .btn-primary { background: var(--pri) !important; color: #fff !important; }
+#aew-wrap .btn-primary:hover { background: var(--pri-hover) !important; color: #fff !important; transform: translateY(-1px) !important; }
+#aew-wrap .btn-secondary { background: var(--card-bg) !important; color: var(--pri) !important; border: 1px solid var(--card-border) !important; }
+#aew-wrap .btn-secondary:hover { border-color: var(--pri) !important; }
+#aew-wrap .btn-ghost { background: transparent !important; color: var(--muted) !important; border: 1px solid var(--card-border) !important; }
+#aew-wrap .btn-ghost:hover { color: var(--red) !important; border-color: var(--red) !important; }
+#aew-wrap .btn-sm { padding: 0.55rem 1.2rem !important; font-size: 0.85rem !important; }
+
+/* Tool */
+#aew-wrap .aew-tool { max-width: 1100px !important; margin: 0 auto !important; padding: 0 1.5rem 3rem !important; }
+#aew-wrap .tool-grid { display: grid !important; grid-template-columns: 1fr !important; gap: 1.5rem !important; align-items: start !important; max-width: 750px !important; margin: 0 auto !important; }
+#aew-wrap .aew-box { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 16px !important; padding: 1.75rem !important; box-shadow: 0 2px 12px rgba(108,92,231,0.06) !important; }
+#aew-wrap .aew-box h3 { font-size: 1.05rem !important; font-weight: 800 !important; color: var(--heading) !important; margin-bottom: 1rem !important; }
+#aew-wrap .field-row { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 0.9rem !important; }
+#aew-wrap .mb { margin-bottom: 1rem !important; }
+#aew-wrap label { display: block !important; font-size: 0.72rem !important; font-weight: 700 !important; text-transform: uppercase !important; letter-spacing: 0.06em !important; color: var(--muted) !important; margin-bottom: 0.4rem !important; }
+#aew-wrap input[type="text"], #aew-wrap textarea, #aew-wrap select { width: 100% !important; background: var(--input-bg) !important; border: 1px solid var(--input-border) !important; border-radius: 10px !important; padding: 0.75rem 0.9rem !important; color: var(--text) !important; font-size: 0.92rem !important; font-family: inherit !important; transition: border-color .2s !important; }
+#aew-wrap input:focus, #aew-wrap select:focus, #aew-wrap textarea:focus { outline: none !important; border-color: var(--pri) !important; }
+#aew-wrap textarea { resize: vertical !important; min-height: 90px !important; }
+#aew-wrap .section-label { font-size: 0.8rem !important; font-weight: 800 !important; color: var(--pri) !important; margin: 1.25rem 0 0.75rem !important; text-transform: uppercase !important; letter-spacing: 0.05em !important; }
+#aew-wrap .btn-group { display: flex !important; gap: 0.6rem !important; flex-wrap: wrap !important; margin-top: 1.5rem !important; }
+
+#aew-wrap .radio-row { display: flex !important; gap: 0.9rem !important; flex-wrap: wrap !important; }
+#aew-wrap .radio-opt { display: flex !important; align-items: center !important; gap: 0.4rem !important; background: var(--input-bg) !important; border: 1px solid var(--input-border) !important; border-radius: 10px !important; padding: 0.6rem 0.9rem !important; cursor: pointer !important; font-size: 0.85rem !important; color: var(--text) !important; }
+#aew-wrap .radio-opt input[type="radio"] { width: auto !important; accent-color: var(--pri) !important; cursor: pointer !important; }
+#aew-wrap .radio-opt.checked { border-color: var(--pri) !important; background: rgba(108,92,231,0.08) !important; }
+
+#aew-wrap .output-col { width: 100% !important; }
+#aew-wrap #resultsWrap { display: none; }
+#aew-wrap #resultsWrap.visible { display: block !important; }
+#aew-wrap .subject-line { background: var(--input-bg) !important; border: 1px solid var(--input-border) !important; border-radius: 10px 10px 0 0 !important; padding: 0.85rem 1.1rem !important; font-size: 0.85rem !important; color: var(--muted) !important; font-weight: 600 !important; }
+#aew-wrap .subject-line span.lbl { color: var(--pri) !important; text-transform: uppercase !important; font-size: 0.7rem !important; letter-spacing: 0.05em !important; display: block !important; margin-bottom: 0.25rem !important; }
+#aew-wrap .subject-line span.val { color: var(--heading) !important; font-size: 0.98rem !important; font-weight: 700 !important; }
+#aew-wrap .email-card { background: #FDFCFF !important; border: 1px solid var(--input-border) !important; border-top: none !important; border-radius: 0 0 10px 10px !important; padding: 1.5rem !important; min-height: 220px !important; }
+#aew-wrap .email-body { white-space: pre-wrap !important; font-size: 0.92rem !important; color: var(--text) !important; line-height: 1.75 !important; font-family: 'Georgia', 'Times New Roman', serif !important; }
+#aew-wrap .empty-hint { color: var(--muted) !important; font-size: 0.9rem !important; text-align: center !important; padding: 2rem 1rem !important; }
+#aew-wrap .word-count { text-align: right !important; font-size: 0.78rem !important; color: var(--muted) !important; margin-top: 0.6rem !important; }
+
+#aew-wrap .toast { position: fixed !important; bottom: 24px !important; left: 50% !important; transform: translateX(-50%) translateY(20px) !important; background: var(--heading) !important; color: #fff !important; padding: 0.75rem 1.5rem !important; border-radius: 999px !important; font-size: 0.85rem !important; font-weight: 600 !important; opacity: 0 !important; pointer-events: none !important; transition: all .25s !important; z-index: 9999 !important; box-shadow: 0 8px 24px rgba(0,0,0,0.2) !important; }
+#aew-wrap .toast.show { opacity: 1 !important; transform: translateX(-50%) translateY(0) !important; }
+
+/* Content sections */
+#aew-wrap .content-section { max-width: 900px !important; margin: 0 auto !important; padding: 3rem 1.5rem !important; }
+#aew-wrap .content-section.alt { background: var(--bg-alt) !important; max-width: 100% !important; }
+#aew-wrap .content-section.alt .inner-narrow { max-width: 900px !important; margin: 0 auto !important; }
+#aew-wrap h2 { font-size: 1.85rem !important; font-weight: 800 !important; color: var(--heading) !important; margin-bottom: 1rem !important; }
+#aew-wrap h3.sub-h { font-size: 1.15rem !important; font-weight: 700 !important; color: var(--heading) !important; margin: 1.25rem 0 0.5rem !important; }
+#aew-wrap .content-section p { color: var(--text) !important; margin-bottom: 1rem !important; font-size: 0.98rem !important; }
+#aew-wrap .content-section ul, #aew-wrap .content-section ol { color: var(--text) !important; margin: 0 0 1rem 1.4rem !important; font-size: 0.96rem !important; }
+#aew-wrap .content-section li { margin-bottom: 0.5rem !important; }
+#aew-wrap .content-section ol { list-style: decimal !important; }
+#aew-wrap .content-section ul { list-style: disc !important; }
+
+#aew-wrap .feature-grid { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 1.25rem !important; margin-top: 1.5rem !important; }
+#aew-wrap .feature-card { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 14px !important; padding: 1.5rem !important; }
+#aew-wrap .feature-card .icon { width: 42px !important; height: 42px !important; border-radius: 10px !important; background: rgba(108,92,231,0.1) !important; color: var(--pri) !important; display: flex !important; align-items: center !important; justify-content: center !important; font-weight: 800 !important; margin-bottom: 0.85rem !important; font-size: 1.1rem !important; }
+#aew-wrap .feature-card h4 { font-size: 1rem !important; font-weight: 700 !important; color: var(--heading) !important; margin-bottom: 0.4rem !important; }
+#aew-wrap .feature-card p { font-size: 0.88rem !important; color: var(--muted) !important; margin: 0 !important; }
+
+#aew-wrap .table-wrap { overflow-x: auto !important; margin-top: 1.5rem !important; border-radius: 14px !important; border: 1px solid var(--card-border) !important; }
+#aew-wrap table.cmp { width: 100% !important; border-collapse: collapse !important; background: var(--card-bg) !important; min-width: 700px !important; }
+#aew-wrap table.cmp th, #aew-wrap table.cmp td { padding: 0.85rem 1rem !important; text-align: left !important; font-size: 0.85rem !important; border-bottom: 1px solid var(--card-border) !important; }
+#aew-wrap table.cmp th { background: var(--heading) !important; color: #fff !important; font-weight: 700 !important; }
+#aew-wrap table.cmp th.us { background: var(--pri) !important; }
+#aew-wrap table.cmp td.us { background: rgba(108,92,231,0.06) !important; font-weight: 700 !important; color: var(--pri) !important; }
+#aew-wrap table.cmp tr:last-child td { border-bottom: none !important; }
+
+#aew-wrap .tone-grid { display: grid !important; grid-template-columns: repeat(2, 1fr) !important; gap: 1.25rem !important; margin-top: 1.5rem !important; }
+#aew-wrap .tone-card { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 14px !important; padding: 1.5rem !important; }
+#aew-wrap .tone-card h4 { color: var(--pri) !important; font-size: 1rem !important; font-weight: 700 !important; margin-bottom: 0.5rem !important; }
+#aew-wrap .tone-card p { font-size: 0.88rem !important; color: var(--muted) !important; margin: 0 !important; }
+
+#aew-wrap .mistake-list { display: grid !important; gap: 0.9rem !important; margin-top: 1.5rem !important; }
+#aew-wrap .mistake-item { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-left: 4px solid var(--red) !important; border-radius: 10px !important; padding: 1rem 1.25rem !important; }
+#aew-wrap .mistake-item strong { color: var(--heading) !important; display: block !important; margin-bottom: 0.25rem !important; font-size: 0.95rem !important; }
+#aew-wrap .mistake-item span { color: var(--muted) !important; font-size: 0.88rem !important; }
+
+/* FAQ */
+#aew-wrap .faq-item { background: var(--card-bg) !important; border: 1px solid var(--card-border) !important; border-radius: 12px !important; margin-bottom: 0.75rem !important; overflow: hidden !important; }
+#aew-wrap .faq-q { width: 100% !important; text-align: left !important; background: transparent !important; border: none !important; padding: 1.1rem 1.4rem !important; font-size: 0.95rem !important; font-weight: 700 !important; color: var(--heading) !important; cursor: pointer !important; font-family: inherit !important; position: relative !important; padding-right: 2.5rem !important; }
+#aew-wrap .faq-q::after { content: "+" !important; position: absolute !important; right: 1.4rem !important; top: 50% !important; transform: translateY(-50%) !important; color: var(--pri) !important; font-size: 1.3rem !important; font-weight: 700 !important; transition: transform .2s !important; }
+#aew-wrap .faq-item.open .faq-q::after { transform: translateY(-50%) rotate(45deg) !important; }
+#aew-wrap .faq-a { max-height: 0 !important; overflow: hidden !important; padding: 0 1.4rem !important; color: var(--muted) !important; font-size: 0.9rem !important; transition: all .25s ease !important; }
+#aew-wrap .faq-item.open .faq-a { max-height: 400px !important; padding: 0 1.4rem 1.25rem !important; }
+
+@media (max-width: 820px) {
+  #aew-wrap .field-row { grid-template-columns: 1fr !important; }
+  #aew-wrap .feature-grid { grid-template-columns: 1fr !important; }
+  #aew-wrap .tone-grid { grid-template-columns: 1fr !important; }
+  #aew-wrap .aew-hero h1 { font-size: 1.8rem !important; }
+}
+</style>
+
+<div id="aew-wrap">
+
+<!-- Hero -->
+<section class="aew-hero">
+  <span class="badge">Free Tool</span>
+  <h1>Free AI Email Writer</h1>
+  <p class="sub">Write professional, well-structured emails in seconds. Pick an email type and tone, add your key points, and get a complete email with subject line ready to copy into Gmail or Outlook.</p>
+  <div class="usp-row">
+    <span class="usp-pill">No signup required</span>
+    <span class="usp-pill">15 email types</span>
+    <span class="usp-pill">8 tone options</span>
+    <span class="usp-pill">Instant subject lines</span>
+  </div>
+  <button type="button" class="btn btn-primary" id="ctaBtn">Write My Email</button>
+</section>
+
+<!-- Tool -->
+<section class="aew-tool">
+  <div class="tool-grid">
+    <div class="aew-box">
+      <h3>Email Details</h3>
+      <div class="field-row">
+        <div class="mb">
+          <label for="emailType">Email Type</label>
+          <select id="emailType">
+            <option>Business Proposal</option>
+            <option>Follow Up</option>
+            <option>Cold Outreach</option>
+            <option>Thank You</option>
+            <option>Meeting Request</option>
+            <option>Introduction</option>
+            <option>Complaint</option>
+            <option>Apology</option>
+            <option>Job Application</option>
+            <option>Newsletter</option>
+            <option>Invitation</option>
+            <option>Announcement</option>
+            <option>Feedback Request</option>
+            <option>Recommendation Request</option>
+            <option>Resignation</option>
+          </select>
+        </div>
+        <div class="mb">
+          <label for="toneSelect">Tone</label>
+          <select id="toneSelect">
+            <option value="professional">Professional</option>
+            <option value="friendly">Friendly</option>
+            <option value="formal">Formal</option>
+            <option value="casual">Casual</option>
+            <option value="persuasive">Persuasive</option>
+            <option value="urgent">Urgent</option>
+            <option value="empathetic">Empathetic</option>
+            <option value="confident">Confident</option>
+          </select>
+        </div>
+      </div>
+      <div class="field-row">
+        <div class="mb">
+          <label for="recipientInput">Recipient Name</label>
+          <input type="text" id="recipientInput" placeholder="Sarah Johnson">
+        </div>
+        <div class="mb">
+          <label for="senderInput">Your Name</label>
+          <input type="text" id="senderInput" placeholder="Alex Carter">
+        </div>
+      </div>
+      <div class="mb">
+        <label for="subjectInput">Subject or Topic</label>
+        <input type="text" id="subjectInput" placeholder="the partnership opportunity we discussed">
+      </div>
+      <div class="mb">
+        <label for="keyPointsInput">Key Points</label>
+        <textarea id="keyPointsInput" placeholder="Enter key points, one per line or separated by commas. For example: pricing starts at 500 dollars a month, includes onboarding support, three month minimum term"></textarea>
+      </div>
+      <div class="field-row">
+        <div class="mb">
+          <label for="companyInput">Company or Organization (optional)</label>
+          <input type="text" id="companyInput" placeholder="BrightlyFuture Ltd">
+        </div>
+        <div class="mb">
+          <label for="ctaInput">Call to Action (optional)</label>
+          <input type="text" id="ctaInput" placeholder="schedule a 15 minute call this week">
+        </div>
+      </div>
+
+      <div class="section-label">Email Length</div>
+      <div class="radio-row">
+        <label class="radio-opt"><input type="radio" name="emailLength" value="short"> Short (3-4 sentences)</label>
+        <label class="radio-opt"><input type="radio" name="emailLength" value="medium" checked> Medium (2-3 paragraphs)</label>
+        <label class="radio-opt"><input type="radio" name="emailLength" value="long"> Long (4-5 paragraphs)</label>
+      </div>
+
+      <div class="btn-group">
+        <button type="button" class="btn btn-primary" id="generateBtn">Generate Email</button>
+        <button type="button" class="btn btn-secondary" id="regenBtn">Regenerate</button>
+        <button type="button" class="btn btn-ghost btn-sm" id="clearBtn">Clear All</button>
+      </div>
+    </div>
+
+    <div class="output-col">
+      <div class="aew-box" id="resultsWrap">
+        <h3>Generated Email</h3>
+        <div class="subject-line">
+          <span class="lbl">Subject Line</span>
+          <span class="val" id="subjectOutput"></span>
+        </div>
+        <div class="email-card">
+          <div class="email-body" id="emailOutput"></div>
+        </div>
+        <div class="word-count" id="wordCount">0 words</div>
+        <div class="btn-group">
+          <button type="button" class="btn btn-secondary btn-sm" id="copyBtn">Copy Email</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- What Is -->
+<section class="content-section">
+  <h2>What Is an AI Email Writer</h2>
+  <p>An AI email writer is a tool that turns a few pieces of information, such as who you are writing to, what you want to say and how you want it to sound, into a complete, ready-to-send email. Instead of staring at a blank compose window trying to find the right opening line, you fill in a short form and the tool assembles a structured email with an appropriate greeting, body and closing.</p>
+  <p>This tool builds emails entirely in your browser using template-based generation. It selects from multiple opening lines, transition phrases and closings for each combination of email type and tone, then weaves in your key points to produce a natural sounding message. There is no data sent anywhere, no account needed and no waiting on an external service.</p>
+</section>
+
+<!-- Why Use -->
+<section class="content-section alt">
+  <div class="inner-narrow">
+    <h2>Why Use an AI Email Writer</h2>
+    <p>Writing emails well and quickly is a skill that takes time to build, and even experienced writers can lose minutes second-guessing tone and structure. An AI email writer removes that friction so you can focus on what actually matters, the content and the outcome you want.</p>
+    <h3 class="sub-h">Save time on every email</h3>
+    <p>Instead of drafting from scratch, you describe your key points and let the tool handle sentence structure, transitions and formatting, cutting drafting time down from minutes to seconds.</p>
+    <h3 class="sub-h">Consistent professional tone</h3>
+    <p>Every generated email follows a proven structure, greeting, opening, body, call to action and closing, so your correspondence always reads as polished, regardless of how rushed you feel.</p>
+    <h3 class="sub-h">Fewer awkward first drafts</h3>
+    <p>Choosing the right words for a complaint, an apology or a cold outreach message is hard. This tool offers tone-matched vocabulary and phrasing so your message lands the way you intend.</p>
+  </div>
+</section>
+
+<!-- How to Use -->
+<section class="content-section">
+  <h2>How to Use This Tool</h2>
+  <ol>
+    <li>Select the type of email you need from the Email Type dropdown, such as Follow Up, Cold Outreach or Job Application.</li>
+    <li>Choose a tone that fits the situation, for example Professional, Friendly or Urgent.</li>
+    <li>Enter the recipient name and your own name so the email is addressed correctly.</li>
+    <li>Add a short subject or topic description and list your key points, one per line or separated by commas.</li>
+    <li>Optionally add a company name and a call to action describing what you want the recipient to do next.</li>
+    <li>Choose a length, then click Generate Email to see your finished draft. Use Regenerate for a different variation, or Copy Email to paste it straight into your inbox.</li>
+  </ol>
+</section>
+
+<!-- Key Features -->
+<section class="content-section alt">
+  <div class="inner-narrow">
+    <h2>Key Features</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <div class="icon">1</div>
+        <h4>15 Email Types</h4>
+        <p>From business proposals to resignations, choose the exact category that matches your situation.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">2</div>
+        <h4>8 Tone Options</h4>
+        <p>Switch between professional, friendly, formal, casual, persuasive, urgent, empathetic and confident tones.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">3</div>
+        <h4>Automatic Subject Lines</h4>
+        <p>Every generated email includes a matching subject line so you never have to write one from scratch.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">4</div>
+        <h4>Key Points Weaving</h4>
+        <p>Enter your details as bullet points or a comma separated list and watch them woven naturally into the body.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">5</div>
+        <h4>Regenerate Variations</h4>
+        <p>Not happy with the first draft? Click Regenerate to shuffle templates and get a fresh version instantly.</p>
+      </div>
+      <div class="feature-card">
+        <div class="icon">6</div>
+        <h4>One-Click Copy</h4>
+        <p>Copy the finished email, subject line included, straight to your clipboard ready to paste anywhere.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Best Practices -->
+<section class="content-section">
+  <h2>Email Writing Best Practices</h2>
+  <ul>
+    <li>Lead with the purpose of your email in the first sentence so the recipient does not have to guess why you are writing.</li>
+    <li>Keep paragraphs short, two to four sentences works best for readability on both desktop and mobile.</li>
+    <li>Always include a clear call to action so the recipient knows exactly what to do next.</li>
+    <li>Match your tone to the relationship and context, a cold outreach message should not read the same as an email to a close colleague.</li>
+    <li>Proofread the generated draft and personalize any details specific to your situation before sending.</li>
+    <li>Keep your subject line specific and honest, vague subject lines are more likely to be ignored or marked as spam.</li>
+  </ul>
+</section>
+
+<!-- Types of Emails -->
+<section class="content-section alt">
+  <div class="inner-narrow">
+    <h2>Types of Emails You Can Write</h2>
+    <p>This tool covers the most common professional email scenarios, from sales and outreach to HR and personal communication.</p>
+    <ul>
+      <li><strong>Business Proposal:</strong> Present an offer, service or partnership idea to a prospective client or partner.</li>
+      <li><strong>Follow Up:</strong> Re-engage someone after a meeting, application or previous email that went unanswered.</li>
+      <li><strong>Cold Outreach:</strong> Introduce yourself and your offer to someone who has not heard from you before.</li>
+      <li><strong>Thank You:</strong> Express genuine gratitude for help, time, a gift or an opportunity.</li>
+      <li><strong>Meeting Request:</strong> Ask to schedule time with someone to discuss a specific topic.</li>
+      <li><strong>Introduction:</strong> Introduce yourself or connect two people who should know each other.</li>
+      <li><strong>Complaint:</strong> Raise a concern or issue in a clear, professional and constructive way.</li>
+      <li><strong>Apology:</strong> Acknowledge a mistake and rebuild trust with the recipient.</li>
+      <li><strong>Job Application:</strong> Apply for a role and explain why you are a strong fit.</li>
+      <li><strong>Newsletter:</strong> Share updates, news or announcements with a list of subscribers or contacts.</li>
+      <li><strong>Invitation:</strong> Invite someone to an event, webinar or gathering.</li>
+      <li><strong>Announcement:</strong> Share important news, whether a product launch, policy change or milestone.</li>
+      <li><strong>Feedback Request:</strong> Ask a colleague, client or manager for their thoughts on something.</li>
+      <li><strong>Recommendation Request:</strong> Ask someone to write a reference or recommendation on your behalf.</li>
+      <li><strong>Resignation:</strong> Formally notify an employer that you are leaving your role.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Comparison Table -->
+<section class="content-section">
+  <h2>How This Tool Compares</h2>
+  <p>See how our free AI email writer stacks up against paid tools like Copy.ai, Jasper and Rytr.</p>
+  <div class="table-wrap">
+    <table class="cmp">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th class="us">BrightlyFuture</th>
+          <th>Copy.ai</th>
+          <th>Jasper</th>
+          <th>Rytr</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Price</td><td class="us">Free</td><td>From $49/mo</td><td>From $49/mo</td><td>From $9/mo</td></tr>
+        <tr><td>Email Types</td><td class="us">15 built in</td><td>Several templates</td><td>Several templates</td><td>10+ use cases</td></tr>
+        <tr><td>Tone Options</td><td class="us">8 tones</td><td>Adjustable</td><td>Adjustable</td><td>Adjustable</td></tr>
+        <tr><td>No Signup</td><td class="us">Yes</td><td>No</td><td>No</td><td>No</td></tr>
+        <tr><td>Key Points Input</td><td class="us">Yes, freeform</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+        <tr><td>Subject Line Generation</td><td class="us">Automatic</td><td>Separate tool</td><td>Separate tool</td><td>Separate tool</td></tr>
+        <tr><td>Copy to Clipboard</td><td class="us">One click</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+        <tr><td>Instant Generation</td><td class="us">Yes, in browser</td><td>Server based</td><td>Server based</td><td>Server based</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- Tone Guide -->
+<section class="content-section alt">
+  <div class="inner-narrow">
+    <h2>Email Tone Guide</h2>
+    <div class="tone-grid">
+      <div class="tone-card">
+        <h4>Professional</h4>
+        <p>The safe default for most business communication, balanced, clear and respectful without being stiff.</p>
+      </div>
+      <div class="tone-card">
+        <h4>Friendly</h4>
+        <p>Best for colleagues or contacts you already have a relationship with, warm and approachable.</p>
+      </div>
+      <div class="tone-card">
+        <h4>Formal</h4>
+        <p>Use for legal, official or unfamiliar senior contacts where a more traditional register is expected.</p>
+      </div>
+      <div class="tone-card">
+        <h4>Casual</h4>
+        <p>Suited to internal team messages or informal check-ins where a relaxed style fits the culture.</p>
+      </div>
+      <div class="tone-card">
+        <h4>Persuasive</h4>
+        <p>Ideal for proposals and pitches where you need to build a compelling case for action.</p>
+      </div>
+      <div class="tone-card">
+        <h4>Urgent</h4>
+        <p>Use sparingly for time-sensitive matters that genuinely require a prompt response.</p>
+      </div>
+      <div class="tone-card">
+        <h4>Empathetic</h4>
+        <p>Best for apologies, complaints or sensitive personal topics where understanding matters most.</p>
+      </div>
+      <div class="tone-card">
+        <h4>Confident</h4>
+        <p>Great for job applications and recommendation requests where you need to state your case with assurance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Mistakes -->
+<section class="content-section">
+  <h2>Common Email Writing Mistakes</h2>
+  <div class="mistake-list">
+    <div class="mistake-item">
+      <strong>Burying the point</strong>
+      <span>Making the recipient read three paragraphs before understanding why you are emailing wastes their time and yours.</span>
+    </div>
+    <div class="mistake-item">
+      <strong>Vague subject lines</strong>
+      <span>Subjects like "Hello" or "Quick question" get ignored, be specific about what the email contains.</span>
+    </div>
+    <div class="mistake-item">
+      <strong>No clear call to action</strong>
+      <span>If you do not tell the recipient what to do next, many emails simply go unanswered.</span>
+    </div>
+    <div class="mistake-item">
+      <strong>Mismatched tone</strong>
+      <span>Being overly casual with a stranger or overly formal with a close colleague can undermine your message.</span>
+    </div>
+    <div class="mistake-item">
+      <strong>Skipping the proofread</strong>
+      <span>Even AI-generated drafts should be checked for accuracy and personalized before hitting send.</span>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="content-section alt">
+  <div class="inner-narrow">
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">Is this AI email writer completely free to use?</button>
+      <div class="faq-a"><p>Yes. There is no cost to generate, preview or copy your emails, and you can create as many as you like.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">Do I need to create an account or sign up?</button>
+      <div class="faq-a"><p>No account or email address is required. Simply fill in the form and generate your email right away.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">How does the AI generate emails without an internet connection?</button>
+      <div class="faq-a"><p>This tool uses template-based generation that runs entirely in your browser. It combines proven email structures, tone-matched vocabulary and your input to assemble a complete email without calling an external server.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">Can I customize the tone of my emails?</button>
+      <div class="faq-a"><p>Yes. Choose from eight tones, professional, friendly, formal, casual, persuasive, urgent, empathetic and confident, to match your situation.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">What types of emails can I write with this tool?</button>
+      <div class="faq-a"><p>You can write 15 types of emails, including business proposals, follow ups, cold outreach, thank you notes, meeting requests, job applications, resignations and more.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">Will the generated emails sound natural?</button>
+      <div class="faq-a"><p>Yes. The tool uses multiple template variations per email type, varied sentence structures and natural transitions so each email reads smoothly rather than robotically.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">Can I edit the email after it is generated?</button>
+      <div class="faq-a"><p>Absolutely. Treat the generated draft as a strong starting point, then personalize any details before copying it into your email client.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">How do I copy the generated email?</button>
+      <div class="faq-a"><p>Click the Copy Email button beneath the generated draft, and both the subject line and body will be copied to your clipboard ready to paste.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">Is my data stored or shared with anyone?</button>
+      <div class="faq-a"><p>No. All processing happens locally in your browser. Your names, key points and email content are never sent to or stored on a server.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">Can I generate multiple versions of the same email?</button>
+      <div class="faq-a"><p>Yes. Click the Regenerate button to shuffle the templates and produce a different variation using the same input details.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">What should I include in the key points field?</button>
+      <div class="faq-a"><p>List the specific facts, figures or details you want mentioned, one per line or separated by commas, such as pricing, dates, deliverables or context.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">Does this tool support multiple languages?</button>
+      <div class="faq-a"><p>Currently the tool generates emails in English only. Support for additional languages may be added in the future.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">Can I use this for business emails?</button>
+      <div class="faq-a"><p>Yes. It is built specifically for professional and business communication, covering proposals, outreach, applications and internal announcements.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">How long are the generated emails?</button>
+      <div class="faq-a"><p>You control the length. Choose Short for three to four sentences, Medium for two to three paragraphs, or Long for four to five paragraphs.</p></div>
+    </div>
+
+    <div class="faq-item">
+      <button type="button" class="faq-q">What makes this different from ChatGPT for writing emails?</button>
+      <div class="faq-a"><p>This tool is purpose built for email writing with structured fields for recipient, tone, key points and call to action, so you get a formatted result instantly without needing to write a prompt or sign up for an account.</p></div>
+    </div>
+
+  </div>
+</section>
+
+<div class="toast" id="toast"></div>
+
+</div><!-- /aew-wrap -->
+
+<script>
+(function(){
+  function init(){
+    var $ = function(id){ return document.getElementById(id); };
+
+    var emailType = $('emailType');
+    var toneSelect = $('toneSelect');
+    var recipientInput = $('recipientInput');
+    var senderInput = $('senderInput');
+    var subjectInput = $('subjectInput');
+    var keyPointsInput = $('keyPointsInput');
+    var companyInput = $('companyInput');
+    var ctaInput = $('ctaInput');
+    var generateBtn = $('generateBtn');
+    var copyBtn = $('copyBtn');
+    var regenBtn = $('regenBtn');
+    var clearBtn = $('clearBtn');
+    var ctaBtn = $('ctaBtn');
+    var emailOutput = $('emailOutput');
+    var subjectOutput = $('subjectOutput');
+    var resultsWrap = $('resultsWrap');
+    var wordCount = $('wordCount');
+    var toast = $('toast');
+
+    if (!emailType || !toneSelect || !generateBtn || !emailOutput || !resultsWrap) { return false; }
+
+    function pick(arr){ return arr[Math.floor(Math.random()*arr.length)]; }
+
+    function splitPoints(text){
+      if (!text) return [];
+      var parts = text.split(/\n|,/);
+      var out = [];
+      for (var i=0;i<parts.length;i++){
+        var p = parts[i].replace(/^[\s\-•\*]+/,'').trim();
+        if (p) out.push(p);
+      }
+      return out;
+    }
+
+    var greetings = {
+      professional: function(n){ return n ? 'Dear ' + n + ',' : 'Dear Sir or Madam,'; },
+      friendly: function(n){ return n ? 'Hi ' + n + ',' : 'Hi there,'; },
+      formal: function(n){ return n ? 'Dear ' + n + ',' : 'To Whom It May Concern,'; },
+      casual: function(n){ return n ? 'Hey ' + n + ',' : 'Hey,'; },
+      persuasive: function(n){ return n ? 'Dear ' + n + ',' : 'Dear Sir or Madam,'; },
+      urgent: function(n){ return n ? 'Dear ' + n + ',' : 'Dear Sir or Madam,'; },
+      empathetic: function(n){ return n ? 'Dear ' + n + ',' : 'Hello,'; },
+      confident: function(n){ return n ? 'Hi ' + n + ',' : 'Hello,'; }
+    };
+
+    var closings = {
+      professional: ['Best regards,', 'Kind regards,', 'Regards,'],
+      friendly: ['Cheers,', 'Warm regards,', 'Take care,'],
+      formal: ['Yours sincerely,', 'Respectfully,', 'Yours faithfully,'],
+      casual: ['Cheers,', 'Thanks,', 'Talk soon,'],
+      persuasive: ['Best regards,', 'Looking forward to hearing from you,', 'Regards,'],
+      urgent: ['Best regards,', 'Thank you for your prompt attention,', 'Regards,'],
+      empathetic: ['With warm regards,', 'Sincerely,', 'Take care,'],
+      confident: ['Best,', 'Regards,', 'Confidently yours,']
+    };
+
+    var openers = {
+      'Business Proposal': [
+        'I hope this email finds you well. I am reaching out to present a proposal regarding {subject} that I believe could bring real value to {company}.',
+        'I am writing to share a proposal for {subject} that I think aligns well with the goals of {company}.',
+        'I wanted to reach out with an exciting opportunity related to {subject} that could benefit {company}.'
+      ],
+      'Follow Up': [
+        'I wanted to follow up on our previous conversation regarding {subject}.',
+        'I am checking in to see if you had a chance to review {subject}.',
+        'It has been a little while since we last spoke about {subject}, so I wanted to reconnect.'
+      ],
+      'Cold Outreach': [
+        'My name is {sender} and I am reaching out because I believe {subject} could be a great fit for you.',
+        'I hope you do not mind the unsolicited email. I wanted to introduce myself and talk about {subject}.',
+        'I came across your work and thought you would be interested in learning more about {subject}.'
+      ],
+      'Thank You': [
+        'I wanted to take a moment to thank you for {subject}.',
+        'I am writing to express my sincere gratitude for {subject}.',
+        'Thank you so much for {subject}, it truly meant a lot.'
+      ],
+      'Meeting Request': [
+        'I would like to schedule a meeting to discuss {subject} at a time that works for you.',
+        'I am reaching out to request a meeting regarding {subject}.',
+        'Would you be available for a call or meeting to talk through {subject}?'
+      ],
+      'Introduction': [
+        'I wanted to introduce myself, my name is {sender}, and I am reaching out regarding {subject}.',
+        'Allow me to introduce myself. I am {sender}, and I am writing about {subject}.',
+        'I am pleased to introduce myself in relation to {subject}.'
+      ],
+      'Complaint': [
+        'I am writing to raise a concern regarding {subject}.',
+        'I wanted to bring to your attention an issue I experienced with {subject}.',
+        'I am reaching out to formally address a problem related to {subject}.'
+      ],
+      'Apology': [
+        'I want to sincerely apologize for {subject}.',
+        'I am writing to apologize for {subject} and to explain what happened.',
+        'Please accept my apologies regarding {subject}.'
+      ],
+      'Job Application': [
+        'I am writing to express my interest in {subject} at {company}.',
+        'I would like to apply for {subject}, and I am excited about the opportunity to join {company}.',
+        'Please accept this email as my formal application for {subject}.'
+      ],
+      'Newsletter': [
+        'Welcome to this update on {subject}, we have some exciting news to share.',
+        'Here is the latest news and updates regarding {subject}.',
+        'We are excited to share the newest developments about {subject}.'
+      ],
+      'Invitation': [
+        'You are cordially invited to join us for {subject}.',
+        'I would like to personally invite you to {subject}.',
+        'We are excited to invite you to {subject}.'
+      ],
+      'Announcement': [
+        'I am pleased to announce {subject}.',
+        'I wanted to share some important news regarding {subject}.',
+        'We are excited to announce {subject}.'
+      ],
+      'Feedback Request': [
+        'I would greatly appreciate your feedback on {subject}.',
+        'I am reaching out to ask for your thoughts on {subject}.',
+        'Your feedback on {subject} would be extremely valuable to us.'
+      ],
+      'Recommendation Request': [
+        'I am writing to ask if you would be willing to provide a recommendation regarding {subject}.',
+        'I hope you are doing well. I wanted to ask for your support with a recommendation for {subject}.',
+        'Would you be able to write a recommendation letter concerning {subject}?'
+      ],
+      'Resignation': [
+        'I am writing to formally notify you of my resignation from {subject}.',
+        'Please accept this email as formal notice of my resignation regarding {subject}.',
+        'I am writing to inform you that I will be resigning from {subject}.'
+      ]
+    };
+
+    var transitions = [
+      'In addition,', 'Furthermore,', 'On top of that,', 'Beyond this,', 'What is more,', 'Along with this,'
+    ];
+
+    function fillTemplate(t, data){
+      return t
+        .replace(/\{subject\}/g, data.subject || 'this matter')
+        .replace(/\{company\}/g, data.company || 'your organization')
+        .replace(/\{sender\}/g, data.sender || 'me')
+        .replace(/\{recipient\}/g, data.recipient || 'there');
+    }
+
+    function buildParagraphs(data){
+      var points = splitPoints(data.keyPoints);
+      var paras = [];
+      if (points.length){
+        var sentence = 'I wanted to share a few key details: ' + points.slice(0,3).join(', ') + '.';
+        paras.push(sentence);
+        if (points.length > 3){
+          paras.push(pick(transitions) + ' ' + points.slice(3).join(', ') + '.');
+        }
+      } else {
+        paras.push('I wanted to give you a bit more context and share the key details around ' + (data.subject || 'this') + '.');
+      }
+      return paras;
+    }
+
+    function generateEmail(){
+      var type = emailType.value || 'Follow Up';
+      var tone = toneSelect.value || 'professional';
+      var recipient = (recipientInput.value || '').trim();
+      var sender = (senderInput.value || '').trim();
+      var subject = (subjectInput.value || '').trim();
+      var company = (companyInput.value || '').trim();
+      var cta = (ctaInput.value || '').trim();
+      var lengthEl = document.querySelector('input[name="emailLength"]:checked');
+      var length = lengthEl ? lengthEl.value : 'medium';
+
+      var data = { subject: subject, company: company, sender: sender, recipient: recipient, keyPoints: keyPointsInput.value };
+
+      var openerList = openers[type] || openers['Follow Up'];
+      var opener = fillTemplate(pick(openerList), data);
+
+      var greet = greetings[tone] ? greetings[tone](recipient) : greetings.professional(recipient);
+      var close = pick(closings[tone] || closings.professional);
+
+      var paras = buildParagraphs(data);
+      var bodyParas = [opener];
+
+      if (length === 'short'){
+        bodyParas = [opener];
+        if (paras.length) bodyParas.push(paras[0]);
+      } else if (length === 'medium'){
+        bodyParas.push(paras.join(' '));
+      } else {
+        bodyParas.push(paras.join(' '));
+        bodyParas.push('I am confident that ' + (subject || 'this') + ' will bring meaningful value, and I am happy to provide any further information you may need.');
+      }
+
+      if (cta){
+        bodyParas.push('As a next step, ' + cta.charAt(0).toLowerCase() + cta.slice(1).replace(/\.$/,'') + '.');
+      }
+
+      var thanksLine = tone === 'empathetic' ? 'Thank you for your understanding and time.' : 'Thank you for your time and consideration.';
+      bodyParas.push(thanksLine);
+
+      var fullBody = bodyParas.join('\n\n');
+      var signOff = close + '\n' + (sender || 'Your Name');
+
+      var subjLine = buildSubject(type, subject, tone);
+
+      return {
+        greet: greet,
+        body: fullBody,
+        signOff: signOff,
+        subject: subjLine
+      };
+    }
+
+    function buildSubject(type, subject, tone){
+      var subjTemplates = {
+        'Business Proposal': ['Proposal: ' + (subject || 'New Opportunity'), (subject || 'Business Proposal') + ' - Let us Connect', 'A Proposal Regarding ' + (subject || 'Our Partnership')],
+        'Follow Up': ['Following Up: ' + (subject || 'Our Conversation'), 'Quick Follow Up on ' + (subject || 'Previous Discussion'), 'Checking In: ' + (subject || 'Next Steps')],
+        'Cold Outreach': [(subject || 'A Quick Introduction'), 'Reaching Out About ' + (subject || 'an Opportunity'), 'Idea Worth Exploring: ' + (subject || 'Partnership')],
+        'Thank You': ['Thank You for ' + (subject || 'Your Support'), 'Many Thanks: ' + (subject || 'Your Help'), 'Grateful for ' + (subject || 'Your Time')],
+        'Meeting Request': ['Meeting Request: ' + (subject || 'Discussion'), 'Request to Meet About ' + (subject || 'Our Project'), 'Scheduling Time to Discuss ' + (subject || 'Details')],
+        'Introduction': ['Introduction: ' + (subject || 'Getting Acquainted'), 'Nice to Meet You Regarding ' + (subject || 'This'), 'Introducing Myself About ' + (subject || 'This Opportunity')],
+        'Complaint': ['Concern Regarding ' + (subject || 'Recent Experience'), 'Issue With ' + (subject || 'Service'), 'Formal Complaint: ' + (subject || 'Details')],
+        'Apology': ['My Apologies for ' + (subject || 'the Inconvenience'), 'Sincere Apology: ' + (subject || 'This Matter'), 'Regarding ' + (subject || 'What Happened') + ' - An Apology'],
+        'Job Application': ['Application for ' + (subject || 'the Position'), (subject || 'Position') + ' Application', 'Applying for ' + (subject || 'this Role')],
+        'Newsletter': [(subject || 'Newsletter') + ' Update', 'Latest News: ' + (subject || 'This Month'), 'Your ' + (subject || 'Newsletter') + ' Update'],
+        'Invitation': ['You Are Invited: ' + (subject || 'Our Event'), 'Invitation to ' + (subject || 'Join Us'), 'Join Us for ' + (subject || 'This Event')],
+        'Announcement': ['Announcement: ' + (subject || 'Big News'), 'Exciting News About ' + (subject || 'This'), 'Important Update: ' + (subject || 'Announcement')],
+        'Feedback Request': ['Requesting Your Feedback on ' + (subject || 'This'), 'Your Thoughts on ' + (subject || 'This Would Help'), 'Feedback Needed: ' + (subject || 'Details')],
+        'Recommendation Request': ['Recommendation Request: ' + (subject || 'Your Support'), 'Could You Help With a Recommendation for ' + (subject || 'This') + '?', 'Requesting a Reference for ' + (subject || 'This')],
+        'Resignation': ['Resignation Notice: ' + (subject || 'My Position'), 'Notice of Resignation Regarding ' + (subject || 'My Role'), 'Formal Resignation: ' + (subject || 'Details')]
+      };
+      var list = subjTemplates[type] || ['Regarding ' + (subject || 'This Matter')];
+      return pick(list);
+    }
+
+    function countWords(text){
+      var t = text.replace(/[\n\r]+/g,' ').trim();
+      if (!t) return 0;
+      return t.split(/\s+/).length;
+    }
+
+    function renderEmail(){
+      var result = generateEmail();
+      var fullText = result.greet + '\n\n' + result.body + '\n\n' + result.signOff;
+      emailOutput.textContent = fullText;
+      if (subjectOutput) subjectOutput.textContent = result.subject;
+      resultsWrap.classList.add('visible');
+      if (wordCount) wordCount.textContent = countWords(fullText) + ' words';
+      return fullText;
+    }
+
+    function showToast(msg){
+      if (!toast) return;
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(function(){ toast.classList.remove('show'); }, 2200);
+    }
+
+    function copyText(text){
+      if (navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(function(){ showToast('Email copied to clipboard'); }, function(){ fallbackCopy(text); });
+      } else {
+        fallbackCopy(text);
+      }
+    }
+
+    function fallbackCopy(text){
+      var ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      try { document.execCommand('copy'); showToast('Email copied to clipboard'); } catch(e){ showToast('Copy failed, please select and copy manually'); }
+      document.body.removeChild(ta);
+    }
+
+    if (generateBtn){
+      generateBtn.addEventListener('click', function(){
+        if (!(subjectInput.value || '').trim() && !(keyPointsInput.value || '').trim()){
+          showToast('Add a subject or key points to get started');
+          return;
+        }
+        renderEmail();
+        resultsWrap.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    }
+
+    if (regenBtn){
+      regenBtn.addEventListener('click', function(){
+        if (!(subjectInput.value || '').trim() && !(keyPointsInput.value || '').trim()){
+          showToast('Add a subject or key points first');
+          return;
+        }
+        renderEmail();
+        showToast('New version generated');
+      });
+    }
+
+    if (copyBtn){
+      copyBtn.addEventListener('click', function(){
+        var text = emailOutput.textContent || '';
+        if (!text.trim()){ showToast('Generate an email first'); return; }
+        var full = (subjectOutput && subjectOutput.textContent ? 'Subject: ' + subjectOutput.textContent + '\n\n' : '') + text;
+        copyText(full);
+      });
+    }
+
+    if (clearBtn){
+      clearBtn.addEventListener('click', function(){
+        emailType.selectedIndex = 0;
+        toneSelect.selectedIndex = 0;
+        recipientInput.value = '';
+        senderInput.value = '';
+        subjectInput.value = '';
+        keyPointsInput.value = '';
+        companyInput.value = '';
+        ctaInput.value = '';
+        var radios = document.querySelectorAll('input[name="emailLength"]');
+        for (var i=0;i<radios.length;i++){ radios[i].checked = (radios[i].value === 'medium'); }
+        emailOutput.textContent = '';
+        if (subjectOutput) subjectOutput.textContent = '';
+        resultsWrap.classList.remove('visible');
+        if (wordCount) wordCount.textContent = '0 words';
+        showToast('All fields cleared');
+      });
+    }
+
+    if (ctaBtn){
+      ctaBtn.addEventListener('click', function(){
+        var toolEl = document.querySelector('.aew-tool');
+        if (toolEl) toolEl.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    }
+
+    var faqItems = document.querySelectorAll('#aew-wrap .faq-item');
+    for (var f=0; f<faqItems.length; f++){
+      (function(item){
+        var q = item.querySelector('.faq-q');
+        if (!q) return;
+        q.addEventListener('click', function(){
+          item.classList.toggle('open');
+        });
+      })(faqItems[f]);
+    }
+
+    return true;
+  }
+
+  function tryInit(){
+    if (!init()){
+      setTimeout(tryInit, 200);
+    }
+  }
+
+  if (document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', tryInit);
+  } else {
+    tryInit();
+  }
+})();
+</script>
