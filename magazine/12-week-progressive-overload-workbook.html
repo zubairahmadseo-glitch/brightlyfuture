@@ -339,7 +339,7 @@
   .track td { height: 3.9em; }
   .ticks { display: flex; flex-wrap: wrap; gap: .45em; }
   .ticks i { width: 2.05em; height: 2.05em; border-radius: 50%; border: 1.5px solid var(--black); display: grid; place-items: center; font: 700 .72em var(--cond); font-style: normal; color: var(--muted); }
-  .lines div { border-bottom: 1px solid var(--line-2); height: 2.1em; font: 700 .78em/2.6 var(--cond); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .lines div { border-bottom: 1px solid var(--line-2); min-height: 2.1em; padding: .95em 0 .3em; font: 700 .78em/1.25 var(--cond); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
 
   .faq { display: grid; grid-template-columns: 1fr 1fr; gap: .9em 1.6em; }
   .faq div { border-top: 2px solid var(--black); padding-top: .55em; }
@@ -380,7 +380,7 @@
     .tb-btn .lbl-long { display: none; }
     .toolbar { gap: 4px; padding: 6px 8px; }
     .tb-btn { padding: 0 10px; }
-    .counter { min-width: 0; padding: 0 4px; font-size: 15px; }
+    .counter { min-width: 0; padding: 0 4px; font-size: 15px; white-space: nowrap; }
   }
   @media (prefers-reduced-motion: reduce) { .page, .page.active { transition: none; } }
 
