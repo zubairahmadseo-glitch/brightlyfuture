@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The 12-Week Progressive Overload Workbook | ExerciseMenu.com</title>
+<meta name="description" content="Free 12-week progressive overload workout plan PDF with printable log pages, the double progression rule, and the 2026 ACSM guidelines explained. By coach Sadia Baloch.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F7F7F7;
+    --white: #FFFFFF;
+    --ink: #1A1A1A;
+    --black: #000000;
+    --red: #C82323;
+    --red-deep: #A11C1C;
+    --red-tint: #FBEDED;
+    --red-line: #EDC4C4;
+    --muted: #5C5C5C;
+    --line: #E0E0E0;
+    --line-2: #C9C9C9;
+    --shade: #EFEFEF;
+    --viewer: #E3E1DE;
+    --display: "DM Serif Display", Georgia, "Times New Roman", serif;
+    --serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+    --cond: "Barlow Condensed", "Roboto Condensed", "Arial Narrow", sans-serif;
+    --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    background: var(--viewer);
+    background-image: radial-gradient(circle at 50% 35%, #F1EFEC 0%, #D9D6D2 75%);
+    color: var(--ink);
+    font-family: var(--sans);
+    -webkit-font-smoothing: antialiased;
+    overflow: hidden;
+  }
+  a { color: inherit; }
+
+  /* ---------- Viewer ---------- */
+  .viewer {
+    height: 100vh; height: 100dvh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    padding: 20px 16px 88px;
+  }
+  .book {
+    --h: calc(100dvh - 128px);
+    position: relative;
+    height: var(--h);
+    width: min(calc(var(--h) * 0.7071), 92vw);
+    max-height: calc(92vw / 0.7071);
+    box-shadow: 0 24px 60px rgba(0,0,0,.22), 0 3px 10px rgba(0,0,0,.12);
+    border-radius: 3px;
+    overflow: hidden;
+    background: var(--paper);
+  }
+  .page {
+    container-type: inline-size;
+    position: absolute; inset: 0;
+    background: var(--paper);
+    opacity: 0; visibility: hidden;
+    transform: translateX(6%);
+    transition: opacity .45s ease, transform .45s cubic-bezier(.2,.7,.2,1), visibility 0s linear .45s;
+    overflow: hidden;
+  }
+  .page.active {
+    opacity: 1; visibility: visible; transform: none; z-index: 2;
+    transition: opacity .45s ease, transform .45s cubic-bezier(.2,.7,.2,1), visibility 0s;
+  }
+  .page.leave-left { transform: translateX(-6%); }
+  .page.leave-right { transform: translateX(6%); }
+  .page.enter-from-left { transform: translateX(-6%); }
+  .page.scroll { overflow-y: auto; }
+
+  .nav-arrow {
+    position: fixed; top: 50%; transform: translateY(-50%);
+    width: 56px; height: 56px; border-radius: 50%;
+    border: 1px solid rgba(0,0,0,.08);
+    background: #fff; color: var(--black);
+    cursor: pointer; display: grid; place-items: center;
+    box-shadow: 0 6px 18px rgba(0,0,0,.12);
+    transition: background .2s, color .2s, opacity .2s; z-index: 10;
+  }
+  .nav-arrow:hover { background: var(--red); color: #fff; }
+  .nav-arrow:disabled { opacity: .35; cursor: default; background: #fff; color: var(--black); }
+  .nav-arrow svg { width: 24px; height: 24px; }
+  .nav-prev { left: 24px; } .nav-next { right: 24px; }
+
+  .toolbar {
+    position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%);
+    display: flex; align-items: center; gap: 6px;
+    padding: 8px 10px; background: #fff;
+    border: 1px solid rgba(0,0,0,.08); border-radius: 999px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.14);
+    z-index: 10; max-width: calc(100vw - 24px);
+  }
+  .counter { font: 700 17px var(--cond); letter-spacing: .04em; padding: 0 10px; min-width: 64px; text-align: center; }
+  .counter b { color: var(--red); }
+  .dots { display: flex; gap: 3px; }
+  .dot {
+    width: 26px; height: 26px; border-radius: 50%;
+    border: 1px solid var(--line); background: transparent; color: var(--muted);
+    font: 600 11px var(--sans); cursor: pointer; transition: all .2s;
+  }
+  .dot:hover { color: var(--black); border-color: var(--muted); }
+  .dot.active { background: var(--red); border-color: var(--red); color: #fff; }
+  .tb-sep { width: 1px; height: 24px; background: var(--line); margin: 0 4px; }
+  .tb-btn {
+    display: inline-flex; align-items: center; gap: 7px; height: 34px; padding: 0 14px;
+    border-radius: 999px; border: 1px solid var(--line-2); background: #fff; color: var(--black);
+    font: 600 13px var(--sans); cursor: pointer; text-decoration: none; white-space: nowrap; transition: all .2s;
+  }
+  .tb-btn:hover { border-color: var(--red); color: var(--red); }
+  .tb-btn.primary { background: var(--red); border-color: var(--red); color: #fff; }
+  .tb-btn.primary:hover { background: var(--red-deep); color: #fff; }
+  .tb-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+  .tb-nav { display: none; }
+
+  /* ---------- Page scaffolding (all sizes scale with page width) ---------- */
+  .pg {
+    position: relative; height: 100%;
+    display: flex; flex-direction: column;
+    padding: 2.8em 3.7em 0;
+    font-size: max(10px, 1.9cqw);
+    line-height: 1.45;
+  }
+  .roomy .pg { font-size: max(10px, 2.12cqw);
+  }
+  .pg-head {
+    display: flex; justify-content: space-between; align-items: center; gap: 1em;
+    font: 700 .78em/1 var(--cond); letter-spacing: .16em; text-transform: uppercase;
+    color: var(--muted); padding-bottom: .9em; border-bottom: 2px solid var(--black);
+  }
+  .pg-head .sec { color: var(--red); }
+  .pg-body { flex: 1 0 auto; display: flex; flex-direction: column; padding-top: 1.7em; }
+  .pg-foot {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 1.2em; padding: 1em 0 1.7em; border-top: 1px solid var(--line);
+    font: 700 .75em/1 var(--cond); letter-spacing: .14em; text-transform: uppercase; color: var(--muted);
+  }
+  .pg-foot b { color: var(--red); }
+
+  /* ---------- Type ---------- */
+  .kicker { font: 700 .9em/1 var(--cond); letter-spacing: .2em; text-transform: uppercase; color: var(--red); margin-bottom: .7em; }
+  .h1 { font: 400 3.5em/1 var(--display); color: var(--black); letter-spacing: -.005em; }
+  .h1 em { font-style: italic; color: var(--red); }
+  .deck { font: italic 400 1.12em/1.45 var(--serif); color: var(--muted); margin-top: .7em; }
+  .h3 { font: 700 1.25em/1.1 var(--cond); letter-spacing: .03em; text-transform: uppercase; color: var(--black); }
+  .small { font-size: .82em; color: var(--muted); }
+  .red { color: var(--red); }
+  .bar { width: 3.2em; height: .28em; background: var(--red); margin: 1.1em 0 1.2em; }
+  .link { color: var(--red); text-decoration: none; font-weight: 600; border-bottom: 1px solid var(--red-line); }
+  sup.ref { font: 700 .62em var(--sans); color: var(--red); margin-left: .1em; }
+
+  .prose { font: 400 .98em/1.56 var(--serif); color: #222; columns: 2; column-gap: 2.2em; }
+  .prose p { margin-bottom: .7em; }
+  .prose h4 { font: 700 1em/1.25 var(--sans); color: var(--black); margin: 1em 0 .35em; break-after: avoid; }
+  .prose strong { color: var(--black); }
+  .dropcap::first-letter { float: left; font: 400 4.3em/.82 var(--display); color: var(--red); padding: .06em .09em 0 0; }
+  .pull { break-inside: avoid; font: 400 1.55em/1.2 var(--display); color: var(--black); border-top: 3px solid var(--red); border-bottom: 1px solid var(--line-2); padding: .55em 0 .6em; margin: .4em 0 .9em; }
+  .pull em { color: var(--red); font-style: italic; }
+
+  .card { background: var(--white); border: 1px solid var(--line); border-radius: .35em; padding: 1em 1.15em; }
+  .card.tint { background: var(--red-tint); border-color: var(--red-line); }
+  .card.dark { background: var(--black); border-color: var(--black); color: #fff; }
+  .note { border-left: .3em solid var(--red); background: var(--white); padding: .8em 1em; font-size: .9em; }
+  .note b { color: var(--red); }
+
+  .tbl { width: 100%; border-collapse: collapse; font-size: .86em; background: var(--white); }
+  .tbl th { background: var(--black); color: #fff; font: 700 .9em/1.1 var(--cond); letter-spacing: .1em; text-transform: uppercase; text-align: left; padding: .6em .7em; }
+  .tbl td { padding: .5em .7em; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .tbl tr:nth-child(even) td { background: #FAFAFA; }
+  .tbl td.num, .tbl th.num { text-align: center; }
+  .tbl .hl td { background: var(--red-tint) !important; }
+  .tbl b { color: var(--black); }
+
+  .srcs { font-size: .66em; line-height: 1.5; color: var(--muted); border-top: 1px solid var(--line); padding-top: .7em; margin-top: auto; }
+  .srcs a { color: var(--muted); }
+
+  .btn { display: inline-flex; align-items: center; gap: .6em; padding: .8em 1.3em; border-radius: .25em; font: 700 .95em/1 var(--cond); letter-spacing: .12em; text-transform: uppercase; text-decoration: none; cursor: pointer; border: 2px solid var(--red); background: var(--red); color: #fff; }
+  .btn.ghost { background: transparent; color: var(--black); border-color: var(--black); }
+  .btn svg { width: 1.1em; height: 1.1em; }
+
+  /* ---------- Cover ---------- */
+  .cover .pg { padding-top: 0; }
+  .strip { margin: 0 -3.7em; background: var(--black); color: #fff; padding: .85em 3.7em; font: 700 .72em/1.2 var(--cond); letter-spacing: .14em; text-transform: uppercase; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .strip b { color: #FF7A7A; }
+  .mast { display: flex; justify-content: space-between; align-items: flex-end; padding: 1.5em 0 1em; border-bottom: 2px solid var(--black); }
+  .logo { font: 800 4.3em/.85 var(--cond); letter-spacing: -.01em; color: var(--black); }
+  .logo span { color: var(--red); }
+  .logo-sub { font: 700 .72em/1 var(--cond); letter-spacing: .5em; color: var(--muted); margin-top: .6em; text-transform: uppercase; }
+  .mast-r { text-align: right; font: 700 .8em/1.5 var(--cond); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); }
+  .mast-r b { display: block; color: var(--red); font-size: 1.25em; }
+  .cover-main { position: relative; flex: 1; display: flex; flex-direction: column; padding-top: 1.6em; }
+  .tag { align-self: flex-start; display: inline-flex; align-items: center; gap: .55em; background: var(--black); color: #fff; padding: .5em .9em; font: 700 .8em/1 var(--cond); letter-spacing: .16em; text-transform: uppercase; }
+  .tag i { width: .55em; height: .55em; border-radius: 50%; background: var(--red); display: block; }
+  .cover-title { font: 400 6.1em/.9 var(--display); color: var(--black); margin-top: .22em; letter-spacing: -.01em; }
+  .cover-title em { color: var(--red); font-style: italic; }
+  .cover-deck { font: 400 1.2em/1.45 var(--serif); color: #333; margin-top: .8em; max-width: 25em; }
+  .badge { position: absolute; right: 0; top: 1.4em; width: 9.4em; height: 9.4em; border-radius: 50%; background: var(--red); color: #fff; display: grid; place-items: center; text-align: center; transform: rotate(8deg); box-shadow: 0 .6em 1.4em rgba(200,35,35,.25); }
+  .badge div { font: 700 .8em/1.15 var(--cond); letter-spacing: .12em; text-transform: uppercase; }
+  .badge b { display: block; font: 400 3.4em/.9 var(--display); letter-spacing: 0; }
+  .cover-actions { display: flex; gap: .8em; margin-top: 1.3em; }
+  .cover-chart { margin-top: auto; padding-top: 1.2em; }
+  .cover-chart svg { width: 100%; height: auto; display: block; }
+  .coverlines { display: grid; grid-template-columns: 1fr 1fr; gap: 0 2em; margin-top: 1em; border-top: 2px solid var(--black); }
+  .coverlines div { padding: .75em 0; border-bottom: 1px solid var(--line-2); }
+  .coverlines small { display: block; font: 700 .72em/1 var(--cond); letter-spacing: .16em; color: var(--red); }
+  .coverlines strong { display: block; font: 700 1.15em/1.15 var(--cond); text-transform: uppercase; letter-spacing: .02em; color: var(--black); margin-top: .3em; }
+  .coverlines span { font-size: .8em; color: var(--muted); }
+
+  /* ---------- Contents ---------- */
+  .toc-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 2.4em; flex: 1; }
+  .toc { list-style: none; }
+  .toc li { display: grid; grid-template-columns: 2.4em 1fr; gap: .6em; padding: .55em 0; border-bottom: 1px solid var(--line); align-items: baseline; }
+  .toc .n { font: 400 1.5em/1 var(--display); color: var(--red); }
+  .toc b { display: block; font: 700 1em/1.2 var(--cond); letter-spacing: .03em; text-transform: uppercase; color: var(--black); }
+  .toc span { font-size: .78em; color: var(--muted); }
+  .letter { font: 400 1em/1.6 var(--serif); color: #262626; }
+  .letter p { margin-bottom: .8em; }
+  .sig { display: flex; align-items: center; gap: .9em; margin-top: 1.2em; }
+  .mono { width: 3.6em; height: 3.6em; border-radius: 50%; background: var(--black); color: #fff; display: grid; place-items: center; font: 400 1.4em var(--display); flex-shrink: 0; }
+  .mono.red { background: var(--red); }
+  .sig b { display: block; font: 400 1.35em/1.1 var(--display); color: var(--black); }
+  .sig span { font-size: .8em; color: var(--muted); }
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 1.3em; border-top: 2px solid var(--black); }
+  .stats div { padding: .8em 0; text-align: center; border-right: 1px solid var(--line); }
+  .stats div:last-child { border-right: 0; }
+  .stats b { display: block; font: 400 2.1em/1 var(--display); color: var(--red); }
+  .stats span { font: 700 .72em var(--cond); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+  .howto { display: grid; grid-template-columns: repeat(3, 1fr); gap: .7em; margin-top: 1.3em; }
+  .howto div { background: var(--white); border: 1px solid var(--line); border-top: .25em solid var(--red); padding: .8em .8em; font-size: .82em; }
+  .howto b { display: block; font: 700 1.1em/1.1 var(--cond); text-transform: uppercase; color: var(--black); margin-bottom: .2em; letter-spacing: .03em; }
+
+  /* ---------- Grids ---------- */
+  .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: .8em; }
+  .g3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8em; }
+  .rule-card .no { font: 400 2.2em/1 var(--display); color: var(--red); }
+  .rule-card b { display: block; font: 700 1.12em/1.15 var(--cond); text-transform: uppercase; letter-spacing: .02em; color: var(--black); margin: .35em 0 .3em; }
+  .rule-card p { font-size: .86em; color: #3A3A3A; }
+  .checks { list-style: none; font-size: .9em; }
+  .checks li { padding: .35em 0 .35em 1.7em; position: relative; border-bottom: 1px solid rgba(255,255,255,.12); }
+  .checks li::before { content: "✓"; position: absolute; left: 0; top: .3em; width: 1.2em; height: 1.2em; border-radius: 50%; background: var(--red); color: #fff; font-size: .8em; display: grid; place-items: center; font-weight: 700; }
+
+  .way { display: grid; grid-template-columns: 2.6em 1fr auto; gap: .9em; align-items: center; padding: .72em 0; border-bottom: 1px solid var(--line-2); }
+  .way .no { font: 400 2.1em/1 var(--display); color: var(--red); }
+  .way b { font: 700 1.15em/1.1 var(--cond); text-transform: uppercase; letter-spacing: .02em; color: var(--black); }
+  .way p { font-size: .86em; color: #3A3A3A; margin-top: .15em; }
+  .way .ex { font: 700 .8em/1.25 var(--cond); letter-spacing: .06em; text-transform: uppercase; background: var(--white); border: 1px solid var(--line); padding: .45em .7em; border-radius: .25em; text-align: center; min-width: 9.5em; }
+  .way .ex i { display: block; font-style: normal; color: var(--red); font-size: 1.15em; }
+
+  .bigrule { background: var(--black); color: #fff; padding: 1.2em 1.4em; border-radius: .35em; position: relative; }
+  .bigrule .kicker { color: #FF8A8A; }
+  .bigrule p { font: 400 1.35em/1.35 var(--display); }
+  .bigrule p em { color: #FF8A8A; font-style: italic; }
+
+  .rir { display: grid; grid-template-columns: repeat(5, 1fr); gap: .35em; }
+  .rir div { border-radius: .3em; padding: .7em .6em; background: var(--white); border: 1px solid var(--line); }
+  .rir b { display: block; font: 400 2em/1 var(--display); }
+  .rir strong { display: block; font: 700 .85em/1.1 var(--cond); text-transform: uppercase; letter-spacing: .04em; margin: .3em 0 .25em; }
+  .rir span { font-size: .72em; color: var(--muted); display: block; line-height: 1.35; }
+  .rir .r0 { background: #F4D6D6; border-color: #E9B4B4; }
+  .rir .r0 b { color: var(--red-deep); }
+  .rir .r1, .rir .r2 { background: var(--red); border-color: var(--red); color: #fff; }
+  .rir .r1 span, .rir .r2 span { color: #FFE3E3; }
+  .rir .r3 { background: var(--black); border-color: var(--black); color: #fff; }
+  .rir .r3 span { color: #CFCFCF; }
+
+  .steps { counter-reset: s; list-style: none; }
+  .steps li { counter-increment: s; position: relative; padding: .5em 0 .5em 2.6em; font-size: .92em; border-bottom: 1px solid var(--line); }
+  .steps li::before { content: counter(s); position: absolute; left: 0; top: .45em; width: 1.8em; height: 1.8em; border-radius: 50%; background: var(--black); color: #fff; font: 700 .95em/1.8em var(--cond); text-align: center; }
+
+  .phase { display: grid; grid-template-columns: 7.2em 1fr; border-bottom: 1px solid var(--line-2); }
+  .phase .wk { padding: .75em .8em; background: var(--black); color: #fff; font: 700 .8em/1.25 var(--cond); letter-spacing: .1em; text-transform: uppercase; }
+  .phase .wk b { display: block; font: 400 1.9em/1 var(--display); letter-spacing: 0; text-transform: none; color: #fff; margin-top: .15em; }
+  .phase.red .wk { background: var(--red); }
+  .phase.grey .wk { background: #8E8E8E; }
+  .phase .bd { padding: .65em 1em; background: var(--white); font-size: .88em; }
+  .phase .bd b { font: 700 1.2em/1.1 var(--cond); text-transform: uppercase; letter-spacing: .03em; color: var(--black); }
+  .phase .bd .meta { display: inline-block; margin-left: .6em; font: 700 .9em var(--cond); letter-spacing: .08em; text-transform: uppercase; color: var(--red); }
+
+  .week { display: grid; grid-template-columns: repeat(7, 1fr); gap: .3em; }
+  .week div { text-align: center; padding: .55em .2em; background: var(--white); border: 1px solid var(--line); font: 700 .78em/1.2 var(--cond); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .week div b { display: block; font-size: 1.5em; color: var(--black); letter-spacing: .02em; }
+  .week .on { background: var(--red); border-color: var(--red); color: #FFE3E3; }
+  .week .on b { color: #fff; }
+
+  .wo { margin-bottom: .8em; }
+  .wo-h { display: flex; align-items: baseline; gap: .7em; margin-bottom: .35em; }
+  .wo-h .l { font: 400 2.1em/1 var(--display); color: var(--red); }
+  .wo-h b { font: 700 1.1em var(--cond); text-transform: uppercase; letter-spacing: .06em; color: var(--black); }
+  .wo-h span { font-size: .78em; color: var(--muted); }
+  .tbl.wo-t td:first-child { width: 1.8em; color: var(--red); font-weight: 700; }
+  .tbl.wo-t td small { display: block; color: var(--muted); font-size: .85em; }
+
+  .box { display: inline-block; width: 1.05em; height: 1.05em; border: 1.5px solid var(--black); border-radius: .15em; vertical-align: -.15em; background: #fff; }
+
+  /* Conversation */
+  .conv-tag { display: inline-block; align-self: flex-start; background: var(--black); color: #fff; font: 700 .8em/1 var(--cond); letter-spacing: .16em; text-transform: uppercase; padding: .55em .9em; }
+  .conv-name { font: 800 2.1em/1 var(--cond); letter-spacing: .01em; text-transform: uppercase; color: var(--black); text-align: center; margin-top: 1em; }
+  .conv-title { font: 400 4.2em/.95 var(--display); text-transform: uppercase; text-align: center; color: var(--black); margin-top: .1em; letter-spacing: -.01em; }
+  .byline { display: flex; align-items: center; justify-content: center; gap: .8em; margin: 1.2em 0 1.4em; }
+  .byline .mono { width: 3em; height: 3em; font-size: 1.1em; }
+  .byline div { font: 400 .85em/1.35 var(--serif); }
+  .byline div b { color: var(--black); }
+  .byline div span { display: block; font-size: .85em; color: var(--muted); border-bottom: 1.5px solid var(--black); padding-bottom: .2em; }
+  .qa { font: 400 .95em/1.55 var(--serif); color: #222; columns: 2; column-gap: 2.2em; }
+  .qa p { margin-bottom: .7em; }
+  .qa .q { font: 700 .95em/1.25 var(--sans); color: var(--red); text-transform: uppercase; letter-spacing: .02em; margin: 1em 0 .4em; break-after: avoid; }
+  .qa .q:first-child { margin-top: 0; }
+  .qa .who { font-weight: 700; color: var(--black); font-family: var(--sans); font-size: .95em; }
+  .conv2 { display: grid; grid-template-columns: 1.35fr 1fr; gap: 1.8em; flex: 1; }
+  .conv2 .qa { columns: 1; }
+  .quote-panel { background: var(--red); color: #fff; border-radius: .35em; padding: 1.6em 1.4em; display: flex; flex-direction: column; }
+  .quote-panel .mk { font: 400 5em/.6 var(--display); color: #FFB3B3; }
+  .quote-panel p { font: 400 1.75em/1.18 var(--display); margin-top: .3em; }
+  .quote-panel .who { margin-top: auto; display: flex; align-items: center; gap: .8em; padding-top: 1.2em; border-top: 1px solid rgba(255,255,255,.35); }
+  .quote-panel .who .mono { background: #fff; color: var(--red); }
+  .quote-panel .who b { display: block; font: 700 1.1em/1.1 var(--cond); letter-spacing: .06em; text-transform: uppercase; }
+  .quote-panel .who span { font-size: .78em; color: #FFE0E0; }
+
+  /* Chart page */
+  .chip { display: inline-block; align-self: flex-start; font: 700 .72em/1 var(--cond); letter-spacing: .16em; text-transform: uppercase; color: var(--red); border: 1.5px solid var(--red); padding: .4em .7em; border-radius: 99px; }
+  .chart { background: var(--white); border: 1px solid var(--line); border-radius: .35em; padding: 1em 1em .6em; }
+  .chart svg { width: 100%; height: auto; display: block; }
+
+  /* Log pages */
+  .fields { display: flex; gap: 1.2em; font: 700 .82em var(--cond); letter-spacing: .12em; text-transform: uppercase; color: var(--black); margin-bottom: .9em; flex-wrap: wrap; }
+  .fields span { flex: 1; border-bottom: 1.5px solid var(--black); padding-bottom: .9em; min-width: 7em; }
+  .log { width: 100%; border-collapse: collapse; font-size: .78em; background: #fff; table-layout: fixed; }
+  .log th { background: var(--black); color: #fff; font: 700 .9em/1.1 var(--cond); letter-spacing: .08em; text-transform: uppercase; padding: .45em .4em; text-align: center; }
+  .log th:first-child { text-align: left; }
+  .log td { border: 1px solid var(--line-2); height: 2.6em; padding: 0 .5em; }
+  .log td:first-child { font-weight: 600; color: var(--black); font-size: .95em; }
+  .log .lbl td { background: var(--red); color: #fff; font: 700 1em/1 var(--cond); letter-spacing: .12em; text-transform: uppercase; height: 2em; border-color: var(--red); }
+  .track td { height: 3.9em; }
+  .ticks { display: flex; flex-wrap: wrap; gap: .45em; }
+  .ticks i { width: 2.05em; height: 2.05em; border-radius: 50%; border: 1.5px solid var(--black); display: grid; place-items: center; font: 700 .72em var(--cond); font-style: normal; color: var(--muted); }
+  .lines div { border-bottom: 1px solid var(--line-2); height: 2.1em; font: 700 .78em/2.6 var(--cond); letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+
+  .faq { display: grid; grid-template-columns: 1fr 1fr; gap: .9em 1.6em; }
+  .faq div { border-top: 2px solid var(--black); padding-top: .55em; }
+  .faq b { display: block; font: 400 1.18em/1.2 var(--display); color: var(--black); margin-bottom: .3em; }
+  .faq p { font-size: .84em; color: #333; }
+  .refs { list-style: none; counter-reset: r; font-size: .74em; color: #333; }
+  .refs li { counter-increment: r; position: relative; padding: .38em 0 .38em 1.8em; border-bottom: 1px solid var(--line); }
+  .refs li::before { content: counter(r); position: absolute; left: 0; top: .38em; font-weight: 700; color: var(--red); }
+  .refs a { color: var(--red); word-break: break-all; }
+
+  /* Back page */
+  .back-top { margin: -2.8em -3.7em 0; padding: 2.4em 3.7em 2em; background: var(--black); color: #fff; }
+  .back-top .h1 { color: #fff; }
+  .back-top .h1 em { color: #FF7070; }
+  .more { display: grid; grid-template-columns: 2.8em 1fr auto; align-items: center; gap: 1em; padding: .9em 1em; background: var(--white); border: 1px solid var(--line); border-radius: .3em; text-decoration: none; margin-bottom: .55em; }
+  .more .n { font: 400 2em/1 var(--display); color: var(--red); }
+  .more b { display: block; font: 700 1.15em/1.15 var(--cond); text-transform: uppercase; letter-spacing: .02em; color: var(--black); }
+  .more span { font-size: .78em; color: var(--muted); }
+  .more .go { width: 2.2em; height: 2.2em; border-radius: 50%; border: 1.5px solid var(--red); color: var(--red); display: grid; place-items: center; }
+  .more .go svg { width: 1em; height: 1em; }
+  .email-box { background: var(--red-tint); border: 1px solid var(--red-line); border-radius: .35em; padding: 1.2em 1.3em; }
+  .email-box h3 { font: 400 1.5em/1.15 var(--display); color: var(--black); }
+  .email-row { display: flex; gap: .6em; margin-top: .9em; }
+  .email-row input { flex: 1; min-width: 0; font: 400 .95em var(--sans); padding: .8em .9em; border: 1.5px solid var(--line-2); border-radius: .25em; background: #fff; color: var(--ink); }
+  .email-row input:focus { outline: 2px solid var(--red); outline-offset: 1px; border-color: var(--red); }
+  .email-help { font-size: .72em; color: var(--muted); margin-top: .5em; }
+  .print-only { display: none; }
+
+  .flow svg { width: 100%; height: auto; display: block; }
+
+  @media (max-width: 720px) {
+    .viewer { padding: 10px 8px 84px; }
+    .book { --h: calc(100dvh - 104px); width: 100%; max-height: none; }
+    .page { overflow-y: auto; }
+    .pg { height: auto; min-height: 100%; }
+    .nav-arrow, .dots, .tb-sep.d { display: none; }
+    .tb-nav { display: inline-flex; }
+    .tb-btn .lbl-long { display: none; }
+    .toolbar { gap: 4px; padding: 6px 8px; }
+    .tb-btn { padding: 0 10px; }
+    .counter { min-width: 0; padding: 0 4px; font-size: 15px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .page, .page.active { transition: none; } }
+
+  /* ---------- Print: every page, no viewer chrome ---------- */
+  @page { size: A4; margin: 0; }
+  @media print {
+    html, body { height: auto; overflow: visible; background: var(--paper); }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    .nav-arrow, .toolbar, .no-print { display: none !important; }
+    .print-only { display: block; }
+    .viewer { display: block; height: auto; padding: 0; }
+    .book { width: 210mm; height: auto; max-height: none; box-shadow: none; border-radius: 0; overflow: visible; }
+    .page {
+      position: relative; inset: auto; width: 210mm; height: 297mm;
+      opacity: 1 !important; visibility: visible !important; transform: none !important; transition: none !important;
+      overflow: hidden; break-after: page; page-break-after: always;
+    }
+    .page:last-child { break-after: auto; page-break-after: auto; }
+    .pg { height: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<main class="viewer" aria-label="The 12-Week Progressive Overload Workbook — digital magazine">
+  <div class="book" id="book">
+
+    <!-- ============ 1 — COVER ============ -->
+    <section class="page cover active" data-title="Cover">
+      <div class="pg">
+        <div class="strip"><b>Inside:</b> A 12-week plan &nbsp;·&nbsp; The double progression rule &nbsp;·&nbsp; Printable log pages &nbsp;·&nbsp; The 2026 ACSM guidelines explained</div>
+        <div class="mast">
+          <div>
+            <div class="logo">EXERCISE<span>MENU</span></div>
+            <div class="logo-sub">.com magazine</div>
+          </div>
+          <div class="mast-r">Issue 02 — 2026<b>Free Workbook</b></div>
+        </div>
+
+        <div class="cover-main">
+          <div class="badge"><div><b>12</b>weeks<br>36 sessions</div></div>
+          <span class="tag"><i></i>Free Workbook — Issue 02</span>
+          <h1 class="cover-title">The 12-Week<br><em>Progressive<br>Overload</em><br>Workbook</h1>
+          <p class="cover-deck">Exactly what to add, and when, every week for 12 weeks. Plus the log pages to track every set.</p>
+          <div class="cover-actions no-print">
+            <a class="btn" href="12-week-progressive-overload-workbook.pdf" download data-dl>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Download PDF</a>
+            <button class="btn ghost" type="button" data-action="email">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Email This Workbook</button>
+          </div>
+
+          <div class="cover-chart" aria-hidden="true">
+            <svg viewBox="0 0 480 120">
+              <g font-family="Barlow Condensed, Arial Narrow, sans-serif" font-weight="700" font-size="10" letter-spacing="1" text-anchor="middle">
+                <rect x="4"   y="84" width="30" height="24" fill="#000"/>
+                <rect x="44"  y="78" width="30" height="30" fill="#000"/>
+                <rect x="84"  y="72" width="30" height="36" fill="#000"/>
+                <rect x="124" y="62" width="30" height="46" fill="#000"/>
+                <rect x="164" y="56" width="30" height="52" fill="#000"/>
+                <rect x="204" y="50" width="30" height="58" fill="#000"/>
+                <rect x="244" y="72" width="30" height="36" fill="#C9C9C9"/>
+                <rect x="284" y="40" width="30" height="68" fill="#000"/>
+                <rect x="324" y="32" width="30" height="76" fill="#000"/>
+                <rect x="364" y="24" width="30" height="84" fill="#000"/>
+                <rect x="404" y="16" width="30" height="92" fill="#000"/>
+                <rect x="444" y="4"  width="30" height="104" fill="#C82323"/>
+                <text x="259" y="66" fill="#8E8E8E" font-size="8">DELOAD</text>
+                <text x="459" y="0" fill="#C82323" dy="-1"></text>
+                <g fill="#5C5C5C">
+                  <text x="19" y="119">W1</text><text x="59" y="119">W2</text><text x="99" y="119">W3</text><text x="139" y="119">W4</text>
+                  <text x="179" y="119">W5</text><text x="219" y="119">W6</text><text x="259" y="119">W7</text><text x="299" y="119">W8</text>
+                  <text x="339" y="119">W9</text><text x="379" y="119">W10</text><text x="419" y="119">W11</text>
+                </g>
+                <text x="459" y="119" fill="#C82323">W12</text>
+              </g>
+            </svg>
+          </div>
+
+          <div class="coverlines">
+            <div><small>p.06</small><strong>The Double Progression Rule</strong><span>The one method a beginner needs</span></div>
+            <div><small>p.11</small><strong>Conversation: Sadia Baloch</strong><span>“Small wins, every week”</span></div>
+            <div><small>p.04</small><strong>The New Rules of 2026</strong><span>ACSM’s first update in 17 years</span></div>
+            <div><small>p.15</small><strong>Printable Training Logs</strong><span>Track every set, every week</span></div>
+          </div>
+        </div>
+
+        <div class="pg-foot"><span>ExerciseMenu.com</span><span>By Sadia Baloch</span><span><b>01</b> / 18</span></div>
+      </div>
+    </section>
+
+    <!-- ============ 2 — CONTENTS + LETTER ============ -->
+    <section class="page" data-title="Contents">
+      <div class="pg">
+        <div class="pg-head"><span class="sec">Inside This Issue</span><span>Issue 02 — 2026</span></div>
+        <div class="pg-body">
+          <div class="toc-grid">
+            <div>
+              <div class="kicker">Contents</div>
+              <h2 class="h1" style="font-size:2.7em">What’s inside</h2>
+              <div class="bar"></div>
+              <ul class="toc">
+                <li><span class="n">03</span><div><b>Why Workouts Stop Working</b><span>The science of progressive overload</span></div></li>
+                <li><span class="n">04</span><div><b>The New Rules of 2026</b><span>ACSM guidelines in plain English</span></div></li>
+                <li><span class="n">05</span><div><b>7 Ways to Progress</b><span>Weight is only one of them</span></div></li>
+                <li><span class="n">06</span><div><b>The Double Progression Rule</b><span>When to add reps, when to add weight</span></div></li>
+                <li><span class="n">07</span><div><b>Find Your Starting Weight</b><span>Reps in reserve, made simple</span></div></li>
+                <li><span class="n">08</span><div><b>Your 12-Week Map</b><span>Four phases and one lighter week</span></div></li>
+                <li><span class="n">09</span><div><b>The Workouts: A, B &amp; C</b><span>Gym and home options</span></div></li>
+                <li><span class="n">10</span><div><b>Week-by-Week Targets</b><span>Tick off all 36 sessions</span></div></li>
+                <li><span class="n">11</span><div><b>Conversation: Sadia Baloch</b><span>From week 1 to week 12</span></div></li>
+                <li><span class="n">13</span><div><b>12 Weeks on Paper</b><span>What progress looks like</span></div></li>
+                <li><span class="n">14</span><div><b>Stuck? The Plateau Fixer</b><span>Plus sleep, protein and rest</span></div></li>
+                <li><span class="n">15</span><div><b>Your Logs &amp; Tracker</b><span>Print, fill in, repeat</span></div></li>
+                <li><span class="n">17</span><div><b>FAQ &amp; Sources</b><span>Quick answers, real research</span></div></li>
+              </ul>
+            </div>
+            <div style="display:flex;flex-direction:column">
+              <div class="kicker">From the Coach</div>
+              <h2 class="h1" style="font-size:2.7em">Now what?</h2>
+              <div class="bar"></div>
+              <div class="letter">
+                <p>Issue 01 gave you a starting point: the right reps, the right sets and a simple three-day plan. This issue answers the question that comes next. <em>What do I do now?</em></p>
+                <p>The answer is progressive overload: doing a little more over time. Most people know the phrase. Far fewer have a plan for it, so they lift the same weights for months and wonder why nothing changes.</p>
+                <p>This workbook is that plan. Twelve weeks, three sessions a week, and one clear rule that tells you when to add weight. Every page is built to be used, not only read. Fill in the logs, tick off the weeks, and look back at week 1 when you reach week 12.</p>
+                <p>Print the log pages. Bring them to the gym. Write everything down.</p>
+              </div>
+              <div class="sig">
+                <div class="mono red">SB</div>
+                <div><b>Sadia Baloch</b><span>Certified Fitness Coach, ExerciseMenu.com</span></div>
+              </div>
+              <div class="stats">
+                <div><b>7+</b><span>Years coaching</span></div>
+                <div><b>257+</b><span>Clients</span></div>
+                <div><b>95%</b><span>Satisfaction</span></div>
+              </div>
+              <div class="howto">
+                <div><b>1. Read</b>Pages 3–8 once, before week 1.</div>
+                <div><b>2. Train</b>Follow pages 9–10 three times a week.</div>
+                <div><b>3. Log</b>Fill in pages 15–16 after every session.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pg-foot"><span>ExerciseMenu.com</span><span><b>02</b> / 18</span></div>
+      </div>
+    </section>
+
+    <!-- ============ 3 — FEATURE: THE SCIENCE ============ -->
+    <section class="page" data-title="The Science">
+      <div class="pg">
+        <div class="pg-head"><span class="sec">01 · The Science</span><span>Progressive Overload</span></div>
+        <div class="pg-body">
+          <div class="kicker">Feature</div>
+          <h2 class="h1">Why your workouts <em>stop working</em></h2>
+          <p class="deck">Your body adapts to exactly what you ask of it, and then it stops. Here is how to keep asking for more.</p>
+          <div class="bar"></div>
+          <div class="prose">
+            <p class="dropcap">Your first month of training feels like magic. The weights climb, your clothes fit differently and every session brings something new. Then, somewhere around week six or eight, it stalls. Same weights. Same reps. Same reflection in the mirror.</p>
+            <p>Nothing is wrong with you. Your body did what it was built to do: it adapted to the demand you gave it. Muscles grow and get stronger because training creates a stress they are not yet prepared for. Once they handle that stress comfortably, they have no reason to change further.</p>
+            <p>That is the whole idea behind <strong>progressive overload</strong>: gradually increasing the demand on your muscles so there is always a new reason to adapt. The American College of Sports Medicine (ACSM) describes progression as necessary for anyone who wants results to continue past the first few months.<sup class="ref">1</sup></p>
+            <div class="pull">“Your body adapts to what you ask of it. Progressive overload means you <em>never stop asking.</em>”</div>
+            <h4>More weight is not the only way</h4>
+            <p>Most people hear “progressive overload” and think it means adding plates. Weight is one tool, not the only one. In a 2022 study published in <em>PeerJ</em>, trained lifters followed one of two plans for eight weeks. One group added weight and kept their reps the same. The other kept the weight the same and added reps. Both groups gained similar muscle size and strength.<sup class="ref">2</sup></p>
+            <p>That finding shapes this workbook. You will progress by adding reps first, then weight, a method called <strong>double progression</strong> (page 6). It works with dumbbells at home, machines at a busy gym or a barbell, and it tells you exactly when to move up.</p>
+            <h4>Effort is the part you cannot skip</h4>
+            <p>Adding reps or weight only works if your sets are hard enough to matter. The 2026 ACSM guidelines note that light and heavy loads both build muscle, as long as each set ends close to failure, about two to three reps short.<sup class="ref">3</sup> Stop too early and your log looks good on paper while your muscles barely notice.</p>
+            <p>So every session in this plan asks two things of you: do a little more than last time, and make each set count. The next pages show you how.</p>
+          </div>
+          <div class="srcs">
+            <sup class="ref">1</sup> ACSM Position Stand, <a href="https://pubmed.ncbi.nlm.nih.gov/19204579/">Progression Models in Resistance Training</a> (2009) &nbsp;·&nbsp;
+            <sup class="ref">2</sup> Plotkin et al., <a href="https://peerj.com/articles/14142/"><em>PeerJ</em></a> (2022) &nbsp;·&nbsp;
+            <sup class="ref">3</sup> ACSM Position Stand, <a href="https://pubmed.ncbi.nlm.nih.gov/41843416/">Resistance Training Prescription</a> (2026) &nbsp;·&nbsp;
+            Go deeper: <a class="link" href="https://exercisemenu.com/what-is-progressive-overload/">What is progressive overload?</a>
+          </div>
+        </div>
+        <div class="pg-foot"><span>ExerciseMenu.com</span><span><b>03</b> / 18</span></div>
+      </div>
+    </section>
+
+    <!-- ============ 4 — 2026 ACSM ============ -->
+    <section class="page" data-title="2026 Guidelines">
+      <div class="pg">
+        <div class="pg-head"><span class="sec">02 · 2026 Update</span><span>New Guidelines</span></div>
+        <div class="pg-body">
+          <div class="kicker">What changed in 2026</div>
+          <h2 class="h1">The new rules of <em>strength training</em></h2>
+          <p class="deck">In 2026 the ACSM updated its resistance training guidelines for the first time in 17 years, drawing on 137 systematic reviews and more than 30,000 people. Here is what it means for you.</p>
+          <div class="bar"></div>
+          <div class="g2">
+            <div class="card rule-card"><span class="no">01</span><b>Any training beats none</b><p>The biggest jump in results comes from going from no training to regular training. A plan you follow beats a perfect plan you skip.</p></div>
+            <div class="card rule-card"><span class="no">02</span><b>Train each muscle twice a week</b><p>At least two sessions per muscle group each week. The three full-body days in this plan give every major muscle three.</p></div>
+            <div class="card rule-card"><span class="no">03</span><b>10+ weekly sets for growth</b><p>For muscle size, aim for at least 10 sets per muscle group per week. This plan builds you up to that level by week 4.</p></div>
+            <div class="card rule-card"><span class="no">04</span><b>Stop 2–3 reps short of failure</b><p>Training to absolute failure isn’t required. Ending sets with 2–3 reps left gives similar results with less fatigue.</p></div>
+            <div class="card rule-card"><span class="no">05</span><b>Light or heavy both build muscle</b><p>Loads from 30% to 100% of your max all work for growth, as long as each set is taken close to failure.</p></div>
+            <div class="card rule-card"><span class="no">06</span><b>Heavier for pure strength</b><p>For maximum strength, the guidelines favour heavier loads (80%+ of your one-rep max) on key lifts done early in the session.</p></div>
+          </div>
+          <div class="card dark" style="margin-top:1em;display:grid;grid-template-columns:1fr 1.25fr;gap:1.4em;align-items:center">
+            <div>
+              <div class="kicker" style="color:#FF8A8A">In this workbook</div>
+              <div style="font:400 1.6em/1.15 var(--display)">How this plan follows the 2026 guidelines</div>
+            </div>
+            <ul class="checks">
+              <li>Three sessions a week, so every muscle is trained 3×</li>
+              <li>About 8–12 weekly sets per major muscle from week 4</li>
+              <li>Target of 1–3 reps in reserve, never grinding to failure</li>
+              <li>Big compound lifts first, while you are fresh</li>
+            </ul>
+          </div>
+          <div class="srcs">Source: ACSM Position Stand, <a href="https://pubmed.ncbi.nlm.nih.gov/41843416/">Resistance Training Prescription for Muscle Function, Hypertrophy, and Physical Performance in Healthy Adults</a> (2026) and the <a href="https://acsm.org/resistance-training-guidelines-update-2026/">ACSM announcement</a>. Summarised for general readers.</div>
+        </div>
+        <div class="pg-foot"><span>ExerciseMenu.com</span><span><b>04</b> / 18</span></div>
+      </div>
+    </section>
+
+    <!-- ============ 5 — 7 WAYS ============ -->
+    <section class="page" data-title="7 Ways to Progress">
+      <div class="pg">
+        <div class="pg-head"><span class="sec">03 · Methods</span><span>7 Ways to Progress</span></div>
+        <div class="pg-body">
+          <div class="kicker">The toolkit</div>
+          <h2 class="h1">7 ways to progress, <em>not just weight</em></h2>
+          <p class="deck">Weight is one lever. Here are seven, with the right moment to pull each one.</p>
+          <div class="bar"></div>
+          <div class="way"><span class="no">1</span><div><b>Add weight</b><p>The classic. Use it once you hit the top of your rep range on every set.</p></div><div class="ex">Bench<i>30 → 32.5 kg</i></div></div>
+          <div class="way"><span class="no">2</span><div><b>Add reps</b><p>Same weight, one more rep. Your default move in this plan.</p></div><div class="ex">Squat<i>3×8 → 3×9</i></div></div>
+          <div class="way"><span class="no">3</span><div><b>Add a set</b><p>More total work. This plan adds sets at the start of weeks 4 and 8.</p></div><div class="ex">Row<i>2 → 3 sets</i></div></div>
+          <div class="way"><span class="no">4</span><div><b>Slow the lowering</b><p>A 3-second lowering phase adds time under tension. Useful when you lack heavier weights.</p></div><div class="ex">Tempo<i>1 s → 3 s down</i></div></div>
+          <div class="way"><span class="no">5</span><div><b>Increase range of motion</b><p>Deeper squats, a fuller stretch at the bottom. Build range before you add load.</p></div><div class="ex">Squat<i>Box → full depth</i></div></div>
+          <div class="way"><span class="no">6</span><div><b>Harder variation</b><p>Use it when the smallest weight jump available is too big for you.</p></div><div class="ex">Push-up<i>Knees → toes</i></div></div>
+          <div class="way"><span class="no">7</span><div><b>Cut rest time</b><p>Same work in less time. Better for fitness than for size, so use it sparingly.</p></div><div class="ex">Rest<i>120 s → 90 s</i></div></div>
+          <div class="h3" style="font-size:1em;margin:1.1em 0 .5em">Which lever, when?</div>
+          <div class="g3">
+            <div class="card tint rule-card"><b>Gym with full equipment</b><p>Use 1 and 2 (reps, then weight). Add 3 at the planned weeks.</p></div>
+            <div class="card rule-card"><b>Home, limited weights</b><p>Use 2, 4, 5 and 6 once your heaviest dumbbells stop being hard.</p></div>
+            <div class="card rule-card"><b>Short on time</b><p>Keep sets and reps; use 7 carefully, and never below 60 seconds on big lifts.</p></div>
+          </div>
+          <div class="note" style="margin-top:1em"><b>Change one thing at a time.</b> If you add weight and cut rest in the same week and the session goes badly, you won’t know which change caused it.</div>
+          <div class="srcs">Go deeper: <a class="link" href="https://exercisemenu.com/progressive-overload-without-adding-weight/">Progressive overload without adding weight</a> &nbsp;·&nbsp; <a class="link" href="https://exercisemenu.com/time-under-tension/">Time under tension</a></div>
+        </div>
+        <div class="pg-foot"><span>ExerciseMenu.com</span><span><b>05</b> / 18</span></div>
+      </div>
+    </section>
+
+    <!-- ============ 6 — DOUBLE PROGRESSION ============ -->
+    <section class="page" data-title="Double Progression">
+      <div class="pg">
+        <div class="pg-head"><span class="sec">04 · The Method</span><span>Double Progression</span></div>
+        <div class="pg-body">
+          <div class="kicker">The one rule</div>
+          <h2 class="h1">The double <em>progression</em> rule</h2>
+          <p class="deck">One rule decides every progression in this plan. Learn it once and use it for years.</p>
+          <div class="bar"></div>
+          <div class="bigrule">
+            <div class="kicker">The rule</div>
+            <p>Work inside a rep range. When you hit the <em>top of the range on every set</em> with good form, add the smallest weight jump you can. Then build the reps back up.</p>
+          </div>
+
+          <div class="flow" style="margin:.9em 0 .7em" aria-label="Double progression cycle">
+            <svg viewBox="0 0 520 96">
+              <defs><marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#C82323"/></marker></defs>
+              <g font-family="Barlow Condensed, Arial Narrow, sans-serif" text-anchor="middle">
+                <rect x="2" y="8" width="112" height="60" rx="5" fill="#fff" stroke="#000" stroke-width="1.5"/>
+                <text x="58" y="30" font-size="11" font-weight="700" fill="#C82323" letter-spacing="1">STEP 1</text>
+                <text x="58" y="46" font-size="13" font-weight="700" fill="#000">Start at bottom</text>
+                <text x="58" y="60" font-size="11" fill="#5C5C5C">e.g. 3 × 8</text>
+                <rect x="136" y="8" width="112" height="60" rx="5" fill="#fff" stroke="#000" stroke-width="1.5"/>
+                <text x="192" y="30" font-size="11" font-weight="700" fill="#C82323" letter-spacing="1">STEP 2</text>
+                <text x="192" y="46" font-size="13" font-weight="700" fill="#000">Add reps</text>
+                <text x="192" y="60" font-size="11" fill="#5C5C5C">3×9 → 3×10 → 3×11</text>
+                <rect x="270" y="8" width="112" height="60" rx="5" fill="#fff" stroke="#000" stroke-width="1.5"/>
+                <text x="326" y="30" font-size="11" font-weight="700" fill="#C82323" letter-spacing="1">STEP 3</text>
+                <text x="326" y="46" font-size="13" font-weight="700" fill="#000">Hit the top</text>
+                <text x="326" y="60" font-size="11" fill="#5C5C5C">3 × 12, clean form</text>
+                <rect x="404" y="8" width="112" height="60" rx="5" fill="#C82323"/>
+                <text x="460" y="30" font-size="11" font-weight="700" fill="#FFD0D0" letter-spacing="1">STEP 4</text>
+                <text x="460" y="46" font-size="13" font-weight="700" fill="#fff">Add weight</text>
+                <text x="460" y="60" font-size="11" fill="#FFE3E3">back to 3 × 8</text>
+                <path d="M116 38H132" stroke="#C82323" stroke-width="2" marker-end="url(#ar)"/>
+                <path d="M250 38H266" stroke="#C82323" stroke-width="2" marker-end="url(#ar)"/>
+                <path d="M384 38H400" stroke="#C82323" stroke-width="2" marker-end="url(#ar)"/>
+                <path d="M460 70V84H58V74" fill="none" stroke="#C82323" stroke-width="2" stroke-dasharray="4 3" marker-end="url(#ar)"/>
+                <text x="259" y="94" font-size="10" font-weight="700" fill="#C82323" letter-spacing="1.5">REPEAT FOR 12 WEEKS</text>
+              </g>
+            </svg>
+          </div>
+
+          <div class="g2" style="grid-template-columns:1.35fr 1fr;align-items:start">
+            <div>
+              <div class="h3" style="margin-bottom:.5em">Example: dumbbell bench press, 8–12 reps</div>
+              <table class="tbl">
+                <tr><th>Session</th><th class="num">Weight</th><th class="num">Reps (3 sets)</th><th>Next</th></tr>
+                <tr><td>1</td><td class="num">14 kg</td><td class="num">9 · 8 · 8</td><td>Add reps</td></tr>
+                <tr><td>2</td><td class="num">14 kg</td><td class="num">10 · 9 · 8</td><td>Add reps</td></tr>
+                <tr><td>3</td><td class="num">14 kg</td><td class="num">11 · 10 · 10</td><td>Add reps</td></tr>
+                <tr><td>4</td><td class="num">14 kg</td><td class="num">12 · 11 · 11</td><td>Add reps</td></tr>
+                <tr class="hl"><td><b>5</b></td><td class="num"><b>14 kg</b></td><td class="num"><b>12 · 12 · 12</b></td><td><b class="red">Add weight ✓</b></td></tr>
+                <tr><td>6</td><td class="num">16 kg</td><td class="num">9 · 8 · 8</td><td>Build again</td></tr>
+              </table>
+            </div>
+            <div>
+              <div class="h3" style="margin-bottom:.5em">How much to add</div>
+              <table class="tbl">
+                <tr><th>Lift type</th><th>Add</th></tr>
+                <tr><td><b>Upper body</b><br><span class="small">presses, rows</span></td><td>1–2.5 kg<br><span class="small">or next dumbbell</span></td></tr>
+                <tr><td><b>Lower body</b><br><span class="small">squat, RDL</span></td><td>2.5–5 kg</td></tr>
+                <tr><td><b>Small muscles</b><br><span class="small">curls, raises</span></td><td>Go 2–3 reps past the top first</td></tr>
+              </table>
+            </div>
+          </div>
+          <div class="note" style="margin-top:1em"><b>Research check:</b> the ACSM progression model suggests a 2–10% load increase once you can do 1–2 reps more than your target on two sessions in a row.<sup class="ref">1</sup> Double progression builds this in, and a rep only counts if it looks like your first rep.</div>
+          <div class="h3" style="font-size:1em;margin:1.1em 0 .5em">3 mistakes that break the rule</div>
+          <div class="g3">
+            <div class="card rule-card"><b><span class="red">✕</span> Counting ugly reps</b><p>Half-depth squats and bounced presses don’t count toward the top of the range.</p></div>
+            <div class="card rule-card"><b><span class="red">✕</span> Jumping too far</b><p>Add the smallest weight available. A 5 kg jump on a press can wipe out 3 weeks of reps.</p></div>
+            <div class="card rule-card"><b><span class="red">✕</span> Adding weight everywhere</b><p>Each exercise moves on its own schedule. Squats may jump twice before curls jump once.</p></div>
+          </div>
+          <div class="srcs"><sup class="ref">1</sup> ACSM Position Stand, <a href="https://pubmed.ncbi.nlm.nih.gov/19204579/">Progression Models in Resistance Training</a> (2009)</div>
+        </div>
+        <div class="pg-foot"><span>ExerciseMenu.com</span><span><b>06</b> / 18</span></div>
+      </div>
+    </section>
+
+    <!-- ============ 7 — STARTING WEIGHT ============ -->
+    <section class="page" data-title="Starting Weight">
+      <div class="pg">
+        <div class="pg-head"><span class="sec">05 · Week 1</span><span>Find Your Starting Weight</span></div>
+        <div class="pg-body">
+          <div class="kicker">Before you start</div>
+          <h2 class="h1">Find your <em>starting weight</em></h2>
+          <p class="deck">No guesswork and no max testing. Use reps in reserve to pick the right weight in your first week.</p>
+          <div class="bar"></div>
+          <p style="font:400 1em/1.55 var(--serif);color:#222;margin-bottom:1em"><strong>Reps in reserve (RIR)</strong> is how many more clean reps you could have done when you stopped the set. It is the simplest way to measure effort, and researchers have shown it works for both new and experienced lifters.<sup class="ref">4</sup> Every set in this plan has an RIR target.</p>
+          <div class="rir">
+            <div class="r0"><b>0</b><strong>Failure</strong><span>Couldn’t do another rep. Avoid in this plan.</span></div>
+            <div class="r1"><b>1</b><strong>Near max</strong><span>One rep left. Last sets, weeks 9–12.</span></div>
+            <div class="r2"><b>2</b><strong>Hard</strong><span>Two reps left. Your main target.</span></div>
+            <div class="r3"><b>3</b><strong>Solid</strong><span>Three reps left. Weeks 1–3 while learning.</span></div>
+            <div><b>4+</b><strong>Too easy</strong><span>Add weight on the next set.</span></div>
+          </div>
+
+          <div class="g2" style="margin-top:1.2em;grid-template-columns:1fr 1.1fr;gap:1.4em;align-items:start">
+            <div>
+              <div class="h3" style="margin-bottom:.4em">The 3-step test</div>
+              <ol class="steps">
+                <li>Choose a weight you think you could lift about 12 times.</li>
+                <li>Do 8 reps, then stop and ask: how many more could I do with clean form?</li>
+                <li>Adjust with the table, then write the weight in your log.</li>
+              </ol>
+            </div>
+            <div>
+              <table class="tbl">
+                <tr><th>Reps left after 8</th><th>What to do</th></tr>
+                <tr><td><b>5 or more</b></td><td>Too light. Add 10–20% next set.</td></tr>
+                <tr class="hl"><td><b>3–4</b></td><td>Your starting weight for weeks 1–3.</td></tr>
+                <tr><td><b>1–2</b></td><td>Good for later. For week 1, drop 5–10%.</td></tr>
+                <tr><td><b>0 / form broke</b></td><td>Too heavy. Drop 15–20%.</td></tr>
+              </table>
+            </div>
+          </div>
+
+          <div class="g2" style="margin-top:1.2em">
+            <div class="card tint">
+              <div class="h3" style="font-size:1.05em">Already know a rep max?</div>
+              <p style="font-size:.86em;margin-top:.35em">Estimate your one-rep max with the Brzycki formula:<br><b style="font-family:var(--cond);font-size:1.15em;letter-spacing:.02em">1RM = weight ÷ (1.0278 − 0.0278 × reps)</b><br>Start this plan at about 60–65% of that number.</p>
+            </div>
+            <div class="card">
+              <div class="h3" style="font-size:1.05em">Calibrate once a week</div>
+              <p style="font-size:.86em;margin-top:.35em">New lifters often stop sets further from failure than they think. Once a week, take the last set of one exercise to 1 RIR to check what “hard” feels like.</p>
+            </div>
+          </div>
+          <div class="card dark" style="margin-top:1em">
+            <div class="kicker" style="color:#FF8A8A;margin-bottom:.5em">Your first session checklist</div>
+            <div class="g2" style="gap:.2em 1.4em;font-size:.88em">
+              <div><span class="box" style="border-color:#fff;background:transparent"></span>&nbsp; Log pages printed (p.15)</div>
+              <div><span class="box" style="border-color:#fff;background:transparent"></span>&nbsp; Pen or phone for notes</div>
+              <div><span class="box" style="border-color:#fff;background:transparent"></span>&nbsp; 5-minute warm-up done</div>
+              <div><span class="box" style="border-color:#fff;background:transparent"></span>&nbsp; Starting weight found for each lift</div>
+            </div>
+          </div>
+          <div class="srcs"><sup class="ref">4</sup> Zourdos et al., <a href="https://pubmed.ncbi.nlm.nih.gov/26049792/"><em>J Strength Cond Res</em></a> (2016) &nbsp;·&nbsp; Go deeper: <a class="link" href="https://exercisemenu.com/rpe-vs-rir/">RPE vs RIR explained</a> &nbsp;·&nbsp; <a class="link" href="https://exercisemenu.com/how-to-calculate-your-1rm/">How to calculate your 1RM</a></div>
+        </div>
+        <div class="pg-foot"><span>ExerciseMenu.com</span><span><b>07</b> / 18</span></div>
+      </div>
+    </section>
+
+    <!-- ============ 8 — 12-WEEK MAP ============ -->
+    <section class="page" data-title="12-Week Map">
+      <div class="pg">
+        <div class="pg-head"><span class="sec">06 · The Plan</span><span>Your 12-Week Map</span></div>
+        <div class="pg-body">
+          <div class="kicker">The big picture</div>
+          <h2 class="h1">Your <em>12-week</em> map</h2>
+          <p class="deck">Four phases, one direction. Each phase asks a little more, and one lighter week keeps you fresh.</p>
+          <div class="bar"></div>
+
+          <div class="phase"><div class="wk">Weeks<b>1–3</b></div><div class="bd"><b>Learn</b><span class="meta">2 sets · 3 RIR</span><br>Learn the lifts, find your weights and log every set. Add a rep wherever form allows.</div></div>
+          <div class="phase"><div class="wk">Weeks<b>4–6</b></div><div class="bd"><b>Build</b><span class="meta">3 sets · 2 RIR</span><br>Add the third set. Run double progression on every exercise; expect your first weight jumps.</div></div>
+          <div class="phase grey"><div class="wk">Week<b>7</b></div><div class="bd"><b>Deload</b><span class="meta">2 sets · 4 RIR</span><br>Same weights, fewer sets, easier effort. Fatigue clears so you start week 8 fresh.</div></div>
+          <div class="phase"><div class="wk">Weeks<b>8–11</b></div><div class="bd"><b>Push</b><span class="meta">3–4 sets · 1–2 RIR</span><br>Four sets on the first exercise of each day. Last set of each exercise at 1 RIR.</div></div>
+          <div class="phase red"><div class="wk">Week<b>12</b></div><div class="bd"><b>Test</b><span class="meta">3 sets · 1–2 RIR</span><br>Record your best set on every main lift and compare it with week 1.</div></div>
+
+          <div class="chart" style="margin-top:1.1em">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.4em">
+              <div class="h3" style="font-size:1em">Total working sets per week</div>
+              <span class="small">Volume builds, dips at week 7, then builds again</span>
+            </div>
+            <svg viewBox="0 0 480 110" aria-label="Weekly sets: 34 in weeks 1–3, 51 in weeks 4–6, 34 in week 7, 54 in weeks 8–11, 51 in week 12">
+              <g font-family="Barlow Condensed, Arial Narrow, sans-serif" font-weight="700" text-anchor="middle" font-size="10">
+                <line x1="0" y1="92" x2="480" y2="92" stroke="#C9C9C9"/>
+                <rect x="6" y="52" width="28" height="40" fill="#000"/><text x="20" y="48" fill="#000">34</text>
+                <rect x="46" y="52" width="28" height="40" fill="#000"/><text x="60" y="48" fill="#000">34</text>
+                <rect x="86" y="52" width="28" height="40" fill="#000"/><text x="100" y="48" fill="#000">34</text>
+                <rect x="126" y="32" width="28" height="60" fill="#000"/><text x="140" y="28" fill="#000">51</text>
+                <rect x="166" y="32" width="28" height="60" fill="#000"/><text x="180" y="28" fill="#000">51</text>
+                <rect x="206" y="32" width="28" height="60" fill="#000"/><text x="220" y="28" fill="#000">51</text>
+                <rect x="246" y="52" width="28" height="40" fill="#C9C9C9"/><text x="260" y="48" fill="#8E8E8E">34</text>
+                <rect x="286" y="28" width="28" height="64" fill="#C82323"/><text x="300" y="24" fill="#C82323">54</text>
+                <rect x="326" y="28" width="28" height="64" fill="#C82323"/><text x="340" y="24" fill="#C82323">54</text>
+                <rect x="366" y="28" width="28" height="64" fill="#C82323"/><text x="380" y="24" fill="#C82323">54</text>
+                <rect x="406" y="28" width="28" height="64" fill="#C82323"/><text x="420" y="24" fill="#C82323">54</text>
+                <rect x="446" y="32" width="28" height="60" fill="#000"/><text x="460" y="28" fill="#000">51</text>
+                <g fill="#5C5C5C"><text x="20" y="106">W1</text><text x="60" y="106">W2</text><text x="100" y="106">W3</text><text x="140" y="106">W4</text><text x="180" y="106">W5</text><text x="220" y="106">W6</text><text x="260" y="106">W7</text><text x="300" y="106">W8</text><text x="340" y="106">W9</text><text x="380" y="106">W10</text><text x="420" y="106">W11</text><text x="460" y="106">W12</text></g>
+              </g>
+            </svg>
+          </div>
+
+          <div class="h3" style="font-size:1em;margin:1em 0 .45em">Your week</div>
+          <div class="week">
+            <div class="on">Mon<b>A</b></div><div>Tue<b>Walk</b></div><div class="on">Wed<b>B</b></div><div>Thu<b>Rest</b></div><div class="on">Fri<b>C</b></div><div>Sat<b>Active</b></div><div>Sun<b>Rest</b></div>
+          </div>
+          <div class="g2" style="margin-top:1em">
+            <div class="note"><b>Why sets go up in weeks 4 and 8:</b> more weekly sets means more growth, up to a point.<sup class="ref">5</sup> Adding them in steps lets your recovery keep up.</div>
+            <div class="note"><b>Can’t train Mon–Wed–Fri?</b> Any three days work. Just leave at least one rest day between sessions.</div>
+          </div>
+          <div class="srcs"><sup class="ref">5</sup> <a href="https://pubmed.ncbi.nlm.nih.gov/27433992/">Schoenfeld et al., <em>J Sports Sci</em> (2017)</a> &nbsp;·&nbsp; Go deeper: <a class="link" href="https://exercisemenu.com/what-is-a-deload-week/">What is a deload week?</a></div>
+        </div>
+        <div class="pg-foot"><span>ExerciseMenu.com</span><span><b>08</b> / 18</span></div>
+      </div>
+    </section>
+
+    <!-- ============ 9 — WORKOUTS ============ -->
+    <section class="page" data-title="The Workouts">
+      <div class="pg">
+        <div class="pg-head"><span class="sec">07 · The Workouts</span><span>A · B · C</span></div>
+        <div class="pg-body">
+          <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:1em">
+            <div>
+              <div class="kicker">Three full-body days</div>
+              <h2 class="h1" style="font-size:3em">The <em>workouts</em></h2>
+            </div>
+            <div class="card tint" style="font-size:.8em;padding:.7em .9em;max-width:22em"><b>Sets per exercise:</b> 2 (weeks 1–3) · 3 (weeks 4–6) · 2 (week 7) · 3, with 4 on exercise 1 (weeks 8–11) · 3 (week 12)</div>
+          </div>
+          <p class="small" style="margin:.7em 0 .9em"><b style="color:var(--black)">Warm up every session:</b> 5 minutes of light cardio, then 2 lighter sets of your first exercise. About 45–60 minutes per session in total.</p>
+
+          <div class="wo">
+            <div class="wo-h"><span class="l">A</span><b>Squat &amp; Push</b><span>Monday</span></div>
+            <table class="tbl wo-t">
+              <tr><th></th><th>Exercise</th><th class="num">Reps</th><th class="num">Rest</th><th>Home swap</th></tr>
+              <tr><td>1</td><td><b>Goblet or back squat</b></td><td class="num">8–12</td><td class="num">2 min</td><td>Goblet squat, heavy dumbbell</td></tr>
+              <tr><td>2</td><td><b>Dumbbell bench press</b></td><td class="num">8–12</td><td class="num">90 s</td><td>Floor press or push-up</td></tr>
+              <tr><td>3</td><td><b>One-arm dumbbell row</b></td><td class="num">10–15</td><td class="num">90 s</td><td>Same</td></tr>
+              <tr><td>4</td><td><b>Lateral raise</b></td><td class="num">12–20</td><td class="num">60 s</td><td>Same, or band raise</td></tr>
+              <tr><td>5</td><td><b>Plank</b></td><td class="num">30–60 s</td><td class="num">60 s</td><td>Same (add 10 s to progress)</td></tr>
+            </table>
+          </div>
+          <div class="wo">
+            <div class="wo-h"><span class="l">B</span><b>Hinge &amp; Pull</b><span>Wednesday</span></div>
+            <table class="tbl wo-t">
+              <tr><th></th><th>Exercise</th><th class="num">Reps</th><th class="num">Rest</th><th>Home swap</th></tr>
+              <tr><td>1</td><td><b>Romanian deadlift</b></td><td class="num">8–12</td><td class="num">2 min</td><td>Dumbbell RDL</td></tr>
+              <tr><td>2</td><td><b>Overhead press</b></td><td class="num">8–12</td><td class="num">90 s</td><td>Seated dumbbell press</td></tr>
+              <tr><td>3</td><td><b>Lat pulldown</b></td><td class="num">10–15</td><td class="num">90 s</td><td>Band pulldown or chin-up negatives</td></tr>
+              <tr><td>4</td><td><b>Split squat</b> <small>each leg</small></td><td class="num">10–15</td><td class="num">90 s</td><td>Same, holding dumbbells</td></tr>
+              <tr><td>5</td><td><b>Push-up</b></td><td class="num">2 RIR</td><td class="num">60 s</td><td>Same (knees if needed)</td></tr>
+              <tr><td>6</td><td><b>Dead bug</b> <small>each side</small></td><td class="num">8–12</td><td class="num">60 s</td><td>Same</td></tr>
+            </table>
+          </div>
+          <div class="wo" style="margin-bottom:0">
+            <div class="wo-h"><span class="l">C</span><b>Legs &amp; Upper</b><span>Friday</span></div>
+            <table class="tbl wo-t">
+              <tr><th></th><th>Exercise</th><th class="num">Reps</th><th class="num">Rest</th><th>Home swap</th></tr>
+              <tr><td>1</td><td><b>Leg press</b></td><td class="num">10–15</td><td class="num">2 min</td><td>Dumbbell step-up</td></tr>
+              <tr><td>2</td><td><b>Incline dumbbell press</b></td><td class="num">8–12</td><td class="num">90 s</td><td>Feet-elevated push-up</td></tr>
+              <tr><td>3</td><td><b>Seated cable row</b></td><td class="num">10–15</td><td class="num">90 s</td><td>Chest-supported dumbbell row</td></tr>
+              <tr><td>4</td><td><b>Hip thrust</b></td><td class="num">8–12</td><td class="num">90 s</td><td>Dumbbell glute bridge</td></tr>
+              <tr><td>5</td><td><b>Dumbbell curl</b></td><td class="num">10–15</td><td class="num">60 s</td><td>Same</td></tr>
+              <tr><td>6</td><td><b>Triceps pushdown</b></td><td class="num">10–15</td><td class="num">60 s</td><td>Overhead dumbbell extension</td></tr>
+            </table>
+          </div>
+          <div class="srcs">Go deeper: <a class="link" href="https://exercisemenu.com/warm-up-sets-vs-working-sets/">Warm-up sets vs working sets</a> &nbsp;·&nbsp; <a class="link" href="https://exercisemenu.com/how-many-sets-per-muscle-group-per-week/">How many sets per muscle group per week?</a></div>
+        </div>
+        <div class="pg-foot"><span>ExerciseMenu.com</span><span><b>09</b> / 18</span></div>
+      </div>
+    </section>
+
+    <!-- ============ 10 — WEEK BY WEEK ============ -->
+    <section class="page roomy" data-title="Week-by-Week">
+      <div class="pg">
+        <div class="pg-head"><span class="sec">08 · Targets</span><span>Week-by-Week</span></div>
+        <div class="pg-body">
+          <div class="kicker">Tick it off</div>
+          <h2 class="h1">Week-by-week <em>targets</em></h2>
+          <p class="deck">One focus per week. Tick a box after each session and watch 36 boxes fill up.</p>
+          <div class="bar"></div>
+          <table class="tbl">
+            <tr><th class="num">Wk</th><th>Phase</th><th class="num">Sets</th><th class="num">RIR</th><th>This week’s focus</th><th class="num">A&nbsp;&nbsp;B&nbsp;&nbsp;C</th></tr>
+            <tr><td class="num"><b>1</b></td><td>Learn</td><td class="num">2</td><td class="num">3</td><td>Find starting weights (p.07). Log every set.</td><td class="num"><span class="box"></span> <span class="box"></span> <span class="box"></span></td></tr>
+            <tr><td class="num"><b>2</b></td><td>Learn</td><td class="num">2</td><td class="num">3</td><td>Add 1 rep per set wherever form allows.</td><td class="num"><span class="box"></span> <span class="box"></span> <span class="box"></span></td></tr>
+            <tr><td class="num"><b>3</b></td><td>Learn</td><td class="num">2</td><td class="num">3</td><td>Film one set of squats and RDLs to check form.</td><td class="num"><span class="box"></span> <span class="box"></span> <span class="box"></span></td></tr>
+            <tr><td class="num"><b>4</b></td><td>Build</td><td class="num">3</td><td class="num">2</td><td>Add the third set. Weights can stay the same.</td><td class="num"><span class="box"></span> <span class="box"></span> <span class="box"></span></td></tr>
+            <tr><td class="num"><b>5</b></td><td>Build</td><td class="num">3</td><td class="num">2</td><td>First weight jumps on lifts at the top of their range.</td><td class="num"><span class="box"></span> <span class="box"></span> <span class="box"></span></td></tr>
+            <tr><td class="num"><b>6</b></td><td>Build</td><td class="num">3</td><td class="num">2</td><td>Calibrate: take one last set to 1 RIR.</td><td class="num"><span class="box"></span> <span class="box"></span> <span class="box"></span></td></tr>
+            <tr class="hl"><td class="num"><b>7</b></td><td><b>Deload</b></td><td class="num">2</td><td class="num">4</td><td>Same weights, fewer sets. Aim for 8 hours of sleep.</td><td class="num"><span class="box"></span> <span class="box"></span> <span class="box"></span></td></tr>
+            <tr><td class="num"><b>8</b></td><td>Push</td><td class="num">3–4</td><td class="num">2</td><td>4 sets on the first exercise of each day.</td><td class="num"><span class="box"></span> <span class="box"></span> <span class="box"></span></td></tr>
+            <tr><td class="num"><b>9</b></td><td>Push</td><td class="num">3–4</td><td class="num">1–2</td><td>Last set of each exercise at 1 RIR.</td><td class="num"><span class="box"></span> <span class="box"></span> <span class="box"></span></td></tr>
+            <tr><td class="num"><b>10</b></td><td>Push</td><td class="num">3–4</td><td class="num">1–2</td><td>Lift stuck? Use the Plateau Fixer (p.14).</td><td class="num"><span class="box"></span> <span class="box"></span> <span class="box"></span></td></tr>
+            <tr><td class="num"><b>11</b></td><td>Push</td><td class="num">3–4</td><td class="num">1–2</td><td>Last hard week. Note your best sets.</td><td class="num"><span class="box"></span> <span class="box"></span> <span class="box"></span></td></tr>
+            <tr class="hl"><td class="num"><b>12</b></td><td><b>Test</b></td><td class="num">3</td><td class="num">1–2</td><td>Record best sets. Compare with week 1 (p.16).</td><td class="num"><span class="box"></span> <span class="box"></span> <span class="box"></span></td></tr>
+          </table>
+          <div class="g2" style="margin-top:1.1em">
+            <div class="note"><b>Missed a session?</b> Don’t double up. Do the next workout in the order A → B → C and carry on. One missed day changes nothing; a missed month does.</div>
+            <div class="note"><b>Bad day?</b> If every lift feels heavy, match last week’s numbers instead of beating them. Holding steady on a bad day still counts.</div>
+          </div>
+          <div class="g2" style="margin-top:1em">
+            <div class="card">
+              <div class="h3" style="font-size:1em">Checkpoint: end of week 6</div>
+              <div class="lines" style="margin-top:.2em"><div>Sessions done ___ / 18</div><div>Lifts that moved up in weight</div></div>
+            </div>
+            <div class="card tint">
+              <div class="h3" style="font-size:1em">Checkpoint: end of week 12</div>
+              <div class="lines" style="margin-top:.2em"><div>Sessions done ___ / 36</div><div>Biggest jump since week 1</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="pg-foot"><span>ExerciseMenu.com</span><span><b>10</b> / 18</span></div>
+      </div>
+    </section>
+
+    <!-- ============ 11 — CONVERSATION (1) ============ -->
+    <section class="page roomy" data-title="Conversation">
+      <div class="pg">
+        <div class="pg-head"><span class="sec">09 · Conversation</span><span>Coach Interview</span></div>
+        <div class="pg-body">
+          <span class="conv-tag">Conversation</span>
+          <div class="conv-name">Sadia Baloch:</div>
+          <h2 class="conv-title">Small wins,<br>every week</h2>
+          <div class="byline">
+            <div class="mono">EM</div>
+            <div>By <b>ExerciseMenu Editorial</b><span>Interview with our head coach</span></div>
+          </div>
+          <div class="qa">
+            <p class="dropcap">Sadia Baloch has spent more than seven years coaching over 257 clients, many of them people who had tried to get fit before and stopped. We asked her how she takes a new client from their first week to their twelfth, and what she changes when progress slows.</p>
+            <p class="q">Q: When a new client starts, what do you look at first?</p>
+            <p><span class="who">Sadia Baloch:</span> Their habits, not their strength. I want to know how many days a week they can train without the rest of their life falling apart. Three sessions they show up for beat five sessions they skip. After that, I watch them move: a squat, a push-up, a row. That tells me where to start far better than any test.</p>
+            <p class="q">Q: What does the first month look like?</p>
+            <p><span class="who">Sadia Baloch:</span> Boring, on purpose. We keep the weights manageable, the reps controlled, and I ask them to write everything down. The goal for month one is to own the movements. People are surprised how quickly they get stronger just by learning the lifts properly. A lot of that early progress is the nervous system getting better at the skill.</p>
+            <p class="q">Q: How do you decide when a client should add weight?</p>
+            <p><span class="who">Sadia Baloch:</span> When they hit the top of their rep range on every set and the last rep looks like the first. That’s the double progression rule in this workbook. I never add weight because a client feels good on one day. It has to show up in the log, not only in how they feel.</p>
+            <p class="q">Q: What’s the biggest mistake you see in the first 12 weeks?</p>
+            <p><span class="who">Sadia Baloch:</span> Adding weight too fast. Someone has a great week, jumps five kilos, their form falls apart and they stall or get hurt. Small jumps, often, win every time.</p>
+            <div class="pull" style="font-size:1.45em">“Three sessions they show up for <em>beat five sessions they skip.</em>”</div>
+          </div>
+        </div>
+        <div class="pg-foot"><span>ExerciseMenu.com</span><span><b>11</b> / 18</span></div>
+      </div>
+    </section>
+
+    <!-- ============ 12 — CONVERSATION (2) ============ -->
+    <section class="page roomy" data-title="Conversation (cont.)">
+      <div class="pg">
+        <div class="pg-head"><span class="sec">09 · Conversation</span><span>Continued</span></div>
+        <div class="pg-body">
+          <div class="conv2">
+            <div class="qa">
+              <p class="q">Q: What do you change first when a client stops progressing?</p>
+              <p><span class="who">Sadia Baloch:</span> I check sleep and food before I touch the program. Most stalls I see are recovery problems in disguise. If recovery is fine, I look at effort: are they stopping sets too early? Only then do I change the exercises or the rep range.</p>
+              <p class="q">Q: Why is there a lighter week in the middle of the plan?</p>
+              <p><span class="who">Sadia Baloch:</span> Fatigue builds quietly. By week six most people are carrying more of it than they realise. One easier week lets it clear, and clients often come back in week eight stronger than they left week six.</p>
+              <p class="q">Q: What does a successful 12 weeks look like?</p>
+              <p><span class="who">Sadia Baloch:</span> Thirty-six sessions logged, or close to it. Better form. Weights that were hard in week one feel manageable. The numbers matter, but consistency is the real result, because it carries into the next twelve weeks.</p>
+              <p class="q">Q: One piece of advice for someone starting today?</p>
+              <p><span class="who">Sadia Baloch:</span> Write it down. Every set, every session. Your log is your coach when I’m not there. When you feel stuck, open it and look at week one.</p>
+              <div class="card tint" style="margin-top:1em;font-family:var(--sans)">
+                <div class="kicker" style="margin-bottom:.5em">Sadia’s 3 rules</div>
+                <ol class="steps" style="font-size:.95em">
+                  <li>Small jumps, often.</li>
+                  <li>Fix recovery before you change the program.</li>
+                  <li>If it isn’t written down, it didn’t happen.</li>
+                </ol>
+              </div>
+            </div>
+            <div class="quote-panel">
+              <span class="mk">“</span>
+              <p>I’d rather a client add one rep a week for twelve weeks than add a big weight once and spend a month stuck.</p>
+              <div class="who">
+                <div class="mono">SB</div>
+                <div><b>Sadia Baloch</b><span>Certified Fitness Coach · 7+ years · 257+ clients</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pg-foot"><span>ExerciseMenu.com</span><span><b>12</b> / 18</span></div>
+      </div>
+    </section>
+
+    <!-- ============ 13 — 12 WEEKS ON PAPER ============ -->
+    <section class="page roomy" data-title="12 Weeks on Paper">
+      <div class="pg">
+        <div class="pg-head"><span class="sec">10 · Progress</span><span>12 Weeks on Paper</span></div>
+        <div class="pg-body">
+          <span class="chip">Illustrative example</span>
+          <h2 class="h1" style="margin-top:.35em">12 weeks <em>on paper</em></h2>
+          <p class="deck">How one lift can move through this plan. Your numbers will differ, but the pattern is what matters.</p>
+          <div class="bar"></div>
+
+          <div class="chart">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.3em">
+              <div class="h3" style="font-size:1em">Dumbbell bench press: weight per hand</div>
+              <span class="small">Example trainee, 8–12 rep range</span>
+            </div>
+            <svg viewBox="0 0 480 220" aria-label="Line chart: 12 kg in weeks 1–2, 14 kg weeks 3–5, 16 kg weeks 6–8, 18 kg weeks 9–11, 20 kg week 12">
+              <g font-family="Barlow Condensed, Arial Narrow, sans-serif" font-weight="700" font-size="11">
+                <rect x="252" y="10" width="36" height="170" fill="#EFEFEF"/>
+                <text x="270" y="24" text-anchor="middle" fill="#8E8E8E" font-size="9" letter-spacing="1">DELOAD</text>
+                <g stroke="#E0E0E0"><line x1="40" y1="180" x2="470" y2="180"/><line x1="40" y1="145" x2="470" y2="145"/><line x1="40" y1="110" x2="470" y2="110"/><line x1="40" y1="75" x2="470" y2="75"/><line x1="40" y1="40" x2="470" y2="40"/></g>
+                <g fill="#5C5C5C" text-anchor="end"><text x="32" y="184">12 kg</text><text x="32" y="149">14 kg</text><text x="32" y="114">16 kg</text><text x="32" y="79">18 kg</text><text x="32" y="44">20 kg</text></g>
+                <polyline fill="none" stroke="#000" stroke-width="2.5" stroke-linejoin="round" points="54,180 90,180 126,145 162,145 198,145 234,110 270,110 306,110 342,75 378,75 414,75 450,40"/>
+                <g fill="#000"><circle cx="54" cy="180" r="4"/><circle cx="90" cy="180" r="4"/><circle cx="126" cy="145" r="4"/><circle cx="162" cy="145" r="4"/><circle cx="198" cy="145" r="4"/><circle cx="234" cy="110" r="4"/><circle cx="270" cy="110" r="4" fill="#8E8E8E"/><circle cx="306" cy="110" r="4"/><circle cx="342" cy="75" r="4"/><circle cx="378" cy="75" r="4"/><circle cx="414" cy="75" r="4"/></g>
+                <circle cx="450" cy="40" r="6" fill="#C82323"/>
+                <text x="450" y="28" text-anchor="middle" fill="#C82323" font-size="12">+8 kg</text>
+                <g fill="#C82323" font-size="9.5"><text x="126" y="135" text-anchor="middle">JUMP</text><text x="234" y="100" text-anchor="middle">JUMP</text><text x="342" y="65" text-anchor="middle">JUMP</text></g>
+                <g fill="#5C5C5C" text-anchor="middle"><text x="54" y="200">W1</text><text x="90" y="200">W2</text><text x="126" y="200">W3</text><text x="162" y="200">W4</text><text x="198" y="200">W5</text><text x="234" y="200">W6</text><text x="270" y="200">W7</text><text x="306" y="200">W8</text><text x="342" y="200">W9</text><text x="378" y="200">W10</text><text x="414" y="200">W11</text><text x="450" y="200">W12</text></g>
+              </g>
+            </svg>
+          </div>
+
+          <div class="g3" style="margin-top:1.1em">
+            <div class="card rule-card"><span class="no">01</span><b>Flat weeks are progress</b><p>The weight often stays the same for 2–3 weeks while reps climb. The flat parts of the line are where the next jump is built.</p></div>
+            <div class="card rule-card"><span class="no">02</span><b>A deload is not a step back</b><p>In week 7 the weight holds and the sets drop. Week 8 starts on the same weight with fresher muscles.</p></div>
+            <div class="card rule-card"><span class="no">03</span><b>Small lifts move slower</b><p>Squats and presses jump every 1–3 weeks early on. Raises and curls may take far longer. That is normal.</p></div>
+          </div>
+          <div class="note" style="margin-top:1em"><b>Your turn:</b> write your week 1 and week 12 best sets on the Progress Tracker (p.16). Comparing the two is the most motivating page in this workbook.</div>
+          <p class="small" style="margin-top:.8em;font-size:.72em">This is an illustrative example built from the plan’s rules, not data from a real client.</p>
+        </div>
+        <div class="pg-foot"><span>ExerciseMenu.com</span><span><b>13</b> / 18</span></div>
+      </div>
+    </section>
+
+    <!-- ============ 14 — PLATEAU FIXER + RECOVERY ============ -->
+    <section class="page roomy" data-title="Plateau Fixer">
+      <div class="pg">
+        <div class="pg-head"><span class="sec">11 · Troubleshooting</span><span>Plateau Fixer &amp; Recovery</span></div>
+        <div class="pg-body">
+          <div class="kicker">When things stall</div>
+          <h2 class="h1">Stuck? The <em>plateau fixer</em></h2>
+          <p class="deck">Find what you’re seeing in the left column. Check the cause, then try the fix for two weeks.</p>
+          <div class="bar"></div>
+          <table class="tbl">
+            <tr><th>If this happens</th><th>Check this</th><th>Try this</th></tr>
+            <tr><td><b>Same reps for 2+ weeks</b> on one lift</td><td>Effort: are sets ending at 3+ RIR?</td><td>Take the last set to 1 RIR for two sessions.</td></tr>
+            <tr><td><b>Reps dropping</b> on most lifts</td><td>Sleep and recovery</td><td>Aim for 7–9 hours; take the deload a week early.</td></tr>
+            <tr><td><b>Can’t reach the range</b> after a weight jump</td><td>The jump was too big</td><td>Go back down; use rep or tempo progress to bridge.</td></tr>
+            <tr><td><b>Form breaks</b> on the last reps</td><td>Load too heavy</td><td>Drop 5–10% and lower the weight over 3 seconds.</td></tr>
+            <tr><td><b>Joint pain</b> (not muscle soreness)</td><td>Exercise choice</td><td>Swap to a pain-free variation. See a professional if it persists.</td></tr>
+            <tr><td><b>Skipping sessions</b></td><td>Schedule and motivation</td><td>Keep the plan; swap one accessory lift for a similar one you enjoy.</td></tr>
+          </table>
+
+          <div class="kicker" style="margin-top:1.5em">Recovery essentials</div>
+          <div class="g3">
+            <div class="card rule-card"><span class="no">7–9h</span><b>Sleep</b><p>Deep sleep is when most muscle repair happens. Short sleep over several nights shows up as weaker sessions. <a class="link" href="https://exercisemenu.com/how-sleep-affects-muscle-growth-and-recovery/">Sleep &amp; muscle growth</a></p></div>
+            <div class="card rule-card"><span class="no">1.6 g</span><b>Protein per kg</b><p>A meta-analysis of 49 studies found gains levelled off around 1.6 g of protein per kg of body weight per day.<sup class="ref">6</sup> At 70 kg, that’s about 112 g a day.</p></div>
+            <div class="card rule-card"><span class="no">48h</span><b>Rest between</b><p>Leave a day between sessions. Walks and light movement on off days count as active recovery. <a class="link" href="https://exercisemenu.com/rest-day-vs-active-recovery/">Rest vs active recovery</a></p></div>
+          </div>
+          <div class="srcs"><sup class="ref">6</sup> Morton et al., <a href="https://pubmed.ncbi.nlm.nih.gov/28698222/"><em>Br J Sports Med</em></a> (2018)</div>
+        </div>
+        <div class="pg-foot"><span>ExerciseMenu.com</span><span><b>14</b> / 18</span></div>
+      </div>
+    </section>
+
+    <!-- ============ 15 — WEEKLY LOG ============ -->
+    <section class="page" data-title="Weekly Log">
+      <div class="pg">
+        <div class="pg-head"><span class="sec">12 · Printable</span><span>Weekly Training Log · print one per week</span></div>
+        <div class="pg-body">
+          <div style="display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:.9em">
+            <h2 class="h1" style="font-size:2.7em">Weekly <em>training log</em></h2>
+            <span class="small" style="text-align:right">Write reps in each set box.<br>Circle the lift you’ll add weight to next time.</span>
+          </div>
+          <div class="fields"><span>Week</span><span>Dates</span><span>Phase</span><span>Target RIR</span></div>
+          <table class="log">
+            <colgroup><col style="width:30%"><col style="width:11%"><col><col><col><col><col style="width:9%"><col style="width:17%"></colgroup>
+            <tr><th>Exercise</th><th>kg</th><th>Set 1</th><th>Set 2</th><th>Set 3</th><th>Set 4</th><th>RIR</th><th>Next time</th></tr>
+            <tr class="lbl"><td colspan="8">Workout A · Squat &amp; Push</td></tr>
+            <tr><td>Squat</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>DB bench press</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>One-arm row</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Lateral raise</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Plank (sec)</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr class="lbl"><td colspan="8">Workout B · Hinge &amp; Pull</td></tr>
+            <tr><td>Romanian deadlift</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Overhead press</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Lat pulldown</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Split squat</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Push-up</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Dead bug</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr class="lbl"><td colspan="8">Workout C · Legs &amp; Upper</td></tr>
+            <tr><td>Leg press</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Incline DB press</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Seated cable row</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Hip thrust</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>DB curl</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Triceps pushdown</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          </table>
+          <div class="fields" style="margin-top:1.1em;margin-bottom:0"><span>Avg sleep (h)</span><span>Energy 1–5</span><span>Best set this week</span></div>
+        </div>
+        <div class="pg-foot"><span>ExerciseMenu.com</span><span><b>15</b> / 18</span></div>
+      </div>
+    </section>
+
+    <!-- ============ 16 — PROGRESS TRACKER ============ -->
+    <section class="page roomy" data-title="Progress Tracker">
+      <div class="pg">
+        <div class="pg-head"><span class="sec">13 · Printable</span><span>12-Week Progress Tracker</span></div>
+        <div class="pg-body">
+          <h2 class="h1" style="font-size:2.7em">12-week <em>progress tracker</em></h2>
+          <p class="small" style="margin:.5em 0 1em">Each week, write your best set for each main lift as <b style="color:var(--black)">kg × reps</b> (e.g. 16×10).</p>
+          <table class="log track">
+            <colgroup><col style="width:17%"><col><col><col><col><col><col><col><col><col><col><col><col></colgroup>
+            <tr><th>Lift</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th style="background:#8E8E8E">7</th><th>8</th><th>9</th><th>10</th><th>11</th><th style="background:#C82323">12</th></tr>
+            <tr><td>Squat</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>DB bench</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Row</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>RDL</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Overhead press</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Pulldown</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>Hip thrust</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          </table>
+
+          <div class="h3" style="font-size:1em;margin:1.3em 0 .6em">Sessions completed: tick one per workout</div>
+          <div class="ticks">
+            <i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i><i>7</i><i>8</i><i>9</i><i>10</i><i>11</i><i>12</i><i>13</i><i>14</i><i>15</i><i>16</i><i>17</i><i>18</i>
+            <i>19</i><i>20</i><i>21</i><i>22</i><i>23</i><i>24</i><i>25</i><i>26</i><i>27</i><i>28</i><i>29</i><i>30</i><i>31</i><i>32</i><i>33</i><i>34</i><i>35</i><i>36</i>
+          </div>
+
+          <div class="h3" style="font-size:1em;margin:1.3em 0 .6em">Body check <span class="small" style="text-transform:none;letter-spacing:0;font-family:var(--sans);font-weight:400">(optional)</span></div>
+          <table class="log">
+            <colgroup><col style="width:28%"><col><col><col></colgroup>
+            <tr><th>Measure</th><th>Week 1</th><th>Week 6</th><th>Week 12</th></tr>
+            <tr><td>Body weight</td><td></td><td></td><td></td></tr>
+            <tr><td>Waist (cm)</td><td></td><td></td><td></td></tr>
+            <tr><td>Progress photo taken</td><td></td><td></td><td></td></tr>
+          </table>
+
+          <div class="g2" style="margin-top:1.3em;gap:1.4em">
+            <div class="card">
+              <div class="h3" style="font-size:1em">Week 1 vs week 12</div>
+              <div class="lines" style="margin-top:.3em"><div>Biggest improvement</div><div>Lift that felt easiest by the end</div><div>How my clothes fit / how I feel</div></div>
+            </div>
+            <div class="card tint">
+              <div class="h3" style="font-size:1em">Next 12 weeks</div>
+              <div class="lines" style="margin-top:.3em"><div>My goal</div><div>Two exercises to swap</div><div>Start date</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="pg-foot"><span>ExerciseMenu.com</span><span><b>16</b> / 18</span></div>
+      </div>
+    </section>
+
+    <!-- ============ 17 — FAQ + SOURCES ============ -->
+    <section class="page roomy" data-title="FAQ &amp; Sources">
+      <div class="pg">
+        <div class="pg-head"><span class="sec">14 · Quick Answers</span><span>FAQ &amp; Sources</span></div>
+        <div class="pg-body">
+          <div class="kicker">You asked</div>
+          <h2 class="h1">Quick <em>answers</em></h2>
+          <div class="bar"></div>
+          <div class="faq">
+            <div><b>Can I do this plan at home with only dumbbells?</b><p>Yes. Every exercise has a home swap on page 9. When your heaviest dumbbells get easy, use slower lowering, pauses or one-arm and one-leg versions.</p></div>
+            <div><b>The next dumbbell is too heavy. What now?</b><p>Stay at your current weight and go 2–3 reps past the top of the range, or slow the lowering to 3 seconds. Move up once you pass 15 clean reps.</p></div>
+            <div><b>Should I feel sore after every session?</b><p>No. Soreness is common in the first weeks and after new exercises, but it doesn’t measure progress. Your log does.</p></div>
+            <div><b>Can I add cardio?</b><p>Yes. Do hard cardio after lifting or on non-lifting days, and keep easy walks on rest days. <a class="link" href="https://exercisemenu.com/should-you-do-cardio-before-or-after-weights/">Cardio before or after weights?</a></p></div>
+            <div><b>What do I do after week 12?</b><p>Run the plan again starting from your week 12 weights, and swap two or three exercises for close variations to keep it fresh.</p></div>
+            <div><b>I’m over 50. Is this plan for me?</b><p>The structure suits most healthy adults. Start at 3–4 RIR and progress reps before weight. <a class="link" href="https://exercisemenu.com/reps-and-sets-for-adults-over-50/">Reps and sets over 50</a></p></div>
+          </div>
+
+          <div class="kicker" style="margin-top:1.6em">Sources</div>
+          <ol class="refs">
+            <li>American College of Sports Medicine. Progression models in resistance training for healthy adults. <em>Med Sci Sports Exerc</em>. 2009;41(3):687–708. <a href="https://pubmed.ncbi.nlm.nih.gov/19204579/">pubmed.ncbi.nlm.nih.gov/19204579</a></li>
+            <li>Plotkin DL, et al. Progressive overload without progressing load? <em>PeerJ</em>. 2022;10:e14142. <a href="https://peerj.com/articles/14142/">peerj.com/articles/14142</a></li>
+            <li>American College of Sports Medicine. Resistance training prescription for muscle function, hypertrophy, and physical performance in healthy adults: an overview of reviews. 2026. <a href="https://pubmed.ncbi.nlm.nih.gov/41843416/">pubmed.ncbi.nlm.nih.gov/41843416</a></li>
+            <li>Zourdos MC, et al. Novel resistance training–specific RPE scale measuring repetitions in reserve. <em>J Strength Cond Res</em>. 2016;30(1):267–275. <a href="https://pubmed.ncbi.nlm.nih.gov/26049792/">pubmed.ncbi.nlm.nih.gov/26049792</a></li>
+            <li>Schoenfeld BJ, Ogborn D, Krieger JW. Dose-response relationship between weekly resistance training volume and increases in muscle mass. <em>J Sports Sci</em>. 2017. <a href="https://pubmed.ncbi.nlm.nih.gov/27433992/">pubmed.ncbi.nlm.nih.gov/27433992</a></li>
+            <li>Morton RW, et al. Protein supplementation and resistance training-induced gains in muscle mass and strength. <em>Br J Sports Med</em>. 2018;52(6):376–384. <a href="https://pubmed.ncbi.nlm.nih.gov/28698222/">pubmed.ncbi.nlm.nih.gov/28698222</a></li>
+          </ol>
+          <div class="note" style="margin-top:1em;font-size:.8em"><b>Please note:</b> this workbook is general information, not medical advice. If you have an injury or a medical condition, or you are returning to exercise after a long break, check with your doctor before starting.</div>
+        </div>
+        <div class="pg-foot"><span>ExerciseMenu.com</span><span><b>17</b> / 18</span></div>
+      </div>
+    </section>
+
+    <!-- ============ 18 — BACK PAGE ============ -->
+    <section class="page roomy" data-title="Keep Going">
+      <div class="pg">
+        <div class="back-top">
+          <div class="kicker" style="color:#FF8A8A">Keep going</div>
+          <h2 class="h1">More free guides at <em>exercisemenu.com</em></h2>
+          <p class="deck" style="color:#BDBDBD">Workout structure. Training principles. Exercise guides. All free.</p>
+        </div>
+        <div class="pg-body">
+          <a class="more" href="https://exercisemenu.com/how-many-sets-per-muscle-group-per-week/"><span class="n">01</span><div><b>How many sets per muscle group per week?</b><span>exercisemenu.com</span></div><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+          <a class="more" href="https://exercisemenu.com/hypertrophy-vs-strength-training/"><span class="n">02</span><div><b>Hypertrophy vs strength: which to pick</b><span>exercisemenu.com</span></div><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+          <a class="more" href="https://exercisemenu.com/drop-sets-vs-supersets-vs-pyramid-sets/"><span class="n">03</span><div><b>Drop sets vs supersets vs pyramid sets</b><span>exercisemenu.com</span></div><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+
+          <a class="more" href="https://exercisemenu.com/rpe-vs-rir/"><span class="n">04</span><div><b>RPE vs RIR: how hard should a set feel?</b><span>exercisemenu.com</span></div><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+          <div class="card dark" style="margin:.8em 0 1em;display:flex;justify-content:space-between;align-items:center;gap:1em">
+            <div><div class="kicker" style="color:#FF8A8A;margin-bottom:.4em">Coming next · Issue 03</div><div style="font:400 1.5em/1.15 var(--display)">The Medicine Ball Workout Collection</div></div>
+            <div style="font:700 .8em/1.3 var(--cond);letter-spacing:.12em;text-transform:uppercase;color:#BDBDBD;text-align:right">4 printable workouts<br>+ exercise cards</div>
+          </div>
+
+          <div class="email-box">
+            <h3>Send this workbook to your inbox</h3>
+            <form class="email-row no-print" id="emailForm" novalidate>
+              <label for="emailInput" style="position:absolute;left:-9999px">Your email address</label>
+              <input id="emailInput" type="email" placeholder="Your email address" autocomplete="email">
+              <button class="btn" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Email me</button>
+            </form>
+            <p class="email-help no-print" id="emailHelp">Opens your email app with the workbook link ready to send.</p>
+            <p class="print-only" style="font-size:.9em;margin-top:.5em">Share it with a training partner: <a class="link" href="https://exercisemenu.com">exercisemenu.com</a></p>
+          </div>
+
+          <p style="text-align:center;margin-top:auto;padding-top:1.2em;font:700 .95em var(--cond);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)">Built for progress. <span class="red">Backed by coaching experience.</span></p>
+        </div>
+        <div class="pg-foot"><span>ExerciseMenu.com</span><span>By Sadia Baloch</span><span><b>18</b> / 18</span></div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<button class="nav-arrow nav-prev" id="prevBtn" type="button" aria-label="Previous page">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+</button>
+<button class="nav-arrow nav-next" id="nextBtn" type="button" aria-label="Next page">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+</button>
+
+<nav class="toolbar" aria-label="Magazine controls">
+  <button class="tb-btn tb-nav" id="tbPrev" type="button" aria-label="Previous page">‹</button>
+  <div class="counter" id="counter" aria-live="polite"><b>1</b> / 18</div>
+  <button class="tb-btn tb-nav" id="tbNext" type="button" aria-label="Next page">›</button>
+  <div class="tb-sep d"></div>
+  <div class="dots" id="dots"></div>
+  <div class="tb-sep"></div>
+  <button class="tb-btn" type="button" data-action="email">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Email</button>
+  <a class="tb-btn primary" href="12-week-progressive-overload-workbook.pdf" download data-dl>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Download<span class="lbl-long">&nbsp;PDF</span></a>
+</nav>
+
+<script>
+(function () {
+  var pages = Array.prototype.slice.call(document.querySelectorAll('.page'));
+  var total = pages.length;
+  var current = 0;
+  var counter = document.getElementById('counter');
+  var dotsWrap = document.getElementById('dots');
+  var prevBtn = document.getElementById('prevBtn');
+  var nextBtn = document.getElementById('nextBtn');
+
+  var GUIDE_TITLE = 'The 12-Week Progressive Overload Workbook';
+  function guideUrl() {
+    return /^https?:/.test(location.protocol) ? location.href.split('#')[0] : 'https://exercisemenu.com';
+  }
+
+  pages.forEach(function (p, i) {
+    p.setAttribute('aria-label', 'Page ' + (i + 1) + ' of ' + total + ': ' + p.dataset.title);
+    var d = document.createElement('button');
+    d.className = 'dot';
+    d.type = 'button';
+    d.textContent = i + 1;
+    d.setAttribute('aria-label', 'Go to page ' + (i + 1) + ': ' + p.dataset.title);
+    d.addEventListener('click', function () { go(i); });
+    dotsWrap.appendChild(d);
+  });
+  var dots = dotsWrap.children;
+
+  function go(i) {
+    if (i < 0 || i >= total || i === current) return;
+    var forward = i > current;
+    var from = pages[current];
+    var to = pages[i];
+    from.classList.remove('active', 'leave-left', 'leave-right');
+    from.classList.add(forward ? 'leave-left' : 'leave-right');
+    to.classList.remove('leave-left', 'leave-right', 'enter-from-left');
+    if (!forward) { to.classList.add('enter-from-left'); void to.offsetWidth; }
+    to.classList.add('active');
+    to.classList.remove('enter-from-left');
+    to.scrollTop = 0;
+    current = i;
+    update();
+  }
+
+  function update() {
+    counter.innerHTML = '<b>' + (current + 1) + '</b> / ' + total;
+    for (var k = 0; k < dots.length; k++) {
+      dots[k].classList.toggle('active', k === current);
+      dots[k].setAttribute('aria-current', k === current ? 'page' : 'false');
+    }
+    pages.forEach(function (p, k) { p.setAttribute('aria-hidden', k === current ? 'false' : 'true'); });
+    prevBtn.disabled = current === 0;
+    nextBtn.disabled = current === total - 1;
+    if (history.replaceState) history.replaceState(null, '', '#page-' + (current + 1));
+  }
+
+  prevBtn.addEventListener('click', function () { go(current - 1); });
+  nextBtn.addEventListener('click', function () { go(current + 1); });
+  document.getElementById('tbPrev').addEventListener('click', function () { go(current - 1); });
+  document.getElementById('tbNext').addEventListener('click', function () { go(current + 1); });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.target && /INPUT|TEXTAREA/.test(e.target.tagName)) return;
+    if (e.key === 'ArrowRight' || e.key === 'PageDown') { e.preventDefault(); go(current + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(current - 1); }
+    else if (e.key === 'Home') { go(0); }
+    else if (e.key === 'End') { go(total - 1); }
+  });
+
+  // Swipe on touch devices
+  var sx = null, sy = null;
+  var book = document.getElementById('book');
+  book.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
+  book.addEventListener('touchend', function (e) {
+    if (sx === null) return;
+    var dx = e.changedTouches[0].clientX - sx;
+    var dy = e.changedTouches[0].clientY - sy;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.4) go(current + (dx < 0 ? 1 : -1));
+    sx = sy = null;
+  }, { passive: true });
+
+  // Deep link: #page-5 opens page 5
+  var m = /#page-(\d+)/.exec(location.hash);
+  if (m) { var n = parseInt(m[1], 10) - 1; if (n > 0 && n < total) { pages[0].classList.remove('active'); pages[n].classList.add('active'); current = n; } }
+  update();
+
+  // Email actions
+  function mailto(to) {
+    var subject = encodeURIComponent(GUIDE_TITLE + ' — Free from ExerciseMenu.com');
+    var body = encodeURIComponent(
+      "Here's the free workbook: " + GUIDE_TITLE + "\n" +
+      "A 12-week plan with printable log pages, by coach Sadia Baloch.\n\n" +
+      "Read or download it here: " + guideUrl() + "\n\n" +
+      "More free training resources: https://exercisemenu.com"
+    );
+    location.href = 'mailto:' + (to ? encodeURIComponent(to) : '') + '?subject=' + subject + '&body=' + body;
+  }
+  document.querySelectorAll('[data-action="email"]').forEach(function (el) {
+    el.addEventListener('click', function () { mailto(''); });
+  });
+
+  var form = document.getElementById('emailForm');
+  var input = document.getElementById('emailInput');
+  var help = document.getElementById('emailHelp');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var v = input.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) {
+      help.textContent = 'Please enter a valid email address.';
+      help.style.color = 'var(--red)';
+      input.focus();
+      return;
+    }
+    help.style.color = '';
+    help.textContent = 'Opening your email app…';
+    mailto(v);
+  });
+
+  // Keep every page inside its frame. Small overflows are scaled down slightly; if that would make
+  // text too small, the page scrolls inside its frame instead. Print always scales to fit A4.
+  var phone = window.matchMedia('(max-width: 720px)');
+  var MIN_SCALE = 0.84;
+  function fit() {
+    var printing = window.matchMedia('print').matches;
+    pages.forEach(function (pg) {
+      var inner = pg.querySelector('.pg');
+      inner.style.transform = inner.style.width = inner.style.height = '';
+      pg.classList.remove('scroll');
+      if (phone.matches && !printing) return;
+      for (var pass = 0; pass < 2; pass++) {
+        var H = pg.clientHeight, h = inner.scrollHeight;
+        var W = pg.clientWidth, w = inner.scrollWidth;
+        if (h <= H + 1 && w <= W + 1) break;
+        var cur = parseFloat(inner.dataset.s || 1);
+        var s = cur * Math.min(H / h, W / w);
+        inner.dataset.s = s;
+        inner.style.transformOrigin = 'top left';
+        inner.style.transform = 'scale(' + s + ')';
+        inner.style.width = (100 / s) + '%';
+        inner.style.height = (100 / s) + '%';
+      }
+      if (!inner.style.transform) delete inner.dataset.s;
+      else if (!printing && parseFloat(inner.dataset.s) < MIN_SCALE) {
+        inner.style.transform = inner.style.width = inner.style.height = '';
+        delete inner.dataset.s;
+        pg.classList.add('scroll');
+      }
+    });
+  }
+  function refit() { pages.forEach(function (pg) { delete pg.querySelector('.pg').dataset.s; }); fit(); }
+  var rt;
+  window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(refit, 120); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(refit);
+  window.addEventListener('load', refit);
+  var printMq = window.matchMedia('print');
+  if (printMq.addEventListener) printMq.addEventListener('change', refit);
+  else if (printMq.addListener) printMq.addListener(refit);
+  window.addEventListener('beforeprint', refit);
+  window.addEventListener('afterprint', refit);
+  refit();
+})();
+</script>
+</body>
+</html>
