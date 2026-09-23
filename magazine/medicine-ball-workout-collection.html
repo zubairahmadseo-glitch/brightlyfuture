@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Medicine Ball Workout Collection | ExerciseMenu.com</title>
+<meta name="description" content="Free medicine ball workout PDF: 4 printable workouts (full body, core, partner and over-50), 8 illustrated exercise cards, a ball weight guide and a 4-week plan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,400..900;1,62..125,400..900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F7F7F7;
+    --white: #FFFFFF;
+    --ink: #1A1A1A;
+    --black: #000000;
+    --red: #C82323;
+    --red-deep: #A11C1C;
+    --red-tint: #FBECEC;
+    --red-line: #EEC6C6;
+    --muted: #5E5E5E;
+    --line: #E3E3E3;
+    --soft: #EFEFEF;
+    --display: "Archivo", "Arial Black", Arial, sans-serif;
+    --body: "Manrope", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --shadow: 0 .15em .7em rgba(0,0,0,.07);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { height: 100%; }
+  body {
+    background: #ECEAE7;
+    background-image: linear-gradient(135deg, #F3F1EE 0%, #E2DFDB 100%);
+    color: var(--ink); font-family: var(--body);
+    -webkit-font-smoothing: antialiased; overflow: hidden;
+  }
+  a { color: inherit; }
+
+  /* ---------- Viewer ---------- */
+  .viewer { height: 100vh; height: 100dvh; display: flex; align-items: center; justify-content: center; padding: 54px 16px 24px; }
+  .book {
+    --h: calc(100dvh - 92px);
+    position: relative; height: var(--h);
+    width: min(calc(var(--h) * 0.7071), 92vw); max-height: calc(92vw / 0.7071);
+    border-radius: 10px; overflow: hidden; background: var(--paper);
+    box-shadow: 0 20px 50px rgba(0,0,0,.18), 0 2px 8px rgba(0,0,0,.1);
+  }
+  .page {
+    container-type: inline-size; position: absolute; inset: 0; background: var(--paper);
+    opacity: 0; visibility: hidden; transform: scale(.985);
+    transition: opacity .4s ease, transform .4s ease, visibility 0s linear .4s; overflow: hidden;
+  }
+  .page.active { opacity: 1; visibility: visible; transform: none; z-index: 2; transition: opacity .4s ease, transform .4s ease, visibility 0s; }
+  .page.scroll { overflow-y: auto; }
+
+  .topbar {
+    position: fixed; left: 0; right: 0; top: 0; height: 46px; z-index: 10;
+    display: flex; align-items: center; gap: 12px; padding: 0 16px;
+    background: rgba(255,255,255,.92); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(0,0,0,.07);
+  }
+  .tb-logo { font: 900 16px/1 var(--display); font-stretch: 100%; letter-spacing: -.01em; white-space: nowrap; }
+  .tb-logo span { color: var(--red); }
+  .tb-title { font: 600 13px var(--body); color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; flex: 1; min-width: 0; }
+  .tb-btn {
+    display: inline-flex; align-items: center; gap: 7px; height: 32px; padding: 0 13px; border-radius: 8px;
+    border: 1.5px solid var(--black); background: #fff; color: var(--black); font: 700 13px var(--body);
+    cursor: pointer; text-decoration: none; white-space: nowrap; transition: all .2s;
+  }
+  .tb-btn:hover { background: var(--black); color: #fff; }
+  .tb-btn.primary { background: var(--red); border-color: var(--red); color: #fff; }
+  .tb-btn.primary:hover { background: var(--red-deep); border-color: var(--red-deep); }
+  .tb-btn svg { width: 15px; height: 15px; flex-shrink: 0; }
+  .progress { position: fixed; left: 0; top: 46px; height: 3px; background: var(--red); z-index: 11; transition: width .35s ease; }
+
+  .nav { position: fixed; top: 50%; transform: translateY(-50%); z-index: 10; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .nav-prev { left: 22px; } .nav-next { right: 22px; }
+  .nav button {
+    width: 52px; height: 52px; border-radius: 14px; border: 0; background: var(--black); color: #fff;
+    display: grid; place-items: center; cursor: pointer; box-shadow: 0 8px 20px rgba(0,0,0,.18); transition: background .2s, opacity .2s;
+  }
+  .nav button:hover { background: var(--red); }
+  .nav button:disabled { opacity: .25; cursor: default; background: var(--black); }
+  .nav button svg { width: 22px; height: 22px; }
+  .nav span { font: 800 12px var(--display); font-stretch: 90%; color: var(--muted); letter-spacing: .04em; }
+  .jump { font: 700 13px var(--body); height: 32px; border-radius: 8px; border: 1.5px solid var(--line); background: #fff; padding: 0 8px; color: var(--ink); max-width: 190px; }
+
+  /* ---------- Page scaffolding ---------- */
+  .pg { position: relative; height: 100%; display: flex; flex-direction: column; padding: 2.5em 3.4em 0; font-size: max(10px, 2.08cqw); line-height: 1.5; }
+  .dense .pg { font-size: max(10px, 1.9cqw); }
+  .top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.6em; }
+  .sec { display: inline-flex; align-items: center; gap: .55em; background: var(--black); color: #fff; border-radius: 99px; padding: .45em .95em .45em .5em; font: 800 .74em/1 var(--display); font-stretch: 100%; letter-spacing: .12em; text-transform: uppercase; }
+  .sec i { width: 1.15em; height: 1.15em; border-radius: 50%; background: var(--red); display: block; }
+  .pno { width: 2.5em; height: 2.5em; border-radius: 50%; background: var(--red); color: #fff; display: grid; place-items: center; font: 900 .9em/1 var(--display); font-stretch: 100%; }
+  .body { flex: 1 0 auto; display: flex; flex-direction: column; }
+  .foot { display: flex; justify-content: space-between; margin-top: 1.2em; padding: .95em 0 1.6em; border-top: 1px solid var(--line); font: 700 .72em/1 var(--display); font-stretch: 100%; letter-spacing: .12em; text-transform: uppercase; color: #8A8A8A; }
+  .foot b { color: var(--red); }
+
+  .kick { font: 800 .82em/1 var(--display); font-stretch: 100%; letter-spacing: .18em; text-transform: uppercase; color: var(--red); margin-bottom: .6em; }
+  .h1 { font: 900 3em/.95 var(--display); font-stretch: 112%; text-transform: uppercase; letter-spacing: -.012em; color: var(--black); }
+  .h1 .r { color: var(--red); }
+  .lead { font: 500 1.08em/1.55 var(--body); color: #444; margin-top: .8em; }
+  .h3 { font: 900 1.12em/1.15 var(--display); font-stretch: 105%; text-transform: uppercase; letter-spacing: .01em; color: var(--black); }
+  .muted { color: var(--muted); }
+  .small { font-size: .8em; color: var(--muted); }
+  .link { color: var(--red); font-weight: 700; text-decoration: none; border-bottom: 1.5px solid var(--red-line); }
+  sup.ref { font: 800 .62em var(--body); color: var(--red); margin-left: .1em; }
+
+  .card { background: var(--white); border-radius: .9em; padding: 1.05em 1.15em; box-shadow: var(--shadow); }
+  .card.red { background: var(--red); color: #fff; box-shadow: 0 .4em 1.2em rgba(200,35,35,.22); }
+  .card.black { background: var(--black); color: #fff; }
+  .card.tint { background: var(--red-tint); box-shadow: none; border: 1px solid var(--red-line); }
+  .g2 { display: grid; grid-template-columns: 1fr 1fr; gap: .9em; }
+  .g3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: .9em; }
+  .g4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: .7em; }
+  .chips { display: flex; flex-wrap: wrap; gap: .45em; }
+  .chip { display: inline-flex; align-items: center; gap: .4em; background: var(--white); border: 1.5px solid var(--black); border-radius: 99px; padding: .38em .8em; font: 800 .74em/1 var(--display); font-stretch: 100%; letter-spacing: .08em; text-transform: uppercase; color: var(--black); }
+  .chip.red { background: var(--red); border-color: var(--red); color: #fff; }
+  .chip.dark { background: var(--black); color: #fff; }
+  .srcs { margin-top: auto; padding-top: .8em; font-size: .66em; line-height: 1.5; color: var(--muted); }
+  .srcs a { color: var(--muted); }
+
+  .btn { display: inline-flex; align-items: center; gap: .6em; padding: .85em 1.3em; border-radius: .6em; font: 800 .88em/1 var(--display); font-stretch: 100%; letter-spacing: .1em; text-transform: uppercase; text-decoration: none; cursor: pointer; border: 2px solid var(--red); background: var(--red); color: #fff; }
+  .btn.ghost { background: var(--white); color: var(--black); border-color: var(--black); }
+  .btn svg { width: 1.15em; height: 1.15em; }
+
+  /* ---------- Cover ---------- */
+  .cover .pg { padding-top: 2.3em; font-size: 2.08cqw; height: 100%; }
+  .c-clip { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+  .c-top { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font: 900 2.25em/1 var(--display); font-stretch: 100%; letter-spacing: -.02em; color: var(--black); }
+  .logo span { color: var(--red); }
+  .issue { font: 800 .76em/1 var(--display); font-stretch: 100%; letter-spacing: .14em; text-transform: uppercase; border: 1.5px solid var(--black); border-radius: 99px; padding: .5em .9em; }
+  .issue b { color: var(--red); }
+  .c-title { font: 900 5.9em/.86 var(--display); font-stretch: 115%; text-transform: uppercase; letter-spacing: -.02em; color: var(--black); margin-top: .42em; }
+  .c-title .r { color: var(--red); }
+  .c-sub { font: 700 1.2em/1.35 var(--body); color: #333; margin-top: .75em; max-width: 21em; }
+  .c-sub b { color: var(--red); }
+  .c-actions { display: flex; gap: .7em; margin-top: 1.2em; }
+  .c-art { position: absolute; right: -10em; bottom: -10em; width: 47em; height: 47em; border-radius: 50%; background: var(--red); overflow: hidden; }
+  .c-art .seam { position: absolute; inset: 0; }
+  .c-art .fig { position: absolute; left: 9em; top: 3.6em; width: 23em; }
+  .c-art .fig svg, .c-art .seam svg { width: 100%; height: 100%; display: block; }
+  .c-lines { position: absolute; left: 3.4em; bottom: 4.6em; width: 17.5em; display: flex; flex-direction: column; gap: .55em; z-index: 2; }
+  .c-line { background: var(--white); border-radius: .8em; padding: .75em .95em; box-shadow: 0 .3em 1em rgba(0,0,0,.1); display: grid; grid-template-columns: 2.1em 1fr; gap: .7em; align-items: center; }
+  .c-line .n { width: 2.1em; height: 2.1em; border-radius: 50%; background: var(--black); color: #fff; display: grid; place-items: center; font: 900 .9em/1 var(--display); font-stretch: 100%; }
+  .c-line b { display: block; font: 900 .98em/1.1 var(--display); font-stretch: 100%; text-transform: uppercase; color: var(--black); }
+  .c-line span { font-size: .76em; color: var(--muted); }
+  .c-foot { position: absolute; left: 3.4em; bottom: 1.5em; background: var(--white); border-radius: 99px; padding: .6em 1em; box-shadow: 0 .2em .8em rgba(0,0,0,.1); font: 800 .72em/1 var(--display); font-stretch: 100%; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); z-index: 2; }
+  .c-tag { position: absolute; right: 3.4em; top: 25.5em; width: 9.6em; height: 9.6em; border-radius: 50%; background: var(--black); color: #fff; display: grid; place-items: center; text-align: center; transform: rotate(-10deg); z-index: 3; }
+  .c-tag div { font: 800 .7em/1.25 var(--display); font-stretch: 90%; letter-spacing: .08em; text-transform: uppercase; }
+  .c-tag b { display: block; font: 900 3.3em/.9 var(--display); color: var(--red); letter-spacing: -.02em; }
+
+  /* ---------- Contents ---------- */
+  .toc { display: grid; grid-template-columns: 1fr 1fr; gap: .6em; }
+  .toc a { display: grid; grid-template-columns: 2.6em 1fr; gap: .7em; align-items: center; background: var(--white); border-radius: .8em; padding: .7em .8em; box-shadow: var(--shadow); text-decoration: none; }
+  .toc .n { width: 2.6em; height: 2.6em; border-radius: 50%; background: var(--red-tint); color: var(--red); display: grid; place-items: center; font: 900 .95em/1 var(--display); font-stretch: 100%; }
+  .toc a.w .n { background: var(--red); color: #fff; }
+  .toc b { display: block; font: 900 .92em/1.15 var(--display); font-stretch: 100%; text-transform: uppercase; color: var(--black); }
+  .toc span { font-size: .74em; color: var(--muted); }
+  .letter { font: 500 .98em/1.6 var(--body); color: #333; }
+  .letter p + p { margin-top: .7em; }
+  .sig { display: flex; align-items: center; gap: .8em; margin-top: 1em; }
+  .mono { width: 3.2em; height: 3.2em; border-radius: 50%; background: var(--black); color: #fff; display: grid; place-items: center; font: 900 1.05em var(--display); font-stretch: 100%; flex-shrink: 0; }
+  .sig b { display: block; font: 900 1.05em/1.2 var(--display); font-stretch: 100%; text-transform: uppercase; }
+  .sig span { font-size: .78em; color: var(--muted); }
+
+  /* ---------- Feature ---------- */
+  .prose { font: 500 .98em/1.62 var(--body); color: #2E2E2E; columns: 2; column-gap: 2em; }
+  .prose p { margin-bottom: .75em; }
+  .prose strong { color: var(--black); }
+  .prose h4 { font: 900 1em/1.2 var(--display); font-stretch: 105%; text-transform: uppercase; color: var(--red); margin: .9em 0 .35em; break-after: avoid; }
+  .stat-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: .6em; margin: 1.3em 0 1.2em; }
+  .stat { text-align: center; background: var(--white); border-radius: .8em; padding: .8em .4em; box-shadow: var(--shadow); }
+  .stat b { display: block; font: 900 2em/1 var(--display); font-stretch: 110%; color: var(--red); }
+  .stat span { font: 800 .66em/1.2 var(--display); font-stretch: 100%; letter-spacing: .1em; text-transform: uppercase; color: var(--black); }
+
+  /* ---------- Tables ---------- */
+  .tbl { width: 100%; border-collapse: separate; border-spacing: 0; font-size: .86em; background: var(--white); border-radius: .8em; overflow: hidden; box-shadow: var(--shadow); }
+  .tbl th { background: var(--black); color: #fff; font: 800 .8em/1.1 var(--display); font-stretch: 100%; letter-spacing: .1em; text-transform: uppercase; text-align: left; padding: .75em .8em; }
+  .tbl td { padding: .6em .8em; border-top: 1px solid var(--line); vertical-align: top; }
+  .tbl td b { color: var(--black); }
+  .tbl .hl td { background: var(--red-tint); }
+
+  /* ---------- Ball types ---------- */
+  .ball-type { text-align: center; }
+  .ball-type svg { width: 5.2em; height: 5.2em; display: block; margin: 0 auto .5em; }
+  .ball-type b { display: block; font: 900 1em/1.15 var(--display); font-stretch: 105%; text-transform: uppercase; color: var(--black); }
+  .ball-type .use { display: inline-block; margin: .45em 0 .35em; font: 800 .66em/1 var(--display); font-stretch: 100%; letter-spacing: .1em; text-transform: uppercase; background: var(--red-tint); color: var(--red); border-radius: 99px; padding: .4em .7em; }
+  .ball-type p { font-size: .8em; color: #444; }
+
+  .rules { list-style: none; counter-reset: r; }
+  .rules li { counter-increment: r; position: relative; padding: .6em 0 .6em 2.7em; border-bottom: 1px solid var(--line); font-size: .9em; }
+  .rules li::before { content: counter(r); position: absolute; left: 0; top: .5em; width: 1.9em; height: 1.9em; border-radius: 50%; background: var(--red); color: #fff; display: grid; place-items: center; font: 900 .9em/1 var(--display); font-stretch: 100%; }
+  .rules b { color: var(--black); }
+  .wu { display: grid; grid-template-columns: 3.4em 1fr; gap: .8em; align-items: center; padding: .55em 0; border-bottom: 1px solid rgba(255,255,255,.14); }
+  .wu:last-child { border-bottom: 0; }
+  .wu .t { font: 900 1.05em/1 var(--display); font-stretch: 100%; color: #FF8A8A; }
+  .wu b { display: block; font: 800 .95em/1.2 var(--display); font-stretch: 100%; text-transform: uppercase; }
+  .wu span { font-size: .8em; color: #CFCFCF; }
+
+  /* ---------- Exercise cards ---------- */
+  .ex-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1em; flex: 1; }
+  .ex { background: var(--white); border-radius: 1em; box-shadow: var(--shadow); overflow: hidden; display: flex; flex-direction: column; }
+  .ex-art { background: #F2F2F2; padding: .6em .8em .1em; position: relative; }
+  .ex-art svg { width: 100%; height: auto; display: block; }
+  .ex-no { position: absolute; left: .7em; top: .7em; width: 2.1em; height: 2.1em; border-radius: 50%; background: var(--red); color: #fff; display: grid; place-items: center; font: 900 .85em/1 var(--display); font-stretch: 100%; }
+  .ex-bd { padding: .8em 1em .9em; display: flex; flex-direction: column; flex: 1; }
+  .ex-bd h3 { font: 900 1.12em/1.1 var(--display); font-stretch: 108%; text-transform: uppercase; color: var(--black); }
+  .ex-meta { display: flex; justify-content: space-between; gap: .5em; margin: .35em 0 .5em; font: 800 .68em/1.2 var(--display); font-stretch: 100%; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .ex-meta b { color: var(--red); }
+  .ex-bd ul { list-style: none; font-size: .8em; color: #333; }
+  .ex-bd li { position: relative; padding-left: 1.1em; margin-bottom: .25em; line-height: 1.4; }
+  .ex-bd li::before { content: ""; position: absolute; left: 0; top: .5em; width: .5em; height: .5em; border-radius: 50%; background: var(--red); }
+  .ex-tip { font-size: .74em; color: var(--black); background: var(--red-tint); border-radius: .5em; padding: .45em .6em; margin-top: .5em; line-height: 1.35; }
+  .ex-tip b { color: var(--red); }
+  .ex-sc { display: grid; grid-template-columns: 1fr 1fr; gap: .4em; margin-top: auto; padding-top: .55em; font-size: .72em; }
+  .ex-sc div { background: #F5F5F5; border-radius: .5em; padding: .45em .55em; line-height: 1.35; }
+  .ex-sc b { display: block; font: 800 .88em/1.2 var(--display); font-stretch: 100%; letter-spacing: .06em; text-transform: uppercase; color: var(--black); }
+  .ex-sc div:last-child b { color: var(--red); }
+
+  /* ---------- Workouts ---------- */
+  .w-head { display: grid; grid-template-columns: auto 1fr; gap: 1.1em; align-items: center; }
+  .w-num { width: 5.4em; height: 5.4em; border-radius: 50%; background: var(--red); color: #fff; display: grid; place-items: center; text-align: center; }
+  .w-num div { font: 800 .62em/1 var(--display); font-stretch: 100%; letter-spacing: .14em; text-transform: uppercase; }
+  .w-num b { display: block; font: 900 3.4em/.9 var(--display); font-stretch: 100%; letter-spacing: -.03em; }
+  .w-list { display: flex; flex-direction: column; gap: .5em; }
+  .w-row { display: grid; grid-template-columns: 2.4em 1fr 6.4em; gap: .9em; align-items: center; background: var(--white); border-radius: .8em; padding: .7em .9em; box-shadow: var(--shadow); }
+  .w-row .n { width: 2.4em; height: 2.4em; border-radius: 50%; background: var(--black); color: #fff; display: grid; place-items: center; font: 900 .95em/1 var(--display); font-stretch: 100%; }
+  .w-row b { display: block; font: 900 1em/1.15 var(--display); font-stretch: 105%; text-transform: uppercase; color: var(--black); }
+  .w-row p { font-size: .8em; color: #444; margin-top: .15em; }
+  .w-row .dose { text-align: center; font: 900 1em/1.1 var(--display); font-stretch: 100%; color: var(--red); background: var(--red-tint); border-radius: .6em; padding: .55em .3em; }
+  .w-row .dose small { display: block; font: 700 .62em/1.2 var(--body); color: var(--muted); margin-top: .2em; text-transform: none; }
+  .w-row .card-ref { font-size: .82em; font-weight: 700; color: var(--red); }
+  .timeline { display: flex; gap: .25em; margin-top: .6em; }
+  .timeline div { height: 1.9em; border-radius: .4em; display: grid; place-items: center; font: 800 .66em/1 var(--display); font-stretch: 90%; letter-spacing: .06em; color: #fff; }
+  .timeline .on { flex: 2; background: var(--red); }
+  .timeline .off { flex: 1; background: #C9C9C9; color: #444; }
+  .scale { display: grid; grid-template-columns: repeat(3, 1fr); gap: .6em; }
+  .scale div { background: var(--white); border-radius: .8em; padding: .7em .8em; box-shadow: var(--shadow); font-size: .82em; }
+  .scale div b { display: block; font: 900 .95em/1.2 var(--display); font-stretch: 100%; text-transform: uppercase; color: var(--black); margin-bottom: .15em; }
+  .scale div:nth-child(2) { background: var(--black); color: #E6E6E6; }
+  .scale div:nth-child(2) b { color: #fff; }
+  .scale div:nth-child(3) b { color: var(--red); }
+
+  /* ---------- Interview ---------- */
+  .iv-title { font: 900 3.6em/.9 var(--display); font-stretch: 112%; text-transform: uppercase; letter-spacing: -.02em; color: var(--black); }
+  .iv-title .r { color: var(--red); }
+  .iv-name { font: 800 .9em/1 var(--display); font-stretch: 100%; letter-spacing: .18em; text-transform: uppercase; color: var(--red); margin-bottom: .5em; }
+  .qa { columns: 2; column-gap: 2em; font: 500 .9em/1.58 var(--body); color: #2E2E2E; }
+  .qa .q { font: 900 .95em/1.25 var(--display); font-stretch: 100%; text-transform: uppercase; color: var(--black); margin: .9em 0 .35em; break-after: avoid; display: flex; gap: .5em; }
+  .qa .q::before { content: "Q"; flex-shrink: 0; width: 1.5em; height: 1.5em; border-radius: 50%; background: var(--red); color: #fff; display: grid; place-items: center; font-size: .82em; }
+  .qa .q:first-child { margin-top: 0; }
+  .qa p { margin-bottom: .6em; }
+
+  /* ---------- Plan ---------- */
+  .cal { width: 100%; border-collapse: separate; border-spacing: .3em; table-layout: fixed; }
+  .cal th { font: 800 .7em/1 var(--display); font-stretch: 100%; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding-bottom: .2em; }
+  .cal th:first-child { text-align: left; }
+  .cal td { height: 3.1em; border-radius: .6em; background: var(--white); text-align: center; vertical-align: middle; font: 900 .78em/1.1 var(--display); font-stretch: 100%; text-transform: uppercase; box-shadow: var(--shadow); }
+  .cal td:first-child { background: transparent; box-shadow: none; text-align: left; color: var(--black); font-size: .8em; }
+  .cal td small { display: block; font: 600 .78em/1.2 var(--body); text-transform: none; color: inherit; opacity: .85; }
+  .cal .fb { background: var(--red); color: #fff; }
+  .cal .co { background: var(--black); color: #fff; }
+  .cal .pa { background: var(--red-tint); color: var(--red); box-shadow: none; border: 1.5px dashed var(--red); }
+  .cal .ol { background: #fff; color: var(--black); border: 2px solid var(--black); box-shadow: none; }
+  .cal .rest { color: #A0A0A0; font-weight: 700; }
+  .legend { display: flex; flex-wrap: wrap; gap: 1em; font-size: .78em; margin-top: .5em; }
+  .legend span { display: inline-flex; align-items: center; gap: .4em; }
+  .legend i { width: 1em; height: 1em; border-radius: .25em; display: block; }
+
+  .mist { display: grid; grid-template-columns: 1fr 1fr; gap: .8em; }
+  .mist .card { display: grid; grid-template-columns: 2.5em 1fr; gap: .8em; align-items: start; }
+  .mist .x { width: 2.5em; height: 2.5em; border-radius: 50%; background: var(--red-tint); color: var(--red); display: grid; place-items: center; font: 900 1.05em/1 var(--display); }
+  .mist b { display: block; font: 900 .98em/1.15 var(--display); font-stretch: 105%; text-transform: uppercase; color: var(--black); }
+  .mist p { font-size: .82em; color: #444; margin-top: .2em; }
+  .mist .fix { display: block; margin-top: .4em; font-size: .82em; color: var(--black); }
+  .mist .fix::before { content: "Fix: "; font-weight: 800; color: var(--red); }
+
+  /* ---------- Log ---------- */
+  .log { width: 100%; border-collapse: collapse; background: #fff; table-layout: fixed; font-size: .78em; }
+  .log th { background: var(--black); color: #fff; font: 800 .82em/1.1 var(--display); font-stretch: 100%; letter-spacing: .08em; text-transform: uppercase; padding: .55em .4em; }
+  .log td { border: 1px solid #CFCFCF; height: 2.45em; padding: 0 .45em; }
+  .log td:first-child { text-align: center; font: 900 1em var(--display); font-stretch: 100%; color: var(--red); }
+  .test { display: grid; grid-template-columns: 1fr 1fr; gap: .8em; }
+  .test .card b { font: 900 .95em/1.2 var(--display); font-stretch: 105%; text-transform: uppercase; color: var(--black); display: block; }
+  .test .card p { font-size: .78em; color: #444; margin: .2em 0 .5em; }
+  .boxes { display: grid; grid-template-columns: 1fr 1fr; gap: .5em; }
+  .boxes div { border: 1.5px solid var(--black); border-radius: .5em; height: 2.6em; padding: .35em .5em; font: 800 .66em/1 var(--display); font-stretch: 100%; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+
+  /* ---------- FAQ ---------- */
+  .faq { display: grid; grid-template-columns: 1fr 1fr; gap: .8em; }
+  .faq .card b { display: block; font: 900 .95em/1.2 var(--display); font-stretch: 105%; text-transform: uppercase; color: var(--black); margin-bottom: .3em; }
+  .faq .card p { font-size: .82em; color: #3A3A3A; }
+  .refs { list-style: none; counter-reset: r; font-size: .72em; color: #3A3A3A; }
+  .refs li { counter-increment: r; position: relative; padding: .35em 0 .35em 1.8em; border-bottom: 1px solid var(--line); }
+  .refs li::before { content: counter(r); position: absolute; left: 0; top: .35em; font-weight: 800; color: var(--red); }
+  .refs a { color: var(--red); word-break: break-all; }
+
+  /* ---------- Back ---------- */
+  .back-hero { margin: -2.5em -3.4em 0; padding: 2.6em 3.4em 2.2em; background: var(--red); color: #fff; position: relative; overflow: hidden; }
+  .back-hero .h1 { color: #fff; }
+  .back-hero .ballmark { position: absolute; right: -4em; top: -4em; width: 16em; height: 16em; opacity: .18; }
+  .more { display: grid; grid-template-columns: 1fr 2.2em; gap: .8em; align-items: center; background: var(--white); border-radius: .8em; padding: .8em 1em; box-shadow: var(--shadow); text-decoration: none; }
+  .more b { display: block; font: 900 .92em/1.2 var(--display); font-stretch: 105%; text-transform: uppercase; color: var(--black); }
+  .more span { font-size: .74em; color: var(--muted); }
+  .more .go { width: 2.2em; height: 2.2em; border-radius: 50%; background: var(--black); color: #fff; display: grid; place-items: center; }
+  .more .go svg { width: 1em; height: 1em; }
+  .email-row { display: flex; gap: .6em; margin-top: .8em; }
+  .email-row input { flex: 1; min-width: 0; font: 500 .95em var(--body); padding: .8em .9em; border: 1.5px solid #CFCFCF; border-radius: .6em; background: #fff; color: var(--ink); }
+  .email-row input:focus { outline: 2px solid var(--red); outline-offset: 1px; border-color: var(--red); }
+  .email-help { font-size: .72em; color: var(--muted); margin-top: .5em; }
+  .print-only { display: none; }
+
+  @media (max-width: 720px) {
+    .viewer { padding: 54px 8px 12px; }
+    .book { --h: calc(100dvh - 66px); width: 100%; max-height: none; }
+    .page { overflow-y: auto; }
+    .pg { height: auto; min-height: 100%; }
+    .nav { top: auto; bottom: 14px; transform: none; flex-direction: row; }
+    .nav-prev { left: 12px; } .nav-next { right: 12px; }
+    .nav button { width: 44px; height: 44px; border-radius: 12px; }
+    .nav span { display: none; }
+    .tb-title, .jump, .tb-btn .lbl-long { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { .page, .page.active { transition: none; } }
+
+  @page { size: A4; margin: 0; }
+  @media print {
+    html, body { height: auto; overflow: visible; background: var(--paper); }
+    * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    .topbar, .progress, .nav, .no-print { display: none !important; }
+    .print-only { display: block; }
+    .viewer { display: block; height: auto; padding: 0; }
+    .book { width: 210mm; height: auto; max-height: none; box-shadow: none; border-radius: 0; overflow: visible; }
+    .page { position: relative; inset: auto; width: 210mm; height: 297mm; opacity: 1 !important; visibility: visible !important; transform: none !important; transition: none !important; overflow: hidden; break-after: page; page-break-after: always; }
+    .page:last-child { break-after: auto; page-break-after: auto; }
+    .pg { height: 100%; }
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="tb-logo">EXERCISE<span>MENU</span></div>
+  <div class="tb-title">Issue 03 · The Medicine Ball Workout Collection</div>
+  <select class="jump" id="jump" aria-label="Jump to page"></select>
+  <button class="tb-btn" type="button" data-action="email">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Email</button>
+  <a class="tb-btn primary" href="medicine-ball-workout-collection.pdf" download>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Download<span class="lbl-long">&nbsp;PDF</span></a>
+</header>
+<div class="progress" id="progress"></div>
+
+<main class="viewer" aria-label="The Medicine Ball Workout Collection — digital magazine">
+  <div class="book" id="book">
+
+    <!-- ============ 1 · COVER ============ -->
+    <section class="page cover active" data-title="Cover">
+      <div class="pg">
+        <div class="c-top">
+          <div class="logo">EXERCISE<span>MENU</span></div>
+          <div class="issue">Issue 03 · <b>2026</b></div>
+        </div>
+        <h1 class="c-title">One ball.<br><span class="r">Four<br>workouts.</span></h1>
+        <p class="c-sub">The <b>Medicine Ball Workout Collection</b>: full body, core, partner and 50+ workouts you can do at home.</p>
+        <div class="chips" style="margin-top:1em"><span class="chip red">Full body</span><span class="chip">Core</span><span class="chip">Partner</span><span class="chip dark">50+</span></div>
+        <div class="c-actions no-print">
+          <a class="btn" href="medicine-ball-workout-collection.pdf" download><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Download PDF</a>
+          <button class="btn ghost" type="button" data-action="email"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Email it</button>
+        </div>
+
+        <div class="c-tag"><div><b>8</b>illustrated<br>exercise cards</div></div>
+
+        <div class="c-clip"><div class="c-art" aria-hidden="true">
+          <div class="seam"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M-5 38 Q50 62 105 38" fill="none" stroke="rgba(255,255,255,.28)" stroke-width="1.1"/><path d="M40 -5 Q64 50 40 105" fill="none" stroke="rgba(255,255,255,.2)" stroke-width="1.1"/></svg></div>
+          <div class="fig"><svg viewBox="0 -18 110 124" aria-hidden="true"><path d="M64 -6 C 92 8, 98 52, 80 92" fill="none" stroke="#fff" stroke-width="1.8" stroke-dasharray="3.5 3.5" stroke-linecap="round" opacity=".8"/><g transform="translate(0 0)"><polyline points="50,59 48,80 47,99" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="47" y1="99" x2="54" y2="100" stroke="rgba(255,255,255,.5)" stroke-width="6" stroke-linecap="round"/><polyline points="50,34 53,21 52,6" fill="none" stroke="rgba(255,255,255,.5)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><line x1="50" y1="31" x2="50" y2="59" stroke="#fff" stroke-width="11" stroke-linecap="round"/><circle cx="48" cy="20" r="7" fill="#fff"/><polyline points="50,59 52,80 51,99" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><line x1="51" y1="99" x2="58" y2="100" stroke="#fff" stroke-width="6.5" stroke-linecap="round"/><circle cx="54" cy="-3" r="7" fill="#000"/><path d="M47.56 -5.449999999999999Q54 -0.5500000000000003 60.44 -5.449999999999999" fill="none" stroke="#fff" stroke-width="1.3" opacity=".85"/><path d="M51.55 -9.440000000000001Q56.1 -3 51.55 3.4400000000000004" fill="none" stroke="#fff" stroke-width="1.3" opacity=".6"/><polyline points="50,34 56,20 55,5" fill="none" stroke="#fff" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/></g></svg></div>
+        </div></div>
+
+        <div class="c-lines">
+          <div class="c-line"><span class="n">4</span><div><b>Printable workouts</b><span>15–25 minutes each</span></div></div>
+          <div class="c-line"><span class="n">1</span><div><b>Ball weight guide</b><span>Adults, 50+ and kids</span></div></div>
+          <div class="c-line"><span class="n">28</span><div><b>Day plan &amp; log</b><span>Track every session</span></div></div>
+        </div>
+        <div class="c-foot">exercisemenu.com · By Sadia Baloch</div>
+      </div>
+    </section>
+
+    <!-- ============ 2 · WELCOME + CONTENTS ============ -->
+    <section class="page dense" data-title="Welcome &amp; Contents">
+      <div class="pg">
+        <div class="top"><span class="sec"><i></i>Welcome</span><span class="pno">02</span></div>
+        <div class="body">
+          <div class="kick">Issue 03</div>
+          <h2 class="h1">One ball, <span class="r">zero excuses</span></h2>
+          <div class="g2" style="grid-template-columns:1.15fr 1fr;gap:1.6em;margin-top:1.3em">
+            <div class="letter">
+              <p>Issue 01 showed you how to train. Issue 02 showed you how to keep progressing. This issue is about training anywhere, with one piece of equipment that fits under a sofa.</p>
+              <p>Inside are four complete workouts: full body, core, partner and family, and one built for adults over 50. Each takes 15 to 25 minutes and uses the same ball.</p>
+              <p>Every exercise has an illustrated card showing where to start and where to finish, so you can follow along without a video. Print the cards, stick them on the wall, and press play on the timer.</p>
+              <div class="sig">
+                <div class="mono">SB</div>
+                <div><b>Sadia Baloch</b><span>Head Coach · 7+ years · 257+ clients</span></div>
+              </div>
+            </div>
+            <div class="card black" style="align-self:start">
+              <div class="kick" style="color:#FF8A8A">What you need</div>
+              <ul style="list-style:none;font-size:.9em;line-height:1.5">
+                <li style="padding:.4em 0;border-bottom:1px solid rgba(255,255,255,.15)"><b>1 medicine ball</b> <span style="color:#BDBDBD">(weight guide, p.04)</span></li>
+                <li style="padding:.4em 0;border-bottom:1px solid rgba(255,255,255,.15)"><b>2 × 2 metres of space</b></li>
+                <li style="padding:.4em 0;border-bottom:1px solid rgba(255,255,255,.15)"><b>A solid wall</b> <span style="color:#BDBDBD">(for passes)</span></li>
+                <li style="padding:.4em 0;border-bottom:1px solid rgba(255,255,255,.15)"><b>A sturdy chair</b> <span style="color:#BDBDBD">(Workout 4)</span></li>
+                <li style="padding:.4em 0"><b>A timer</b> <span style="color:#BDBDBD">(your phone works)</span></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="kick" style="margin-top:1.6em">Contents</div>
+          <div class="toc">
+            <a href="#page-3"><span class="n">03</span><div><b>Why one ball is enough</b><span>Power, rotation, research</span></div></a>
+            <a href="#page-4"><span class="n">04</span><div><b>Choose your ball</b><span>Types and weights</span></div></a>
+            <a href="#page-5"><span class="n">05</span><div><b>Warm-up &amp; safety</b><span>5 minutes, 6 rules</span></div></a>
+            <a href="#page-6"><span class="n">06</span><div><b>Exercise cards</b><span>8 moves, illustrated</span></div></a>
+            <a class="w" href="#page-8"><span class="n">08</span><div><b>W1 · Full-body circuit</b><span>20 minutes</span></div></a>
+            <a class="w" href="#page-9"><span class="n">09</span><div><b>W2 · Core 15</b><span>15 minutes</span></div></a>
+            <a class="w" href="#page-10"><span class="n">10</span><div><b>W3 · Partner &amp; family</b><span>20 minutes, 2+ people</span></div></a>
+            <a class="w" href="#page-11"><span class="n">11</span><div><b>W4 · Strong at 50+</b><span>20–25 minutes</span></div></a>
+            <a href="#page-12"><span class="n">12</span><div><b>Coach interview</b><span>Home, family, 50+</span></div></a>
+            <a href="#page-13"><span class="n">13</span><div><b>Your 4-week plan</b><span>Two tracks</span></div></a>
+            <a href="#page-14"><span class="n">14</span><div><b>6 form mistakes</b><span>And the fixes</span></div></a>
+            <a href="#page-15"><span class="n">15</span><div><b>Log, FAQ &amp; sources</b><span>Pages 15–16</span></div></a>
+          </div>
+        </div>
+        <div class="foot"><span>exercisemenu.com</span><span>Issue 03 · <b>Medicine Ball Collection</b></span></div>
+      </div>
+    </section>
+
+    <!-- ============ 3 · FEATURE ============ -->
+    <section class="page" data-title="Why One Ball">
+      <div class="pg">
+        <div class="top"><span class="sec"><i></i>The Science</span><span class="pno">03</span></div>
+        <div class="body">
+          <div class="kick">Feature</div>
+          <h2 class="h1">Why one ball <span class="r">is enough</span></h2>
+          <p class="lead">It squats, presses, twists and throws. That last one is the thing dumbbells can’t do, and it matters more than you think.</p>
+          <div class="stat-row">
+            <div class="stat"><b>4</b><span>Workouts</span></div>
+            <div class="stat"><b>8</b><span>Illustrated moves</span></div>
+            <div class="stat"><b>15–25</b><span>Minutes</span></div>
+            <div class="stat"><b>1</b><span>Ball</span></div>
+          </div>
+          <div class="prose">
+            <p>A medicine ball looks like the simplest thing in any gym. That is its strength. One ball lets you squat, press, rotate, carry and throw, and <strong>throwing</strong> is something a dumbbell can’t safely give you.</p>
+            <h4>Strength vs power</h4>
+            <p>When you throw, you have to produce force fast. That quality is called power. Strength is how much force you can make; power is how quickly you can make it. Power is what lets you jump, catch yourself on a stumble or stand up from a low chair without thinking.</p>
+            <p>Research backs the ball as a power tool. In a 12-week study, young handball players who added medicine ball training gained more upper-body power than players who didn’t.<sup class="ref">1</sup> Another study found six weeks of medicine ball work improved throwing speed in female handball players.<sup class="ref">2</sup></p>
+            <h4>Not only for athletes</h4>
+            <p>A 2022 meta-analysis of older adults found that power training, lifting quickly and lowering slowly, improved muscle power and speed-based everyday tasks more than traditional strength training.<sup class="ref">3</sup> That is why Workout 4 asks you to stand up and push the ball away quickly, then lower with control.</p>
+            <h4>Rotation you can train</h4>
+            <p>Most gym programs move forward and back. Woodchops, twists and side tosses train your trunk to turn and to resist turning, the way you do when you swing a bag into a car or pick up a child.</p>
+            <h4>It fits the guidelines</h4>
+            <p>The World Health Organization recommends muscle-strengthening activity on two or more days a week for adults, and balance plus strength work on three or more days for older adults.<sup class="ref">4</sup> The four workouts here cover both.</p>
+          </div>
+          <div class="srcs"><sup class="ref">1</sup> Ignjatovic et al., <a href="https://pubmed.ncbi.nlm.nih.gov/22027860/"><em>J Strength Cond Res</em></a> (2012) · <sup class="ref">2</sup> Raeder et al., <a href="https://pubmed.ncbi.nlm.nih.gov/26102258/"><em>J Strength Cond Res</em></a> (2015) · <sup class="ref">3</sup> <a href="https://pubmed.ncbi.nlm.nih.gov/35953775/"><em>Eur Rev Aging Phys Act</em></a> (2022) · <sup class="ref">4</sup> Bull et al., <a href="https://pubmed.ncbi.nlm.nih.gov/33239350/">WHO guidelines</a>, <em>Br J Sports Med</em> (2020) · Go deeper: <a class="link" href="https://exercisemenu.com/exercises-with-a-medicine-ball-for-beginners/">12 medicine ball exercises for beginners</a></div>
+        </div>
+        <div class="foot"><span>exercisemenu.com</span><span>Issue 03 · <b>Medicine Ball Collection</b></span></div>
+      </div>
+    </section>
+
+    <!-- ============ 4 · CHOOSE YOUR BALL ============ -->
+    <section class="page" data-title="Choose Your Ball">
+      <div class="pg">
+        <div class="top"><span class="sec"><i></i>Equipment</span><span class="pno">04</span></div>
+        <div class="body">
+          <div class="kick">Before you buy</div>
+          <h2 class="h1">Choose <span class="r">your ball</span></h2>
+          <p class="lead">Three types look alike but behave differently. Pick the wrong one for slams and it bounces straight back at you.</p>
+          <div class="g3" style="margin-top:1.2em">
+            <div class="card ball-type">
+              <svg viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="26" fill="#C82323"/><path d="M6 24 Q30 38 54 24" fill="none" stroke="#fff" stroke-width="1.6" opacity=".8"/><path d="M22 5 Q34 30 22 55" fill="none" stroke="#fff" stroke-width="1.6" opacity=".55"/><path d="M13 16 Q20 10 28 9" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" opacity=".5"/></svg>
+              <b>Medicine ball</b><span class="use">Most exercises</span>
+              <p>Rubber shell with a grippy surface. Bounces a little. Use it for squats, twists, chops and wall passes.</p>
+            </div>
+            <div class="card ball-type">
+              <svg viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="26" fill="#1A1A1A"/><g stroke="#555" stroke-width="1.2"><path d="M10 20h40M7 30h46M10 40h40"/></g><path d="M13 16 Q20 10 28 9" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" opacity=".35"/></svg>
+              <b>Slam ball</b><span class="use">Slams only</span>
+              <p>Thick shell filled with sand, so it lands dead without bouncing. The only safe choice for ball slams.</p>
+            </div>
+            <div class="card ball-type">
+              <svg viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="27" fill="#fff" stroke="#1A1A1A" stroke-width="2.5"/><path d="M3 30 H57 M30 3 V57" stroke="#C82323" stroke-width="2.2"/><circle cx="30" cy="30" r="15" fill="none" stroke="#1A1A1A" stroke-width="1.4" opacity=".4"/></svg>
+              <b>Wall ball</b><span class="use">Catching &amp; throws</span>
+              <p>Larger and soft. Easy to catch, so it suits partner throws, kids and high wall throws.</p>
+            </div>
+          </div>
+
+          <div class="h3" style="margin:1.4em 0 .55em">What weight?</div>
+          <table class="tbl">
+            <tr><th>Who</th><th>Squats, twists, chops</th><th>Throws &amp; passes</th></tr>
+            <tr class="hl"><td><b>New to training</b></td><td>3–4 kg</td><td>2–3 kg</td></tr>
+            <tr><td><b>Trains regularly</b></td><td>4–6 kg</td><td>3–5 kg</td></tr>
+            <tr><td><b>Over 50 or returning</b></td><td>1–3 kg</td><td>1–2 kg</td></tr>
+            <tr><td><b>Kids under 12</b></td><td colspan="2">0.5–1 kg, soft ball, adult supervising</td></tr>
+            <tr><td><b>Slam ball (adults)</b></td><td colspan="2">4–8 kg for slams only</td></tr>
+          </table>
+          <div class="g2" style="margin-top:1em">
+            <div class="card red"><div class="h3" style="color:#fff;font-size:.95em">The speed test</div><p style="font-size:.84em;margin-top:.3em">Do 10 wall passes. If the last three are clearly slower than the first three, the ball is too heavy for throwing.</p></div>
+            <div class="card"><div class="h3" style="font-size:.95em">Buying just one?</div><p style="font-size:.84em;margin-top:.3em;color:#444">A 3–4 kg rubber medicine ball covers every workout here except slams.</p></div>
+          </div>
+          <div class="srcs">Go deeper: <a class="link" href="https://exercisemenu.com/10-medicine-ball-exercises-for-kids-under-12/">Medicine ball exercises for kids under 12</a></div>
+        </div>
+        <div class="foot"><span>exercisemenu.com</span><span>Issue 03 · <b>Medicine Ball Collection</b></span></div>
+      </div>
+    </section>
+
+    <!-- ============ 5 · WARM-UP & SAFETY ============ -->
+    <section class="page" data-title="Warm-up &amp; Safety">
+      <div class="pg">
+        <div class="top"><span class="sec"><i></i>Get Ready</span><span class="pno">05</span></div>
+        <div class="body">
+          <div class="kick">Every session starts here</div>
+          <h2 class="h1">Warm-up <span class="r">&amp; safety</span></h2>
+          <div class="g2" style="grid-template-columns:1fr 1.05fr;gap:1.3em;margin-top:1.3em;align-items:start">
+            <div class="card black">
+              <div class="kick" style="color:#FF8A8A">The 5-minute warm-up</div>
+              <div class="wu"><span class="t">1:00</span><div><b>March or jog in place</b><span>Build to a light sweat</span></div></div>
+              <div class="wu"><span class="t">1:00</span><div><b>Ball halos</b><span>Circle the ball slowly around your head, 5 each way</span></div></div>
+              <div class="wu"><span class="t">1:00</span><div><b>Bodyweight squats</b><span>10 slow reps, full depth you can control</span></div></div>
+              <div class="wu"><span class="t">1:00</span><div><b>Hip hinges</b><span>10 reps, hands on hips, flat back</span></div></div>
+              <div class="wu"><span class="t">1:00</span><div><b>Easy trunk turns</b><span>Ball at chest, 10 each side, small to big</span></div></div>
+            </div>
+            <div>
+              <div class="h3" style="margin-bottom:.4em">6 safety rules</div>
+              <ol class="rules">
+                <li><b>Slam only a slam ball.</b> A rubber ball can bounce back into your face.</li>
+                <li><b>Throw at brick or concrete.</b> Not at drywall, glass or furniture.</li>
+                <li><b>Clear 2 × 2 metres.</b> Check for pets, toys and low lights before you start.</li>
+                <li><b>Call “ball!” before a partner throw.</b> Make eye contact, then throw.</li>
+                <li><b>Kids train with an adult.</b> The kids version is on page 10.</li>
+                <li><b>Stop with sharp pain.</b> Muscle burn is normal; joint pain is not.</li>
+              </ol>
+            </div>
+          </div>
+          <div class="card tint" style="margin-top:1.3em;display:grid;grid-template-columns:auto 1fr;gap:1em;align-items:center">
+            <div class="pno" style="width:3em;height:3em;font-size:1em">!</div>
+            <p style="font-size:.88em"><b>Breathe out on every throw, slam and chop.</b> Holding your breath while bracing hard can spike blood pressure. A sharp exhale also helps you move faster.</p>
+          </div>
+          <div class="card" style="margin-top:.9em">
+            <div class="h3" style="font-size:.95em">How to brace</div>
+            <p style="font-size:.84em;color:#444;margin-top:.3em">Stand tall, then tighten your stomach as if someone is about to poke it. Keep that tension while you move. Your ribs stay stacked over your hips, and your lower back stays still while your hips and upper back do the turning.</p>
+          </div>
+        </div>
+        <div class="foot"><span>exercisemenu.com</span><span>Issue 03 · <b>Medicine Ball Collection</b></span></div>
+      </div>
+    </section>
+
+    <!-- ============ 6 · CARDS 1-4 ============ -->
+    <section class="page dense" data-title="Exercise Cards 1–4">
+      <div class="pg">
+        <div class="top"><span class="sec"><i></i>Exercise Cards · 1–4</span><span class="pno">06</span></div>
+        <div class="body">
+          <h2 class="h1" style="font-size:2.4em;margin-bottom:.7em">The <span class="r">moves</span></h2>
+          <div class="ex-grid">
+            <article class="ex">
+              <div class="ex-art"><span class="ex-no">1</span><svg viewBox="-4 -16 236 134" role="img" aria-hidden="true"><line x1="2" y1="101.5" x2="98" y2="101.5" stroke="#D6D6D6" stroke-width="2.5" stroke-linecap="round"/><line x1="130" y1="101.5" x2="226" y2="101.5" stroke="#D6D6D6" stroke-width="2.5" stroke-linecap="round"/><g transform="translate(0 0)"><polyline points="40,70 60,82 49,99" fill="none" stroke="#A3A3A3" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="49" y1="99" x2="56" y2="100" stroke="#A3A3A3" stroke-width="6" stroke-linecap="round"/><polyline points="55,46 58,59 65,50" fill="none" stroke="#A3A3A3" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><line x1="55" y1="43" x2="40" y2="70" stroke="#1A1A1A" stroke-width="11" stroke-linecap="round"/><circle cx="59" cy="33" r="7" fill="#1A1A1A"/><polyline points="40,70 63,82 52,99" fill="none" stroke="#1A1A1A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><line x1="52" y1="99" x2="59" y2="100" stroke="#1A1A1A" stroke-width="6.5" stroke-linecap="round"/><circle cx="72" cy="47" r="7" fill="#C82323"/><path d="M65.56 44.55Q72 49.45 78.44 44.55" fill="none" stroke="#fff" stroke-width="1.3" opacity=".85"/><path d="M69.55 40.56Q74.1 47 69.55 53.44" fill="none" stroke="#fff" stroke-width="1.3" opacity=".6"/><polyline points="55,46 61,59 68,49" fill="none" stroke="#1A1A1A" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/></g><g stroke="#C82323" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M104 48H122"/><path d="M116 42L122 48L116 54"/></g><g transform="translate(128 0)"><polyline points="50,59 48,80 47,99" fill="none" stroke="#A3A3A3" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="47" y1="99" x2="54" y2="100" stroke="#A3A3A3" stroke-width="6" stroke-linecap="round"/><polyline points="50,34 53,21 52,6" fill="none" stroke="#A3A3A3" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><line x1="50" y1="31" x2="50" y2="59" stroke="#1A1A1A" stroke-width="11" stroke-linecap="round"/><circle cx="48" cy="20" r="7" fill="#1A1A1A"/><polyline points="50,59 52,80 51,99" fill="none" stroke="#1A1A1A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><line x1="51" y1="99" x2="58" y2="100" stroke="#1A1A1A" stroke-width="6.5" stroke-linecap="round"/><circle cx="54" cy="-3" r="7" fill="#C82323"/><path d="M47.56 -5.449999999999999Q54 -0.5500000000000003 60.44 -5.449999999999999" fill="none" stroke="#fff" stroke-width="1.3" opacity=".85"/><path d="M51.55 -9.440000000000001Q56.1 -3 51.55 3.4400000000000004" fill="none" stroke="#fff" stroke-width="1.3" opacity=".6"/><polyline points="50,34 56,20 55,5" fill="none" stroke="#1A1A1A" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/></g><g font-family="Archivo, Arial, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1.4" text-anchor="middle" fill="#8A8A8A"><text x="50" y="114">START</text><text x="178" y="114" fill="#C82323">FINISH</text></g></svg></div>
+              <div class="ex-bd">
+                <h3>Squat to press</h3>
+                <div class="ex-meta"><span>Legs · glutes · shoulders</span><b>8–12 reps</b></div>
+                <ul><li>Hold the ball at your chest, elbows down.</li><li>Sit your hips back until thighs are near parallel.</li><li>Drive up and press the ball overhead in one move.</li></ul>
+                <div class="ex-tip"><b>Tip:</b> Breathe out as you press.</div>
+                <div class="ex-sc"><div><b>Easier</b>Squat only, keep the ball at chest</div><div><b>Harder</b>Pause 2 s at the bottom</div></div>
+              </div>
+            </article>
+            <article class="ex">
+              <div class="ex-art"><span class="ex-no">2</span><svg viewBox="-4 -16 236 134" role="img" aria-hidden="true"><line x1="2" y1="101.5" x2="98" y2="101.5" stroke="#D6D6D6" stroke-width="2.5" stroke-linecap="round"/><line x1="130" y1="101.5" x2="226" y2="101.5" stroke="#D6D6D6" stroke-width="2.5" stroke-linecap="round"/><g transform="translate(0 0)"><polyline points="50,59 48,80 47,99" fill="none" stroke="#A3A3A3" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="47" y1="99" x2="54" y2="100" stroke="#A3A3A3" stroke-width="6" stroke-linecap="round"/><polyline points="50,34 53,21 52,6" fill="none" stroke="#A3A3A3" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><line x1="50" y1="31" x2="50" y2="59" stroke="#1A1A1A" stroke-width="11" stroke-linecap="round"/><circle cx="48" cy="20" r="7" fill="#1A1A1A"/><polyline points="50,59 52,80 51,99" fill="none" stroke="#1A1A1A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><line x1="51" y1="99" x2="58" y2="100" stroke="#1A1A1A" stroke-width="6.5" stroke-linecap="round"/><circle cx="54" cy="-3" r="7" fill="#C82323"/><path d="M47.56 -5.449999999999999Q54 -0.5500000000000003 60.44 -5.449999999999999" fill="none" stroke="#fff" stroke-width="1.3" opacity=".85"/><path d="M51.55 -9.440000000000001Q56.1 -3 51.55 3.4400000000000004" fill="none" stroke="#fff" stroke-width="1.3" opacity=".6"/><polyline points="50,34 56,20 55,5" fill="none" stroke="#1A1A1A" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/></g><g stroke="#C82323" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M104 48H122"/><path d="M116 42L122 48L116 54"/></g><g transform="translate(128 0)"><polyline points="39,66 55,83 45,99" fill="none" stroke="#A3A3A3" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="45" y1="99" x2="52" y2="100" stroke="#A3A3A3" stroke-width="6" stroke-linecap="round"/><polyline points="63,55 64,70 68,84" fill="none" stroke="#A3A3A3" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><line x1="64" y1="52" x2="39" y2="66" stroke="#1A1A1A" stroke-width="11" stroke-linecap="round"/><circle cx="74" cy="48" r="7" fill="#1A1A1A"/><polyline points="39,66 58,83 49,99" fill="none" stroke="#1A1A1A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><line x1="49" y1="99" x2="56" y2="100" stroke="#1A1A1A" stroke-width="6.5" stroke-linecap="round"/><circle cx="74" cy="93" r="7" fill="#C82323"/><path d="M67.56 90.55Q74 95.45 80.44 90.55" fill="none" stroke="#fff" stroke-width="1.3" opacity=".85"/><path d="M71.55 86.56Q76.1 93 71.55 99.44" fill="none" stroke="#fff" stroke-width="1.3" opacity=".6"/><polyline points="63,55 67,69 71,83" fill="none" stroke="#1A1A1A" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/><g stroke="#C82323" stroke-width="1.8" stroke-linecap="round"><line x1="84" y1="98" x2="90" y2="95"/><line x1="85" y1="90" x2="92" y2="88"/><line x1="64" y1="98" x2="58" y2="96"/></g></g><g font-family="Archivo, Arial, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1.4" text-anchor="middle" fill="#8A8A8A"><text x="50" y="114">START</text><text x="178" y="114" fill="#C82323">FINISH</text></g></svg></div>
+              <div class="ex-bd">
+                <h3>Ball slam</h3>
+                <div class="ex-meta"><span>Full body · power</span><b>8–10 reps</b></div>
+                <ul><li>Reach the ball overhead and rise onto your toes.</li><li>Brace and throw it down just in front of your feet.</li><li>Squat to pick it up with a flat back.</li></ul>
+                <div class="ex-tip"><b>Tip:</b> Look at the spot you’ll slam, not at the ceiling.</div>
+                <div class="ex-sc"><div><b>Easier</b>Lighter ball, reset between reps</div><div><b>Harder</b>Slam beside each foot, alternating</div></div>
+              </div>
+            </article>
+            <article class="ex">
+              <div class="ex-art"><span class="ex-no">3</span><svg viewBox="-4 -16 236 134" role="img" aria-hidden="true"><line x1="2" y1="101.5" x2="98" y2="101.5" stroke="#D6D6D6" stroke-width="2.5" stroke-linecap="round"/><line x1="130" y1="101.5" x2="226" y2="101.5" stroke="#D6D6D6" stroke-width="2.5" stroke-linecap="round"/><g transform="translate(0 0)"><polyline points="54,91 64,75 72,98" fill="none" stroke="#1A1A1A" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="49,68 40,82 26,90" fill="none" stroke="#1A1A1A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><line x1="43" y1="65" x2="50" y2="91" stroke="#1A1A1A" stroke-width="11" stroke-linecap="round"/><circle cx="38" cy="55" r="7" fill="#1A1A1A"/><polyline points="46,91 36,75 28,98" fill="none" stroke="#1A1A1A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="19" cy="86" r="7" fill="#C82323"/><path d="M12.559999999999999 83.55Q19 88.45 25.44 83.55" fill="none" stroke="#fff" stroke-width="1.3" opacity=".85"/><path d="M16.55 79.56Q21.1 86 16.55 92.44" fill="none" stroke="#fff" stroke-width="1.3" opacity=".6"/><polyline points="37,68 28,78 22,88" fill="none" stroke="#1A1A1A" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/></g><g stroke="#C82323" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M104 48H122"/><path d="M116 42L122 48L116 54"/></g><g transform="translate(128 0)"><polyline points="46,91 36,75 28,98" fill="none" stroke="#1A1A1A" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="51,68 60,82 74,90" fill="none" stroke="#1A1A1A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><line x1="57" y1="65" x2="50" y2="91" stroke="#1A1A1A" stroke-width="11" stroke-linecap="round"/><circle cx="62" cy="55" r="7" fill="#1A1A1A"/><polyline points="54,91 64,75 72,98" fill="none" stroke="#1A1A1A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="81" cy="86" r="7" fill="#C82323"/><path d="M74.56 83.55Q81 88.45 87.44 83.55" fill="none" stroke="#fff" stroke-width="1.3" opacity=".85"/><path d="M78.55 79.56Q83.1 86 78.55 92.44" fill="none" stroke="#fff" stroke-width="1.3" opacity=".6"/><polyline points="63,68 72,78 78,88" fill="none" stroke="#1A1A1A" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/></g><g font-family="Archivo, Arial, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1.4" text-anchor="middle" fill="#8A8A8A"><text x="50" y="114">LEFT</text><text x="178" y="114" fill="#C82323">RIGHT</text></g></svg></div>
+              <div class="ex-bd">
+                <h3>Russian twist</h3>
+                <div class="ex-meta"><span>Obliques · abs</span><b>12–16 touches</b></div>
+                <ul><li>Sit tall, lean back slightly, heels on the floor.</li><li>Turn your ribcage, not only your arms.</li><li>Tap the ball beside each hip.</li></ul>
+                <div class="ex-tip"><b>Tip:</b> Your nose follows the ball. That keeps the turn in your upper back.</div>
+                <div class="ex-sc"><div><b>Easier</b>Hold the ball closer to your chest</div><div><b>Harder</b>Lift your feet off the floor</div></div>
+              </div>
+            </article>
+            <article class="ex">
+              <div class="ex-art"><span class="ex-no">4</span><svg viewBox="-4 -16 236 134" role="img" aria-hidden="true"><line x1="2" y1="101.5" x2="98" y2="101.5" stroke="#D6D6D6" stroke-width="2.5" stroke-linecap="round"/><line x1="130" y1="101.5" x2="226" y2="101.5" stroke="#D6D6D6" stroke-width="2.5" stroke-linecap="round"/><g transform="translate(0 0)"><polyline points="54,59 60,80 64,99" fill="none" stroke="#1A1A1A" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="57,34 66,26 74,12" fill="none" stroke="#1A1A1A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><line x1="51" y1="31" x2="50" y2="59" stroke="#1A1A1A" stroke-width="11" stroke-linecap="round"/><circle cx="52" cy="20" r="7" fill="#1A1A1A"/><polyline points="46,59 40,80 36,99" fill="none" stroke="#1A1A1A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="78" cy="5" r="7" fill="#C82323"/><path d="M71.56 2.5500000000000003Q78 7.449999999999999 84.44 2.5500000000000003" fill="none" stroke="#fff" stroke-width="1.3" opacity=".85"/><path d="M75.55 -1.4400000000000004Q80.1 5 75.55 11.440000000000001" fill="none" stroke="#fff" stroke-width="1.3" opacity=".6"/><polyline points="45,34 62,22 73,10" fill="none" stroke="#1A1A1A" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/></g><g stroke="#C82323" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M104 48H122"/><path d="M116 42L122 48L116 54"/></g><g transform="translate(128 0)"><polyline points="53,67 63,84 65,99" fill="none" stroke="#1A1A1A" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="50,46 40,64 30,78" fill="none" stroke="#1A1A1A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><line x1="44" y1="43" x2="49" y2="67" stroke="#1A1A1A" stroke-width="11" stroke-linecap="round"/><circle cx="40" cy="33" r="7" fill="#1A1A1A"/><polyline points="45,67 34,83 34,99" fill="none" stroke="#1A1A1A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="82" r="7" fill="#C82323"/><path d="M17.56 79.55Q24 84.45 30.44 79.55" fill="none" stroke="#fff" stroke-width="1.3" opacity=".85"/><path d="M21.55 75.56Q26.1 82 21.55 88.44" fill="none" stroke="#fff" stroke-width="1.3" opacity=".6"/><polyline points="38,46 32,60 28,76" fill="none" stroke="#1A1A1A" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/></g><g font-family="Archivo, Arial, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1.4" text-anchor="middle" fill="#8A8A8A"><text x="50" y="114">START</text><text x="178" y="114" fill="#C82323">FINISH</text></g></svg></div>
+              <div class="ex-bd">
+                <h3>Woodchop</h3>
+                <div class="ex-meta"><span>Obliques · shoulders · legs</span><b>8–10 / side</b></div>
+                <ul><li>Start with the ball above one shoulder, arms long.</li><li>Pull it diagonally to the opposite knee as you bend.</li><li>Pivot the back foot to protect your lower back.</li></ul>
+                <div class="ex-tip"><b>Tip:</b> Move like you’re chopping wood across your body.</div>
+                <div class="ex-sc"><div><b>Easier</b>Half range: shoulder to hip</div><div><b>Harder</b>Fast down, slow back up</div></div>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="foot"><span>exercisemenu.com</span><span>Issue 03 · <b>Medicine Ball Collection</b></span></div>
+      </div>
+    </section>
+
+    <!-- ============ 7 · CARDS 5-8 ============ -->
+    <section class="page dense" data-title="Exercise Cards 5–8">
+      <div class="pg">
+        <div class="top"><span class="sec"><i></i>Exercise Cards · 5–8</span><span class="pno">07</span></div>
+        <div class="body">
+          <h2 class="h1" style="font-size:2.4em;margin-bottom:.7em">More <span class="r">moves</span></h2>
+          <div class="ex-grid">
+            <article class="ex">
+              <div class="ex-art"><span class="ex-no">5</span><svg viewBox="-4 -16 236 134" role="img" aria-hidden="true"><line x1="2" y1="101.5" x2="98" y2="101.5" stroke="#D6D6D6" stroke-width="2.5" stroke-linecap="round"/><line x1="130" y1="101.5" x2="226" y2="101.5" stroke="#D6D6D6" stroke-width="2.5" stroke-linecap="round"/><g transform="translate(0 0)"><polyline points="50,59 48,80 47,99" fill="none" stroke="#A3A3A3" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="47" y1="99" x2="54" y2="100" stroke="#A3A3A3" stroke-width="6" stroke-linecap="round"/><polyline points="50,34 52,48 59,42" fill="none" stroke="#A3A3A3" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><line x1="50" y1="31" x2="50" y2="59" stroke="#1A1A1A" stroke-width="11" stroke-linecap="round"/><circle cx="52" cy="20" r="7" fill="#1A1A1A"/><polyline points="50,59 52,80 51,99" fill="none" stroke="#1A1A1A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><line x1="51" y1="99" x2="58" y2="100" stroke="#1A1A1A" stroke-width="6.5" stroke-linecap="round"/><circle cx="66" cy="40" r="7" fill="#C82323"/><path d="M59.56 37.55Q66 42.45 72.44 37.55" fill="none" stroke="#fff" stroke-width="1.3" opacity=".85"/><path d="M63.55 33.56Q68.1 40 63.55 46.44" fill="none" stroke="#fff" stroke-width="1.3" opacity=".6"/><polyline points="50,34 55,48 62,41" fill="none" stroke="#1A1A1A" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/></g><g stroke="#C82323" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M104 48H122"/><path d="M116 42L122 48L116 54"/></g><g transform="translate(128 0)"><polyline points="49,71 37,93 24,99" fill="none" stroke="#A3A3A3" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="24" y1="99" x2="21" y2="94" stroke="#A3A3A3" stroke-width="6" stroke-linecap="round"/><polyline points="51,46 56,58 64,64" fill="none" stroke="#A3A3A3" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><line x1="51" y1="43" x2="49" y2="71" stroke="#1A1A1A" stroke-width="11" stroke-linecap="round"/><circle cx="53" cy="32" r="7" fill="#1A1A1A"/><polyline points="49,71 71,79 69,99" fill="none" stroke="#1A1A1A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><line x1="69" y1="99" x2="76" y2="100" stroke="#1A1A1A" stroke-width="6.5" stroke-linecap="round"/><circle cx="72" cy="62" r="7" fill="#C82323"/><path d="M65.56 59.55Q72 64.45 78.44 59.55" fill="none" stroke="#fff" stroke-width="1.3" opacity=".85"/><path d="M69.55 55.56Q74.1 62 69.55 68.44" fill="none" stroke="#fff" stroke-width="1.3" opacity=".6"/><polyline points="51,46 59,58 67,63" fill="none" stroke="#1A1A1A" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/></g><g font-family="Archivo, Arial, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1.4" text-anchor="middle" fill="#8A8A8A"><text x="50" y="114">START</text><text x="178" y="114" fill="#C82323">FINISH</text></g></svg></div>
+              <div class="ex-bd">
+                <h3>Rotational lunge</h3>
+                <div class="ex-meta"><span>Legs · glutes · obliques</span><b>8 / side</b></div>
+                <ul><li>Step forward into a lunge, both knees near 90°.</li><li>Turn the ball over your front thigh.</li><li>Bring it back to centre and push back to standing.</li></ul>
+                <div class="ex-tip"><b>Tip:</b> Front knee stays over your ankle, not past your toes.</div>
+                <div class="ex-sc"><div><b>Easier</b>Split squat in place, no turn</div><div><b>Harder</b>Walking lunges with the turn</div></div>
+              </div>
+            </article>
+            <article class="ex">
+              <div class="ex-art"><span class="ex-no">6</span><svg viewBox="-4 -16 236 134" role="img" aria-hidden="true"><line x1="2" y1="101.5" x2="98" y2="101.5" stroke="#D6D6D6" stroke-width="2.5" stroke-linecap="round"/><line x1="130" y1="101.5" x2="226" y2="101.5" stroke="#D6D6D6" stroke-width="2.5" stroke-linecap="round"/><g transform="translate(0 0)"><line x1="98" y1="-6" x2="98" y2="101" stroke="#D6D6D6" stroke-width="4" stroke-linecap="round"/><polyline points="47,60 42,80 38,99" fill="none" stroke="#A3A3A3" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="38" y1="99" x2="45" y2="100" stroke="#A3A3A3" stroke-width="6" stroke-linecap="round"/><polyline points="50,35 49,49 57,43" fill="none" stroke="#A3A3A3" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><line x1="50" y1="32" x2="47" y2="60" stroke="#1A1A1A" stroke-width="11" stroke-linecap="round"/><circle cx="52" cy="21" r="7" fill="#1A1A1A"/><polyline points="47,60 55,80 56,99" fill="none" stroke="#1A1A1A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><line x1="56" y1="99" x2="63" y2="100" stroke="#1A1A1A" stroke-width="6.5" stroke-linecap="round"/><circle cx="64" cy="41" r="7" fill="#C82323"/><path d="M57.56 38.55Q64 43.45 70.44 38.55" fill="none" stroke="#fff" stroke-width="1.3" opacity=".85"/><path d="M61.55 34.56Q66.1 41 61.55 47.44" fill="none" stroke="#fff" stroke-width="1.3" opacity=".6"/><polyline points="50,35 52,49 60,42" fill="none" stroke="#1A1A1A" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/></g><g stroke="#C82323" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M104 48H122"/><path d="M116 42L122 48L116 54"/></g><g transform="translate(128 0)"><line x1="98" y1="-6" x2="98" y2="101" stroke="#D6D6D6" stroke-width="4" stroke-linecap="round"/><polyline points="47,60 42,80 38,99" fill="none" stroke="#A3A3A3" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="38" y1="99" x2="45" y2="100" stroke="#A3A3A3" stroke-width="6" stroke-linecap="round"/><polyline points="52,35 62,37 75,37" fill="none" stroke="#A3A3A3" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><line x1="52" y1="32" x2="47" y2="60" stroke="#1A1A1A" stroke-width="11" stroke-linecap="round"/><circle cx="55" cy="21" r="7" fill="#1A1A1A"/><polyline points="47,60 55,80 56,99" fill="none" stroke="#1A1A1A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><line x1="56" y1="99" x2="63" y2="100" stroke="#1A1A1A" stroke-width="6.5" stroke-linecap="round"/><circle cx="89" cy="35" r="7" fill="#C82323"/><path d="M82.56 32.55Q89 37.45 95.44 32.55" fill="none" stroke="#fff" stroke-width="1.3" opacity=".85"/><path d="M86.55 28.56Q91.1 35 86.55 41.44" fill="none" stroke="#fff" stroke-width="1.3" opacity=".6"/><polyline points="52,35 65,36 78,36" fill="none" stroke="#1A1A1A" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/><g stroke="#C82323" stroke-width="1.6" stroke-linecap="round"><line x1="79" y1="30" x2="72" y2="30"/><line x1="79" y1="40" x2="72" y2="40"/></g></g><g font-family="Archivo, Arial, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1.4" text-anchor="middle" fill="#8A8A8A"><text x="50" y="114">LOAD</text><text x="178" y="114" fill="#C82323">THROW</text></g></svg></div>
+              <div class="ex-bd">
+                <h3>Wall chest pass</h3>
+                <div class="ex-meta"><span>Chest · triceps · power</span><b>10–15 reps</b></div>
+                <ul><li>Stand 1–1.5 m from a solid wall, one foot forward.</li><li>Push the ball from your chest as fast as you can.</li><li>Catch with soft elbows and reload.</li></ul>
+                <div class="ex-tip"><b>Tip:</b> Aim for one spot on the wall at chest height.</div>
+                <div class="ex-sc"><div><b>Easier</b>Step closer, lighter ball</div><div><b>Harder</b>Quarter squat before each throw</div></div>
+              </div>
+            </article>
+            <article class="ex">
+              <div class="ex-art"><span class="ex-no">7</span><svg viewBox="-4 -16 236 134" role="img" aria-hidden="true"><line x1="2" y1="101.5" x2="98" y2="101.5" stroke="#D6D6D6" stroke-width="2.5" stroke-linecap="round"/><line x1="130" y1="101.5" x2="226" y2="101.5" stroke="#D6D6D6" stroke-width="2.5" stroke-linecap="round"/><g transform="translate(0 0)"><polyline points="54,94 59,73 79,73" fill="none" stroke="#A3A3A3" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="26,93 31,80 33,67" fill="none" stroke="#A3A3A3" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><line x1="24" y1="93" x2="54" y2="94" stroke="#1A1A1A" stroke-width="11" stroke-linecap="round"/><circle cx="15" cy="91" r="7" fill="#1A1A1A"/><polyline points="54,94 56,72 76,72" fill="none" stroke="#1A1A1A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="31" cy="59" r="7" fill="#C82323"/><path d="M24.56 56.55Q31 61.45 37.44 56.55" fill="none" stroke="#fff" stroke-width="1.3" opacity=".85"/><path d="M28.55 52.56Q33.1 59 28.55 65.44" fill="none" stroke="#fff" stroke-width="1.3" opacity=".6"/><polyline points="26,93 28,79 30,66" fill="none" stroke="#1A1A1A" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/></g><g stroke="#C82323" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M104 48H122"/><path d="M116 42L122 48L116 54"/></g><g transform="translate(128 0)"><polyline points="54,94 59,73 79,73" fill="none" stroke="#A3A3A3" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/><polyline points="26,93 15,87 3,82" fill="none" stroke="#A3A3A3" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><line x1="24" y1="93" x2="54" y2="94" stroke="#1A1A1A" stroke-width="11" stroke-linecap="round"/><circle cx="15" cy="91" r="7" fill="#1A1A1A"/><polyline points="54,94 74,90 94,86" fill="none" stroke="#1A1A1A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><circle cx="-5" cy="80" r="7" fill="#C82323"/><path d="M-11.440000000000001 77.55Q-5 82.45 1.4400000000000004 77.55" fill="none" stroke="#fff" stroke-width="1.3" opacity=".85"/><path d="M-7.449999999999999 73.56Q-2.9 80 -7.449999999999999 86.44" fill="none" stroke="#fff" stroke-width="1.3" opacity=".6"/><polyline points="26,93 13,85 1,80" fill="none" stroke="#1A1A1A" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/></g><g font-family="Archivo, Arial, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1.4" text-anchor="middle" fill="#8A8A8A"><text x="50" y="114">START</text><text x="178" y="114" fill="#C82323">FINISH</text></g></svg></div>
+              <div class="ex-bd">
+                <h3>Dead bug reach</h3>
+                <div class="ex-meta"><span>Deep core</span><b>8–10 slow reps</b></div>
+                <ul><li>Lie on your back, ball over chest, knees at 90°.</li><li>Reach the ball back as one leg straightens.</li><li>Keep your lower back pressed into the floor.</li></ul>
+                <div class="ex-tip"><b>Tip:</b> Go slower than feels necessary: 3 s out, 3 s back.</div>
+                <div class="ex-sc"><div><b>Easier</b>Move the ball only, legs still</div><div><b>Harder</b>Straighten both legs</div></div>
+              </div>
+            </article>
+            <article class="ex">
+              <div class="ex-art"><span class="ex-no">8</span><svg viewBox="-4 -16 236 134" role="img" aria-hidden="true"><line x1="2" y1="101.5" x2="98" y2="101.5" stroke="#D6D6D6" stroke-width="2.5" stroke-linecap="round"/><line x1="130" y1="101.5" x2="226" y2="101.5" stroke="#D6D6D6" stroke-width="2.5" stroke-linecap="round"/><g transform="translate(0 0)"><g stroke="#D6D6D6" stroke-width="3.5" stroke-linecap="round" fill="none"><path d="M14 42V78H42"/><path d="M17 78V100"/><path d="M40 78V100"/></g><polyline points="33,74 52,75 54,99" fill="none" stroke="#A3A3A3" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="54" y1="99" x2="61" y2="100" stroke="#A3A3A3" stroke-width="6" stroke-linecap="round"/><polyline points="38,50 42,62 50,55" fill="none" stroke="#A3A3A3" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><line x1="38" y1="47" x2="33" y2="74" stroke="#1A1A1A" stroke-width="11" stroke-linecap="round"/><circle cx="41" cy="36" r="7" fill="#1A1A1A"/><polyline points="33,74 55,75 57,99" fill="none" stroke="#1A1A1A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><line x1="57" y1="99" x2="64" y2="100" stroke="#1A1A1A" stroke-width="6.5" stroke-linecap="round"/><circle cx="57" cy="53" r="7" fill="#C82323"/><path d="M50.56 50.55Q57 55.45 63.44 50.55" fill="none" stroke="#fff" stroke-width="1.3" opacity=".85"/><path d="M54.55 46.56Q59.1 53 54.55 59.44" fill="none" stroke="#fff" stroke-width="1.3" opacity=".6"/><polyline points="38,50 45,62 53,54" fill="none" stroke="#1A1A1A" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/></g><g stroke="#C82323" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M104 48H122"/><path d="M116 42L122 48L116 54"/></g><g transform="translate(128 0)"><g stroke="#D6D6D6" stroke-width="3.5" stroke-linecap="round" fill="none"><path d="M14 42V78H42"/><path d="M17 78V100"/><path d="M40 78V100"/></g><polyline points="55,59 55,80 54,99" fill="none" stroke="#A3A3A3" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="54" y1="99" x2="61" y2="100" stroke="#A3A3A3" stroke-width="6" stroke-linecap="round"/><polyline points="57,34 59,48 66,42" fill="none" stroke="#A3A3A3" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><line x1="57" y1="31" x2="55" y2="59" stroke="#1A1A1A" stroke-width="11" stroke-linecap="round"/><circle cx="59" cy="20" r="7" fill="#1A1A1A"/><polyline points="55,59 58,80 57,99" fill="none" stroke="#1A1A1A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><line x1="57" y1="99" x2="64" y2="100" stroke="#1A1A1A" stroke-width="6.5" stroke-linecap="round"/><circle cx="73" cy="40" r="7" fill="#C82323"/><path d="M66.56 37.55Q73 42.45 79.44 37.55" fill="none" stroke="#fff" stroke-width="1.3" opacity=".85"/><path d="M70.55 33.56Q75.1 40 70.55 46.44" fill="none" stroke="#fff" stroke-width="1.3" opacity=".6"/><polyline points="57,34 62,48 69,41" fill="none" stroke="#1A1A1A" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/></g><g font-family="Archivo, Arial, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1.4" text-anchor="middle" fill="#8A8A8A"><text x="50" y="114">START</text><text x="178" y="114" fill="#C82323">FINISH</text></g></svg></div>
+              <div class="ex-bd">
+                <h3>Sit-to-stand</h3>
+                <div class="ex-meta"><span>Legs · glutes · balance</span><b>8–12 reps</b></div>
+                <ul><li>Sit on the front half of a sturdy chair.</li><li>Lean forward and stand without using your hands.</li><li>Lower slowly, over 3 seconds, to touch the seat.</li></ul>
+                <div class="ex-tip"><b>Tip:</b> Push the floor away with your whole foot.</div>
+                <div class="ex-sc"><div><b>Easier</b>Higher seat or add a cushion</div><div><b>Harder</b>Hover 2 s just above the seat</div></div>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="foot"><span>exercisemenu.com</span><span>Issue 03 · <b>Medicine Ball Collection</b></span></div>
+      </div>
+    </section>
+
+    <!-- ============ 8 · W1 FULL BODY ============ -->
+    <section class="page" data-title="W1 Full-Body Circuit">
+      <div class="pg">
+        <div class="top"><span class="sec"><i></i>Workout 01</span><span class="pno">08</span></div>
+        <div class="body">
+          <div class="w-head">
+            <div class="w-num"><div>Workout<b>01</b></div></div>
+            <div>
+              <h2 class="h1" style="font-size:2.6em">Full-body <span class="r">circuit</span></h2>
+              <div class="chips" style="margin-top:.6em"><span class="chip red">20 min</span><span class="chip">40 s on · 20 s off</span><span class="chip">3 rounds</span><span class="chip dark">All levels</span></div>
+            </div>
+          </div>
+          <p class="lead" style="margin-top:.9em">Six moves, back to back. Work for 40 seconds, rest for 20, then move to the next exercise. Rest 60–90 seconds after each round.</p>
+          <div class="timeline" aria-hidden="true">
+            <div class="on">40 s</div><div class="off">20</div><div class="on">40 s</div><div class="off">20</div><div class="on">40 s</div><div class="off">20</div><div class="on">40 s</div><div class="off">20</div><div class="on">40 s</div><div class="off">20</div><div class="on">40 s</div><div class="off">20</div>
+          </div>
+          <p class="small" style="margin:.35em 0 1em">One round = 6 minutes</p>
+          <div class="w-list">
+            <div class="w-row"><span class="n">1</span><div><b>Squat to press</b><p>Smooth rhythm; press on every rep. <span class="card-ref">Card 1</span></p></div><div class="dose">40 s</div></div>
+            <div class="w-row"><span class="n">2</span><div><b>Rotational lunge</b><p>Alternate legs each rep. <span class="card-ref">Card 5</span></p></div><div class="dose">40 s</div></div>
+            <div class="w-row"><span class="n">3</span><div><b>Wall chest pass</b><p>Fast throws, soft catches. No wall? Do push-ups. <span class="card-ref">Card 6</span></p></div><div class="dose">40 s</div></div>
+            <div class="w-row"><span class="n">4</span><div><b>Ball slam</b><p>Slam ball only; otherwise swap for woodchops. <span class="card-ref">Card 2</span></p></div><div class="dose">40 s</div></div>
+            <div class="w-row"><span class="n">5</span><div><b>Woodchop</b><p>Switch sides each round. <span class="card-ref">Card 4</span></p></div><div class="dose">40 s</div></div>
+            <div class="w-row"><span class="n">6</span><div><b>Russian twist</b><p>Controlled turns, feet down. <span class="card-ref">Card 3</span></p></div><div class="dose">40 s</div></div>
+          </div>
+          <div class="scale" style="margin-top:1em">
+            <div><b>Beginner</b>30 s on, 30 s off. 2 rounds.</div>
+            <div><b>Standard</b>40 s on, 20 s off. 3 rounds.</div>
+            <div><b>Advanced</b>45 s on, 15 s off. 4 rounds.</div>
+          </div>
+          <div class="card black" style="margin-top:.9em">
+            <div class="kick" style="color:#FF8A8A">Swap guide</div>
+            <div class="g2" style="gap:.35em 1.2em;font-size:.82em">
+              <div><b>No wall?</b> <span style="color:#CFCFCF">Push-ups or partner passes</span></div>
+              <div><b>No slam ball?</b> <span style="color:#CFCFCF">Fast woodchops</span></div>
+              <div><b>Sore knees?</b> <span style="color:#CFCFCF">Half squats, split squat instead of lunge</span></div>
+              <div><b>Low ceiling?</b> <span style="color:#CFCFCF">Press to chin height, chop from shoulder</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="foot"><span>exercisemenu.com</span><span>Issue 03 · <b>Medicine Ball Collection</b></span></div>
+      </div>
+    </section>
+
+    <!-- ============ 9 · W2 CORE ============ -->
+    <section class="page" data-title="W2 Core 15">
+      <div class="pg">
+        <div class="top"><span class="sec"><i></i>Workout 02</span><span class="pno">09</span></div>
+        <div class="body">
+          <div class="w-head">
+            <div class="w-num"><div>Workout<b>02</b></div></div>
+            <div>
+              <h2 class="h1" style="font-size:2.6em">Core <span class="r">15</span></h2>
+              <div class="chips" style="margin-top:.6em"><span class="chip red">15 min</span><span class="chip">Reps</span><span class="chip">3 rounds</span><span class="chip dark">Beginner+</span></div>
+            </div>
+          </div>
+          <p class="lead" style="margin-top:.9em">Slow, controlled reps for the deep core, then rotation, then one fast finisher. Rest 30 seconds between exercises and 1 minute between rounds.</p>
+          <div class="w-list" style="margin-top:1em">
+            <div class="w-row"><span class="n">1</span><div><b>Dead bug reach</b><p>Lower back stays flat. Alternate legs. <span class="card-ref">Card 7</span></p></div><div class="dose">10<small>reps</small></div></div>
+            <div class="w-row"><span class="n">2</span><div><b>Crunch &amp; reach</b><p>Lie on your back, knees bent, ball on chest. Curl up and reach the ball toward your knees.</p></div><div class="dose">12<small>reps</small></div></div>
+            <div class="w-row"><span class="n">3</span><div><b>Russian twist</b><p>Count one touch per side. <span class="card-ref">Card 3</span></p></div><div class="dose">16<small>touches</small></div></div>
+            <div class="w-row"><span class="n">4</span><div><b>Plank ball roll</b><p>In a push-up plank, roll the ball from one hand to the other without letting your hips sway.</p></div><div class="dose">10<small>rolls</small></div></div>
+            <div class="w-row"><span class="n">5</span><div><b>Woodchop</b><p>Fast down, slow up. <span class="card-ref">Card 4</span></p></div><div class="dose">8<small>per side</small></div></div>
+            <div class="w-row"><span class="n">6</span><div><b>Ball slam finisher</b><p>Slam ball only; swap for 20 s of fast chops if you don’t have one. <span class="card-ref">Card 2</span></p></div><div class="dose">8<small>reps</small></div></div>
+          </div>
+          <div class="g2" style="margin-top:1em">
+            <div class="card tint"><div class="h3" style="font-size:.95em">Why slow first?</div><p style="font-size:.82em;margin-top:.25em">Control moves come first while you are fresh, so your lower back stays protected. Speed comes last, when the core is warm.</p></div>
+            <div class="card"><div class="h3" style="font-size:.95em">Progress it</div><p style="font-size:.82em;margin-top:.25em;color:#444">Add 2 reps per exercise each week, or cut the rest between exercises to 15 seconds.</p></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:.8em;margin-top:.9em;font:800 .78em/1 var(--display);letter-spacing:.1em;text-transform:uppercase">
+            <span>Rounds done:</span><span class="chip">□ Round 1</span><span class="chip">□ Round 2</span><span class="chip">□ Round 3</span>
+          </div>
+          <div class="srcs">Go deeper: <a class="link" href="https://exercisemenu.com/medicine-ball-ab-exercises/">Medicine ball ab exercises</a></div>
+        </div>
+        <div class="foot"><span>exercisemenu.com</span><span>Issue 03 · <b>Medicine Ball Collection</b></span></div>
+      </div>
+    </section>
+
+    <!-- ============ 10 · W3 PARTNER ============ -->
+    <section class="page" data-title="W3 Partner &amp; Family">
+      <div class="pg">
+        <div class="top"><span class="sec"><i></i>Workout 03</span><span class="pno">10</span></div>
+        <div class="body">
+          <div class="w-head">
+            <div class="w-num"><div>Workout<b>03</b></div></div>
+            <div>
+              <h2 class="h1" style="font-size:2.6em">Partner <span class="r">&amp; family</span></h2>
+              <div class="chips" style="margin-top:.6em"><span class="chip red">20 min</span><span class="chip">2+ people</span><span class="chip">30 s each</span><span class="chip dark">Fun first</span></div>
+            </div>
+          </div>
+          <p class="lead" style="margin-top:.9em">Stand 2–3 metres apart, facing each other. Keep passing for 30 seconds per exercise. Count your passes and try to beat the total next round. Three rounds, 1 minute rest between.</p>
+          <div class="w-list" style="margin-top:1em">
+            <div class="w-row"><span class="n">1</span><div><b>Chest pass</b><p>Push from the chest to your partner’s chest height.</p></div><div class="dose">30 s</div></div>
+            <div class="w-row"><span class="n">2</span><div><b>Squat &amp; pass</b><p>Catch, squat, stand and pass. Partners take turns squatting.</p></div><div class="dose">30 s</div></div>
+            <div class="w-row"><span class="n">3</span><div><b>Side toss</b><p>Stand side-on, turn from the hips and toss from hip height. Switch sides each round.</p></div><div class="dose">30 s</div></div>
+            <div class="w-row"><span class="n">4</span><div><b>Overhead throw</b><p>Like a football throw-in: both hands, ball behind the head, step and throw.</p></div><div class="dose">30 s</div></div>
+            <div class="w-row"><span class="n">5</span><div><b>Sit-up pass</b><p>Both partners sit, knees bent. Pass at the top of each sit-up.</p></div><div class="dose">30 s</div></div>
+            <div class="w-row"><span class="n">6</span><div><b>Back-to-back pass</b><p>Stand back to back, turn and hand the ball over. Switch direction halfway.</p></div><div class="dose">30 s</div></div>
+          </div>
+          <div class="card black" style="margin-top:1em;display:grid;grid-template-columns:1fr 1.3fr;gap:1.2em;align-items:center">
+            <div><div class="kick" style="color:#FF8A8A;margin-bottom:.35em">Kids version</div><div class="h3" style="color:#fff">Under 12s</div></div>
+            <p style="font-size:.82em;color:#DADADA">Use a 0.5–1 kg soft ball, 8–10 passes instead of 30 seconds, no slams, and an adult in every pair. Make it a game: tape a target on the wall and score points.</p>
+          </div>
+          <div class="card tint" style="margin-top:.9em;display:grid;grid-template-columns:1fr auto;gap:1em;align-items:center">
+            <p style="font-size:.84em"><b style="color:var(--red)">Family challenge:</b> how many chest passes can your group make in 2 minutes without a drop? Write it down and beat it next week.</p>
+            <div style="border:2px solid var(--black);border-radius:.6em;padding:.5em 1em;font:800 .7em var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);min-width:8em">Score:</div>
+          </div>
+          <div class="srcs">Go deeper: <a class="link" href="https://exercisemenu.com/partner-medicine-ball-exercises/">Partner medicine ball exercises</a></div>
+        </div>
+        <div class="foot"><span>exercisemenu.com</span><span>Issue 03 · <b>Medicine Ball Collection</b></span></div>
+      </div>
+    </section>
+
+    <!-- ============ 11 · W4 50+ ============ -->
+    <section class="page" data-title="W4 Strong at 50+">
+      <div class="pg">
+        <div class="top"><span class="sec"><i></i>Workout 04</span><span class="pno">11</span></div>
+        <div class="body">
+          <div class="w-head">
+            <div class="w-num"><div>Workout<b>04</b></div></div>
+            <div>
+              <h2 class="h1" style="font-size:2.6em">Strong <span class="r">at 50+</span></h2>
+              <div class="chips" style="margin-top:.6em"><span class="chip red">20–25 min</span><span class="chip">2–3 sets</span><span class="chip">60 s rest</span><span class="chip dark">Low impact</span></div>
+            </div>
+          </div>
+          <p class="lead" style="margin-top:.9em">Keep a chair or counter within reach. Lift, stand or push <b>quickly</b>, then lower <b>slowly</b> over 3 seconds. That combination trains power as well as strength.<sup class="ref">3</sup></p>
+          <div class="w-list" style="margin-top:1em">
+            <div class="w-row"><span class="n">1</span><div><b>Sit-to-stand</b><p>Stand up briskly, sit down slowly. <span class="card-ref">Card 8</span></p></div><div class="dose">8–12</div></div>
+            <div class="w-row"><span class="n">2</span><div><b>Seated chest push</b><p>Sit tall. Push the ball from chest to arm’s length quickly, return slowly.</p></div><div class="dose">10–12</div></div>
+            <div class="w-row"><span class="n">3</span><div><b>Standing trunk turn</b><p>Ball at chest, hips facing forward. Turn side to side at an easy pace.</p></div><div class="dose">8<small>per side</small></div></div>
+            <div class="w-row"><span class="n">4</span><div><b>Front raise to overhead</b><p>Lift the ball from hips to overhead, arms long. Lower over 3 seconds.</p></div><div class="dose">10</div></div>
+            <div class="w-row"><span class="n">5</span><div><b>Gentle wall pass</b><p>Stand an arm’s length plus one step from the wall. Light, quick passes. <span class="card-ref">Card 6</span></p></div><div class="dose">10</div></div>
+            <div class="w-row"><span class="n">6</span><div><b>Heel-to-toe balance</b><p>Hold the ball at chest, one foot directly in front of the other, next to a counter.</p></div><div class="dose">20–30 s<small>each side</small></div></div>
+          </div>
+          <div class="g2" style="margin-top:1em">
+            <div class="card tint"><div class="h3" style="font-size:.95em">How often?</div><p style="font-size:.82em;margin-top:.25em">Three days a week. The WHO advises older adults to combine balance and strength work on three or more days.<sup class="ref">4</sup></p></div>
+            <div class="card"><div class="h3" style="font-size:.95em">Ball weight</div><p style="font-size:.82em;margin-top:.25em;color:#444">Start with 1–2 kg. Move up only when every rep of every set feels controlled.</p></div>
+          </div>
+          <div class="card black" style="margin-top:.9em;font-size:.84em"><b style="color:#FF8A8A">Stop and rest</b> <span style="color:#DADADA">if you feel dizzy, short of breath or chest discomfort. If you take blood pressure medication or have a heart condition, get your doctor’s OK first.</span></div>
+          <div class="srcs"><sup class="ref">3</sup> <a href="https://pubmed.ncbi.nlm.nih.gov/35953775/"><em>Eur Rev Aging Phys Act</em></a> (2022) · <sup class="ref">4</sup> Bull et al., <a href="https://pubmed.ncbi.nlm.nih.gov/33239350/">WHO guidelines</a> (2020) · Go deeper: <a class="link" href="https://exercisemenu.com/reps-and-sets-for-adults-over-50/">Reps and sets for adults over 50</a></div>
+        </div>
+        <div class="foot"><span>exercisemenu.com</span><span>Issue 03 · <b>Medicine Ball Collection</b></span></div>
+      </div>
+    </section>
+
+    <!-- ============ 12 · INTERVIEW ============ -->
+    <section class="page" data-title="Coach Interview">
+      <div class="pg">
+        <div class="top"><span class="sec"><i></i>Coach Interview</span><span class="pno">12</span></div>
+        <div class="body">
+          <div class="iv-name">In conversation · Sadia Baloch</div>
+          <h2 class="iv-title">One ball, <span class="r">whole family</span></h2>
+          <p class="lead" style="margin-bottom:1.1em">How our head coach uses a single medicine ball to train clients at home, whole families, and adults over 50.</p>
+          <div class="qa">
+            <p class="q">Why a medicine ball for home training?</p>
+            <p>One piece of kit covers pushing, squatting, turning and throwing. It’s small and it doesn’t need a rack or a bench. Most people who train at home stop because setting up feels like a chore. A ball in the corner removes that excuse.</p>
+            <p class="q">What can it do that dumbbells can’t?</p>
+            <p>You can throw it. Throwing teaches your body to produce force quickly, and that’s the part of fitness daily life asks for most: lifting a case into an overhead bin, or getting up from the floor after playing with the kids.</p>
+            <p class="q">How do you get families training together?</p>
+            <p>Make it a game. Count passes, not reps. Kids love a target, so I tape a square on the wall and let them aim at it. Parents end up working harder than they planned because they’re competing with a nine-year-old.</p>
+            <p class="q">What changes for clients over 50?</p>
+            <p>Lighter ball, more control, and a chair nearby. We keep the lifting phase quick and the lowering slow. Balance is built into every session; a 20-second heel-to-toe hold with a ball is harder than it sounds.</p>
+            <p class="q">When do people notice a difference?</p>
+            <p>Most clients tell me everyday things feel easier first: carrying shopping, getting off the floor. The mirror takes longer, which is why the log on page 15 matters.</p>
+            <p class="q">One tip for today?</p>
+            <p>Put the ball where you’ll see it. The easiest workout to start is the one already waiting in your living room.</p>
+          </div>
+          <div class="g2" style="margin-top:1.1em">
+            <div class="card red"><div class="h3" style="color:#fff;font-size:.95em">The coach’s home setup</div><p style="font-size:.82em;margin-top:.3em">One 3–4 kg ball, one clear wall, one chair, a timer on your phone. Total floor space: about the size of a yoga mat and a half.</p></div>
+            <div class="card"><div class="h3" style="font-size:.95em">Families: start here</div><p style="font-size:.82em;margin-top:.3em;color:#444">Do Workout 3 once a week on the weekend, then let kids pick one move from the cards for a 5-minute “bonus round.”</p></div>
+          </div>
+        </div>
+        <div class="foot"><span>exercisemenu.com</span><span>Issue 03 · <b>Medicine Ball Collection</b></span></div>
+      </div>
+    </section>
+
+    <!-- ============ 13 · 4-WEEK PLAN ============ -->
+    <section class="page" data-title="4-Week Plan">
+      <div class="pg">
+        <div class="top"><span class="sec"><i></i>The Plan</span><span class="pno">13</span></div>
+        <div class="body">
+          <div class="kick">28 days</div>
+          <h2 class="h1">Your <span class="r">4-week plan</span></h2>
+          <p class="lead">Pick one track. Each week the same workouts get a little harder, so you always know what “more” means.</p>
+
+          <div class="h3" style="margin:1.1em 0 .3em">Track A · Solo or family</div>
+          <table class="cal">
+            <tr><th style="width:12%"></th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr>
+            <tr><td>Wk 1</td><td class="fb">W1<small>2 rds</small></td><td class="rest">Walk</td><td class="co">W2<small>2 rds</small></td><td class="rest">Rest</td><td class="fb">W1<small>2 rds</small></td><td class="pa">W3<small>optional</small></td><td class="rest">Rest</td></tr>
+            <tr><td>Wk 2</td><td class="fb">W1<small>3 rds</small></td><td class="rest">Walk</td><td class="co">W2<small>3 rds</small></td><td class="rest">Rest</td><td class="fb">W1<small>3 rds</small></td><td class="pa">W3<small>optional</small></td><td class="rest">Rest</td></tr>
+            <tr><td>Wk 3</td><td class="fb">W1<small>3 rds · 45 s</small></td><td class="rest">Walk</td><td class="co">W2<small>+2 reps</small></td><td class="rest">Rest</td><td class="fb">W1<small>3 rds · 45 s</small></td><td class="pa">W3<small>optional</small></td><td class="rest">Rest</td></tr>
+            <tr><td>Wk 4</td><td class="fb">W1<small>4 rds</small></td><td class="rest">Walk</td><td class="co">W2<small>15 s rest</small></td><td class="rest">Rest</td><td class="fb">W1<small>4 rds</small></td><td class="pa">W3<small>optional</small></td><td class="rest">Rest</td></tr>
+          </table>
+
+          <div class="h3" style="margin:1.1em 0 .3em">Track B · 50+</div>
+          <table class="cal">
+            <tr><th style="width:12%"></th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th></tr>
+            <tr><td>Wk 1</td><td class="ol">W4<small>2 × 8</small></td><td class="rest">Walk</td><td class="ol">W4<small>2 × 8</small></td><td class="rest">Walk</td><td class="ol">W4<small>2 × 8</small></td><td class="rest">Rest</td><td class="rest">Rest</td></tr>
+            <tr><td>Wk 2</td><td class="ol">W4<small>2 × 10</small></td><td class="rest">Walk</td><td class="ol">W4<small>2 × 10</small></td><td class="rest">Walk</td><td class="ol">W4<small>2 × 10</small></td><td class="rest">Rest</td><td class="rest">Rest</td></tr>
+            <tr><td>Wk 3</td><td class="ol">W4<small>3 × 10</small></td><td class="rest">Walk</td><td class="ol">W4<small>3 × 10</small></td><td class="rest">Walk</td><td class="ol">W4<small>3 × 10</small></td><td class="pa">W3<small>with family</small></td><td class="rest">Rest</td></tr>
+            <tr><td>Wk 4</td><td class="ol">W4<small>3 × 12</small></td><td class="rest">Walk</td><td class="ol">W4<small>3 × 12</small></td><td class="rest">Walk</td><td class="ol">W4<small>3 × 12</small></td><td class="pa">W3<small>with family</small></td><td class="rest">Rest</td></tr>
+          </table>
+          <div class="legend">
+            <span><i style="background:var(--red)"></i>W1 Full body</span>
+            <span><i style="background:#000"></i>W2 Core</span>
+            <span><i style="background:var(--red-tint);border:1.5px dashed var(--red)"></i>W3 Partner (optional)</span>
+            <span><i style="background:#fff;border:2px solid #000"></i>W4 Strong at 50+</span>
+          </div>
+          <div class="card tint" style="margin-top:1em"><p style="font-size:.84em"><b>After week 4:</b> repeat the plan with a ball 1 kg heavier for strength moves, or keep the same ball and move up to the next level in each workout’s “Advanced” option.</p></div>
+        </div>
+        <div class="foot"><span>exercisemenu.com</span><span>Issue 03 · <b>Medicine Ball Collection</b></span></div>
+      </div>
+    </section>
+
+    <!-- ============ 14 · MISTAKES ============ -->
+    <section class="page" data-title="Form Mistakes">
+      <div class="pg">
+        <div class="top"><span class="sec"><i></i>Technique</span><span class="pno">14</span></div>
+        <div class="body">
+          <div class="kick">Spot them early</div>
+          <h2 class="h1">6 form <span class="r">mistakes</span></h2>
+          <p class="lead">Most medicine ball injuries come from a few repeat errors. Check yourself against this page in week 1.</p>
+          <div class="mist" style="margin-top:1.2em">
+            <div class="card"><span class="x">✕</span><div><b>Twisting from the lower back</b><p>Turning only at the waist loads the lower spine.</p><span class="fix">Turn your ribcage and let your back foot pivot in chops and tosses.</span></div></div>
+            <div class="card"><span class="x">✕</span><div><b>Rounded back on the pick-up</b><p>Grabbing the ball after a slam with a curved back.</p><span class="fix">Squat down to it, chest up, then stand.</span></div></div>
+            <div class="card"><span class="x">✕</span><div><b>A slow, heavy throw</b><p>If the ball floats, you are training strength, not power.</p><span class="fix">Go lighter until every throw is fast.</span></div></div>
+            <div class="card"><span class="x">✕</span><div><b>Holding your breath</b><p>Bracing without breathing spikes pressure and slows you down.</p><span class="fix">Breathe out sharply on each throw or slam.</span></div></div>
+            <div class="card"><span class="x">✕</span><div><b>Arched back on core moves</b><p>During dead bugs, the lower back lifts off the floor.</p><span class="fix">Shorten the reach until your back stays flat.</span></div></div>
+            <div class="card"><span class="x">✕</span><div><b>Knees caving in</b><p>In squats and lunges, knees drift toward each other.</p><span class="fix">Push knees out in line with your toes.</span></div></div>
+          </div>
+          <div class="card" style="margin-top:1em;display:grid;grid-template-columns:1fr 13em;gap:1em;align-items:center">
+            <div style="background:#F2F2F2;border-radius:.7em;padding:.4em .6em"><svg viewBox="-4 20 236 100" role="img" aria-hidden="true"><line x1="2" y1="101.5" x2="98" y2="101.5" stroke="#D6D6D6" stroke-width="2.5" stroke-linecap="round"/><line x1="130" y1="101.5" x2="226" y2="101.5" stroke="#D6D6D6" stroke-width="2.5" stroke-linecap="round"/><line x1="114" y1="10" x2="114" y2="104" stroke="#D6D6D6" stroke-width="1.5" stroke-dasharray="3 4"/><g transform="translate(0 0)"><polyline points="46,58 47,79 47,99" fill="none" stroke="#A3A3A3" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="47" y1="99" x2="54" y2="100" stroke="#A3A3A3" stroke-width="6" stroke-linecap="round"/><polyline points="72,74 71,86 72,94" fill="none" stroke="#A3A3A3" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><path d="M46 58Q66 46 73 72" fill="none" stroke="#1A1A1A" stroke-width="11" stroke-linecap="round"/><circle cx="80" cy="80" r="7" fill="#1A1A1A"/><polyline points="46,58 50,79 50,99" fill="none" stroke="#1A1A1A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><line x1="50" y1="99" x2="57" y2="100" stroke="#1A1A1A" stroke-width="6.5" stroke-linecap="round"/><circle cx="79" cy="93" r="7" fill="#C82323"/><path d="M72.56 90.55Q79 95.45 85.44 90.55" fill="none" stroke="#fff" stroke-width="1.3" opacity=".85"/><path d="M76.55 86.56Q81.1 93 76.55 99.44" fill="none" stroke="#fff" stroke-width="1.3" opacity=".6"/><polyline points="72,74 74,85 75,93" fill="none" stroke="#1A1A1A" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/></g><g transform="translate(128 0)"><polyline points="40,74 61,81 49,99" fill="none" stroke="#A3A3A3" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/><line x1="49" y1="99" x2="56" y2="100" stroke="#A3A3A3" stroke-width="6" stroke-linecap="round"/><polyline points="59,54 61,69 66,86" fill="none" stroke="#A3A3A3" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><line x1="59" y1="51" x2="40" y2="74" stroke="#1A1A1A" stroke-width="11" stroke-linecap="round"/><circle cx="64" cy="41" r="7" fill="#1A1A1A"/><polyline points="40,74 64,81 52,99" fill="none" stroke="#1A1A1A" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><line x1="52" y1="99" x2="59" y2="100" stroke="#1A1A1A" stroke-width="6.5" stroke-linecap="round"/><circle cx="73" cy="92" r="7" fill="#C82323"/><path d="M66.56 89.55Q73 94.45 79.44 89.55" fill="none" stroke="#fff" stroke-width="1.3" opacity=".85"/><path d="M70.55 85.56Q75.1 92 70.55 98.44" fill="none" stroke="#fff" stroke-width="1.3" opacity=".6"/><polyline points="59,54 64,68 69,85" fill="none" stroke="#1A1A1A" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round"/></g><g font-family="Archivo, Arial, sans-serif" font-size="8.5" font-weight="800" letter-spacing="1.2" text-anchor="middle"><text x="50" y="115" fill="#C82323">✕ ROUNDED BACK</text><text x="178" y="115" fill="#1A1A1A">✓ FLAT BACK</text></g></svg></div>
+            <div><div class="h3" style="font-size:.95em">Picking the ball up</div><p style="font-size:.8em;color:#444;margin-top:.3em">After every slam, and at the start of every set. Bend your knees, keep your chest up, and lift with your legs.</p></div>
+          </div>
+          <div class="card black" style="margin-top:.9em;display:flex;gap:1em;align-items:center">
+            <div class="pno" style="width:3em;height:3em;font-size:1em;background:#fff;color:var(--red)">▶</div>
+            <p style="font-size:.86em;color:#E0E0E0"><b style="color:#fff">Film one set a week.</b> Prop your phone at hip height, side-on. Compare it with the exercise cards on pages 6–7.</p>
+          </div>
+        </div>
+        <div class="foot"><span>exercisemenu.com</span><span>Issue 03 · <b>Medicine Ball Collection</b></span></div>
+      </div>
+    </section>
+
+    <!-- ============ 15 · LOG ============ -->
+    <section class="page" data-title="Workout Log">
+      <div class="pg">
+        <div class="top"><span class="sec"><i></i>Printable</span><span class="pno">15</span></div>
+        <div class="body">
+          <h2 class="h1" style="font-size:2.4em">Workout <span class="r">log</span></h2>
+          <p class="small" style="margin:.4em 0 .9em">One row per session. Effort: 1 = easy, 5 = could not do more.</p>
+          <table class="log">
+            <colgroup><col style="width:6%"><col style="width:13%"><col style="width:13%"><col style="width:10%"><col style="width:17%"><col style="width:10%"><col></colgroup>
+            <tr><th>#</th><th>Date</th><th>Workout</th><th>Ball kg</th><th>Rounds / sets</th><th>Effort</th><th>Notes</th></tr>
+            <tr><td>1</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>2</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>3</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>4</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>5</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>6</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>7</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>8</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>9</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>10</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>11</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>12</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>13</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>14</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>15</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>16</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>17</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>18</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>19</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>20</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+          </table>
+          <div class="h3" style="margin:1.1em 0 .5em">Test yourself · day 1 vs day 28</div>
+          <div class="test">
+            <div class="card"><b>30-second wall passes</b><p>Count clean chest passes in 30 seconds.</p><div class="boxes"><div>Day 1</div><div>Day 28</div></div></div>
+            <div class="card"><b>30-second sit-to-stand</b><p>Count full stands from a chair in 30 seconds, arms across your chest.</p><div class="boxes"><div>Day 1</div><div>Day 28</div></div></div>
+          </div>
+        </div>
+        <div class="foot"><span>exercisemenu.com</span><span>Issue 03 · <b>Medicine Ball Collection</b></span></div>
+      </div>
+    </section>
+
+    <!-- ============ 16 · FAQ + SOURCES ============ -->
+    <section class="page" data-title="FAQ &amp; Sources">
+      <div class="pg">
+        <div class="top"><span class="sec"><i></i>Quick Answers</span><span class="pno">16</span></div>
+        <div class="body">
+          <h2 class="h1" style="font-size:2.4em;margin-bottom:.8em">You <span class="r">asked</span></h2>
+          <div class="faq">
+            <div class="card"><b>How often should I train?</b><p>Two or three times a week on non-consecutive days. Workout 4 works best three times a week.</p></div>
+            <div class="card"><b>No wall at home?</b><p>Pass with a partner, or lie on your back and press the ball straight up, catching it on the way down.</p></div>
+            <div class="card"><b>Will this help with fat loss?</b><p>Circuits raise your heart rate and build muscle, which helps. Fat loss depends mostly on your overall diet and daily activity. <a class="link" href="https://exercisemenu.com/how-many-reps-and-sets-for-fat-loss/">Reps and sets for fat loss</a></p></div>
+            <div class="card"><b>Is it safe for kids?</b><p>Supervised resistance training is considered safe for children when the load is light and technique comes first.<sup class="ref">5</sup></p></div>
+            <div class="card"><b>My lower back aches after twists.</b><p>Stop twists for a week, then return with feet on the floor and a smaller range. If it continues, see a professional.</p></div>
+            <div class="card"><b>Can I combine this with gym training?</b><p>Yes. Use Workout 2 after a gym session, or Workout 1 on a day you can’t get to the gym.</p></div>
+            <div class="card"><b>Which workout should I start with?</b><p>New to training: Workout 2 at the beginner level for a week, then add Workout 1. Over 50: start with Workout 4.</p></div>
+            <div class="card"><b>Can I do two workouts in one day?</b><p>Yes, if they’re different. Workout 1 plus Workout 2 makes a 35-minute session; skip the core finisher slams.</p></div>
+          </div>
+          <div class="h3" style="margin:1.3em 0 .45em">Sources</div>
+          <ol class="refs">
+            <li>Ignjatovic AM, et al. Effects of 12-week medicine ball training on muscle strength and power in young female handball players. <em>J Strength Cond Res</em>. 2012. <a href="https://pubmed.ncbi.nlm.nih.gov/22027860/">pubmed.ncbi.nlm.nih.gov/22027860</a></li>
+            <li>Raeder C, et al. Effects of six weeks of medicine ball training on throwing velocity, throwing precision, and isokinetic strength of shoulder rotators in female handball players. <em>J Strength Cond Res</em>. 2015. <a href="https://pubmed.ncbi.nlm.nih.gov/26102258/">pubmed.ncbi.nlm.nih.gov/26102258</a></li>
+            <li>Effectiveness of power training compared to strength training in older adults: a systematic review and meta-analysis. <em>Eur Rev Aging Phys Act</em>. 2022. <a href="https://pubmed.ncbi.nlm.nih.gov/35953775/">pubmed.ncbi.nlm.nih.gov/35953775</a></li>
+            <li>Bull FC, et al. World Health Organization 2020 guidelines on physical activity and sedentary behaviour. <em>Br J Sports Med</em>. 2020. <a href="https://pubmed.ncbi.nlm.nih.gov/33239350/">pubmed.ncbi.nlm.nih.gov/33239350</a></li>
+            <li>Faigenbaum AD, et al. Youth resistance training: updated position statement paper from the NSCA. <em>J Strength Cond Res</em>. 2009. <a href="https://journals.lww.com/nsca-jscr/fulltext/2009/08005/youth_resistance_training__updated_position.2.aspx">journals.lww.com/nsca-jscr</a></li>
+          </ol>
+          <p class="small" style="margin-top:.9em;font-size:.74em"><b style="color:var(--red)">Please note:</b> this collection is general information, not medical advice. If you have an injury, a heart condition or balance problems, or you are returning to exercise after a long break, check with your doctor first.</p>
+        </div>
+        <div class="foot"><span>exercisemenu.com</span><span>Issue 03 · <b>Medicine Ball Collection</b></span></div>
+      </div>
+    </section>
+
+    <!-- ============ 17 · BACK ============ -->
+    <section class="page" data-title="Keep Going">
+      <div class="pg">
+        <div class="back-hero">
+          <svg class="ballmark" viewBox="0 0 60 60" aria-hidden="true"><circle cx="30" cy="30" r="28" fill="#fff"/><path d="M4 24 Q30 40 56 24" fill="none" stroke="#C82323" stroke-width="2"/><path d="M22 3 Q36 30 22 57" fill="none" stroke="#C82323" stroke-width="2"/></svg>
+          <div class="kick" style="color:#FFD0D0">Keep going</div>
+          <h2 class="h1" style="font-size:2.7em">More medicine ball<br>guides, free</h2>
+          <p style="margin-top:.6em;font-weight:600;color:#FFE3E3">Every body part, every level. At exercisemenu.com.</p>
+        </div>
+        <div class="body" style="padding-top:1.4em">
+          <div class="g2" style="gap:.6em">
+            <a class="more" href="https://exercisemenu.com/10-medicine-ball-exercises-for-legs/"><div><b>10 moves for legs</b><span>With sets and reps</span></div><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+            <a class="more" href="https://exercisemenu.com/10-medicine-ball-chest-exercises/"><div><b>10 chest exercises</b><span>Strength and power</span></div><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+            <a class="more" href="https://exercisemenu.com/10-medicine-ball-exercises-for-back/"><div><b>10 moves for your back</b><span>No gym needed</span></div><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+            <a class="more" href="https://exercisemenu.com/medicine-ball-exercises-for-shoulders/"><div><b>10 moves for shoulders</b><span>Press, hold, throw</span></div><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+            <a class="more" href="https://exercisemenu.com/10-medicine-ball-exercises-for-arms/"><div><b>10 moves for arms</b><span>Biceps, triceps, shoulders</span></div><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+            <a class="more" href="https://exercisemenu.com/medicine-ball-exercises/"><div><b>The complete guide</b><span>Every medicine ball exercise</span></div><span class="go"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+          </div>
+
+          <div class="h3" style="margin:1.1em 0 .5em">Also in this series</div>
+          <div class="g2" style="gap:.6em">
+            <div class="card" style="border-left:.35em solid var(--black)"><div class="kick" style="margin-bottom:.3em">Issue 01</div><b style="font:900 .95em/1.2 var(--display);text-transform:uppercase">The Beginner’s Complete Training Foundation</b></div>
+            <div class="card" style="border-left:.35em solid var(--red)"><div class="kick" style="margin-bottom:.3em">Issue 02</div><b style="font:900 .95em/1.2 var(--display);text-transform:uppercase">The 12-Week Progressive Overload Workbook</b></div>
+          </div>
+          <div class="card black" style="margin:1em 0;display:flex;justify-content:space-between;align-items:center;gap:1em">
+            <div><div class="kick" style="color:#FF8A8A;margin-bottom:.35em">Coming next · Issue 04</div><div class="h3" style="color:#fff;font-size:1.25em">Plateau Breaker: the 8-week intermediate plan</div></div>
+          </div>
+
+          <div class="card" style="margin-bottom:1em;display:grid;grid-template-columns:auto 1fr;gap:1em;align-items:center">
+            <div class="pno" style="width:3em;height:3em;font-size:1em">✓</div>
+            <p style="font-size:.84em"><b>Print &amp; pin:</b> the exercise cards (pages 6–7) on the wall where you train, the 4-week plan (page 13) on the fridge, and the log (page 15) next to your ball.</p>
+          </div>
+          <div class="card tint">
+            <div class="h3">Send this collection to your inbox</div>
+            <form class="email-row no-print" id="emailForm" novalidate>
+              <label for="emailInput" style="position:absolute;left:-9999px">Your email address</label>
+              <input id="emailInput" type="email" placeholder="Your email address" autocomplete="email">
+              <button class="btn" type="submit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Email me</button>
+            </form>
+            <p class="email-help no-print" id="emailHelp">Opens your email app with the link ready to send.</p>
+            <p class="print-only" style="font-size:.88em;margin-top:.4em">Share it with a training partner: <a class="link" href="https://exercisemenu.com">exercisemenu.com</a></p>
+          </div>
+        </div>
+        <div class="foot"><span>exercisemenu.com</span><span>Issue 03 · <b>Medicine Ball Collection</b></span></div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<div class="nav nav-prev"><button id="prevBtn" type="button" aria-label="Previous page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button><span>Prev</span></div>
+<div class="nav nav-next"><button id="nextBtn" type="button" aria-label="Next page"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button><span id="counter">1 / 17</span></div>
+
+<script>
+(function () {
+  var pages = Array.prototype.slice.call(document.querySelectorAll('.page'));
+  var total = pages.length, current = 0;
+  var prevBtn = document.getElementById('prevBtn'), nextBtn = document.getElementById('nextBtn');
+  var counter = document.getElementById('counter'), progress = document.getElementById('progress');
+  var jump = document.getElementById('jump');
+  var TITLE = 'The Medicine Ball Workout Collection';
+
+  pages.forEach(function (p, i) {
+    p.setAttribute('aria-label', 'Page ' + (i + 1) + ' of ' + total + ': ' + p.dataset.title);
+    var o = document.createElement('option');
+    o.value = i; o.textContent = (i + 1) + ' · ' + p.dataset.title.replace('&amp;', '&');
+    jump.appendChild(o);
+  });
+
+  function go(i) {
+    if (i < 0 || i >= total || i === current) return;
+    pages[current].classList.remove('active');
+    pages[i].classList.add('active');
+    pages[i].scrollTop = 0;
+    current = i; update();
+  }
+  function update() {
+    counter.textContent = (current + 1) + ' / ' + total;
+    progress.style.width = ((current + 1) / total * 100) + '%';
+    jump.value = current;
+    pages.forEach(function (p, k) { p.setAttribute('aria-hidden', k === current ? 'false' : 'true'); });
+    prevBtn.disabled = current === 0; nextBtn.disabled = current === total - 1;
+    if (history.replaceState) history.replaceState(null, '', '#page-' + (current + 1));
+  }
+  prevBtn.addEventListener('click', function () { go(current - 1); });
+  nextBtn.addEventListener('click', function () { go(current + 1); });
+  jump.addEventListener('change', function () { go(parseInt(jump.value, 10)); });
+  document.addEventListener('keydown', function (e) {
+    if (e.target && /INPUT|TEXTAREA|SELECT/.test(e.target.tagName)) return;
+    if (e.key === 'ArrowRight' || e.key === 'PageDown') { e.preventDefault(); go(current + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'PageUp') { e.preventDefault(); go(current - 1); }
+    else if (e.key === 'Home') go(0); else if (e.key === 'End') go(total - 1);
+  });
+  // In-page links like #page-8 (contents page)
+  document.querySelectorAll('a[href^="#page-"]').forEach(function (a) {
+    a.addEventListener('click', function (e) { e.preventDefault(); go(parseInt(a.getAttribute('href').slice(6), 10) - 1); });
+  });
+  var sx = null, sy = null, book = document.getElementById('book');
+  book.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; sy = e.touches[0].clientY; }, { passive: true });
+  book.addEventListener('touchend', function (e) {
+    if (sx === null) return;
+    var dx = e.changedTouches[0].clientX - sx, dy = e.changedTouches[0].clientY - sy;
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.4) go(current + (dx < 0 ? 1 : -1));
+    sx = sy = null;
+  }, { passive: true });
+
+  var m = /#page-(\d+)/.exec(location.hash);
+  if (m) { var n = parseInt(m[1], 10) - 1; if (n > 0 && n < total) { pages[0].classList.remove('active'); pages[n].classList.add('active'); current = n; } }
+  update();
+
+  function guideUrl() { return /^https?:/.test(location.protocol) ? location.href.split('#')[0] : 'https://exercisemenu.com'; }
+  function mailto(to) {
+    var subject = encodeURIComponent(TITLE + ' — Free from ExerciseMenu.com');
+    var body = encodeURIComponent("Here's the free collection: " + TITLE + "\n4 printable medicine ball workouts with illustrated exercise cards.\n\nRead or download it here: " + guideUrl() + "\n\nMore free training resources: https://exercisemenu.com");
+    location.href = 'mailto:' + (to ? encodeURIComponent(to) : '') + '?subject=' + subject + '&body=' + body;
+  }
+  document.querySelectorAll('[data-action="email"]').forEach(function (el) { el.addEventListener('click', function () { mailto(''); }); });
+  var form = document.getElementById('emailForm'), input = document.getElementById('emailInput'), help = document.getElementById('emailHelp');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var v = input.value.trim();
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) { help.textContent = 'Please enter a valid email address.'; help.style.color = 'var(--red)'; input.focus(); return; }
+    help.style.color = ''; help.textContent = 'Opening your email app…'; mailto(v);
+  });
+
+  // Keep each page inside its frame: scale small overflows, scroll large ones (screen only).
+  var phone = window.matchMedia('(max-width: 720px)'), MIN_SCALE = 0.84;
+  function fit() {
+    var printing = window.matchMedia('print').matches;
+    pages.forEach(function (pg) {
+      var inner = pg.querySelector('.pg');
+      inner.style.transform = inner.style.width = inner.style.height = '';
+      pg.classList.remove('scroll');
+      if (phone.matches && !printing) return;
+      for (var pass = 0; pass < 2; pass++) {
+        var H = pg.clientHeight, h = inner.scrollHeight, W = pg.clientWidth, w = inner.scrollWidth;
+        if (h <= H + 1 && w <= W + 1) break;
+        var s = parseFloat(inner.dataset.s || 1) * Math.min(H / h, W / w);
+        inner.dataset.s = s;
+        inner.style.transformOrigin = 'top left';
+        inner.style.transform = 'scale(' + s + ')';
+        inner.style.width = (100 / s) + '%'; inner.style.height = (100 / s) + '%';
+      }
+      if (!inner.style.transform) delete inner.dataset.s;
+      else if (!printing && parseFloat(inner.dataset.s) < MIN_SCALE) {
+        inner.style.transform = inner.style.width = inner.style.height = '';
+        delete inner.dataset.s; pg.classList.add('scroll');
+      }
+    });
+  }
+  function refit() { pages.forEach(function (pg) { delete pg.querySelector('.pg').dataset.s; }); fit(); }
+  var rt;
+  window.addEventListener('resize', function () { clearTimeout(rt); rt = setTimeout(refit, 120); });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(refit);
+  window.addEventListener('load', refit);
+  var pm = window.matchMedia('print');
+  if (pm.addEventListener) pm.addEventListener('change', refit); else if (pm.addListener) pm.addListener(refit);
+  window.addEventListener('beforeprint', refit); window.addEventListener('afterprint', refit);
+  refit();
+})();
+</script>
+</body>
+</html>
