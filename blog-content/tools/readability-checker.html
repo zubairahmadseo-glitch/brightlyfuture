@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Free Blog Readability Checker | BrightlyFuture</title>
+<style>
+:root{--p:#7C3AED;--l:#F0ECFF;--d:#1A1A2E;--g:#F8F7FF}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--g);color:var(--d)}
+.wrap{max-width:1100px;margin:0 auto;padding:24px 16px}
+h1{font-size:26px;margin:0 0 4px}.sub{color:#555;margin:0 0 18px;font-size:15px}
+.grid{display:grid;grid-template-columns:1.35fr 1fr;gap:18px}@media(max-width:800px){.grid{grid-template-columns:1fr}}
+.card{background:#fff;border-radius:14px;box-shadow:0 2px 12px rgba(124,58,237,.08);padding:18px}
+textarea{width:100%;height:230px;border:1.5px solid #DDD6FE;border-radius:10px;padding:12px;font-family:inherit;font-size:15px;line-height:1.55;resize:vertical}
+button{background:var(--p);color:#fff;border:0;border-radius:9px;padding:11px 20px;font-weight:600;font-size:15px;cursor:pointer;margin-top:10px}
+.big{display:flex;align-items:center;gap:16px;margin-bottom:12px}.ring{width:92px;height:92px;border-radius:50%;display:grid;place-items:center;font-size:28px;font-weight:800;color:#fff;background:var(--p)}
+.lbl{font-weight:700;font-size:17px}.muted{color:#666;font-size:13px}
+table{width:100%;border-collapse:collapse;font-size:14px}td{padding:7px 4px;border-bottom:1px solid #eee}td:last-child{text-align:right;font-weight:700}
+.ok{color:#15803D}.warn{color:#B45309}.bad{color:#B91C1C}
+#hl{line-height:1.8;font-size:15px}.y{background:#FEF3C7}.r{background:#FECACA}.b{outline:2px solid #93C5FD;outline-offset:1px;border-radius:3px}
+.legend span{display:inline-block;margin-right:12px;font-size:12px;padding:2px 6px;border-radius:4px}
+.wm{text-align:right;font-size:12px;color:#8b7fc7;margin-top:10px}
+</style></head><body><div class="wrap">
+<h1>Free Blog Readability Checker</h1><p class="sub">Paste your draft. Get Flesch Reading Ease, grade level and the exact sentences to fix. Nothing leaves your browser.</p>
+<div class="grid"><div class="card"><textarea id="t" placeholder="Paste your blog post here..."></textarea><button onclick="run()">Check readability</button>
+<h3 style="margin:18px 0 6px">Sentences to fix</h3><div class="legend"><span class="y">20-29 words</span><span class="r">30+ words</span><span class="b">possible passive voice</span></div><div id="hl" class="muted">Results appear here.</div></div>
+<div class="card"><div class="big"><div class="ring" id="fre">--</div><div><div class="lbl" id="band">Flesch Reading Ease</div><div class="muted">Aim for 60-70 on most blogs</div></div></div>
+<table><tr><td>Flesch-Kincaid grade</td><td id="fk">--</td></tr><tr><td>Gunning Fog index</td><td id="fog">--</td></tr><tr><td>Automated Readability Index</td><td id="ari">--</td></tr><tr><td>Words / sentences</td><td id="ws">--</td></tr><tr><td>Average sentence length</td><td id="avg">--</td></tr><tr><td>Sentences over 20 words</td><td id="long">--</td></tr><tr><td>Possible passive voice</td><td id="pas">--</td></tr></table>
+<div class="wm">BrightlyFuture.co.uk</div></div></div></div>
+<script>
+function syl(w){w=w.toLowerCase().replace(/[^a-z]/g,'');if(!w)return 0;if(w.length<=3)return 1;
+w=w.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/,'').replace(/^y/,'');const m=w.match(/[aeiouy]{1,2}/g);return Math.max(1,m?m.length:1);}
+function analyse(t){
+ const sents=t.replace(/\n+/g,'. ').split(/(?<=[.!?])\s+/).map(s=>s.trim()).filter(s=>/[a-zA-Z]/.test(s));
+ const words=(t.match(/[A-Za-z][A-Za-z'’-]*/g)||[]);
+ const W=words.length,S=Math.max(1,sents.length);let Sy=0,poly=0,chars=0;
+ for(const w of words){const s=syl(w);Sy+=s;if(s>=3)poly++;chars+=w.replace(/[^A-Za-z]/g,'').length;}
+ const long=sents.filter(s=>(s.match(/[A-Za-z][A-Za-z'’-]*/g)||[]).length>20).length;
+ const passive=sents.filter(s=>/\b(is|are|was|were|be|been|being)\s+(\w+ly\s+)?\w+(ed|en)\b/i.test(s)).length;
+ return {words:W,sentences:S,fre:206.835-1.015*(W/S)-84.6*(Sy/W),fkgl:0.39*(W/S)+11.8*(Sy/W)-15.59,
+  fog:0.4*((W/S)+100*(poly/W)),ari:4.71*(chars/W)+0.5*(W/S)-21.43,avg:W/S,longPct:100*long/S,passivePct:100*passive/S,sents};
+}
+
+
+function band(f){return f>=90?'Very easy':f>=80?'Easy':f>=70?'Fairly easy':f>=60?'Standard (plain English)':f>=50?'Fairly difficult':f>=30?'Difficult':'Very difficult'}
+function cls(v,g,w){return v<=g?'ok':v<=w?'warn':'bad'}
+function esc(s){return s.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}
+function run(){const t=document.getElementById('t').value;if(!t.trim())return;const r=analyse(t);const f=Math.max(0,Math.min(100,r.fre));
+const ring=document.getElementById('fre');ring.textContent=f.toFixed(0);ring.style.background=f>=60?'#15803D':f>=50?'#D97706':'#B91C1C';
+document.getElementById('band').textContent=band(f);
+const set=(id,txt,c)=>{const e=document.getElementById(id);e.textContent=txt;e.className=c||''};
+set('fk',r.fkgl.toFixed(1),cls(r.fkgl,9,12));set('fog',r.fog.toFixed(1),cls(r.fog,12,15));set('ari',r.ari.toFixed(1),cls(r.ari,9,12));
+set('ws',r.words+' / '+r.sentences);set('avg',r.avg.toFixed(1)+' words',cls(r.avg,17,22));set('long',r.longPct.toFixed(0)+'%',cls(r.longPct,25,40));set('pas',r.passivePct.toFixed(0)+'%',cls(r.passivePct,10,20));
+document.getElementById('hl').className='';document.getElementById('hl').innerHTML=r.sents.map(s=>{const n=(s.match(/[A-Za-z][A-Za-z'’-]*/g)||[]).length;let c=n>=30?'r':n>20?'y':'';if(/\b(is|are|was|were|be|been|being)\s+(\w+ly\s+)?\w+(ed|en)\b/i.test(s))c+=' b';return c?'<span class="'+c.trim()+'">'+esc(s)+'</span>':esc(s)}).join(' ');}
+</script></body></html>
