@@ -20,7 +20,7 @@ Informational. The reader wants to know whether paraphrasing and rewriting are t
 | when to paraphrase vs rewrite | H2 3 (new) |
 | is paraphrasing considered plagiarism | H2 4 |
 | can AI paraphrase without plagiarism | H2 5 |
-| does Google penalise paraphrased content | H2 6 |
+| does Google penalise paraphrased content | H2 6 (trimmed; links to the Google AI detection article, which owns this intent) |
 | best paraphrasing tool / AI rewriting tool | H2 7 |
 | paraphrase vs rewording / rephrasing / summarising | H2 1 (paragraph + image) |
 
@@ -69,7 +69,6 @@ QuillBot, Spinbot, WordAI, Jasper, Copy.ai, Grammarly, Claude, ChatGPT, Turnitin
 | Turnitin AI bypasser detection, 27 Aug 2025 | Plagiarism Today | Fetched; matches Turnitin press release title in search results |
 | Synonym swaps still count as plagiarism even when cited | Scribbr FAQ | Bot-blocked; verified via Scribbr-only search results |
 | Definitions of paraphrase / rephrase / reword | Scribbr FAQ | Same as above |
-| Google rewards quality content however it's produced (8 Feb 2023) | Google Search Central blog | Fetched (200) and cross-checked via search |
 | QuillBot free plan: 125 words, Standard + Fluency modes | QuillBot help centre (bot-blocked) | Cross-checked across 3 independent sources |
 
 ## Original test data (BrightlyFuture)

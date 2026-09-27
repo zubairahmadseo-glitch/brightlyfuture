@@ -65,13 +65,13 @@ When Google's March 2024 update began, it also issued manual actions, and some s
 
 Pages can also drop out of the index without any penalty. Google crawls far more pages than it keeps, and thin pages that duplicate what's already indexed are the first to go. Search Console shows these under "Crawled – currently not indexed".
 
-## What happened when I tested a free AI detector?
+## What happened when I tested AI detectors myself?
 
-I ran 37 texts through the free, pattern-based detector we built for BrightlyFuture: 27 texts written by people between 1788 and 2012, 6 raw AI drafts and 4 AI drafts I had edited by hand. It labelled 20 of the 27 human texts "Mixed", scored the Federalist Papers higher than the average raw AI draft, and didn't label a single AI text "Likely AI".
+I tested the free detector we originally built for BrightlyFuture on 37 texts, and it failed: it labelled 20 of 27 human texts "Mixed" and didn't label a single raw AI draft "Likely AI". So I rebuilt it and tested the new version on 176 texts it had never seen. It flagged 87% of ChatGPT answers, but it also flagged 16% of human writing.
 
-[IMG 03-google-ai-detector-test.webp | Test results: 27 human texts, 6 raw AI drafts and 4 edited AI drafts run through a free AI detector]
+**Round 1: the original tool.** I used 27 texts written by people between 1788 and 2012 (Darwin, Austen, Twain, Melville, Conan Doyle, the Federalist Papers and Paul Graham essays), 6 raw AI drafts and 4 AI drafts I had edited by hand, the way I describe in [how to humanize AI content](https://brightlyfuture.co.uk/blog/how-to-humanize-ai-content/).
 
-The human texts came from Project Gutenberg (Darwin, Austen, Twain, Melville, Conan Doyle and the Federalist Papers) plus three Paul Graham essays, all written long before AI writing tools existed. The AI drafts were generated for this test on everyday topics like budgeting and remote work. The edited versions kept the same advice but added first-person detail and varied sentence length, the same edits I describe in [how to humanize AI content](https://brightlyfuture.co.uk/blog/how-to-humanize-ai-content/).
+[IMG 03-google-ai-detector-test.webp | Round 1: 27 human texts, 6 raw AI drafts and 4 edited AI drafts run through our original detector]
 
 | Group | Texts | Average AI score | Labelled "Likely AI" | Labelled "Mixed" | Labelled "Human" |
 |---|---|---|---|---|---|
@@ -79,30 +79,40 @@ The human texts came from Project Gutenberg (Darwin, Austen, Twain, Melville, Co
 | Raw AI drafts | 6 | 58.5% | 0 | 6 | 0 |
 | AI drafts, edited by hand | 4 | 35.0% | 0 | 0 | 4 |
 
-Formal human writing scored as "more AI" than casual human writing, and light editing was enough to make AI text read as human. That isn't a flaw unique to our tool. Pattern-based detectors measure style, and style is easy to change in both directions.
+The Federalist Papers scored as "more AI" than the average AI draft. The tool started every sentence at 50% AI and rewarded casual style, so formal human writing looked suspicious and lightly edited AI looked human.
 
-Commercial detectors use trained models and do better on unedited AI text, but the research shows the same weak spots:
+**Round 2: the rebuilt checker.** I rewrote it to measure 14 signals that differ between unedited AI and human text, including stock AI phrases, lists of three, sentence-length variety, specific details, personal voice and informal slips. I fitted the weights on part of [HC3](https://arxiv.org/abs/2301.07597), a public research dataset of human and ChatGPT answers to the same questions, then tested on 176 texts the model had never seen.
+
+[IMG 07-google-ai-old-vs-new.webp | Old detector vs rebuilt checker on 176 unseen texts]
+
+| On 176 unseen texts | Original tool | Rebuilt checker (score 50+) | Rebuilt checker (score 80+) |
+|---|---|---|---|
+| ChatGPT answers flagged | 14% ("Likely AI") | 87% | 51% |
+| Human texts wrongly flagged | 70% ("Mixed" or above) | 16% | 5% |
+
+[IMG 06-google-ai-checker-v2.webp | Screenshot: the rebuilt checker highlighting a raw AI paragraph]
+
+Much better, and still not proof. One in six human texts scored 50 or more, mostly formal or technical writing, and every AI draft I had edited by hand scored as human. That's why the rebuilt tool reports "AI-style signals" and highlights the sentences to fix, instead of claiming to know who wrote the text.
+
+Commercial detectors use larger trained models, but the research shows the same limits:
 
 - **OpenAI withdrew its own detector.** Its AI Text Classifier caught only 26% of AI-written text in OpenAI's tests and was [shut down in July 2023](https://openai.com/index/new-ai-classifier-for-indicating-ai-written-text/) for its low rate of accuracy.
 - **Attacks and new models fool detectors.** The RAID benchmark, presented at ACL 2024, tested 12 detectors on over 6 million texts and found them ["easily fooled by adversarial attacks, variations in sampling strategies, repetition penalties, and unseen generative models"](https://arxiv.org/abs/2405.07940).
 - **The bias question is still open.** A 2023 study in Patterns found seven detectors flagged [over 61% of TOEFL essays by non-native English writers](https://arxiv.org/abs/2304.02819) as AI. A February 2026 study of Czech texts found [no systematic bias against non-native writers](https://arxiv.org/abs/2602.05769) in modern detectors, which suggests newer tools have improved, at least in that language.
 
-The practical lesson: use a detector as an editing aid, not a verdict. Ours highlights sentences that read like generic AI so you can rewrite them. It can't prove who wrote a text, and neither can Google's public tools.
+The practical lesson: use a detector as an editing aid, not a verdict. Our [free AI writing checker](https://brightlyfuture.co.uk/ai-blog-detector/) highlights the sentences that read like generic AI so you can rewrite them. It can't prove who wrote a text, and no public tool can.
 
 ## How can you use AI without risking your rankings?
 
-Treat AI as the first draft, never the final one. Google rewards what your page adds, so every AI-assisted article needs something the model couldn't produce on its own.
+Keep AI in the drafting seat and yourself in the editing seat. Every risk in Google's policies comes from publishing AI output that nobody improved, so whether the first draft comes from ChatGPT, Claude or our [AI Blog Generator](https://brightlyfuture.co.uk/ai-blog-generator/), check each page against these five questions before it goes live:
 
-This is the process I follow for every post on this site:
+1. **Does it add something the top results don't have?** A test, a screenshot, a client result or your own numbers. In this post, it's the detector test. If the answer is no, the page is commodity content.
+2. **Has every fact been checked?** AI drafts invent statistics with confidence. Open each source and cut anything you can't confirm.
+3. **Is the metadata accurate?** Google's AI guidance singles out titles, meta descriptions, structured data and alt text.
+4. **Would you publish it at this pace without AI?** Scale without review is what the spam policy targets. Ten edited posts beat a hundred unread ones.
+5. **Does it read like a person wrote it for a person?** Check the [readability score](https://brightlyfuture.co.uk/tools/readability-checker/) and run it through the [AI writing checker](https://brightlyfuture.co.uk/ai-blog-detector/) to find sentences that need your voice.
 
-1. **Research before prompting.** Read the top ten results and note what they all miss. That gap becomes the article's reason to exist.
-2. **Draft with AI, from your own brief.** Give the model your outline, your angle and your facts. Our [AI Blog Generator](https://brightlyfuture.co.uk/ai-blog-generator/) can speed up this step.
-3. **Add what only you have.** A test, a screenshot, a client result, a number from your own analytics. In this post, it's the 37-text detector test.
-4. **Verify every claim.** AI drafts invent statistics with confidence. Open every source and delete anything you can't confirm.
-5. **Edit for a human reader.** Cut filler, vary sentence length and check the [readability score](https://brightlyfuture.co.uk/tools/readability-checker/). My comparison of [AI blog writers vs human writers](https://brightlyfuture.co.uk/blog/ai-blog-writer-vs-human-writer/) covers where each one is stronger.
-6. **Publish at the pace you can review.** Google's spam policy targets volume without value. Ten edited posts beat a hundred unread ones.
-
-If you rework existing text, rewrite rather than spin. A synonym swapper is listed by name in Google's spam policies; see [paraphrasing vs rewriting](https://brightlyfuture.co.uk/blog/ai-paraphrasing-vs-rewriting/) for the difference, or try our [free paraphraser](https://brightlyfuture.co.uk/ai-paraphrase-rewriter/) for sentence-level changes.
+For the full drafting workflow, see the [complete guide to writing a blog post with AI](https://brightlyfuture.co.uk/blog/how-to-write-blog-post-using-ai/). For editing techniques, see the humanizing guide linked above, and for where each side is stronger, [AI blog writer vs human writer](https://brightlyfuture.co.uk/blog/ai-blog-writer-vs-human-writer/). If you rework existing text, rewrite rather than spin: synonym swapping is named in Google's spam policies, as I explain in [paraphrasing vs rewriting](https://brightlyfuture.co.uk/blog/ai-paraphrasing-vs-rewriting/).
 
 ## Frequently Asked Questions
 
@@ -130,4 +140,3 @@ Yes. Google [says its AI features](https://developers.google.com/search/docs/app
 
 Google doesn't need to detect AI to deal with bad AI content. Its systems catch pages that add nothing, and unedited AI drafts usually add nothing. Use AI to write faster, then spend the saved time on the parts only you can supply. That combination is what grew this site, and it's what the 2026 data rewards.
 
-For the full workflow, start with the [complete guide to writing a blog post with AI](https://brightlyfuture.co.uk/blog/how-to-write-blog-post-using-ai/).

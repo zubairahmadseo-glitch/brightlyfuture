@@ -82,9 +82,17 @@ Google, Google Search Central, SpamBrain, Gemini, SynthID, Google DeepMind, Orig
 
 **Deliberately left out (could not verify):** a blog claim that Anthropic enabled SynthID for Claude in August 2026; a "June 2026" rater-guidelines update (Google's official PDF is still dated 11 Sept 2025).
 
-## Original test data (BrightlyFuture detector)
+## Original test data – Round 1 (original BrightlyFuture detector)
 | Group | Texts | Avg AI score | "Likely AI" | "Mixed" | "Human" |
 |---|---|---|---|---|---|
 | Human writing 1788–2012 | 27 | 47.6% | 0 | 20 | 7 |
 | Raw AI drafts | 6 | 58.5% | 0 | 6 | 0 |
 | AI drafts edited by hand | 4 | 35.0% | 0 | 0 | 4 |
+
+## Original test data – Round 2 (rebuilt checker v2, 176 unseen texts)
+Model fitted on 252 texts (60% of an HC3 sample + half of the pre-AI human texts); tested on the other 176 (79 ChatGPT answers, 97 human).
+| | Original tool | v2 score 50+ | v2 score 80+ |
+|---|---|---|---|
+| ChatGPT answers flagged | 14% ("Likely AI") | 87% | 51% |
+| Human texts wrongly flagged | 70% ("Mixed" or above) | 16% | 5% |
+HC3 source: Guo et al., "How Close is ChatGPT to Human Experts?", arXiv 2301.07597 (Jan 2023).
