@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Free Blog Headline Analyzer | BrightlyFuture</title>
+<style>
+:root{--p:#7C3AED;--l:#F0ECFF;--d:#1A1A2E;--g:#F8F7FF}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--g);color:var(--d)}
+.wrap{max-width:1100px;margin:0 auto;padding:24px 16px}h1{font-size:26px;margin:0 0 4px}.sub{color:#555;margin:0 0 18px;font-size:15px}
+.grid{display:grid;grid-template-columns:1.2fr 1fr;gap:18px}@media(max-width:800px){.grid{grid-template-columns:1fr}}
+.card{background:#fff;border-radius:14px;box-shadow:0 2px 12px rgba(124,58,237,.08);padding:18px}
+label{font-weight:600;font-size:14px;display:block;margin:0 0 6px}
+input{width:100%;border:1.5px solid #DDD6FE;border-radius:10px;padding:12px;font-family:inherit;font-size:16px;margin-bottom:12px}
+button{background:var(--p);color:#fff;border:0;border-radius:9px;padding:11px 20px;font-weight:600;font-size:15px;cursor:pointer}
+.serp{border:1px solid #eee;border-radius:10px;padding:14px;margin-top:16px;font-family:Arial,sans-serif}
+.serp .u{font-size:13px;color:#202124}.serp .t{font-size:20px;color:#1a0dab;margin:4px 0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:580px}
+.big{display:flex;align-items:center;gap:16px;margin-bottom:10px}.ring{flex:none;width:92px;height:92px;border-radius:50%;display:grid;place-items:center;font-size:30px;font-weight:800;color:#fff;background:var(--p)}
+.lbl{font-weight:700;font-size:17px}.muted{color:#666;font-size:13px}
+ul{list-style:none;padding:0;margin:0}li{padding:8px 0;border-bottom:1px solid #f0f0f0;font-size:14px;display:flex;gap:8px}
+.i{font-weight:800;width:18px;flex:none}.ok .i{color:#15803D}.no .i{color:#B91C1C}.mid .i{color:#B45309}
+.wm{text-align:right;font-size:12px;color:#8b7fc7;margin-top:10px}
+</style></head><body><div class="wrap">
+<h1>Free Blog Headline Analyzer</h1><p class="sub">Checks your headline against search data: length, truncation, keyword position, specificity and clarity. Nothing leaves your browser.</p>
+<div class="grid"><div class="card">
+<label for="h">Headline / title tag</label><input id="h" placeholder="e.g. How to Write Blog Headlines That Get Clicks">
+<label for="k">Target keyword (optional)</label><input id="k" placeholder="e.g. blog headlines">
+<button onclick="run()">Analyse headline</button>
+<div class="serp"><div class="u">brightlyfuture.co.uk › blog</div><div class="t" id="pv">Your headline preview appears here</div><div class="muted" id="pvn">Google truncates titles at roughly 580px on desktop (about 55–60 characters).</div></div>
+</div>
+<div class="card"><div class="big"><div class="ring" id="sc">--</div><div><div class="lbl" id="band">Headline score</div><div class="muted">Transparent checklist, not a prediction. Test real CTR in Search Console.</div></div></div>
+<ul id="list"></ul><div class="wm">BrightlyFuture.co.uk</div></div></div></div>
+<script>
+const POWER=['proven','tested','free','easy','simple','fast','quick','step-by-step','complete','ultimate','essential','mistakes','secrets','exact','instantly','new','best','worst','real','actually','examples','templates','checklist','without','stop','avoid','that get','that work'];
+const VAGUE=['things','stuff','some','various','amazing','awesome','insane','crazy','mind-blowing','you won\'t believe','shocking'];
+function run(){const h=document.getElementById('h').value.trim(),k=document.getElementById('k').value.trim().toLowerCase();if(!h)return;
+const lc=h.toLowerCase(),words=h.split(/\s+/).length,chars=h.length,out=[];let s=0;
+const add=(st,pts,txt)=>{s+=st=='ok'?pts:st=='mid'?pts/2:0;out.push([st,txt])};
+add(chars>=40&&chars<=60?'ok':chars>=30&&chars<=65?'mid':'no',20,`${chars} characters `+(chars<=60?(chars<40?'(short: add a benefit or detail)':'(inside the 40–60 range)'):'(likely truncated in Google)'));
+add(words>=6&&words<=12?'ok':words>=4&&words<=14?'mid':'no',10,`${words} words (6–12 works for most blog titles)`);
+if(k){const i=lc.indexOf(k);add(i<0?'no':i<=Math.max(15,chars*0.4)?'ok':'mid',20,i<0?'Target keyword missing':i<=Math.max(15,chars*0.4)?'Keyword appears early':'Keyword appears late: move it forward');}else{s+=10;out.push(['mid','No keyword entered (half points)']);}
+add(/\b\d+\b/.test(h.replace(/\b20\d\d\b/g,''))||/\b20\d\d\b/.test(h)?'ok':'mid',10,/\d/.test(h)?'Contains a number or year (specific)':'No number: fine for how-to, add one for lists');
+const pw=POWER.filter(w=>lc.includes(w));add(pw.length?'ok':'mid',10,pw.length?'Benefit/power words: '+pw.slice(0,3).join(', '):'No benefit or proof word (e.g. tested, free, examples)');
+const vg=VAGUE.filter(w=>lc.includes(w));add(vg.length?'no':'ok',10,vg.length?'Vague or hype words: '+vg.join(', '):'No hype or vague words');
+add(/\[|\]/.test(h)?'no':'ok',10,/\[/.test(h)?'Square brackets: Google rewrote 77.6% of such titles (Zyppy)':'No square brackets (use parentheses instead)');
+const caps=h.replace(/[^A-Za-z]/g,'');add(caps.length&&caps===caps.toUpperCase()?'no':'ok',10,caps===caps.toUpperCase()?'ALL CAPS reads as shouting':'Normal capitalisation');
+s=Math.round(Math.min(100,s));const sc=document.getElementById('sc');sc.textContent=s;sc.style.background=s>=75?'#15803D':s>=55?'#D97706':'#B91C1C';
+document.getElementById('band').textContent=s>=75?'Strong headline':s>=55?'Needs a tweak':'Rewrite recommended';
+document.getElementById('list').innerHTML=out.map(([st,t])=>`<li class="${st}"><span class="i">${st=='ok'?'✓':st=='mid'?'!':'✗'}</span><span>${t.replace(/</g,'&lt;')}</span></li>`).join('');
+document.getElementById('pv').textContent=h;document.getElementById('pvn').textContent=chars>60?'Over 60 characters: the end may be cut off with "..."':'Should display in full on desktop.';}
+</script></body></html>
