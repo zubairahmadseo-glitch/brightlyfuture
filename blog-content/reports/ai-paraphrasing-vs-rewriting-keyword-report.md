@@ -17,20 +17,22 @@ Informational. The reader wants to know whether paraphrasing and rewriting are t
 | AI paraphrasing vs rewriting | H1, intro |
 | difference between paraphrasing and rewriting | H2 1 |
 | is paraphrasing the same as rewriting | Intro + H2 1 |
-| is paraphrasing considered plagiarism | H2 3 |
-| can AI paraphrase without plagiarism | H2 4 |
-| does Google penalise paraphrased content | H2 5 |
-| best paraphrasing tool / AI rewriting tool | H2 6 |
+| when to paraphrase vs rewrite | H2 3 (new) |
+| is paraphrasing considered plagiarism | H2 4 |
+| can AI paraphrase without plagiarism | H2 5 |
+| does Google penalise paraphrased content | H2 6 |
+| best paraphrasing tool / AI rewriting tool | H2 7 |
 | paraphrase vs rewording / rephrasing / summarising | H2 1 (paragraph + image) |
 
 ## People Also Ask (collected from SERP themes + roadmap)
 1. Is paraphrasing the same as rewriting? → H2 1
-2. Is paraphrasing considered plagiarism? → H2 3
-3. Can AI paraphrase without plagiarism? → H2 4
-4. What is the best paraphrasing tool? → H2 6
-5. Is rewriting an article plagiarism? → H2 3 (last paragraph)
+2. Is paraphrasing considered plagiarism? → H2 4
+3. Can AI paraphrase without plagiarism? → H2 5
+4. What is the best paraphrasing tool? → H2 7
+5. Is rewriting an article plagiarism? → H2 4 (last paragraph)
+8. When should you paraphrase vs rewrite? → H2 3
 6. What is the difference between paraphrasing, rephrasing and rewording? → H2 1
-7. Does Google penalise spun or paraphrased content? → H2 5
+7. Does Google penalise spun or paraphrased content? → H2 6
 
 ## LSI / NLP terms included
 synonym spinner, article spinning, rewording, rephrasing, summarising, sentence structure, citation, plagiarism checker, verbatim plagiarism, AI humanizer, AI bypasser, scaled content abuse, scraping, main content, original meaning, tone, audience, readability
@@ -67,6 +69,7 @@ QuillBot, Spinbot, WordAI, Jasper, Copy.ai, Grammarly, Claude, ChatGPT, Turnitin
 | Turnitin AI bypasser detection, 27 Aug 2025 | Plagiarism Today | Fetched; matches Turnitin press release title in search results |
 | Synonym swaps still count as plagiarism even when cited | Scribbr FAQ | Bot-blocked; verified via Scribbr-only search results |
 | Definitions of paraphrase / rephrase / reword | Scribbr FAQ | Same as above |
+| Google rewards quality content however it's produced (8 Feb 2023) | Google Search Central blog | Fetched (200) and cross-checked via search |
 | QuillBot free plan: 125 words, Standard + Fluency modes | QuillBot help centre (bot-blocked) | Cross-checked across 3 independent sources |
 
 ## Original test data (BrightlyFuture)
@@ -75,3 +78,12 @@ QuillBot, Spinbot, WordAI, Jasper, Copy.ai, Grammarly, Claude, ChatGPT, Turnitin
 | Synonym spinner | 2 of 64 | 83.3% | 96.9% |
 | Manual paraphrase | Most | 0% | 50.0% |
 | Manual rewrite | Almost all | 0% | 12.5% |
+
+## BrightlyFuture paraphraser v2 (rebuilt during this audit)
+| Mode | Avg 5-word phrases kept (50 runs, test paragraph) |
+|---|---|
+| Old v1 tool | 83% |
+| Standard | 22.7% |
+| Creative | 7.9% |
+| Formal | 23.8% |
+| Simple | 61.1% (Simple only shortens words; it is not meant for originality) |

@@ -47,13 +47,25 @@ Here's the original paragraph I started with:
 | My paraphrase | Most | 0% | 50% |
 | My rewrite | Almost all | 0% | 13% |
 
-I measured overlap by comparing word sequences, the same basic idea plagiarism checkers use to match text. The takeaway: a paraphrase can look completely new at the phrase level while still following the source sentence by sentence. That is exactly why it still needs a citation.
+I measured overlap by comparing 5-word sequences, a simplified version of how plagiarism checkers match text. The takeaway: a paraphrase can look completely new at the phrase level while still following the source sentence by sentence. That is exactly why it still needs a citation.
+
+## When should you paraphrase and when should you rewrite?
+
+Paraphrase when the structure already works and only the wording needs to change. Rewrite when the piece itself needs a new shape, audience or purpose.
+
+[IMG 05-paraphrasing-which-to-use.webp | When to paraphrase and when to rewrite]
+
+- **Paraphrase** to bring a source's idea into your post in your own words, to make one unclear or wordy passage plainer, or when the meaning must stay exactly the same.
+- **Rewrite** to refresh an old post, to adapt a piece for a new audience or channel, or to turn a generic AI draft into something with your voice and examples.
+- **Do neither** when the only goal is to get past a plagiarism or AI checker. That is the use case Google's spam policy and Turnitin's detection now target.
+
+A good paraphrase takes four moves: read the passage until you can explain it without looking, write your version from memory, compare it with the original, then change any phrase that still matches and add the citation.
 
 ## Is paraphrasing considered plagiarism?
 
 Paraphrasing is not plagiarism when you credit the source and genuinely restate the idea in your own words. It becomes plagiarism when you skip the credit, or when you only swap a few words and keep the author's sentence structure.
 
-Scribbr's guidance on [whether paraphrasing is plagiarism](https://www.scribbr.com/frequently-asked-questions/is-paraphrasing-considered-plagiarism/) makes the same point: rearranging an author's words or inserting a few synonyms still counts as plagiarism, even with a citation. My spinner result shows why. With 83% of its 5-word phrases unchanged, that text would match the original in any checker.
+Scribbr's guidance on [whether paraphrasing is plagiarism](https://www.scribbr.com/frequently-asked-questions/is-paraphrasing-considered-plagiarism/) makes the same point: if your text stays too close to the original, deleting a few words or swapping in synonyms still counts as plagiarism, even with a citation. My spinner result shows why. With 83% of its 5-word phrases unchanged, a plagiarism checker would flag it as a near-copy.
 
 Rewriting follows the same rule. If the ideas, research or structure came from someone else, credit them. Changing every word doesn't make an idea yours.
 
@@ -63,7 +75,7 @@ Yes, if the AI changes sentence structure as well as words, you check the output
 
 Two changes since 2025 matter here:
 
-- **Turnitin now looks for disguised AI text.** On 27 August 2025, Turnitin [launched AI bypasser detection](https://www.plagiarismtoday.com/2025/08/27/turnitin-launches-anti-ai-humanizer-feature/), trained on the patterns left by humanizer and rewording tools. Running AI text through a paraphraser is no longer a reliable way to hide it.
+- **Turnitin now looks for disguised AI text.** On 27 August 2025, Turnitin [launched AI bypasser detection](https://www.plagiarismtoday.com/2025/08/27/turnitin-launches-anti-ai-humanizer-feature/), trained on the patterns that leading humanizer tools leave behind. Running AI text through a humanizer is no longer a reliable way to hide it.
 - **Google names synonym swapping as spam.** Google's [spam policies](https://developers.google.com/search/docs/essentials/spam-policies), updated in August 2026, list copying content and modifying it "only slightly (for example, by substituting synonyms or using automated techniques)" as scraping.
 
 The safe way to use AI for either job:
@@ -77,7 +89,7 @@ My guide on [how to humanize AI content](https://brightlyfuture.co.uk/blog/how-t
 
 ## Does Google penalise paraphrased or rewritten content?
 
-Google doesn't penalise text for being paraphrased, rewritten or AI-assisted. It rates pages low when they add nothing new. The January 2025 update to Google's Search Quality Rater Guidelines gives the Lowest rating when almost all main content is "copied or paraphrased with no effort or added value", as [PPC Land's summary of the update](https://ppc.land/google-updates-quality-rater-guidelines-with-ai-content-evaluation-criteria/) quotes.
+Google doesn't penalise text for being paraphrased, rewritten or AI-assisted. Its [February 2023 guidance on AI content](https://developers.google.com/search/blog/2023/02/google-search-and-ai-content) says it rewards high-quality content however it's produced. It rates pages low when they add nothing new. The January 2025 update to Google's Search Quality Rater Guidelines gives the Lowest rating when almost all main content is "copied or paraphrased with no effort or added value", as [PPC Land's summary of the update](https://ppc.land/google-updates-quality-rater-guidelines-with-ai-content-evaluation-criteria/) quotes.
 
 So the question isn't "paraphrase or rewrite?" It's "what did I add?" For a blog, that usually means a rewrite plus something the source didn't have: your test, your data, your example.
 
@@ -92,9 +104,11 @@ The best tool depends on the job. Sentence-level paraphrasers suit short passage
 - **Jasper and Copy.ai** – marketing writing platforms that include rewriting tools for ad and web copy.
 - **Claude and ChatGPT** – the most flexible for true rewriting, because you can give them a brief. I compared them in [best AI blog writing tools](https://brightlyfuture.co.uk/blog/best-ai-blog-writing-tools/).
 
-For quick, private paraphrasing in the browser, try the [BrightlyFuture AI Paraphraser](https://brightlyfuture.co.uk/ai-paraphrase-rewriter/). Whatever you use, run the result through the [readability checker](https://brightlyfuture.co.uk/tools/readability-checker/) afterwards; many paraphrasers swap short words for longer ones and make text harder to read.
+After my test, I rebuilt our own [free paraphraser](https://brightlyfuture.co.uk/ai-paraphrase-rewriter/) so it does more than swap words. It rewrites common wordy phrases, moves clauses, splits long sentences and runs entirely in your browser. It also shows a "Phrases kept" score: the share of 5-word phrases still matching your original, the same measure I used above. On my test paragraph, Standard mode kept about a fifth of them on average and Creative mode under a tenth, down from 83% for a basic spinner.
 
-[IMG 05-paraphrasing-which-to-use.webp | When to paraphrase and when to rewrite]
+[IMG 06-paraphrasing-tool-phrases-kept.webp | Screenshot: the BrightlyFuture paraphraser showing words changed and the Phrases kept score]
+
+Whatever you use, run the result through the [readability checker](https://brightlyfuture.co.uk/tools/readability-checker/) afterwards. Many paraphrasers swap short words for longer ones and make text harder to read.
 
 ## Frequently Asked Questions
 
@@ -106,9 +120,9 @@ Quote when the exact wording matters: a definition, a striking line or a claim y
 
 Name the source in the sentence and link to the original page, for example "Scribbr explains that…" with a link on the source name. Academic styles such as APA also need the author and year in brackets plus a reference list entry.
 
-### Can a paraphrasing tool change the meaning of my text?
+### Can I paraphrase my own old blog post and publish it again?
 
-Yes. Word-swap tools pick a synonym without reading the sentence, so "the state of the market" can become "the declare of the market", and "not" or a number can get lost in AI rewrites. Check negatives, figures and technical terms line by line before you publish.
+You can, but you rarely should. Two near-identical posts on the same site compete for the same searches. Update the original URL instead, or if you do publish a new version, 301-redirect the old one to it.
 
 ### Is it cheating to use a paraphrasing tool at university?
 
