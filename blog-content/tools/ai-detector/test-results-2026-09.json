@@ -1,0 +1,187 @@
+[
+ {
+  "src": "Darwin, On the Origin of Species (1859)",
+  "kind": "human",
+  "score": 64
+ },
+ {
+  "src": "Darwin, On the Origin of Species (1859)",
+  "kind": "human",
+  "score": 52
+ },
+ {
+  "src": "Darwin, On the Origin of Species (1859)",
+  "kind": "human",
+  "score": 57
+ },
+ {
+  "src": "Darwin, On the Origin of Species (1859)",
+  "kind": "human",
+  "score": 35
+ },
+ {
+  "src": "Austen, Pride and Prejudice (1813)",
+  "kind": "human",
+  "score": 58
+ },
+ {
+  "src": "Austen, Pride and Prejudice (1813)",
+  "kind": "human",
+  "score": 59
+ },
+ {
+  "src": "Austen, Pride and Prejudice (1813)",
+  "kind": "human",
+  "score": 58
+ },
+ {
+  "src": "Austen, Pride and Prejudice (1813)",
+  "kind": "human",
+  "score": 26
+ },
+ {
+  "src": "Twain, Tom Sawyer (1876)",
+  "kind": "human",
+  "score": 47
+ },
+ {
+  "src": "Twain, Tom Sawyer (1876)",
+  "kind": "human",
+  "score": 55
+ },
+ {
+  "src": "Twain, Tom Sawyer (1876)",
+  "kind": "human",
+  "score": 38
+ },
+ {
+  "src": "Twain, Tom Sawyer (1876)",
+  "kind": "human",
+  "score": 31
+ },
+ {
+  "src": "The Federalist Papers (1788)",
+  "kind": "human",
+  "score": 56
+ },
+ {
+  "src": "The Federalist Papers (1788)",
+  "kind": "human",
+  "score": 58
+ },
+ {
+  "src": "The Federalist Papers (1788)",
+  "kind": "human",
+  "score": 59
+ },
+ {
+  "src": "The Federalist Papers (1788)",
+  "kind": "human",
+  "score": 67
+ },
+ {
+  "src": "Melville, Moby-Dick (1851)",
+  "kind": "human",
+  "score": 27
+ },
+ {
+  "src": "Melville, Moby-Dick (1851)",
+  "kind": "human",
+  "score": 45
+ },
+ {
+  "src": "Melville, Moby-Dick (1851)",
+  "kind": "human",
+  "score": 40
+ },
+ {
+  "src": "Melville, Moby-Dick (1851)",
+  "kind": "human",
+  "score": 53
+ },
+ {
+  "src": "Conan Doyle, Sherlock Holmes (1892)",
+  "kind": "human",
+  "score": 34
+ },
+ {
+  "src": "Conan Doyle, Sherlock Holmes (1892)",
+  "kind": "human",
+  "score": 55
+ },
+ {
+  "src": "Conan Doyle, Sherlock Holmes (1892)",
+  "kind": "human",
+  "score": 29
+ },
+ {
+  "src": "Conan Doyle, Sherlock Holmes (1892)",
+  "kind": "human",
+  "score": 40
+ },
+ {
+  "src": "Paul Graham essay (2006)",
+  "kind": "human",
+  "score": 54
+ },
+ {
+  "src": "Paul Graham essay (2008)",
+  "kind": "human",
+  "score": 42
+ },
+ {
+  "src": "Paul Graham essay (2012)",
+  "kind": "human",
+  "score": 45
+ },
+ {
+  "src": "AI draft: email marketing",
+  "kind": "ai",
+  "score": 62
+ },
+ {
+  "src": "AI draft: remote work",
+  "kind": "ai",
+  "score": 55
+ },
+ {
+  "src": "AI draft: healthy sleep",
+  "kind": "ai",
+  "score": 56
+ },
+ {
+  "src": "AI draft: SEO basics",
+  "kind": "ai",
+  "score": 54
+ },
+ {
+  "src": "AI draft: budgeting",
+  "kind": "ai",
+  "score": 62
+ },
+ {
+  "src": "AI draft: travel",
+  "kind": "ai",
+  "score": 62
+ },
+ {
+  "src": "AI draft edited: email marketing",
+  "kind": "ai-edited",
+  "score": 36
+ },
+ {
+  "src": "AI draft edited: remote work",
+  "kind": "ai-edited",
+  "score": 34
+ },
+ {
+  "src": "AI draft edited: budgeting",
+  "kind": "ai-edited",
+  "score": 34
+ },
+ {
+  "src": "AI draft edited: SEO basics",
+  "kind": "ai-edited",
+  "score": 36
+ }
+]
