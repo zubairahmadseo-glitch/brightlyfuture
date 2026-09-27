@@ -89,7 +89,7 @@ My guide on [how to humanize AI content](https://brightlyfuture.co.uk/blog/how-t
 
 ## Does Google penalise paraphrased or rewritten content?
 
-Google doesn't penalise text for being paraphrased, rewritten or AI-assisted. Its [February 2023 guidance on AI content](https://developers.google.com/search/blog/2023/02/google-search-and-ai-content) says it rewards high-quality content however it's produced. It rates pages low when they add nothing new. The January 2025 update to Google's Search Quality Rater Guidelines gives the Lowest rating when almost all main content is "copied or paraphrased with no effort or added value", as [PPC Land's summary of the update](https://ppc.land/google-updates-quality-rater-guidelines-with-ai-content-evaluation-criteria/) quotes.
+Google doesn't penalise text for being paraphrased, rewritten or AI-assisted. Its [February 2023 guidance on AI content](https://developers.google.com/search/blog/2023/02/google-search-and-ai-content) says it rewards high-quality content however it's produced. It rates pages low when they add nothing new. Google's [Search Quality Rater Guidelines](https://guidelines.raterhub.com/searchqualityevaluatorguidelines.pdf) (current version dated 11 September 2025) tell raters to give the Lowest rating when all or almost all main content is "copied, paraphrased, embedded, or reposted from other sources with little to no effort, little to no originality, and little to no added value for website visitors". This rule first appeared in the January 2025 update.
 
 So the question isn't "paraphrase or rewrite?" It's "what did I add?" For a blog, that usually means a rewrite plus something the source didn't have: your test, your data, your example.
 

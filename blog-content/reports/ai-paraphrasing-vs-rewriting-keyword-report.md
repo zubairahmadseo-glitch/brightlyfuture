@@ -65,7 +65,7 @@ QuillBot, Spinbot, WordAI, Jasper, Copy.ai, Grammarly, Claude, ChatGPT, Turnitin
 | Claim | Source | How verified |
 |---|---|---|
 | Synonym swapping named as scraping; page last updated Aug 2026 | Google Search Central spam policies | Fetched directly |
-| Lowest rating for "copied or paraphrased with no effort or added value", Jan 2025 | PPC Land summary of Google QRG | Fetched; cross-checked with Search Engine Land and Originality.ai results |
+| Lowest rating for copied/paraphrased MC with little to no effort, originality or added value | Google Search Quality Rater Guidelines PDF, version 11 Sept 2025 (current) | Official PDF downloaded and text checked (pages 45, 61); rule introduced Jan 2025 |
 | Turnitin AI bypasser detection, 27 Aug 2025 | Plagiarism Today | Fetched; matches Turnitin press release title in search results |
 | Synonym swaps still count as plagiarism even when cited | Scribbr FAQ | Bot-blocked; verified via Scribbr-only search results |
 | Definitions of paraphrase / rephrase / reword | Scribbr FAQ | Same as above |
