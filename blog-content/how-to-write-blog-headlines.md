@@ -10,7 +10,7 @@ For this guide, I turned that habit into data. I collected 69 ranking titles acr
 
 ## What makes a good blog headline?
 
-A good blog headline does four jobs in under 60 characters: it matches what the searcher wants, contains the keyword they typed, makes a specific promise, and keeps that promise in the article. Miss any one and the click either never happens or turns into a quick exit.
+A good blog headline matches what the searcher wants, contains the keyword they typed, makes a specific promise, and describes an article that keeps that promise. It does all of that in about 60 characters. Miss any one and the click either never happens or turns into a quick exit.
 
 - **Intent match.** Someone searching "best AI writing tools" wants a list, not a tutorial. The wrong format loses before wording even matters.
 - **Keyword early.** Searchers scan for the words they typed. Front-loading them also protects the keyword if Google cuts the end.
@@ -19,7 +19,7 @@ A good blog headline does four jobs in under 60 characters: it matches what the 
 
 ## How do you find the right headline format for a keyword?
 
-Search the keyword, then read the titles of the top 10 results before you write anything. The pattern they share is the format Google has tested on real searchers. Your headline should follow that format and then stand out through its angle.
+Search the keyword, then read the titles of the top 10 results before you write anything. The pattern they share is the format Google currently rewards for that search. Your headline should follow that format and then stand out through its angle.
 
 Ahrefs calls this the [3 Cs of search intent](https://ahrefs.com/blog/search-intent/): content type, content format and content angle. Their guide, written by Mateusz Makosiewicz, puts it plainly: when creating content for search intent, "it makes the most sense to follow the crowd."
 
@@ -35,13 +35,13 @@ One correction to the common version of this advice: follow the format, never th
 
 ## How many words should a blog headline be?
 
-Aim for 6–12 words and 40–60 characters for a blog title that shows in Google. Most titles longer than 60 characters get cut off or rewritten, and very short ones don't carry enough detail to win the click.
+Aim for 6–12 words and 40–60 characters for a blog title that shows in Google. Longer titles usually get cut off or rewritten, and very short ones don't carry enough detail to win the click.
 
 Three datasets point to the same range:
 
 - **Backlinko's CTR study** of about 4 million Google results found that [title tags between 40 and 60 characters have the highest organic click-through rate](https://backlinko.com/google-ctr-stats).
-- **Zyppy's study of 80,959 titles** across 2,370 sites found that [titles of 51–60 characters were rewritten least often](https://zyppy.com/seo/google-title-rewrite-study/), 39–42% of the time. Very long and very short titles were rewritten over 95% of the time.
-- **My sample of 69 ranking titles** had a median length of 55 characters and 9 words, not counting the brand name. 68% were 60 characters or fewer.
+- **Zyppy's study of 80,959 titles** across 2,370 sites found that [titles of 51–60 characters were rewritten least often](https://zyppy.com/seo/google-title-rewrite-study/), 39–42% of the time. Titles over 70 characters were rewritten 99.9% of the time.
+- **My sample of 69 ranking titles** had a median length of 55 characters including any brand name, and 9 words without it. 68% were 60 characters or fewer.
 
 [IMG 02-headlines-serp-title-data.webp | What 69 ranking titles have in common: length, numbers, colons and brackets]
 
@@ -75,13 +75,14 @@ The Emotional Marketing Value (EMV) score, one of the older headline tools, meas
 
 ## Why does Google rewrite blog titles, and how do you stop it?
 
-Google rewrites a title when it judges that the title tag doesn't describe the page well for that search. It can pull a replacement from your H1, other headings, anchor text from links to the page, or `og:title`. Google lists all of these in its [title link documentation](https://developers.google.com/search/docs/appearance/title-link), last updated in December 2025.
+Google rewrites a title when the title tag doesn't describe the page well. Its [title link documentation](https://developers.google.com/search/docs/appearance/title-link), last updated in December 2025, names the usual causes: half-empty titles, outdated ones (such as an old year), inaccurate ones, repeated boilerplate across pages, and pages with no clear main heading. The replacement can come from your H1, other headings, `og:title` or the anchor text of links pointing to the page.
 
 It happens a lot. Zyppy found Google [rewrote 61.6% of the title tags it studied](https://zyppy.com/seo/google-title-rewrite-study/). The triggers they identified are easy to avoid:
 
 | Title habit | What Zyppy found | What to do |
 |---|---|---|
-| Over 60 characters | Rewritten over 95% of the time | Keep to 51–60 characters |
+| Over 60 characters | Over 76% chance of a rewrite (99.9% past 70) | Keep to 51–60 characters |
+| 20 characters or fewer | Over 50% chance of a rewrite | Add the benefit or detail |
 | [Square brackets] | Rewritten 77.6%; bracket text removed 32.9% | Use (parentheses) instead |
 | (Parentheses) | Rewritten 61.9%; text removed 19.7% | Safe to use sparingly |
 | Pipe separator \| | Removed or replaced 41.0% of the time | Use a dash – instead |
@@ -91,6 +92,24 @@ That table settles a debate I see in many headline guides. HubSpot cites researc
 
 A newer factor: in March 2026, Google [confirmed it is testing AI-generated headline rewrites in regular search results](https://www.searchenginejournal.com/google-ai-headlines-in-search/570208/). Google called the test "small and narrow", but it used the same words for the Discover test that became a standard feature a month later. The best protection is the same as before: a title that already describes the page so well there's nothing to improve.
 
+## Which headline formulas work for blog posts?
+
+The best headline formula is the one that matches the format already ranking for your keyword. These five cover almost every blog search. Fill the brackets with your own keyword, number and benefit:
+
+| Search intent | Formula | Example |
+|---|---|---|
+| Learn a process | How to [outcome] (without [pain]) | How to Start a Blog Without Paying for Hosting |
+| Compare options | [N] Best [keyword] for [audience] ([proof]) | 12 Best AI Writing Tools for Bloggers (Tested) |
+| Choose between two | [X] vs [Y]: Which Is Better for [goal]? | Claude vs ChatGPT: Which Is Better for Blog Posts? |
+| Understand a concept | What Is [keyword]? [benefit] Explained | What Is Search Intent? The 3 Cs Explained |
+| Get ideas or examples | [N] [keyword] Examples That [result] | 25 Blog Title Examples That Earned Page-One Clicks |
+
+Only one line in that table ends in a question mark, and it's the one where the searcher is asking a question. That fits the data above: questions don't lift CTR by themselves, so use them when the query itself is a question.
+
+Keep a swipe file, a habit [Copyblogger recommends in its headline guide](https://copyblogger.com/how-to-write-headlines-that-work/): every time a title makes you click, save it in a note with the search you typed. After a month you'll have your own formula list built from your niche, not a generic one.
+
+The line to hold is click-worthy, not clickbait. Every word in the formula must be true of the article. "Tested" means you tested. "Complete" means nothing important is missing.
+
 ## What is a headline score, and should you trust it?
 
 A headline score is a 0–100 rating from a headline analyzer, based on rules like word count, character count, word balance and sentiment. It's useful for catching obvious problems. It is not a reliable predictor of which headline gets more clicks.
@@ -98,7 +117,7 @@ A headline score is a 0–100 rating from a headline analyzer, based on rules li
 The most popular tools score different things:
 
 - **CoSchedule Headline Analyzer** checks word balance (common, uncommon, emotional and power words), length, headline type, reading level and sentiment.
-- **Sharethrough** focuses on engagement and impression factors for paid and social placements.
+- **Sharethrough** was built for native ad headlines. It blends an engagement score and an impression score into one quality score.
 - **EMV analyzers** count emotional words only.
 
 Benjamin Houy tested this directly. He compared the scores of these three tools with the real winners of [23 A/B headline tests on his blog](https://growwithless.com/headline-analyzers/). CoSchedule picked the winner 16 times. EMV managed 9 and Sharethrough 8, which is worse than flipping a coin.
@@ -130,7 +149,7 @@ Read the top 10, find the gap, write ten versions, check them, then measure. Thi
 
 1. **Read the top 10 titles.** Note the format, length, whether they use numbers or a year, and the angle each one takes.
 2. **Find the gap.** Look for what no title promises: first-hand testing, a free tool, templates, newer data, or a narrower audience.
-3. **Write ten versions.** Start each with the keyword, add the benefit, then the specific detail. The first few will be obvious. The good one usually shows up around version six or seven.
+3. **Write ten versions after the draft.** Start with a working title, then write the final headline once the article exists, because the content often ends up promising something sharper than you planned. Begin each version with the keyword, add the benefit, then the specific detail. The first few will be obvious. The good one usually shows up around version six or seven.
 4. **Check the shortlist.** 40–60 characters, no square brackets, no hype words, and a promise the article keeps.
 5. **Measure CTR after four to six weeks.** In Google Search Console, open Performance, filter by the page and compare CTR with pages at a similar average position. If it trails, rewrite the title and check again a month later.
 
@@ -140,7 +159,7 @@ AI can speed up step 3. Ask Claude or ChatGPT for ten headlines that include you
 
 ### Should the H1 and the SEO title tag be the same?
 
-They don't have to match word for word. The H1 can be longer and more conversational because it isn't truncated, while the title tag stays under 60 characters. Keep the same keyword and the same promise in both, or Google may pick the H1 as your title link anyway.
+They don't have to match word for word. The H1 can be longer and more conversational because nothing cuts it off, while the title tag stays under 60 characters. Keep the same keyword and the same promise in both so readers land on what they clicked for.
 
 ### Should I add my brand name to blog titles?
 
@@ -154,9 +173,9 @@ Neither has a proven CTR advantage in Google. Pick one style and use it on every
 
 Yes, but differently. AI answers usually cite a page without showing its full title, so the headline's job shifts to matching the question closely enough to be chosen as a source. Question-style H2s with a direct first sentence help more there than the H1 does.
 
-### Can I change a blog headline after publishing?
+### Should the URL slug change when I rewrite a headline?
 
-Yes. Editing the title tag is a normal, low-risk change, and Google shows the new version after it recrawls the page. Keep the URL slug the same, though. Changing the URL creates a new page in Google's eyes and needs a 301 redirect.
+No. Keep the slug as it is. WordPress doesn't change a published post's slug when you edit the title, and changing it yourself turns the page into a new URL that needs a 301 redirect from the old one.
 
 ### What if the keyword sounds awkward in a headline?
 
