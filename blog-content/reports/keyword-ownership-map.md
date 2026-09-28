@@ -12,6 +12,7 @@ One primary intent per URL. When another article touches the same question, it a
 | /blog/how-to-improve-blog-readability-score/ | improve blog readability score; Flesch targets | headline length, AI detection |
 | /blog/how-to-write-blog-headlines/ | blog headlines / title tags that get clicks | readability, general on-page SEO |
 | /blog/ai-paraphrasing-vs-rewriting/ | paraphrasing vs rewriting; paraphrasing & plagiarism | Google AI penalties (now 2 paras + link) |
+| /blog/ai-content-writing-for-small-business/ | ai content writing for small business; AI content strategy, tools, costs and a plan for small firms | drafting steps, humanizing, Google detection, headline writing (links out) |
 | /blog/can-google-detect-ai-content/ | can Google detect AI content; does Google penalize AI content; AI detector accuracy | humanizing techniques, drafting workflow (links out) |
 
 ## Overlaps found and fixed
