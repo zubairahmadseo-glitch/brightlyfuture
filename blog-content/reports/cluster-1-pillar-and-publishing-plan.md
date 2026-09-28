@@ -4,7 +4,7 @@ Updated 28 September 2026 after reading BrightlyFutureContentRoadmap.xlsx (sheet
 ## 1. Status of the 20 planned pages
 | # | Sheet title | Status | Decision |
 |---|---|---|---|
-| 1 | Complete Guide to AI Content Writing in 2026 (PILLAR) | Not written | **Write next** |
+| 1 | Complete Guide to AI Content Writing in 2026 (PILLAR) | **Written** (ai-content-writing-guide.md, ~3,100 words) | Publish Day 1 |
 | 2 | How to Write a Blog Post Using AI | Drafted | Keep; trim hub-style sections (see 3) |
 | 3 | AI Blog Writer vs Human Writer | Drafted | Keep; add links |
 | 4 | How to Humanize AI Content | Drafted | Keep; trim Google section; add links |
@@ -97,3 +97,9 @@ Each day: add the new post to the pillar's hub list and to any earlier post that
 
 ## 7. Indexing
 Google discovers pages through your sitemap and internal links whether or not you request indexing; the only way to hold it back is a noindex tag, which isn't worth it. Request indexing in Search Console for each post on the day it goes live, and start the next cluster in parallel.
+
+## 8. Pillar design notes (written 28 Sept 2026)
+- Each section answers its question in 2–4 short paragraphs, then links to the spoke that owns the topic. It does not repeat spoke data (tests, studies, checklists).
+- Pillar-only content (no spoke covers it): what AI content writing is and how LLMs work, content-type table and format tips (email, social, product descriptions, ads), the 7-stage workflow overview (replaces roadmap #14), a measurement scorecard, a glossary, and the tools hub.
+- Length: ~3,100 words instead of the sheet's 4,000–5,000. Going longer would mean re-explaining spokes, which creates the overlap you asked to avoid.
+- Links: all 10 spokes, 6 tools, Content Marketing service page.
