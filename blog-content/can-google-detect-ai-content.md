@@ -110,9 +110,9 @@ Keep AI in the drafting seat and yourself in the editing seat. Every risk in Goo
 2. **Has every fact been checked?** AI drafts invent statistics with confidence. Open each source and cut anything you can't confirm.
 3. **Is the metadata accurate?** Google's AI guidance singles out titles, meta descriptions, structured data and alt text.
 4. **Would you publish it at this pace without AI?** Scale without review is what the spam policy targets. Ten edited posts beat a hundred unread ones.
-5. **Does it read like a person wrote it for a person?** Check the [readability score](https://brightlyfuture.co.uk/tools/readability-checker/) and run it through the [AI writing checker](https://brightlyfuture.co.uk/ai-blog-detector/) to find sentences that need your voice.
+5. **Does it read like a person wrote it for a person?** Check the [readability score](https://brightlyfuture.co.uk/readability-checker/) and run it through the [AI writing checker](https://brightlyfuture.co.uk/ai-blog-detector/) to find sentences that need your voice.
 
-For the full drafting workflow, see the [complete guide to writing a blog post with AI](https://brightlyfuture.co.uk/blog/how-to-write-blog-post-using-ai/). For editing techniques, see the humanizing guide linked above, and for where each side is stronger, [AI blog writer vs human writer](https://brightlyfuture.co.uk/blog/ai-blog-writer-vs-human-writer/). If you rework existing text, rewrite rather than spin: synonym swapping is named in Google's spam policies, as I explain in [paraphrasing vs rewriting](https://brightlyfuture.co.uk/blog/ai-paraphrasing-vs-rewriting/).
+For the full drafting workflow, see the [step-by-step guide to writing a blog post with AI](https://brightlyfuture.co.uk/blog/how-to-write-blog-post-using-ai/). For editing techniques, see the humanizing guide linked above, and for where each side is stronger, [AI blog writer vs human writer](https://brightlyfuture.co.uk/blog/ai-blog-writer-vs-human-writer/). If you rework existing text, rewrite rather than spin: synonym swapping is named in Google's spam policies, as I explain in [paraphrasing vs rewriting](https://brightlyfuture.co.uk/blog/ai-paraphrasing-vs-rewriting/).
 
 ## Frequently Asked Questions
 
@@ -140,3 +140,4 @@ Yes. Google [says its AI features](https://developers.google.com/search/docs/app
 
 Google doesn't need to detect AI to deal with bad AI content. Its systems catch pages that add nothing, and unedited AI drafts usually add nothing. Use AI to write faster, then spend the saved time on the parts only you can supply. That combination is what grew this site, and it's what the 2026 data rewards.
 
+For the bigger picture on tools, SEO and Google's rules, start with our [complete guide to AI content writing](https://brightlyfuture.co.uk/blog/ai-content-writing-guide/). If you'd rather hand the writing over, see our [content marketing service](https://brightlyfuture.co.uk/content-marketing/).

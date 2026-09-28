@@ -149,3 +149,5 @@ Yes, Claude and ChatGPT both write in many languages, which helps businesses ser
 AI hasn't changed what makes small-business content work. It has changed how long the first draft takes. Give Claude your business brief, let it draft, and spend the time you save on the details only you know. Start with the 90-day plan, check your numbers at the end, and grow from what actually brings in customers.
 
 If you'd rather have content planned and written for you, our [content marketing service](https://brightlyfuture.co.uk/content-marketing/) uses this same process.
+
+For the bigger picture on tools, SEO and Google's rules, start with our [complete guide to AI content writing](https://brightlyfuture.co.uk/blog/ai-content-writing-guide/).

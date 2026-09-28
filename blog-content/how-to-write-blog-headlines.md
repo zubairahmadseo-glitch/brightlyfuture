@@ -6,7 +6,7 @@
 
 Before I write a single headline, I read the top 10 Google results for the keyword. Not the articles. The titles. They show me what Google already believes the searcher wants, and what nobody has offered yet.
 
-For this guide, I turned that habit into data. I collected 69 ranking titles across 9 blogging, SEO and marketing searches and counted what they share. Below you'll find those patterns, what SEO studies say about length, numbers and title rewrites, and a [free headline analyzer](https://brightlyfuture.co.uk/tools/headline-analyzer/) to check your own.
+For this guide, I turned that habit into data. I collected 69 ranking titles across 9 blogging, SEO and marketing searches and counted what they share. Below you'll find those patterns, what SEO studies say about length, numbers and title rewrites, and a [free headline analyzer](https://brightlyfuture.co.uk/headline-analyzer/) to check your own.
 
 ## What makes a good blog headline?
 
@@ -185,4 +185,6 @@ Use the natural version. Google matches close variants, so "How to Write Blog He
 
 Great blog headlines aren't clever. They're clear. Read what ranks, match the format, add the angle nobody else has, and keep it tight. Then trust your Search Console data over any score.
 
-Once the headline earns the click, the article has to keep the reader. My guide on [how to improve your blog readability score](https://brightlyfuture.co.uk/blog/how-to-improve-blog-readability-score/) covers that part, and the [complete guide to writing a blog post with AI](https://brightlyfuture.co.uk/blog/how-to-write-blog-post-using-ai/) shows the full process from idea to publish. If you're choosing a writing assistant, start with our [best AI blog writing tools](https://brightlyfuture.co.uk/blog/best-ai-blog-writing-tools/) comparison.
+Once the headline earns the click, the article has to keep the reader. My guide on [how to improve your blog readability score](https://brightlyfuture.co.uk/blog/how-to-improve-blog-readability-score/) covers that part, and the [step-by-step guide to writing a blog post with AI](https://brightlyfuture.co.uk/blog/how-to-write-blog-post-using-ai/) shows the full process from idea to publish. If you're choosing a writing assistant, start with our [best AI blog writing tools](https://brightlyfuture.co.uk/blog/best-ai-blog-writing-tools/) comparison.
+
+For the bigger picture on tools, SEO and Google's rules, start with our [complete guide to AI content writing](https://brightlyfuture.co.uk/blog/ai-content-writing-guide/). If you'd rather hand the writing over, see our [content marketing service](https://brightlyfuture.co.uk/content-marketing/).

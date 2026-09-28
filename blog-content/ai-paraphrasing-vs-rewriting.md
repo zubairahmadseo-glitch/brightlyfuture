@@ -108,7 +108,7 @@ After my test, I rebuilt our own [free paraphraser](https://brightlyfuture.co.uk
 
 [IMG 06-paraphrasing-tool-phrases-kept.webp | Screenshot: the BrightlyFuture paraphraser showing words changed and the Phrases kept score]
 
-Whatever you use, run the result through the [readability checker](https://brightlyfuture.co.uk/tools/readability-checker/) afterwards. Many paraphrasers swap short words for longer ones and make text harder to read.
+Whatever you use, run the result through the [readability checker](https://brightlyfuture.co.uk/readability-checker/) afterwards. Many paraphrasers swap short words for longer ones and make text harder to read.
 
 ## Frequently Asked Questions
 
@@ -132,4 +132,6 @@ It depends on your institution's policy. Many universities allow tools for langu
 
 Paraphrase when you need someone else's idea in your words. Rewrite when your own piece needs a new shape. Either way, the words are the easy part; credit and added value are what keep your content honest and worth ranking.
 
-For the full process from draft to publish, see the [complete guide to writing a blog post with AI](https://brightlyfuture.co.uk/blog/how-to-write-blog-post-using-ai/).
+For the full process from draft to publish, see the [step-by-step guide to writing a blog post with AI](https://brightlyfuture.co.uk/blog/how-to-write-blog-post-using-ai/).
+
+For the bigger picture on tools, SEO and Google's rules, start with our [complete guide to AI content writing](https://brightlyfuture.co.uk/blog/ai-content-writing-guide/). If you'd rather hand the writing over, see our [content marketing service](https://brightlyfuture.co.uk/content-marketing/).

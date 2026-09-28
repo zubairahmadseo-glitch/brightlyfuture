@@ -6,7 +6,7 @@
 
 Before writing this guide, I scored the 11 top-ranking articles on this exact topic. Only three of them hit the 60–70 target they tell you to aim for. The rest landed between 53 and 59.
 
-That result shaped everything below. Most advice on how to improve blog readability score repeats the same eight tips and never proves they work. You get my own before-and-after test, the scores of the pages that rank, the trap that makes scores lie, and a [free readability checker](https://brightlyfuture.co.uk/tools/readability-checker/) to use while you edit.
+That result shaped everything below. Most advice on how to improve blog readability score repeats the same eight tips and never proves they work. You get my own before-and-after test, the scores of the pages that rank, the trap that makes scores lie, and a [free readability checker](https://brightlyfuture.co.uk/readability-checker/) to use while you edit.
 
 ## What is a good readability score for a blog post?
 
@@ -173,7 +173,7 @@ A note on method: I scored text extracted from each page's main content with our
 
 The best free readability checker depends on where you write. Each of these suits a different stage:
 
-- [BrightlyFuture Readability Checker](https://brightlyfuture.co.uk/tools/readability-checker/) – free, no sign-up. Shows Flesch, Flesch–Kincaid, Gunning Fog and ARI side by side, and highlights sentences over 20 and 30 words plus likely passive voice. Best for pass 1 and the final rescore.
+- [BrightlyFuture Readability Checker](https://brightlyfuture.co.uk/readability-checker/) – free, no sign-up. Shows Flesch, Flesch–Kincaid, Gunning Fog and ARI side by side, and highlights sentences over 20 and 30 words plus likely passive voice. Best for pass 1 and the final rescore.
 - [Hemingway Editor](https://hemingwayapp.com/) – the free web version colour-codes hard sentences, adverbs and passive voice. Best for passes 2 and 4.
 - **Microsoft Word** – shows Flesch Reading Ease and Flesch–Kincaid grade under Editor > Document stats in Microsoft 365. Handy if you draft in Word.
 - **Yoast SEO, Rank Math or AIOSEO (WordPress)** – check sentence length, paragraph length, passive voice, transition words and subheading spacing inside the editor. A useful last check before publishing.
@@ -211,3 +211,5 @@ No. The checker runs entirely in your browser with JavaScript. Your draft is nev
 Readability scores reward short sentences and short words, and readers do too, up to a point. Use the score to find the sentences that lose people, fix them in five passes, and let meaning win once you're in range.
 
 Drafting with AI? My guide on [how to write a blog post using AI](https://brightlyfuture.co.uk/blog/how-to-write-blog-post-using-ai/) covers the drafting side, and the [blog post word count guide](https://brightlyfuture.co.uk/blog/blog-post-word-count/) covers how long the finished post should be.
+
+For the bigger picture on tools, SEO and Google's rules, start with our [complete guide to AI content writing](https://brightlyfuture.co.uk/blog/ai-content-writing-guide/). If you'd rather hand the writing over, see our [content marketing service](https://brightlyfuture.co.uk/content-marketing/).
