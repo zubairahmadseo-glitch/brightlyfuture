@@ -29,12 +29,14 @@ ai content writing for small business (H1, Quick Answer, H2 1 area, meta)
 | best ai tools for small business content | H2 4 |
 | claude for business writing / claude project instructions | H2 5 |
 | how to start content marketing with ai | H2 6 |
-| ai content risks small business | H2 7 |
+| ai search / chatgpt / ai overviews for small business | H2 7 (added in audit) |
+| ai content risks small business | H2 8 |
 | ai for local seo / google business profile posts ai | table, FAQ |
 
 ## People Also Ask / user questions
 From the roadmap sheet: How can small businesses use AI for content? · Is AI content cost-effective? · Should small businesses use AI writers? · How to start content marketing with AI? (all four are H2s)
-From SERP and competitor FAQs: What should I never let AI write? · Can AI reply to Google reviews? · Should AI write service pages? · How to keep brand voice consistent across staff? · Does AI content help local SEO? (FAQs)
+FAQs after audit (each unanswered in the body): Is it safe to paste customer details into AI? · Can I use AI-generated images? · How to keep AI content consistent across staff? · Can AI write in Welsh, Urdu or other languages?
+(Removed in audit because the body already answered them: never-let-AI-write, review replies, service pages, local SEO.)
 
 ## Social / community research: what was and wasn't possible
 - **Reddit:** direct access and site-restricted search both returned no threads (Reddit blocks automated access). No Reddit quotes are used.
@@ -71,8 +73,11 @@ Claude, Claude Projects, Claude Skills, Anthropic, ChatGPT, Jasper, WordPress, M
 | Projects on all plans; free = 5 projects | Claude Help Centre | current |
 | Skills launched 16 Oct 2025; Pro/Max/Team/Enterprise | Claude blog | Oct 2025 |
 | Intuit Assist drafts emails | Mailchimp | current |
-| Breeze Content Agent (Content Hub paid tiers) | HubSpot | current |
-**Left out (not verifiable):** "89% of small businesses use AI" (US Chamber figure quoted by blogs but not on the Chamber page), "small businesses 23% more likely to see blog ROI" (attributed to HubSpot; not in the report).
+| Breeze Content Agent (Content Hub Professional/Enterprise) | HubSpot | current |
+| AI Overviews/AI Mode: no extra requirements; keep Business Profile current | Google Search Central – AI features | current |
+| E-commerce AI images need IPTC labels | Google gen AI content guidance | updated 10 Dec 2025 |
+| AI and UK GDPR | ICO guidance on AI and data protection | current |
+**Left out (not verifiable):** Google "SEO takes four months to a year" (not on Google's current page); "89% of small businesses use AI" (US Chamber figure quoted by blogs but not on the Chamber page), "small businesses 23% more likely to see blog ROI" (attributed to HubSpot; not in the report).
 
 ## Tools named in the sheet
 - AI Blog Generator: the /ai-blog-generator/ page currently runs the old AI detector code, not a generator. Not linked.

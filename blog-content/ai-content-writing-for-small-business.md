@@ -65,7 +65,7 @@ Most small businesses need one general AI assistant and the AI features already 
 - **Claude:** my first choice for writing. It follows long, detailed instructions consistently, which matters when you want every draft to sound like your business. I compare it with the alternatives in [best AI blog writing tools](https://brightlyfuture.co.uk/blog/best-ai-blog-writing-tools/).
 - **ChatGPT:** a strong all-rounder, and in my experience the better choice for generating images for posts and social media.
 - **Mailchimp:** its built-in assistant, [Intuit Assist, drafts emails](https://mailchimp.com/solutions/ai-tools/) inside the editor, so you don't need a separate tool for newsletters.
-- **HubSpot:** the [Breeze Content Agent](https://www.hubspot.com/products/content/content-ai-agent) drafts blog posts and landing pages from your business context. It's part of Content Hub's paid tiers, so it suits businesses already using HubSpot.
+- **HubSpot:** the [Breeze Content Agent](https://www.hubspot.com/products/content/content-ai-agent) drafts blog posts and landing pages from your business context. It's included in Content Hub Professional and Enterprise, so it suits businesses already paying for HubSpot.
 - **WordPress:** where most small-business blogs live. Draft in your AI assistant, then paste into the editor and check formatting, links and images before publishing.
 - **Jasper:** a marketing-focused AI platform with brand voice features. Worth considering for a team producing a lot of content; overkill for a sole trader.
 - **Google Business Profile:** not an AI tool, but one of the best places for AI-drafted content. Regular posts with real photos show customers you're active.
@@ -98,13 +98,25 @@ Start small and measure. For the first 90 days, spend three to four hours a week
 [IMG 04-small-business-90-day-plan.webp | A 90-day plan for starting AI content marketing as a small business]
 
 **Days 1–14: set up.**
-Write a one-page business brief: services, prices, service area, ideal customers, tone and the questions customers ask most. Load it into a Claude Project. List 20 real customer questions from emails, calls and reviews; these become your first blog posts and FAQs. Check that your Google Business Profile details are correct.
+Write a one-page business brief: services, prices, service area, ideal customers, tone and the questions customers ask most. Load it into a Claude Project. List 20 real customer questions from emails, calls and reviews; these become your first blog posts and FAQs. Type a few into Google and note the "People also ask" questions and autocomplete suggestions: they show how customers phrase the same problem. Check that your Google Business Profile details are correct.
 
 **Days 15–60: publish.**
 Aim for one blog post a week answering one of those questions, two Google Business Profile posts a week and one email every fortnight. Turn each blog post into three social captions. Before publishing any blog post, write a clear title and check it's under 60 characters; my guide to [writing blog headlines that get clicks](https://brightlyfuture.co.uk/blog/how-to-write-blog-headlines/) covers how. For the drafting process itself, follow the [guide to writing a blog post with AI](https://brightlyfuture.co.uk/blog/how-to-write-blog-post-using-ai/).
 
 **Days 61–90: measure.**
 In Google Search Console, see which posts are getting impressions. In your Business Profile, check calls, direction requests and website clicks. Update your best-performing post with more detail and cut any content type that brought nothing. Then decide whether you need more content or better content. In my experience, it's usually better content.
+
+## How can a small business show up in AI search answers?
+
+Get your basics right in normal Google Search first. Google says its AI Overviews and AI Mode have [no extra requirements](https://developers.google.com/search/docs/appearance/ai-features): a page only needs to be indexed and eligible to show a snippet. The same guidance lists keeping your Business Profile information up to date as a best practice.
+
+For a small business, that turns into three habits:
+
+- **Answer one question per page or post, in its first sentence.** AI answers quote clear, self-contained answers. The customer questions from your 90-day plan are exactly what people type into ChatGPT and Google.
+- **Keep facts identical everywhere.** Your opening hours, prices and service area should match on your website, Business Profile and social accounts, so no source contradicts another.
+- **Publish what only you know.** Local prices, job photos, before-and-after results and your own tips give an AI answer a reason to cite you instead of a national chain.
+
+Google's own advice sums it up: there's no separate trick for AI search. Useful, accurate, specific pages are what get picked up.
 
 ## What are the risks of AI content for a small business?
 
@@ -116,25 +128,21 @@ The main risks are wrong facts, content that sounds like everyone else, and publ
 
 ## Frequently Asked Questions
 
-### What should a small business never let AI write on its own?
+### Is it safe to paste customer details into an AI tool?
 
-Anything that makes a promise or a claim you could be held to: prices, guarantees, terms and conditions, health or safety advice, financial or legal guidance, and testimonials. AI can draft a structure, but a person with the facts must write or approve the final wording.
+Only if your use of that tool meets UK GDPR, and the safest habit is not to paste names, emails, order details or health information at all. Check each provider's settings on whether your chats are used for training, and read the ICO's [guidance on AI and data protection](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/) if AI touches customer data in your business.
 
-### Can AI-drafted replies to Google reviews hurt my business?
+### Can I use AI-generated images in my marketing?
 
-They can if they sound copied. Customers notice when every reply is the same polished paragraph. Use AI for a first draft, then add the customer's name, the specific issue they raised and what you're doing about it. For negative reviews, write the reply yourself.
-
-### Should I use AI to write my website's service pages?
-
-Use it for structure and first drafts, not the final copy. Service pages carry your prices, process and proof, which are exactly the details AI doesn't know. Many owners get the best result by drafting with AI and then paying a copywriter for a final edit of their three or four most important pages.
+Yes, and many small businesses do for social posts and blog headers. Avoid images that look like real customers, staff or other brands, and never use one to show a product or job result it doesn't match. If you sell online, Google's [AI content guidance](https://developers.google.com/search/docs/fundamentals/using-gen-ai-content) asks e-commerce sites to label AI-generated product images with IPTC metadata.
 
 ### How do I keep AI content consistent when several staff use it?
 
 Put the business brief, tone rules and banned words in one shared place so everyone drafts from the same source. On Claude's Team and Enterprise plans, projects can be shared with colleagues; on other tools, keep a shared document of instructions that everyone pastes in.
 
-### Does AI content work for local SEO?
+### Can AI write content in Welsh, Urdu or other languages my customers speak?
 
-It can help, because local SEO rewards frequent, useful updates: Business Profile posts, answers to local questions and service-area pages. What makes it work is local detail AI can't invent, such as street names, local events, real job photos and your own customer questions.
+Yes, Claude and ChatGPT both write in many languages, which helps businesses serving more than one community. Have a fluent speaker check anything customer-facing before it goes out, because small errors in tone or formality are easy to miss if you don't speak the language.
 
 ## Final thoughts
 
