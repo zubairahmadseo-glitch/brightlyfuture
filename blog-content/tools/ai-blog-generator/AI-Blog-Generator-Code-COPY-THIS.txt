@@ -1,0 +1,174 @@
+<!-- BrightlyFuture AI Blog Generator v1: replace ALL old tool code on /ai-blog-generator/ with this block (one Elementor HTML widget).
+     Uses the free Pollinations.ai text API from the visitor's browser (no API key, no server code).
+     Optional: register brightlyfuture.co.uk at https://auth.pollinations.ai for higher limits; the referrer below already identifies the site. -->
+<div id="bf-blog-generator"></div>
+<script>
+(function () {
+  'use strict';
+  var host = document.getElementById('bf-blog-generator');
+  if (!host || host.shadowRoot) return;
+  var R = host.attachShadow({ mode: 'open' });
+  var API = 'https://text.pollinations.ai/openai';
+  var REFERRER = 'brightlyfuture.co.uk';
+  var COOLDOWN = 16; // seconds between requests on the free tier
+
+  R.innerHTML = '<style>' +
+    ':host{all:initial;display:block;--p:#7C3AED;--l:#F0ECFF;--d:#1A1A2E;--g:#F8F7FF;font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--d)}' +
+    '*{box-sizing:border-box}.wrap{max-width:1100px;margin:0 auto;padding:8px 0}' +
+    '.grid{display:grid;grid-template-columns:360px 1fr;gap:18px}@media(max-width:860px){.grid{grid-template-columns:1fr}}' +
+    '.card{background:#fff;border-radius:14px;box-shadow:0 2px 12px rgba(124,58,237,.08);padding:18px}' +
+    'label{display:block;font-weight:600;font-size:14px;margin:12px 0 6px}label:first-child{margin-top:0}' +
+    'input,select,textarea{width:100%;border:1.5px solid #DDD6FE;border-radius:10px;padding:10px 12px;font:inherit;font-size:15px;background:#fff;color:var(--d)}' +
+    'textarea{height:80px;resize:vertical}.row{display:grid;grid-template-columns:1fr 1fr;gap:10px}' +
+    '.chk{display:flex;gap:8px;align-items:center;font-size:14px;margin-top:10px;font-weight:500}.chk input{width:auto}' +
+    'button{background:var(--p);color:#fff;border:0;border-radius:9px;padding:12px 18px;font-weight:700;font-size:15px;cursor:pointer;width:100%;margin-top:16px}' +
+    'button[disabled]{opacity:.55;cursor:not-allowed}.sec{background:#fff;color:var(--p);border:1.5px solid #DDD6FE;width:auto;margin:0 8px 8px 0;padding:9px 14px;font-size:14px}' +
+    '.muted{color:#666;font-size:13px;line-height:1.5}.err{color:#B91C1C;font-size:14px;margin-top:10px}' +
+    '.stats{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}.chip{background:var(--l);border-radius:20px;padding:6px 12px;font-size:13px;font-weight:600}' +
+    '.out{line-height:1.7;font-size:16px;max-height:720px;overflow:auto;padding-right:6px}.out h1{font-size:26px;margin:.2em 0 .5em}.out h2{font-size:21px;margin:1.3em 0 .4em;color:var(--p)}.out h3{font-size:17px;margin:1em 0 .3em}.out ul,.out ol{padding-left:22px}' +
+    '.out mark{background:#FEF3C7;padding:0 3px;border-radius:3px}.empty{color:#888;text-align:center;padding:60px 10px}' +
+    '.check{background:var(--l);border-left:5px solid var(--p);border-radius:8px;padding:12px 14px;margin-top:14px;font-size:14px;line-height:1.55}.check b{display:block;margin-bottom:4px}' +
+    '.spin{display:inline-block;width:16px;height:16px;border:3px solid rgba(255,255,255,.5);border-top-color:#fff;border-radius:50%;animation:s 1s linear infinite;vertical-align:-3px;margin-right:8px}@keyframes s{to{transform:rotate(360deg)}}' +
+    '.wm{text-align:right;font-size:12px;color:#8b7fc7;margin-top:10px}' +
+    '</style>' +
+    '<div class="wrap"><div class="grid">' +
+    '<div class="card">' +
+    '<label for="topic">Blog topic *</label><input id="topic" maxlength="160" placeholder="e.g. How to start composting at home">' +
+    '<label for="kw">Target keyword</label><input id="kw" maxlength="80" placeholder="e.g. composting for beginners">' +
+    '<label for="aud">Who is it for?</label><input id="aud" maxlength="120" placeholder="e.g. UK beginners with a small garden">' +
+    '<div class="row"><div><label for="tone">Tone</label><select id="tone"><option>Friendly</option><option>Professional</option><option>Expert</option><option>Casual</option></select></div>' +
+    '<div><label for="len">Length</label><select id="len"><option value="700">Short (~700 words)</option><option value="1100" selected>Medium (~1,100)</option><option value="1500">Long (~1,500)</option></select></div></div>' +
+    '<div class="row"><div><label for="sp">Spelling</label><select id="sp"><option value="UK">UK English</option><option value="US">US English</option></select></div>' +
+    '<div><label for="fmt">Format</label><select id="fmt"><option value="guide">How-to guide</option><option value="list">List post</option><option value="explainer">Explainer</option><option value="comparison">Comparison</option></select></div></div>' +
+    '<label for="notes">Your facts or notes (optional)</label><textarea id="notes" maxlength="1500" placeholder="Prices, results, your own tips… the draft will use these instead of inventing details."></textarea>' +
+    '<label class="chk"><input type="checkbox" id="faq" checked> Add an FAQ section</label>' +
+    '<button id="go">Generate draft</button>' +
+    '<div id="err" class="err" role="alert"></div>' +
+    '<p class="muted" style="margin-top:12px">Free, no sign-up. Your topic and notes are sent to Pollinations.ai to generate the text, so don\'t include personal or confidential information.</p>' +
+    '</div>' +
+    '<div class="card"><div id="stats" class="stats"></div><div id="actions"></div><div id="out" class="out"><div class="empty">Your draft will appear here.<br>Tip: add your own facts in the notes box for a better first draft.</div></div>' +
+    '<div id="check" class="check" style="display:none"></div><div class="wm">BrightlyFuture.co.uk</div></div>' +
+    '</div></div>';
+
+  function $(id) { return R.getElementById(id); }
+  var lastMd = '', lastRequest = 0, busy = false;
+
+  var BANNED = ['delve', 'tapestry', 'in today\'s', 'ever-evolving', 'landscape', 'realm', 'unlock', 'unleash', 'harness', 'leverage', 'seamless', 'robust', 'game-changer', 'cutting-edge', 'furthermore', 'moreover', 'additionally', 'in conclusion', 'embark', 'elevate', 'empower', 'foster', 'pivotal', 'crucial', 'navigate'];
+
+  function buildPrompt(o) {
+    var sys = 'You are an experienced blog writer. Write in ' + (o.sp === 'UK' ? 'UK English spelling' : 'US English spelling') + '. ' +
+      'Output clean Markdown only: one H1 title, then sections with ## headings. No preamble, no closing remarks about the task.';
+    var u = 'Write a ' + o.fmt + ' blog post of about ' + o.len + ' words.\n' +
+      'Topic: ' + o.topic + '\n' +
+      (o.kw ? 'Target keyword: "' + o.kw + '". Use it in the H1, the first paragraph and one or two headings, naturally.\n' : '') +
+      (o.aud ? 'Audience: ' + o.aud + '.\n' : '') +
+      'Tone: ' + o.tone + ', clear and specific.\n' +
+      'Rules:\n' +
+      '- Start with a 2–3 sentence introduction that answers the main question directly.\n' +
+      '- Write ## headings as the questions a reader would ask. The first sentence under each heading must answer it.\n' +
+      '- Short paragraphs (2–4 sentences). Vary sentence length. Use lists only where they help.\n' +
+      '- Never invent statistics, studies, quotes, prices or personal stories. Where a fact or real example would help, write a placeholder like [ADD SOURCE: …] or [ADD YOUR EXAMPLE: …].\n' +
+      '- Avoid these words and phrases: ' + BANNED.join(', ') + '.\n' +
+      (o.faq ? '- End with "## Frequently Asked Questions" containing 3 short Q&As (### for each question) that the body does not already answer.\n' : '- End with a short conclusion section.\n') +
+      (o.notes ? '\nUse these facts and notes from the author, and do not contradict them:\n' + o.notes + '\n' : '');
+    return [{ role: 'system', content: sys }, { role: 'user', content: u }];
+  }
+
+  function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+  function inline(s) {
+    return esc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\*(.+?)\*/g, '<em>$1</em>')
+      .replace(/\[(ADD [^\]]+)\]/g, '<mark>[$1]</mark>');
+  }
+  function mdToHtml(md) {
+    var lines = md.replace(/\r/g, '').split('\n'), html = '', list = null, para = [];
+    function flushP() { if (para.length) { html += '<p>' + inline(para.join(' ')) + '</p>'; para = []; } }
+    function flushL() { if (list) { html += '</' + list + '>'; list = null; } }
+    lines.forEach(function (l) {
+      var m;
+      if (/^\s*$/.test(l)) { flushP(); flushL(); return; }
+      if ((m = l.match(/^(#{1,3})\s+(.*)$/))) { flushP(); flushL(); var n = m[1].length; html += '<h' + n + '>' + inline(m[2]) + '</h' + n + '>'; return; }
+      if ((m = l.match(/^\s*[-*]\s+(.*)$/))) { flushP(); if (list !== 'ul') { flushL(); html += '<ul>'; list = 'ul'; } html += '<li>' + inline(m[1]) + '</li>'; return; }
+      if ((m = l.match(/^\s*\d+[.)]\s+(.*)$/))) { flushP(); if (list !== 'ol') { flushL(); html += '<ol>'; list = 'ol'; } html += '<li>' + inline(m[1]) + '</li>'; return; }
+      flushL(); para.push(l.trim());
+    });
+    flushP(); flushL();
+    return html;
+  }
+
+  function syl(w) { w = w.toLowerCase().replace(/[^a-z]/g, ''); if (!w) return 0; if (w.length <= 3) return 1; w = w.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '').replace(/^y/, ''); var m = w.match(/[aeiouy]{1,2}/g); return Math.max(1, m ? m.length : 1); }
+  function stats(md) {
+    var text = md.replace(/^#+\s.*$/gm, '').replace(/[*_\[\]]/g, '');
+    var words = text.match(/[A-Za-z0-9][A-Za-z0-9'’-]*/g) || [];
+    var sents = (text.match(/[^.!?\n]+[.!?]+/g) || []).length || 1;
+    var s = words.reduce(function (a, w) { return a + syl(w); }, 0);
+    var fre = Math.round(206.835 - 1.015 * (words.length / sents) - 84.6 * (s / Math.max(1, words.length)));
+    var lc = md.toLowerCase(), found = BANNED.filter(function (b) { return lc.indexOf(b) > -1; });
+    var ph = (md.match(/\[ADD [^\]]+\]/g) || []).length;
+    return { words: words.length, fre: Math.max(0, Math.min(100, fre)), mins: Math.max(1, Math.round(words.length / 238)), banned: found, placeholders: ph };
+  }
+
+  function render(md) {
+    lastMd = md;
+    $('out').innerHTML = mdToHtml(md);
+    var s = stats(md);
+    $('stats').innerHTML = '<span class="chip">' + s.words + ' words</span><span class="chip">' + s.mins + ' min read</span><span class="chip">Flesch ' + s.fre + '</span>' +
+      (s.placeholders ? '<span class="chip" style="background:#FEF3C7">' + s.placeholders + ' places to add your facts</span>' : '');
+    $('actions').innerHTML = '<button class="sec" id="cpMd">Copy Markdown</button><button class="sec" id="cpHtml">Copy HTML</button><button class="sec" id="dl">Download .md</button>';
+    $('cpMd').onclick = function () { copy(lastMd, this); };
+    $('cpHtml').onclick = function () { copy(mdToHtml(lastMd), this); };
+    $('dl').onclick = function () { var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([lastMd], { type: 'text/markdown' })); a.download = 'blog-draft.md'; document.body.appendChild(a); a.click(); a.remove(); };
+    var c = $('check'); c.style.display = 'block';
+    c.innerHTML = '<b>Before you publish this draft</b>' +
+      '1. Replace every highlighted [ADD …] placeholder with your own facts or sources.<br>' +
+      '2. Check every claim: AI drafts can state wrong facts confidently.<br>' +
+      '3. Add one example, photo or result that only you have.<br>' +
+      '4. Aim for Flesch 60–70' + (s.fre < 60 ? ' (this draft is ' + s.fre + ': shorten some sentences)' : '') + '.' +
+      (s.banned.length ? '<br>5. Rewrite these AI-sounding words: <i>' + esc(s.banned.join(', ')) + '</i>.' : '') +
+      '<br><span class="muted">Next: check it with our <a href="/readability-checker/" target="_blank">Readability Checker</a> and <a href="/ai-blog-detector/" target="_blank">AI Writing Checker</a>.</span>';
+  }
+
+  function copy(text, btn) {
+    var done = function () { var t = btn.textContent; btn.textContent = 'Copied!'; setTimeout(function () { btn.textContent = t; }, 1500); };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done);
+    else { var ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); ta.remove(); done(); }
+  }
+
+  function cooldownLeft() { return Math.max(0, COOLDOWN - Math.floor((Date.now() - lastRequest) / 1000)); }
+  function setBtn() {
+    var b = $('go'), left = cooldownLeft();
+    if (busy) { b.disabled = true; b.innerHTML = '<span class="spin"></span>Writing your draft… (20–60 sec)'; return; }
+    if (left > 0) { b.disabled = true; b.textContent = 'Ready again in ' + left + ' s'; setTimeout(setBtn, 1000); return; }
+    b.disabled = false; b.textContent = lastMd ? 'Generate another version' : 'Generate draft';
+  }
+
+  function generate() {
+    $('err').textContent = '';
+    var o = {
+      topic: $('topic').value.trim(), kw: $('kw').value.trim(), aud: $('aud').value.trim(), tone: $('tone').value,
+      len: $('len').value, sp: $('sp').value, fmt: $('fmt').value, notes: $('notes').value.trim(), faq: $('faq').checked
+    };
+    if (o.topic.length < 5) { $('err').textContent = 'Please enter a topic (at least a few words).'; $('topic').focus(); return; }
+    if (busy || cooldownLeft() > 0) return;
+    busy = true; lastRequest = Date.now(); setBtn();
+    var ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 120000);
+    fetch(API, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, signal: ctrl ? ctrl.signal : undefined,
+      body: JSON.stringify({ model: 'openai', referrer: REFERRER, private: true, messages: buildPrompt(o) })
+    }).then(function (r) {
+      if (r.status === 429) throw new Error('The free AI service is busy. Please wait a minute and try again.');
+      if (!r.ok) throw new Error('The AI service returned an error (' + r.status + '). Please try again shortly.');
+      return r.json();
+    }).then(function (d) {
+      var md = d && d.choices && d.choices[0] && d.choices[0].message && d.choices[0].message.content;
+      if (!md || md.trim().length < 200) throw new Error('The draft came back empty. Please try again.');
+      render(md.trim());
+    }).catch(function (e) {
+      $('err').textContent = e.name === 'AbortError' ? 'This took too long. Please try again, or choose a shorter length.' : e.message;
+    }).then(function () { clearTimeout(timer); busy = false; lastRequest = Date.now(); setBtn(); });
+  }
+
+  $('go').addEventListener('click', generate);
+  $('topic').addEventListener('keydown', function (e) { if (e.key === 'Enter') generate(); });
+})();
+</script>

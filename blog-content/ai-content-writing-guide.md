@@ -190,7 +190,7 @@ These free BrightlyFuture tools cover the checking stages of the workflow. All r
 - [AI Writing Checker](https://brightlyfuture.co.uk/ai-blog-detector/) – find sentences that read like unedited AI.
 - [Readability Checker](https://brightlyfuture.co.uk/readability-checker/) – get Flesch, grade level and the sentences to fix.
 - [Headline Analyzer](https://brightlyfuture.co.uk/headline-analyzer/) – check title length, keyword position and truncation.
-- [Word Counter](https://brightlyfuture.co.uk/word-counter/) – count words and characters as you edit.
+- [Word Counter](https://brightlyfuture.co.uk/word-character-counter/) – count words and characters as you edit.
 
 If you'd rather have the writing done for you, our [content marketing service](https://brightlyfuture.co.uk/content-marketing/) uses the same workflow described in this guide.
 

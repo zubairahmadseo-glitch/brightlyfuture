@@ -1,0 +1,252 @@
+/*!
+ * BrightlyFuture Word & Character Counter v2 – drop-in replacement (same element IDs).
+ */
+(function () {
+'use strict';
+var inputEl, timer = null;
+var stopWords = {the:1,a:1,an:1,and:1,or:1,but:1,in:1,on:1,at:1,to:1,for:1,of:1,with:1,by:1,from:1,is:1,it:1,as:1,be:1,was:1,are:1,been:1,has:1,have:1,had:1,do:1,does:1,did:1,will:1,would:1,could:1,should:1,may:1,might:1,shall:1,can:1,this:1,that:1,these:1,those:1,i:1,you:1,he:1,she:1,we:1,they:1,me:1,him:1,her:1,us:1,them:1,my:1,your:1,his:1,its:1,our:1,their:1,not:1,no:1,so:1,if:1,then:1,than:1,too:1,very:1,just:1,about:1,up:1,out:1,into:1,over:1,after:1,before:1,between:1,under:1,above:1,each:1,all:1,both:1,few:1,more:1,most:1,other:1,some:1,such:1,only:1,same:1,also:1,how:1,what:1,which:1,who:1,when:1,where:1,why:1,am:1,were:1,being:1,here:1,there:1,own:1,down:1};
+var TITLES = /\b(mr|mrs|ms|dr|prof|sr|jr|st|no|fig|vs|approx|e\.g|i\.e)\.$/i;          // never end a sentence
+var ABBR = /\b(etc|ltd|inc|co|dept|est|jan|feb|mar|apr|jun|jul|aug|sep|sept|oct|nov|dec|u\.k|u\.s|u\.s\.a|a\.m|p\.m)\.$/i; // end only if next word is capitalised
+
+// Words = tokens that contain at least one letter or digit (so "—", "&", "/" and emoji-only tokens don't count).
+function getWords(text) {
+  return (text.match(/\S+/g) || []).filter(function (w) { return /[\p{L}\p{N}]/u.test(w); });
+}
+// Characters counted as users see them (an emoji or accented letter = 1).
+function countChars(text) {
+  if (typeof Intl !== 'undefined' && Intl.Segmenter) {
+    var n = 0, it = new Intl.Segmenter(undefined, { granularity: 'grapheme' }).segment(text)[Symbol.iterator]();
+    while (!it.next().done) n++;
+    return n;
+  }
+  return Array.from(text).length;
+}
+// Sentences: end at . ! ? (not after abbreviations or inside numbers like 3.50) or at a line break.
+function getSentences(text) {
+  var out = [];
+  text.split(/\n+/).forEach(function (line) {
+    line = line.trim();
+    if (!line) return;
+    var buf = '', toks = line.split(/(\s+)/);
+    for (var i = 0; i < toks.length; i++) {
+      buf += toks[i];
+      var t = toks[i];
+      var bare = t.replace(/["')\]]+$/, ''), next = (toks[i + 2] || '');
+      var ends = /[.!?]["')\]]*$/.test(t) && !TITLES.test(bare) && !/^\p{Lu}\.$/u.test(t);
+      if (ends && ABBR.test(bare)) ends = /^["'(\[]?\p{Lu}/u.test(next);
+      if (ends) {
+        if (/[\p{L}\p{N}]/u.test(buf)) out.push(buf.trim());
+        buf = '';
+      }
+    }
+    if (/[\p{L}\p{N}]/u.test(buf)) out.push(buf.trim());
+  });
+  return out;
+}
+function syllables(w) {
+  w = w.toLowerCase().replace(/[^a-z]/g, '');
+  if (!w) return 0;
+  if (w.length <= 3) return 1;
+  w = w.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '').replace(/^y/, '');
+  var m = w.match(/[aeiouy]{1,2}/g);
+  return Math.max(1, m ? m.length : 1);
+}
+function fmtTime(words, wpm) {
+  if (!words) return '0 sec';
+  var sec = Math.round(words / wpm * 60);
+  if (sec < 60) return sec + ' sec';
+  var m = Math.floor(sec / 60), s = sec % 60;
+  return s >= 30 ? (m + 1) + ' min' : m + ' min';
+}
+
+function initCounter() {
+  inputEl = document.getElementById('inputText');
+  if (!inputEl) { setTimeout(initCounter, 200); return; }
+  inputEl.addEventListener('input', function () {
+    clearTimeout(timer);
+    timer = setTimeout(analyseText, inputEl.value.length > 20000 ? 250 : 0);
+  });
+  if (inputEl.value) analyseText();
+}
+if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initCounter); else initCounter();
+
+function analyseText() {
+  var text = inputEl.value, trimmed = text.trim();
+  var words = getWords(trimmed), wordCount = words.length;
+  var charCount = countChars(text);
+  var charNoSpaceCount = countChars(text.replace(/\s/g, ''));
+  var sentences = trimmed ? getSentences(trimmed) : [];
+  var sentenceCount = sentences.length;
+  var paragraphs = trimmed ? trimmed.split(/\n\s*\n/).filter(function (p) { return /[\p{L}\p{N}]/u.test(p); }) : [];
+  var paraCount = paragraphs.length;
+
+  var letters = 0, syl = 0, map = {}, longCount = 0;
+  for (var i = 0; i < words.length; i++) {
+    var clean = words[i].replace(/[^\p{L}\p{N}'’-]/gu, '');
+    letters += clean.replace(/['’-]/g, '').length;
+    syl += syllables(clean);
+    var lw = clean.toLowerCase().replace(/’/g, "'");
+    if (lw) map[lw] = (map[lw] || 0) + 1;
+    if (clean.replace(/['’-]/g, '').length >= 6) longCount++;
+  }
+  var avgWLen = wordCount ? (letters / wordCount).toFixed(1) : '0';
+  var avgSLen = sentenceCount ? Math.round(wordCount / sentenceCount) : 0;
+
+  var readability = '-';
+  if (wordCount >= 3 && sentenceCount) {
+    var fre = 206.835 - 1.015 * (wordCount / sentenceCount) - 84.6 * (syl / wordCount);
+    var grade = 0.39 * (wordCount / sentenceCount) + 11.8 * (syl / wordCount) - 15.59;
+    grade = Math.max(1, Math.round(grade));
+    fre = Math.max(0, Math.min(100, Math.round(fre)));
+    readability = 'Grade ' + (grade > 16 ? '16+' : grade) + ' · Flesch ' + fre;
+  }
+
+  set('wordCount', wordCount); set('charCount', charCount); set('charNoSpace', charNoSpaceCount);
+  set('sentenceCount', sentenceCount); set('paraCount', paraCount);
+  set('readTime', fmtTime(wordCount, 238)); set('speakTime', fmtTime(wordCount, 150));
+  set('avgWordLen', avgWLen); set('avgSentLen', avgSLen);
+  set('uniqueWords', Object.keys(map).length); set('longWords', longCount); set('readScore', readability);
+
+  updateLimits(charCount);
+  updateDensity(words, wordCount);
+}
+function set(id, v) { var e = document.getElementById(id); if (e) e.textContent = v; }
+
+function updateLimits(charCount) {
+  var limits = [
+    { id: 'limTwitter', max: 280 }, { id: 'limMeta', max: 60 }, { id: 'limMetaDesc', max: 160 },
+    { id: 'limLinkedin', max: 3000 }, { id: 'limInsta', max: 2200 }
+  ];
+  for (var i = 0; i < limits.length; i++) {
+    var el = document.getElementById(limits[i].id);
+    if (!el) continue;
+    var status = el.querySelector('.limit-status');
+    if (status) status.textContent = charCount + '/' + limits[i].max;
+    if (charCount > limits[i].max) el.classList.add('active'); else el.classList.remove('active');
+  }
+}
+function updateDensity(words, totalWords) {
+  if (totalWords === 0 || document.getElementById('densitySection').style.display === 'none') return;
+
+  var singleMap = {};
+  var cleanWords = [];
+  for (var i = 0; i < words.length; i++) {
+    var cw = words[i].toLowerCase().replace(/[^\p{L}\p{N}'-]/gu, '');
+    if (cw.length > 1 && !stopWords[cw]) {
+      singleMap[cw] = (singleMap[cw] || 0) + 1;
+      cleanWords.push(cw);
+    }
+  }
+
+  var biMap = {};
+  for (var b = 0; b < cleanWords.length - 1; b++) {
+    var bi = cleanWords[b] + ' ' + cleanWords[b+1];
+    biMap[bi] = (biMap[bi] || 0) + 1;
+  }
+
+  var triMap = {};
+  for (var t = 0; t < cleanWords.length - 2; t++) {
+    var tri = cleanWords[t] + ' ' + cleanWords[t+1] + ' ' + cleanWords[t+2];
+    triMap[tri] = (triMap[tri] || 0) + 1;
+  }
+
+  renderDensity('densityList', singleMap, totalWords, 10);
+  renderDensity('bigramList', biMap, totalWords, 8);
+  renderDensity('trigramList', triMap, totalWords, 6);
+}
+
+function renderDensity(containerId, map, total, limit) {
+  var sorted = Object.keys(map).sort(function(a, b) { return map[b] - map[a]; });
+  var container = document.getElementById(containerId);
+  var html = '';
+  var max = sorted.length > 0 ? map[sorted[0]] : 1;
+  for (var i = 0; i < Math.min(sorted.length, limit); i++) {
+    if (map[sorted[i]] < 2 && containerId !== 'densityList') continue;
+    var pct = ((map[sorted[i]] / total) * 100).toFixed(1);
+    var barW = Math.max(5, (map[sorted[i]] / max) * 100);
+    html += '<div class="density-bar">';
+    html += '<span class="density-word">' + sorted[i] + '</span>';
+    html += '<div class="density-fill-wrap"><div class="density-fill" style="width:' + barW + '%"></div></div>';
+    html += '<span class="density-pct">' + pct + '%</span>';
+    html += '<span class="density-count">' + map[sorted[i]] + '</span>';
+    html += '</div>';
+  }
+  if (!html) html = '<div style="font-size:0.82rem;color:var(--muted);padding:0.5rem 0;">Not enough text to analyse.</div>';
+  container.innerHTML = html;
+}
+
+window.toggleFaq = function(btn) {
+  btn.parentElement.classList.toggle('open');
+};
+
+window.copyText = function() {
+  var text = inputEl.value;
+  if (!text) { alert('No text to copy. Type or paste text first.'); return; }
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(function() {
+      var t = document.getElementById('toast');
+      t.classList.add('show');
+      setTimeout(function() { t.classList.remove('show'); }, 2000);
+    });
+  } else {
+    var ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    var t = document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(function() { t.classList.remove('show'); }, 2000);
+  }
+};
+
+window.clearText = function() {
+  inputEl.value = '';
+  inputEl.dispatchEvent(new Event('input'));
+  document.getElementById('densitySection').style.display = 'none';
+};
+
+window.toggleDensity = function() {
+  var sec = document.getElementById('densitySection');
+  if (sec.style.display === 'none' || sec.style.display === '') {
+    sec.style.display = 'block';
+    var text = inputEl.value.trim();
+    if (text) {
+      var words = getWords(text);
+      updateDensity(words, words.length);
+    }
+  } else {
+    sec.style.display = 'none';
+  }
+};
+
+window.downloadStats = function() {
+  var text = inputEl.value.trim();
+  if (!text) { alert('No text to analyse. Type or paste text first.'); return; }
+  var report = 'BrightlyFuture Word Counter Report\n';
+  report += '===================================\n\n';
+  report += 'Words: ' + document.getElementById('wordCount').textContent + '\n';
+  report += 'Characters (with spaces): ' + document.getElementById('charCount').textContent + '\n';
+  report += 'Characters (no spaces): ' + document.getElementById('charNoSpace').textContent + '\n';
+  report += 'Sentences: ' + document.getElementById('sentenceCount').textContent + '\n';
+  report += 'Paragraphs: ' + document.getElementById('paraCount').textContent + '\n';
+  report += 'Reading Time: ' + document.getElementById('readTime').textContent + '\n';
+  report += 'Speaking Time: ' + document.getElementById('speakTime').textContent + '\n';
+  report += 'Average Word Length: ' + document.getElementById('avgWordLen').textContent + '\n';
+  report += 'Average Sentence Length: ' + document.getElementById('avgSentLen').textContent + ' words\n';
+  report += 'Unique Words: ' + document.getElementById('uniqueWords').textContent + '\n';
+  report += 'Long Words (6+ letters): ' + document.getElementById('longWords').textContent + '\n';
+  report += 'Readability: ' + document.getElementById('readScore').textContent + '\n';
+  report += '\n--- Generated by BrightlyFuture.co.uk ---\n';
+
+  var blob = new Blob([report], { type: 'text/plain' });
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'word-count-report.txt';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+};
+
+})();
