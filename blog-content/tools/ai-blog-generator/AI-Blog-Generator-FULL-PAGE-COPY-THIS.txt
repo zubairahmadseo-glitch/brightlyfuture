@@ -1,0 +1,651 @@
+<style>
+:root {
+  --pri: #6C5CE7;
+  --pri-hover: #5A4BD1;
+  --bg: #E8E0F0;
+  --bg-alt: #DDD4EB;
+  --card-bg: #FFFFFF;
+  --card-border: #D0C6E0;
+  --input-bg: #F5F1FA;
+  --input-border: #D0C6E0;
+  --text: #2D2B55;
+  --muted: #6B6490;
+  --heading: #1A1744;
+  --green: #00C897;
+  --red: #EF4444;
+  --yellow: #F59E0B;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: var(--pri); text-decoration: none; }
+a:hover { color: var(--pri-hover); }
+
+/* Hero */
+.abd-hero { text-align: center; padding: 3.5rem 1.5rem 2.5rem; background: var(--bg); }
+.abd-hero .back-link { display: inline-block; color: var(--muted); font-size: 0.85rem; margin-bottom: 1.5rem; transition: color .2s; }
+.abd-hero .back-link:hover { color: var(--pri); }
+.abd-hero .badge { display: inline-block; background: var(--card-bg); color: var(--pri); font-size: 0.8rem; font-weight: 600; padding: 0.4rem 1.1rem; border-radius: 999px; border: 1px solid var(--card-border); margin-bottom: 1.25rem; }
+.abd-hero h1 { font-size: 2.4rem; font-weight: 800; color: var(--heading); margin-bottom: 0.85rem; }
+.abd-hero .sub { color: var(--muted); max-width: 660px; margin: 0 auto 1.5rem; font-size: 0.95rem; line-height: 1.65; }
+.usp-row { display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; }
+.usp-pill { background: rgba(108,92,231,0.08); border: 1px solid rgba(108,92,231,0.2); color: var(--pri); font-size: 0.78rem; font-weight: 600; padding: 0.4rem 1rem; border-radius: 999px; }
+
+/* Tool */
+.abd-tool { max-width: 850px; margin: 0 auto; padding: 0 1.5rem 3rem; }
+.abd-box { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 2rem; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.abd-box label { display: block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); margin-bottom: 0.45rem; }
+.abd-box textarea { width: 100%; background: var(--input-bg); border: 1px solid var(--input-border); border-radius: 10px; padding: 0.9rem 1rem; color: var(--text); font-size: 0.9rem; font-family: inherit; transition: border-color .2s; resize: vertical; min-height: 200px; line-height: 1.7; }
+.abd-box textarea:focus { outline: none; border-color: var(--pri); }
+.char-count { font-size: 0.75rem; color: var(--muted); text-align: right; margin-top: 0.35rem; }
+.mb { margin-bottom: 1.25rem; }
+.btn-group { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+.btn { padding: 0.7rem 1.6rem; border-radius: 10px; font-weight: 600; font-size: 0.9rem; cursor: pointer; border: none; transition: all .2s; font-family: inherit; }
+.btn-primary { background: var(--pri) !important; color: #fff !important; }
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active { background: var(--pri-hover) !important; color: #fff !important; transform: translateY(-1px); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+.btn-secondary { background: var(--input-bg) !important; color: var(--muted) !important; border: 1px solid var(--card-border) !important; }
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active { border-color: var(--pri) !important; color: var(--text) !important; background: var(--input-bg) !important; }
+
+/* Progress */
+.progress-wrap { margin-top: 1.5rem; display: none; }
+.progress-bar { height: 8px; border-radius: 4px; background: var(--input-bg); overflow: hidden; margin-bottom: 0.5rem; }
+.progress-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--pri), #8B5CF6); transition: width .4s; }
+.progress-label { font-size: 0.8rem; color: var(--muted); }
+
+/* Results */
+.result-section { display: none; margin-top: 2rem; }
+.result-verdict { text-align: center; padding: 2rem 1.5rem; border-radius: 16px; border: 2px solid var(--card-border); margin-bottom: 1.5rem; }
+.result-verdict.human { border-color: var(--green); background: rgba(0,200,151,0.05); }
+.result-verdict.mixed { border-color: var(--yellow); background: rgba(245,158,11,0.05); }
+.result-verdict.ai { border-color: var(--red); background: rgba(239,68,68,0.05); }
+.verdict-icon { font-size: 2.5rem; margin-bottom: 0.5rem; display: block; }
+.verdict-label { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.3rem; }
+.result-verdict.human .verdict-label { color: var(--green); }
+.result-verdict.mixed .verdict-label { color: var(--yellow); }
+.result-verdict.ai .verdict-label { color: var(--red); }
+.verdict-sub { font-size: 0.9rem; color: var(--muted); }
+
+/* Score ring */
+.score-ring-wrap { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.score-item { text-align: center; }
+.score-ring { position: relative; width: 100px; height: 100px; }
+.score-ring svg { transform: rotate(-90deg); }
+.score-ring .bg-circle { fill: none; stroke: var(--input-bg); stroke-width: 8; }
+.score-ring .fg-circle { fill: none; stroke-width: 8; stroke-linecap: round; transition: stroke-dashoffset 1s ease; }
+.score-ring .score-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 1.3rem; font-weight: 800; color: var(--heading); }
+.score-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-top: 0.5rem; }
+
+/* Breakdown */
+.breakdown { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+.bd-item { background: var(--input-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 1rem 1.2rem; }
+.bd-item .bd-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 0.3rem; }
+.bd-item .bd-val { font-size: 1.1rem; font-weight: 700; color: var(--heading); }
+.bd-bar { height: 6px; border-radius: 3px; background: var(--card-border); margin-top: 0.5rem; overflow: hidden; }
+.bd-bar-fill { height: 100%; border-radius: 3px; transition: width .8s ease; }
+
+/* Highlighted text */
+.highlighted-text { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; line-height: 1.8; font-size: 0.9rem; max-height: 350px; overflow-y: auto; }
+.hl-legend { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.75rem; font-size: 0.78rem; color: var(--muted); }
+.hl-legend span { display: inline-flex; align-items: center; gap: 0.35rem; }
+.hl-legend .dot { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+.hl-ai { background: rgba(239,68,68,0.15); border-bottom: 2px solid var(--red); padding: 0 2px; }
+.hl-mixed { background: rgba(245,158,11,0.12); border-bottom: 2px solid var(--yellow); padding: 0 2px; }
+
+.stats-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+.stat-chip { background: var(--input-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 0.8rem 1.3rem; text-align: center; flex: 1; min-width: 80px; }
+.stat-chip .val { font-size: 1.4rem; font-weight: 700; color: var(--heading); }
+.stat-chip .lbl { font-size: 0.68rem; color: var(--muted); text-transform: uppercase; margin-top: 0.15rem; letter-spacing: 0.04em; }
+
+/* Sections */
+.abd-section { max-width: 1100px; margin: 0 auto; padding: 4rem 1.5rem; }
+.abd-section.alt { background: var(--bg-alt); max-width: 100%; }
+.abd-section.alt > .inner { max-width: 1100px; margin: 0 auto; }
+.sec-head { text-align: center; margin-bottom: 2.75rem; }
+.sec-head h2 { font-size: 1.65rem; font-weight: 800; color: var(--heading); margin-bottom: 0.5rem; }
+.sec-head p { color: var(--muted); font-size: 0.92rem; max-width: 520px; margin: 0 auto; font-style: italic; }
+
+/* Steps */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.step { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 2rem 1.5rem; text-align: center; transition: border-color .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.step:hover { border-color: var(--pri); }
+.step-n { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--pri), #8B5CF6); color: #fff; font-weight: 700; font-size: 1rem; margin-bottom: 1rem; }
+.step h3 { font-size: 1rem; font-weight: 700; color: var(--heading); margin-bottom: 0.5rem; }
+.step p { font-size: 0.85rem; color: var(--muted); }
+
+/* Feature & audience cards */
+.cards-6 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.fcard { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; transition: border-color .2s, transform .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.fcard:hover { border-color: var(--pri); transform: translateY(-2px); }
+.fcard .ic { font-size: 1.6rem; margin-bottom: 0.8rem; display: block; }
+.fcard h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.4rem; }
+.fcard p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+.aud-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; text-align: center; transition: border-color .2s, transform .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.aud-card:hover { border-color: var(--pri); transform: translateY(-2px); }
+.aud-card .ic { font-size: 2rem; margin-bottom: 0.65rem; display: block; }
+.aud-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.35rem; }
+.aud-card p { font-size: 0.85rem; color: var(--muted); }
+
+/* Comparison table */
+.tbl-wrap { overflow-x: auto; border-radius: 16px; border: 1px solid var(--card-border); box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.cmp-tbl { width: 100%; border-collapse: collapse; font-size: 0.85rem; background: var(--card-bg); }
+.cmp-tbl th, .cmp-tbl td { padding: 0.9rem 1.1rem; text-align: center; border-bottom: 1px solid var(--card-border); }
+.cmp-tbl th { background: var(--heading); color: #fff; font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.cmp-tbl td:first-child { text-align: left; font-weight: 600; color: var(--text); }
+.cmp-tbl tr:last-child td { border-bottom: none; }
+.cmp-tbl .hl { background: rgba(108,92,231,0.06); }
+.ck { color: var(--green); font-weight: 700; font-size: 1.1rem; }
+.cx { color: var(--red); font-size: 1.1rem; }
+
+/* How it works detail */
+.how-detail { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+.how-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; transition: border-color .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.how-card:hover { border-color: var(--pri); }
+.how-card .ic { font-size: 1.4rem; margin-bottom: 0.6rem; display: block; }
+.how-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.4rem; }
+.how-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+
+/* Tips */
+.tips { display: flex; flex-direction: column; gap: 1rem; }
+.tip { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.5rem 1.75rem; display: flex; gap: 1.25rem; align-items: flex-start; transition: border-color .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.tip:hover { border-color: var(--pri); }
+.tip-n { flex-shrink: 0; width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--pri), #8B5CF6); color: #fff; font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; }
+.tip h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.3rem; }
+.tip p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+
+/* Related tools */
+.rel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.rel-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; display: flex; flex-direction: column; transition: border-color .2s, transform .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.rel-card:hover { border-color: var(--pri); transform: translateY(-2px); }
+.rel-card .cat { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--pri); margin-bottom: 0.6rem; letter-spacing: 0.05em; }
+.rel-card h3 { font-size: 1rem; font-weight: 700; color: var(--heading); margin-bottom: 0.45rem; }
+.rel-card p { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.25rem; flex: 1; line-height: 1.55; }
+.rel-card .btn { text-align: center; font-size: 0.82rem; padding: 0.55rem 1rem; }
+
+/* Service banner */
+.svc-banner { background: linear-gradient(135deg, var(--bg-alt) 0%, var(--card-bg) 100%); border: 1px solid var(--card-border); border-radius: 16px; padding: 3rem 2rem; text-align: center; max-width: 850px; margin: 0 auto; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.svc-banner .badge { display: inline-block; background: var(--pri); color: #fff; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; padding: 0.3rem 0.85rem; border-radius: 999px; margin-bottom: 0.85rem; letter-spacing: 0.05em; }
+.svc-banner h3 { font-size: 1.35rem; font-weight: 800; color: var(--heading); margin-bottom: 0.85rem; }
+.svc-banner p { color: var(--muted); font-size: 0.9rem; max-width: 540px; margin: 0 auto 1.5rem; line-height: 1.6; }
+
+/* FAQ */
+.faq-list { max-width: 800px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--card-border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.15rem 0; cursor: pointer; font-weight: 600; font-size: 0.95rem; color: var(--heading) !important; background: transparent !important; border: none !important; border-radius: 0 !important; width: 100%; text-align: left; font-family: inherit; transition: color .2s; box-shadow: none !important; }
+.faq-q:hover, .faq-q:focus, .faq-q:active { color: var(--pri) !important; background: transparent !important; box-shadow: none !important; }
+.faq-q .arrow { font-size: 1.2rem; color: var(--pri); flex-shrink: 0; transition: transform .25s; }
+.faq-item.open .faq-q .arrow { transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+.faq-item.open .faq-a { max-height: 400px; }
+.faq-a p { font-size: 0.9rem; color: var(--muted); padding-bottom: 1rem; line-height: 1.6; }
+
+/* Final CTA */
+.final-cta { text-align: center; padding: 4.5rem 1.5rem; background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%); }
+.final-cta h2 { font-size: 1.85rem; font-weight: 800; color: var(--heading); margin-bottom: 0.85rem; }
+.final-cta p { color: var(--muted); font-size: 0.95rem; margin-bottom: 1.75rem; }
+.btn-big { display: inline-block; background: linear-gradient(135deg, var(--pri), #8B5CF6) !important; color: #fff !important; padding: 0.9rem 2.8rem; border-radius: 12px; font-weight: 700; font-size: 1.05rem; border: none; cursor: pointer; transition: transform .2s, box-shadow .2s; box-shadow: 0 4px 20px rgba(108,92,231,0.3); }
+.btn-big:hover, .btn-big:focus, .btn-big:active { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(108,92,231,0.45); color: #fff !important; background: linear-gradient(135deg, var(--pri-hover), #7C4FE0) !important; }
+.final-cta .sub-note { font-size: 0.8rem; color: var(--muted); margin-top: 0.85rem; }
+
+.toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); background: var(--green); color: #fff; padding: 0.6rem 1.5rem; border-radius: 10px; font-weight: 600; font-size: 0.85rem; opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 999; }
+.toast.show { opacity: 1; }
+
+@media (max-width: 768px) {
+  .steps, .cards-6, .rel-grid { grid-template-columns: 1fr; }
+  .breakdown, .how-detail { grid-template-columns: 1fr; }
+  .abd-hero h1 { font-size: 1.7rem; }
+  .tip { flex-direction: column; }
+  .cmp-tbl { font-size: 0.78rem; }
+  .cmp-tbl th, .cmp-tbl td { padding: 0.65rem 0.6rem; }
+  .score-ring-wrap { gap: 1rem; }
+}
+
+/* Generator form + output */
+.abg-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.abd-box input[type=text], .abd-box select { width: 100%; background: var(--input-bg); border: 1px solid var(--input-border); border-radius: 10px; padding: 0.75rem 1rem; color: var(--text); font-size: 0.9rem; font-family: inherit; transition: border-color .2s; }
+.abd-box input[type=text]:focus, .abd-box select:focus { outline: none; border-color: var(--pri); }
+.abd-box textarea#notes { min-height: 110px; }
+.abg-check { display: flex; gap: 0.5rem; align-items: center; font-size: 0.88rem; color: var(--text); margin-top: 0.25rem; }
+.abg-check input { width: auto; accent-color: var(--pri); }
+.abg-err { color: var(--red); font-size: 0.88rem; margin-top: 0.75rem; min-height: 1em; }
+.abg-note { font-size: 0.78rem; color: var(--muted); margin-top: 0.75rem; line-height: 1.5; }
+.abg-output { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 1.5rem 1.75rem; line-height: 1.75; font-size: 0.95rem; max-height: 720px; overflow-y: auto; color: var(--text); }
+.abg-output h1 { font-size: 1.6rem; font-weight: 800; color: var(--heading); margin: 0.2em 0 0.6em; line-height: 1.3; }
+.abg-output h2 { font-size: 1.25rem; font-weight: 700; color: var(--pri); margin: 1.4em 0 0.5em; line-height: 1.35; }
+.abg-output h3 { font-size: 1.05rem; font-weight: 700; color: var(--heading); margin: 1.1em 0 0.4em; }
+.abg-output p { margin: 0 0 0.9em; }
+.abg-output ul, .abg-output ol { margin: 0 0 0.9em 1.4em; }
+.abg-output li { margin-bottom: 0.3em; }
+.abg-output mark { background: rgba(245,158,11,0.22); color: var(--heading); padding: 0 3px; border-radius: 3px; }
+.abg-checklist { background: rgba(108,92,231,0.06); border-left: 4px solid var(--pri); border-radius: 10px; padding: 1rem 1.25rem; margin-top: 1.25rem; font-size: 0.88rem; line-height: 1.65; color: var(--text); }
+.abg-checklist strong { display: block; color: var(--heading); margin-bottom: 0.35rem; }
+@media (max-width: 768px) { .abg-grid { grid-template-columns: 1fr; } }
+</style>
+
+<!-- Section 1: Hero -->
+<div class="abd-hero">
+  <a href="/tools/" class="back-link">&larr; Back to All Tools</a>
+  <div><span class="badge">&#9997;&#65039; Free AI Blog Generator</span></div>
+  <h1>Free AI Blog Generator &mdash; First Drafts in Under a Minute</h1>
+  <p class="sub">Enter a topic and keyword, choose a tone and length, and get a structured blog draft with question-style headings and an FAQ. It won&rsquo;t invent statistics or stories &mdash; it marks where your own facts should go, so you can turn the draft into something worth publishing.</p>
+  <div class="usp-row">
+    <span class="usp-pill">&#10003; 100% Free</span>
+    <span class="usp-pill">&#10003; No Signup Required</span>
+    <span class="usp-pill">&#10003; UK or US English</span>
+    <span class="usp-pill">&#10003; No Made-Up Facts</span>
+    <span class="usp-pill">&#10003; Copy as Markdown or HTML</span>
+  </div>
+</div>
+
+<!-- Section 2: Tool Widget -->
+<div class="abd-tool">
+  <div class="abd-box">
+    <div class="mb">
+      <label for="topic">Blog Topic *</label>
+      <input type="text" id="topic" maxlength="160" placeholder="e.g. How to start composting at home">
+    </div>
+    <div class="abg-grid mb">
+      <div><label for="kw">Target Keyword</label><input type="text" id="kw" maxlength="80" placeholder="e.g. composting for beginners"></div>
+      <div><label for="aud">Who Is It For?</label><input type="text" id="aud" maxlength="120" placeholder="e.g. UK beginners with a small garden"></div>
+    </div>
+    <div class="abg-grid mb">
+      <div><label for="fmt">Format</label><select id="fmt"><option value="how-to guide">How-to guide</option><option value="list post">List post</option><option value="explainer">Explainer</option><option value="comparison">Comparison</option></select></div>
+      <div><label for="tone">Tone</label><select id="tone"><option>Friendly</option><option>Professional</option><option>Expert</option><option>Casual</option></select></div>
+    </div>
+    <div class="abg-grid mb">
+      <div><label for="len">Length</label><select id="len"><option value="700">Short (~700 words)</option><option value="1100" selected>Medium (~1,100 words)</option><option value="1500">Long (~1,500 words)</option></select></div>
+      <div><label for="sp">Spelling</label><select id="sp"><option value="UK">UK English</option><option value="US">US English</option></select></div>
+    </div>
+    <div class="mb">
+      <label for="notes">Your Facts or Notes (optional)</label>
+      <textarea id="notes" maxlength="1500" placeholder="Prices, results, your own tips or experience&hellip; the draft will use these instead of inventing details."></textarea>
+      <label class="abg-check" for="faq"><input type="checkbox" id="faq" checked> Add an FAQ section</label>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-primary" id="genBtn" type="button">&#9997;&#65039; Generate Draft</button>
+      <button class="btn btn-secondary" id="clearBtn" type="button">Clear</button>
+      <button class="btn btn-secondary" id="sampleBtn" type="button">Load Example</button>
+    </div>
+    <div class="abg-err" id="genErr" role="alert"></div>
+    <p class="abg-note">Your topic and notes are sent to a free AI service (Pollinations) to write the draft. BrightlyFuture doesn&rsquo;t store them. Don&rsquo;t include personal or confidential information.</p>
+
+    <!-- Progress -->
+    <div class="progress-wrap" id="progressWrap">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+      <div class="progress-label" id="progressLabel">Writing your draft&hellip;</div>
+    </div>
+
+    <!-- Results -->
+    <div class="result-section" id="resultSection">
+      <div class="stats-row mb">
+        <div class="stat-chip"><div class="val" id="outWords">0</div><div class="lbl">Words</div></div>
+        <div class="stat-chip"><div class="val" id="outRead">0</div><div class="lbl">Min Read</div></div>
+        <div class="stat-chip"><div class="val" id="outFlesch">0</div><div class="lbl">Flesch Score</div></div>
+        <div class="stat-chip"><div class="val" id="outPh">0</div><div class="lbl">Facts to Add</div></div>
+      </div>
+      <label>Your Draft</label>
+      <div class="abg-output" id="draftOut"></div>
+      <div class="btn-group">
+        <button class="btn btn-secondary" id="copyMdBtn" type="button">&#128203; Copy Markdown</button>
+        <button class="btn btn-secondary" id="copyHtmlBtn" type="button">&#128203; Copy HTML</button>
+        <button class="btn btn-secondary" id="dlBtn" type="button">&#11015; Download .md</button>
+      </div>
+      <div class="abg-checklist" id="checklist"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 3: How It Works -->
+<div class="abd-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>How Our Free AI Blog Generator Works</h2>
+      <p>Three steps &mdash; no account, no credit card.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <h3>Describe Your Post</h3>
+        <p>Enter your topic, target keyword and audience, then pick a format, tone, length and UK or US spelling.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <h3>Add Your Own Facts</h3>
+        <p>Paste prices, results or tips into the notes box. The draft uses them instead of making details up &mdash; this is what makes the output yours.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <h3>Edit, Then Publish</h3>
+        <p>Get a structured draft in 20&ndash;60 seconds. Fill the highlighted [ADD &hellip;] placeholders, check every claim, and copy it as Markdown or HTML.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 4: What makes the drafts different -->
+<div class="abd-section">
+  <div class="sec-head">
+    <h2>What Makes These Drafts Different</h2>
+    <p>Built to give you a draft you can actually publish after editing.</p>
+  </div>
+  <div class="how-detail">
+    <div class="how-card">
+      <span class="ic">&#128683;</span>
+      <h3>No Invented Facts</h3>
+      <p>AI tools often make up statistics, studies and quotes. This generator is told not to. Where a fact or example would help, it leaves a highlighted placeholder such as [ADD SOURCE: &hellip;] for you to fill.</p>
+    </div>
+    <div class="how-card">
+      <span class="ic">&#10067;</span>
+      <h3>Question-Style Headings</h3>
+      <p>Headings are written as the questions readers search for, and the first sentence under each one answers it directly &mdash; the structure that works for featured snippets and AI search answers.</p>
+    </div>
+    <div class="how-card">
+      <span class="ic">&#128683;</span>
+      <h3>Fewer AI Clich&eacute;s</h3>
+      <p>The generator is told to avoid words like &ldquo;delve&rdquo;, &ldquo;leverage&rdquo; and &ldquo;in today&rsquo;s fast-paced world&rdquo;. If any slip through, the checklist below the draft lists them so you can rewrite them.</p>
+    </div>
+    <div class="how-card">
+      <span class="ic">&#128202;</span>
+      <h3>Built-In Quality Check</h3>
+      <p>Every draft shows its word count, reading time, Flesch readability score and how many facts you still need to add, plus a short pre-publish checklist.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Section 5: Key Features -->
+<div class="abd-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>Why Use BrightlyFuture&rsquo;s AI Blog Generator</h2>
+      <p>Free, simple, and honest about what AI can and can&rsquo;t do.</p>
+    </div>
+    <div class="cards-6">
+      <div class="fcard">
+        <span class="ic">&#128275;</span>
+        <h3>Free, No Signup</h3>
+        <p>No account, no email and no credits. Open the page and generate.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#127468;&#127463;</span>
+        <h3>UK or US English</h3>
+        <p>Choose British or American spelling so you don&rsquo;t spend time fixing &ldquo;optimize&rdquo; and &ldquo;color&rdquo;.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128221;</span>
+        <h3>Four Formats</h3>
+        <p>How-to guides, list posts, explainers and comparisons, in short, medium or long lengths.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128196;</span>
+        <h3>Copy as Markdown or HTML</h3>
+        <p>Paste straight into WordPress, Elementor or any editor, or download a .md file.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#9989;</span>
+        <h3>Pre-Publish Checklist</h3>
+        <p>Each draft ends with the steps that turn it into a post worth reading: add facts, check claims, add your own example.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128279;</span>
+        <h3>Works With Our Other Tools</h3>
+        <p>Check the draft in our Readability Checker and AI Content Detector, and rework stiff sentences with the Paraphraser.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 7: Who Is This For -->
+<div class="abd-section">
+  <div class="sec-head">
+    <h2>Who Uses Our AI Blog Generator?</h2>
+    <p>For anyone who needs a solid first draft to build on.</p>
+  </div>
+  <div class="cards-6">
+    <div class="aud-card"><span class="ic">&#128187;</span><h3>Bloggers</h3><p>Beat the blank page, then add your experience and voice.</p></div>
+    <div class="aud-card"><span class="ic">&#127970;</span><h3>Small Businesses</h3><p>Draft posts about your products and services, using your own prices and details from the notes box.</p></div>
+    <div class="aud-card"><span class="ic">&#128188;</span><h3>Marketers &amp; SEOs</h3><p>Get a keyword-focused structure with question headings and an FAQ to build a brief from.</p></div>
+    <div class="aud-card"><span class="ic">&#9997;&#65039;</span><h3>Freelance Writers</h3><p>Sketch an outline and first pass quickly, then do the research and writing that clients pay for.</p></div>
+    <div class="aud-card"><span class="ic">&#127891;</span><h3>Students &amp; Learners</h3><p>See how a well-structured article is laid out. Write your own work in your own words.</p></div>
+    <div class="aud-card"><span class="ic">&#128240;</span><h3>Content Teams</h3><p>Produce consistent first drafts for editors to fact-check and improve.</p></div>
+  </div>
+</div>
+
+<!-- Section 8: Tips -->
+<div class="abd-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>Tips for Better AI Blog Drafts</h2>
+      <p>What separates a draft that ranks from one that doesn&rsquo;t.</p>
+    </div>
+    <div class="tips">
+      <div class="tip"><div class="tip-n">1</div><div><h3>Fill the Notes Box</h3><p>The single biggest improvement. Your prices, results, steps and opinions give the draft substance no AI can invent.</p></div></div>
+      <div class="tip"><div class="tip-n">2</div><div><h3>Be Specific in the Topic</h3><p>&ldquo;How to start composting in a small UK garden&rdquo; gives a far better draft than &ldquo;composting&rdquo;.</p></div></div>
+      <div class="tip"><div class="tip-n">3</div><div><h3>Replace Every Placeholder</h3><p>Each highlighted [ADD &hellip;] marks a spot that needs a real source or example. Don&rsquo;t publish with them in, and don&rsquo;t just delete them.</p></div></div>
+      <div class="tip"><div class="tip-n">4</div><div><h3>Fact-Check Everything</h3><p>AI can state wrong things confidently. Check every claim against a reliable source before you publish.</p></div></div>
+      <div class="tip"><div class="tip-n">5</div><div><h3>Edit in Your Own Voice</h3><p>Add a story, a photo or a result only you have. Google&rsquo;s guidance rewards content that shows real experience &mdash; read our <a href="/blog/ai-content-writing-guide/">complete guide to AI content writing</a>.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 9: Related Tools -->
+<div class="abd-section">
+  <div class="sec-head">
+    <h2>More Free AI Tools from BrightlyFuture</h2>
+    <p>Check and polish your draft before you publish.</p>
+  </div>
+  <div class="rel-grid">
+    <div class="rel-card"><span class="cat">Content &middot; AI</span><h3>AI Content Detector</h3><p>See which sentences still read like unedited AI, and why, so you know what to rewrite.</p><a href="/ai-blog-detector/" class="btn btn-secondary">Try Free &rarr;</a></div>
+    <div class="rel-card"><span class="cat">Content &middot; AI</span><h3>AI Paraphraser / Rewriter</h3><p>Rework stiff or clunky sentences in six tones, then edit the result in your own voice.</p><a href="/ai-paraphrase-rewriter/" class="btn btn-secondary">Try Free &rarr;</a></div>
+    <div class="rel-card"><span class="cat">Content &middot; SEO</span><h3>Word &amp; Character Counter</h3><p>Count words, characters, sentences and paragraphs, and estimate reading time.</p><a href="/word-character-counter/" class="btn btn-secondary">Try Free &rarr;</a></div>
+  </div>
+</div>
+
+<!-- Section 10: Service Banner -->
+<div class="abd-section alt">
+  <div class="inner">
+    <div class="svc-banner">
+      <span class="badge">Done-for-you</span>
+      <h3>Want Posts That Are Researched, Written and Ready to Rank?</h3>
+      <p>Our team turns topics into fully researched, fact-checked, SEO-optimised articles written by people &mdash; so you can skip the editing.</p>
+      <a href="/content-marketing/" class="btn btn-primary">Get a Free Quote &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- Section 11: FAQ -->
+<div class="abd-section">
+  <div class="sec-head">
+    <h2>Frequently Asked Questions About the AI Blog Generator</h2>
+    <p>Everything you need to know before you generate.</p>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item"><button class="faq-q" type="button">Is the AI Blog Generator really free?<span class="arrow">+</span></button><div class="faq-a"><p>Yes. No signup, no credits and no paid plan. It uses a free AI service, which allows one request about every 15 seconds, so the button shows a short countdown between drafts.</p></div></div>
+    <div class="faq-item"><button class="faq-q" type="button">Which AI model writes the drafts?<span class="arrow">+</span></button><div class="faq-a"><p>Drafts are written by an open AI model through the free Pollinations service. The model can change on their side, which is one more reason to review every draft before publishing.</p></div></div>
+    <div class="faq-item"><button class="faq-q" type="button">Why does the draft contain [ADD SOURCE] and [ADD YOUR EXAMPLE]?<span class="arrow">+</span></button><div class="faq-a"><p>Because the generator is told never to invent statistics, studies, quotes or personal stories. The highlighted placeholders show exactly where a real fact or your own example belongs. Replace each one before publishing.</p></div></div>
+    <div class="faq-item"><button class="faq-q" type="button">Can I publish the draft as it is?<span class="arrow">+</span></button><div class="faq-a"><p>We don&rsquo;t recommend it. Fill the placeholders, check every claim and add your own experience. An unedited AI draft adds little that isn&rsquo;t already online, and that&rsquo;s the kind of page that struggles to rank.</p></div></div>
+    <div class="faq-item"><button class="faq-q" type="button">Will Google penalise AI-generated blog posts?<span class="arrow">+</span></button><div class="faq-a"><p>Google says it rewards helpful content however it&rsquo;s produced, and acts against content made mainly to manipulate rankings, such as mass-produced pages with little value. An edited, fact-checked post with real experience is fine. Read more in <a href="/blog/can-google-detect-ai-content/">can Google detect AI content?</a></p></div></div>
+    <div class="faq-item"><button class="faq-q" type="button">Is my topic or notes stored?<span class="arrow">+</span></button><div class="faq-a"><p>BrightlyFuture doesn&rsquo;t store them. They are sent once to the Pollinations AI service to write the draft, marked private. Don&rsquo;t paste personal or confidential information into any online AI tool.</p></div></div>
+    <div class="faq-item"><button class="faq-q" type="button">How long does a draft take?<span class="arrow">+</span></button><div class="faq-a"><p>Usually 20&ndash;60 seconds, depending on length and how busy the free service is. If it&rsquo;s busy, you&rsquo;ll see a message &mdash; wait a minute and try again.</p></div></div>
+    <div class="faq-item"><button class="faq-q" type="button">Can I choose UK or US English?<span class="arrow">+</span></button><div class="faq-a"><p>Yes. Pick UK or US spelling from the Spelling menu before you generate.</p></div></div>
+    <div class="faq-item"><button class="faq-q" type="button">What does the Flesch score mean?<span class="arrow">+</span></button><div class="faq-a"><p>It&rsquo;s a readability score from 0 to 100; higher is easier to read. Most blog posts should aim for about 60&ndash;70. If a draft scores lower, shorten long sentences and swap long words for simpler ones.</p></div></div>
+    <div class="faq-item"><button class="faq-q" type="button">How do I get the draft into WordPress?<span class="arrow">+</span></button><div class="faq-a"><p>Click Copy HTML and paste into a Custom HTML block, or Copy Markdown if your editor supports Markdown. You can also download a .md file.</p></div></div>
+    <div class="faq-item"><button class="faq-q" type="button">Why did I get an error or a busy message?<span class="arrow">+</span></button><div class="faq-a"><p>The free AI service limits how often it can be used and is sometimes busy. The tool retries once automatically. If it still fails, wait a minute and click Generate again, or choose a shorter length.</p></div></div>
+    <div class="faq-item"><button class="faq-q" type="button">Can it write in other languages?<span class="arrow">+</span></button><div class="faq-a"><p>The tool is set up for English. You can try writing your topic in another language, but results and the quality checks are built for English.</p></div></div>
+  </div>
+</div>
+
+<!-- Section 12: Final CTA -->
+<div class="final-cta">
+  <h2>Ready to Beat the Blank Page?</h2>
+  <p>Get a structured first draft in under a minute &mdash; then make it yours.</p>
+  <button class="btn-big" id="ctaBtn" type="button">&#9997;&#65039; Generate Your Draft &mdash; 100% Free</button>
+  <div class="sub-note">No Signup &middot; UK or US English &middot; No Made-Up Facts &middot; Copy as HTML</div>
+</div>
+
+<div class="toast" id="toast">Copied!</div>
+
+<script>
+(function () {
+  'use strict';
+  var API = 'https://text.pollinations.ai/openai', COOLDOWN = 16;
+  var lastMd = '', lastRequest = 0, busy = false, progTimer = null;
+  var BANNED = ['delve', 'tapestry', 'in today\'s', 'ever-evolving', 'landscape', 'realm', 'unlock', 'unleash', 'harness', 'leverage', 'seamless', 'robust', 'game-changer', 'cutting-edge', 'furthermore', 'moreover', 'additionally', 'crucial', 'pivotal', 'elevate', 'empower', 'navigate the', 'testament', 'embark', 'foster', 'synergy', 'holistic', 'plethora', 'myriad'];
+  function $(id) { return document.getElementById(id); }
+  function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;'); }
+
+  function buildPrompt(o) {
+    var sys = 'You are an experienced blog writer. Write in ' + (o.sp === 'UK' ? 'UK English spelling' : 'US English spelling') + '. ' +
+      'Output clean Markdown only: one H1 title, then sections with ## headings. No preamble, no closing remarks about the task.';
+    var u = 'Write a ' + o.fmt + ' blog post of about ' + o.len + ' words.\n' +
+      'Topic: ' + o.topic + '\n' +
+      (o.kw ? 'Target keyword: "' + o.kw + '". Use it in the H1, the first paragraph and one or two headings, naturally.\n' : '') +
+      (o.aud ? 'Audience: ' + o.aud + '.\n' : '') +
+      'Tone: ' + o.tone + ', clear and specific.\n' +
+      'Rules:\n' +
+      '- Start with a 2-3 sentence introduction that answers the main question directly.\n' +
+      '- Write ## headings as the questions a reader would ask. The first sentence under each heading must answer it.\n' +
+      '- Short paragraphs (2-4 sentences). Vary sentence length. Use lists only where they help.\n' +
+      '- Never invent statistics, studies, quotes, prices or personal stories. Where a fact or real example would help, write a placeholder like [ADD SOURCE: ...] or [ADD YOUR EXAMPLE: ...].\n' +
+      '- Avoid these words and phrases: ' + BANNED.join(', ') + '.\n' +
+      (o.faq ? '- End with "## Frequently Asked Questions" containing 3 short Q&As (### for each question) that the body does not already answer.\n' : '- End with a short conclusion section.\n') +
+      (o.notes ? '\nUse these facts and notes from the author, and do not contradict them:\n' + o.notes + '\n' : '');
+    return [{ role: 'system', content: sys }, { role: 'user', content: u }];
+  }
+
+  function inline(s) {
+    return esc(s).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\*(.+?)\*/g, '<em>$1</em>')
+      .replace(/\[(ADD [^\]]+)\]/g, '<mark>[$1]</mark>');
+  }
+  function mdToHtml(md) {
+    var lines = md.replace(/\r/g, '').split('\n'), html = '', list = null, para = [];
+    function flushP() { if (para.length) { html += '<p>' + inline(para.join(' ')) + '</p>\n'; para = []; } }
+    function flushL() { if (list) { html += '</' + list + '>\n'; list = null; } }
+    lines.forEach(function (l) {
+      var m;
+      if (/^\s*$/.test(l) || /^\s*(-{3,}|\*{3,})\s*$/.test(l)) { flushP(); flushL(); return; }
+      if ((m = l.match(/^(#{1,4})\s+(.*)$/))) { flushP(); flushL(); var n = Math.min(3, m[1].length); html += '<h' + n + '>' + inline(m[2].replace(/#+\s*$/, '')) + '</h' + n + '>\n'; return; }
+      if ((m = l.match(/^\s*[-*•]\s+(.*)$/))) { flushP(); if (list !== 'ul') { flushL(); html += '<ul>\n'; list = 'ul'; } html += '<li>' + inline(m[1]) + '</li>\n'; return; }
+      if ((m = l.match(/^\s*\d+[.)]\s+(.*)$/))) { flushP(); if (list !== 'ol') { flushL(); html += '<ol>\n'; list = 'ol'; } html += '<li>' + inline(m[1]) + '</li>\n'; return; }
+      flushL(); para.push(l.trim());
+    });
+    flushP(); flushL();
+    return html;
+  }
+  function syl(w) { w = w.toLowerCase().replace(/[^a-z]/g, ''); if (!w) return 0; if (w.length <= 3) return 1; w = w.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '').replace(/^y/, ''); var m = w.match(/[aeiouy]{1,2}/g); return m ? m.length : 1; }
+  function stats(md) {
+    var text = md.replace(/^#+\s.*$/gm, '').replace(/[*_\[\]]/g, '');
+    var words = text.match(/[A-Za-z0-9][A-Za-z0-9'’-]*/g) || [];
+    var sents = (text.match(/[^.!?\n]+[.!?]+/g) || []).length || 1;
+    var s = words.reduce(function (a, w) { return a + syl(w); }, 0);
+    var fre = Math.round(206.835 - 1.015 * (words.length / sents) - 84.6 * (s / Math.max(1, words.length)));
+    var lc = md.toLowerCase(), found = BANNED.filter(function (b) { return lc.indexOf(b) > -1; });
+    return { words: words.length, fre: Math.max(0, Math.min(100, fre)), mins: Math.max(1, Math.round(words.length / 238)), banned: found, placeholders: (md.match(/\[ADD [^\]]+\]/g) || []).length };
+  }
+
+  function render(md) {
+    lastMd = md;
+    $('draftOut').innerHTML = mdToHtml(md);
+    var s = stats(md);
+    $('outWords').textContent = s.words; $('outRead').textContent = s.mins; $('outFlesch').textContent = s.fre; $('outPh').textContent = s.placeholders;
+    $('checklist').innerHTML = '<strong>Before you publish this draft</strong>' +
+      '1. Replace every highlighted [ADD &hellip;] placeholder with your own facts or sources' + (s.placeholders ? ' (' + s.placeholders + ' in this draft)' : '') + '.<br>' +
+      '2. Check every claim: AI drafts can state wrong facts confidently.<br>' +
+      '3. Add one example, photo or result that only you have.<br>' +
+      '4. Aim for a Flesch score of 60&ndash;70' + (s.fre < 60 ? ' (this draft is ' + s.fre + ': shorten some sentences)' : '') + '.' +
+      (s.banned.length ? '<br>5. Rewrite these AI-sounding words: <em>' + esc(s.banned.join(', ')) + '</em>.' : '') +
+      '<br>Next: check it with our <a href="/ai-blog-detector/" target="_blank" rel="noopener">AI Content Detector</a> and rework stiff sentences with the <a href="/ai-paraphrase-rewriter/" target="_blank" rel="noopener">Paraphraser</a>.';
+    $('resultSection').style.display = 'block';
+    $('resultSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  function toast(msg) { var t = $('toast'); if (!t) return; t.textContent = msg || 'Copied!'; t.classList.add('show'); setTimeout(function () { t.classList.remove('show'); }, 2000); }
+  function copy(text) {
+    if (!text) return;
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(function () { toast(); });
+    else { var ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); toast(); }
+  }
+
+  function cooldownLeft() { return Math.max(0, COOLDOWN - Math.floor((Date.now() - lastRequest) / 1000)); }
+  function setBtn() {
+    var b = $('genBtn'), left = cooldownLeft();
+    if (busy) { b.disabled = true; b.innerHTML = '&#9203; Writing your draft&hellip;'; return; }
+    if (left > 0 && lastRequest) { b.disabled = true; b.textContent = 'Ready again in ' + left + 's'; setTimeout(setBtn, 1000); return; }
+    b.disabled = false; b.innerHTML = lastMd ? '&#9997;&#65039; Generate Another Version' : '&#9997;&#65039; Generate Draft';
+  }
+  function progress(on) {
+    var w = $('progressWrap'), f = $('progressFill'), l = $('progressLabel'), p = 5, t0 = Date.now();
+    clearInterval(progTimer);
+    if (!on) { f.style.width = '100%'; setTimeout(function () { w.style.display = 'none'; f.style.width = '0%'; }, 300); return; }
+    w.style.display = 'block'; f.style.width = p + '%';
+    progTimer = setInterval(function () {
+      p = Math.min(92, p + (92 - p) * 0.04); f.style.width = p + '%';
+      var s = Math.round((Date.now() - t0) / 1000);
+      l.textContent = 'Writing your draft... ' + s + 's (usually 20-60 seconds)';
+    }, 500);
+  }
+
+  function request(o, attempt) {
+    var ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+    var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 120000);
+    return fetch(API, {
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, signal: ctrl ? ctrl.signal : undefined,
+      body: JSON.stringify({ model: 'openai', referrer: 'brightlyfuture.co.uk', private: true, seed: Math.floor(Math.random() * 1e9), messages: buildPrompt(o) })
+    }).then(function (r) {
+      clearTimeout(timer);
+      if ((r.status === 429 || r.status === 402 || r.status >= 500) && attempt < 1) {
+        $('progressLabel').textContent = 'The free AI service is busy, retrying in 16 seconds...';
+        return new Promise(function (res) { setTimeout(res, 16000); }).then(function () { return request(o, attempt + 1); });
+      }
+      if (r.status === 429 || r.status === 402) throw new Error('The free AI service is busy right now. Please wait a minute and try again.');
+      if (!r.ok) throw new Error('The AI service returned an error (' + r.status + '). Please try again shortly.');
+      return r.json().then(function (d) {
+        var md = d && d.choices && d.choices[0] && d.choices[0].message && d.choices[0].message.content;
+        if (!md || md.trim().length < 200) throw new Error('The draft came back empty. Please try again.');
+        return md.trim().replace(/^```(?:markdown|md)?\s*/i, '').replace(/```\s*$/, '');
+      });
+    }, function (e) { clearTimeout(timer); throw e; });
+  }
+
+  function generate() {
+    $('genErr').textContent = '';
+    var o = { topic: $('topic').value.trim(), kw: $('kw').value.trim(), aud: $('aud').value.trim(), tone: $('tone').value,
+      len: $('len').value, sp: $('sp').value, fmt: $('fmt').value, notes: $('notes').value.trim(), faq: $('faq').checked };
+    if (o.topic.length < 5) { $('genErr').textContent = 'Please enter a topic (at least a few words).'; $('topic').focus(); return; }
+    if (busy || (lastRequest && cooldownLeft() > 0)) return;
+    busy = true; lastRequest = Date.now(); setBtn(); progress(true);
+    request(o, 0).then(render).catch(function (e) {
+      $('genErr').textContent = e.name === 'AbortError' ? 'This took too long. Please try again, or choose a shorter length.' : (e.message === 'Failed to fetch' ? 'Could not reach the AI service. Check your connection and try again.' : e.message);
+    }).then(function () { busy = false; lastRequest = Date.now(); progress(false); setBtn(); });
+  }
+
+  function init() {
+    if (!$('genBtn')) { setTimeout(init, 200); return; }
+    $('genBtn').addEventListener('click', function (e) { e.preventDefault(); generate(); });
+    $('topic').addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); generate(); } });
+    $('clearBtn').addEventListener('click', function (e) {
+      e.preventDefault();
+      ['topic', 'kw', 'aud', 'notes'].forEach(function (id) { $(id).value = ''; });
+      $('genErr').textContent = ''; $('resultSection').style.display = 'none'; lastMd = ''; setBtn();
+    });
+    $('sampleBtn').addEventListener('click', function (e) {
+      e.preventDefault();
+      $('topic').value = 'How to start composting at home in a small garden';
+      $('kw').value = 'composting for beginners';
+      $('aud').value = 'UK beginners with a small garden or balcony';
+      $('fmt').value = 'how-to guide'; $('tone').value = 'Friendly'; $('len').value = '700';
+      $('notes').value = 'I use a 220-litre plastic bin from the council. Mix roughly equal amounts of greens (veg peelings, grass) and browns (cardboard, dry leaves). Mine took about 9 months to make usable compost.';
+    });
+    $('copyMdBtn').addEventListener('click', function (e) { e.preventDefault(); copy(lastMd); });
+    $('copyHtmlBtn').addEventListener('click', function (e) { e.preventDefault(); copy(mdToHtml(lastMd).replace(/<\/?mark>/g, '')); });
+    $('dlBtn').addEventListener('click', function (e) {
+      e.preventDefault(); if (!lastMd) return;
+      var a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([lastMd], { type: 'text/markdown' })); a.download = 'blog-draft.md';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    });
+    $('ctaBtn').addEventListener('click', function (e) { e.preventDefault(); $('topic').scrollIntoView({ behavior: 'smooth', block: 'center' }); $('topic').focus(); });
+    var faq = document.querySelectorAll('.faq-q');
+    for (var i = 0; i < faq.length; i++) faq[i].addEventListener('click', function (e) { e.preventDefault(); this.parentElement.classList.toggle('open'); });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+</script>
