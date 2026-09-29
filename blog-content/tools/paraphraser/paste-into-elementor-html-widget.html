@@ -1,9 +1,9 @@
-<!-- BrightlyFuture Paraphraser v2: replace the old <script>eval(atob(...))</script> block with everything below -->
+<!-- BrightlyFuture Paraphraser v2.1 (AI rewrite + fallback): replace the old <script>eval(atob(...))</script> block with everything below -->
 <script>
 /*!
  * BrightlyFuture Paraphraser engine v2
  * Drop-in replacement for the inline script on /ai-paraphrase-rewriter/.
- * Runs entirely in the browser. No text leaves the page.
+ * AI rewrite via the free Pollinations API; falls back to the in-browser rule engine below.
  */
 (function (root) {
   'use strict';
@@ -518,7 +518,7 @@
       bar.parentNode.insertBefore(note, bar.nextSibling);
     }
     var label = $('progressLabel');
-    if (label) label.textContent = 'Paraphrasing...';
+    if (label) label.textContent = 'Rewriting with AI...';
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 
@@ -531,43 +531,132 @@
     btn.className = 'mode-btn active';
   };
 
+  /* AI rewrite (free Pollinations API) with the rule engine as fallback. */
+  var AI_URL = 'https://text.pollinations.ai/openai', AI_GAP = 16000, lastAI = 0, busy = false;
+  var MODE_GUIDE = {
+    standard: 'Rewrite in clear, natural English. Change wording and sentence structure; keep the same tone and length.',
+    formal: 'Rewrite in a formal, professional tone suitable for business documents. No contractions.',
+    casual: 'Rewrite in a relaxed, conversational tone, as if explaining to a friend. Use contractions.',
+    creative: 'Rewrite with the most change: restructure sentences, vary rhythm and use fresh phrasing, while keeping the meaning.',
+    simple: 'Rewrite in plain English that a 12-year-old could follow. Short sentences, common words.',
+    academic: 'Rewrite in a precise academic register suitable for an essay or paper. No contractions, no filler.'
+  };
+  function aiPrompt(mode) {
+    return 'You are a paraphrasing tool. ' + MODE_GUIDE[mode] +
+      ' Rules: keep every fact, number, unit, measurement, name, brand and product name exactly as written. ' +
+      'Do not add information, opinions or examples, and do not remove any. Use British English spelling. ' +
+      'Avoid the words moreover, furthermore, additionally, delve, crucial. ' +
+      'Keep the same paragraph breaks. Reply with the rewritten text only, no preamble or notes.';
+  }
+  function chunks(text) {
+    var paras = text.split(/\n\s*\n/), out = [], cur = '';
+    paras.forEach(function (p) {
+      var cand = cur ? cur + '\n\n' + p : p;
+      if (cur && cand.split(/\s+/).length > 600) { out.push(cur); cur = p; } else cur = cand;
+    });
+    if (cur) out.push(cur);
+    return out;
+  }
+  function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+  function callAI(text, mode, tries) {
+    var gap = AI_GAP - (Date.now() - lastAI), p = gap > 0 ? wait(gap) : Promise.resolve();
+    return p.then(function () {
+      lastAI = Date.now();
+      var ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+      var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 60000);
+      return fetch(AI_URL, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, signal: ctrl ? ctrl.signal : undefined,
+        body: JSON.stringify({ model: 'openai', referrer: 'brightlyfuture.co.uk', private: true,
+          seed: Math.floor(Math.random() * 1e9),
+          messages: [{ role: 'system', content: aiPrompt(mode) }, { role: 'user', content: text }] })
+      }).then(function (r) {
+        clearTimeout(timer);
+        if ((r.status === 429 || r.status === 402) && tries < 2) return callAI(text, mode, tries + 1);
+        if (!r.ok) throw new Error('AI service returned ' + r.status);
+        return r.json();
+      }).then(function (d) {
+        if (typeof d === 'string') return d;
+        var t = d && d.choices && d.choices[0] && d.choices[0].message && d.choices[0].message.content;
+        if (!t || !t.trim()) throw new Error('Empty AI reply');
+        return t.trim().replace(/^["“]|["”]$/g, '');
+      });
+    });
+  }
+  function wordDiff(a, b) {
+    var A = a.toLowerCase().match(/[\w'’-]+/g) || [], B = b.toLowerCase().match(/[\w'’-]+/g) || [];
+    if (A.length * B.length > 4e6) return { changed: B.length, total: A.length };
+    var prev = new Array(B.length + 1).fill(0), cur;
+    for (var i = 1; i <= A.length; i++) {
+      cur = [0];
+      for (var j = 1; j <= B.length; j++) cur[j] = A[i - 1] === B[j - 1] ? prev[j - 1] + 1 : Math.max(prev[j], cur[j - 1]);
+      prev = cur;
+    }
+    return { changed: B.length - prev[B.length], total: A.length };
+  }
+  function sentenceCount(t) { return (t.match(/[^.!?]+[.!?]+(\s|$)/g) || [t]).length; }
+
+  function show(src, out, stats, via) {
+    outputEl.value = out;
+    var ow = out.trim() ? out.trim().split(/\s+/).length : 0;
+    $('outWordCount').textContent = ow;
+    $('outCharCount').textContent = out.length;
+    $('statChanged').textContent = stats.changed;
+    $('statRate').textContent = Math.min(100, Math.round((stats.changed / Math.max(1, stats.total)) * 100)) + '%';
+    $('statSentences').textContent = stats.sentences + (stats.restructured ? ' (' + stats.restructured + ' restructured)' : '');
+    var names = { standard: 'Standard', formal: 'Formal', casual: 'Casual', creative: 'Creative', simple: 'Simple', academic: 'Academic' };
+    $('statMode').textContent = (names[currentMode] || 'Standard') + (via === 'ai' ? ' (AI)' : ' (basic)');
+    var kept = overlap(src, out), o = $('statOriginality'), note = $('paraNote');
+    if (o) o.textContent = kept + '%';
+    if (note) {
+      note.style.display = '';
+      var msg = kept > 40
+        ? 'Over 40% of 5-word phrases match your original. Click Paraphrase again for a new version, try Creative mode, or rewrite key sentences yourself. If this is someone else\'s text, cite the source.'
+        : 'Read the result against your original before using it: check names, numbers and "not". If the ideas came from someone else, cite the source.';
+      if (via === 'fallback') msg = 'The AI service is busy, so this is the basic word-swap version, which changes far less. Try again in a minute for a full rewrite. ' + msg;
+      note.textContent = msg;
+    }
+  }
+  function done() {
+    busy = false;
+    $('progressWrap').style.display = 'none';
+    $('paraphraseBtn').disabled = false;
+    $('statsBar').style.display = '';
+  }
+
   window.paraphraseText = function () {
+    if (busy) return;
     var text = inputEl.value.trim();
     if (!text) { alert('Please paste some text to paraphrase.'); return; }
     if (text.split(/\s+/).length < 3) { alert('Please paste at least 3 words.'); return; }
+    busy = true;
     $('paraphraseBtn').disabled = true;
     $('progressWrap').style.display = '';
-    $('progressFill').style.width = '60%';
     $('statsBar').style.display = 'none';
-    setTimeout(function () {
-      try {
-        runCount++;
-        var res = paraphrase(text, currentMode, (Date.now() + runCount * 7919) & 0x7fffffff);
-        outputEl.value = res.text;
-        var ow = res.text.trim() ? res.text.trim().split(/\s+/).length : 0;
-        $('outWordCount').textContent = ow;
-        $('outCharCount').textContent = res.text.length;
-        $('statChanged').textContent = res.changed;
-        $('statRate').textContent = Math.min(100, Math.round((res.changed / Math.max(1, res.total)) * 100)) + '%';
-        $('statSentences').textContent = res.sentences + (res.restructured ? ' (' + res.restructured + ' restructured)' : '');
-        var names = { standard: 'Standard', formal: 'Formal', casual: 'Casual', creative: 'Creative', simple: 'Simple', academic: 'Academic' };
-        $('statMode').textContent = names[currentMode] || 'Standard';
-        var o = $('statOriginality'), note = $('paraNote');
-        if (o) o.textContent = res.copiedPhrases + '%';
-        if (note) {
-          note.style.display = '';
-          note.textContent = res.copiedPhrases > 40
-            ? 'Over 40% of 5-word phrases match your original. Try Creative mode, click Paraphrase again for a new version, or rewrite key sentences yourself. If this is someone else\'s text, cite the source.'
-            : 'Read the result against your original before using it: check names, numbers and "not". If the ideas came from someone else, cite the source.';
-        }
-        $('progressFill').style.width = '100%';
-      } catch (err) {
-        alert('Something went wrong: ' + err.message);
+    var fill = $('progressFill'), label = $('progressLabel'), mode = currentMode;
+    var parts = chunks(text), out = [], k = 0;
+    fill.style.width = '10%';
+    function next() {
+      if (k >= parts.length) {
+        var res = out.join('\n\n'), d = wordDiff(text, res);
+        fill.style.width = '100%';
+        show(text, res, { changed: d.changed, total: d.total, sentences: sentenceCount(res) }, 'ai');
+        return done();
       }
-      $('progressWrap').style.display = 'none';
-      $('paraphraseBtn').disabled = false;
-      $('statsBar').style.display = '';
-    }, 250);
+      var waitS = Math.max(0, Math.ceil((AI_GAP - (Date.now() - lastAI)) / 1000));
+      label.textContent = parts.length > 1
+        ? 'Rewriting part ' + (k + 1) + ' of ' + parts.length + (waitS && k ? ' (free AI limit: about ' + waitS + 's between parts)' : '') + '...'
+        : (waitS ? 'Waiting ' + waitS + 's for the free AI service...' : 'Rewriting with AI...');
+      return callAI(parts[k], mode, 0).then(function (t) {
+        out.push(t); k++; fill.style.width = Math.round(10 + 85 * k / parts.length) + '%'; return next();
+      });
+    }
+    next().catch(function () {
+      runCount++;
+      var res = paraphrase(text, mode, (Date.now() + runCount * 7919) & 0x7fffffff);
+      fill.style.width = '100%';
+      show(text, res.text, res, 'fallback');
+      done();
+    });
   };
 
   window.copyOutput = function () {

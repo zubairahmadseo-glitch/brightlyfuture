@@ -243,7 +243,7 @@ a:hover { color: var(--pri-hover); }
       <div class="step">
         <div class="step-n">3</div>
         <h3>Get Instant Results</h3>
-        <p>Click Paraphrase and get your rewritten text in seconds. Copy to clipboard or download as a text file &mdash; completely free.</p>
+        <p>Click Paraphrase and the AI rewrites your text, usually in a few seconds (long articles are done in parts). Copy to clipboard or download as a text file &mdash; completely free.</p>
       </div>
     </div>
   </div>
@@ -325,8 +325,8 @@ a:hover { color: var(--pri-hover); }
       </div>
       <div class="fcard">
         <span class="ic">&#128274;</span>
-        <h3>100% Private</h3>
-        <p>Your text is processed entirely in your browser. Nothing is uploaded to our servers, stored, or shared with third parties. Complete privacy by design.</p>
+        <h3>No Account, No History</h3>
+        <p>No account, no history, nothing saved on our site. Your text is sent once to a free AI service to be rewritten and isn&rsquo;t stored by us. Don&rsquo;t paste passwords or confidential data.</p>
       </div>
       <div class="fcard">
         <span class="ic">&#128202;</span>
@@ -360,8 +360,7 @@ a:hover { color: var(--pri-hover); }
         <tr><td>Free Rewriting Modes</td><td class="hl">6 modes</td><td>2 modes</td><td>4 modes</td><td>5 modes</td></tr>
         <tr><td>Full Article Support</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span> Sentence only</td><td><span class="ck">&#10003;</span></td></tr>
         <tr><td>Ad-Free</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span> Has ads</td></tr>
-        <tr><td>Data Privacy (No Upload)</td><td class="hl"><span class="ck">&#10003;</span> Browser-only</td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
-        <tr><td>Change Statistics</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
+                <tr><td>Change Statistics</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
         <tr><td>Downloadable Output</td><td class="hl"><span class="ck">&#10003;</span> Free</td><td>Paid only</td><td>Paid only</td><td>Paid only</td></tr>
         <tr><td>No Credit Card Needed</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td></tr>
       </tbody>
@@ -508,15 +507,15 @@ a:hover { color: var(--pri-hover); }
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do I need to create an account or sign up?<span class="arrow">+</span></button><div class="faq-a"><p>No. Wordtune requires account creation even for free use. BrightlyFuture requires nothing &mdash; paste text, choose a mode, click Paraphrase, and get results instantly. No email, no registration.</p></div></div>
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What are the 6 rewriting modes and when should I use each?<span class="arrow">+</span></button><div class="faq-a"><p>Standard for general rewriting, Formal for business and professional content, Casual for blogs and social media, Creative for maximum variation, Simple for plain language, and Academic for scholarly writing. Each mode adjusts vocabulary, tone, and sentence structure differently.</p></div></div>
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is there a word limit per paraphrase?<span class="arrow">+</span></button><div class="faq-a"><p>No. QuillBot limits free users to 125 words per input, and Paraphraser.io caps at 600 words. BrightlyFuture has no word limit &mdash; paste a sentence or an entire article, and it processes everything in one click.</p></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is my text stored or sent to a server?<span class="arrow">+</span></button><div class="faq-a"><p>No. Unlike QuillBot, Wordtune, and Paraphraser.io &mdash; which all upload your text to their servers for processing &mdash; our paraphraser runs entirely in your browser using JavaScript. Your text is never uploaded, stored, or shared.</p></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How is this different from QuillBot?<span class="arrow">+</span></button><div class="faq-a"><p>QuillBot offers only 2 free modes (Standard and Fluency) with a 125-word limit per input. BrightlyFuture offers 6 free modes with no word limit, no signup, and complete browser-based privacy. QuillBot uploads your text to their servers; we process everything locally.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is my text stored or sent to a server?<span class="arrow">+</span></button><div class="faq-a"><p>Your text is sent to a free AI service (Pollinations) to be rewritten, marked private, and the result comes straight back to your screen. BrightlyFuture doesn&rsquo;t save it and there&rsquo;s no account or history. As with any online tool, don&rsquo;t paste passwords, personal data or confidential documents.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How is this different from QuillBot?<span class="arrow">+</span></button><div class="faq-a"><p>QuillBot offers only 2 free modes (Standard and Fluency) with a 125-word limit per input. BrightlyFuture offers 6 free AI rewriting modes with no word limit and no signup, plus a &ldquo;Phrases kept&rdquo; score that shows how close the result still is to your original.</p></div></div>
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Will the paraphrased text pass plagiarism checkers?<span class="arrow">+</span></button><div class="faq-a"><p>No tool can guarantee that. Check the &ldquo;Phrases kept&rdquo; score after each rewrite, rewrite anything that is still close to the original in your own words, and always cite your source. Paraphrasing without credit is still plagiarism.</p></div></div>
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Will paraphrased text pass AI content detectors?<span class="arrow">+</span></button><div class="faq-a"><p>Paraphrasing AI-generated text can reduce AI detection scores, but it is not guaranteed to make text fully undetectable. For best results, use our <a href="/ai-blog-detector/">AI Content Detector</a> to check the output, then manually rewrite any sentences that still flag as AI.</p></div></div>
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I paraphrase entire articles or just sentences?<span class="arrow">+</span></button><div class="faq-a"><p>Both. Our tool handles single sentences, full paragraphs, and entire articles. This is a key advantage over Wordtune, which only works at the sentence level and cannot process full documents.</p></div></div>
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Does it preserve the original meaning?<span class="arrow">+</span></button><div class="faq-a"><p>Yes &mdash; all modes are designed to keep the core meaning while changing vocabulary and sentence structure. Names, numbers, links and anything in quotes are left untouched. Creative mode makes the most changes, so always review the output to confirm accuracy.</p></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Does it work with non-English text?<span class="arrow">+</span></button><div class="faq-a"><p>The tool is built for English. Other languages will pass through mostly unchanged, so for non-English text use a tool made for that language.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Does it work with non-English text?<span class="arrow">+</span></button><div class="faq-a"><p>The modes are tuned for English and the output uses British spelling. Other languages may work, but check the result carefully.</p></div></div>
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I download or copy my paraphrased text?<span class="arrow">+</span></button><div class="faq-a"><p>Yes &mdash; use the Copy Result button to copy to clipboard, or Download to save as a .txt file. Both features are completely free. Competitors like QuillBot and Wordtune lock download features behind paid plans.</p></div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is there a daily usage limit?<span class="arrow">+</span></button><div class="faq-a"><p>No limits whatsoever. Paraphrase once or a thousand times &mdash; no daily caps, no monthly quotas, no credit system. Wordtune limits free users to 10 rewrites per day. We have no such restrictions.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is there a daily usage limit?<span class="arrow">+</span></button><div class="faq-a"><p>No daily caps, monthly quotas or credits. The free AI service allows one request about every 15 seconds, so back-to-back clicks and long articles wait briefly between parts. If the service is busy, you get a basic rewrite instantly and can try again a minute later.</p></div></div>
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How does the change statistics feature work?<span class="arrow">+</span></button><div class="faq-a"><p>After each paraphrase you see how many words were changed, the change rate, and &ldquo;Phrases kept&rdquo; &mdash; the share of 5-word phrases from your original that still appear in the output. A high &ldquo;Phrases kept&rdquo; score means the text is still close to the source. Click Paraphrase again for a new variation.</p></div></div>
       <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is paraphrasing the same as plagiarism?<span class="arrow">+</span></button><div class="faq-a"><p>No. Paraphrasing means rewriting ideas in your own words while preserving meaning. It becomes plagiarism only if you paraphrase without crediting the original source. Always cite your sources when paraphrasing someone else&rsquo;s work, especially in academic contexts.</p></div></div>
     </div>
@@ -537,7 +536,7 @@ a:hover { color: var(--pri-hover); }
 /*!
  * BrightlyFuture Paraphraser engine v2
  * Drop-in replacement for the inline script on /ai-paraphrase-rewriter/.
- * Runs entirely in the browser. No text leaves the page.
+ * AI rewrite via the free Pollinations API; falls back to the in-browser rule engine below.
  */
 (function (root) {
   'use strict';
@@ -1052,7 +1051,7 @@ a:hover { color: var(--pri-hover); }
       bar.parentNode.insertBefore(note, bar.nextSibling);
     }
     var label = $('progressLabel');
-    if (label) label.textContent = 'Paraphrasing...';
+    if (label) label.textContent = 'Rewriting with AI...';
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
 
@@ -1065,43 +1064,132 @@ a:hover { color: var(--pri-hover); }
     btn.className = 'mode-btn active';
   };
 
+  /* AI rewrite (free Pollinations API) with the rule engine as fallback. */
+  var AI_URL = 'https://text.pollinations.ai/openai', AI_GAP = 16000, lastAI = 0, busy = false;
+  var MODE_GUIDE = {
+    standard: 'Rewrite in clear, natural English. Change wording and sentence structure; keep the same tone and length.',
+    formal: 'Rewrite in a formal, professional tone suitable for business documents. No contractions.',
+    casual: 'Rewrite in a relaxed, conversational tone, as if explaining to a friend. Use contractions.',
+    creative: 'Rewrite with the most change: restructure sentences, vary rhythm and use fresh phrasing, while keeping the meaning.',
+    simple: 'Rewrite in plain English that a 12-year-old could follow. Short sentences, common words.',
+    academic: 'Rewrite in a precise academic register suitable for an essay or paper. No contractions, no filler.'
+  };
+  function aiPrompt(mode) {
+    return 'You are a paraphrasing tool. ' + MODE_GUIDE[mode] +
+      ' Rules: keep every fact, number, unit, measurement, name, brand and product name exactly as written. ' +
+      'Do not add information, opinions or examples, and do not remove any. Use British English spelling. ' +
+      'Avoid the words moreover, furthermore, additionally, delve, crucial. ' +
+      'Keep the same paragraph breaks. Reply with the rewritten text only, no preamble or notes.';
+  }
+  function chunks(text) {
+    var paras = text.split(/\n\s*\n/), out = [], cur = '';
+    paras.forEach(function (p) {
+      var cand = cur ? cur + '\n\n' + p : p;
+      if (cur && cand.split(/\s+/).length > 600) { out.push(cur); cur = p; } else cur = cand;
+    });
+    if (cur) out.push(cur);
+    return out;
+  }
+  function wait(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+  function callAI(text, mode, tries) {
+    var gap = AI_GAP - (Date.now() - lastAI), p = gap > 0 ? wait(gap) : Promise.resolve();
+    return p.then(function () {
+      lastAI = Date.now();
+      var ctrl = typeof AbortController !== 'undefined' ? new AbortController() : null;
+      var timer = setTimeout(function () { if (ctrl) ctrl.abort(); }, 60000);
+      return fetch(AI_URL, {
+        method: 'POST', headers: { 'Content-Type': 'application/json' }, signal: ctrl ? ctrl.signal : undefined,
+        body: JSON.stringify({ model: 'openai', referrer: 'brightlyfuture.co.uk', private: true,
+          seed: Math.floor(Math.random() * 1e9),
+          messages: [{ role: 'system', content: aiPrompt(mode) }, { role: 'user', content: text }] })
+      }).then(function (r) {
+        clearTimeout(timer);
+        if ((r.status === 429 || r.status === 402) && tries < 2) return callAI(text, mode, tries + 1);
+        if (!r.ok) throw new Error('AI service returned ' + r.status);
+        return r.json();
+      }).then(function (d) {
+        if (typeof d === 'string') return d;
+        var t = d && d.choices && d.choices[0] && d.choices[0].message && d.choices[0].message.content;
+        if (!t || !t.trim()) throw new Error('Empty AI reply');
+        return t.trim().replace(/^["“]|["”]$/g, '');
+      });
+    });
+  }
+  function wordDiff(a, b) {
+    var A = a.toLowerCase().match(/[\w'’-]+/g) || [], B = b.toLowerCase().match(/[\w'’-]+/g) || [];
+    if (A.length * B.length > 4e6) return { changed: B.length, total: A.length };
+    var prev = new Array(B.length + 1).fill(0), cur;
+    for (var i = 1; i <= A.length; i++) {
+      cur = [0];
+      for (var j = 1; j <= B.length; j++) cur[j] = A[i - 1] === B[j - 1] ? prev[j - 1] + 1 : Math.max(prev[j], cur[j - 1]);
+      prev = cur;
+    }
+    return { changed: B.length - prev[B.length], total: A.length };
+  }
+  function sentenceCount(t) { return (t.match(/[^.!?]+[.!?]+(\s|$)/g) || [t]).length; }
+
+  function show(src, out, stats, via) {
+    outputEl.value = out;
+    var ow = out.trim() ? out.trim().split(/\s+/).length : 0;
+    $('outWordCount').textContent = ow;
+    $('outCharCount').textContent = out.length;
+    $('statChanged').textContent = stats.changed;
+    $('statRate').textContent = Math.min(100, Math.round((stats.changed / Math.max(1, stats.total)) * 100)) + '%';
+    $('statSentences').textContent = stats.sentences + (stats.restructured ? ' (' + stats.restructured + ' restructured)' : '');
+    var names = { standard: 'Standard', formal: 'Formal', casual: 'Casual', creative: 'Creative', simple: 'Simple', academic: 'Academic' };
+    $('statMode').textContent = (names[currentMode] || 'Standard') + (via === 'ai' ? ' (AI)' : ' (basic)');
+    var kept = overlap(src, out), o = $('statOriginality'), note = $('paraNote');
+    if (o) o.textContent = kept + '%';
+    if (note) {
+      note.style.display = '';
+      var msg = kept > 40
+        ? 'Over 40% of 5-word phrases match your original. Click Paraphrase again for a new version, try Creative mode, or rewrite key sentences yourself. If this is someone else\'s text, cite the source.'
+        : 'Read the result against your original before using it: check names, numbers and "not". If the ideas came from someone else, cite the source.';
+      if (via === 'fallback') msg = 'The AI service is busy, so this is the basic word-swap version, which changes far less. Try again in a minute for a full rewrite. ' + msg;
+      note.textContent = msg;
+    }
+  }
+  function done() {
+    busy = false;
+    $('progressWrap').style.display = 'none';
+    $('paraphraseBtn').disabled = false;
+    $('statsBar').style.display = '';
+  }
+
   window.paraphraseText = function () {
+    if (busy) return;
     var text = inputEl.value.trim();
     if (!text) { alert('Please paste some text to paraphrase.'); return; }
     if (text.split(/\s+/).length < 3) { alert('Please paste at least 3 words.'); return; }
+    busy = true;
     $('paraphraseBtn').disabled = true;
     $('progressWrap').style.display = '';
-    $('progressFill').style.width = '60%';
     $('statsBar').style.display = 'none';
-    setTimeout(function () {
-      try {
-        runCount++;
-        var res = paraphrase(text, currentMode, (Date.now() + runCount * 7919) & 0x7fffffff);
-        outputEl.value = res.text;
-        var ow = res.text.trim() ? res.text.trim().split(/\s+/).length : 0;
-        $('outWordCount').textContent = ow;
-        $('outCharCount').textContent = res.text.length;
-        $('statChanged').textContent = res.changed;
-        $('statRate').textContent = Math.min(100, Math.round((res.changed / Math.max(1, res.total)) * 100)) + '%';
-        $('statSentences').textContent = res.sentences + (res.restructured ? ' (' + res.restructured + ' restructured)' : '');
-        var names = { standard: 'Standard', formal: 'Formal', casual: 'Casual', creative: 'Creative', simple: 'Simple', academic: 'Academic' };
-        $('statMode').textContent = names[currentMode] || 'Standard';
-        var o = $('statOriginality'), note = $('paraNote');
-        if (o) o.textContent = res.copiedPhrases + '%';
-        if (note) {
-          note.style.display = '';
-          note.textContent = res.copiedPhrases > 40
-            ? 'Over 40% of 5-word phrases match your original. Try Creative mode, click Paraphrase again for a new version, or rewrite key sentences yourself. If this is someone else\'s text, cite the source.'
-            : 'Read the result against your original before using it: check names, numbers and "not". If the ideas came from someone else, cite the source.';
-        }
-        $('progressFill').style.width = '100%';
-      } catch (err) {
-        alert('Something went wrong: ' + err.message);
+    var fill = $('progressFill'), label = $('progressLabel'), mode = currentMode;
+    var parts = chunks(text), out = [], k = 0;
+    fill.style.width = '10%';
+    function next() {
+      if (k >= parts.length) {
+        var res = out.join('\n\n'), d = wordDiff(text, res);
+        fill.style.width = '100%';
+        show(text, res, { changed: d.changed, total: d.total, sentences: sentenceCount(res) }, 'ai');
+        return done();
       }
-      $('progressWrap').style.display = 'none';
-      $('paraphraseBtn').disabled = false;
-      $('statsBar').style.display = '';
-    }, 250);
+      var waitS = Math.max(0, Math.ceil((AI_GAP - (Date.now() - lastAI)) / 1000));
+      label.textContent = parts.length > 1
+        ? 'Rewriting part ' + (k + 1) + ' of ' + parts.length + (waitS && k ? ' (free AI limit: about ' + waitS + 's between parts)' : '') + '...'
+        : (waitS ? 'Waiting ' + waitS + 's for the free AI service...' : 'Rewriting with AI...');
+      return callAI(parts[k], mode, 0).then(function (t) {
+        out.push(t); k++; fill.style.width = Math.round(10 + 85 * k / parts.length) + '%'; return next();
+      });
+    }
+    next().catch(function () {
+      runCount++;
+      var res = paraphrase(text, mode, (Date.now() + runCount * 7919) & 0x7fffffff);
+      fill.style.width = '100%';
+      show(text, res.text, res, 'fallback');
+      done();
+    });
   };
 
   window.copyOutput = function () {
@@ -1131,4 +1219,3 @@ a:hover { color: var(--pri-hover); }
 })(typeof window !== 'undefined' ? window : this);
 
 </script>
-
