@@ -1,0 +1,1134 @@
+<style>
+:root {
+  --pri: #6C5CE7;
+  --pri-hover: #5A4BD1;
+  --bg: #E8E0F0;
+  --bg-alt: #DDD4EB;
+  --card-bg: #FFFFFF;
+  --card-border: #D0C6E0;
+  --input-bg: #F5F1FA;
+  --input-border: #D0C6E0;
+  --text: #2D2B55;
+  --muted: #6B6490;
+  --heading: #1A1744;
+  --green: #00C897;
+  --red: #EF4444;
+  --yellow: #F59E0B;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: var(--pri); text-decoration: none; }
+a:hover { color: var(--pri-hover); }
+
+.apr-hero { text-align: center; padding: 3.5rem 1.5rem 2.5rem; background: var(--bg); }
+.apr-hero .back-link { display: inline-block; color: var(--muted); font-size: 0.85rem; margin-bottom: 1.5rem; transition: color .2s; }
+.apr-hero .back-link:hover { color: var(--pri); }
+.apr-hero .badge { display: inline-block; background: var(--card-bg); color: var(--pri); font-size: 0.8rem; font-weight: 600; padding: 0.4rem 1.1rem; border-radius: 999px; border: 1px solid var(--card-border); margin-bottom: 1.25rem; }
+.apr-hero h1 { font-size: 2.4rem; font-weight: 800; color: var(--heading); margin-bottom: 0.85rem; }
+.apr-hero .sub { color: var(--muted); max-width: 660px; margin: 0 auto 1.5rem; font-size: 0.95rem; line-height: 1.65; }
+.usp-row { display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; }
+.usp-pill { background: rgba(108,92,231,0.08); border: 1px solid rgba(108,92,231,0.2); color: var(--pri); font-size: 0.78rem; font-weight: 600; padding: 0.4rem 1rem; border-radius: 999px; }
+
+.apr-tool { max-width: 1050px; margin: 0 auto; padding: 0 1.5rem 3rem; }
+.apr-box { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 2rem; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.apr-box label { display: block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); margin-bottom: 0.45rem; }
+.apr-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.apr-col textarea { width: 100%; background: var(--input-bg); border: 1px solid var(--input-border); border-radius: 10px; padding: 0.9rem 1rem; color: var(--text); font-size: 0.9rem; font-family: inherit; transition: border-color .2s; resize: vertical; min-height: 220px; line-height: 1.7; }
+.apr-col textarea:focus { outline: none; border-color: var(--pri); }
+.apr-col textarea[readonly] { background: #fff; cursor: default; }
+.char-count { font-size: 0.75rem; color: var(--muted); text-align: right; margin-top: 0.35rem; }
+.mb { margin-bottom: 1.25rem; }
+
+.mode-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem; }
+.mode-btn { padding: 0.5rem 1.1rem; border-radius: 999px; font-weight: 600; font-size: 0.82rem; cursor: pointer; border: 1px solid var(--card-border) !important; background: var(--input-bg) !important; color: var(--muted) !important; transition: all .2s; font-family: inherit; }
+.mode-btn:hover, .mode-btn:focus { border-color: var(--pri) !important; color: var(--text) !important; }
+.mode-btn.active { background: var(--pri) !important; color: #fff !important; border-color: var(--pri) !important; }
+
+.btn-group { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+.btn { padding: 0.7rem 1.6rem; border-radius: 10px; font-weight: 600; font-size: 0.9rem; cursor: pointer; border: none; transition: all .2s; font-family: inherit; }
+.btn-primary { background: var(--pri) !important; color: #fff !important; }
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active { background: var(--pri-hover) !important; color: #fff !important; transform: translateY(-1px); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+.btn-secondary { background: var(--input-bg) !important; color: var(--muted) !important; border: 1px solid var(--card-border) !important; }
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active { border-color: var(--pri) !important; color: var(--text) !important; background: var(--input-bg) !important; }
+
+.progress-wrap { margin-top: 1.5rem; display: none; }
+.progress-bar { height: 8px; border-radius: 4px; background: var(--input-bg); overflow: hidden; margin-bottom: 0.5rem; }
+.progress-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--pri), #8B5CF6); transition: width .4s; }
+.progress-label { font-size: 0.8rem; color: var(--muted); }
+
+.stats-bar { display: flex; gap: 1.5rem; flex-wrap: wrap; margin-top: 1rem; padding: 1rem 1.25rem; background: var(--input-bg); border: 1px solid var(--card-border); border-radius: 12px; }
+.stat-item { font-size: 0.82rem; color: var(--muted); }
+.stat-item strong { color: var(--heading); font-weight: 700; }
+
+.apr-section { max-width: 1100px; margin: 0 auto; padding: 4rem 1.5rem; }
+.apr-section.alt { background: var(--bg-alt); max-width: 100%; }
+.apr-section.alt > .inner { max-width: 1100px; margin: 0 auto; }
+.sec-head { text-align: center; margin-bottom: 2.75rem; }
+.sec-head h2 { font-size: 1.65rem; font-weight: 800; color: var(--heading); margin-bottom: 0.5rem; }
+.sec-head p { color: var(--muted); font-size: 0.92rem; max-width: 520px; margin: 0 auto; font-style: italic; }
+
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.step { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 2rem 1.5rem; text-align: center; transition: border-color .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.step:hover { border-color: var(--pri); }
+.step-n { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--pri), #8B5CF6); color: #fff; font-weight: 700; font-size: 1rem; margin-bottom: 1rem; }
+.step h3 { font-size: 1rem; font-weight: 700; color: var(--heading); margin-bottom: 0.5rem; }
+.step p { font-size: 0.85rem; color: var(--muted); }
+
+.cards-6 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.fcard { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; transition: border-color .2s, transform .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.fcard:hover { border-color: var(--pri); transform: translateY(-2px); }
+.fcard .ic { font-size: 1.6rem; margin-bottom: 0.8rem; display: block; }
+.fcard h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.4rem; }
+.fcard p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+
+.mode-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.mcard { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; transition: border-color .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.mcard:hover { border-color: var(--pri); }
+.mcard .ic { font-size: 1.4rem; margin-bottom: 0.6rem; display: block; }
+.mcard h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.4rem; }
+.mcard p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+.mcard .tag { display: inline-block; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; padding: 0.2rem 0.6rem; border-radius: 999px; margin-top: 0.5rem; }
+.mcard .tag.free { background: rgba(0,200,151,0.1); color: var(--green); }
+.mcard .tag.free::after { content: 'Free'; }
+
+.aud-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; text-align: center; transition: border-color .2s, transform .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.aud-card:hover { border-color: var(--pri); transform: translateY(-2px); }
+.aud-card .ic { font-size: 2rem; margin-bottom: 0.65rem; display: block; }
+.aud-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.35rem; }
+.aud-card p { font-size: 0.85rem; color: var(--muted); }
+
+.tbl-wrap { overflow-x: auto; border-radius: 16px; border: 1px solid var(--card-border); box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.cmp-tbl { width: 100%; border-collapse: collapse; font-size: 0.85rem; background: var(--card-bg); }
+.cmp-tbl th, .cmp-tbl td { padding: 0.9rem 1.1rem; text-align: center; border-bottom: 1px solid var(--card-border); }
+.cmp-tbl th { background: var(--heading); color: #fff; font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.cmp-tbl td:first-child { text-align: left; font-weight: 600; color: var(--text); }
+.cmp-tbl tr:last-child td { border-bottom: none; }
+.cmp-tbl .hl { background: rgba(108,92,231,0.06); }
+.ck { color: var(--green); font-weight: 700; font-size: 1.1rem; }
+.cx { color: var(--red); font-size: 1.1rem; }
+
+.tips { display: flex; flex-direction: column; gap: 1rem; }
+.tip { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.5rem 1.75rem; display: flex; gap: 1.25rem; align-items: flex-start; transition: border-color .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.tip:hover { border-color: var(--pri); }
+.tip-n { flex-shrink: 0; width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--pri), #8B5CF6); color: #fff; font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; }
+.tip h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.3rem; }
+.tip p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+
+.rel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.rel-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; display: flex; flex-direction: column; transition: border-color .2s, transform .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.rel-card:hover { border-color: var(--pri); transform: translateY(-2px); }
+.rel-card .cat { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--pri); margin-bottom: 0.6rem; letter-spacing: 0.05em; }
+.rel-card h3 { font-size: 1rem; font-weight: 700; color: var(--heading); margin-bottom: 0.45rem; }
+.rel-card p { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.25rem; flex: 1; line-height: 1.55; }
+.rel-card .btn { text-align: center; font-size: 0.82rem; padding: 0.55rem 1rem; }
+
+.svc-banner { background: linear-gradient(135deg, var(--bg-alt) 0%, var(--card-bg) 100%); border: 1px solid var(--card-border); border-radius: 16px; padding: 3rem 2rem; text-align: center; max-width: 850px; margin: 0 auto; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.svc-banner .badge { display: inline-block; background: var(--pri); color: #fff; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; padding: 0.3rem 0.85rem; border-radius: 999px; margin-bottom: 0.85rem; letter-spacing: 0.05em; }
+.svc-banner h3 { font-size: 1.35rem; font-weight: 800; color: var(--heading); margin-bottom: 0.85rem; }
+.svc-banner p { color: var(--muted); font-size: 0.9rem; max-width: 540px; margin: 0 auto 1.5rem; line-height: 1.6; }
+
+.faq-list { max-width: 800px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--card-border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.15rem 0; cursor: pointer; font-weight: 600; font-size: 0.95rem; color: var(--heading) !important; background: transparent !important; border: none !important; border-radius: 0 !important; width: 100%; text-align: left; font-family: inherit; transition: color .2s; box-shadow: none !important; }
+.faq-q:hover, .faq-q:focus, .faq-q:active { color: var(--pri) !important; background: transparent !important; box-shadow: none !important; }
+.faq-q .arrow { font-size: 1.2rem; color: var(--pri); flex-shrink: 0; transition: transform .25s; }
+.faq-item.open .faq-q .arrow { transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+.faq-item.open .faq-a { max-height: 400px; }
+.faq-a p { font-size: 0.9rem; color: var(--muted); padding-bottom: 1rem; line-height: 1.6; }
+
+.final-cta { text-align: center; padding: 4.5rem 1.5rem; background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%); }
+.final-cta h2 { font-size: 1.85rem; font-weight: 800; color: var(--heading); margin-bottom: 0.85rem; }
+.final-cta p { color: var(--muted); font-size: 0.95rem; margin-bottom: 1.75rem; }
+.btn-big { display: inline-block; background: linear-gradient(135deg, var(--pri), #8B5CF6) !important; color: #fff !important; padding: 0.9rem 2.8rem; border-radius: 12px; font-weight: 700; font-size: 1.05rem; border: none; cursor: pointer; transition: transform .2s, box-shadow .2s; box-shadow: 0 4px 20px rgba(108,92,231,0.3); }
+.btn-big:hover, .btn-big:focus, .btn-big:active { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(108,92,231,0.45); color: #fff !important; background: linear-gradient(135deg, var(--pri-hover), #7C4FE0) !important; }
+.final-cta .sub-note { font-size: 0.8rem; color: var(--muted); margin-top: 0.85rem; }
+
+.toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); background: var(--green); color: #fff; padding: 0.6rem 1.5rem; border-radius: 10px; font-weight: 600; font-size: 0.85rem; opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 999; }
+.toast.show { opacity: 1; }
+
+@media (max-width: 768px) {
+  .apr-cols { grid-template-columns: 1fr; }
+  .steps, .cards-6, .rel-grid, .mode-cards { grid-template-columns: 1fr; }
+  .apr-hero h1 { font-size: 1.7rem; }
+  .tip { flex-direction: column; }
+  .cmp-tbl { font-size: 0.78rem; }
+  .cmp-tbl th, .cmp-tbl td { padding: 0.65rem 0.6rem; }
+  .stats-bar { gap: 0.75rem; }
+}
+</style>
+
+<!-- Section 1: Hero -->
+<div class="apr-hero">
+  <a href="/tools/" class="back-link">&larr; Back to All Tools</a>
+  <div><span class="badge">&#9999;&#65039; AI Paraphraser &amp; Rewriter</span></div>
+  <h1>Free AI Paraphraser &amp; Text Rewriter</h1>
+  <p class="sub">Instantly rephrase sentences, paragraphs, and full articles using 6 writing modes. No signup, no word limits, no ads &mdash; unlike QuillBot (125 words free) and Wordtune (10 rewrites/day).</p>
+  <div class="usp-row">
+    <span class="usp-pill">&#10003; 100% Free Forever</span>
+    <span class="usp-pill">&#10003; No Signup Required</span>
+    <span class="usp-pill">&#10003; 6 Rewriting Modes</span>
+    <span class="usp-pill">&#10003; No Word Limits</span>
+    <span class="usp-pill">&#10003; Ad-Free</span>
+  </div>
+</div>
+
+<!-- Section 2: Tool Widget -->
+<div class="apr-tool">
+  <div class="apr-box">
+    <div class="mb">
+      <label>Select Rewriting Mode</label>
+      <div class="mode-row" id="modeRow">
+        <button class="mode-btn active" onclick="setMode(this,'standard')">&#128221; Standard</button>
+        <button class="mode-btn" onclick="setMode(this,'formal')">&#127891; Formal</button>
+        <button class="mode-btn" onclick="setMode(this,'casual')">&#128172; Casual</button>
+        <button class="mode-btn" onclick="setMode(this,'creative')">&#127912; Creative</button>
+        <button class="mode-btn" onclick="setMode(this,'simple')">&#128218; Simple</button>
+        <button class="mode-btn" onclick="setMode(this,'academic')">&#128300; Academic</button>
+      </div>
+    </div>
+    <div class="apr-cols">
+      <div class="apr-col">
+        <label>Original Text</label>
+        <textarea id="inputText" placeholder="Paste or type the text you want to paraphrase here. Works with sentences, paragraphs, and full articles&hellip;"></textarea>
+        <div class="char-count"><span id="wordCount">0</span> words &middot; <span id="charCount">0</span> characters</div>
+      </div>
+      <div class="apr-col">
+        <label>Paraphrased Result</label>
+        <textarea id="outputText" readonly placeholder="Your rewritten text will appear here&hellip;"></textarea>
+        <div class="char-count"><span id="outWordCount">0</span> words &middot; <span id="outCharCount">0</span> characters</div>
+      </div>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-primary" id="paraphraseBtn" onclick="paraphraseText()">&#9999;&#65039; Paraphrase Now</button>
+      <button class="btn btn-secondary" onclick="copyOutput()">&#128203; Copy Result</button>
+      <button class="btn btn-secondary" onclick="downloadOutput()">&#11015; Download</button>
+      <button class="btn btn-secondary" onclick="clearAll()">Clear</button>
+    </div>
+
+    <div class="progress-wrap" id="progressWrap">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+      <div class="progress-label" id="progressLabel">Initialising&hellip;</div>
+    </div>
+
+    <div class="stats-bar" id="statsBar" style="display:none">
+      <div class="stat-item">Words Changed: <strong id="statChanged">0</strong></div>
+      <div class="stat-item">Change Rate: <strong id="statRate">0%</strong></div>
+      <div class="stat-item">Sentences: <strong id="statSentences">0</strong></div>
+      <div class="stat-item">Mode: <strong id="statMode">Standard</strong></div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 3: How It Works -->
+<div class="apr-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>How Our Free AI Paraphraser Works</h2>
+      <p>Three steps &mdash; no account, no credit card, no waiting.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <h3>Paste Your Text</h3>
+        <p>Copy and paste any content &mdash; blog posts, essays, emails, product descriptions, or academic papers &mdash; into the input box. No word limit.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <h3>Choose a Mode</h3>
+        <p>Select from 6 rewriting modes &mdash; Standard, Formal, Casual, Creative, Simple, or Academic &mdash; depending on your tone and audience needs.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <h3>Get Instant Results</h3>
+        <p>Click Paraphrase and get your rewritten text in seconds. Copy to clipboard or download as a text file &mdash; completely free.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 4: 6 Rewriting Modes Explained -->
+<div class="apr-section">
+  <div class="sec-head">
+    <h2>6 Free Rewriting Modes &mdash; More Than QuillBot Offers Free</h2>
+    <p>QuillBot gives you 2 free modes. We give you 6 &mdash; all free, forever.</p>
+  </div>
+  <div class="mode-cards">
+    <div class="mcard">
+      <span class="ic">&#128221;</span>
+      <h3>Standard Mode</h3>
+      <p>Balanced rewriting that changes vocabulary and sentence structure while keeping your original meaning intact. Best for general-purpose paraphrasing.</p>
+      <span class="tag free"></span>
+    </div>
+    <div class="mcard">
+      <span class="ic">&#127891;</span>
+      <h3>Formal Mode</h3>
+      <p>Elevates your text to a professional, polished tone. Replaces casual language with formal vocabulary. Ideal for business emails, reports, and proposals.</p>
+      <span class="tag free"></span>
+    </div>
+    <div class="mcard">
+      <span class="ic">&#128172;</span>
+      <h3>Casual Mode</h3>
+      <p>Makes your text sound relaxed and conversational. Adds contractions, informal phrases, and a friendly tone. Perfect for blog posts and social media.</p>
+      <span class="tag free"></span>
+    </div>
+    <div class="mcard">
+      <span class="ic">&#127912;</span>
+      <h3>Creative Mode</h3>
+      <p>Significantly restructures sentences with vivid vocabulary and varied phrasing. Ideal when you want maximum change while keeping the core message.</p>
+      <span class="tag free"></span>
+    </div>
+    <div class="mcard">
+      <span class="ic">&#128218;</span>
+      <h3>Simple Mode</h3>
+      <p>Simplifies complex sentences into plain, easy-to-read language. Reduces jargon and shortens sentences. Great for making content accessible to wider audiences.</p>
+      <span class="tag free"></span>
+    </div>
+    <div class="mcard">
+      <span class="ic">&#128300;</span>
+      <h3>Academic Mode</h3>
+      <p>Rewrites text using scholarly vocabulary, formal transitions, and precise phrasing. Designed for research papers, dissertations, and academic essays.</p>
+      <span class="tag free"></span>
+    </div>
+  </div>
+</div>
+
+<!-- Section 5: Key Features -->
+<div class="apr-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>Why BrightlyFuture Beats QuillBot, Wordtune &amp; Paraphraser.io</h2>
+      <p>Built to fix the biggest frustrations with existing paraphrasers.</p>
+    </div>
+    <div class="cards-6">
+      <div class="fcard">
+        <span class="ic">&#128275;</span>
+        <h3>No Word Limits &mdash; Ever</h3>
+        <p>QuillBot caps free users at 125 words per input. Wordtune allows only 10 rewrites per day. We have zero limits &mdash; paraphrase as much text as you need.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128100;</span>
+        <h3>No Signup Required</h3>
+        <p>Wordtune forces account creation even for free use. BrightlyFuture requires nothing &mdash; paste your text, choose a mode, and get results instantly.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128240;</span>
+        <h3>Full Article Support</h3>
+        <p>Wordtune only works at the sentence level. Our paraphraser handles sentences, paragraphs, and entire articles &mdash; rewriting everything in one click.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128581;</span>
+        <h3>Zero Ads</h3>
+        <p>Paraphraser.io is cluttered with intrusive advertisements. BrightlyFuture is completely ad-free &mdash; a clean, focused writing experience.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128274;</span>
+        <h3>100% Private</h3>
+        <p>Your text is processed entirely in your browser. Nothing is uploaded to our servers, stored, or shared with third parties. Complete privacy by design.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128202;</span>
+        <h3>Change Statistics</h3>
+        <p>See how many words were changed, the change rate, and how many 5-word phrases were kept from your original &mdash; so you know when a passage is still too close to the source.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 6: Comparison Table -->
+<div class="apr-section">
+  <div class="sec-head">
+    <h2>BrightlyFuture vs QuillBot vs Wordtune vs Paraphraser.io &mdash; Honest Comparison</h2>
+    <p>We researched every major paraphrasing tool so you can compare fairly.</p>
+  </div>
+  <div class="tbl-wrap">
+    <table class="cmp-tbl">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th class="hl">BrightlyFuture</th>
+          <th>QuillBot</th>
+          <th>Wordtune</th>
+          <th>Paraphraser.io</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Free Word Limit</td><td class="hl"><span class="ck">&#10003;</span> Unlimited</td><td>125 words</td><td>10 rewrites/day</td><td>600 words</td></tr>
+        <tr><td>No Signup Required</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="ck">&#10003;</span></td></tr>
+        <tr><td>Free Rewriting Modes</td><td class="hl">6 modes</td><td>2 modes</td><td>4 modes</td><td>5 modes</td></tr>
+        <tr><td>Full Article Support</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span> Sentence only</td><td><span class="ck">&#10003;</span></td></tr>
+        <tr><td>Ad-Free</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span> Has ads</td></tr>
+        <tr><td>Data Privacy (No Upload)</td><td class="hl"><span class="ck">&#10003;</span> Browser-only</td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
+        <tr><td>Change Statistics</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span></td></tr>
+        <tr><td>Downloadable Output</td><td class="hl"><span class="ck">&#10003;</span> Free</td><td>Paid only</td><td>Paid only</td><td>Paid only</td></tr>
+        <tr><td>No Credit Card Needed</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Section 7: Who Is This For -->
+<div class="apr-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>Who Uses Our AI Paraphraser?</h2>
+      <p>Built for anyone who needs to rewrite text quickly and naturally.</p>
+    </div>
+    <div class="cards-6">
+      <div class="aud-card">
+        <span class="ic">&#127891;</span>
+        <h3>Students &amp; Researchers</h3>
+        <p>Rephrase source material for essays and papers without plagiarism. Use Academic mode for scholarly tone.</p>
+      </div>
+      <div class="aud-card">
+        <span class="ic">&#128221;</span>
+        <h3>Bloggers &amp; Content Writers</h3>
+        <p>Refresh old blog posts, create content variations, and overcome writer&rsquo;s block with Creative or Standard mode.</p>
+      </div>
+      <div class="aud-card">
+        <span class="ic">&#128188;</span>
+        <h3>Business Professionals</h3>
+        <p>Polish emails, reports, and proposals with Formal mode. Make communications sound professional and clear.</p>
+      </div>
+      <div class="aud-card">
+        <span class="ic">&#128640;</span>
+        <h3>SEO Professionals</h3>
+        <p>Create unique content variations, rewrite meta descriptions, and refresh existing pages to avoid duplicate content penalties.</p>
+      </div>
+      <div class="aud-card">
+        <span class="ic">&#128187;</span>
+        <h3>Social Media Managers</h3>
+        <p>Repurpose content across platforms with different tones. Use Casual mode for Instagram, Formal for LinkedIn.</p>
+      </div>
+      <div class="aud-card">
+        <span class="ic">&#127760;</span>
+        <h3>Non-Native English Speakers</h3>
+        <p>Improve the fluency and natural flow of your English writing. Simple mode makes complex text easier to understand.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 8: Tips -->
+<div class="apr-section">
+  <div class="sec-head">
+    <h2>Tips for Getting the Best Paraphrasing Results</h2>
+    <p>Follow these best practices for natural, high-quality rewrites.</p>
+  </div>
+  <div class="tips">
+    <div class="tip">
+      <div class="tip-n">1</div>
+      <div>
+        <h3>Choose the Right Mode for Your Audience</h3>
+        <p>Formal mode for business documents, Casual for blogs, Academic for research papers, Simple for general audiences. The right mode makes a bigger difference than any amount of manual editing.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">2</div>
+      <div>
+        <h3>Paraphrase Paragraphs, Not Fragments</h3>
+        <p>Complete paragraphs give the algorithm more context to work with. Single sentences or bullet points produce less natural results &mdash; this is true for all paraphrasers including QuillBot.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">3</div>
+      <div>
+        <h3>Always Review and Edit the Output</h3>
+        <p>No paraphrasing tool is perfect. Read through the output, check that the meaning is preserved, and make manual tweaks where needed. Independent tests show even QuillBot produces awkward phrasing at higher settings.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">4</div>
+      <div>
+        <h3>Use Multiple Modes on the Same Text</h3>
+        <p>Try Standard first, then experiment with Creative or Formal. Each mode produces different variations &mdash; pick the one that sounds most natural for your specific use case.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">5</div>
+      <div>
+        <h3>Run Results Through an AI Detector</h3>
+        <p>If you need your paraphrased text to pass AI detection tools, use our free <a href="/ai-blog-detector/">AI Content Detector</a> to check the output. Rewrite any flagged sentences manually for best results.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 9: Related Tools -->
+<div class="apr-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>More Free AI Tools from BrightlyFuture</h2>
+      <p>Explore our growing library of free content and marketing tools.</p>
+    </div>
+    <div class="rel-grid">
+      <div class="rel-card">
+        <span class="cat">Content &middot; AI</span>
+        <h3>AI Blog Generator</h3>
+        <p>Generate a structured first draft of a blog post from your topic and keyword. No signup, no credit card.</p>
+        <a href="/ai-blog-generator/" class="btn btn-secondary">Try Free &rarr;</a>
+      </div>
+      <div class="rel-card">
+        <span class="cat">Content &middot; AI</span>
+        <h3>AI Content Detector</h3>
+        <p>Check if text reads like AI or human writing, with sentence-level highlights and the signals behind the score.</p>
+        <a href="/ai-blog-detector/" class="btn btn-secondary">Try Free &rarr;</a>
+      </div>
+      <div class="rel-card">
+        <span class="cat">Content &middot; SEO</span>
+        <h3>Word &amp; Character Counter</h3>
+        <p>Count words, characters, sentences, paragraphs, and estimate reading time for SEO-optimal content length.</p>
+        <a href="/word-character-counter/" class="btn btn-secondary">Try Free &rarr;</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 10: Service Banner -->
+<div class="apr-section">
+  <div class="svc-banner">
+    <span class="badge">Done-for-you</span>
+    <h3>Need Professional Content Writing &mdash; Not Just Paraphrasing?</h3>
+    <p>Our team writes original, SEO-optimised content from scratch &mdash; researched, human-written, and ready to publish. No AI, no paraphrasing, just expert writing.</p>
+    <a href="/content-marketing/" class="btn btn-primary">Get a Free Quote &rarr;</a>
+  </div>
+</div>
+
+<!-- Section 11: FAQ -->
+<div class="apr-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>Frequently Asked Questions About AI Paraphrasing</h2>
+      <p>Everything you need to know about our free paraphrasing tool.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is this paraphrasing tool really 100% free?<span class="arrow">+</span></button><div class="faq-a"><p>Yes &mdash; completely free with no hidden costs, no word limits, no daily caps, and no upgrade prompts. Unlike QuillBot (125 words free) and Wordtune (10 rewrites/day), all 6 modes and unlimited paraphrasing are free forever.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do I need to create an account or sign up?<span class="arrow">+</span></button><div class="faq-a"><p>No. Wordtune requires account creation even for free use. BrightlyFuture requires nothing &mdash; paste text, choose a mode, click Paraphrase, and get results instantly. No email, no registration.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What are the 6 rewriting modes and when should I use each?<span class="arrow">+</span></button><div class="faq-a"><p>Standard for general rewriting, Formal for business and professional content, Casual for blogs and social media, Creative for maximum variation, Simple for plain language, and Academic for scholarly writing. Each mode adjusts vocabulary, tone, and sentence structure differently.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is there a word limit per paraphrase?<span class="arrow">+</span></button><div class="faq-a"><p>No. QuillBot limits free users to 125 words per input, and Paraphraser.io caps at 600 words. BrightlyFuture has no word limit &mdash; paste a sentence or an entire article, and it processes everything in one click.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is my text stored or sent to a server?<span class="arrow">+</span></button><div class="faq-a"><p>No. Unlike QuillBot, Wordtune, and Paraphraser.io &mdash; which all upload your text to their servers for processing &mdash; our paraphraser runs entirely in your browser using JavaScript. Your text is never uploaded, stored, or shared.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How is this different from QuillBot?<span class="arrow">+</span></button><div class="faq-a"><p>QuillBot offers only 2 free modes (Standard and Fluency) with a 125-word limit per input. BrightlyFuture offers 6 free modes with no word limit, no signup, and complete browser-based privacy. QuillBot uploads your text to their servers; we process everything locally.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Will the paraphrased text pass plagiarism checkers?<span class="arrow">+</span></button><div class="faq-a"><p>No tool can guarantee that. Check the &ldquo;Phrases kept&rdquo; score after each rewrite, rewrite anything that is still close to the original in your own words, and always cite your source. Paraphrasing without credit is still plagiarism.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Will paraphrased text pass AI content detectors?<span class="arrow">+</span></button><div class="faq-a"><p>Paraphrasing AI-generated text can reduce AI detection scores, but it is not guaranteed to make text fully undetectable. For best results, use our <a href="/ai-blog-detector/">AI Content Detector</a> to check the output, then manually rewrite any sentences that still flag as AI.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I paraphrase entire articles or just sentences?<span class="arrow">+</span></button><div class="faq-a"><p>Both. Our tool handles single sentences, full paragraphs, and entire articles. This is a key advantage over Wordtune, which only works at the sentence level and cannot process full documents.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Does it preserve the original meaning?<span class="arrow">+</span></button><div class="faq-a"><p>Yes &mdash; all modes are designed to keep the core meaning while changing vocabulary and sentence structure. Names, numbers, links and anything in quotes are left untouched. Creative mode makes the most changes, so always review the output to confirm accuracy.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Does it work with non-English text?<span class="arrow">+</span></button><div class="faq-a"><p>The tool is built for English. Other languages will pass through mostly unchanged, so for non-English text use a tool made for that language.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Can I download or copy my paraphrased text?<span class="arrow">+</span></button><div class="faq-a"><p>Yes &mdash; use the Copy Result button to copy to clipboard, or Download to save as a .txt file. Both features are completely free. Competitors like QuillBot and Wordtune lock download features behind paid plans.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is there a daily usage limit?<span class="arrow">+</span></button><div class="faq-a"><p>No limits whatsoever. Paraphrase once or a thousand times &mdash; no daily caps, no monthly quotas, no credit system. Wordtune limits free users to 10 rewrites per day. We have no such restrictions.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How does the change statistics feature work?<span class="arrow">+</span></button><div class="faq-a"><p>After each paraphrase you see how many words were changed, the change rate, and &ldquo;Phrases kept&rdquo; &mdash; the share of 5-word phrases from your original that still appear in the output. A high &ldquo;Phrases kept&rdquo; score means the text is still close to the source. Click Paraphrase again for a new variation.</p></div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is paraphrasing the same as plagiarism?<span class="arrow">+</span></button><div class="faq-a"><p>No. Paraphrasing means rewriting ideas in your own words while preserving meaning. It becomes plagiarism only if you paraphrase without crediting the original source. Always cite your sources when paraphrasing someone else&rsquo;s work, especially in academic contexts.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 12: Final CTA -->
+<div class="final-cta">
+  <h2>Ready to Rewrite Your Text?</h2>
+  <p>Paste your text, choose a mode, and get instant results. Free forever &mdash; no signup, no limits, no ads.</p>
+  <a href="#inputText" class="btn-big" onclick="setTimeout(function(){document.getElementById('inputText').focus()},400)">&#9999;&#65039; Start Paraphrasing &mdash; 100% Free</a>
+  <div class="sub-note">No Signup &middot; No Word Limits &middot; 6 Free Modes &middot; Ad-Free</div>
+</div>
+
+<div class="toast" id="toast">Copied!</div>
+
+<script>
+/*!
+ * BrightlyFuture Paraphraser engine v2
+ * Drop-in replacement for the inline script on /ai-paraphrase-rewriter/.
+ * Runs entirely in the browser. No text leaves the page.
+ */
+(function (root) {
+  'use strict';
+
+  /* ------------------------------------------------------------------ *
+   * 1. Phrase rules (applied first, longest phrases first).
+   *    Each entry: [pattern, {mode: [alternatives]}]; "all" = any mode.
+   * ------------------------------------------------------------------ */
+  var PHRASES = [
+    ['in order to', { all: ['to'], formal: ['so as to', 'to'], academic: ['in order to', 'so as to'] }],
+    ['a wide variety of', { all: ['many', 'a range of'], simple: ['many'], academic: ['a broad range of'] }],
+    ['a large number of', { all: ['many', 'plenty of'], simple: ['many'], formal: ['numerous'] }],
+    ['a lot of', { all: ['many', 'plenty of'], formal: ['numerous'], academic: ['numerous'] }],
+    ['lots of', { all: ['plenty of', 'many'], formal: ['numerous'] }],
+    ['due to the fact that', { all: ['because'], academic: ['because', 'given that'] }],
+    ['because of the fact that', { all: ['because'] }],
+    ['in spite of the fact that', { all: ['although'] }],
+    ['despite the fact that', { all: ['although', 'even though'] }],
+    ['at this point in time', { all: ['now', 'at present'], simple: ['now'] }],
+    ['at the present time', { all: ['now', 'currently'], simple: ['now'] }],
+    ['in the event that', { all: ['if'], formal: ['should', 'if'] }],
+    ['with regard to', { all: ['about', 'on'], formal: ['regarding', 'concerning'] }],
+    ['with respect to', { all: ['about', 'regarding'], simple: ['about'] }],
+    ['in relation to', { all: ['about', 'regarding'], simple: ['about'] }],
+    ['is able to', { all: ['can'], formal: ['is able to', 'can'] }],
+    ['are able to', { all: ['can'] }],
+    ['was able to', { all: ['managed to'] }],
+    ['were able to', { all: ['managed to'] }],
+    ['has the ability to', { all: ['can'] }],
+    ['have the ability to', { all: ['can'] }],
+    ['it is important to', { all: ['you should', 'make sure to'], formal: ['it is essential to'], academic: ['it is essential to'] }],
+    ['it is essential that', { all: ['you must make sure that'], formal: ['it is vital that'] }],
+    ['make sure to', { all: ['be sure to', 'remember to'], formal: ['be sure to'] }],
+    ['need to', { all: ['have to', 'must'], casual: ['need to', 'have to'], simple: ['have to'] }],
+    ['needs to', { all: ['has to', 'must'], simple: ['has to'] }],
+    ['depend on', { all: ['rely on'], formal: ['rely upon', 'rely on'] }],
+    ['depends on', { all: ['relies on', 'hinges on'], simple: ['relies on'] }],
+    ['without warning', { all: ['with no notice', 'without notice'] }],
+    ['make sure', { all: ['ensure', 'check'], casual: ['make sure'], simple: ['check'] }],
+    ['find out', { all: ['learn', 'discover'], casual: ['find out'], formal: ['determine', 'establish'] }],
+    ['figure out', { all: ['work out', 'determine'], formal: ['determine'], simple: ['work out'] }],
+    ['look at', { all: ['examine', 'review', 'check'], casual: ['check out'], simple: ['check'] }],
+    ['look for', { all: ['search for', 'seek'], simple: ['search for'] }],
+    ['come up with', { all: ['create', 'develop'], simple: ['make'], formal: ['devise'] }],
+    ['get rid of', { all: ['remove', 'eliminate'], simple: ['remove'] }],
+    ['make changes', { all: ['change things', 'make updates'], formal: ['implement changes'], simple: ['change things'] }],
+    ['set up', { all: ['create', 'build'], simple: ['make'], formal: ['establish'] }],
+    ['put together', { all: ['assemble', 'build'], simple: ['build'] }],
+    ['carry out', { all: ['perform', 'complete'], simple: ['do'], formal: ['conduct'] }],
+    ['point out', { all: ['note', 'highlight'], simple: ['show'] }],
+    ['take into account', { all: ['consider', 'allow for'], simple: ['think about'] }],
+    ['on the other hand', { all: ['however', 'by contrast'], simple: ['but'], casual: ['then again'] }],
+    ['as a result', { all: ['so', 'because of this'], formal: ['consequently', 'as a consequence'], academic: ['consequently'] }],
+    ['for example', { all: ['for instance', 'such as'], simple: ['for example'] }],
+    ['for instance', { all: ['for example'] }],
+    ['such as', { all: ['like'], formal: ['such as'], academic: ['such as'] }],
+    ['in addition to', { all: ['as well as', 'besides'] }],
+    ['as well as', { all: ['and', 'along with'] }],
+    ['a number of', { all: ['several', 'some'] }],
+    ['the majority of', { all: ['most'], academic: ['most', 'the bulk of'] }],
+    ['in most cases', { all: ['usually', 'mostly'], formal: ['generally'] }],
+    ['first of all', { all: ['first', 'to start'] }],
+    ['in conclusion', { all: ['to sum up', 'overall'], simple: ['in short'] }],
+    ['each and every', { all: ['every'] }],
+    ['already seen', { all: ['seen before', 'already read'] }],
+    ['works best', { all: ['works best', 'performs best', 'is most effective'], simple: ['works best'] }],
+    ['first-hand', { all: ['first-hand', 'direct', 'your own'] }]
+  ];
+
+  /* ------------------------------------------------------------------ *
+   * 2. Word rules. Keys are base forms. Alternatives are chosen so that
+   *    each mode moves text in its own direction (Simple never makes
+   *    a word longer; Formal/Academic never make it more casual).
+   *    POS: v = verb, a = adjective/adverb, n = noun.
+   *    Ambiguous verbs (also common nouns) are flagged amb:true and only
+   *    replaced when the word before them marks a verb.
+   * ------------------------------------------------------------------ */
+  var WORDS = {
+    // verbs
+    use: { p: 'v', all: ['apply', 'rely on'], simple: [], formal: ['employ'], academic: ['employ', 'utilise'], amb: true },
+    utilise: { p: 'v', all: ['use'], simple: ['use'], formal: ['employ'], academic: ['employ'] },
+    utilize: { p: 'v', all: ['use'], simple: ['use'], formal: ['employ'] },
+    help: { p: 'v', all: ['assist', 'support'], simple: [], casual: ['help'], formal: ['assist', 'support'], amb: true, noTo: true },
+    assist: { p: 'v', all: ['help', 'support'], simple: ['help'] },
+    show: { p: 'v', all: ['reveal', 'highlight'], simple: [], formal: ['demonstrate', 'indicate'], academic: ['demonstrate', 'indicate'], amb: true },
+    demonstrate: { p: 'v', all: ['show', 'prove'], simple: ['show'] },
+    check: { p: 'v', all: ['review', 'examine', 'see'], simple: ['see'], formal: ['review', 'examine'], amb: true },
+    note: { p: 'v', all: ['record', 'write down'], simple: ['write down'], formal: ['record', 'observe'], amb: true },
+    add: { p: 'v', all: ['include', 'bring in'], simple: [], formal: ['include', 'incorporate'] },
+    get: { p: 'v', all: ['gain', 'earn'], simple: [], casual: ['get'], formal: ['obtain', 'achieve'], academic: ['obtain'] },
+    obtain: { p: 'v', all: ['get', 'gain'], simple: ['get'] },
+    give: { p: 'v', all: ['offer', 'provide'], simple: [], formal: ['provide'] },
+    provide: { p: 'v', all: ['offer', 'give'], simple: ['give'] },
+    create: { p: 'v', all: ['make', 'build'], simple: ['make'], formal: ['develop', 'produce'] },
+    build: { p: 'v', all: ['create', 'develop'], simple: ['make'] },
+    start: { p: 'v', all: ['begin', 'launch'], simple: [], formal: ['begin', 'commence'], amb: true },
+    begin: { p: 'v', all: ['start'], simple: ['start'] },
+    commence: { p: 'v', all: ['begin', 'start'], simple: ['start'] },
+    end: { p: 'v', all: ['finish', 'close'], simple: [], formal: ['conclude'], amb: true },
+    finish: { p: 'v', all: ['complete', 'wrap up'], simple: ['end'], formal: ['complete'] },
+    try: { p: 'v', all: ['attempt', 'test'], simple: [], formal: ['attempt'], amb: true },
+    attempt: { p: 'v', all: ['try'], simple: ['try'] },
+    think: { p: 'v', all: ['believe', 'consider'], simple: [], formal: ['consider', 'believe'] },
+    consider: { p: 'v', all: ['think about', 'weigh up'], simple: ['think about'], formal: ['evaluate'] },
+    need: { p: 'v', all: ['require'], simple: [], casual: ['need'], formal: ['require'], amb: true, noTo: true },
+    require: { p: 'v', all: ['need'], simple: ['need'] },
+    want: { p: 'v', all: ['would like', 'hope'], simple: [], formal: ['wish', 'intend'] },
+    keep: { p: 'v', all: ['maintain', 'hold on to'], simple: [], formal: ['maintain', 'retain'] },
+    maintain: { p: 'v', all: ['keep'], simple: ['keep'] },
+    change: { p: 'v', all: ['adjust', 'alter'], simple: [], formal: ['modify', 'alter'], amb: true },
+    modify: { p: 'v', all: ['change', 'adjust'], simple: ['change'] },
+    find: { p: 'v', all: ['discover', 'identify'], simple: [], formal: ['identify', 'locate'] },
+    identify: { p: 'v', all: ['spot', 'find'], simple: ['find'] },
+    tell: { p: 'v', all: ['inform', 'let know'], simple: [], formal: ['inform', 'advise'] },
+    buy: { p: 'v', all: ['purchase'], simple: [], formal: ['purchase', 'acquire'] },
+    purchase: { p: 'v', all: ['buy'], simple: ['buy'] },
+    improve: { p: 'v', all: ['strengthen', 'upgrade'], simple: ['fix'], formal: ['enhance', 'strengthen'] },
+    increase: { p: 'v', all: ['raise', 'boost'], simple: ['raise'], formal: ['raise', 'expand'], amb: true },
+    reduce: { p: 'v', all: ['cut', 'lower'], simple: ['cut'], formal: ['decrease', 'lower'] },
+    explain: { p: 'v', all: ['describe', 'clarify'], simple: ['describe'], formal: ['clarify', 'set out'] },
+    answer: { p: 'v', all: ['address', 'respond to'], simple: [], formal: ['address', 'respond to'], amb: true },
+    repeat: { p: 'v', all: ['echo', 'rehash'], simple: [], formal: ['reiterate', 'duplicate'] },
+    publish: { p: 'v', all: ['release', 'put out'], simple: ['put out'], formal: ['release', 'issue'] },
+    write: { p: 'v', all: ['draft'], simple: [], formal: ['compose', 'draft'] },
+    rank: { p: 'v', all: ['appear', 'show up'], simple: ['show up'], formal: ['appear', 'feature'], amb: true },
+    include: { p: 'v', all: ['cover', 'contain'], simple: ['cover'] },
+    choose: { p: 'v', all: ['pick', 'select'], simple: ['pick'], formal: ['select'] },
+    select: { p: 'v', all: ['choose', 'pick'], simple: ['pick'] },
+    allow: { p: 'v', all: ['enable'], simple: [], formal: ['enable', 'permit'] },
+    understand: { p: 'v', all: ['grasp', 'follow'], simple: ['get'], formal: ['comprehend', 'grasp'] },
+    focus: { p: 'v', all: ['concentrate'], simple: [], formal: ['concentrate'], amb: true },
+    avoid: { p: 'v', all: ['skip', 'steer clear of'], simple: ['skip'], formal: ['prevent', 'refrain from'] },
+    discuss: { p: 'v', all: ['cover', 'talk about'], simple: ['talk about'], formal: ['examine', 'address'] },
+    // adjectives / adverbs
+    clear: { p: 'a', all: ['simple', 'focused'], simple: [], formal: ['precise', 'well-defined'] },
+    specific: { p: 'a', all: ['particular'], simple: [], formal: ['particular', 'defined'] },
+    important: { p: 'a', all: ['key', 'vital'], simple: ['key'], formal: ['significant', 'essential'], academic: ['significant'] },
+    significant: { p: 'a', all: ['important', 'major'], simple: ['big'] },
+    big: { p: 'a', all: ['large', 'major'], simple: [], formal: ['substantial', 'considerable'] },
+    large: { p: 'a', all: ['big', 'sizeable'], simple: ['big'], formal: ['substantial'] },
+    good: { p: 'a', all: ['strong', 'solid'], simple: [], formal: ['effective', 'sound'] },
+    bad: { p: 'a', all: ['weak', 'poor'], simple: [], formal: ['poor', 'ineffective'] },
+    easy: { p: 'a', all: ['simple', 'straightforward'], simple: ['simple'], formal: ['straightforward'] },
+    hard: { p: 'a', all: ['difficult', 'tough'], simple: ['tough'], formal: ['difficult', 'challenging'] },
+    difficult: { p: 'a', all: ['hard', 'tough'], simple: ['hard'] },
+    fast: { p: 'a', all: ['quick', 'rapid'], simple: ['quick'], formal: ['rapid', 'swift'] },
+    quick: { p: 'a', all: ['fast', 'rapid'], simple: ['fast'] },
+    new: { p: 'a', all: ['fresh', 'recent'], simple: [], formal: ['recent', 'novel'] },
+    main: { p: 'a', all: ['key', 'core', 'central'], simple: ['key'], formal: ['principal', 'primary'] },
+    whole: { p: 'a', all: ['entire', 'full'], simple: ['full'] },
+    entire: { p: 'a', all: ['whole', 'full'], simple: ['whole'] },
+    many: { p: 'a', all: ['numerous', 'plenty of'], simple: [], casual: ['lots of'], formal: ['numerous'] },
+    often: { p: 'a', all: ['frequently', 'regularly'], simple: [], formal: ['frequently'] },
+    usually: { p: 'a', all: ['typically', 'normally'], simple: [], formal: ['typically', 'generally'] },
+    really: { p: 'a', all: ['truly', 'genuinely'], simple: [], casual: ['really'], formal: ['genuinely'] },
+    very: { p: 'a', all: ['highly', 'extremely'], simple: [], casual: ['really'], formal: ['highly'] },
+    also: { p: 'a', all: ['too', 'as well'], simple: [], formal: ['also', 'in addition'] },
+    however: { p: 'a', all: ['but', 'still'], simple: ['but'], formal: ['however', 'nevertheless'] },
+    enough: { p: 'a', all: ['sufficient'], simple: [], formal: ['sufficient', 'adequate'] },
+    sufficient: { p: 'a', all: ['enough'], simple: ['enough'] },
+    approximately: { p: 'a', all: ['about', 'roughly', 'around'], simple: ['about'] },
+    about: { p: 'a', all: [], formal: ['approximately'], academic: ['approximately'] },
+    already: { p: 'a', all: [], simple: [] },
+    // nouns (safe, low ambiguity)
+    article: { p: 'n', all: ['post', 'piece'], simple: ['post'], formal: ['article', 'piece'] },
+    post: { p: 'n', all: ['article', 'piece'], simple: [], formal: ['article'], amb: true },
+    reader: { p: 'n', all: ['visitor', 'reader'], simple: [], formal: ['reader'] },
+    question: { p: 'n', all: ['query', 'problem'], simple: [], formal: ['query'], amb: true },
+    problem: { p: 'n', all: ['issue', 'challenge'], simple: ['issue'], formal: ['issue', 'challenge'] },
+    issue: { p: 'n', all: ['problem', 'concern'], simple: ['problem'] },
+    idea: { p: 'n', all: ['concept', 'thought'], simple: [], formal: ['concept', 'notion'] },
+    method: { p: 'n', all: ['approach', 'technique'], simple: ['way'], formal: ['approach', 'technique'] },
+    way: { p: 'n', all: ['method', 'approach'], simple: [], formal: ['method', 'means'] },
+    result: { p: 'n', all: ['outcome'], simple: [], formal: ['outcome'], amb: true },
+    goal: { p: 'n', all: ['aim', 'target'], simple: ['aim'], formal: ['objective', 'aim'] },
+    benefit: { p: 'n', all: ['advantage', 'gain'], simple: ['gain'], formal: ['advantage'], amb: true },
+    tool: { p: 'n', all: ['utility', 'resource'], simple: [], formal: ['resource', 'utility'] },
+    data: { p: 'n', all: ['figures', 'evidence'], simple: ['figures'], formal: ['evidence', 'data'] },
+    angle: { p: 'n', all: ['approach', 'perspective'], simple: ['approach'], formal: ['perspective'] },
+    customer: { p: 'n', all: ['client', 'buyer'], simple: ['buyer'], formal: ['client'] },
+    business: { p: 'n', all: ['company', 'firm'], simple: ['company'], formal: ['organisation', 'company'] },
+    company: { p: 'n', all: ['business', 'firm'], simple: ['business'], formal: ['organisation'] },
+    effective: { p: 'a', all: ['useful', 'powerful', 'reliable'], simple: ['useful'], formal: ['effective', 'productive'] },
+    relationship: { p: 'n', all: ['connection', 'bond'], simple: ['link'], formal: ['relationship', 'connection'] },
+    drop: { p: 'v', all: ['fall', 'decline'], simple: ['fall'], formal: ['decline', 'decrease'], amb: true },
+    fall: { p: 'v', all: ['drop', 'decline'], simple: ['drop'] },
+    client: { p: 'n', all: ['customer'], simple: ['customer'] },
+    team: { p: 'n', all: ['team'], simple: [] },
+    website: { p: 'n', all: ['site'], simple: ['site'], formal: ['website'] },
+    rankings: { p: 'n', all: ['positions', 'rankings'], simple: [] },
+    channel: { p: 'n', all: ['platform', 'route'], simple: [], formal: ['channel', 'medium'] },
+    people: { p: 'n', all: ['readers', 'users'], simple: [], formal: ['individuals', 'users'] }
+  };
+
+  var IRREGULAR = {
+    get: { s: 'gets', ed: 'got', ing: 'getting', en: 'got' },
+    give: { s: 'gives', ed: 'gave', ing: 'giving', en: 'given' },
+    make: { s: 'makes', ed: 'made', ing: 'making', en: 'made' },
+    build: { s: 'builds', ed: 'built', ing: 'building', en: 'built' },
+    begin: { s: 'begins', ed: 'began', ing: 'beginning', en: 'begun' },
+    think: { s: 'thinks', ed: 'thought', ing: 'thinking', en: 'thought' },
+    keep: { s: 'keeps', ed: 'kept', ing: 'keeping', en: 'kept' },
+    find: { s: 'finds', ed: 'found', ing: 'finding', en: 'found' },
+    tell: { s: 'tells', ed: 'told', ing: 'telling', en: 'told' },
+    buy: { s: 'buys', ed: 'bought', ing: 'buying', en: 'bought' },
+    write: { s: 'writes', ed: 'wrote', ing: 'writing', en: 'written' },
+    choose: { s: 'chooses', ed: 'chose', ing: 'choosing', en: 'chosen' },
+    understand: { s: 'understands', ed: 'understood', ing: 'understanding', en: 'understood' },
+    show: { s: 'shows', ed: 'showed', ing: 'showing', en: 'shown' },
+    hold: { s: 'holds', ed: 'held', ing: 'holding', en: 'held' },
+    run: { s: 'runs', ed: 'ran', ing: 'running', en: 'run' },
+    put: { s: 'puts', ed: 'put', ing: 'putting', en: 'put' },
+    set: { s: 'sets', ed: 'set', ing: 'setting', en: 'set' },
+    grasp: { s: 'grasps', ed: 'grasped', ing: 'grasping', en: 'grasped' },
+    let: { s: 'lets', ed: 'let', ing: 'letting', en: 'let' },
+    seek: { s: 'seeks', ed: 'sought', ing: 'seeking', en: 'sought' },
+    spot: { s: 'spots', ed: 'spotted', ing: 'spotting', en: 'spotted' },
+    cut: { s: 'cuts', ed: 'cut', ing: 'cutting', en: 'cut' },
+    pick: { s: 'picks', ed: 'picked', ing: 'picking', en: 'picked' },
+    skip: { s: 'skips', ed: 'skipped', ing: 'skipping', en: 'skipped' },
+    grab: { s: 'grabs', ed: 'grabbed', ing: 'grabbing', en: 'grabbed' },
+    post: { s: 'posts', ed: 'posted', ing: 'posting', en: 'posted' },
+    see: { s: 'sees', ed: 'saw', ing: 'seeing', en: 'seen' },
+    fall: { s: 'falls', ed: 'fell', ing: 'falling', en: 'fallen' },
+    drop: { s: 'drops', ed: 'dropped', ing: 'dropping', en: 'dropped' },
+    echo: { s: 'echoes', ed: 'echoed', ing: 'echoing', en: 'echoed' }
+  };
+
+  var VERB_CUES = /^(to|will|would|can|could|should|must|may|might|shall|do|does|did|don't|doesn't|didn't|won't|can't|cannot|i|you|we|they|he|she|it|who|that|and|or|then|also|often|always|never|usually|just|please|let's)$/i;
+  var DETERMINERS = /^(a|an|the|this|that|these|those|my|your|our|their|his|her|its|each|every|one|no|any|some|of|for|first|last|next)$/i;
+  var OPEN_CLAUSE = /^(Before|After|When|If|Because|Although|While|Once|Until|Unless|Since)\b/;
+
+  /* ------------------------------------------------------------------ *
+   * Helpers
+   * ------------------------------------------------------------------ */
+  function rng(seed) {
+    var s = seed >>> 0 || 1;
+    return function () { s ^= s << 13; s ^= s >>> 17; s ^= s << 5; return ((s >>> 0) % 10000) / 10000; };
+  }
+  function pick(list, r) { return list[Math.floor(r() * list.length)]; }
+  function isVowel(c) { return 'aeiou'.indexOf(c) > -1; }
+
+  function inflect(base, form) {
+    if (IRREGULAR[base] && IRREGULAR[base][form]) return IRREGULAR[base][form];
+    if (base.indexOf(' ') > -1) { // phrasal alternative: inflect first word only
+      var parts = base.split(' ');
+      parts[0] = inflect(parts[0], form);
+      return parts.join(' ');
+    }
+    var last = base.slice(-1), prev = base.slice(-2, -1);
+    if (form === 's') {
+      if (/(s|x|z|ch|sh|o)$/.test(base)) return base + 'es';
+      if (last === 'y' && !isVowel(prev)) return base.slice(0, -1) + 'ies';
+      return base + 's';
+    }
+    if (form === 'ed' || form === 'en') {
+      if (last === 'e') return base + 'd';
+      if (last === 'y' && !isVowel(prev)) return base.slice(0, -1) + 'ied';
+      return base + 'ed';
+    }
+    if (form === 'ing') {
+      if (/ie$/.test(base)) return base.slice(0, -2) + 'ying';
+      if (last === 'e' && base !== 'be' && !/ee$/.test(base)) return base.slice(0, -1) + 'ing';
+      return base + 'ing';
+    }
+    return base;
+  }
+
+  // Build lookup: surface form -> {base, form}
+  var FORMS = {};
+  Object.keys(WORDS).forEach(function (base) {
+    FORMS[base] = { base: base, form: 'base' };
+    if (WORDS[base].p === 'v') {
+      ['s', 'ed', 'ing', 'en'].forEach(function (f) {
+        var surf = inflect(base, f);
+        if (!FORMS[surf]) FORMS[surf] = { base: base, form: f === 'en' ? 'ed' : f };
+      });
+    } else if (WORDS[base].p === 'n') {
+      var pl = inflect(base, 's');
+      if (!FORMS[pl]) FORMS[pl] = { base: base, form: 's' };
+    }
+  });
+
+  function altsFor(entry, mode) {
+    if (entry[mode]) return entry[mode];
+    if (mode === 'creative' || mode === 'standard') return entry.all || [];
+    if (mode === 'casual') return entry.casual || entry.all || [];
+    if (mode === 'academic') return entry.academic || entry.formal || entry.all || [];
+    if (mode === 'formal') return entry.formal || entry.all || [];
+    if (mode === 'simple') return entry.simple || [];
+    return entry.all || [];
+  }
+
+  function matchCase(src, out) {
+    if (src === src.toUpperCase() && src.length > 1) return out.toUpperCase();
+    if (src[0] === src[0].toUpperCase()) return out.charAt(0).toUpperCase() + out.slice(1);
+    return out;
+  }
+
+  /* ------------------------------------------------------------------ *
+   * 3. Sentence-level transforms
+   * ------------------------------------------------------------------ */
+  function splitSentences(text) {
+    var out = text.match(/[^.!?]+(?:[.!?]+["')\]]*|$)\s*/g) || [text];
+    return out.map(function (s) { return s.trim(); }).filter(Boolean);
+  }
+
+  // "Before writing, check X." -> "Check X before writing."
+  function moveLeadingClause(s) {
+    var m = s.match(/^([A-Z][a-z]+ [^,]{2,60}),\s+(.+?)([.!?])$/);
+    if (!m || !OPEN_CLAUSE.test(m[1]) || /\b(but|and)$/.test(m[1])) return null;
+    var clause = m[1].charAt(0).toLowerCase() + m[1].slice(1);
+    var main = m[2].charAt(0).toUpperCase() + m[2].slice(1);
+    return main + ' ' + clause + m[3];
+  }
+  // "Check X because Y." -> "Because Y, check X."
+  function frontTrailingClause(s) {
+    var m = s.match(/^(.{15,}?)\s+(because|if|when|before|after|once|unless)\s+(.{8,}?)([.!?])$/i);
+    if (!m || /,/.test(m[3])) return null;
+    var main = m[1].charAt(0).toLowerCase() + m[1].slice(1);
+    if (/^i\b/.test(main)) main = 'I' + main.slice(1);
+    var conj = m[2].charAt(0).toUpperCase() + m[2].slice(1).toLowerCase();
+    return conj + ' ' + m[3] + ', ' + main + m[4];
+  }
+  // Split sentences longer than ~26 words at a natural joint.
+  function splitLong(s) {
+    var words = s.split(/\s+/);
+    if (words.length < 26) return [s];
+    var joints = [/;\s+/, /,\s+(but|so|and|which means)\s+/i, /,\s+which\s+/i];
+    for (var i = 0; i < joints.length; i++) {
+      var m = s.match(joints[i]);
+      if (m && m.index > 40 && m.index < s.length - 30) {
+        var first = s.slice(0, m.index).replace(/[,;]$/, '') + '.';
+        var rest = s.slice(m.index + m[0].length);
+        var lead = (m[1] || '').toLowerCase();
+        if (lead === 'which' || lead === 'which means') rest = 'This ' + (lead === 'which means' ? 'means ' : '') + rest;
+        else if (lead === 'but') rest = 'But ' + rest;
+        else if (lead === 'so') rest = 'So ' + rest;
+        rest = rest.charAt(0).toUpperCase() + rest.slice(1);
+        return [first, rest];
+      }
+    }
+    return [s];
+  }
+
+  var CONTRACT = [[/\bdo not\b/gi, "don't"], [/\bdoes not\b/gi, "doesn't"], [/\bdid not\b/gi, "didn't"], [/\bwill not\b/gi, "won't"], [/\bcannot\b/gi, "can't"], [/\bis not\b/gi, "isn't"], [/\bare not\b/gi, "aren't"], [/\bwould not\b/gi, "wouldn't"], [/\bshould not\b/gi, "shouldn't"], [/\bcould not\b/gi, "couldn't"], [/\bit is\b/gi, "it's"], [/\bthat is\b/gi, "that's"], [/\byou are\b/gi, "you're"], [/\bwe are\b/gi, "we're"], [/\bthey are\b/gi, "they're"], [/\bI am\b/g, "I'm"]];
+  var EXPAND = [[/\bdon't\b/gi, 'do not'], [/\bdoesn't\b/gi, 'does not'], [/\bdidn't\b/gi, 'did not'], [/\bwon't\b/gi, 'will not'], [/\bcan't\b/gi, 'cannot'], [/\bisn't\b/gi, 'is not'], [/\baren't\b/gi, 'are not'], [/\bwouldn't\b/gi, 'would not'], [/\bshouldn't\b/gi, 'should not'], [/\bit's\b/gi, 'it is'], [/\bthat's\b/gi, 'that is'], [/\byou're\b/gi, 'you are'], [/\bwe're\b/gi, 'we are'], [/\bthey're\b/gi, 'they are'], [/\bI'm\b/g, 'I am']];
+  function applyPairs(s, pairs) {
+    pairs.forEach(function (p) { s = s.replace(p[0], function (m) { return matchCase(m, p[1]); }); });
+    return s;
+  }
+
+  /* ------------------------------------------------------------------ *
+   * 4. Core paraphrase
+   * ------------------------------------------------------------------ */
+  function protectSpans(text) {
+    // Quoted text, URLs, emails, numbers with units are never touched.
+    var store = [];
+    var out = text.replace(/("[^"]+"|“[^”]+”|https?:\/\/\S+|\S+@\S+\.\S+)/g, function (m) {
+      store.push(m); return '\u0000' + (store.length - 1) + '\u0000';
+    });
+    return { text: out, restore: function (t) { return t.replace(/\u0000(\d+)\u0000/g, function (_, i) { return store[+i]; }); } };
+  }
+
+  function rewritePhrases(s, mode, r, counter) {
+    PHRASES.forEach(function (rule) {
+      var re = new RegExp('\\b' + rule[0].replace(/[-]/g, '\\-') + '\\b', 'gi');
+      s = s.replace(re, function (m) {
+        var alts = rule[1][mode] || rule[1].all;
+        if (!alts || !alts.length) return m;
+        var choice = pick(alts, r);
+        if (choice.toLowerCase() === m.toLowerCase()) return '\u0001' + m + '\u0002';
+        counter.phr += m.split(/\s+/).length;
+        return '\u0001' + matchCase(m, choice) + '\u0002'; // mark as done
+      });
+    });
+    return s;
+  }
+
+  function rewriteWords(s, mode, r, counter, rate) {
+    var tokens = s.split(/(\s+)/);
+    var prevWord = '';
+    var inDone = false;
+    for (var i = 0; i < tokens.length; i++) {
+      var t = tokens[i];
+      if (/^\s+$/.test(t) || !t) continue;
+      if (t.indexOf('\u0001') > -1) inDone = true;
+      var wasDone = inDone;
+      if (t.indexOf('\u0002') > -1) inDone = false;
+      if (wasDone || t.indexOf('\u0000') > -1) { prevWord = t.replace(/[^\w']/g, ''); continue; }
+      var m = t.match(/^([^A-Za-z]*)([A-Za-z][A-Za-z'-]*)([^A-Za-z]*)$/);
+      if (!m) { prevWord = ''; continue; }
+      var word = m[2], lower = word.toLowerCase();
+      // Proper noun mid-sentence (capitalised, not first word): leave it.
+      var isFirst = i === 0 || /[.!?]["')]?$/.test(tokens[i - 2] || '');
+      if (!isFirst && /^[A-Z]/.test(word)) { prevWord = lower; continue; }
+      var f = FORMS[lower];
+      if (f && r() < rate) {
+        var entry = WORDS[f.base];
+        var ok = true;
+        if (entry.amb && entry.p === 'v') ok = VERB_CUES.test(prevWord) && !DETERMINERS.test(prevWord);
+        if (entry.amb && entry.p === 'n') ok = DETERMINERS.test(prevWord);
+        if (entry.p === 'v' && DETERMINERS.test(prevWord) && f.form === 'base') ok = false;
+        if (entry.noTo && /^to\b/i.test(tokens[i + 2] || '')) ok = false;
+        if (entry.p === 'n' && /^(s|es)$/.test(f.form) === false && f.form === 's' && entry.p !== 'n') ok = false;
+        var alts = altsFor(entry, mode).filter(function (a) { return a !== f.base; });
+        if (mode === 'simple') alts = alts.filter(function (a) { return a.length <= f.base.length + 1; });
+        if (ok && alts.length) {
+          var alt = pick(alts, r);
+          var out = f.form === 'base' ? alt : inflect(alt, f.form);
+          if (f.form === 's' && entry.p === 'n') { var ws = alt.split(' '); ws[ws.length - 1] = inflect(ws[ws.length - 1], 's'); out = ws.join(' '); }
+          // a/an agreement
+          if (/^(a|an)$/i.test(prevWord) && i >= 2) {
+            var art = isVowel(out.charAt(0).toLowerCase()) ? 'an' : 'a';
+            tokens[i - 2] = tokens[i - 2].replace(/^(a|an)$/i, function (x) { return matchCase(x, art); });
+          }
+          tokens[i] = m[1] + matchCase(word, out) + m[3];
+          counter.words++;
+        }
+      }
+      prevWord = lower;
+    }
+    return tokens.join('');
+  }
+
+  function paraphrase(text, mode, seed) {
+    mode = mode || 'standard';
+    var r = rng(seed || (Date.now() & 0xffff));
+    var rate = { standard: 0.75, creative: 0.95, simple: 0.9, formal: 0.8, casual: 0.8, academic: 0.8 }[mode] || 0.75;
+    var prot = protectSpans(text.replace(/\r\n/g, '\n'));
+    var paragraphs = prot.text.split(/\n{2,}/);
+    var counter = { words: 0, phr: 0, restructured: 0 };
+    var sentenceCount = 0;
+
+    var outParas = paragraphs.map(function (para) {
+      var sentences = splitSentences(para.replace(/\n/g, ' '));
+      sentenceCount += sentences.length;
+      var out = [];
+      sentences.forEach(function (s, idx) {
+        // structure first
+        if (mode === 'simple' || mode === 'standard' || mode === 'creative') {
+          var parts = splitLong(s);
+          if (parts.length > 1) counter.restructured++;
+          s = parts.join(' ');
+        }
+        if (mode !== 'simple') {
+          var moved = null;
+          var chance = mode === 'creative' ? 0.9 : 0.55;
+          if (r() < chance) moved = moveLeadingClause(s) || (idx % 2 === 1 ? frontTrailingClause(s) : null);
+          if (moved) { s = moved; counter.restructured++; }
+        }
+        s = rewritePhrases(s, mode, r, counter);
+        s = rewriteWords(s, mode, r, counter, rate);
+        if (mode === 'casual' || mode === 'simple' || mode === 'creative') s = applyPairs(s, CONTRACT);
+        if (mode === 'formal' || mode === 'academic') s = applyPairs(s, EXPAND);
+        out.push(s.replace(/[\u0001\u0002]/g, ''));
+      });
+      return out.join(' ');
+    });
+
+    var output = prot.restore(outParas.join('\n\n')).replace(/[ \t]+/g, ' ').replace(/ ([,.;:!?])/g, '$1').trim();
+    var inWords = (text.match(/\S+/g) || []).length;
+    return {
+      text: output,
+      changed: counter.words + counter.phr,
+      total: inWords,
+      sentences: sentenceCount,
+      restructured: counter.restructured,
+      copiedPhrases: overlap(text, output)
+    };
+  }
+
+  // Share of the output's 5-word sequences that also appear in the input.
+  function overlap(a, b) {
+    var w = function (s) { return (s.toLowerCase().match(/[a-z0-9']+/g) || []); };
+    var A = w(a), B = w(b), set = {}, n = 5, hit = 0, tot = 0;
+    for (var i = 0; i + n <= A.length; i++) set[A.slice(i, i + n).join(' ')] = 1;
+    for (var j = 0; j + n <= B.length; j++) { tot++; if (set[B.slice(j, j + n).join(' ')]) hit++; }
+    return tot ? Math.round((hit / tot) * 100) : 0;
+  }
+
+  var api = { paraphrase: paraphrase, overlap: overlap, inflect: inflect };
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  root.BFParaphraser = api;
+
+  /* ------------------------------------------------------------------ *
+   * 5. Page wiring (same element IDs as the existing tool page)
+   * ------------------------------------------------------------------ */
+  if (typeof document === 'undefined') return;
+
+  var inputEl, outputEl, currentMode = 'standard', runCount = 0;
+  function $(id) { return document.getElementById(id); }
+
+  function init() {
+    inputEl = $('inputText'); outputEl = $('outputText');
+    if (!inputEl || !outputEl) { setTimeout(init, 200); return; }
+    inputEl.addEventListener('input', function () {
+      var v = this.value.trim();
+      $('wordCount').textContent = v ? v.split(/\s+/).length : 0;
+      $('charCount').textContent = this.value.length;
+    });
+    // Extra stat + note, injected once so the page HTML needs no edits.
+    var bar = $('statsBar');
+    if (bar && !$('statOriginality')) {
+      var item = document.createElement('div');
+      item.className = bar.firstElementChild ? bar.firstElementChild.className : '';
+      item.innerHTML = 'Phrases kept: <strong id="statOriginality">0%</strong>';
+      bar.appendChild(item);
+      var note = document.createElement('p');
+      note.id = 'paraNote';
+      note.style.cssText = 'margin:10px 0 0;font-size:14px;line-height:1.5;display:none';
+      bar.parentNode.insertBefore(note, bar.nextSibling);
+    }
+    var label = $('progressLabel');
+    if (label) label.textContent = 'Paraphrasing...';
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+
+  window.toggleFaq = function (btn) { btn.parentElement.classList.toggle('open'); };
+
+  window.setMode = function (btn, mode) {
+    currentMode = mode;
+    var btns = $('modeRow').getElementsByTagName('button');
+    for (var i = 0; i < btns.length; i++) btns[i].className = 'mode-btn';
+    btn.className = 'mode-btn active';
+  };
+
+  window.paraphraseText = function () {
+    var text = inputEl.value.trim();
+    if (!text) { alert('Please paste some text to paraphrase.'); return; }
+    if (text.split(/\s+/).length < 3) { alert('Please paste at least 3 words.'); return; }
+    $('paraphraseBtn').disabled = true;
+    $('progressWrap').style.display = '';
+    $('progressFill').style.width = '60%';
+    $('statsBar').style.display = 'none';
+    setTimeout(function () {
+      try {
+        runCount++;
+        var res = paraphrase(text, currentMode, (Date.now() + runCount * 7919) & 0x7fffffff);
+        outputEl.value = res.text;
+        var ow = res.text.trim() ? res.text.trim().split(/\s+/).length : 0;
+        $('outWordCount').textContent = ow;
+        $('outCharCount').textContent = res.text.length;
+        $('statChanged').textContent = res.changed;
+        $('statRate').textContent = Math.min(100, Math.round((res.changed / Math.max(1, res.total)) * 100)) + '%';
+        $('statSentences').textContent = res.sentences + (res.restructured ? ' (' + res.restructured + ' restructured)' : '');
+        var names = { standard: 'Standard', formal: 'Formal', casual: 'Casual', creative: 'Creative', simple: 'Simple', academic: 'Academic' };
+        $('statMode').textContent = names[currentMode] || 'Standard';
+        var o = $('statOriginality'), note = $('paraNote');
+        if (o) o.textContent = res.copiedPhrases + '%';
+        if (note) {
+          note.style.display = '';
+          note.textContent = res.copiedPhrases > 40
+            ? 'Over 40% of 5-word phrases match your original. Try Creative mode, click Paraphrase again for a new version, or rewrite key sentences yourself. If this is someone else\'s text, cite the source.'
+            : 'Read the result against your original before using it: check names, numbers and "not". If the ideas came from someone else, cite the source.';
+        }
+        $('progressFill').style.width = '100%';
+      } catch (err) {
+        alert('Something went wrong: ' + err.message);
+      }
+      $('progressWrap').style.display = 'none';
+      $('paraphraseBtn').disabled = false;
+      $('statsBar').style.display = '';
+    }, 250);
+  };
+
+  window.copyOutput = function () {
+    var text = outputEl.value;
+    if (!text) { alert('Nothing to copy. Paraphrase some text first.'); return; }
+    var done = function () { var t = $('toast'); if (!t) return; t.classList.add('show'); setTimeout(function () { t.classList.remove('show'); }, 2000); };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done);
+    else { var ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); done(); }
+  };
+
+  window.downloadOutput = function () {
+    var text = outputEl.value;
+    if (!text) { alert('Nothing to download. Paraphrase some text first.'); return; }
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([text], { type: 'text/plain' }));
+    a.download = 'paraphrased-text.txt';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  };
+
+  window.clearAll = function () {
+    inputEl.value = ''; outputEl.value = '';
+    inputEl.dispatchEvent(new Event('input'));
+    $('outWordCount').textContent = '0'; $('outCharCount').textContent = '0';
+    $('statsBar').style.display = 'none'; $('progressWrap').style.display = 'none';
+    var n = $('paraNote'); if (n) n.style.display = 'none';
+  };
+})(typeof window !== 'undefined' ? window : this);
+
+</script>
+
