@@ -1,0 +1,559 @@
+<style>
+:root {
+  --pri: #6C5CE7;
+  --pri-hover: #5A4BD1;
+  --bg: #E8E0F0;
+  --bg-alt: #DDD4EB;
+  --card-bg: #FFFFFF;
+  --card-border: #D0C6E0;
+  --input-bg: #F5F1FA;
+  --input-border: #D0C6E0;
+  --text: #2D2B55;
+  --muted: #6B6490;
+  --heading: #1A1744;
+  --green: #00C897;
+  --red: #EF4444;
+  --yellow: #F59E0B;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: var(--pri); text-decoration: none; }
+a:hover { color: var(--pri-hover); }
+
+/* Hero */
+.abd-hero { text-align: center; padding: 3.5rem 1.5rem 2.5rem; background: var(--bg); }
+.abd-hero .back-link { display: inline-block; color: var(--muted); font-size: 0.85rem; margin-bottom: 1.5rem; transition: color .2s; }
+.abd-hero .back-link:hover { color: var(--pri); }
+.abd-hero .badge { display: inline-block; background: var(--card-bg); color: var(--pri); font-size: 0.8rem; font-weight: 600; padding: 0.4rem 1.1rem; border-radius: 999px; border: 1px solid var(--card-border); margin-bottom: 1.25rem; }
+.abd-hero h1 { font-size: 2.4rem; font-weight: 800; color: var(--heading); margin-bottom: 0.85rem; }
+.abd-hero .sub { color: var(--muted); max-width: 660px; margin: 0 auto 1.5rem; font-size: 0.95rem; line-height: 1.65; }
+.usp-row { display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; }
+.usp-pill { background: rgba(108,92,231,0.08); border: 1px solid rgba(108,92,231,0.2); color: var(--pri); font-size: 0.78rem; font-weight: 600; padding: 0.4rem 1rem; border-radius: 999px; }
+
+/* Tool */
+.abd-tool { max-width: 850px; margin: 0 auto; padding: 0 1.5rem 3rem; }
+.abd-box { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 2rem; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.abd-box label { display: block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); margin-bottom: 0.45rem; }
+.abd-box textarea { width: 100%; background: var(--input-bg); border: 1px solid var(--input-border); border-radius: 10px; padding: 0.9rem 1rem; color: var(--text); font-size: 0.9rem; font-family: inherit; transition: border-color .2s; resize: vertical; min-height: 200px; line-height: 1.7; }
+.abd-box textarea:focus { outline: none; border-color: var(--pri); }
+.char-count { font-size: 0.75rem; color: var(--muted); text-align: right; margin-top: 0.35rem; }
+.mb { margin-bottom: 1.25rem; }
+.btn-group { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+.btn { padding: 0.7rem 1.6rem; border-radius: 10px; font-weight: 600; font-size: 0.9rem; cursor: pointer; border: none; transition: all .2s; font-family: inherit; }
+.btn-primary { background: var(--pri) !important; color: #fff !important; }
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active { background: var(--pri-hover) !important; color: #fff !important; transform: translateY(-1px); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+.btn-secondary { background: var(--input-bg) !important; color: var(--muted) !important; border: 1px solid var(--card-border) !important; }
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active { border-color: var(--pri) !important; color: var(--text) !important; background: var(--input-bg) !important; }
+
+/* Progress */
+.progress-wrap { margin-top: 1.5rem; display: none; }
+.progress-bar { height: 8px; border-radius: 4px; background: var(--input-bg); overflow: hidden; margin-bottom: 0.5rem; }
+.progress-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--pri), #8B5CF6); transition: width .4s; }
+.progress-label { font-size: 0.8rem; color: var(--muted); }
+
+/* Results */
+.result-section { display: none; margin-top: 2rem; }
+.result-verdict { text-align: center; padding: 2rem 1.5rem; border-radius: 16px; border: 2px solid var(--card-border); margin-bottom: 1.5rem; }
+.result-verdict.human { border-color: var(--green); background: rgba(0,200,151,0.05); }
+.result-verdict.mixed { border-color: var(--yellow); background: rgba(245,158,11,0.05); }
+.result-verdict.ai { border-color: var(--red); background: rgba(239,68,68,0.05); }
+.verdict-icon { font-size: 2.5rem; margin-bottom: 0.5rem; display: block; }
+.verdict-label { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.3rem; }
+.result-verdict.human .verdict-label { color: var(--green); }
+.result-verdict.mixed .verdict-label { color: var(--yellow); }
+.result-verdict.ai .verdict-label { color: var(--red); }
+.verdict-sub { font-size: 0.9rem; color: var(--muted); }
+
+/* Score ring */
+.score-ring-wrap { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.score-item { text-align: center; }
+.score-ring { position: relative; width: 100px; height: 100px; }
+.score-ring svg { transform: rotate(-90deg); }
+.score-ring .bg-circle { fill: none; stroke: var(--input-bg); stroke-width: 8; }
+.score-ring .fg-circle { fill: none; stroke-width: 8; stroke-linecap: round; transition: stroke-dashoffset 1s ease; }
+.score-ring .score-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 1.3rem; font-weight: 800; color: var(--heading); }
+.score-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-top: 0.5rem; }
+
+/* Breakdown */
+.breakdown { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+.bd-item { background: var(--input-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 1rem 1.2rem; }
+.bd-item .bd-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 0.3rem; }
+.bd-item .bd-val { font-size: 1.1rem; font-weight: 700; color: var(--heading); }
+.bd-bar { height: 6px; border-radius: 3px; background: var(--card-border); margin-top: 0.5rem; overflow: hidden; }
+.bd-bar-fill { height: 100%; border-radius: 3px; transition: width .8s ease; }
+
+/* Highlighted text */
+.highlighted-text { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; line-height: 1.8; font-size: 0.9rem; max-height: 350px; overflow-y: auto; }
+.hl-legend { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.75rem; font-size: 0.78rem; color: var(--muted); }
+.hl-legend span { display: inline-flex; align-items: center; gap: 0.35rem; }
+.hl-legend .dot { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+.hl-ai { background: rgba(239,68,68,0.15); border-bottom: 2px solid var(--red); padding: 0 2px; }
+.hl-mixed { background: rgba(245,158,11,0.12); border-bottom: 2px solid var(--yellow); padding: 0 2px; }
+
+.stats-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+.stat-chip { background: var(--input-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 0.8rem 1.3rem; text-align: center; flex: 1; min-width: 80px; }
+.stat-chip .val { font-size: 1.4rem; font-weight: 700; color: var(--heading); }
+.stat-chip .lbl { font-size: 0.68rem; color: var(--muted); text-transform: uppercase; margin-top: 0.15rem; letter-spacing: 0.04em; }
+
+/* Sections */
+.abd-section { max-width: 1100px; margin: 0 auto; padding: 4rem 1.5rem; }
+.abd-section.alt { background: var(--bg-alt); max-width: 100%; }
+.abd-section.alt > .inner { max-width: 1100px; margin: 0 auto; }
+.sec-head { text-align: center; margin-bottom: 2.75rem; }
+.sec-head h2 { font-size: 1.65rem; font-weight: 800; color: var(--heading); margin-bottom: 0.5rem; }
+.sec-head p { color: var(--muted); font-size: 0.92rem; max-width: 520px; margin: 0 auto; font-style: italic; }
+
+/* Steps */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.step { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 2rem 1.5rem; text-align: center; transition: border-color .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.step:hover { border-color: var(--pri); }
+.step-n { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--pri), #8B5CF6); color: #fff; font-weight: 700; font-size: 1rem; margin-bottom: 1rem; }
+.step h3 { font-size: 1rem; font-weight: 700; color: var(--heading); margin-bottom: 0.5rem; }
+.step p { font-size: 0.85rem; color: var(--muted); }
+
+/* Feature & audience cards */
+.cards-6 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.fcard { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; transition: border-color .2s, transform .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.fcard:hover { border-color: var(--pri); transform: translateY(-2px); }
+.fcard .ic { font-size: 1.6rem; margin-bottom: 0.8rem; display: block; }
+.fcard h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.4rem; }
+.fcard p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+.aud-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; text-align: center; transition: border-color .2s, transform .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.aud-card:hover { border-color: var(--pri); transform: translateY(-2px); }
+.aud-card .ic { font-size: 2rem; margin-bottom: 0.65rem; display: block; }
+.aud-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.35rem; }
+.aud-card p { font-size: 0.85rem; color: var(--muted); }
+
+/* Comparison table */
+.tbl-wrap { overflow-x: auto; border-radius: 16px; border: 1px solid var(--card-border); box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.cmp-tbl { width: 100%; border-collapse: collapse; font-size: 0.85rem; background: var(--card-bg); }
+.cmp-tbl th, .cmp-tbl td { padding: 0.9rem 1.1rem; text-align: center; border-bottom: 1px solid var(--card-border); }
+.cmp-tbl th { background: var(--heading); color: #fff; font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.cmp-tbl td:first-child { text-align: left; font-weight: 600; color: var(--text); }
+.cmp-tbl tr:last-child td { border-bottom: none; }
+.cmp-tbl .hl { background: rgba(108,92,231,0.06); }
+.ck { color: var(--green); font-weight: 700; font-size: 1.1rem; }
+.cx { color: var(--red); font-size: 1.1rem; }
+
+/* How it works detail */
+.how-detail { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+.how-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; transition: border-color .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.how-card:hover { border-color: var(--pri); }
+.how-card .ic { font-size: 1.4rem; margin-bottom: 0.6rem; display: block; }
+.how-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.4rem; }
+.how-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+
+/* Tips */
+.tips { display: flex; flex-direction: column; gap: 1rem; }
+.tip { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.5rem 1.75rem; display: flex; gap: 1.25rem; align-items: flex-start; transition: border-color .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.tip:hover { border-color: var(--pri); }
+.tip-n { flex-shrink: 0; width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--pri), #8B5CF6); color: #fff; font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; }
+.tip h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.3rem; }
+.tip p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+
+/* Related tools */
+.rel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.rel-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; display: flex; flex-direction: column; transition: border-color .2s, transform .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.rel-card:hover { border-color: var(--pri); transform: translateY(-2px); }
+.rel-card .cat { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--pri); margin-bottom: 0.6rem; letter-spacing: 0.05em; }
+.rel-card h3 { font-size: 1rem; font-weight: 700; color: var(--heading); margin-bottom: 0.45rem; }
+.rel-card p { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.25rem; flex: 1; line-height: 1.55; }
+.rel-card .btn { text-align: center; font-size: 0.82rem; padding: 0.55rem 1rem; }
+
+/* Service banner */
+.svc-banner { background: linear-gradient(135deg, var(--bg-alt) 0%, var(--card-bg) 100%); border: 1px solid var(--card-border); border-radius: 16px; padding: 3rem 2rem; text-align: center; max-width: 850px; margin: 0 auto; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.svc-banner .badge { display: inline-block; background: var(--pri); color: #fff; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; padding: 0.3rem 0.85rem; border-radius: 999px; margin-bottom: 0.85rem; letter-spacing: 0.05em; }
+.svc-banner h3 { font-size: 1.35rem; font-weight: 800; color: var(--heading); margin-bottom: 0.85rem; }
+.svc-banner p { color: var(--muted); font-size: 0.9rem; max-width: 540px; margin: 0 auto 1.5rem; line-height: 1.6; }
+
+/* FAQ */
+.faq-list { max-width: 800px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--card-border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.15rem 0; cursor: pointer; font-weight: 600; font-size: 0.95rem; color: var(--heading) !important; background: transparent !important; border: none !important; border-radius: 0 !important; width: 100%; text-align: left; font-family: inherit; transition: color .2s; box-shadow: none !important; }
+.faq-q:hover, .faq-q:focus, .faq-q:active { color: var(--pri) !important; background: transparent !important; box-shadow: none !important; }
+.faq-q .arrow { font-size: 1.2rem; color: var(--pri); flex-shrink: 0; transition: transform .25s; }
+.faq-item.open .faq-q .arrow { transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+.faq-item.open .faq-a { max-height: 400px; }
+.faq-a p { font-size: 0.9rem; color: var(--muted); padding-bottom: 1rem; line-height: 1.6; }
+
+/* Final CTA */
+.final-cta { text-align: center; padding: 4.5rem 1.5rem; background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%); }
+.final-cta h2 { font-size: 1.85rem; font-weight: 800; color: var(--heading); margin-bottom: 0.85rem; }
+.final-cta p { color: var(--muted); font-size: 0.95rem; margin-bottom: 1.75rem; }
+.btn-big { display: inline-block; background: linear-gradient(135deg, var(--pri), #8B5CF6) !important; color: #fff !important; padding: 0.9rem 2.8rem; border-radius: 12px; font-weight: 700; font-size: 1.05rem; border: none; cursor: pointer; transition: transform .2s, box-shadow .2s; box-shadow: 0 4px 20px rgba(108,92,231,0.3); }
+.btn-big:hover, .btn-big:focus, .btn-big:active { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(108,92,231,0.45); color: #fff !important; background: linear-gradient(135deg, var(--pri-hover), #7C4FE0) !important; }
+.final-cta .sub-note { font-size: 0.8rem; color: var(--muted); margin-top: 0.85rem; }
+
+.toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); background: var(--green); color: #fff; padding: 0.6rem 1.5rem; border-radius: 10px; font-weight: 600; font-size: 0.85rem; opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 999; }
+.toast.show { opacity: 1; }
+
+@media (max-width: 768px) {
+  .steps, .cards-6, .rel-grid { grid-template-columns: 1fr; }
+  .breakdown, .how-detail { grid-template-columns: 1fr; }
+  .abd-hero h1 { font-size: 1.7rem; }
+  .tip { flex-direction: column; }
+  .cmp-tbl { font-size: 0.78rem; }
+  .cmp-tbl th, .cmp-tbl td { padding: 0.65rem 0.6rem; }
+  .score-ring-wrap { gap: 1rem; }
+}
+
+/* Headline analyzer extras */
+.abd-box input[type=text], .abd-box select { width: 100%; background: var(--input-bg); border: 1px solid var(--input-border); border-radius: 10px; padding: 0.75rem 1rem; color: var(--text); font-size: 0.95rem; font-family: inherit; }
+.abd-box input[type=text]:focus, .abd-box select:focus { outline: none; border-color: var(--pri); }
+.abd-box textarea#inputText { min-height: 120px; font-size: 1rem; }
+.ha-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.ha-checks { list-style: none; margin: 0 0 1.5rem; padding: 0; }
+.ha-checks li { display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.7rem 0; border-bottom: 1px solid var(--card-border); font-size: 0.9rem; color: var(--text); }
+.ha-checks li:last-child { border-bottom: none; }
+.ha-i { flex-shrink: 0; width: 24px; height: 24px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 800; color: #fff; }
+.ha-i.ok { background: var(--green); } .ha-i.mid { background: var(--yellow); } .ha-i.no { background: var(--red); }
+.ha-tip { display: block; font-size: 0.8rem; color: var(--muted); margin-top: 0.15rem; }
+.serp { background: #fff; border: 1px solid var(--card-border); border-radius: 12px; padding: 1.1rem 1.25rem; margin-bottom: 0.5rem; font-family: Arial, sans-serif; max-width: 640px; }
+.serp-url { font-size: 12px; color: #202124; margin-bottom: 4px; }
+.serp-title { font-size: 20px; line-height: 1.3; color: #1a0dab; white-space: nowrap; overflow: hidden; max-width: 600px; }
+.serp-desc { font-size: 14px; color: #4d5156; line-height: 1.58; margin-top: 4px; }
+.serp-note { font-size: 0.8rem; color: var(--muted); margin-bottom: 1.5rem; }
+.ha-rank { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin-bottom: 1.5rem; background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; overflow: hidden; }
+.ha-rank th, .ha-rank td { padding: 0.65rem 0.8rem; text-align: left; border-bottom: 1px solid var(--card-border); }
+.ha-rank th { background: var(--heading); color: #fff; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.ha-rank tr { cursor: pointer; } .ha-rank tr.sel td { background: rgba(108,92,231,0.08); font-weight: 600; }
+.ha-rank td.num { text-align: center; font-weight: 700; width: 70px; }
+@media (max-width: 768px) { .ha-grid { grid-template-columns: 1fr; } .serp-title { font-size: 18px; } }
+</style>
+
+<!-- Section 1: Hero -->
+<div class="abd-hero">
+  <a href="/tools/" class="back-link">&larr; Back to All Tools</a>
+  <div><span class="badge">&#128240; Free Headline Analyzer</span></div>
+  <h1>Free Headline Analyzer &mdash; Score &amp; Compare Blog Titles</h1>
+  <p class="sub">Score your blog headline on length, keyword placement, clarity and click appeal, see how it looks in Google search, and compare up to 10 versions side by side. Every check comes with a fix. Free, instant and private.</p>
+  <div class="usp-row">
+    <span class="usp-pill">&#10003; 100% Free</span>
+    <span class="usp-pill">&#10003; No Signup Required</span>
+    <span class="usp-pill">&#10003; Google Preview</span>
+    <span class="usp-pill">&#10003; Compare 10 Headlines</span>
+    <span class="usp-pill">&#10003; Runs in Your Browser</span>
+  </div>
+</div>
+
+<!-- Section 2: Tool Widget -->
+<div class="abd-tool">
+  <div class="abd-box">
+    <div class="mb">
+      <label for="inputText">Your Headline(s) &mdash; one per line, up to 10</label>
+      <textarea id="inputText" placeholder="How to Write Blog Headlines That Get Clicks (2026 Guide)&#10;Blog Headlines: 7 Tested Formulas That Get More Clicks"></textarea>
+      <div class="char-count"><span id="lineCount">0</span> headline(s) &middot; <span id="charCount">0</span> characters on the first line</div>
+    </div>
+    <div class="ha-grid mb">
+      <div><label for="kw">Target Keyword (recommended)</label><input type="text" id="kw" maxlength="80" placeholder="e.g. blog headlines"></div>
+      <div><label for="site">Your Site Name (for the preview)</label><input type="text" id="site" maxlength="60" value="BrightlyFuture" placeholder="e.g. BrightlyFuture"></div>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-primary" id="checkBtn" type="button">&#128240; Analyse Headline</button>
+      <button class="btn btn-secondary" id="clearBtn" type="button">Clear</button>
+      <button class="btn btn-secondary" id="sampleBtn" type="button">Load Examples</button>
+    </div>
+
+    <div class="result-section" id="resultSection">
+      <div id="rankWrap" style="display:none">
+        <label>Your Headlines Ranked (click a row for details)</label>
+        <table class="ha-rank"><thead><tr><th>Headline</th><th style="text-align:center">Score</th></tr></thead><tbody id="rankBody"></tbody></table>
+      </div>
+
+      <div class="result-verdict" id="verdictBox">
+        <span class="verdict-icon" id="verdictIcon"></span>
+        <div class="verdict-label" id="verdictLabel"></div>
+        <div class="verdict-sub" id="verdictSub"></div>
+      </div>
+
+      <div class="score-ring-wrap">
+        <div class="score-item">
+          <div class="score-ring">
+            <svg width="100" height="100" viewBox="0 0 100 100"><circle class="bg-circle" cx="50" cy="50" r="42"/><circle class="fg-circle" id="scoreRing" cx="50" cy="50" r="42" stroke="var(--pri)" stroke-dasharray="263.9" stroke-dashoffset="263.9"/></svg>
+            <div class="score-text" id="scoreText">0</div>
+          </div>
+          <div class="score-label">Headline Score</div>
+        </div>
+        <div class="score-item">
+          <div class="score-ring">
+            <svg width="100" height="100" viewBox="0 0 100 100"><circle class="bg-circle" cx="50" cy="50" r="42"/><circle class="fg-circle" id="pxRing" cx="50" cy="50" r="42" stroke="var(--green)" stroke-dasharray="263.9" stroke-dashoffset="263.9"/></svg>
+            <div class="score-text" id="pxText">0</div>
+          </div>
+          <div class="score-label">Pixel Width (of ~600)</div>
+        </div>
+      </div>
+
+      <label>Google Search Preview (desktop)</label>
+      <div class="serp">
+        <div class="serp-url" id="serpUrl">BrightlyFuture &rsaquo; blog</div>
+        <div class="serp-title" id="serpTitle"></div>
+        <div class="serp-desc">Your meta description appears here. Write 140&ndash;155 characters that answer the searcher&rsquo;s question and give them a reason to click.</div>
+      </div>
+      <div class="serp-note" id="serpNote"></div>
+
+      <label>Checks &amp; Fixes</label>
+      <ul class="ha-checks" id="checks"></ul>
+
+      <div class="stats-row">
+        <div class="stat-chip"><div class="val" id="outChars">0</div><div class="lbl">Characters</div></div>
+        <div class="stat-chip"><div class="val" id="outWords">0</div><div class="lbl">Words</div></div>
+        <div class="stat-chip"><div class="val" id="outType">&ndash;</div><div class="lbl">Headline Type</div></div>
+        <div class="stat-chip"><div class="val" id="outPower">0</div><div class="lbl">Power Words</div></div>
+      </div>
+
+      <div class="btn-group">
+        <button class="btn btn-secondary" id="copyBtn" type="button">&#128203; Copy Report</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 3: How It Works -->
+<div class="abd-section alt">
+  <div class="inner">
+    <div class="sec-head"><h2>How Our Free Headline Analyzer Works</h2><p>Three steps &mdash; no account, no waiting.</p></div>
+    <div class="steps">
+      <div class="step"><div class="step-n">1</div><h3>Enter Your Headlines</h3><p>Type one headline, or up to 10 versions (one per line) to compare them. Add your target keyword for a keyword check.</p></div>
+      <div class="step"><div class="step-n">2</div><h3>See the Score &amp; Preview</h3><p>Get a score out of 100, a Google search preview and a pass/warn/fail list of every check.</p></div>
+      <div class="step"><div class="step-n">3</div><h3>Apply the Fixes</h3><p>Each failed check tells you what to change. Edit, re-analyse and pick the strongest version.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 4: What We Check -->
+<div class="abd-section">
+  <div class="sec-head"><h2>What the Headline Analyzer Checks</h2><p>Based on how Google shows titles and what makes people click.</p></div>
+  <div class="how-detail">
+    <div class="how-card"><span class="ic">&#128207;</span><h3>Length &amp; Pixel Width</h3><p>Google cuts desktop titles at roughly 600 pixels, which is about 50&ndash;60 characters. In Zyppy&rsquo;s study of 80,959 titles, those of 51&ndash;60 characters were rewritten by Google least often.</p></div>
+    <div class="how-card"><span class="ic">&#128273;</span><h3>Keyword Placement</h3><p>Checks that your target keyword appears, and appears early, so searchers and Google see the match straight away.</p></div>
+    <div class="how-card"><span class="ic">&#128161;</span><h3>Clarity &amp; Specifics</h3><p>Numbers, years and concrete benefit words (&ldquo;tested&rdquo;, &ldquo;free&rdquo;, &ldquo;examples&rdquo;) make a promise clear. Vague or hype words (&ldquo;amazing&rdquo;, &ldquo;insane&rdquo;) are flagged.</p></div>
+    <div class="how-card"><span class="ic">&#9888;&#65039;</span><h3>Rewrite Triggers</h3><p>Square brackets, ALL CAPS, repeated words and heavy punctuation. Zyppy found Google rewrote 77.6% of titles that used square brackets.</p></div>
+  </div>
+</div>
+
+<!-- Section 5: Features -->
+<div class="abd-section alt">
+  <div class="inner">
+    <div class="sec-head"><h2>Why Use BrightlyFuture&rsquo;s Headline Analyzer</h2><p>Practical checks, not a mystery score.</p></div>
+    <div class="cards-6">
+      <div class="fcard"><span class="ic">&#128275;</span><h3>Free, No Limits</h3><p>No signup, no email and no daily cap.</p></div>
+      <div class="fcard"><span class="ic">&#128269;</span><h3>Real Google Preview</h3><p>Measures the actual pixel width of your title in Google&rsquo;s font and shows where it would be cut off.</p></div>
+      <div class="fcard"><span class="ic">&#9878;&#65039;</span><h3>A/B Compare</h3><p>Paste up to 10 versions and see them ranked, so you can pick the strongest in seconds.</p></div>
+      <div class="fcard"><span class="ic">&#128295;</span><h3>A Fix for Every Check</h3><p>Each warning explains what to change, not just that something is wrong.</p></div>
+      <div class="fcard"><span class="ic">&#128273;</span><h3>Keyword-Aware</h3><p>Enter your target keyword and the analyzer checks whether and where it appears.</p></div>
+      <div class="fcard"><span class="ic">&#128274;</span><h3>100% Private</h3><p>Runs entirely in your browser. Your headlines are never uploaded or stored.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 7: Who Uses -->
+<div class="abd-section">
+  <div class="sec-head"><h2>Who Uses Our Headline Analyzer?</h2><p>Anyone who needs people to click.</p></div>
+  <div class="cards-6">
+    <div class="aud-card"><span class="ic">&#128187;</span><h3>Bloggers</h3><p>Test post titles before publishing and pick the clearest one.</p></div>
+    <div class="aud-card"><span class="ic">&#128188;</span><h3>SEO Professionals</h3><p>Check title tags for length, keyword placement and rewrite risks.</p></div>
+    <div class="aud-card"><span class="ic">&#128231;</span><h3>Email Marketers</h3><p>Sharpen subject lines with the clarity and specifics checks.</p></div>
+    <div class="aud-card"><span class="ic">&#128241;</span><h3>Social Media Managers</h3><p>Write hooks that are clear and specific rather than clickbait.</p></div>
+    <div class="aud-card"><span class="ic">&#127970;</span><h3>Small Businesses</h3><p>Write page titles that show up well in local search.</p></div>
+    <div class="aud-card"><span class="ic">&#9997;&#65039;</span><h3>Copywriters</h3><p>Compare several headline options quickly for clients.</p></div>
+  </div>
+</div>
+
+<!-- Section 8: Tips -->
+<div class="abd-section alt">
+  <div class="inner">
+    <div class="sec-head"><h2>Tips for Writing Headlines That Get Clicks</h2><p>What actually moves click-through rate.</p></div>
+    <div class="tips">
+      <div class="tip"><div class="tip-n">1</div><div><h3>Match the Search Intent First</h3><p>Look at the top 10 Google results for your keyword. If they&rsquo;re all &ldquo;how to&rdquo; guides, a list title may not fit what searchers want.</p></div></div>
+      <div class="tip"><div class="tip-n">2</div><div><h3>Put the Keyword Near the Start</h3><p>Searchers scan the first few words. Lead with the topic, then add the angle.</p></div></div>
+      <div class="tip"><div class="tip-n">3</div><div><h3>Add One Specific Detail</h3><p>A number, a year or a result (&ldquo;7 formulas&rdquo;, &ldquo;2026&rdquo;, &ldquo;tested on 30 posts&rdquo;) makes the promise concrete.</p></div></div>
+      <div class="tip"><div class="tip-n">4</div><div><h3>Use Parentheses, Not Square Brackets</h3><p>Google often rewrites titles with brackets. &ldquo;(With Examples)&rdquo; works just as well.</p></div></div>
+      <div class="tip"><div class="tip-n">5</div><div><h3>Deliver What the Title Promises</h3><p>A clickbait title can lift clicks once, then lose readers. Read our full guide on <a href="/blog/how-to-write-blog-headlines/">how to write blog headlines that get clicks</a>.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 9: Related -->
+<div class="abd-section">
+  <div class="sec-head"><h2>More Free Writing Tools from BrightlyFuture</h2><p>Make the rest of your post as strong as the headline.</p></div>
+  <div class="rel-grid">
+    <div class="rel-card"><span class="cat">Content &middot; AI</span><h3>AI Blog Generator</h3><p>Turn your headline into a structured first draft with question-style headings.</p><a href="/ai-blog-generator/" class="btn btn-secondary">Try Free &rarr;</a></div>
+    <div class="rel-card"><span class="cat">Content &middot; SEO</span><h3>Readability Checker</h3><p>Get your Flesch score and see which sentences to shorten.</p><a href="/readability-checker/" class="btn btn-secondary">Try Free &rarr;</a></div>
+    <div class="rel-card"><span class="cat">Content &middot; SEO</span><h3>Word &amp; Character Counter</h3><p>Count words and characters for titles, meta descriptions and posts.</p><a href="/word-character-counter/" class="btn btn-secondary">Try Free &rarr;</a></div>
+  </div>
+</div>
+
+<!-- Section 10: Service -->
+<div class="abd-section alt">
+  <div class="inner">
+    <div class="svc-banner">
+      <span class="badge">Done-for-you</span>
+      <h3>Want Headlines and Content That Win the Click?</h3>
+      <p>Our team researches what your audience searches for and writes titles and articles built to rank and get clicked.</p>
+      <a href="/content-marketing/" class="btn btn-primary">Get a Free Quote &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- Section 11: FAQ -->
+<div class="abd-section">
+  <div class="sec-head"><h2>Frequently Asked Questions About Headlines</h2><p>Everything you need to know about scoring headlines.</p></div>
+  <div class="faq-list">
+    <div class="faq-item"><button class="faq-q" type="button">What is a good headline score?<span class="arrow">+</span></button><div class="faq-a"><p>75 or above means the headline passes most checks. 55&ndash;74 needs a tweak, usually length or keyword position. Below 55, rewrite it. The score is a guide: a clear headline that matches search intent beats a high score.</p></div></div>
+    <div class="faq-item"><button class="faq-q" type="button">How long should a blog title be?<span class="arrow">+</span></button><div class="faq-a"><p>Aim for 40&ndash;60 characters. Google shows about 600 pixels of a title on desktop, so longer titles get cut off with &ldquo;&hellip;&rdquo;. The preview measures your title&rsquo;s real pixel width.</p></div></div>
+    <div class="faq-item"><button class="faq-q" type="button">Why does Google change my title in search results?<span class="arrow">+</span></button><div class="faq-a"><p>Google rewrites titles it thinks don&rsquo;t describe the page well: very long titles, keyword stuffing, square brackets or titles that don&rsquo;t match the H1. Keeping titles clear and under 60 characters lowers the chance.</p></div></div>
+    <div class="faq-item"><button class="faq-q" type="button">Is this headline analyzer free?<span class="arrow">+</span></button><div class="faq-a"><p>Yes. No signup, no limits, and it runs in your browser, so your headlines aren&rsquo;t stored.</p></div></div>
+    <div class="faq-item"><button class="faq-q" type="button">Can I compare several headlines?<span class="arrow">+</span></button><div class="faq-a"><p>Yes. Paste up to 10 headlines, one per line. They&rsquo;re ranked by score, and you can click any row to see its full breakdown and preview.</p></div></div>
+    <div class="faq-item"><button class="faq-q" type="button">What are power words?<span class="arrow">+</span></button><div class="faq-a"><p>Words that make a benefit or proof concrete, such as &ldquo;tested&rdquo;, &ldquo;free&rdquo;, &ldquo;step-by-step&rdquo; or &ldquo;examples&rdquo;. One is enough; stacking them reads like an advert.</p></div></div>
+    <div class="faq-item"><button class="faq-q" type="button">Should I put the year in my headline?<span class="arrow">+</span></button><div class="faq-a"><p>For topics that change &mdash; tools, prices, rules &mdash; a year tells searchers the content is current. Only use it if you update the post each year.</p></div></div>
+    <div class="faq-item"><button class="faq-q" type="button">Does the headline need to match my H1?<span class="arrow">+</span></button><div class="faq-a"><p>It doesn&rsquo;t have to be identical, but it should say the same thing. A big mismatch is one reason Google rewrites title tags.</p></div></div>
+    <div class="faq-item"><button class="faq-q" type="button">Does it work for email subject lines?<span class="arrow">+</span></button><div class="faq-a"><p>The clarity, power-word and hype checks apply. Ignore the Google preview and keyword checks, and aim for a shorter length, as many inboxes cut subject lines at around 40&ndash;50 characters.</p></div></div>
+    <div class="faq-item"><button class="faq-q" type="button">Does it work in other languages?<span class="arrow">+</span></button><div class="faq-a"><p>Length, pixel width and keyword checks work in any language. The word lists and headline-type checks are English-only.</p></div></div>
+  </div>
+</div>
+
+<!-- Section 12: CTA -->
+<div class="final-cta">
+  <h2>Will Your Headline Get the Click?</h2>
+  <p>Find out in seconds &mdash; free, private and instant.</p>
+  <button class="btn-big" id="ctaBtn" type="button">&#128240; Analyse Your Headline &mdash; 100% Free</button>
+  <div class="sub-note">No Signup &middot; Google Preview &middot; Compare 10 Versions &middot; Fixes Included</div>
+</div>
+
+<div class="toast" id="toast">Copied!</div>
+
+<script>
+(function () {
+  'use strict';
+  var POWER = ['proven', 'tested', 'free', 'easy', 'simple', 'fast', 'quick', 'step-by-step', 'complete', 'ultimate', 'essential', 'mistakes', 'secrets', 'exact', 'instantly', 'new', 'best', 'worst', 'real', 'actually', 'examples', 'templates', 'checklist', 'without', 'stop', 'avoid', 'guide', 'formulas', 'tips', 'beginner', 'beginners', 'cheap', 'save', 'results', 'honest', 'surprising', 'data'];
+  var VAGUE = ['things', 'stuff', 'various', 'amazing', 'awesome', 'insane', 'crazy', 'mind-blowing', 'you won\'t believe', 'shocking', 'unbelievable', 'epic', 'jaw-dropping', 'game-changer', 'game changer', 'revolutionary', 'ultimate guide to everything'];
+  var lastReport = '', results = [], ctx;
+  function $(id) { return document.getElementById(id); }
+  function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  function px(t) {
+    if (!ctx) { ctx = document.createElement('canvas').getContext('2d'); }
+    ctx.font = '20px Arial'; return Math.round(ctx.measureText(t).width);
+  }
+  function type(h) {
+    var l = h.toLowerCase();
+    if (/^(how|what|why|when|where|which|who|can|should|is|are|do|does)\b/.test(l) || /\?$/.test(h)) return /^how to\b/.test(l) ? 'How-to' : 'Question';
+    if (/^\d+\s|\b\d+\s+(ways|tips|tools|ideas|examples|steps|mistakes|reasons|formulas|things|best)\b/.test(l)) return 'List';
+    if (/\bhow to\b/.test(l)) return 'How-to';
+    if (/\bvs\.?\b|\bversus\b/.test(l)) return 'Comparison';
+    if (/\b(guide|explained|tutorial)\b/.test(l)) return 'Guide';
+    return 'Statement';
+  }
+
+  function analyse(h, kw) {
+    var lc = h.toLowerCase(), chars = h.length, words = h.split(/\s+/).filter(Boolean), w = words.length, out = [], s = 0, width = px(h);
+    function add(st, pts, txt, tip) { s += st === 'ok' ? pts : st === 'mid' ? pts / 2 : 0; out.push({ st: st, txt: txt, tip: st === 'ok' ? '' : tip }); }
+    add(width <= 600 && chars >= 40 ? 'ok' : (width <= 600 && chars >= 30) || (width <= 640 && chars <= 65) ? 'mid' : 'no', 20,
+      chars + ' characters, ' + width + 'px wide',
+      width > 600 ? 'Likely cut off in Google. Remove filler words or move detail into the meta description.' : 'A bit short. Add a benefit, number or detail to use the space.');
+    add(w >= 6 && w <= 12 ? 'ok' : w >= 4 && w <= 14 ? 'mid' : 'no', 10, w + ' words', w < 6 ? '6&ndash;12 words works for most blog titles; add the angle or benefit.' : 'Long headlines are hard to scan. Cut to 12 words or fewer.');
+    if (kw) {
+      var i = lc.indexOf(kw.toLowerCase());
+      if (i < 0) {
+        var kwWords = kw.toLowerCase().split(/\s+/), hits = kwWords.filter(function (k) { return lc.indexOf(k) > -1; }).length;
+        add(hits === kwWords.length ? 'mid' : 'no', 20, hits === kwWords.length ? 'Keyword words present but not as a phrase' : 'Target keyword missing', 'Use the exact keyword phrase, ideally in the first half.');
+      } else add(i <= Math.max(15, chars * 0.4) ? 'ok' : 'mid', 20, i <= Math.max(15, chars * 0.4) ? 'Keyword appears early' : 'Keyword appears late', 'Move the keyword nearer the start, where searchers look first.');
+    } else { s += 10; out.push({ st: 'mid', txt: 'No keyword entered (half points)', tip: 'Enter your target keyword above for a full check.' }); }
+    var num = /\d/.test(h);
+    add(num ? 'ok' : 'mid', 10, num ? 'Contains a number or year' : 'No number or year', 'Add a count, year or result if it fits (e.g. &ldquo;7 formulas&rdquo;, &ldquo;2026&rdquo;).');
+    var pw = POWER.filter(function (p) { return new RegExp('\\b' + p.replace('-', '\\-') + '\\b').test(lc); });
+    add(pw.length ? 'ok' : 'mid', 10, pw.length ? 'Benefit or proof words: ' + pw.slice(0, 3).join(', ') : 'No benefit or proof word', 'Add one word that makes the payoff concrete, e.g. &ldquo;tested&rdquo;, &ldquo;free&rdquo;, &ldquo;examples&rdquo;.');
+    var vg = VAGUE.filter(function (v) { return lc.indexOf(v) > -1; });
+    add(vg.length ? 'no' : 'ok', 10, vg.length ? 'Vague or hype words: ' + vg.join(', ') : 'No hype or vague words', 'Replace hype with a specific benefit; hype reads as clickbait.');
+    add(/[\[\]]/.test(h) ? 'no' : 'ok', 10, /[\[\]]/.test(h) ? 'Uses square brackets' : 'No square brackets', 'Zyppy found Google rewrote 77.6% of titles with square brackets. Use parentheses instead.');
+    var letters = h.replace(/[^A-Za-z]/g, ''), capsWords = words.filter(function (x) { return x.length > 3 && x === x.toUpperCase() && /[A-Z]/.test(x); }).length;
+    var rep = {}, dup = words.map(function (x) { return x.toLowerCase().replace(/[^a-z0-9]/g, ''); }).filter(function (x) { if (x.length < 4) return false; rep[x] = (rep[x] || 0) + 1; return rep[x] === 2; });
+    var punct = /[!?]{2,}|!{1}.*!|\.\.\./.test(h);
+    var style = (letters && letters === letters.toUpperCase()) || capsWords > 1 ? 'no' : dup.length || punct ? 'mid' : 'ok';
+    add(style, 10, style === 'ok' ? 'Clean style (no caps, repeats or heavy punctuation)' : (capsWords > 1 || letters === letters.toUpperCase() ? 'ALL CAPS words' : dup.length ? 'Repeated word: ' + dup.join(', ') : 'Heavy punctuation'),
+      'Use normal capitalisation, avoid repeating words and use at most one ! or ?.');
+    s = Math.round(Math.min(100, s));
+    return { h: h, score: s, checks: out, chars: chars, words: w, width: width, type: type(h), power: pw.length };
+  }
+
+  function show(r) {
+    var box = $('verdictBox');
+    if (r.score >= 75) { box.className = 'result-verdict human'; $('verdictIcon').innerHTML = '&#9989;'; $('verdictLabel').textContent = 'Strong headline'; $('verdictSub').textContent = 'Passes most checks. Make sure the post delivers what the title promises.'; }
+    else if (r.score >= 55) { box.className = 'result-verdict mixed'; $('verdictIcon').innerHTML = '&#9888;&#65039;'; $('verdictLabel').textContent = 'Needs a tweak'; $('verdictSub').textContent = 'Fix the amber and red checks below to strengthen it.'; }
+    else { box.className = 'result-verdict ai'; $('verdictIcon').innerHTML = '&#10060;'; $('verdictLabel').textContent = 'Rewrite recommended'; $('verdictSub').textContent = 'Several checks failed. Start with length and keyword placement.'; }
+    var c = 2 * Math.PI * 42;
+    $('scoreRing').setAttribute('stroke-dashoffset', c - c * r.score / 100);
+    $('scoreRing').setAttribute('stroke', r.score >= 75 ? 'var(--green)' : r.score >= 55 ? 'var(--yellow)' : 'var(--red)');
+    $('scoreText').textContent = r.score;
+    $('pxRing').setAttribute('stroke-dashoffset', c - c * Math.min(1, r.width / 600));
+    $('pxRing').setAttribute('stroke', r.width > 600 ? 'var(--red)' : 'var(--green)');
+    $('pxText').textContent = r.width;
+    var site = ($('site').value.trim() || 'yoursite');
+    $('serpUrl').textContent = site + ' › blog';
+    var t = r.h;
+    if (r.width > 600) { while (t.length > 5 && px(t + ' ...') > 600) t = t.slice(0, -1); t = t.replace(/\s+\S*$/, '') + ' ...'; }
+    $('serpTitle').textContent = t;
+    $('serpNote').textContent = r.width > 600 ? 'About ' + (r.width - 600) + 'px too wide: Google would likely cut it as shown.' : 'Fits: should display in full on desktop (' + (600 - r.width) + 'px to spare).';
+    $('checks').innerHTML = r.checks.map(function (x) {
+      return '<li><span class="ha-i ' + x.st + '">' + (x.st === 'ok' ? '&#10003;' : x.st === 'mid' ? '!' : '&#10007;') + '</span><span>' + esc(x.txt) + (x.tip ? '<span class="ha-tip">' + x.tip + '</span>' : '') + '</span></li>';
+    }).join('');
+    $('outChars').textContent = r.chars; $('outWords').textContent = r.words; $('outType').textContent = r.type; $('outPower').textContent = r.power;
+  }
+
+  function report() {
+    return 'HEADLINE REPORT - BrightlyFuture\n================================\n' + results.map(function (r, i) {
+      return (i + 1) + '. ' + r.h + '\n   Score: ' + r.score + '/100 | ' + r.chars + ' chars | ' + r.width + 'px | Type: ' + r.type + '\n' +
+        r.checks.map(function (x) { return '   [' + (x.st === 'ok' ? 'PASS' : x.st === 'mid' ? 'WARN' : 'FAIL') + '] ' + x.txt + (x.tip ? ' - ' + x.tip.replace(/&ldquo;|&rdquo;/g, '"').replace(/&ndash;/g, '-') : ''); }).join('\n');
+    }).join('\n\n') + '\n\nhttps://brightlyfuture.co.uk/headline-analyzer/';
+  }
+
+  function run() {
+    var lines = $('inputText').value.split('\n').map(function (l) { return l.trim(); }).filter(Boolean).slice(0, 10);
+    if (!lines.length) { alert('Please enter a headline.'); return; }
+    var kw = $('kw').value.trim();
+    results = lines.map(function (l) { return analyse(l, kw); });
+    var order = results.slice().sort(function (a, b) { return b.score - a.score; });
+    if (results.length > 1) {
+      $('rankWrap').style.display = 'block';
+      $('rankBody').innerHTML = order.map(function (r, i) { return '<tr data-i="' + results.indexOf(r) + '"' + (i === 0 ? ' class="sel"' : '') + '><td>' + (i === 0 ? '&#127942; ' : '') + esc(r.h) + '</td><td class="num">' + r.score + '</td></tr>'; }).join('');
+    } else $('rankWrap').style.display = 'none';
+    show(order[0]);
+    lastReport = report();
+    $('resultSection').style.display = 'block';
+  }
+  function toast() { var t = $('toast'); if (!t) return; t.classList.add('show'); setTimeout(function () { t.classList.remove('show'); }, 2000); }
+  function counts() {
+    var v = $('inputText').value, lines = v.split('\n').map(function (l) { return l.trim(); }).filter(Boolean);
+    $('lineCount').textContent = Math.min(10, lines.length); $('charCount').textContent = lines[0] ? lines[0].length : 0;
+  }
+
+  function init() {
+    if (!$('checkBtn')) { setTimeout(init, 200); return; }
+    $('inputText').addEventListener('input', counts);
+    $('checkBtn').addEventListener('click', function (e) { e.preventDefault(); run(); });
+    $('kw').addEventListener('keydown', function (e) { if (e.key === 'Enter') { e.preventDefault(); run(); } });
+    $('rankBody').addEventListener('click', function (e) {
+      var tr = e.target.closest('tr'); if (!tr) return;
+      Array.prototype.forEach.call($('rankBody').children, function (r) { r.className = ''; }); tr.className = 'sel';
+      show(results[+tr.getAttribute('data-i')]);
+    });
+    $('clearBtn').addEventListener('click', function (e) { e.preventDefault(); $('inputText').value = ''; $('kw').value = ''; counts(); $('resultSection').style.display = 'none'; });
+    $('sampleBtn').addEventListener('click', function (e) {
+      e.preventDefault();
+      $('inputText').value = 'How to Write Blog Headlines That Get Clicks (2026 Guide)\nBlog Headlines: 7 Tested Formulas That Get More Clicks\n[ULTIMATE] Amazing Headline Tips You Won\'t Believe Actually Work For Your Blog!!';
+      $('kw').value = 'blog headlines'; counts();
+    });
+    $('copyBtn').addEventListener('click', function (e) {
+      e.preventDefault();
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(lastReport).then(toast);
+      else { var ta = document.createElement('textarea'); ta.value = lastReport; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); toast(); }
+    });
+    $('ctaBtn').addEventListener('click', function (e) { e.preventDefault(); $('inputText').scrollIntoView({ behavior: 'smooth', block: 'center' }); $('inputText').focus(); });
+    var faq = document.querySelectorAll('.faq-q');
+    for (var i = 0; i < faq.length; i++) faq[i].addEventListener('click', function (e) { e.preventDefault(); this.parentElement.classList.toggle('open'); });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+</script>
