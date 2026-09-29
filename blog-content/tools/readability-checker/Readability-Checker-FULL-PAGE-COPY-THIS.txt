@@ -1,0 +1,625 @@
+<style>
+:root {
+  --pri: #6C5CE7;
+  --pri-hover: #5A4BD1;
+  --bg: #E8E0F0;
+  --bg-alt: #DDD4EB;
+  --card-bg: #FFFFFF;
+  --card-border: #D0C6E0;
+  --input-bg: #F5F1FA;
+  --input-border: #D0C6E0;
+  --text: #2D2B55;
+  --muted: #6B6490;
+  --heading: #1A1744;
+  --green: #00C897;
+  --red: #EF4444;
+  --yellow: #F59E0B;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: var(--pri); text-decoration: none; }
+a:hover { color: var(--pri-hover); }
+
+/* Hero */
+.abd-hero { text-align: center; padding: 3.5rem 1.5rem 2.5rem; background: var(--bg); }
+.abd-hero .back-link { display: inline-block; color: var(--muted); font-size: 0.85rem; margin-bottom: 1.5rem; transition: color .2s; }
+.abd-hero .back-link:hover { color: var(--pri); }
+.abd-hero .badge { display: inline-block; background: var(--card-bg); color: var(--pri); font-size: 0.8rem; font-weight: 600; padding: 0.4rem 1.1rem; border-radius: 999px; border: 1px solid var(--card-border); margin-bottom: 1.25rem; }
+.abd-hero h1 { font-size: 2.4rem; font-weight: 800; color: var(--heading); margin-bottom: 0.85rem; }
+.abd-hero .sub { color: var(--muted); max-width: 660px; margin: 0 auto 1.5rem; font-size: 0.95rem; line-height: 1.65; }
+.usp-row { display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; }
+.usp-pill { background: rgba(108,92,231,0.08); border: 1px solid rgba(108,92,231,0.2); color: var(--pri); font-size: 0.78rem; font-weight: 600; padding: 0.4rem 1rem; border-radius: 999px; }
+
+/* Tool */
+.abd-tool { max-width: 850px; margin: 0 auto; padding: 0 1.5rem 3rem; }
+.abd-box { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 2rem; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.abd-box label { display: block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); margin-bottom: 0.45rem; }
+.abd-box textarea { width: 100%; background: var(--input-bg); border: 1px solid var(--input-border); border-radius: 10px; padding: 0.9rem 1rem; color: var(--text); font-size: 0.9rem; font-family: inherit; transition: border-color .2s; resize: vertical; min-height: 200px; line-height: 1.7; }
+.abd-box textarea:focus { outline: none; border-color: var(--pri); }
+.char-count { font-size: 0.75rem; color: var(--muted); text-align: right; margin-top: 0.35rem; }
+.mb { margin-bottom: 1.25rem; }
+.btn-group { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+.btn { padding: 0.7rem 1.6rem; border-radius: 10px; font-weight: 600; font-size: 0.9rem; cursor: pointer; border: none; transition: all .2s; font-family: inherit; }
+.btn-primary { background: var(--pri) !important; color: #fff !important; }
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active { background: var(--pri-hover) !important; color: #fff !important; transform: translateY(-1px); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+.btn-secondary { background: var(--input-bg) !important; color: var(--muted) !important; border: 1px solid var(--card-border) !important; }
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active { border-color: var(--pri) !important; color: var(--text) !important; background: var(--input-bg) !important; }
+
+/* Progress */
+.progress-wrap { margin-top: 1.5rem; display: none; }
+.progress-bar { height: 8px; border-radius: 4px; background: var(--input-bg); overflow: hidden; margin-bottom: 0.5rem; }
+.progress-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--pri), #8B5CF6); transition: width .4s; }
+.progress-label { font-size: 0.8rem; color: var(--muted); }
+
+/* Results */
+.result-section { display: none; margin-top: 2rem; }
+.result-verdict { text-align: center; padding: 2rem 1.5rem; border-radius: 16px; border: 2px solid var(--card-border); margin-bottom: 1.5rem; }
+.result-verdict.human { border-color: var(--green); background: rgba(0,200,151,0.05); }
+.result-verdict.mixed { border-color: var(--yellow); background: rgba(245,158,11,0.05); }
+.result-verdict.ai { border-color: var(--red); background: rgba(239,68,68,0.05); }
+.verdict-icon { font-size: 2.5rem; margin-bottom: 0.5rem; display: block; }
+.verdict-label { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.3rem; }
+.result-verdict.human .verdict-label { color: var(--green); }
+.result-verdict.mixed .verdict-label { color: var(--yellow); }
+.result-verdict.ai .verdict-label { color: var(--red); }
+.verdict-sub { font-size: 0.9rem; color: var(--muted); }
+
+/* Score ring */
+.score-ring-wrap { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.score-item { text-align: center; }
+.score-ring { position: relative; width: 100px; height: 100px; }
+.score-ring svg { transform: rotate(-90deg); }
+.score-ring .bg-circle { fill: none; stroke: var(--input-bg); stroke-width: 8; }
+.score-ring .fg-circle { fill: none; stroke-width: 8; stroke-linecap: round; transition: stroke-dashoffset 1s ease; }
+.score-ring .score-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 1.3rem; font-weight: 800; color: var(--heading); }
+.score-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-top: 0.5rem; }
+
+/* Breakdown */
+.breakdown { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+.bd-item { background: var(--input-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 1rem 1.2rem; }
+.bd-item .bd-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 0.3rem; }
+.bd-item .bd-val { font-size: 1.1rem; font-weight: 700; color: var(--heading); }
+.bd-bar { height: 6px; border-radius: 3px; background: var(--card-border); margin-top: 0.5rem; overflow: hidden; }
+.bd-bar-fill { height: 100%; border-radius: 3px; transition: width .8s ease; }
+
+/* Highlighted text */
+.highlighted-text { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; line-height: 1.8; font-size: 0.9rem; max-height: 350px; overflow-y: auto; }
+.hl-legend { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.75rem; font-size: 0.78rem; color: var(--muted); }
+.hl-legend span { display: inline-flex; align-items: center; gap: 0.35rem; }
+.hl-legend .dot { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+.hl-ai { background: rgba(239,68,68,0.15); border-bottom: 2px solid var(--red); padding: 0 2px; }
+.hl-mixed { background: rgba(245,158,11,0.12); border-bottom: 2px solid var(--yellow); padding: 0 2px; }
+
+.stats-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+.stat-chip { background: var(--input-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 0.8rem 1.3rem; text-align: center; flex: 1; min-width: 80px; }
+.stat-chip .val { font-size: 1.4rem; font-weight: 700; color: var(--heading); }
+.stat-chip .lbl { font-size: 0.68rem; color: var(--muted); text-transform: uppercase; margin-top: 0.15rem; letter-spacing: 0.04em; }
+
+/* Sections */
+.abd-section { max-width: 1100px; margin: 0 auto; padding: 4rem 1.5rem; }
+.abd-section.alt { background: var(--bg-alt); max-width: 100%; }
+.abd-section.alt > .inner { max-width: 1100px; margin: 0 auto; }
+.sec-head { text-align: center; margin-bottom: 2.75rem; }
+.sec-head h2 { font-size: 1.65rem; font-weight: 800; color: var(--heading); margin-bottom: 0.5rem; }
+.sec-head p { color: var(--muted); font-size: 0.92rem; max-width: 520px; margin: 0 auto; font-style: italic; }
+
+/* Steps */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.step { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 2rem 1.5rem; text-align: center; transition: border-color .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.step:hover { border-color: var(--pri); }
+.step-n { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--pri), #8B5CF6); color: #fff; font-weight: 700; font-size: 1rem; margin-bottom: 1rem; }
+.step h3 { font-size: 1rem; font-weight: 700; color: var(--heading); margin-bottom: 0.5rem; }
+.step p { font-size: 0.85rem; color: var(--muted); }
+
+/* Feature & audience cards */
+.cards-6 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.fcard { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; transition: border-color .2s, transform .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.fcard:hover { border-color: var(--pri); transform: translateY(-2px); }
+.fcard .ic { font-size: 1.6rem; margin-bottom: 0.8rem; display: block; }
+.fcard h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.4rem; }
+.fcard p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+.aud-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; text-align: center; transition: border-color .2s, transform .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.aud-card:hover { border-color: var(--pri); transform: translateY(-2px); }
+.aud-card .ic { font-size: 2rem; margin-bottom: 0.65rem; display: block; }
+.aud-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.35rem; }
+.aud-card p { font-size: 0.85rem; color: var(--muted); }
+
+/* Comparison table */
+.tbl-wrap { overflow-x: auto; border-radius: 16px; border: 1px solid var(--card-border); box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.cmp-tbl { width: 100%; border-collapse: collapse; font-size: 0.85rem; background: var(--card-bg); }
+.cmp-tbl th, .cmp-tbl td { padding: 0.9rem 1.1rem; text-align: center; border-bottom: 1px solid var(--card-border); }
+.cmp-tbl th { background: var(--heading); color: #fff; font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.cmp-tbl td:first-child { text-align: left; font-weight: 600; color: var(--text); }
+.cmp-tbl tr:last-child td { border-bottom: none; }
+.cmp-tbl .hl { background: rgba(108,92,231,0.06); }
+.ck { color: var(--green); font-weight: 700; font-size: 1.1rem; }
+.cx { color: var(--red); font-size: 1.1rem; }
+
+/* How it works detail */
+.how-detail { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+.how-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; transition: border-color .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.how-card:hover { border-color: var(--pri); }
+.how-card .ic { font-size: 1.4rem; margin-bottom: 0.6rem; display: block; }
+.how-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.4rem; }
+.how-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+
+/* Tips */
+.tips { display: flex; flex-direction: column; gap: 1rem; }
+.tip { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.5rem 1.75rem; display: flex; gap: 1.25rem; align-items: flex-start; transition: border-color .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.tip:hover { border-color: var(--pri); }
+.tip-n { flex-shrink: 0; width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--pri), #8B5CF6); color: #fff; font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; }
+.tip h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.3rem; }
+.tip p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+
+/* Related tools */
+.rel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.rel-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; display: flex; flex-direction: column; transition: border-color .2s, transform .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.rel-card:hover { border-color: var(--pri); transform: translateY(-2px); }
+.rel-card .cat { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--pri); margin-bottom: 0.6rem; letter-spacing: 0.05em; }
+.rel-card h3 { font-size: 1rem; font-weight: 700; color: var(--heading); margin-bottom: 0.45rem; }
+.rel-card p { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.25rem; flex: 1; line-height: 1.55; }
+.rel-card .btn { text-align: center; font-size: 0.82rem; padding: 0.55rem 1rem; }
+
+/* Service banner */
+.svc-banner { background: linear-gradient(135deg, var(--bg-alt) 0%, var(--card-bg) 100%); border: 1px solid var(--card-border); border-radius: 16px; padding: 3rem 2rem; text-align: center; max-width: 850px; margin: 0 auto; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.svc-banner .badge { display: inline-block; background: var(--pri); color: #fff; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; padding: 0.3rem 0.85rem; border-radius: 999px; margin-bottom: 0.85rem; letter-spacing: 0.05em; }
+.svc-banner h3 { font-size: 1.35rem; font-weight: 800; color: var(--heading); margin-bottom: 0.85rem; }
+.svc-banner p { color: var(--muted); font-size: 0.9rem; max-width: 540px; margin: 0 auto 1.5rem; line-height: 1.6; }
+
+/* FAQ */
+.faq-list { max-width: 800px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--card-border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.15rem 0; cursor: pointer; font-weight: 600; font-size: 0.95rem; color: var(--heading) !important; background: transparent !important; border: none !important; border-radius: 0 !important; width: 100%; text-align: left; font-family: inherit; transition: color .2s; box-shadow: none !important; }
+.faq-q:hover, .faq-q:focus, .faq-q:active { color: var(--pri) !important; background: transparent !important; box-shadow: none !important; }
+.faq-q .arrow { font-size: 1.2rem; color: var(--pri); flex-shrink: 0; transition: transform .25s; }
+.faq-item.open .faq-q .arrow { transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+.faq-item.open .faq-a { max-height: 400px; }
+.faq-a p { font-size: 0.9rem; color: var(--muted); padding-bottom: 1rem; line-height: 1.6; }
+
+/* Final CTA */
+.final-cta { text-align: center; padding: 4.5rem 1.5rem; background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%); }
+.final-cta h2 { font-size: 1.85rem; font-weight: 800; color: var(--heading); margin-bottom: 0.85rem; }
+.final-cta p { color: var(--muted); font-size: 0.95rem; margin-bottom: 1.75rem; }
+.btn-big { display: inline-block; background: linear-gradient(135deg, var(--pri), #8B5CF6) !important; color: #fff !important; padding: 0.9rem 2.8rem; border-radius: 12px; font-weight: 700; font-size: 1.05rem; border: none; cursor: pointer; transition: transform .2s, box-shadow .2s; box-shadow: 0 4px 20px rgba(108,92,231,0.3); }
+.btn-big:hover, .btn-big:focus, .btn-big:active { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(108,92,231,0.45); color: #fff !important; background: linear-gradient(135deg, var(--pri-hover), #7C4FE0) !important; }
+.final-cta .sub-note { font-size: 0.8rem; color: var(--muted); margin-top: 0.85rem; }
+
+.toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); background: var(--green); color: #fff; padding: 0.6rem 1.5rem; border-radius: 10px; font-weight: 600; font-size: 0.85rem; opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 999; }
+.toast.show { opacity: 1; }
+
+@media (max-width: 768px) {
+  .steps, .cards-6, .rel-grid { grid-template-columns: 1fr; }
+  .breakdown, .how-detail { grid-template-columns: 1fr; }
+  .abd-hero h1 { font-size: 1.7rem; }
+  .tip { flex-direction: column; }
+  .cmp-tbl { font-size: 0.78rem; }
+  .cmp-tbl th, .cmp-tbl td { padding: 0.65rem 0.6rem; }
+  .score-ring-wrap { gap: 1rem; }
+}
+
+/* Readability extras */
+.abd-box select { width: 100%; background: var(--input-bg); border: 1px solid var(--input-border); border-radius: 10px; padding: 0.7rem 1rem; color: var(--text); font-size: 0.9rem; font-family: inherit; }
+.abd-box select:focus { outline: none; border-color: var(--pri); }
+.rc-target { max-width: 360px; }
+.bd-hint { font-size: 0.75rem; color: var(--muted); margin-top: 0.35rem; }
+.bd-val.ok { color: var(--green); } .bd-val.warn { color: var(--yellow); } .bd-val.bad { color: var(--red); }
+.hl-passive { border-bottom: 2px dotted var(--pri); }
+.hl-hard { text-decoration: underline wavy rgba(108,92,231,0.55); text-underline-offset: 3px; }
+.rc-fixes { background: rgba(108,92,231,0.06); border-left: 4px solid var(--pri); border-radius: 10px; padding: 1rem 1.25rem; margin-bottom: 1.5rem; font-size: 0.88rem; line-height: 1.65; color: var(--text); }
+.rc-fixes strong { display: block; color: var(--heading); margin-bottom: 0.35rem; }
+.rc-fixes ul { margin: 0 0 0 1.2rem; }
+.rc-fixes li { margin-bottom: 0.3rem; }
+</style>
+
+<!-- Section 1: Hero -->
+<div class="abd-hero">
+  <a href="/tools/" class="back-link">&larr; Back to All Tools</a>
+  <div><span class="badge">&#128214; Free Readability Checker</span></div>
+  <h1>Free Readability Checker &mdash; Flesch Score, Grade Level &amp; Fixes</h1>
+  <p class="sub">Paste your text to get the Flesch Reading Ease score, four grade-level formulas, and sentence-by-sentence highlights for long sentences, passive voice and hard words &mdash; with a plain-English list of what to fix. Free, instant and private.</p>
+  <div class="usp-row">
+    <span class="usp-pill">&#10003; 100% Free</span>
+    <span class="usp-pill">&#10003; No Signup Required</span>
+    <span class="usp-pill">&#10003; 5 Readability Formulas</span>
+    <span class="usp-pill">&#10003; Sentence Highlighting</span>
+    <span class="usp-pill">&#10003; Runs in Your Browser</span>
+  </div>
+</div>
+
+<!-- Section 2: Tool Widget -->
+<div class="abd-tool">
+  <div class="abd-box">
+    <div class="mb">
+      <label for="inputText">Paste Your Text Below</label>
+      <textarea id="inputText" placeholder="Paste a blog post, email, web page or essay here. 100+ words gives the most reliable scores&hellip;"></textarea>
+      <div class="char-count"><span id="wordCount">0</span> words &middot; <span id="charCount">0</span> characters</div>
+    </div>
+    <div class="mb rc-target">
+      <label for="target">Who Are You Writing For?</label>
+      <select id="target">
+        <option value="60">General web readers / blog (Flesch 60+)</option>
+        <option value="70">Wide public audience (Flesch 70+)</option>
+        <option value="50">Business / B2B readers (Flesch 50+)</option>
+        <option value="30">Academic or technical (Flesch 30+)</option>
+      </select>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-primary" id="checkBtn" type="button">&#128214; Check Readability</button>
+      <button class="btn btn-secondary" id="clearBtn" type="button">Clear</button>
+      <button class="btn btn-secondary" id="sampleBtn" type="button">Load Sample Text</button>
+    </div>
+
+    <!-- Results -->
+    <div class="result-section" id="resultSection">
+      <div class="result-verdict" id="verdictBox">
+        <span class="verdict-icon" id="verdictIcon"></span>
+        <div class="verdict-label" id="verdictLabel"></div>
+        <div class="verdict-sub" id="verdictSub"></div>
+      </div>
+
+      <div class="score-ring-wrap">
+        <div class="score-item">
+          <div class="score-ring">
+            <svg width="100" height="100" viewBox="0 0 100 100">
+              <circle class="bg-circle" cx="50" cy="50" r="42"/>
+              <circle class="fg-circle" id="freRing" cx="50" cy="50" r="42" stroke="var(--pri)" stroke-dasharray="263.9" stroke-dashoffset="263.9"/>
+            </svg>
+            <div class="score-text" id="freScore">0</div>
+          </div>
+          <div class="score-label">Flesch Reading Ease</div>
+        </div>
+        <div class="score-item">
+          <div class="score-ring">
+            <svg width="100" height="100" viewBox="0 0 100 100">
+              <circle class="bg-circle" cx="50" cy="50" r="42"/>
+              <circle class="fg-circle" id="gradeRing" cx="50" cy="50" r="42" stroke="var(--green)" stroke-dasharray="263.9" stroke-dashoffset="263.9"/>
+            </svg>
+            <div class="score-text" id="gradeScore">0</div>
+          </div>
+          <div class="score-label">Average Grade Level</div>
+        </div>
+      </div>
+
+      <div class="breakdown">
+        <div class="bd-item"><div class="bd-label">Flesch-Kincaid Grade</div><div class="bd-val" id="bdFk">--</div><div class="bd-hint">US school grade. Aim for 8 or below for the web.</div></div>
+        <div class="bd-item"><div class="bd-label">Gunning Fog Index</div><div class="bd-val" id="bdFog">--</div><div class="bd-hint">Years of education needed. Under 12 is ideal.</div></div>
+        <div class="bd-item"><div class="bd-label">SMOG Index</div><div class="bd-val" id="bdSmog">--</div><div class="bd-hint">Based on 3+ syllable words. Under 10 reads easily.</div></div>
+        <div class="bd-item"><div class="bd-label">Coleman-Liau Index</div><div class="bd-val" id="bdCli">--</div><div class="bd-hint">Based on letters per word. Under 10 is easy.</div></div>
+        <div class="bd-item"><div class="bd-label">Avg Words per Sentence</div><div class="bd-val" id="bdAvg">--</div><div class="bd-hint">15&ndash;20 is comfortable for most readers.</div></div>
+        <div class="bd-item"><div class="bd-label">Long Sentences (20+ words)</div><div class="bd-val" id="bdLong">--</div><div class="bd-hint">Keep under 25% of sentences.</div></div>
+        <div class="bd-item"><div class="bd-label">Passive Voice</div><div class="bd-val" id="bdPas">--</div><div class="bd-hint">Keep under 10% of sentences.</div></div>
+        <div class="bd-item"><div class="bd-label">Hard Words (3+ syllables)</div><div class="bd-val" id="bdHard">--</div><div class="bd-hint">Under 12% of words keeps text light.</div></div>
+      </div>
+
+      <div class="rc-fixes" id="fixes"></div>
+
+      <div class="mb">
+        <label>Sentence-Level Highlights (hover a sentence for details)</label>
+        <div class="hl-legend">
+          <span><span class="dot" style="background:rgba(239,68,68,0.3)"></span> Very long (30+ words)</span>
+          <span><span class="dot" style="background:rgba(245,158,11,0.3)"></span> Long (21&ndash;29 words)</span>
+          <span><span class="dot" style="background:transparent;border-bottom:2px dotted var(--pri);border-radius:0"></span> Passive voice</span>
+          <span><span class="dot" style="background:transparent;border-bottom:2px solid rgba(108,92,231,0.55);border-radius:0"></span> Hard word</span>
+        </div>
+        <div class="highlighted-text" id="highlightedText"></div>
+      </div>
+
+      <div class="stats-row">
+        <div class="stat-chip"><div class="val" id="outWords">0</div><div class="lbl">Words</div></div>
+        <div class="stat-chip"><div class="val" id="outSent">0</div><div class="lbl">Sentences</div></div>
+        <div class="stat-chip"><div class="val" id="outPara">0</div><div class="lbl">Paragraphs</div></div>
+        <div class="stat-chip"><div class="val" id="outRead">0</div><div class="lbl">Reading Time</div></div>
+        <div class="stat-chip"><div class="val" id="outAdv">0</div><div class="lbl">-ly Adverbs</div></div>
+      </div>
+
+      <div class="btn-group">
+        <button class="btn btn-secondary" id="copyBtn" type="button">&#128203; Copy Report</button>
+        <button class="btn btn-secondary" id="dlBtn" type="button">&#11015; Download Report</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 3: How It Works -->
+<div class="abd-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>How Our Free Readability Checker Works</h2>
+      <p>Three steps &mdash; no account, no waiting.</p>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="step-n">1</div><h3>Paste Your Text</h3><p>Any blog post, web page, email or essay. 100+ words gives the most reliable scores.</p></div>
+      <div class="step"><div class="step-n">2</div><h3>Pick Your Audience</h3><p>Choose who you&rsquo;re writing for, and the checker judges your score against the right target.</p></div>
+      <div class="step"><div class="step-n">3</div><h3>Fix What&rsquo;s Flagged</h3><p>See your scores, a list of fixes and every long, passive or hard sentence highlighted in place.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 4: What the scores mean -->
+<div class="abd-section">
+  <div class="sec-head">
+    <h2>What Each Readability Score Means</h2>
+    <p>Five standard formulas, explained in plain English.</p>
+  </div>
+  <div class="how-detail">
+    <div class="how-card"><span class="ic">&#128207;</span><h3>Flesch Reading Ease (0&ndash;100)</h3><p>Higher is easier. 60&ndash;70 is plain English that most adults read comfortably; 30 or below reads like an academic paper. It&rsquo;s based on sentence length and syllables per word.</p></div>
+    <div class="how-card"><span class="ic">&#127891;</span><h3>Flesch-Kincaid Grade</h3><p>The same inputs as a US school grade. Grade 8 means a 13&ndash;14-year-old could follow it &mdash; a good target for most web content.</p></div>
+    <div class="how-card"><span class="ic">&#127787;&#65039;</span><h3>Gunning Fog &amp; SMOG</h3><p>Both focus on long words with three or more syllables. They rise quickly in jargon-heavy text, so they&rsquo;re a good check for technical and business writing.</p></div>
+    <div class="how-card"><span class="ic">&#128292;</span><h3>Coleman-Liau Index</h3><p>Uses letters per word instead of syllables, so it doesn&rsquo;t depend on syllable counting. When the formulas disagree, look at the average grade.</p></div>
+  </div>
+</div>
+
+<!-- Section 5: Key Features -->
+<div class="abd-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>Why Use BrightlyFuture&rsquo;s Readability Checker</h2>
+      <p>More than a score: it shows you what to change.</p>
+    </div>
+    <div class="cards-6">
+      <div class="fcard"><span class="ic">&#128275;</span><h3>Free, No Limits</h3><p>No signup, no word caps, no daily limits.</p></div>
+      <div class="fcard"><span class="ic">&#127919;</span><h3>Audience Targets</h3><p>Judges your score against blog, public, business or academic readers instead of one fixed number.</p></div>
+      <div class="fcard"><span class="ic">&#128270;</span><h3>Sentence Highlighting</h3><p>Long sentences, passive voice and hard words are marked in your text, so you know exactly where to edit.</p></div>
+      <div class="fcard"><span class="ic">&#128295;</span><h3>Plain-English Fixes</h3><p>A short list of the changes that will raise your score most, based on your actual text.</p></div>
+      <div class="fcard"><span class="ic">&#128274;</span><h3>100% Private</h3><p>Everything runs in your browser. Your text is never uploaded or stored.</p></div>
+      <div class="fcard"><span class="ic">&#128196;</span><h3>Free Reports</h3><p>Copy or download a report with every score, fix and flagged sentence.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 7: Who Is This For -->
+<div class="abd-section">
+  <div class="sec-head">
+    <h2>Who Uses Our Readability Checker?</h2>
+    <p>Anyone who wants to be understood the first time.</p>
+  </div>
+  <div class="cards-6">
+    <div class="aud-card"><span class="ic">&#128187;</span><h3>Bloggers</h3><p>Keep posts easy to skim so readers stay on the page.</p></div>
+    <div class="aud-card"><span class="ic">&#128188;</span><h3>SEO Professionals</h3><p>Check client content and briefs against a clear readability target.</p></div>
+    <div class="aud-card"><span class="ic">&#127970;</span><h3>Businesses</h3><p>Make product pages, emails and policies clear to customers.</p></div>
+    <div class="aud-card"><span class="ic">&#127891;</span><h3>Students</h3><p>Spot overlong sentences and heavy jargon before you submit.</p></div>
+    <div class="aud-card"><span class="ic">&#9997;&#65039;</span><h3>Writers &amp; Editors</h3><p>Find the exact sentences that slow readers down.</p></div>
+    <div class="aud-card"><span class="ic">&#129302;</span><h3>AI-Assisted Writers</h3><p>AI drafts often score low; see which sentences to shorten.</p></div>
+  </div>
+</div>
+
+<!-- Section 8: Tips -->
+<div class="abd-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>How to Improve Your Readability Score</h2>
+      <p>The changes that move the score most.</p>
+    </div>
+    <div class="tips">
+      <div class="tip"><div class="tip-n">1</div><div><h3>Split Long Sentences</h3><p>Sentence length has the biggest effect on every formula. Break anything over 25 words at &ldquo;and&rdquo;, &ldquo;but&rdquo; or &ldquo;which&rdquo;.</p></div></div>
+      <div class="tip"><div class="tip-n">2</div><div><h3>Swap Long Words for Short Ones</h3><p>&ldquo;Use&rdquo; not &ldquo;utilise&rdquo;, &ldquo;help&rdquo; not &ldquo;facilitate&rdquo;, &ldquo;about&rdquo; not &ldquo;approximately&rdquo;.</p></div></div>
+      <div class="tip"><div class="tip-n">3</div><div><h3>Write in the Active Voice</h3><p>&ldquo;We updated the page&rdquo; beats &ldquo;The page was updated by us&rdquo;. It&rsquo;s shorter and clearer.</p></div></div>
+      <div class="tip"><div class="tip-n">4</div><div><h3>Keep Paragraphs Short</h3><p>Two to four sentences per paragraph makes text easier to scan on a phone, even though formulas don&rsquo;t measure it.</p></div></div>
+      <div class="tip"><div class="tip-n">5</div><div><h3>Don&rsquo;t Chase the Score</h3><p>Formulas can&rsquo;t judge meaning. Keep the technical terms your readers need. Read our full guide on <a href="/blog/how-to-improve-blog-readability-score/">how to improve your blog readability score</a>.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 9: Related Tools -->
+<div class="abd-section">
+  <div class="sec-head">
+    <h2>More Free Writing Tools from BrightlyFuture</h2>
+    <p>Check and polish your content before you publish.</p>
+  </div>
+  <div class="rel-grid">
+    <div class="rel-card"><span class="cat">Content &middot; AI</span><h3>AI Paraphraser / Rewriter</h3><p>Rewrite hard sentences in Simple mode, then check them here again.</p><a href="/ai-paraphrase-rewriter/" class="btn btn-secondary">Try Free &rarr;</a></div>
+    <div class="rel-card"><span class="cat">Content &middot; AI</span><h3>AI Content Detector</h3><p>See which sentences still read like unedited AI, and why.</p><a href="/ai-blog-detector/" class="btn btn-secondary">Try Free &rarr;</a></div>
+    <div class="rel-card"><span class="cat">Content &middot; SEO</span><h3>Word &amp; Character Counter</h3><p>Count words, characters, sentences and paragraphs, and estimate reading time.</p><a href="/word-character-counter/" class="btn btn-secondary">Try Free &rarr;</a></div>
+  </div>
+</div>
+
+<!-- Section 10: Service Banner -->
+<div class="abd-section alt">
+  <div class="inner">
+    <div class="svc-banner">
+      <span class="badge">Done-for-you</span>
+      <h3>Want Content That&rsquo;s Clear, Readable and Ready to Rank?</h3>
+      <p>Our team writes and edits content that reads easily and is built around what your customers search for.</p>
+      <a href="/content-marketing/" class="btn btn-primary">Get a Free Quote &rarr;</a>
+    </div>
+  </div>
+</div>
+
+<!-- Section 11: FAQ -->
+<div class="abd-section">
+  <div class="sec-head">
+    <h2>Frequently Asked Questions About Readability</h2>
+    <p>Everything you need to know about readability scores.</p>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item"><button class="faq-q" type="button">What is a good Flesch Reading Ease score?<span class="arrow">+</span></button><div class="faq-a"><p>For most blogs and web pages, 60&ndash;70 is a good target: plain English that most adults read easily. Content for a wide public audience can aim for 70+, while business and technical writing often sits at 40&ndash;60.</p></div></div>
+    <div class="faq-item"><button class="faq-q" type="button">Is this readability checker free?<span class="arrow">+</span></button><div class="faq-a"><p>Yes. No signup, no word limit and no daily cap.</p></div></div>
+    <div class="faq-item"><button class="faq-q" type="button">Is my text stored or uploaded?<span class="arrow">+</span></button><div class="faq-a"><p>No. All the calculations run in your browser. Your text never leaves your device.</p></div></div>
+    <div class="faq-item"><button class="faq-q" type="button">Why do the grade-level formulas give different numbers?<span class="arrow">+</span></button><div class="faq-a"><p>Each formula weighs different things: syllables, letters per word or long words. They usually land within a couple of grades of each other. The average grade in the second ring smooths out the differences.</p></div></div>
+    <div class="faq-item"><button class="faq-q" type="button">Does readability affect SEO?<span class="arrow">+</span></button><div class="faq-a"><p>Google doesn&rsquo;t use a readability score as a ranking factor. But clear writing helps readers find answers and stay on the page, which is what Google&rsquo;s helpful content guidance is about.</p></div></div>
+    <div class="faq-item"><button class="faq-q" type="button">How is passive voice detected?<span class="arrow">+</span></button><div class="faq-a"><p>The checker looks for a form of &ldquo;to be&rdquo; followed by a past participle, such as &ldquo;was written&rdquo; or &ldquo;is being tested&rdquo;. It catches most cases but can miss irregular verbs or flag adjectives, so treat it as a pointer.</p></div></div>
+    <div class="faq-item"><button class="faq-q" type="button">Why does my score change when I add headings or lists?<span class="arrow">+</span></button><div class="faq-a"><p>Each line break is treated as the end of a sentence, so short headings and list items lower the average sentence length and raise the score. For the most accurate reading, check your body paragraphs.</p></div></div>
+    <div class="faq-item"><button class="faq-q" type="button">How accurate is the syllable count?<span class="arrow">+</span></button><div class="faq-a"><p>Syllables are counted with standard English rules rather than a dictionary, the same approach most readability tools use. It&rsquo;s accurate for most words but can be off by one on unusual ones, which barely changes the overall score.</p></div></div>
+    <div class="faq-item"><button class="faq-q" type="button">Does it work with other languages?<span class="arrow">+</span></button><div class="faq-a"><p>No. These formulas were designed for English and the syllable rules are English-only.</p></div></div>
+    <div class="faq-item"><button class="faq-q" type="button">What are -ly adverbs and why count them?<span class="arrow">+</span></button><div class="faq-a"><p>Words like &ldquo;really&rdquo;, &ldquo;extremely&rdquo; or &ldquo;quickly&rdquo;. A few are fine, but many often signal weak verbs. The count is a prompt to check, not a rule.</p></div></div>
+    <div class="faq-item"><button class="faq-q" type="button">Can I download my results?<span class="arrow">+</span></button><div class="faq-a"><p>Yes. Copy Report or Download Report gives you every score, the list of fixes and each flagged sentence as plain text.</p></div></div>
+  </div>
+</div>
+
+<!-- Section 12: Final CTA -->
+<div class="final-cta">
+  <h2>How Readable Is Your Writing?</h2>
+  <p>Find out in seconds &mdash; free, private and instant.</p>
+  <button class="btn-big" id="ctaBtn" type="button">&#128214; Check Your Text Now &mdash; 100% Free</button>
+  <div class="sub-note">No Signup &middot; 5 Formulas &middot; Sentence Highlights &middot; Free Reports</div>
+</div>
+
+<div class="toast" id="toast">Copied!</div>
+
+<script>
+(function () {
+  'use strict';
+  var lastReport = '';
+  function $(id) { return document.getElementById(id); }
+  function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  var WORD = /[A-Za-z][A-Za-z'’-]*|\d+(?:[.,]\d+)*/g;
+  var TITLES = /\b(Mr|Mrs|Ms|Dr|Prof|Sr|Jr|St|vs|etc|e\.g|i\.e|approx|no|fig|p|pp|vol|inc|ltd|co)\.$/i;
+  var PASSIVE = /\b(am|is|are|was|were|be|been|being|get|gets|got)\s+(\w+ly\s+)?(\w+ed|born|built|bought|brought|caught|chosen|done|drawn|driven|eaten|fallen|found|forgotten|given|gone|grown|heard|held|hidden|kept|known|laid|led|left|lost|made|meant|met|paid|put|read|run|said|seen|sent|set|shown|sold|spent|spoken|taken|taught|thought|told|understood|won|worn|written)\b/i;
+  var NOT_PASSIVE = /\b(is|are|was|were)\s+(need|red|bed|seed|speed|feed|shed|weed|hundred|interested|tired|bored|excited|married|worried|pleased|supposed|used)\b/i;
+
+  function syl(w) {
+    w = w.toLowerCase().replace(/[^a-z]/g, '');
+    if (!w) return 0; if (w.length <= 3) return 1;
+    w = w.replace(/(?:[^laeiouy]es|ed|[^laeiouy]e)$/, '').replace(/^y/, '');
+    var m = w.match(/[aeiouy]{1,2}/g); return Math.max(1, m ? m.length : 1);
+  }
+  function wordsOf(s) { return s.match(WORD) || []; }
+  function splitSentences(text) {
+    var out = [];
+    text.replace(/\r/g, '').split(/\n+/).forEach(function (line) {
+      line = line.trim(); if (!line) return;
+      var parts = line.split(/(?<=[.!?]["'”’)\]]?)\s+/), buf = '';
+      parts.forEach(function (p, i) {
+        buf = buf ? buf + ' ' + p : p;
+        var next = parts[i + 1];
+        var lastTok = (buf.match(/\S+$/) || [''])[0];
+        if (next && (TITLES.test(lastTok) || /^[A-Z]\.$/.test(lastTok) || /^[a-z0-9]/.test(next))) return;
+        out.push(buf); buf = '';
+      });
+      if (buf) out.push(buf);
+    });
+    return out.filter(function (s) { return /[A-Za-z]/.test(s); });
+  }
+
+  function analyse(text, target) {
+    var sents = splitSentences(text);
+    var paras = text.split(/\n\s*\n/).filter(function (p) { return p.trim(); }).length;
+    var W = 0, Sy = 0, poly = 0, letters = 0, adv = 0, longS = 0, vlongS = 0, pas = 0, per = [];
+    sents.forEach(function (s) {
+      var ws = wordsOf(s), hard = [];
+      ws.forEach(function (w) {
+        if (/^\d/.test(w)) { Sy += 1; letters += w.replace(/\D/g, '').length; return; }
+        var n = syl(w); Sy += n; letters += w.replace(/[^A-Za-z]/g, '').length;
+        if (n >= 3 && !/^[A-Z]/.test(w)) { poly++; hard.push(w); } else if (n >= 3) poly++;
+        if (/^[a-z]+ly$/i.test(w) && w.length > 4 && !/^(only|family|early|reply|apply|supply|likely|daily|weekly|monthly|yearly|holy|belly|italy|fly|july|ugly|rely|lovely|friendly|elderly)$/i.test(w)) adv++;
+      });
+      W += ws.length;
+      var isPas = PASSIVE.test(s) && !NOT_PASSIVE.test(s);
+      if (isPas) pas++;
+      if (ws.length >= 30) vlongS++; else if (ws.length > 20) longS++;
+      per.push({ text: s, n: ws.length, passive: isPas, hard: hard });
+    });
+    var S = Math.max(1, sents.length); W = Math.max(1, W);
+    var asl = W / S, asw = Sy / W;
+    var fre = 206.835 - 1.015 * asl - 84.6 * asw;
+    var fk = 0.39 * asl + 11.8 * asw - 15.59;
+    var fog = 0.4 * (asl + 100 * poly / W);
+    var smog = 1.043 * Math.sqrt(poly * (30 / S)) + 3.1291;
+    var L = letters / W * 100, Sn = S / W * 100;
+    var cli = 0.0588 * L - 0.296 * Sn - 15.8;
+    return { sents: per, words: W, sentences: sents.length, paras: paras || 1, fre: Math.max(0, Math.min(100, fre)), fk: Math.max(0, fk), fog: fog, smog: smog, cli: Math.max(0, cli),
+      avg: asl, longPct: 100 * (longS + vlongS) / S, vlong: vlongS, long: longS, pasPct: 100 * pas / S, pas: pas, hardPct: 100 * poly / W, adv: adv, target: target };
+  }
+
+  function band(f) { return f >= 90 ? 'Very easy' : f >= 80 ? 'Easy' : f >= 70 ? 'Fairly easy' : f >= 60 ? 'Plain English' : f >= 50 ? 'Fairly difficult' : f >= 30 ? 'Difficult' : 'Very difficult'; }
+  function cls(v, good, warn) { return v <= good ? 'ok' : v <= warn ? 'warn' : 'bad'; }
+  function setVal(id, txt, c) { var e = $(id); e.textContent = txt; e.className = 'bd-val' + (c ? ' ' + c : ''); }
+  function readTime(w) { var m = w / 238; return m < 1 ? Math.max(5, Math.round(m * 60 / 5) * 5) + 's' : Math.round(m) + ' min'; }
+
+  function render(r) {
+    var f = Math.round(r.fre), t = r.target, box = $('verdictBox'), sub;
+    var grade = (r.fk + r.fog + r.smog + r.cli) / 4;
+    if (f >= t) { box.className = 'result-verdict human'; $('verdictIcon').innerHTML = '&#9989;'; sub = 'Score ' + f + ' meets your target of ' + t + '+. ' + band(f) + '.'; }
+    else if (f >= t - 10) { box.className = 'result-verdict mixed'; $('verdictIcon').innerHTML = '&#9888;&#65039;'; sub = 'Score ' + f + ' is just below your target of ' + t + '+. A few edits below will get you there.'; }
+    else { box.className = 'result-verdict ai'; $('verdictIcon').innerHTML = '&#10060;'; sub = 'Score ' + f + ' is well below your target of ' + t + '+. Start with the fixes below.'; }
+    $('verdictLabel').textContent = band(f);
+    if (r.words < 100) sub += ' With under 100 words, scores are less reliable.';
+    $('verdictSub').textContent = sub;
+
+    var c = 2 * Math.PI * 42;
+    $('freRing').setAttribute('stroke-dashoffset', c - c * f / 100);
+    $('freRing').setAttribute('stroke', f >= t ? 'var(--green)' : f >= t - 10 ? 'var(--yellow)' : 'var(--red)');
+    $('freScore').textContent = f;
+    $('gradeRing').setAttribute('stroke-dashoffset', c - c * Math.min(18, grade) / 18);
+    $('gradeScore').textContent = grade.toFixed(1);
+
+    setVal('bdFk', r.fk.toFixed(1), cls(r.fk, 8, 12));
+    setVal('bdFog', r.fog.toFixed(1), cls(r.fog, 12, 15));
+    setVal('bdSmog', r.smog.toFixed(1), cls(r.smog, 10, 13));
+    setVal('bdCli', r.cli.toFixed(1), cls(r.cli, 10, 13));
+    setVal('bdAvg', r.avg.toFixed(1), cls(r.avg, 20, 25));
+    setVal('bdLong', Math.round(r.longPct) + '% (' + (r.long + r.vlong) + ')', cls(r.longPct, 25, 40));
+    setVal('bdPas', Math.round(r.pasPct) + '% (' + r.pas + ')', cls(r.pasPct, 10, 20));
+    setVal('bdHard', Math.round(r.hardPct) + '%', cls(r.hardPct, 12, 18));
+
+    var fixes = [];
+    if (r.vlong) fixes.push('Split the ' + r.vlong + ' very long sentence' + (r.vlong > 1 ? 's' : '') + ' (red). Break at &ldquo;and&rdquo;, &ldquo;but&rdquo; or &ldquo;which&rdquo;.');
+    if (r.long) fixes.push('Shorten the ' + r.long + ' long sentence' + (r.long > 1 ? 's' : '') + ' (yellow) to under 20 words where you can.');
+    if (r.pasPct > 10) fixes.push('Rewrite some of the ' + r.pas + ' passive sentences in the active voice (&ldquo;we tested&rdquo;, not &ldquo;it was tested&rdquo;).');
+    if (r.hardPct > 12) fixes.push(Math.round(r.hardPct) + '% of words have 3+ syllables. Swap the underlined ones for shorter words where the meaning stays the same.');
+    if (r.adv > Math.max(3, r.words / 100)) fixes.push('You used ' + r.adv + ' -ly adverbs. Try a stronger verb instead (&ldquo;sprinted&rdquo; rather than &ldquo;ran quickly&rdquo;).');
+    if (!fixes.length) fixes.push(f >= t ? 'Nothing major to fix. Keep sentences varied and paragraphs short.' : 'Sentences are a fair length; the score is held down by longer words. Swap a few for simpler ones.');
+    $('fixes').innerHTML = '<strong>What to fix first</strong><ul><li>' + fixes.join('</li><li>') + '</li></ul>';
+
+    $('highlightedText').innerHTML = r.sents.map(function (s) {
+      var c = s.n >= 30 ? 'hl-ai' : s.n > 20 ? 'hl-mixed' : '';
+      if (s.passive) c += ' hl-passive';
+      var tip = s.n + ' words' + (s.passive ? ', passive voice' : '') + (s.hard.length ? ', hard words: ' + s.hard.slice(0, 5).join(', ') : '');
+      var body = esc(s.text);
+      s.hard.forEach(function (h) { body = body.replace(new RegExp('\\b' + h.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '\\b'), '<span class="hl-hard">' + esc(h) + '</span>'); });
+      return '<span' + (c ? ' class="' + c.trim() + '"' : '') + ' title="' + esc(tip) + '">' + body + '</span>';
+    }).join(' ');
+
+    $('outWords').textContent = r.words; $('outSent').textContent = r.sentences; $('outPara').textContent = r.paras;
+    $('outRead').textContent = readTime(r.words); $('outAdv').textContent = r.adv;
+
+    lastReport = 'READABILITY REPORT - BrightlyFuture\n==================================\n' +
+      'Flesch Reading Ease: ' + f + ' (' + band(f) + ') | Target: ' + t + '+\n' +
+      'Flesch-Kincaid Grade: ' + r.fk.toFixed(1) + '\nGunning Fog: ' + r.fog.toFixed(1) + '\nSMOG: ' + r.smog.toFixed(1) + '\nColeman-Liau: ' + r.cli.toFixed(1) + '\nAverage grade: ' + grade.toFixed(1) + '\n\n' +
+      'Words: ' + r.words + ' | Sentences: ' + r.sentences + ' | Paragraphs: ' + r.paras + ' | Reading time: ' + readTime(r.words) + '\n' +
+      'Avg words/sentence: ' + r.avg.toFixed(1) + ' | Long sentences: ' + Math.round(r.longPct) + '% | Passive: ' + Math.round(r.pasPct) + '% | Hard words: ' + Math.round(r.hardPct) + '% | -ly adverbs: ' + r.adv + '\n\n' +
+      'WHAT TO FIX\n- ' + fixes.map(function (x) { return x.replace(/&ldquo;|&rdquo;/g, '"'); }).join('\n- ') + '\n\nFLAGGED SENTENCES\n' +
+      r.sents.map(function (s, i) { var fl = []; if (s.n > 20) fl.push(s.n + ' words'); if (s.passive) fl.push('passive'); if (s.hard.length) fl.push('hard: ' + s.hard.slice(0, 5).join(', ')); return fl.length ? '[' + (i + 1) + '] (' + fl.join('; ') + ') ' + s.text : null; }).filter(Boolean).join('\n') +
+      '\n\nhttps://brightlyfuture.co.uk/readability-checker/';
+    $('resultSection').style.display = 'block';
+  }
+
+  function run() {
+    var text = $('inputText').value.trim();
+    if (!text) { alert('Please paste some text to check.'); return; }
+    if (wordsOf(text).length < 10) { alert('Please paste at least 10 words.'); return; }
+    render(analyse(text, +$('target').value));
+  }
+  function toast() { var t = $('toast'); if (!t) return; t.classList.add('show'); setTimeout(function () { t.classList.remove('show'); }, 2000); }
+
+  function init() {
+    if (!$('checkBtn')) { setTimeout(init, 200); return; }
+    $('inputText').addEventListener('input', function () { $('wordCount').textContent = wordsOf(this.value).length; $('charCount').textContent = this.value.length; });
+    $('checkBtn').addEventListener('click', function (e) { e.preventDefault(); run(); });
+    $('target').addEventListener('change', function () { if ($('resultSection').style.display === 'block') run(); });
+    $('clearBtn').addEventListener('click', function (e) { e.preventDefault(); $('inputText').value = ''; $('inputText').dispatchEvent(new Event('input')); $('resultSection').style.display = 'none'; });
+    $('sampleBtn').addEventListener('click', function (e) {
+      e.preventDefault();
+      $('inputText').value = 'Readability is a measure of how easily a reader can understand a piece of written text, and it is determined by a combination of factors including sentence length, word complexity and the overall organisation of the content.\n\nShort sentences help. So do everyday words.\n\nIt has been demonstrated by numerous studies that content which is written in a clear and straightforward manner is significantly more likely to be read in its entirety, shared with others and remembered afterwards. Dr. Smith, for example, found that readers skim most web pages. Keep paragraphs short and use headings so people can find what they need.';
+      $('inputText').dispatchEvent(new Event('input'));
+    });
+    $('copyBtn').addEventListener('click', function (e) {
+      e.preventDefault();
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(lastReport).then(toast);
+      else { var ta = document.createElement('textarea'); ta.value = lastReport; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); toast(); }
+    });
+    $('dlBtn').addEventListener('click', function (e) {
+      e.preventDefault(); var a = document.createElement('a');
+      a.href = URL.createObjectURL(new Blob([lastReport], { type: 'text/plain' })); a.download = 'readability-report.txt';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    });
+    $('ctaBtn').addEventListener('click', function (e) { e.preventDefault(); $('inputText').scrollIntoView({ behavior: 'smooth', block: 'center' }); $('inputText').focus(); });
+    var faq = document.querySelectorAll('.faq-q');
+    for (var i = 0; i < faq.length; i++) faq[i].addEventListener('click', function (e) { e.preventDefault(); this.parentElement.classList.toggle('open'); });
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+})();
+</script>
