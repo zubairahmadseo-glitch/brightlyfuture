@@ -1,0 +1,912 @@
+<style>
+:root {
+  --pri: #6C5CE7;
+  --pri-hover: #5A4BD1;
+  --bg: #E8E0F0;
+  --bg-alt: #DDD4EB;
+  --card-bg: #FFFFFF;
+  --card-border: #D0C6E0;
+  --input-bg: #F5F1FA;
+  --input-border: #D0C6E0;
+  --text: #2D2B55;
+  --muted: #6B6490;
+  --heading: #1A1744;
+  --green: #00C897;
+  --red: #EF4444;
+  --yellow: #F59E0B;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+a { color: var(--pri); text-decoration: none; }
+a:hover { color: var(--pri-hover); }
+
+/* Hero */
+.abd-hero { text-align: center; padding: 3.5rem 1.5rem 2.5rem; background: var(--bg); }
+.abd-hero .back-link { display: inline-block; color: var(--muted); font-size: 0.85rem; margin-bottom: 1.5rem; transition: color .2s; }
+.abd-hero .back-link:hover { color: var(--pri); }
+.abd-hero .badge { display: inline-block; background: var(--card-bg); color: var(--pri); font-size: 0.8rem; font-weight: 600; padding: 0.4rem 1.1rem; border-radius: 999px; border: 1px solid var(--card-border); margin-bottom: 1.25rem; }
+.abd-hero h1 { font-size: 2.4rem; font-weight: 800; color: var(--heading); margin-bottom: 0.85rem; }
+.abd-hero .sub { color: var(--muted); max-width: 660px; margin: 0 auto 1.5rem; font-size: 0.95rem; line-height: 1.65; }
+.usp-row { display: flex; gap: 0.6rem; flex-wrap: wrap; justify-content: center; }
+.usp-pill { background: rgba(108,92,231,0.08); border: 1px solid rgba(108,92,231,0.2); color: var(--pri); font-size: 0.78rem; font-weight: 600; padding: 0.4rem 1rem; border-radius: 999px; }
+
+/* Tool */
+.abd-tool { max-width: 850px; margin: 0 auto; padding: 0 1.5rem 3rem; }
+.abd-box { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 2rem; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.abd-box label { display: block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); margin-bottom: 0.45rem; }
+.abd-box textarea { width: 100%; background: var(--input-bg); border: 1px solid var(--input-border); border-radius: 10px; padding: 0.9rem 1rem; color: var(--text); font-size: 0.9rem; font-family: inherit; transition: border-color .2s; resize: vertical; min-height: 200px; line-height: 1.7; }
+.abd-box textarea:focus { outline: none; border-color: var(--pri); }
+.char-count { font-size: 0.75rem; color: var(--muted); text-align: right; margin-top: 0.35rem; }
+.mb { margin-bottom: 1.25rem; }
+.btn-group { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.25rem; }
+.btn { padding: 0.7rem 1.6rem; border-radius: 10px; font-weight: 600; font-size: 0.9rem; cursor: pointer; border: none; transition: all .2s; font-family: inherit; }
+.btn-primary { background: var(--pri) !important; color: #fff !important; }
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active { background: var(--pri-hover) !important; color: #fff !important; transform: translateY(-1px); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+.btn-secondary { background: var(--input-bg) !important; color: var(--muted) !important; border: 1px solid var(--card-border) !important; }
+.btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active { border-color: var(--pri) !important; color: var(--text) !important; background: var(--input-bg) !important; }
+
+/* Progress */
+.progress-wrap { margin-top: 1.5rem; display: none; }
+.progress-bar { height: 8px; border-radius: 4px; background: var(--input-bg); overflow: hidden; margin-bottom: 0.5rem; }
+.progress-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--pri), #8B5CF6); transition: width .4s; }
+.progress-label { font-size: 0.8rem; color: var(--muted); }
+
+/* Results */
+.result-section { display: none; margin-top: 2rem; }
+.result-verdict { text-align: center; padding: 2rem 1.5rem; border-radius: 16px; border: 2px solid var(--card-border); margin-bottom: 1.5rem; }
+.result-verdict.human { border-color: var(--green); background: rgba(0,200,151,0.05); }
+.result-verdict.mixed { border-color: var(--yellow); background: rgba(245,158,11,0.05); }
+.result-verdict.ai { border-color: var(--red); background: rgba(239,68,68,0.05); }
+.verdict-icon { font-size: 2.5rem; margin-bottom: 0.5rem; display: block; }
+.verdict-label { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.3rem; }
+.result-verdict.human .verdict-label { color: var(--green); }
+.result-verdict.mixed .verdict-label { color: var(--yellow); }
+.result-verdict.ai .verdict-label { color: var(--red); }
+.verdict-sub { font-size: 0.9rem; color: var(--muted); }
+
+/* Score ring */
+.score-ring-wrap { display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+.score-item { text-align: center; }
+.score-ring { position: relative; width: 100px; height: 100px; }
+.score-ring svg { transform: rotate(-90deg); }
+.score-ring .bg-circle { fill: none; stroke: var(--input-bg); stroke-width: 8; }
+.score-ring .fg-circle { fill: none; stroke-width: 8; stroke-linecap: round; transition: stroke-dashoffset 1s ease; }
+.score-ring .score-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-size: 1.3rem; font-weight: 800; color: var(--heading); }
+.score-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-top: 0.5rem; }
+
+/* Breakdown */
+.breakdown { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+.bd-item { background: var(--input-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 1rem 1.2rem; }
+.bd-item .bd-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); margin-bottom: 0.3rem; }
+.bd-item .bd-val { font-size: 1.1rem; font-weight: 700; color: var(--heading); }
+.bd-bar { height: 6px; border-radius: 3px; background: var(--card-border); margin-top: 0.5rem; overflow: hidden; }
+.bd-bar-fill { height: 100%; border-radius: 3px; transition: width .8s ease; }
+
+/* Highlighted text */
+.highlighted-text { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 1.5rem; margin-bottom: 1.5rem; line-height: 1.8; font-size: 0.9rem; max-height: 350px; overflow-y: auto; }
+.hl-legend { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.75rem; font-size: 0.78rem; color: var(--muted); }
+.hl-legend span { display: inline-flex; align-items: center; gap: 0.35rem; }
+.hl-legend .dot { width: 10px; height: 10px; border-radius: 3px; display: inline-block; }
+.hl-ai { background: rgba(239,68,68,0.15); border-bottom: 2px solid var(--red); padding: 0 2px; }
+.hl-mixed { background: rgba(245,158,11,0.12); border-bottom: 2px solid var(--yellow); padding: 0 2px; }
+
+.stats-row { display: flex; gap: 1rem; flex-wrap: wrap; }
+.stat-chip { background: var(--input-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 0.8rem 1.3rem; text-align: center; flex: 1; min-width: 80px; }
+.stat-chip .val { font-size: 1.4rem; font-weight: 700; color: var(--heading); }
+.stat-chip .lbl { font-size: 0.68rem; color: var(--muted); text-transform: uppercase; margin-top: 0.15rem; letter-spacing: 0.04em; }
+
+/* Sections */
+.abd-section { max-width: 1100px; margin: 0 auto; padding: 4rem 1.5rem; }
+.abd-section.alt { background: var(--bg-alt); max-width: 100%; }
+.abd-section.alt > .inner { max-width: 1100px; margin: 0 auto; }
+.sec-head { text-align: center; margin-bottom: 2.75rem; }
+.sec-head h2 { font-size: 1.65rem; font-weight: 800; color: var(--heading); margin-bottom: 0.5rem; }
+.sec-head p { color: var(--muted); font-size: 0.92rem; max-width: 520px; margin: 0 auto; font-style: italic; }
+
+/* Steps */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.step { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 2rem 1.5rem; text-align: center; transition: border-color .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.step:hover { border-color: var(--pri); }
+.step-n { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--pri), #8B5CF6); color: #fff; font-weight: 700; font-size: 1rem; margin-bottom: 1rem; }
+.step h3 { font-size: 1rem; font-weight: 700; color: var(--heading); margin-bottom: 0.5rem; }
+.step p { font-size: 0.85rem; color: var(--muted); }
+
+/* Feature & audience cards */
+.cards-6 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.fcard { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; transition: border-color .2s, transform .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.fcard:hover { border-color: var(--pri); transform: translateY(-2px); }
+.fcard .ic { font-size: 1.6rem; margin-bottom: 0.8rem; display: block; }
+.fcard h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.4rem; }
+.fcard p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+.aud-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; text-align: center; transition: border-color .2s, transform .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.aud-card:hover { border-color: var(--pri); transform: translateY(-2px); }
+.aud-card .ic { font-size: 2rem; margin-bottom: 0.65rem; display: block; }
+.aud-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.35rem; }
+.aud-card p { font-size: 0.85rem; color: var(--muted); }
+
+/* Comparison table */
+.tbl-wrap { overflow-x: auto; border-radius: 16px; border: 1px solid var(--card-border); box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.cmp-tbl { width: 100%; border-collapse: collapse; font-size: 0.85rem; background: var(--card-bg); }
+.cmp-tbl th, .cmp-tbl td { padding: 0.9rem 1.1rem; text-align: center; border-bottom: 1px solid var(--card-border); }
+.cmp-tbl th { background: var(--heading); color: #fff; font-weight: 700; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; }
+.cmp-tbl td:first-child { text-align: left; font-weight: 600; color: var(--text); }
+.cmp-tbl tr:last-child td { border-bottom: none; }
+.cmp-tbl .hl { background: rgba(108,92,231,0.06); }
+.ck { color: var(--green); font-weight: 700; font-size: 1.1rem; }
+.cx { color: var(--red); font-size: 1.1rem; }
+
+/* How it works detail */
+.how-detail { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+.how-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; transition: border-color .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.how-card:hover { border-color: var(--pri); }
+.how-card .ic { font-size: 1.4rem; margin-bottom: 0.6rem; display: block; }
+.how-card h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.4rem; }
+.how-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+
+/* Tips */
+.tips { display: flex; flex-direction: column; gap: 1rem; }
+.tip { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.5rem 1.75rem; display: flex; gap: 1.25rem; align-items: flex-start; transition: border-color .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.tip:hover { border-color: var(--pri); }
+.tip-n { flex-shrink: 0; width: 38px; height: 38px; border-radius: 50%; background: linear-gradient(135deg, var(--pri), #8B5CF6); color: #fff; font-weight: 700; font-size: 0.9rem; display: flex; align-items: center; justify-content: center; }
+.tip h3 { font-size: 0.95rem; font-weight: 700; color: var(--heading); margin-bottom: 0.3rem; }
+.tip p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
+
+/* Related tools */
+.rel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+.rel-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 1.75rem; display: flex; flex-direction: column; transition: border-color .2s, transform .2s; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.rel-card:hover { border-color: var(--pri); transform: translateY(-2px); }
+.rel-card .cat { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; color: var(--pri); margin-bottom: 0.6rem; letter-spacing: 0.05em; }
+.rel-card h3 { font-size: 1rem; font-weight: 700; color: var(--heading); margin-bottom: 0.45rem; }
+.rel-card p { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.25rem; flex: 1; line-height: 1.55; }
+.rel-card .btn { text-align: center; font-size: 0.82rem; padding: 0.55rem 1rem; }
+
+/* Service banner */
+.svc-banner { background: linear-gradient(135deg, var(--bg-alt) 0%, var(--card-bg) 100%); border: 1px solid var(--card-border); border-radius: 16px; padding: 3rem 2rem; text-align: center; max-width: 850px; margin: 0 auto; box-shadow: 0 2px 12px rgba(108,92,231,0.06); }
+.svc-banner .badge { display: inline-block; background: var(--pri); color: #fff; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; padding: 0.3rem 0.85rem; border-radius: 999px; margin-bottom: 0.85rem; letter-spacing: 0.05em; }
+.svc-banner h3 { font-size: 1.35rem; font-weight: 800; color: var(--heading); margin-bottom: 0.85rem; }
+.svc-banner p { color: var(--muted); font-size: 0.9rem; max-width: 540px; margin: 0 auto 1.5rem; line-height: 1.6; }
+
+/* FAQ */
+.faq-list { max-width: 800px; margin: 0 auto; }
+.faq-item { border-bottom: 1px solid var(--card-border); }
+.faq-item:last-child { border-bottom: none; }
+.faq-q { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.15rem 0; cursor: pointer; font-weight: 600; font-size: 0.95rem; color: var(--heading) !important; background: transparent !important; border: none !important; border-radius: 0 !important; width: 100%; text-align: left; font-family: inherit; transition: color .2s; box-shadow: none !important; }
+.faq-q:hover, .faq-q:focus, .faq-q:active { color: var(--pri) !important; background: transparent !important; box-shadow: none !important; }
+.faq-q .arrow { font-size: 1.2rem; color: var(--pri); flex-shrink: 0; transition: transform .25s; }
+.faq-item.open .faq-q .arrow { transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
+.faq-item.open .faq-a { max-height: 400px; }
+.faq-a p { font-size: 0.9rem; color: var(--muted); padding-bottom: 1rem; line-height: 1.6; }
+
+/* Final CTA */
+.final-cta { text-align: center; padding: 4.5rem 1.5rem; background: linear-gradient(180deg, var(--bg) 0%, var(--bg-alt) 100%); }
+.final-cta h2 { font-size: 1.85rem; font-weight: 800; color: var(--heading); margin-bottom: 0.85rem; }
+.final-cta p { color: var(--muted); font-size: 0.95rem; margin-bottom: 1.75rem; }
+.btn-big { display: inline-block; background: linear-gradient(135deg, var(--pri), #8B5CF6) !important; color: #fff !important; padding: 0.9rem 2.8rem; border-radius: 12px; font-weight: 700; font-size: 1.05rem; border: none; cursor: pointer; transition: transform .2s, box-shadow .2s; box-shadow: 0 4px 20px rgba(108,92,231,0.3); }
+.btn-big:hover, .btn-big:focus, .btn-big:active { transform: translateY(-2px); box-shadow: 0 6px 28px rgba(108,92,231,0.45); color: #fff !important; background: linear-gradient(135deg, var(--pri-hover), #7C4FE0) !important; }
+.final-cta .sub-note { font-size: 0.8rem; color: var(--muted); margin-top: 0.85rem; }
+
+.toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%); background: var(--green); color: #fff; padding: 0.6rem 1.5rem; border-radius: 10px; font-weight: 600; font-size: 0.85rem; opacity: 0; transition: opacity .3s; pointer-events: none; z-index: 999; }
+.toast.show { opacity: 1; }
+
+@media (max-width: 768px) {
+  .steps, .cards-6, .rel-grid { grid-template-columns: 1fr; }
+  .breakdown, .how-detail { grid-template-columns: 1fr; }
+  .abd-hero h1 { font-size: 1.7rem; }
+  .tip { flex-direction: column; }
+  .cmp-tbl { font-size: 0.78rem; }
+  .cmp-tbl th, .cmp-tbl td { padding: 0.65rem 0.6rem; }
+  .score-ring-wrap { gap: 1rem; }
+}
+</style>
+
+<!-- Section 1: Hero -->
+<div class="abd-hero">
+  <a href="/tools/" class="back-link">&larr; Back to All Tools</a>
+  <div><span class="badge">&#128373; Free AI Content Detector</span></div>
+  <h1>Free AI Content Detector &mdash; No Signup, No Limits</h1>
+  <p class="sub">Paste any text and see which sentences read like unedited AI writing (ChatGPT, Gemini, Claude and similar tools) &mdash; and why. Every flagged sentence shows the patterns behind it, so you know exactly what to edit. Free, private, and runs in your browser.</p>
+  <div class="usp-row">
+    <span class="usp-pill">&#10003; 100% Free Forever</span>
+    <span class="usp-pill">&#10003; No Signup Required</span>
+    <span class="usp-pill">&#10003; Sentence-Level Highlighting</span>
+    <span class="usp-pill">&#10003; Shows Why Each Sentence Was Flagged</span>
+    <span class="usp-pill">&#10003; Unlimited Scans</span>
+  </div>
+</div>
+
+<!-- Section 2: Tool Widget -->
+<div class="abd-tool">
+  <div class="abd-box">
+    <div class="mb">
+      <label>Paste Your Text Below</label>
+      <textarea id="inputText" placeholder="Paste the text you want to check here. Use at least 40 words; 120+ words gives a more reliable reading. Works with blog posts, essays, emails, product descriptions and more&hellip;"></textarea>
+      <div class="char-count"><span id="wordCount">0</span> words &middot; <span id="charCount">0</span> characters</div>
+    </div>
+    <div class="btn-group">
+      <button class="btn btn-primary" id="detectBtn" type="button">&#128373; Analyse Text Now</button>
+      <button class="btn btn-secondary" id="clearBtn" type="button">Clear</button>
+      <button class="btn btn-secondary" id="sampleBtn" type="button">Load Sample Text</button>
+    </div>
+
+    <!-- Progress -->
+    <div class="progress-wrap" id="progressWrap">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill" style="width:0%"></div></div>
+      <div class="progress-label" id="progressLabel">Analysing&hellip;</div>
+    </div>
+
+    <!-- Results -->
+    <div class="result-section" id="resultSection">
+      <!-- Verdict -->
+      <div class="result-verdict" id="verdictBox">
+        <span class="verdict-icon" id="verdictIcon"></span>
+        <div class="verdict-label" id="verdictLabel"></div>
+        <div class="verdict-sub" id="verdictSub"></div>
+      </div>
+
+      <!-- Score Rings -->
+      <div class="score-ring-wrap">
+        <div class="score-item">
+          <div class="score-ring">
+            <svg width="100" height="100" viewBox="0 0 100 100">
+              <circle class="bg-circle" cx="50" cy="50" r="42"/>
+              <circle class="fg-circle" id="aiRing" cx="50" cy="50" r="42" stroke="var(--red)" stroke-dasharray="263.9" stroke-dashoffset="263.9"/>
+            </svg>
+            <div class="score-text" id="aiScore">0%</div>
+          </div>
+          <div class="score-label">AI-style signals</div>
+        </div>
+        <div class="score-item">
+          <div class="score-ring">
+            <svg width="100" height="100" viewBox="0 0 100 100">
+              <circle class="bg-circle" cx="50" cy="50" r="42"/>
+              <circle class="fg-circle" id="humanRing" cx="50" cy="50" r="42" stroke="var(--green)" stroke-dasharray="263.9" stroke-dashoffset="263.9"/>
+            </svg>
+            <div class="score-text" id="humanScore">0%</div>
+          </div>
+          <div class="score-label">Human-style signals</div>
+        </div>
+      </div>
+
+      <!-- Breakdown -->
+      <div class="breakdown" id="breakdownGrid">
+        <div class="bd-item">
+          <div class="bd-label">Stock AI phrases</div>
+          <div class="bd-val" id="bdPerplexity">--</div>
+          <div class="bd-bar"><div class="bd-bar-fill" id="bdPerplexityBar" style="width:0%;background:var(--pri)"></div></div>
+        </div>
+        <div class="bd-item">
+          <div class="bd-label">Sentence variety</div>
+          <div class="bd-val" id="bdBurstiness">--</div>
+          <div class="bd-bar"><div class="bd-bar-fill" id="bdBurstinessBar" style="width:0%;background:var(--green)"></div></div>
+        </div>
+        <div class="bd-item">
+          <div class="bd-label">Specific details</div>
+          <div class="bd-val" id="bdUniformity">--</div>
+          <div class="bd-bar"><div class="bd-bar-fill" id="bdUniformityBar" style="width:0%;background:var(--yellow)"></div></div>
+        </div>
+        <div class="bd-item">
+          <div class="bd-label">Generic framing</div>
+          <div class="bd-val" id="bdVocab">--</div>
+          <div class="bd-bar"><div class="bd-bar-fill" id="bdVocabBar" style="width:0%;background:var(--pri)"></div></div>
+        </div>
+      </div>
+
+      <!-- Highlighted Text -->
+      <div class="mb">
+        <label>Sentence-Level Analysis (hover a sentence to see why)</label>
+        <div class="hl-legend">
+          <span><span class="dot" style="background:rgba(239,68,68,0.3)"></span> Strong AI-style patterns</span>
+          <span><span class="dot" style="background:rgba(245,158,11,0.3)"></span> Some AI-style patterns</span>
+          <span><span class="dot" style="background:transparent;border:1px solid var(--card-border)"></span> No clear pattern</span>
+        </div>
+        <div class="highlighted-text" id="highlightedText"></div>
+      </div>
+
+      <!-- Stats row -->
+      <div class="stats-row">
+        <div class="stat-chip"><div class="val" id="outSentences">0</div><div class="lbl">Sentences</div></div>
+        <div class="stat-chip"><div class="val" id="outAiSent">0</div><div class="lbl">Flagged sentences</div></div>
+        <div class="stat-chip"><div class="val" id="outHumanSent">0</div><div class="lbl">Clean sentences</div></div>
+        <div class="stat-chip"><div class="val" id="outAvgLen">0</div><div class="lbl">Avg words/sentence</div></div>
+      </div>
+
+      <div class="btn-group">
+        <button class="btn btn-secondary" id="copyBtn" type="button">&#128203; Copy Report</button>
+        <button class="btn btn-secondary" id="dlBtn" type="button">&#11015; Download Report</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 3: How It Works -->
+<div class="abd-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>How Our Free AI Content Detector Works</h2>
+      <p>Three simple steps &mdash; no account, no credit card, no waiting.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <h3>Paste Your Text</h3>
+        <p>Copy and paste any content &mdash; blog posts, essays, emails, product descriptions or social captions &mdash; into the box above. At least 40 words; 120+ is better.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <h3>Click Analyse</h3>
+        <p>The checker scores 14 writing signals &mdash; stock AI phrases, lists of three, sentence variety, specific details, first-person voice and more &mdash; for the whole text and for every sentence.</p>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <h3>Edit the Flagged Sentences</h3>
+        <p>See an overall score, colour-coded sentences and the reason behind each flag. Copy or download the full report &mdash; no paywall.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 4: What We Analyse -->
+<div class="abd-section">
+  <div class="sec-head">
+    <h2>What Our AI Detector Analyses &mdash; Full Transparency</h2>
+    <p>Unlike black-box tools, we show you exactly what we measure.</p>
+  </div>
+  <div class="how-detail">
+    <div class="how-card">
+      <span class="ic">&#128290;</span>
+      <h3>Stock AI Phrases</h3>
+      <p>Words and phrases that turn up far more often in unedited AI text than in human writing &mdash; &ldquo;delve&rdquo;, &ldquo;leverage&rdquo;, &ldquo;in today&rsquo;s fast-paced world&rdquo;, &ldquo;plays a crucial role&rdquo; &mdash; plus stock openers such as &ldquo;Furthermore,&rdquo; and &ldquo;Additionally,&rdquo;.</p>
+    </div>
+    <div class="how-card">
+      <span class="ic">&#128200;</span>
+      <h3>Sentence Variety</h3>
+      <p>How much your sentence lengths vary. People mix short punchy lines with long ones; unedited AI tends to keep every sentence a similar length and shape.</p>
+    </div>
+    <div class="how-card">
+      <span class="ic">&#128207;</span>
+      <h3>Specific Details</h3>
+      <p>Numbers, names, dates, quotes and first-person experience. Real writing is full of specifics; AI drafts lean on general statements. More specifics lowers the score.</p>
+    </div>
+    <div class="how-card">
+      <span class="ic">&#128218;</span>
+      <h3>Generic Framing</h3>
+      <p>Advice-style filler such as &ldquo;there are several factors to consider&rdquo;, hedging (&ldquo;can help&rdquo;, &ldquo;may&rdquo;), and lists of three adjectives or nouns &mdash; patterns that make text sound safe but empty.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Section 5: Key Features -->
+<div class="abd-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>Why Choose BrightlyFuture AI Detector Over GPTZero, Originality.ai &amp; Copyleaks</h2>
+      <p>Built to fix the biggest frustrations with existing AI detectors.</p>
+    </div>
+    <div class="cards-6">
+      <div class="fcard">
+        <span class="ic">&#128275;</span>
+        <h3>Truly Free &mdash; No Hidden Limits</h3>
+        <p>No word caps, no daily limits and no credit system. Paste as much as you like, as often as you like.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128100;</span>
+        <h3>No Signup Required</h3>
+        <p>No account, no email. Paste your text and analyse it straight away.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128270;</span>
+        <h3>Sentence-Level Highlighting</h3>
+        <p>Every sentence is scored and colour-coded (red = strong AI-style patterns, yellow = some, unmarked = none), so you can see exactly which parts need rewriting.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128202;</span>
+        <h3>Shows Why, Not Just a Score</h3>
+        <p>Hover any highlighted sentence to see the reason &mdash; a stock phrase, a list of three, a stock opener &mdash; so you know what to change instead of guessing.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#128274;</span>
+        <h3>100% Private &amp; Secure</h3>
+        <p>The analysis runs entirely in your browser. Your text is never uploaded, stored or shared.</p>
+      </div>
+      <div class="fcard">
+        <span class="ic">&#129302;</span>
+        <h3>Honest About Accuracy</h3>
+        <p>We publish our own test results: on 176 texts the model had never seen, it flagged 87% of ChatGPT answers and 16% of human texts. No detector can prove who wrote something.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 6: Comparison Table -->
+<div class="abd-section">
+  <div class="sec-head">
+    <h2>BrightlyFuture vs GPTZero vs Originality.ai vs Copyleaks &mdash; Honest Comparison</h2>
+    <p>Free-plan features compared. Competitor plans change often &mdash; check their sites for current limits.</p>
+  </div>
+  <div class="tbl-wrap">
+    <table class="cmp-tbl">
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th class="hl">BrightlyFuture</th>
+          <th>GPTZero</th>
+          <th>Originality.ai</th>
+          <th>Copyleaks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Free to Use</td><td class="hl"><span class="ck">&#10003;</span> Unlimited</td><td>Limited free plan</td><td><span class="cx">&#10007;</span> Paid</td><td>Limited free plan</td></tr>
+        <tr><td>No Signup Required</td><td class="hl"><span class="ck">&#10003;</span></td><td>Account for full features</td><td><span class="cx">&#10007;</span></td><td>Account for full features</td></tr>
+        <tr><td>Sentence-Level Highlighting</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td><td><span class="ck">&#10003;</span></td></tr>
+        <tr><td>Reason Shown for Each Flag</td><td class="hl"><span class="ck">&#10003;</span></td><td>Partial</td><td>Partial</td><td>Partial</td></tr>
+        <tr><td>Data Privacy (No Upload)</td><td class="hl"><span class="ck">&#10003;</span> Browser-only</td><td><span class="cx">&#10007;</span> Server-side</td><td><span class="cx">&#10007;</span> Server-side</td><td><span class="cx">&#10007;</span> Server-side</td></tr>
+        <tr><td>Free Downloadable Reports</td><td class="hl"><span class="ck">&#10003;</span></td><td>Paid plans</td><td>Paid plans</td><td>Paid plans</td></tr>
+        <tr><td>Unlimited Scans</td><td class="hl"><span class="ck">&#10003;</span></td><td><span class="cx">&#10007;</span></td><td><span class="cx">&#10007;</span> Credit-based</td><td><span class="cx">&#10007;</span> Credit-based</td></tr>
+        <tr><td>Languages</td><td class="hl">English</td><td>Several</td><td>Many</td><td>Many</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Section 7: Who Is This For -->
+<div class="abd-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>Who Uses Our AI Content Detector?</h2>
+      <p>Built for anyone who wants writing that sounds like a person.</p>
+    </div>
+    <div class="cards-6">
+      <div class="aud-card">
+        <span class="ic">&#127891;</span>
+        <h3>Teachers &amp; Educators</h3>
+        <p>Spot passages worth a conversation with a student. Use it as a prompt for discussion, never as proof on its own.</p>
+      </div>
+      <div class="aud-card">
+        <span class="ic">&#128221;</span>
+        <h3>Content Managers &amp; Editors</h3>
+        <p>Review freelancer deliverables and guest posts for generic, AI-style passages before they go live.</p>
+      </div>
+      <div class="aud-card">
+        <span class="ic">&#128188;</span>
+        <h3>SEO Professionals</h3>
+        <p>Find thin, generic sections that add nothing new, then add the experience and specifics that Google&rsquo;s helpful content guidance rewards.</p>
+      </div>
+      <div class="aud-card">
+        <span class="ic">&#128640;</span>
+        <h3>Recruiters &amp; HR Teams</h3>
+        <p>See whether cover letters and writing samples lean on stock phrasing, then ask follow-up questions in interview.</p>
+      </div>
+      <div class="aud-card">
+        <span class="ic">&#128214;</span>
+        <h3>Publishers &amp; Authors</h3>
+        <p>Screen submissions for generic passages and keep your editorial voice consistent.</p>
+      </div>
+      <div class="aud-card">
+        <span class="ic">&#128187;</span>
+        <h3>Bloggers &amp; Copywriters</h3>
+        <p>Self-check AI-assisted drafts before publishing. See which sentences sound like AI and rewrite them in your own voice.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 8: Tips for Accurate Results -->
+<div class="abd-section">
+  <div class="sec-head">
+    <h2>Tips for Getting the Most Accurate AI Detection Results</h2>
+    <p>Follow these best practices for reliable analysis.</p>
+  </div>
+  <div class="tips">
+    <div class="tip">
+      <div class="tip-n">1</div>
+      <div>
+        <h3>Use at Least 40 Words &mdash; 120+ for a Better Reading</h3>
+        <p>Short snippets don&rsquo;t contain enough patterns for a reliable score. This is true of every AI detector, not just ours.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">2</div>
+      <div>
+        <h3>Test Full Paragraphs, Not Bullet Points</h3>
+        <p>Sentence fragments, bullet lists and headings can skew results. Use complete paragraphs for the most accurate analysis.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">3</div>
+      <div>
+        <h3>Analyse Different Sections Separately</h3>
+        <p>In long documents, different sections may have different authors or AI involvement. Check the introduction, body and conclusion separately.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">4</div>
+      <div>
+        <h3>No AI Detector Is 100% Accurate</h3>
+        <p>Formal, technical and non-native English writing can score high even when a person wrote it. Treat the score as one signal alongside your own judgement &mdash; never as the only basis for a decision about someone.</p>
+      </div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">5</div>
+      <div>
+        <h3>Edited AI Text Scores Low</h3>
+        <p>The checker measures style. When someone rewrites an AI draft in their own voice, the style changes and the score drops. That&rsquo;s by design: it tells you whether the writing still sounds like unedited AI.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 9: Related Tools -->
+<div class="abd-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>More Free AI Tools from BrightlyFuture</h2>
+      <p>Explore our growing library of free content and marketing tools.</p>
+    </div>
+    <div class="rel-grid">
+      <div class="rel-card">
+        <span class="cat">Content &middot; AI</span>
+        <h3>AI Blog Generator</h3>
+        <p>Generate a structured first draft of a blog post from your topic and keyword. No signup, no credit card.</p>
+        <a href="/ai-blog-generator/" class="btn btn-secondary">Try Free &rarr;</a>
+      </div>
+      <div class="rel-card">
+        <span class="cat">Content &middot; AI</span>
+        <h3>AI Paraphraser / Rewriter</h3>
+        <p>Rewrite flagged sentences in six tones, then edit the result in your own voice.</p>
+        <a href="/ai-paraphrase-rewriter/" class="btn btn-secondary">Try Free &rarr;</a>
+      </div>
+      <div class="rel-card">
+        <span class="cat">Content &middot; SEO</span>
+        <h3>Word &amp; Character Counter</h3>
+        <p>Count words, characters, sentences, paragraphs, and estimate reading time for SEO-optimal content length.</p>
+        <a href="/word-character-counter/" class="btn btn-secondary">Try Free &rarr;</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 10: Service Banner -->
+<div class="abd-section">
+  <div class="svc-banner">
+    <span class="badge">Done-for-you</span>
+    <h3>Need Content That Reads Like a Real Expert Wrote It?</h3>
+    <p>Our team writes original, SEO-optimised content from real research and experience &mdash; content that sounds human because people write it, and is built to rank on Google.</p>
+    <a href="/content-marketing/" class="btn btn-primary">Get a Free Quote &rarr;</a>
+  </div>
+</div>
+
+<!-- Section 11: FAQ -->
+<div class="abd-section alt">
+  <div class="inner">
+    <div class="sec-head">
+      <h2>Frequently Asked Questions About AI Content Detection</h2>
+      <p>Everything you need to know about detecting AI-generated text.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item"><button class="faq-q" type="button">Is this AI content detector really 100% free?<span class="arrow">+</span></button><div class="faq-a"><p>Yes &mdash; no hidden costs, no trial period, no credits and no upgrade prompts. Sentence-level analysis and downloadable reports are free too.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">Do I need to create an account or sign up?<span class="arrow">+</span></button><div class="faq-a"><p>No signup, no email, no account. Paste your text and get results immediately.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">Which AI models can this detector identify?<span class="arrow">+</span></button><div class="faq-a"><p>It looks for writing patterns shared by most chatbots &mdash; ChatGPT, Gemini, Claude, LLaMA and others &mdash; rather than a fingerprint of one model. It can&rsquo;t tell you which tool was used, only whether the text reads like unedited AI output.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">How is the score calculated?<span class="arrow">+</span></button><div class="faq-a"><p>The checker measures 14 signals, including stock AI phrases, lists of three, stock sentence openers, hedging, generic framing, specific details, first-person voice, contractions and sentence-length variety. A statistical model trained on labelled ChatGPT and human answers combines them into one score from 0 to 100.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">Does it measure perplexity or burstiness?<span class="arrow">+</span></button><div class="faq-a"><p>Not true perplexity &mdash; that needs a full language model running on a server. It does measure sentence-length variety, which is what &ldquo;burstiness&rdquo; usually refers to, and shows it as &ldquo;Sentence variety&rdquo;.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">Is my text stored or sent to a server?<span class="arrow">+</span></button><div class="faq-a"><p>No. The analysis runs entirely in your browser using JavaScript. Your text is never uploaded, stored, logged or shared.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">How many words do I need for accurate results?<span class="arrow">+</span></button><div class="faq-a"><p>At least 40 words to run a check, and 120+ words for a more reliable reading. Very short texts don&rsquo;t contain enough patterns for any detector to judge.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">Can it detect AI content that has been paraphrased or humanised?<span class="arrow">+</span></button><div class="faq-a"><p>Often not, and that&rsquo;s true of every detector. When AI text is rewritten, its style changes, and style is what detectors measure. In our tests, hand-edited AI drafts all scored below 50.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">How accurate is this AI detector?<span class="arrow">+</span></button><div class="faq-a"><p>On 176 texts the model had never seen (79 ChatGPT answers, 97 human texts), a score of 50+ caught 87% of the ChatGPT answers but also flagged 16% of the human texts. A score of 80+ caught 51% of ChatGPT answers and flagged 5% of human texts. No detector can prove who wrote something.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">Does it work with non-English text?<span class="arrow">+</span></button><div class="faq-a"><p>No. The signals and the model are built for English. Other languages will give unreliable results.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">Can I use this to check my own AI-assisted writing before publishing?<span class="arrow">+</span></button><div class="faq-a"><p>Yes &mdash; it&rsquo;s the best use for it. Paste your draft, hover the highlighted sentences to see why each was flagged, and rewrite those parts with your own experience and specifics.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">Will Google penalise my website for AI-generated content?<span class="arrow">+</span></button><div class="faq-a"><p>Google says it rewards helpful content however it&rsquo;s produced, and targets content made mainly to manipulate rankings, such as mass-produced pages with little value. Use the checker to find generic sections, then add your experience and specifics. Read more in <a href="/blog/can-google-detect-ai-content/">can Google detect AI content?</a></p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">Is there a daily usage limit or word cap?<span class="arrow">+</span></button><div class="faq-a"><p>No. There are no daily caps, word limits or credits, because the analysis runs on your own device.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">Can I download or share my analysis results?<span class="arrow">+</span></button><div class="faq-a"><p>Yes &mdash; Copy Report copies a text summary to your clipboard, and Download Report saves a .txt file with the score, the signal breakdown and every sentence with the reasons it was flagged. Both are free.</p></div></div>
+      <div class="faq-item"><button class="faq-q" type="button">How is AI detection different from plagiarism checking?<span class="arrow">+</span></button><div class="faq-a"><p>Plagiarism checkers compare your text against published content to find copied passages. AI detectors look at writing patterns to judge whether text reads like AI output, even if it appears nowhere else online. They answer different questions and work best together.</p></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Section 12: Final CTA -->
+<div class="final-cta">
+  <h2>Does Your Content Sound Like AI?</h2>
+  <p>Find out in seconds &mdash; free, private and transparent. No signup, no limits, no hidden costs.</p>
+  <button class="btn-big" id="ctaBtn" type="button">&#128373; Analyse Your Text Now &mdash; 100% Free</button>
+  <div class="sub-note">No Signup &middot; Unlimited Scans &middot; Reasons for Every Flag &middot; Free Reports</div>
+</div>
+
+<div class="toast" id="toast">Copied!</div>
+
+<script>
+/*!
+ * BrightlyFuture AI Writing Pattern Checker – core (v2)
+ * Pure functions, no DOM. Runs in the browser and in Node for testing.
+ */
+(function (root) {
+  'use strict';
+
+  // Words and phrases that appear far more often in unedited LLM output than in
+  // human writing. Weight 2 = strong tell, 1 = mild tell.
+  var AI_MARKERS = [
+    ['delve', 2], ['tapestry', 2], ['testament to', 2], ['in today\'s', 2], ['ever-evolving', 2], ['ever-changing', 2],
+    ['rapidly evolving', 2], ['digital landscape', 2], ['landscape', 1], ['realm', 2], ['embark', 2], ['unlock', 1],
+    ['unleash', 2], ['harness', 2], ['foster', 2], ['fostering', 2], ['leverage', 2], ['leveraging', 2], ['seamless', 2],
+    ['seamlessly', 2], ['robust', 1], ['pivotal', 2], ['crucial', 1], ['vital', 1], ['essential', 1], ['comprehensive', 1],
+    ['elevate', 2], ['empower', 2], ['streamline', 2], ['cutting-edge', 2], ['innovative', 1], ['transformative', 2],
+    ['game-changer', 2], ['navigate', 1], ['navigating', 1], ['intricate', 2], ['multifaceted', 2], ['nuanced', 1],
+    ['plays a crucial role', 2], ['plays a key role', 2], ['plays a vital role', 2], ['it is important to', 2],
+    ['it\'s important to', 2], ['it is essential to', 2], ['it is crucial', 2], ['it is worth noting', 2],
+    ['additionally', 1], ['furthermore', 2], ['moreover', 2], ['ultimately', 1], ['in conclusion', 2], ['overall,', 1],
+    ['whether you are', 2], ['whether you\'re', 2], ['like never before', 2], ['take your', 1], ['to the next level', 2],
+    ['a wide range of', 1], ['a variety of', 1], ['numerous', 1], ['various', 1], ['enhance', 1], ['optimal', 1],
+    ['ensure', 1], ['ensures', 1], ['ensuring', 1], ['myriad', 2], ['plethora', 2], ['paramount', 2], ['holistic', 2],
+    ['synergy', 2], ['in this article', 2], ['we will explore', 2], ['let\'s explore', 2], ['dive into', 2], ['deep dive', 2],
+    ['key differentiator', 2], ['customer-centric', 2], ['proactive approach', 2], ['long-term success', 2],
+    ['sustainable growth', 2], ['full potential', 2], ['work smarter', 2], ['more than ever', 1], ['alike', 1],
+    ['valuable insights', 2], ['actionable', 1], ['stand out', 1], ['significantly', 1], ['profound', 1], ['equitable', 1],
+    ['a testament', 2], ['serves as', 1], ['at the forefront', 2], ['shape the future', 2], ['reshaping', 2]
+  ];
+  var TRANSITION_OPENERS = /^(Additionally|Furthermore|Moreover|However|Ultimately|Overall|In addition|Consequently|Therefore|Thus|Notably|Importantly|In conclusion|By [a-z]+ing|Whether you|With [a-z]+ |From [a-z]+ to|As a result|In today's|Finally|Next|Firstly|Secondly|Lastly)\b/;
+  var CONTRACTIONS = /\b(I'm|I've|I'd|I'll|don't|doesn't|didn't|can't|won't|isn't|aren't|wasn't|weren't|it's|that's|there's|you're|we're|they're|you've|we've|couldn't|wouldn't|shouldn't|hadn't|haven't|let's|he's|she's)\b/gi;
+  var FIRST_PERSON = /\b(I|me|my|mine|we|our|us)\b/g;
+  var HEDGE_GENERIC = /\b(can help|help you|allows you to|enables you to|you can|should|be sure to|make sure|consider|it is recommended)\b/gi;
+
+  // Fitted 27 Sept 2026 on 252 texts (HC3 ChatGPT/human answers + pre-AI human writing).
+  var WEIGHTS = {"bias": -0.1777, "hedges": 0.1667, "frames": 0.6438, "informal": -0.5674, "parens": -0.3682, "longWords": -0.1553, "richness": -0.6693, "markers": 0.5294, "triads": 0.282, "openers": 0.0918, "generic": -0.0471, "specificity": 0.1446, "voice": -0.3059, "variation": -0.6336, "avgLen": -0.352};
+  var MEANS = {"hedges": 2.028, "frames": 0.4862, "informal": 0.2689, "parens": 0.5813, "longWords": 11.1543, "richness": 5.1935, "markers": 0.4444, "triads": 0.1568, "openers": 0.0278, "generic": 0.3039, "specificity": 3.9819, "voice": 1.0186, "variation": 0.4124, "avgLen": 23.1201};
+  var SDS = {"hedges": 1.5166, "frames": 0.666, "informal": 0.7684, "parens": 1.0062, "longWords": 6.1227, "richness": 1.018, "markers": 0.7419, "triads": 0.2547, "openers": 0.0632, "generic": 0.6144, "specificity": 6.1424, "voice": 1.9463, "variation": 0.184, "avgLen": 8.1448};
+  function setModel(w, m, sd) { WEIGHTS = w; MEANS = m; SDS = sd; }
+
+  function sentencesOf(text) {
+    var s = text.replace(/\s+/g, ' ').match(/[^.!?]+(?:[.!?]+["')\]]*|$)/g) || [];
+    return s.map(function (x) { return x.trim(); }).filter(function (x) { return /[A-Za-z]/.test(x); });
+  }
+  function wordsOf(t) { return t.match(/[A-Za-z0-9'’-]+/g) || []; }
+  function clamp(x, a, b) { return Math.max(a, Math.min(b, x)); }
+
+  function markerHits(sentence) {
+    var lc = ' ' + sentence.toLowerCase() + ' ';
+    var hits = [];
+    for (var i = 0; i < AI_MARKERS.length; i++) {
+      var m = AI_MARKERS[i][0];
+      var re = new RegExp('(^|[^a-z])' + m.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(?=[^a-z]|$)', 'g');
+      var c = (lc.match(re) || []).length;
+      if (c) hits.push({ term: m, weight: AI_MARKERS[i][1] * c });
+    }
+    return hits;
+  }
+
+  // Share of sentences that contain an "X, Y, and Z" style list of three.
+  function triadCount(sentence) { return (sentence.match(/\b[\w-]+(?: [\w-]+){0,2}, [\w-]+(?: [\w-]+){0,2},? (and|or) [\w-]+/g) || []).length; }
+
+  function specificityCount(sentence, isFirst) {
+    var n = 0;
+    n += (sentence.match(/\b\d[\d,.:%£$€]*\b/g) || []).length;                  // numbers, prices, times
+    n += (sentence.match(/["“][^"”]{3,}["”]/g) || []).length;                    // quotes
+    var w = sentence.split(/\s+/);
+    for (var i = 1; i < w.length; i++) if (/^[A-Z][a-z]+/.test(w[i]) && !/^(I|I'm|I've|I'd)$/.test(w[i])) n++; // names mid-sentence
+    return n;
+  }
+
+  function analyse(text) {
+    var sents = sentencesOf(text);
+    var words = wordsOf(text);
+    var W = Math.max(1, words.length), S = Math.max(1, sents.length);
+    var lens = sents.map(function (s) { return wordsOf(s).length; });
+    var mean = lens.reduce(function (a, b) { return a + b; }, 0) / S;
+    var sd = Math.sqrt(lens.reduce(function (a, b) { return a + (b - mean) * (b - mean); }, 0) / S);
+    var cv = mean ? sd / mean : 0;
+
+    var markerWeight = 0, triads = 0, openers = 0, spec = 0, perSentence = [];
+    sents.forEach(function (s, i) {
+      var hits = markerHits(s);
+      var mw = hits.reduce(function (a, h) { return a + h.weight; }, 0);
+      var tr = triadCount(s);
+      var op = TRANSITION_OPENERS.test(s) ? 1 : 0;
+      var sp = specificityCount(s, i === 0);
+      var fp = (s.match(FIRST_PERSON) || []).length + (s.match(CONTRACTIONS) || []).length;
+      var gen = (s.match(HEDGE_GENERIC) || []).length;
+      markerWeight += mw; triads += tr; openers += op; spec += sp;
+      // Sentence score: evidence for AI style minus evidence for a human voice.
+      var raw = 1.1 * mw + 1.2 * tr + 1.3 * op + 0.6 * gen - 0.8 * sp - 0.9 * fp;
+      var len = lens[i];
+      if (len >= 18 && len <= 30) raw += 0.4;
+      if (len <= 7) raw -= 0.7;
+      var reasons = [];
+      hits.slice(0, 3).forEach(function (h) { reasons.push('"' + h.term + '"'); });
+      if (tr) reasons.push('list of three');
+      if (op) reasons.push('stock transition opener');
+      if (gen) reasons.push('generic advice phrasing');
+      perSentence.push({ text: s, raw: raw, reasons: reasons, human: sp + fp > 0 });
+    });
+
+    var contractions = (text.match(CONTRACTIONS) || []).length;
+    var firstPerson = (text.match(FIRST_PERSON) || []).length;
+    var generic = (text.match(HEDGE_GENERIC) || []).length;
+
+    var lower = text.toLowerCase();
+    var hedges = (lower.match(/\b(may|might|can|could|generally|typically|often|usually|various|several|certain|potentially|overall|also)\b/g) || []).length;
+    var stockFrames = (lower.match(/\b(there are (several|many|a few|a number of)|it is (also|not uncommon|generally|possible|important|essential|likely)|in general|for example|in other words|this means that|this can|this is because|some people|depending on|in addition|as well as|it's (also|important|possible|not uncommon))\b/g) || []).length;
+    var informal = (text.match(/\b(lol|gonna|wanna|kinda|u|ur|im|dont|doesnt|cant|thats|yeah|yep|nope|ok|okay|stuff|guy|guys|pretty much|basically|actually|honestly)\b/gi) || []).length
+      + (text.match(/(^|[.!?]\s+)[a-z]/g) || []).length + (text.match(/[!?]{2,}|\.\.\.|:\)|\*/g) || []).length;
+    var parens = (text.match(/\(/g) || []).length;
+    var longWords = words.filter(function (w) { return w.length >= 9; }).length;
+    var uniq = {}; words.forEach(function (w) { uniq[w.toLowerCase()] = 1; });
+    var ttr = Object.keys(uniq).length / Math.sqrt(2 * W); // Guiraud-style, length-robust
+    var f = {
+      hedges: 100 * hedges / W,
+      frames: 100 * stockFrames / W,
+      informal: 100 * informal / W,
+      parens: 100 * parens / W,
+      longWords: 100 * longWords / W,
+      richness: ttr,
+      markers: 100 * markerWeight / W,        // weighted AI markers per 100 words
+      triads: triads / S,                      // lists of three per sentence
+      openers: openers / S,                    // share of sentences with stock openers
+      generic: 100 * generic / W,              // generic advice phrases per 100 words
+      specificity: 100 * spec / W,             // numbers, names, quotes per 100 words
+      voice: 100 * (contractions + firstPerson) / W, // first person + contractions per 100 words
+      variation: cv,                           // sentence-length variation (burstiness)
+      avgLen: mean
+    };
+
+    // Logistic model; weights fitted on a training split of public data (see REVIEW.md).
+    var z = WEIGHTS.bias;
+    for (var k in WEIGHTS) if (k !== 'bias' && f[k] !== undefined) z += WEIGHTS[k] * (f[k] - MEANS[k]) / SDS[k];
+    var score = clamp(Math.round(100 / (1 + Math.exp(-z))), 1, 99);
+
+    perSentence.forEach(function (p) {
+      p.level = p.raw >= 2.2 ? 'high' : p.raw >= 1 ? 'some' : 'low';
+    });
+
+    return { score: score, features: f, sentences: perSentence, words: W, count: S };
+  }
+
+  var api = { analyse: analyse, sentencesOf: sentencesOf, setModel: setModel };
+  if (typeof module !== 'undefined' && module.exports) module.exports = api;
+  root.BFDetectorCore = api;
+})(typeof window !== 'undefined' ? window : this);
+
+/* ---------------- Page wiring (same element IDs as the live tool) ---------------- */
+(function () {
+  'use strict';
+  if (typeof document === 'undefined') return;
+  var C = window.BFDetectorCore, inputEl, lastReport = '';
+  function $(id) { return document.getElementById(id); }
+  function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); }
+  function setText(el, t) { if (el) el.textContent = t; }
+
+  function relabel() {
+    var labels = document.querySelectorAll('.score-label');
+    if (labels[0]) labels[0].textContent = 'AI-style signals';
+    if (labels[1]) labels[1].textContent = 'Human-style signals';
+    var bd = document.querySelectorAll('#breakdownGrid .bd-label');
+    var names = ['Stock AI phrases', 'Sentence variety', 'Specific details', 'Generic framing'];
+    for (var i = 0; i < bd.length && i < names.length; i++) bd[i].textContent = names[i];
+    var legend = document.querySelectorAll('.hl-legend > span');
+    var ln = ['Strong AI-style patterns', 'Some AI-style patterns', 'No clear pattern'];
+    for (var j = 0; j < legend.length && j < 3; j++) {
+      var dot = legend[j].querySelector('.dot');
+      legend[j].textContent = ' ' + ln[j];
+      if (dot) legend[j].insertBefore(dot, legend[j].firstChild);
+    }
+    var chips = document.querySelectorAll('.stats-row .lbl');
+    var cn = ['Sentences', 'Flagged sentences', 'Clean sentences', 'Avg words/sentence'];
+    for (var k = 0; k < chips.length && k < 4; k++) chips[k].textContent = cn[k];
+    var res = $('resultSection');
+    if (res && !$('bfNote')) {
+      var n = document.createElement('p');
+      n.id = 'bfNote';
+      n.style.cssText = 'font-size:14px;line-height:1.55;margin:14px 0 0;padding:12px 14px;border-radius:10px;background:rgba(124,58,237,.07)';
+      n.textContent = 'How to read this: the score measures writing patterns common in unedited AI text. It cannot prove who wrote something. In our tests on 176 texts it had never seen, it flagged 87% of ChatGPT answers but also 16% of human texts, mostly formal or technical writing. Use the highlighted sentences to edit, not to accuse anyone.';
+      var verdict = $('verdictBox');
+      if (verdict && verdict.parentNode) verdict.parentNode.insertBefore(n, verdict.nextSibling);
+    }
+  }
+
+  function init() {
+    inputEl = $('inputText');
+    if (!inputEl) { setTimeout(init, 200); return; }
+    inputEl.addEventListener('input', function () {
+      var t = this.value.trim();
+      setText($('wordCount'), t ? t.split(/\s+/).length : 0);
+      setText($('charCount'), this.value.length);
+    });
+    var bind = function (id, fn) { var b = $(id); if (b) b.addEventListener('click', function (e) { e.preventDefault(); fn(); }); };
+    bind('detectBtn', detectAI); bind('clearBtn', clearAll); bind('sampleBtn', loadSample);
+    bind('copyBtn', copyReport); bind('dlBtn', downloadReport);
+    bind('ctaBtn', function () { inputEl.scrollIntoView({ behavior: 'smooth' }); inputEl.focus(); });
+    var faq = document.querySelectorAll('.faq-q');
+    for (var i = 0; i < faq.length; i++) faq[i].addEventListener('click', function (e) { e.preventDefault(); this.parentElement.classList.toggle('open'); });
+    setText($('progressLabel'), 'Analysing...');
+    relabel();
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init); else init();
+
+  function loadSample() {
+    inputEl.value = 'In today\'s rapidly evolving digital landscape, businesses must leverage innovative tools to stay ahead of the competition. Artificial intelligence plays a crucial role in streamlining operations, enhancing customer experiences, and driving sustainable growth. Furthermore, it is important to note that data-driven decision-making empowers organisations to unlock their full potential. Whether you are a small start-up or a large enterprise, embracing these technologies can help you achieve long-term success. Ultimately, the future belongs to those who adapt.';
+    inputEl.dispatchEvent(new Event('input'));
+  }
+
+  function pct(x, lo, hi) { return Math.round(Math.max(0, Math.min(1, (x - lo) / (hi - lo))) * 100); }
+
+  function detectAI() {
+    if (!inputEl) return;
+    var text = inputEl.value.trim();
+    var wc = text ? text.split(/\s+/).length : 0;
+    if (wc < 40) { alert('Please paste at least 40 words. Short snippets do not give a reliable reading.'); return; }
+    $('detectBtn').disabled = true;
+    $('progressWrap').style.display = 'block';
+    $('progressFill').style.width = '70%';
+    setTimeout(function () {
+      try { render(text); } catch (err) { alert('Analysis error: ' + err.message); }
+      $('progressWrap').style.display = 'none';
+      $('detectBtn').disabled = false;
+    }, 200);
+  }
+
+  function render(text) {
+    var r = C.analyse(text), f = r.features, s = r.score;
+    var box = $('verdictBox');
+    var band, icon, sub;
+    if (s >= 80) { band = 'Strong AI-style signals'; icon = '&#129302;'; box.className = 'result-verdict ai'; sub = 'This reads like unedited AI output: stock phrases, even sentence lengths and few specific details. Rewrite the highlighted sentences in your own words and add examples only you could give.'; }
+    else if (s >= 50) { band = 'Some AI-style signals'; icon = '&#129300;'; box.className = 'result-verdict mixed'; sub = 'Parts of this read like AI or very formal writing. Check the highlighted sentences. Formal human writing can land here too.'; }
+    else { band = 'Few AI-style signals'; icon = '&#9989;'; box.className = 'result-verdict human'; sub = 'The writing shows human-style variety and detail. This is not proof of authorship: edited AI text can score low as well.'; }
+    if (r.words < 120) sub += ' Note: with under 120 words the reading is less reliable.';
+    $('verdictIcon').innerHTML = icon; setText($('verdictLabel'), band); setText($('verdictSub'), sub);
+
+    var circ = 2 * Math.PI * 42;
+    $('aiRing').setAttribute('stroke-dashoffset', circ - circ * s / 100);
+    $('humanRing').setAttribute('stroke-dashoffset', circ - circ * (100 - s) / 100);
+    setText($('aiScore'), s + '%'); setText($('humanScore'), (100 - s) + '%');
+
+    var m = [
+      ['bdPerplexity', pct(f.markers, 0, 4)],                     // stock AI phrases (higher = more)
+      ['bdBurstiness', pct(f.variation, 0.15, 0.7)],              // sentence variety (higher = more human)
+      ['bdUniformity', pct(f.specificity + f.voice, 0, 8)],       // specific details + personal voice
+      ['bdVocab', pct(f.frames + f.hedges * 0.5, 0, 6)]           // generic framing
+    ];
+    m.forEach(function (x) { setText($(x[0]), x[1] + '%'); var b = $(x[0] + 'Bar'); if (b) b.style.width = x[1] + '%'; });
+
+    var html = '', flagged = 0, clean = 0, lines = [];
+    r.sentences.forEach(function (p, i) {
+      var tip = p.reasons.length ? 'Why: ' + p.reasons.join(', ') : 'No clear AI pattern';
+      if (p.level === 'high') { html += '<span class="hl-ai" title="' + esc(tip) + '">' + esc(p.text) + '</span> '; flagged++; }
+      else if (p.level === 'some') { html += '<span class="hl-mixed" title="' + esc(tip) + '">' + esc(p.text) + '</span> '; flagged++; }
+      else { html += '<span title="' + esc(tip) + '">' + esc(p.text) + '</span> '; clean++; }
+      lines.push('[' + (i + 1) + '] ' + (p.level === 'high' ? 'STRONG' : p.level === 'some' ? 'SOME' : 'none') + (p.reasons.length ? ' (' + p.reasons.join(', ') + ')' : '') + ': ' + p.text);
+    });
+    $('highlightedText').innerHTML = html;
+    setText($('outSentences'), r.count); setText($('outAiSent'), flagged); setText($('outHumanSent'), clean);
+    setText($('outAvgLen'), Math.round(f.avgLen));
+
+    lastReport = 'AI WRITING PATTERN REPORT - BrightlyFuture\n' +
+      '==========================================\n' +
+      'Result: ' + band + ' (' + s + '/100)\n' +
+      'Words: ' + r.words + ' | Sentences: ' + r.count + '\n\n' +
+      'Signals\n- Stock AI phrases: ' + m[0][1] + '%\n- Sentence variety: ' + m[1][1] + '%\n- Specific details: ' + m[2][1] + '%\n- Generic framing: ' + m[3][1] + '%\n\n' +
+      'Sentences\n' + lines.join('\n') + '\n\n' +
+      'Note: this score measures writing patterns. It cannot prove who wrote a text.\n' +
+      'https://brightlyfuture.co.uk/ai-blog-detector/';
+    $('resultSection').style.display = 'block';
+  }
+
+  function toast() { var t = $('toast'); if (!t) return; t.classList.add('show'); setTimeout(function () { t.classList.remove('show'); }, 2000); }
+  function copyReport() {
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(lastReport).then(toast);
+    else { var ta = document.createElement('textarea'); ta.value = lastReport; document.body.appendChild(ta); ta.select(); document.execCommand('copy'); document.body.removeChild(ta); toast(); }
+  }
+  function downloadReport() {
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([lastReport], { type: 'text/plain' }));
+    a.download = 'ai-writing-pattern-report.txt';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  }
+  function clearAll() {
+    inputEl.value = ''; inputEl.dispatchEvent(new Event('input'));
+    $('resultSection').style.display = 'none'; $('progressWrap').style.display = 'none';
+  }
+  window.detectAI = detectAI; window.loadSample = loadSample; window.clearAll = clearAll;
+  window.copyReport = copyReport; window.downloadReport = downloadReport;
+  window.toggleFaq = function (btn) { btn.parentElement.classList.toggle('open'); };
+})();
+
+</script>
+
