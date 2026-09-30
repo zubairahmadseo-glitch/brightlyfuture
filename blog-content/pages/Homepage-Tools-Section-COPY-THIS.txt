@@ -1,0 +1,78 @@
+<section class="section" id="tools" aria-labelledby="tools-heading">
+  <div class="container">
+
+    <div class="sec-header">
+      <span class="sec-tag">Free Tools</span>
+      <h2 class="sec-title" id="tools-heading">Useful tools, no sign-up<br>required</h2>
+      <p class="sec-sub">14 free tools for bloggers, marketers and website owners, built and tested at BrightlyFuture. No account, no credit card.</p>
+    </div>
+
+    <div class="tools-layout">
+
+      <article class="featured-tool">
+        <div class="ft-badge">⭐ Featured Tool</div>
+        <div class="ft-icon">🤖</div>
+        <h3 class="ft-name">AI Blog Generator</h3>
+        <p class="ft-desc">Get a structured first draft in under a minute. Set your topic, keyword, audience and tone, and get question-style headings and an FAQ. It won't invent facts; it marks where yours should go.</p>
+        <div class="ft-features">
+          <span class="ft-feature">4 tones</span>
+          <span class="ft-feature">Keyword targeting</span>
+          <span class="ft-feature">FAQ generation</span>
+          <span class="ft-feature">UK or US English</span>
+          <span class="ft-feature">No made-up facts</span>
+          <span class="ft-feature">Markdown &amp; HTML export</span>
+          <span class="ft-feature">No sign-up</span>
+        </div>
+        <div class="ft-actions">
+          <a href="/ai-blog-generator/" class="btn-primary-lg">Try It Free →</a>
+          <a href="/tools/" class="btn-outline-lg">Browse All Tools</a>
+        </div>
+      </article>
+
+      <div class="tools-sidebar">
+
+        <article class="tool-mini">
+          <div class="tool-mini-head">
+            <span class="tool-mini-icon">📖</span>
+            <div>
+              <div class="tool-mini-cat">Text &amp; SEO</div>
+              <div class="tool-mini-name">Readability Checker</div>
+            </div>
+          </div>
+          <p class="tool-mini-desc">Flesch score, four grade levels and highlights for long sentences, passive voice and hard words, with a list of fixes.</p>
+          <a href="/readability-checker/" class="tool-mini-action">Try tool →</a>
+        </article>
+
+        <article class="tool-mini">
+          <div class="tool-mini-head">
+            <span class="tool-mini-icon">📰</span>
+            <div>
+              <div class="tool-mini-cat">SEO</div>
+              <div class="tool-mini-name">Headline Analyzer</div>
+            </div>
+          </div>
+          <p class="tool-mini-desc">Score your title, preview it in Google search and compare up to 10 versions. Every check comes with a fix.</p>
+          <a href="/headline-analyzer/" class="tool-mini-action">Try tool →</a>
+        </article>
+
+        <article class="tool-mini">
+          <div class="tool-mini-head">
+            <span class="tool-mini-icon">🕵️</span>
+            <div>
+              <div class="tool-mini-cat">AI Writing</div>
+              <div class="tool-mini-name">AI Content Detector</div>
+            </div>
+          </div>
+          <p class="tool-mini-desc">See which sentences read like unedited AI, and why, so you know exactly what to rewrite.</p>
+          <a href="/ai-blog-detector/" class="tool-mini-action">Try tool →</a>
+        </article>
+
+      </div>
+    </div>
+
+    <div class="tools-footer">
+      <a href="/tools/" class="btn-outline-center">View All 14 Free Tools ↗</a>
+    </div>
+
+  </div>
+</section>
