@@ -1,3 +1,114 @@
+<style>.section   { padding: 5rem 0; }
+.container { max-width: 1160px; margin: 0 auto; padding: 0 1.5rem; }
+
+.sec-header { margin-bottom: 3rem; }
+.sec-tag {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 1.5px; color: #7B35E8; margin-bottom: 1rem;
+}
+.sec-tag::before {
+  content: ''; display: block; width: 24px; height: 2px;
+  background: #7B35E8; border-radius: 2px;
+}
+.sec-title {
+    font-family:Georgia;
+  font-size: clamp(2rem,4vw,2.75rem); font-weight: 800;
+  letter-spacing: -0.6px; line-height: 1.15;
+  color: #0F0A1E; margin-bottom: 1rem;
+}
+.sec-sub {
+  font-size: 1.05rem; color: #4B4869; line-height: 1.7; max-width: 600px;
+}
+
+.tools-layout {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.featured-tool {
+  background: linear-gradient(135deg, rgba(123,53,232,0.1) 0%, rgba(6,182,212,0.05) 100%);
+  border: 1px solid rgba(123,53,232,0.25);
+  border-radius: 18px;
+  padding: 2.75rem;
+  position: relative;
+  overflow: hidden;
+}
+.featured-tool::before {
+  content: ''; position: absolute; top: -60px; right: -60px;
+  width: 240px; height: 240px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(123,53,232,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+.ft-badge {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  background: rgba(245,166,35,0.15); border: 1px solid rgba(245,166,35,0.4);
+  border-radius: 999px; padding: 0.25rem 0.8rem;
+  font-size: 0.75rem; font-weight: 700; color: #B37200;
+  margin-bottom: 1.5rem; text-transform: uppercase; letter-spacing: 0.5px;
+}
+.ft-icon  { font-size: 3rem; margin-bottom: 1.25rem; }
+.ft-name  { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.75rem; letter-spacing: -0.4px; color: #0F0A1E; }
+.ft-desc  { font-size: 1rem; color: #4B4869; line-height: 1.7; margin-bottom: 2rem; max-width: 480px; }
+.ft-features { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
+.ft-feature {
+  background: #F0EBFF; border: 1px solid rgba(123,53,232,0.2);
+  border-radius: 6px; padding: 0.25rem 0.7rem;
+  font-size: 0.78rem; font-weight: 600; color: #4C1D95;
+}
+.ft-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+.btn-primary-lg {
+  background: #7B35E8; color: #fff; border: none;
+  padding: 0.75rem 1.75rem; border-radius: 8px;
+  font-size: 0.9rem; font-weight: 700; text-decoration: none;
+  display: inline-block; transition: background .2s;
+}
+.btn-primary-lg:hover { background: #5A1EC6; }
+.btn-outline-lg {
+  border: 1px solid rgba(123,53,232,0.35); color: #3D1A7A; background: none;
+  padding: 0.75rem 1.5rem; border-radius: 8px;
+  font-size: 0.9rem; font-weight: 600; text-decoration: none;
+  display: inline-block; transition: border-color .2s, background .2s;
+}
+.btn-outline-lg:hover { border-color: #7B35E8; background: #F0EBFF; }
+
+.tools-sidebar { display: flex; flex-direction: column; gap: 1.25rem; }
+.tool-mini {
+  background: #12102A; border: 1px solid rgba(123,53,232,0.2);
+  border-radius: 12px; padding: 1.5rem;
+  transition: border-color .2s, transform .2s;
+  display: flex; flex-direction: column; gap: 0.5rem;
+}
+.tool-mini:hover { border-color: rgba(123,53,232,0.5); transform: translateX(-3px); }
+.tool-mini-head { display: flex; align-items: center; gap: 0.75rem; }
+.tool-mini-icon { font-size: 1.4rem; }
+.tool-mini-cat  { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #A87EF5; }
+.tool-mini-name { font-size: 0.95rem; font-weight: 700; color: #EEE8FF; }
+.tool-mini-desc { font-size: 0.82rem; color: #9E9ABF; line-height: 1.55; }
+.tool-mini-action {
+  margin-top: 0.25rem; font-size: 0.8rem; font-weight: 700;
+  color: #A87EF5; display: inline-flex; align-items: center;
+  gap: 0.25rem; transition: gap .2s; text-decoration: none;
+}
+.tool-mini-action:hover { gap: 0.5rem; }
+
+.tools-footer { display: flex; justify-content: center; margin-top: 2.5rem; }
+.btn-outline-center {
+  padding: 0.8rem 2rem; border-radius: 8px;
+  font-size: 0.9rem; font-weight: 700;
+  border: 1px solid rgba(123,53,232,0.35);
+  color: #3D1A7A; background: none; text-decoration: none;
+  transition: all .2s; display: inline-flex; align-items: center; gap: 0.5rem;
+}
+.btn-outline-center:hover { border-color: #7B35E8; background: #F0EBFF; color: #7B35E8; }
+
+@media (max-width: 800px) {
+  .tools-layout { grid-template-columns: 1fr; }
+  .tool-mini:hover { transform: none; }
+}</style>
+
 <section class="section" id="tools" aria-labelledby="tools-heading">
   <div class="container">
 
