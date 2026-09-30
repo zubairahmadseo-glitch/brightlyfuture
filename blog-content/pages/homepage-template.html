@@ -74,6 +74,11 @@ h2.sec-title{font-family:Georgia,serif;font-size:clamp(2rem,4vw,2.75rem);font-we
 .topic h3{font-size:1.45rem;margin-bottom:.6rem}
 .topic p{color:#6B6690;flex:1;margin-bottom:1.25rem}
 .topic .more{color:var(--pri);font-weight:700}
+.topics-grid.one{grid-template-columns:1fr}
+.spokes{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:.55rem 1.5rem;margin:0 0 1.5rem}
+.spokes a{color:#3D1A7A;font-weight:600}.spokes a:hover{color:var(--pri);text-decoration:underline}
+.spokes li::before{content:'→ ';color:var(--pri)}
+@media(max-width:760px){.spokes{grid-template-columns:1fr}}
 .topic .meta{font-size:.8rem;color:#8A84AE;margin-bottom:.9rem}
 @media(max-width:760px){.topics-grid{grid-template-columns:1fr}}
 
@@ -111,7 +116,7 @@ h2.sec-title{font-family:Georgia,serif;font-size:clamp(2rem,4vw,2.75rem);font-we
 /* 5 Results */
 .results{background:var(--dark);color:#fff}
 .results .sec-sub{color:#C9C3E6}
-.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.75rem}
+.res-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem;margin-top:2.75rem}
 .res{background:#1A1336;border:1px solid rgba(123,53,232,.45);border-radius:14px;padding:2rem}
 .res .label{font-size:.75rem;font-weight:700;letter-spacing:2px;color:#9E9ABF;text-transform:uppercase}
 .res h3{font-size:1.25rem;margin:.6rem 0 1.1rem}
@@ -190,8 +195,8 @@ h2.sec-title{font-family:Georgia,serif;font-size:clamp(2rem,4vw,2.75rem);font-we
 <!-- ================================================================
   1. HERO
   SEO: the only H1 on the page. It carries the main topic ("SEO & AI guides")
-  and the promise ("practical", "actually work"). Stats are verifiable:
-  the 1.1M figure links to the proof on the About page.
+  and the promise ("practical", "actually work"). Stats are verifiable and do not
+  repeat the numbers shown in the hero image (Project A).
   Hero image: upload homepage-hero-project-a-results.webp and replace src.
   Keep loading="eager" + fetchpriority="high" (it's the largest element: LCP).
 ================================================================ -->
@@ -200,14 +205,14 @@ h2.sec-title{font-family:Georgia,serif;font-size:clamp(2rem,4vw,2.75rem);font-we
     <div>
       <span class="tag gold">SEO &amp; AI Guides · Tested on Real Websites</span>
       <h1 id="hero-title">Practical SEO &amp; AI Guides That Actually Work</h1>
-      <p class="lead">Learn SEO, AI writing and content marketing from strategies I've tested on real websites, with free tools to put them into action. No recycled advice, no fluff.</p>
+      <p class="lead">Learn SEO, AI writing and content marketing from strategies I've tested on live sites, with free tools to put them into action. No recycled advice, no fluff.</p>
       <div class="actions">
-        <a class="btn btn-pri" href="/blog/ai-content-writing-guide/">Read the Guides</a>
+        <a class="btn btn-pri" href="/blog/">Read the Guides</a>
         <a class="btn btn-out" href="/tools/">Explore Free Tools</a>
       </div>
       <div class="stats">
         <div><b>6+ yrs</b><span>Hands-on SEO experience</span></div>
-        <a href="/about/#results"><b>1.1M+</b><span>Impressions on a site I grew in 6 months</span></a>
+        <a href="#results-title"><b>3</b><span>Real case studies with Search Console data</span></a>
         <div><b>14</b><span>Free tools</span></div>
       </div>
     </div>
@@ -222,28 +227,32 @@ h2.sec-title{font-family:Georgia,serif;font-size:clamp(2rem,4vw,2.75rem);font-we
   2. EXPLORE BY TOPIC (cluster hubs)
   SEO: homepage → pillar links pass the most authority to your pillars and
   show Google your topical coverage. Add one card per cluster as you publish
-  it (change the grid to 3 or 4 columns). Link each card to its PILLAR page.
+  it (change the grid to 2, 3 or 4 columns). Link each card to its PILLAR page.
+  Inside the card, link 4-6 spoke articles: the pillar gets one homepage link,
+  and each spoke gets one too, with descriptive anchors (no duplicates).
+  There is no Tools card here because the Tools section follows directly.
 ================================================================ -->
 <section class="section" aria-labelledby="topics-title">
   <div class="container">
     <span class="tag">Explore by Topic</span>
     <h2 class="sec-title" id="topics-title">Learn What Actually Works</h2>
-    <p class="sec-sub">Practical guides and free tools, built from strategies I've tested on real websites.</p>
-    <div class="topics-grid">
-      <a class="topic" href="/blog/ai-content-writing-guide/">
+    <p class="sec-sub">Guides grouped by topic, so you can learn one subject properly instead of jumping between random posts.</p>
+    <div class="topics-grid one">
+      <div class="topic">
         <div class="t-icon" aria-hidden="true">✍️</div>
-        <div class="meta">Topic guide · 11 articles</div>
+        <div class="meta">Topic guide · 1 complete guide + 10 in-depth articles</div>
         <h3>AI Content Writing</h3>
-        <p>How to use AI to write content that ranks: step-by-step workflows, humanising AI drafts, what Google really thinks, and the tools worth using.</p>
-        <span class="more">Read the Complete Guide →</span>
-      </a>
-      <a class="topic" href="/tools/">
-        <div class="t-icon" aria-hidden="true">🧰</div>
-        <div class="meta">14 tools · no sign-up</div>
-        <h3>Free Writing &amp; SEO Tools</h3>
-        <p>Check readability, test headlines, spot AI-sounding sentences and draft blog posts with free tools that run in your browser.</p>
-        <span class="more">Explore All Tools →</span>
-      </a>
+        <p>How to use AI to write content that ranks, from your first draft to what Google really thinks. Start with the complete guide, or jump straight to a question:</p>
+        <ul class="spokes">
+          <li><a href="/blog/how-to-write-blog-post-using-ai/">How to write a blog post using AI</a></li>
+          <li><a href="/blog/how-to-humanize-ai-content/">How to humanise AI content</a></li>
+          <li><a href="/blog/can-google-detect-ai-content/">Can Google detect AI content?</a></li>
+          <li><a href="/blog/ai-blog-writer-vs-human-writer/">AI blog writer vs human writer</a></li>
+          <li><a href="/blog/how-to-improve-blog-readability-score/">How to improve your readability score</a></li>
+          <li><a href="/blog/ai-content-writing-for-small-business/">AI content writing for small business</a></li>
+        </ul>
+        <a class="more" href="/blog/ai-content-writing-guide/">Read the Complete Guide →</a>
+      </div>
     </div>
   </div>
 </section>
@@ -257,7 +266,7 @@ h2.sec-title{font-family:Georgia,serif;font-size:clamp(2rem,4vw,2.75rem);font-we
   <div class="container">
     <span class="tag">Free Tools</span>
     <h2 class="sec-title" id="tools-title">Useful Tools, No Sign-Up Required</h2>
-    <p class="sec-sub">14 free tools for bloggers, marketers and website owners, built and tested at BrightlyFuture. No account, no credit card.</p>
+    <p class="sec-sub">Free tools for bloggers, marketers and website owners. They run in your browser: no account, no credit card.</p>
     <div class="tools-layout">
       <article class="featured-tool">
         <div class="ft-badge">⭐ Featured Tool</div>
@@ -270,7 +279,6 @@ h2.sec-title{font-family:Georgia,serif;font-size:clamp(2rem,4vw,2.75rem);font-we
         </div>
         <div class="ft-actions">
           <a class="btn btn-pri" href="/ai-blog-generator/">Try It Free →</a>
-          <a class="btn btn-out-l" href="/tools/">Browse All Tools</a>
         </div>
       </article>
       <div class="tools-sidebar">
@@ -308,7 +316,7 @@ h2.sec-title{font-family:Georgia,serif;font-size:clamp(2rem,4vw,2.75rem);font-we
       <span class="tag">Meet the Founder</span>
       <h2 class="sec-title" id="founder-title">Written by Someone Who Does the Work</h2>
       <h3>Zubair Ahmad · SEO Specialist</h3>
-      <p>I've spent 6 years in SEO, working on tech, local business and e-commerce sites. Every strategy on BrightlyFuture is one I've applied on real websites first, including what didn't work.</p>
+      <p>I've spent 6 years in SEO, working on tech, local business and e-commerce sites. Every strategy on BrightlyFuture is one I've applied myself first, and I share what didn't work as well as what did.</p>
       <p>I use AI to speed up research and drafting, then check every fact and add the experience only I have. How that works is explained in the <a href="/editorial-policy/" style="color:var(--pri);font-weight:600">Editorial Policy</a>.</p>
       <div class="links">
         <a href="/about/">My story →</a>
@@ -321,22 +329,17 @@ h2.sec-title{font-family:Georgia,serif;font-size:clamp(2rem,4vw,2.75rem);font-we
 
 <!-- ================================================================
   5. REAL RESULTS (replaces the old testimonials)
-  E-E-A-T: first-hand, checkable evidence. Numbers come from the About page;
+  E-E-A-T: first-hand, checkable evidence. Project A is NOT repeated here because
+  the hero image already shows it. Numbers come from the About page;
   confirm them in Search Console before publishing. id="results" is used by
   the hero links (add the same id to the results heading on /about/).
 ================================================================ -->
 <section class="section results" id="results-home" aria-labelledby="results-title">
   <div class="container">
     <span class="tag gold">Real Results</span>
-    <h2 class="sec-title" id="results-title">Proof, Not Promises</h2>
-    <p class="sec-sub">Recent Google Search Console results from websites I've worked on, using the same strategies I write about.</p>
+    <h2 class="sec-title" id="results-title">More Proof, Not Promises</h2>
+    <p class="sec-sub">Project A is shown at the top of the page. Here are two more recent Search Console results, using the same strategies I write about.</p>
     <div class="res-grid">
-      <article class="res">
-        <div class="label">Project A · 6 months</div>
-        <h3>From near zero to 1.1M impressions</h3>
-        <ul><li><b>1.11M</b><span>impressions</span></li><li><b>5,570+</b><span>clicks</span></li><li><b>7.7</b><span>avg position</span></li><li><b>19k+</b><span>impressions / day</span></li></ul>
-        <p class="lesson">Covering a topic completely earns Google's trust faster than publishing unrelated posts.</p>
-      </article>
       <article class="res">
         <div class="label">Project B · under 4 months</div>
         <h3>1.1M impressions from launch</h3>
@@ -366,7 +369,7 @@ h2.sec-title{font-family:Georgia,serif;font-size:clamp(2rem,4vw,2.75rem);font-we
       <div>
         <span class="tag">Share Your Expertise</span>
         <h2 class="sec-title" id="contrib-title">Have Real Experience to Share?</h2>
-        <p class="sec-sub">If you've tested an SEO, AI or content marketing strategy on real websites, BrightlyFuture readers want to hear it. Published articles credit you as the author, with a bio and a link to your profile.</p>
+        <p class="sec-sub">If you've tried an SEO, AI or content marketing strategy on your own projects and have the results to show, BrightlyFuture readers want to hear it. Published articles credit you as the author, with a bio and a link to your profile.</p>
       </div>
       <div>
         <ul>
@@ -404,7 +407,8 @@ h2.sec-title{font-family:Georgia,serif;font-size:clamp(2rem,4vw,2.75rem);font-we
   SEO: gives new posts a homepage link on day one so Google finds and
   indexes them fast. In Elementor use the "Posts" widget (latest 3,
   featured image + category + title + excerpt + date) so it updates itself.
-  The three cards below are the first three posts in your publishing order.
+  Exclude the pillar in the widget (Query → Exclude → by ID) because the Topics
+  section already links it. Placeholder cards = your next posts after the pillar.
 ================================================================ -->
 <section class="section" aria-labelledby="latest-title">
   <div class="container">
@@ -412,21 +416,12 @@ h2.sec-title{font-family:Georgia,serif;font-size:clamp(2rem,4vw,2.75rem);font-we
     <h2 class="sec-title" id="latest-title">Fresh From the Blog</h2>
     <p class="sec-sub">New guides based on real tests, published regularly.</p>
     <div class="posts">
-      <a class="post" href="/blog/ai-content-writing-guide/">
+      <a class="post" href="/blog/ai-paraphrasing-vs-rewriting/">
         <div class="thumb">[Featured image 1200×800]</div>
         <div class="body">
           <div class="cat">AI Content Writing</div>
-          <h3>AI Content Writing: The Complete Guide for 2026</h3>
-          <p>What AI content writing is, how to make it rank, what Google allows and the workflow that works.</p>
-          <div class="meta">Zubair Ahmad · [Date]</div>
-        </div>
-      </a>
-      <a class="post" href="/blog/how-to-write-blog-post-using-ai/">
-        <div class="thumb">[Featured image 1200×800]</div>
-        <div class="body">
-          <div class="cat">AI Content Writing</div>
-          <h3>How to Write a Blog Post Using AI (Step-by-Step Guide)</h3>
-          <p>Nine steps from topic to published post, with the audit I run before anything goes live.</p>
+          <h3>AI Paraphrasing vs Rewriting: What's the Difference?</h3>
+          <p>When a paraphraser is enough, when you need a real rewrite, and how to tell which your text needs.</p>
           <div class="meta">Zubair Ahmad · [Date]</div>
         </div>
       </a>
@@ -436,6 +431,15 @@ h2.sec-title{font-family:Georgia,serif;font-size:clamp(2rem,4vw,2.75rem);font-we
           <div class="cat">Blogging Tools</div>
           <h3>10 Best AI Blog Writing Tools in 2026 (Free &amp; Paid, Tested)</h3>
           <p>Ten tools tested on real articles: what each does well, where it falls short and which to pick.</p>
+          <div class="meta">Zubair Ahmad · [Date]</div>
+        </div>
+      </a>
+      <a class="post" href="/blog/how-to-write-blog-headlines/">
+        <div class="thumb">[Featured image 1200×800]</div>
+        <div class="body">
+          <div class="cat">Content Marketing</div>
+          <h3>How to Write Blog Headlines That Get Clicks (With Analyzer)</h3>
+          <p>How to study the top 10 results, pick the right format and write a title Google won't rewrite.</p>
           <div class="meta">Zubair Ahmad · [Date]</div>
         </div>
       </a>
@@ -463,8 +467,8 @@ h2.sec-title{font-family:Georgia,serif;font-size:clamp(2rem,4vw,2.75rem);font-we
       <div>
         <h4>Guides</h4>
         <ul>
-          <li><a href="/blog/ai-content-writing-guide/">AI Content Writing</a></li>
           <li><a href="/blog/">All Guides</a></li>
+          <li><a href="/about/">About the Author</a></li>
         </ul>
       </div>
       <div>
