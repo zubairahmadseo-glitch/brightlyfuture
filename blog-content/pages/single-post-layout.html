@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Single Post Layout – BrightlyFuture (design reference)</title>
+<style>
+:root{--pri:#7B35E8;--pri-d:#5A1EC6;--pri-l:#F0EBFF;--gold:#F5A623;--ink:#0F0A1E;--body:#3F3B5C;--muted:#6B6690;--dark:#0B0A1C;--line:#E4DCF7;--bg:#FAF8FF}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Inter,-apple-system,'Segoe UI',Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.7}
+a{color:var(--pri);text-decoration:none}
+.wrap{max-width:1200px;margin:0 auto;padding:0 20px}
+/* annotation callouts (remove on live site) */
+.note{position:relative}
+.n{position:absolute;top:-12px;left:-12px;width:28px;height:28px;border-radius:50%;background:#E11D48;color:#fff;font:700 14px/28px Arial;text-align:center;z-index:5;box-shadow:0 2px 6px rgba(0,0,0,.25)}
+.legend{background:#fff;border:2px dashed #E11D48;border-radius:14px;padding:22px 26px;margin:28px 0}
+.legend h2{font-size:22px;margin-bottom:10px;color:#E11D48}
+.legend ol{padding-left:22px;display:grid;grid-template-columns:1fr 1fr;gap:6px 28px;font-size:14.5px;color:var(--body)}
+.legend b{color:var(--ink)}
+@media(max-width:900px){.legend ol{grid-template-columns:1fr}}
+/* header */
+.hdr{background:var(--dark);border-bottom:1px solid rgba(245,166,35,.35)}
+.hdr .wrap{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{color:#fff;font-weight:800;font-size:20px;display:flex;gap:10px;align-items:center}
+.logo span{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,#6D28D9,#8B5CF6);display:flex;align-items:center;justify-content:center}
+.hdr nav{display:flex;gap:26px;color:#fff;font-size:15px}
+.hdr nav a{color:#fff}.hdr nav a.on{color:var(--gold)}
+@media(max-width:800px){.hdr nav{display:none}}
+/* progress bar */
+.progress{height:4px;background:linear-gradient(90deg,var(--pri),#22D3EE);width:38%}
+/* layout */
+.grid{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:48px;margin-top:26px}
+@media(max-width:980px){.grid{grid-template-columns:1fr}}
+.crumbs{font-size:13.5px;color:var(--muted)}
+.crumbs a{color:var(--muted)}
+.cat{display:inline-block;margin-top:18px;font-size:12.5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--pri)}
+h1{font-family:Georgia,serif;font-size:clamp(30px,4.2vw,44px);line-height:1.15;margin:10px 0 16px;letter-spacing:-.5px}
+.byline{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:14px;color:var(--muted);padding-bottom:18px;border-bottom:1px solid var(--line)}
+.ava{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#3B1E7A,#7B35E8);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700}
+.byline b{color:var(--ink)}
+.byline .chip{background:#DCFCE7;color:#166534;border-radius:999px;padding:2px 10px;font-weight:600;font-size:12.5px}
+.feat{margin:22px 0;border-radius:14px;overflow:hidden;aspect-ratio:3/2;background:linear-gradient(135deg,#1A1A2E,#3b1d7a);color:#fff;display:flex;flex-direction:column;justify-content:center;padding:40px}
+.feat .t{font-size:36px;font-weight:800;line-height:1.1}
+.feat .s{color:#DDD6FE;margin-top:10px}
+.cap{font-size:13px;color:var(--muted);margin-top:-12px;margin-bottom:20px}
+.qa{background:var(--pri-l);border-left:5px solid var(--pri);border-radius:10px;padding:18px 22px;margin:20px 0}
+.qa b{color:var(--pri)}
+.disc{font-size:13px;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin:14px 0}
+.toc-in{background:#fff;border:1px solid var(--line);border-radius:12px;margin:22px 0}
+.toc-in summary{cursor:pointer;padding:14px 18px;font-weight:700}
+.toc-in ol{padding:0 18px 16px 40px;font-size:15px}
+article p{margin:0 0 16px;color:var(--body);font-size:17.5px}
+article h2{font-family:Georgia,serif;font-size:29px;line-height:1.25;margin:38px 0 12px}
+article h3{font-size:21px;margin:26px 0 8px}
+article ul{margin:0 0 16px 22px;color:var(--body);font-size:17px}
+.ad{background:repeating-linear-gradient(45deg,#F3F0FA,#F3F0FA 10px,#ECE7F7 10px,#ECE7F7 20px);border:1px dashed #B8A9E3;border-radius:10px;color:#6B5BA8;font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;text-align:center;margin:26px 0}
+.ad.inart{min-height:280px}
+.toolcta{display:flex;gap:18px;align-items:center;background:var(--dark);color:#fff;border-radius:14px;padding:22px 24px;margin:26px 0}
+.toolcta .i{font-size:34px}
+.toolcta h4{font-size:18px;margin-bottom:4px}
+.toolcta p{color:#C9C3E6!important;font-size:14.5px!important;margin:0!important}
+.toolcta a{margin-left:auto;background:var(--gold);color:#fff;font-weight:700;padding:10px 18px;border-radius:8px;white-space:nowrap}
+@media(max-width:640px){.toolcta{flex-direction:column;align-items:flex-start}.toolcta a{margin-left:0}}
+.tbl{width:100%;border-collapse:collapse;font-size:15px;margin:10px 0 18px;background:#fff;border-radius:10px;overflow:hidden}
+.tbl th{background:var(--ink);color:#fff;text-align:left;padding:10px 12px;font-size:13px}
+.tbl td{padding:10px 12px;border-bottom:1px solid var(--line)}
+.proof{border:1px solid var(--line);border-radius:12px;background:#fff;padding:16px;margin:20px 0}
+.proof .img{height:180px;border-radius:8px;background:linear-gradient(180deg,#EEF2FF,#fff);display:flex;align-items:center;justify-content:center;color:#4C51BF;font-weight:600;font-size:14px}
+.proof .c{font-size:13px;color:var(--muted);margin-top:8px}
+.keys{background:#fff;border:2px solid var(--pri);border-radius:14px;padding:20px 24px;margin:28px 0}
+.keys h3{margin:0 0 8px;color:var(--pri)}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:10px;margin:10px 0}
+.faq summary{cursor:pointer;padding:14px 18px;font-weight:700;font-size:16.5px}
+.faq details p{padding:0 18px 14px;font-size:16px!important}
+.author{display:flex;gap:18px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;margin:34px 0}
+.author .ava{width:72px;height:72px;font-size:22px;flex-shrink:0}
+.author h4{font-size:18px}
+.author .r{font-size:13px;color:var(--pri);font-weight:700;margin-bottom:6px}
+.author p{font-size:15px!important;margin:0 0 8px!important}
+.author .l{font-size:14px;display:flex;gap:16px;flex-wrap:wrap}
+.foot-meta{font-size:13.5px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+.share{display:flex;gap:10px;margin:16px 0}
+.share span{background:#fff;border:1px solid var(--line);border-radius:8px;padding:6px 12px;font-size:13px;font-weight:600}
+.related h3{font-family:Georgia,serif;font-size:24px;margin:30px 0 14px}
+.rel{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.rel a{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;color:var(--ink)}
+.rel .th{height:110px;background:linear-gradient(135deg,#7C3AED,#4C1D95)}
+.rel .b{padding:12px 14px;font-weight:700;font-size:15px;line-height:1.35}
+.rel .b small{display:block;color:var(--pri);font-size:11.5px;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px}
+@media(max-width:700px){.rel{grid-template-columns:1fr}}
+/* sidebar */
+aside{display:flex;flex-direction:column;gap:22px}
+.box{background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px}
+.box h3{font-size:15px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:12px;color:var(--ink)}
+.hub{background:var(--dark);color:#fff;border:none}
+.hub h3{color:#fff;letter-spacing:0;text-transform:none;font-size:20px}
+.hub p{color:#C9C3E6;font-size:14px;margin-bottom:12px}
+.hub ol{list-style:none;font-size:14px;counter-reset:s}
+.hub li{padding:7px 0;border-top:1px solid rgba(255,255,255,.08)}
+.hub li a{color:#E8E4FA}
+.hub li.cur a{color:var(--gold);font-weight:700}
+.hub li.pil a{color:#fff;font-weight:700}
+.hub .btn{display:block;text-align:center;margin-top:14px;background:var(--pri);color:#fff;padding:10px;border-radius:8px;font-weight:700}
+.sticky{position:sticky;top:20px;display:flex;flex-direction:column;gap:22px}
+.toc-side ol{padding-left:18px;font-size:14px}
+.toc-side li{padding:3px 0}
+.toc-side li.on a{color:var(--pri);font-weight:700}
+.toc-side a{color:var(--body)}
+.tool-side{background:var(--pri-l);border:1px solid #D7C8FA}
+.tool-side .btn{display:inline-block;margin-top:10px;background:var(--pri);color:#fff;padding:8px 14px;border-radius:8px;font-weight:700;font-size:14px}
+.ad.side{min-height:600px;margin:0}
+.latest a{display:block;color:var(--ink);font-weight:600;font-size:14.5px;padding:9px 0;border-top:1px solid var(--line);line-height:1.4}
+.latest small{display:block;color:var(--muted);font-weight:400;font-size:12px}
+.ftr{background:var(--dark);color:#C9C3E6;margin-top:60px;padding:30px 0;font-size:14px}
+.ftr a{color:#C9C3E6;margin-right:18px}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <div class="legend">
+    <h2>BrightlyFuture single post layout: what each numbered part does</h2>
+    <ol>
+      <li><b>Breadcrumb</b> (Home › Category › Post). Helps users and Google understand site structure; add BreadcrumbList schema (Rank Math does it).</li>
+      <li><b>Category label + H1.</b> One H1 only. Category links to the cluster's category page.</li>
+      <li><b>Byline with E-E-A-T:</b> author photo + name (links to author page), "Fact-checked" badge, published AND updated dates, reading time.</li>
+      <li><b>Featured image</b> 1200×800 WebP, with caption. Loads eagerly (it's the LCP element).</li>
+      <li><b>Quick Answer box</b> right under the image: the 45–50 word answer for featured snippets and AI Overviews.</li>
+      <li><b>Disclosure line</b> (affiliate / AI use) just before the content. Short, honest, links to Editorial Policy.</li>
+      <li><b>Collapsible table of contents</b> (mobile). On desktop the sticky sidebar TOC (12) does this job.</li>
+      <li><b>Ad slot 1</b>, after the intro, never above the Quick Answer. Reserve the height so the page doesn't jump (CLS).</li>
+      <li><b>In-article tool box</b> placed where the reader needs it, e.g. "Check your readability" inside a readability section.</li>
+      <li><b>Proof block:</b> real Search Console screenshot with caption. Your strongest Experience signal.</li>
+      <li><b>Key takeaways + FAQ</b> (FAQ answers not repeated from the body), then the <b>author bio box</b> and <b>related posts from the same cluster</b>.</li>
+      <li><b>Cluster hub box</b> (your ExerciseMenu "Training Hub" idea, improved): pillar first, every spoke listed, current article highlighted.</li>
+      <li><b>Sticky sidebar:</b> table of contents that highlights the current section + one tool + ad slot 2. Latest posts go low, not at the top.</li>
+      <li><b>Mobile:</b> sidebar drops below the article; hub box and TOC move to the top of the content area.</li>
+    </ol>
+  </div>
+</div>
+
+<header class="hdr"><div class="wrap">
+  <a class="logo" href="/"><span>B</span>BrightlyFuture</a>
+  <nav><a href="/">Home</a><a class="on" href="/blog/">Guides</a><a href="/tools/">Free Tools</a><a href="/about/">About</a><a href="/contact/">Contact</a></nav>
+</div></header>
+<div class="progress" title="Reading progress bar"></div>
+
+<div class="wrap">
+<div class="grid">
+
+<!-- ================= MAIN COLUMN ================= -->
+<main>
+  <div class="note"><span class="n">1</span>
+    <div class="crumbs"><a href="/">Home</a> › <a href="/blog/">Guides</a> › <a href="/category/ai-content-writing/">AI Content Writing</a> › Best AI Blog Writing Tools</div>
+  </div>
+
+  <div class="note"><span class="n" style="top:10px">2</span>
+    <a class="cat" href="/category/ai-content-writing/">AI Content Writing</a>
+    <h1>10 Best AI Blog Writing Tools in 2026 (Free &amp; Paid, Tested)</h1>
+  </div>
+
+  <div class="note"><span class="n">3</span>
+    <div class="byline">
+      <div class="ava">ZA</div>
+      <div>By <b><a href="/author/zubair-ahmad/">Zubair Ahmad</a></b>, SEO Specialist<br>
+      Published 2 Oct 2026 · <b>Updated 2 Oct 2026</b> · 14 min read</div>
+      <span class="chip">✓ Tested &amp; fact-checked</span>
+    </div>
+  </div>
+
+  <div class="note"><span class="n">4</span>
+    <div class="feat"><div class="t">10 Best AI Blog Writing Tools in 2026</div><div class="s">Featured image · 1200×800 WebP · loading="eager"</div></div>
+    <div class="cap">Ten AI writing tools tested on real blog posts. Prices checked October 2026.</div>
+  </div>
+
+  <div class="note"><span class="n">5</span>
+    <div class="qa"><b>Quick Answer:</b> Claude is the best AI blog writing tool for drafting because it follows long briefs more reliably than ChatGPT or Gemini. For SEO, NeuronWriter ($23/month, $19 billed yearly) offers NLP content scoring at under half Surfer's price. Most solo bloggers need one writer plus one SEO tool: about $39 a month.</div>
+  </div>
+
+  <div class="note"><span class="n">6</span>
+    <div class="disc">This post may contain affiliate links; they never change my rankings. Drafted with AI help and reviewed by me. <a href="/editorial-policy/">How I test and write</a>.</div>
+  </div>
+
+  <div class="note"><span class="n">7</span>
+    <details class="toc-in"><summary>In this guide (8 sections) ▾</summary>
+      <ol><li><a href="#">What makes an AI writing tool worth using?</a></li><li><a href="#">Which free AI writing tools are best?</a></li><li><a href="#">Which paid tools are worth the money?</a></li><li><a href="#">How do you pick the right tool?</a></li></ol>
+    </details>
+  </div>
+
+  <article>
+    <p>Nearly every blogger uses AI now. Orbit Media's 2026 survey found that 92.4% use AI for blogging, yet using AI doesn't improve results on its own. The tool you pick, and how you use it, makes the difference.</p>
+
+    <div class="note"><span class="n">8</span>
+      <div class="ad inart">AD SLOT 1 · in-article · responsive<br>reserve min-height: 280px (stops layout shift)</div>
+    </div>
+
+    <h2>Which free AI writing tools are best for bloggers?</h2>
+    <p>Claude, ChatGPT and Google Gemini cover most of what a solo blogger needs without paying anything. Grok and Perplexity fill gaps in research and real-time data.</p>
+    <h3>Claude (Anthropic)</h3>
+    <table class="tbl"><tr><th>Best for</th><th>Free tier</th><th>Paid</th></tr><tr><td>Long-form drafting</td><td>Yes, with limits</td><td>Pro $20/mo</td></tr></table>
+    <p>Claude is my first choice for blog writing. It's the only tool I've used that reliably follows long, multi-step instructions…</p>
+
+    <div class="note"><span class="n">10</span>
+      <div class="proof"><div class="img">[ Real Search Console screenshot · site name hidden · date range visible ]</div>
+      <div class="c">Google Search Console, health &amp; fitness site, 29 Mar – 28 Sep 2026: 5.69K clicks, 1.14M impressions, 7.7 average position.</div></div>
+    </div>
+
+    <div class="note"><span class="n">9</span>
+      <div class="toolcta"><div class="i">📰</div><div><h4>Testing your post title?</h4><p>Score it and preview it in Google with our free Headline Analyzer.</p></div><a href="/headline-analyzer/">Try it free →</a></div>
+    </div>
+
+    <h2>How do you pick the right AI writing tool?</h2>
+    <p>Match the tool to your bottleneck: the one step in your workflow that takes the most time or gives the weakest results…</p>
+
+    <div class="note"><span class="n">11</span>
+      <div class="keys"><h3>Key takeaways</h3><ul><li>Claude for drafting, one SEO tool for scoring.</li><li>About $39/month covers most solo bloggers.</li><li>No tool replaces editing and fact-checking.</li></ul></div>
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq">
+        <details><summary>Do AI tools use what I paste in to train their models?</summary><p>On personal plans, they can by default…</p></details>
+        <details><summary>Are there AI writing tools built for WordPress?</summary><p>Yes. Koala publishes drafts straight to WordPress…</p></details>
+      </div>
+      <div class="foot-meta">Last updated 2 Oct 2026 · Sources checked on the same date · <a href="/contact/">Report an error</a></div>
+      <div class="share"><span>Share:</span><span>LinkedIn</span><span>X</span><span>Facebook</span><span>Copy link</span></div>
+      <div class="author">
+        <div class="ava">ZA</div>
+        <div><h4>About the author: Zubair Ahmad</h4><div class="r">SEO Specialist · 6 years in SEO</div>
+        <p>I test every strategy and tool on real websites before writing about it, and share what didn't work as well as what did.</p>
+        <div class="l"><a href="/about/">My story</a><a href="/author/zubair-ahmad/">All articles</a><a href="#">LinkedIn</a><a href="/editorial-policy/">Editorial policy</a></div></div>
+      </div>
+      <div class="related"><h3>More from AI Content Writing</h3>
+        <div class="rel">
+          <a href="#"><div class="th"></div><div class="b"><small>Pillar guide</small>AI Content Writing: The Complete Guide for 2026</div></a>
+          <a href="#"><div class="th"></div><div class="b"><small>How-to</small>How to Write a Blog Post Using AI</div></a>
+          <a href="#"><div class="th"></div><div class="b"><small>Editing</small>How to Humanize AI Content</div></a>
+        </div>
+      </div>
+    </div>
+  </article>
+</main>
+
+<!-- ================= SIDEBAR ================= -->
+<aside>
+  <div class="note"><span class="n">12</span>
+    <div class="box hub">
+      <h3>AI Content Writing Hub</h3>
+      <p>The complete guide plus 10 in-depth articles. You're reading part 3.</p>
+      <ol>
+        <li class="pil"><a href="/blog/ai-content-writing-guide/">★ The Complete Guide (start here)</a></li>
+        <li><a href="#">How to write a blog post using AI</a></li>
+        <li class="cur"><a href="#">▶ Best AI blog writing tools</a></li>
+        <li><a href="#">AI blog writer vs human writer</a></li>
+        <li><a href="#">How to humanize AI content</a></li>
+        <li><a href="#">Can Google detect AI content?</a></li>
+        <li><a href="#">+ 5 more articles</a></li>
+      </ol>
+      <a class="btn" href="/blog/ai-content-writing-guide/">Open the full guide →</a>
+    </div>
+  </div>
+
+  <div class="sticky note"><span class="n">13</span>
+    <div class="box toc-side"><h3>On this page</h3>
+      <ol><li><a href="#">What makes a tool worth using?</a></li><li class="on"><a href="#">Best free AI writing tools</a></li><li><a href="#">Paid tools worth the money</a></li><li><a href="#">Pick the right tool</a></li><li><a href="#">Workflow with these tools</a></li><li><a href="#">SEO &amp; AI search tools</a></li><li><a href="#">FAQs</a></li></ol>
+    </div>
+    <div class="box tool-side"><h3>Free tool</h3><b>AI Content Detector</b><p style="font-size:14px;color:var(--body);margin-top:4px">See which sentences in your draft still sound like unedited AI.</p><a class="btn" href="/ai-blog-detector/">Check my text</a></div>
+    <div class="ad side">AD SLOT 2 · sidebar<br>300×600 · sticky<br>(desktop only)</div>
+  </div>
+
+  <div class="box latest"><h3>Latest guides</h3>
+    <a href="#">How to Write Blog Headlines That Get Clicks<small>Updated 30 Sep 2026</small></a>
+    <a href="#">AI Paraphrasing vs Rewriting<small>Updated 28 Sep 2026</small></a>
+    <a href="#">Can Google Detect AI Content?<small>Updated 25 Sep 2026</small></a>
+  </div>
+</aside>
+
+</div>
+</div>
+
+<div class="wrap" style="margin-top:34px">
+  <div class="legend" style="border-color:var(--pri)">
+    <h2 style="color:var(--pri)">ExerciseMenu vs BrightlyFuture: what changes and why</h2>
+    <ol>
+      <li><b>Hub box moves to the top of the sidebar</b> (ExerciseMenu had it below Latest Posts, where few people see it). It's your most valuable internal link.</li>
+      <li><b>Hub box lists every article</b> in the cluster with the current one highlighted, not just a button. Readers see the path; Google sees the cluster.</li>
+      <li><b>Latest posts move down.</b> Random recent posts don't help the reader of this article; cluster links do.</li>
+      <li><b>Sticky table of contents</b> in the sidebar replaces empty space on long articles and keeps readers moving.</li>
+      <li><b>Author byline adds role + "fact-checked"</b> and keeps both dates (ExerciseMenu showed both; keep that). Add an author bio box at the end.</li>
+      <li><b>"No Comments"</b> in the byline adds nothing. Hide it until you have comments.</li>
+      <li><b>Tooltip-style inline links</b> (the boxed "medicine ball" link) look like ads to some readers. Use plain underlined links in the text.</li>
+      <li><b>Ads:</b> max 2–3 per post, never before the Quick Answer, always with reserved height. Content first is what AdSense reviewers want to see.</li>
+    </ol>
+  </div>
+  <div class="legend" style="border-color:#16A34A">
+    <h2 style="color:#16A34A">Technical checklist for every post</h2>
+    <ol>
+      <li><b>Schema:</b> Article (author = Person with sameAs links), BreadcrumbList, FAQPage. Rank Math handles all three.</li>
+      <li><b>Speed:</b> WebP images, width/height set, lazy-load everything below the featured image.</li>
+      <li><b>One H1</b>, then H2 → H3 in order. No skipped levels.</li>
+      <li><b>Content width</b> 680–760px for comfortable reading; body text 17–18px.</li>
+      <li><b>URL:</b> /blog/post-slug/ (set permalinks before publishing).</li>
+      <li><b>Dates:</b> change "Updated" only for real content changes.</li>
+      <li><b>Mobile:</b> TOC collapsible at top, sidebar below, no sticky ads covering text.</li>
+      <li><b>Links:</b> every post links to its pillar (hub box + in text), 2–3 related spokes and one tool.</li>
+    </ol>
+  </div>
+</div>
+
+<footer class="ftr"><div class="wrap"><a href="/about/">About</a><a href="/editorial-policy/">Editorial Policy</a><a href="/contact/">Contact</a><a href="/privacy-policy/">Privacy</a><a href="/terms/">Terms</a></div></footer>
+</body>
+</html>
