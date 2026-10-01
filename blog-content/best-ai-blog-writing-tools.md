@@ -208,7 +208,7 @@ Tracking whether AI answers mention you is not the same as earning those mention
 
 My approach: NeuronWriter for keyword and SERP coverage, then by hand: a direct answer under each heading, named entities, verified statistics with links and clean structured data. The [complete guide to AI content writing](https://brightlyfuture.co.uk/blog/ai-content-writing-guide/) explains what Google says about AI Overviews.
 
-## Can AI writing tools replace human writers?
+## Do AI writing tools still need a human editor?
 
 No. AI tools produce raw material faster than any writer, but they can't add first-hand experience, form original opinions, verify their own claims or understand your audience the way you do.
 

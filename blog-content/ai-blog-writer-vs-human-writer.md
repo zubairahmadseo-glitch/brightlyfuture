@@ -12,7 +12,7 @@ This comparison sets out what each approach delivers, what the ranking data says
 
 ## Does Google rank human content higher than AI content?
 
-At the very top of the results, yes, but the gap mostly disappears once AI drafts are properly edited. What Google penalises is low-value content, not the tool behind it.
+At the very top of the results, yes, but the gap mostly disappears once AI drafts are properly edited. What Google penalises is low-value content, not the tool behind it. Whether Google can spot AI text at all is a separate question, covered in [can Google detect AI content](https://brightlyfuture.co.uk/blog/can-google-detect-ai-content/).
 
 Four studies show the pattern:
 
@@ -25,7 +25,7 @@ Four studies show the pattern:
 
 One detail most write-ups skip: Semrush sorted pages into "human" and "AI" with an AI detector (GPTZero). A well-edited AI draft often reads as human to a detector, so the "human" group almost certainly includes AI-assisted pages that were edited properly. That supports the same conclusion: editing is what moves a page up.
 
-## Can readers tell AI writing from human writing?
+## Can AI write like a human, and can readers tell?
 
 Often they can't, and in one large test they preferred the AI. In March 2026 The New York Times ran a blind quiz in which [86,000 readers compared five pairs of passages](https://x.com/kevinroose/status/2031397522590282212), and 54% preferred the AI versions overall.
 
@@ -33,7 +33,7 @@ The test had a catch. The human passages came from famous authors such as Carl S
 
 For a blog, sounding good is the easy part. Readers come back, and Google keeps you ranked, when the advice is correct and specific.
 
-## How do AI and human writers compare?
+## Is AI writing better than human writing? Pros and cons
 
 AI wins on speed, cost and volume. A skilled human writer wins on experience, original ideas and judgement. Neither wins on accuracy by default: AI invents facts confidently, and rushed writers copy errors from the pages they reword.
 
@@ -104,7 +104,7 @@ AI tools cost far less per article, but only the hybrid approach gives you low c
 
 The hidden cost is revisions. A cheap draft that needs rewriting costs you the same hours as editing an AI draft, plus the fee. With AI you control the inputs from the start: the research, the brief and the structure. The editing steps are in [how to humanize AI content](https://brightlyfuture.co.uk/blog/how-to-humanize-ai-content/), and our free [AI Paraphraser](https://brightlyfuture.co.uk/ai-paraphrase-rewriter/) helps with stiff sentences, though not with missing ideas.
 
-## When should you choose AI, a human writer, or both?
+## Should you use AI or hire a writer?
 
 Match the approach to the content, not to a general preference.
 
@@ -113,7 +113,7 @@ Match the approach to the content, not to a general preference.
 - you know the subject but have little time to write
 - you need to publish more without hiring
 
-**Hire a human writer when:**
+**Hire a human writer or copywriter when:**
 - the article needs interviews, quotes or original research
 - it's a health, finance or legal topic where the author's credentials must be real
 - it's a thought-leadership piece that has to sound like a specific person
@@ -126,7 +126,7 @@ For tools to start with, see [the best AI blog writing tools](https://brightlyfu
 
 ## Will AI replace human content writers?
 
-It's replacing the work, not the writers who adapt. Orbit Media's 2026 survey of 1,042 content marketers found that [92.4% use AI for blogging](https://www.orbitmedia.com/blog/blogging-statistics/), but only 17% use it to write complete drafts. Most writers use it for parts of the job.
+It's replacing parts of the work, not the writers who adapt. Most content teams already use AI for research, outlines and first drafts, and still pay people for the parts that need judgement.
 
 The tasks that are disappearing were always the low-value ones: compiling research, rough first drafts, formatting and meta descriptions. What AI can't do is interview a customer, test a product, spot an industry change before the keyword tools do, or know which paragraph will lose a reader's trust. Writers who combine those skills with AI produce more and better work than writers who refuse to use it.
 
