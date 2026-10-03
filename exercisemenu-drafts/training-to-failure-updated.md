@@ -24,7 +24,7 @@ Training to failure isn't good or bad. It's a high-cost tool. The research is no
 
 Below you'll get the verdict by goal, the trade-offs in one table, which exercises are safe, how many failure sets per week fit your split, and a full sample week with RIR targets on every exercise.
 
-[Image: lifter at the final grinding rep of a dumbbell curl — alt="training to failure on a dumbbell bicep curl"]
+[Featured image — keep your existing photo: lifter at the final rep of a dumbbell curl. Alt: "training to failure on a dumbbell bicep curl"]
 
 ---
 
@@ -41,7 +41,7 @@ Training to failure means continuing a set until you can't complete another full
 
 Tolerance failure is the one most people hit. Burn from metabolite buildup feels like failure, but the muscle can still produce force. That's why your "failure" set of 20 leg presses often ends 3–5 reps before true muscular failure.
 
-**[Image: infographic of the four failure types]**
+![IMG:training-to-failure-four-types|four types of training to failure: technical, muscular, tempo and tolerance failure]
 
 ---
 
@@ -109,6 +109,8 @@ Reps in reserve is how many more good reps you could have done when you stopped.
 | 3 | 7 | Hard but quick reps | Good | Low–moderate |
 | 4–5 | 5–6 | Warm-up-ish effort | Reduced — needs more sets | Low |
 
+![IMG:reps-in-reserve-rir-rpe-chart|reps in reserve RIR and RPE chart for training to failure]
+
 The sweet spot for most working sets is **1–3 RIR (RPE 7–9)**. Our [RPE vs RIR guide](https://exercisemenu.com/rpe-vs-rir/) covers how to use either scale in your log.
 
 ### Why you misjudge your RIR — and how to fix it
@@ -158,7 +160,7 @@ Safety depends on two questions: can you stop safely when the rep fails, and doe
 
 The pattern: **isolation and machine work is failure-friendly; free-weight compounds aren't.** See [compound vs isolation exercises](https://exercisemenu.com/compound-vs-isolation/) for how to split your workout between them.
 
-**[Image: safe vs avoid exercises infographic]**
+![IMG:exercises-safe-for-training-to-failure|exercises safe for training to failure vs exercises to avoid]
 
 ### How to train to failure safely without a spotter
 
