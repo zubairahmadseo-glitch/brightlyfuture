@@ -71,6 +71,10 @@ Search the draft for these and make each one justify itself:
 - **Replace with a plain word:** utilise (use), leverage (say what you actually do), facilitate (help), harness, foster
 - **Prove instead of claim:** crucial, essential, comprehensive. Show why it matters instead of saying so.
 - **Limit:** moreover, furthermore, additionally. One transition word per section is usually enough.
+- **Em dashes (—):** AI tools use them constantly, often several per paragraph. Replace most with a full stop, comma, colon or brackets.
+- **Repeated patterns:** "It's not X, it's Y", groups of exactly three, and every paragraph ending in a neat one-line summary.
+
+I paste the draft back into Claude with my list of these words and patterns and ask it to fix every instance, then check the result myself. It's faster than a manual find-and-replace, but it still needs a human read.
 
 ### Step 4: Replace generic examples with specific ones
 
@@ -90,7 +94,7 @@ Find every "some experts suggest" and "it depends" and decide what you actually 
 
 AI invents statistics, misattributes research and cites studies that don't exist. Search for the original source of every number. If you can't find it within a couple of minutes, delete the claim. Link to the original study, not a blog post quoting it.
 
-This is the step I'd never skip. In my own drafts, the most common problems are a statistic with no traceable source and a real study quoted with the wrong number.
+This is the step I'd never skip. My routine is simple: read the draft, and wherever a claim doesn't feel right, research it before keeping it. Then I ask Claude to fix those lines using the sources I found. In my own drafts, the most common problems are a statistic with no traceable source and a real study quoted with the wrong number.
 
 ### Step 8: Read it as a stranger
 
@@ -139,7 +143,25 @@ Some tools do help, as long as you stay in charge of the edit:
 | A second AI (Gemini, Grok) | "What's missing?" and "What would a sceptic say?" | Writing the fix for you |
 | [BrightlyFuture AI Content Detector](https://brightlyfuture.co.uk/ai-blog-detector/) | Spotting sentences that still read as templated | A pass/fail verdict |
 
-Detectors flag plenty of human writing and miss edited AI text, so treat any score as a hint about which sentences to reread.
+Detectors flag plenty of human writing and miss edited AI text, so treat any score as a hint about which sentences to reread. The test below shows why.
+
+## What happened when I ran this article through an AI detector?
+
+The score dropped with each round of editing, but it never reached zero, and it didn't need to. I ran three versions of this guide through the same free online AI detector:
+
+[IMG 04-humanize-ai-content-detector-test.webp | AI detector scores for three versions of this article: 52.9%, 44.5% and 37.3%]
+
+| Version | What had been fixed | Detector score |
+|---|---|---|
+| First draft | Nothing; raw structure and wording | 52.9% AI |
+| After pattern fixes | Filler words, em dashes and repeated patterns | 44.5% AI |
+| After the full edit | Unverified claims replaced with sourced ones, specific examples, my own experience | 37.3% AI |
+
+Three things this taught me:
+
+- **Every edit that helped readers also lowered the score.** I never edited to beat the tool; the score followed the quality.
+- **No version scored "fully human".** Even after a full edit, the tool still flagged parts as AI. I haven't found a detector that is 100% accurate, or any published research proving that a particular tool or technique makes AI text undetectable.
+- **The score isn't what ranks.** Google evaluates whether a page is helpful and accurate, not what percentage a detector shows. A 37% page with real value beats a "0% AI" page that says nothing new.
 
 ## How long does humanizing AI content take?
 
@@ -157,7 +179,7 @@ If you're comparing this with hiring a writer, [AI blog writer vs human writer](
 
 ## Does humanized AI content rank?
 
-It can, when the editing adds something the other results don't have. Google doesn't rank content lower for being AI-assisted; it ranks thin, unoriginal content lower, however it was written. What Google can and can't detect is covered in [can Google detect AI content](https://brightlyfuture.co.uk/blog/can-google-detect-ai-content/).
+It can, when the editing adds something the other results don't have. If the content has real value, Google doesn't care whether a person or a tool wrote the first draft. Google doesn't rank content lower for being AI-assisted; it ranks thin, unoriginal content lower, however it was written. What Google can and can't detect is covered in [can Google detect AI content](https://brightlyfuture.co.uk/blog/can-google-detect-ai-content/).
 
 ## Humanizing checklist
 
