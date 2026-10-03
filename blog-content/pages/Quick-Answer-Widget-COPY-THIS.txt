@@ -1,17 +1,27 @@
-<!-- BrightlyFuture Quick Answer box: change only the text between START and END -->
-<div class="bf-qa" role="note" aria-label="Quick answer">
-  <p class="bf-qa-label">Quick Answer</p>
-  <p class="bf-qa-text">
-    <!-- START -->
-    Claude is the best AI blog writing tool for drafting because it follows long briefs more reliably than ChatGPT or Gemini. For SEO, NeuronWriter ($23/month, $19 billed yearly) offers NLP content scoring at under half Surfer's price. Most solo bloggers need one writer plus one SEO tool: about $39 a month.
-    <!-- END -->
-  </p>
-</div>
-<style>
-.bf-qa{background:#F5F3FF;border:1px solid #DDD6FE;border-left:5px solid #7C3AED;border-radius:12px;padding:18px 22px;margin:20px 0 28px;font-family:inherit}
-.bf-qa .bf-qa-label{display:inline-flex;align-items:center;gap:6px;margin:0 0 8px;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7C3AED}
-.bf-qa .bf-qa-label::before{content:"";width:8px;height:8px;border-radius:50%;background:#7C3AED}
-.bf-qa .bf-qa-text{margin:0;font-size:17px;line-height:1.65;color:#1E1B2E;font-style:normal}
-.bf-qa .bf-qa-text a{color:#6D28D9;text-decoration:underline}
-@media (max-width:600px){.bf-qa{padding:14px 16px}.bf-qa .bf-qa-text{font-size:16px}}
-</style>
+QUICK ANSWER BOX: ONE-TIME SETUP (no code in posts)
+
+STEP 1: Paste this CSS once in Appearance > Customize > Additional CSS
+(or Elementor > Site Settings > Custom CSS). Never paste it again.
+
+.bf-qa{background:#F5F3FF;border:1px solid #DDD6FE;border-left:5px solid #7C3AED;border-radius:12px;padding:18px 22px!important;margin:20px 0 28px!important}
+.bf-qa > p:first-child,.bf-qa .bf-qa-label{display:flex;align-items:center;gap:6px;margin:0 0 8px!important;font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#7C3AED}
+.bf-qa > p:first-child::before,.bf-qa .bf-qa-label::before{content:"";width:8px;height:8px;border-radius:50%;background:#7C3AED}
+.bf-qa > p:not(:first-child),.bf-qa .bf-qa-text{margin:0!important;font-size:17px;line-height:1.65;color:#1E1B2E;font-style:normal}
+.bf-qa a{color:#6D28D9;text-decoration:underline}
+@media (max-width:600px){.bf-qa{padding:14px 16px!important}.bf-qa > p:not(:first-child){font-size:16px}}
+
+STEP 2 (Gutenberg): make a pattern once
+1. Open any post, add a Group block.
+2. Inside it add two Paragraph blocks:
+   - first: Quick Answer
+   - second: your answer text
+3. Select the Group block > right sidebar > Advanced > Additional CSS class(es): bf-qa
+4. Select the Group > three dots > Create pattern > name "Quick Answer" > Synced: OFF > Create.
+
+EVERY NEW POST
+Type /Quick Answer > insert the pattern > click the second paragraph and type the new answer. No code.
+
+ELEMENTOR INSTEAD
+Add a Text Editor widget > write "Quick Answer" on line 1 and the answer as a new paragraph >
+Advanced tab > CSS Classes: bf-qa > right-click the widget > Save as Global? NO: use "Save as Template"
+and insert that template in each post, then edit the text.
