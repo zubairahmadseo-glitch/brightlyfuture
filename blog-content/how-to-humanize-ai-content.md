@@ -6,7 +6,7 @@
 
 Most advice on humanizing AI content stops at "add personality" and "vary sentence length". That's true, but it doesn't tell you what to change in the draft in front of you.
 
-I draft my articles with Claude and edit every one by hand before it goes live. The health and fitness site I built this way reached 5,690 clicks and 1.14 million impressions in six months. The drafts weren't special; the editing was. This guide is that editing process, step by step, with a before-and-after example and a checklist you can use on your next draft.
+I draft my articles with Claude and edit every one by hand before it goes live. The health and fitness site I built this way reached 5,690 clicks and 1.14 million impressions in six months. What made the difference was the editing. This guide is that editing process, step by step, with a before-and-after example, a prompt you can copy and a checklist for your next draft. If you came looking for a one-click humanizer tool, the short answer is that none of them fixes quality; the section on [humanizer tools](#do-ai-humanizer-tools-work) explains why and what to use instead.
 
 It covers the editing stage only. For the full process from keyword research to publishing, see [how to write a blog post using AI](https://brightlyfuture.co.uk/blog/how-to-write-blog-post-using-ai/), and for the bigger picture, the [complete guide to AI content writing](https://brightlyfuture.co.uk/blog/ai-content-writing-guide/).
 
@@ -21,7 +21,7 @@ It means editing an AI draft until a real reader would want to read it, trust it
 | Result | Better content that also tends to read as human | Text that passes a tool but reads worse than the original |
 | Who it serves | Readers and Google | Nobody |
 
-Google says it focuses on [rewarding high-quality content, however it is produced](https://developers.google.com/search/blog/2023/02/google-search-and-ai-content). A detector score isn't part of that. Every step in this guide edits for readers.
+Google says it focuses on [rewarding high-quality content, however it is produced](https://developers.google.com/search/blog/2023/02/google-search-and-ai-content). Google doesn't use detector scores to judge that. Every step in this guide edits for readers.
 
 ## Why does AI content sound robotic?
 
@@ -74,7 +74,9 @@ Search the draft for these and make each one justify itself:
 - **Em dashes (—):** AI tools use them constantly, often several per paragraph. Replace most with a full stop, comma, colon or brackets.
 - **Repeated patterns:** "It's not X, it's Y", groups of exactly three, and every paragraph ending in a neat one-line summary.
 
-I paste the draft back into Claude with my list of these words and patterns and ask it to fix every instance, then check the result myself. It's faster than a manual find-and-replace, but it still needs a human read.
+I paste the draft back into Claude with my list of these words and patterns and ask it to fix every instance, then check the result myself. It's faster than a manual find-and-replace, but it still needs a human read. You can use the same prompt:
+
+> **Prompt: fix AI patterns.** "Edit the article below. (1) Remove or replace these words wherever they appear: delve, tapestry, leverage, utilise, crucial, comprehensive, foster, harness, moreover, furthermore, 'it's important to note', 'in today's digital age'. (2) Replace most em dashes with full stops, commas, colons or brackets. (3) Rewrite any 'It's not X, it's Y' sentences, lists that always come in threes, and paragraphs that end with a one-line summary. (4) Vary sentence length within each paragraph. Do not change facts, numbers, links or headings. List every change you made at the end."
 
 ### Step 4: Replace generic examples with specific ones
 
@@ -112,7 +114,7 @@ What changed:
 
 - **It answers first.** The question gets a number in the first three words.
 - **It has a source.** A named survey with a [link](https://www.orbitmedia.com/blog/blogging-statistics/) replaces "various factors".
-- **It takes a position.** AI saves drafting time, not thinking time.
+- **It takes a position.** AI saves drafting time; the thinking still takes as long.
 - **It adds experience.** A real number from the writer's own workflow.
 - **The filler is gone.** No "it is important to note", "leveraging" or "streamline".
 
@@ -165,7 +167,7 @@ Three things this taught me:
 
 ## How long does humanizing AI content take?
 
-About 60–90 minutes for a 1,500–2,000 word article. Most of it should go on the steps that add value, not the clean-up.
+About 60–90 minutes for a 1,500–2,000 word article. Spend most of it on steps 4 and 6, which add value; the clean-up steps are quick.
 
 | Step | Time |
 |---|---|
@@ -179,7 +181,7 @@ If you're comparing this with hiring a writer, [AI blog writer vs human writer](
 
 ## Does humanized AI content rank?
 
-It can, when the editing adds something the other results don't have. If the content has real value, Google doesn't care whether a person or a tool wrote the first draft. Google doesn't rank content lower for being AI-assisted; it ranks thin, unoriginal content lower, however it was written. What Google can and can't detect is covered in [can Google detect AI content](https://brightlyfuture.co.uk/blog/can-google-detect-ai-content/).
+It can, when the editing adds something the other results don't have. If the content has real value, Google doesn't care whether a person or a tool wrote the first draft; thin, unoriginal pages rank poorly whoever wrote them. What Google can and can't detect is covered in [can Google detect AI content](https://brightlyfuture.co.uk/blog/can-google-detect-ai-content/).
 
 ## Humanizing checklist
 
@@ -216,6 +218,6 @@ In my experience, Claude. It follows long briefs and style rules more consistent
 
 ## Edit for the reader, and the rest follows
 
-Humanizing isn't a trick to hide AI. It's the editing that turns a draft anyone could generate into an article only you could publish. Cut the filler, add specifics, take a position, check every fact, and you'll fix the robotic tone and the detector score along the way.
+Humanizing turns a draft anyone could generate into an article only you could publish. Cut the filler, add specifics, take a position, check every fact, and you'll fix the robotic tone and the detector score along the way.
 
 Start with the next draft you have open: run step 3, then spend your remaining time on steps 4 and 6. Want a draft to practise on? Generate one with the free [AI Blog Generator](https://brightlyfuture.co.uk/ai-blog-generator/).
