@@ -24,18 +24,58 @@ Your target depends on who reads you:
 
 Hemingway Editor [notes that over half of US adults read at an 8th-grade level](https://hemingwayapp.com/articles/readability/readability-score). Write above that level and you shrink your audience before the second paragraph.
 
-## Does readability score affect Google rankings?
+## How do you improve your blog readability score step by step?
 
-No. Readability score is not a direct Google ranking factor. Google's John Mueller [said in a 2018 Webmaster Hangout](https://www.searchenginejournal.com/ranking-factors/reading-level/) that Google does not run basic algorithms that count words and syllables to judge pages.
+Edit in five passes, in this order, and rescore after passes 3 and 5. The order matters: splitting sentences first often removes hard words along the way, so you swap fewer of them later.
 
-The data agrees. Portent [analysed 756,297 pieces of content across 30,000 search queries](https://portent.com/blog/content/study-how-content-readability-affects-seo-and-rankings.htm) and found no link between reading level and ranking position. The mean Flesch score of the top 30 results sat between 51.8 and 53.1. Originality.ai reached the same conclusion in a [study of 13,582 top-20 results across 1,000 keywords](https://originality.ai/blog/best-readability-score-to-rank-in-google): ranking pages have similar readability, but the score does not predict position.
+[IMG 07-readability-editing-workflow.webp | My 5-pass readability editing workflow]
 
-So why bother? Because readers decide whether your page did its job, and that shows up in how they behave.
+### Pass 1: Score the draft and find the red sentences
 
-- **Readers scan first.** Nielsen Norman Group found that [79% of users scan web pages and only 16% read word by word](https://www.nngroup.com/articles/how-users-read-on-the-web/). In the same research, a version rewritten to be concise, scannable and objective scored 124% higher on usability.
-- **Readability tracks with sales.** Portent's [study of 33 client websites](https://portent.com/blog/cro/study-the-readability-of-your-website-is-affecting-your-conversion-rates.htm) found readability explained around 11% of the variation in conversion rate, rising to about 13% for e-commerce. For B2B sites the link was not significant.
+Paste the whole post into a checker and note three numbers: Flesch score, grade level and the share of sentences over 20 words. That last number tells you the most. When I scored the top-ranking articles (results below), Readable's guide passed 60 overall yet had 20% of its sentences over 20 words. A good average can hide a handful of monsters.
 
-Treat the score as a diagnostic, not something Google grades. It points you to the sentences that make people leave.
+### Pass 2: Split every sentence over 30 words
+
+Look for the natural break points: "and", "which", "while", "because" and any second comma. Each one usually hides a second idea. The opening sentence in my before-and-after test (below) had 36 words and three ideas. It became two sentences.
+
+Don't chop everything into five-word lines, though. Mix short sentences with medium ones of 15–20 words so the text keeps a natural rhythm. My guide on [how to humanize AI content](https://brightlyfuture.co.uk/blog/how-to-humanize-ai-content/) covers why that variety matters for AI drafts.
+
+### Pass 3: Swap long words for short ones
+
+Every three-syllable word pulls your score down. These swaps come up in almost every draft I edit:
+
+| Instead of | Write |
+|---|---|
+| utilise | use |
+| approximately | about |
+| demonstrate | show |
+| facilitate | help |
+| in order to | to |
+| consequently | so |
+| a wide variety of | many |
+| is able to | can |
+
+Keep a technical term when your reader needs it. "Schema markup" stayed in my rewrite because SEO readers search for that phrase. Explain it once, then move on.
+
+### Pass 4: Switch passive sentences to active
+
+Passive voice hides who does what: "the content that is being published" becomes "the content you publish". Yoast and AIOSEO both flag passive voice once it passes 10% of sentences. The original paragraph in my test sat at 25%.
+
+While you are in each sentence, write to one reader. "You" and "I" read faster than "users" and "the organisation", and they turn a lecture into a conversation.
+
+### Pass 5: Read it aloud and fix where you stumble
+
+Formulas can't hear. If you run out of breath or lose your place, rewrite the sentence, whatever the score says. This pass also catches over-simplified lines, a problem covered further down.
+
+### Then fix the layout for skimmers and phones
+
+Layout doesn't change your Flesch score, but it decides whether the 79% who scan find what they came for:
+
+- **Paragraphs of 2–4 sentences.** A four-line paragraph on a laptop can fill a whole phone screen.
+- **A descriptive subheading every 250–300 words.** Write it as a question or an answer, not a label like "Overview".
+- **Lists for three or more parallel items**, and bold for the one phrase a skimmer must not miss.
+- **Transition words** such as "so", "but", "because" and "for example". Yoast [turns its check green when at least 30% of sentences contain one](https://yoast.com/transition-words-why-and-how-to-use-them/). They link ideas so short sentences don't feel choppy.
+- **A table, image or screenshot** wherever you'd otherwise describe numbers in a paragraph.
 
 ## What happened when I rewrote one paragraph for readability?
 
@@ -68,69 +108,6 @@ Two results surprised me. First, I cut 32 words and lost nothing. Keywords, site
 
 Second, word choice mattered more than I expected. When I ran the Flesch–Kincaid maths on the 17-grade drop, about 10 grades came from shorter words and about 7 from shorter sentences. Splitting sentences is the fastest fix, but swapping words like "multifaceted" and "comprehensive" did the heavier lifting.
 
-## How do you improve your blog readability score step by step?
-
-Edit in five passes, in this order, and rescore after passes 3 and 5. The order matters: splitting sentences first often removes hard words along the way, so you swap fewer of them later.
-
-[IMG 07-readability-editing-workflow.webp | My 5-pass readability editing workflow]
-
-### Pass 1: Score the draft and find the red sentences
-
-Paste the whole post into a checker and note three numbers: Flesch score, grade level and the share of sentences over 20 words. That last number tells you the most. In my competitor test, Readable's guide passed 60 overall yet had 20% of its sentences over 20 words. A good average can hide a handful of monsters.
-
-### Pass 2: Split every sentence over 30 words
-
-Look for the natural break points: "and", "which", "while", "because" and any second comma. Each one usually hides a second idea. The opening sentence in my test had 36 words and three ideas. It became two sentences.
-
-Don't chop everything into five-word lines, though. Mix short sentences with medium ones of 15–20 words so the text keeps a natural rhythm. My guide on [how to humanize AI content](https://brightlyfuture.co.uk/blog/how-to-humanize-ai-content/) covers why that variety matters for AI drafts.
-
-### Pass 3: Swap long words for short ones
-
-Every three-syllable word pulls your score down. These swaps come up in almost every draft I edit:
-
-| Instead of | Write |
-|---|---|
-| utilise | use |
-| approximately | about |
-| demonstrate | show |
-| facilitate | help |
-| in order to | to |
-| consequently | so |
-| a wide variety of | many |
-| is able to | can |
-
-Keep a technical term when your reader needs it. "Schema markup" stayed in my rewrite because SEO readers search for that phrase. Explain it once, then move on.
-
-### Pass 4: Switch passive sentences to active
-
-Passive voice hides who does what: "the content that is being published" becomes "the content you publish". Yoast and AIOSEO both flag passive voice once it passes 10% of sentences. My original paragraph sat at 25%.
-
-While you are in each sentence, write to one reader. "You" and "I" read faster than "users" and "the organisation", and they turn a lecture into a conversation.
-
-### Pass 5: Read it aloud and fix where you stumble
-
-Formulas can't hear. If you run out of breath or lose your place, rewrite the sentence, whatever the score says. This pass also catches over-simplified lines, a problem covered further down.
-
-### Then fix the layout for skimmers and phones
-
-Layout doesn't change your Flesch score, but it decides whether the 79% who scan find what they came for:
-
-- **Paragraphs of 2–4 sentences.** A four-line paragraph on a laptop can fill a whole phone screen.
-- **A descriptive subheading every 250–300 words.** Write it as a question or an answer, not a label like "Overview".
-- **Lists for three or more parallel items**, and bold for the one phrase a skimmer must not miss.
-- **Transition words** such as "so", "but", "because" and "for example". Yoast [turns its check green when at least 30% of sentences contain one](https://yoast.com/transition-words-why-and-how-to-use-them/). They link ideas so short sentences don't feel choppy.
-- **A table, image or screenshot** wherever you'd otherwise describe numbers in a paragraph.
-
-## Can AI tools improve your readability score?
-
-Yes, if you give them strict rules and check the result. Claude and ChatGPT can split sentences and swap long words in seconds. The risk is that they cut facts to reach an easy score, which is the trap in the next section.
-
-Try a prompt like this:
-
-> "Rewrite the text below for a Flesch Reading Ease of 60–70. Keep every fact, number and name. Keep these terms unchanged: [your keywords and technical terms]. Use active voice. Keep average sentence length at 14–18 words and vary it. Don't add new claims. After the rewrite, list any fact you removed."
-
-The last line is your safety net. Then paste the output into the checker and compare it with your original, sentence by sentence. If you work in WordPress, AIOSEO also has a built-in AI assistant for readability edits.
-
 ## Can you get a readability score that is too high?
 
 Yes. A score above 85 on an informational post usually means you cut detail, not clutter. Readability formulas only count sentence length and syllables, so choppy fragments score brilliantly while reading badly.
@@ -142,6 +119,29 @@ I proved it with the same paragraph. I chopped it into 16 fragments like "SEO is
 That version tells the reader nothing. It dropped from 91 words to 35 and lost every explanation of why each factor matters. Yoast cited the same weakness when it [replaced the Flesch score in its readability analysis in version 19.3](https://yoast.com/flesch-reading-ease-score/): the score "only looks at sentence and word length, ignoring context, tone, and audience."
 
 My rule: once you land in 60–70, stop editing for the number and edit for meaning.
+
+## Can AI tools improve your readability score?
+
+Yes, if you give them strict rules and check the result. Claude and ChatGPT can split sentences and swap long words in seconds. The risk is that they cut facts to reach an easy score, which is the trap described above.
+
+Try a prompt like this:
+
+> "Rewrite the text below for a Flesch Reading Ease of 60–70. Keep every fact, number and name. Keep these terms unchanged: [your keywords and technical terms]. Use active voice. Keep average sentence length at 14–18 words and vary it. Don't add new claims. After the rewrite, list any fact you removed."
+
+The last line is your safety net. Then paste the output into the checker and compare it with your original, sentence by sentence. If you work in WordPress, AIOSEO also has a built-in AI assistant for readability edits.
+
+## Does readability score affect Google rankings?
+
+No. Readability score is not a direct Google ranking factor. Google's John Mueller [said in a 2018 Webmaster Hangout](https://www.searchenginejournal.com/ranking-factors/reading-level/) that Google does not run basic algorithms that count words and syllables to judge pages.
+
+The data agrees. Portent [analysed 756,297 pieces of content across 30,000 search queries](https://portent.com/blog/content/study-how-content-readability-affects-seo-and-rankings.htm) and found no link between reading level and ranking position. The mean Flesch score of the top 30 results sat between 51.8 and 53.1. Originality.ai reached the same conclusion in a [study of 13,582 top-20 results across 1,000 keywords](https://originality.ai/blog/best-readability-score-to-rank-in-google): ranking pages have similar readability, but the score does not predict position.
+
+So why bother? Because readers decide whether your page did its job, and that shows up in how they behave.
+
+- **Readers scan first.** Nielsen Norman Group found that [79% of users scan web pages and only 16% read word by word](https://www.nngroup.com/articles/how-users-read-on-the-web/). In the same research, a version rewritten to be concise, scannable and objective scored 124% higher on usability.
+- **Readability tracks with sales.** Portent's [study of 33 client websites](https://portent.com/blog/cro/study-the-readability-of-your-website-is-affecting-your-conversion-rates.htm) found readability explained around 11% of the variation in conversion rate, rising to about 13% for e-commerce. For B2B sites the link was not significant.
+
+Treat the score as a diagnostic, not something Google grades. It points you to the sentences that make people leave.
 
 ## What do the top-ranking readability articles score?
 
@@ -173,7 +173,7 @@ A note on method: I scored text extracted from each page's main content with our
 
 The best free readability checker depends on where you write. Each of these suits a different stage:
 
-- [BrightlyFuture Readability Checker](https://brightlyfuture.co.uk/readability-checker/) – free, no sign-up. Shows Flesch, Flesch–Kincaid, Gunning Fog and ARI side by side, and highlights sentences over 20 and 30 words plus likely passive voice. Best for pass 1 and the final rescore.
+- **BrightlyFuture Readability Checker** – free, no sign-up. Shows Flesch, Flesch–Kincaid, Gunning Fog and ARI side by side, and highlights sentences over 20 and 30 words plus likely passive voice. Best for pass 1 and the final rescore.
 - [Hemingway Editor](https://hemingwayapp.com/) – the free web version colour-codes hard sentences, adverbs and passive voice. Best for passes 2 and 4.
 - **Microsoft Word** – shows Flesch Reading Ease and Flesch–Kincaid grade under Editor > Document stats in Microsoft 365. Handy if you draft in Word.
 - **Yoast SEO, Rank Math or AIOSEO (WordPress)** – check sentence length, paragraph length, passive voice, transition words and subheading spacing inside the editor. A useful last check before publishing.
@@ -182,9 +182,9 @@ Whichever you pick, stick with one. Switching tools mid-edit makes your progress
 
 ## Frequently Asked Questions
 
-### What does a US grade level mean for UK readers?
+### What does a reading grade level mean outside the US?
 
-Add five to the US grade to get the reader's age. Grade 8 means roughly age 13–14, the same as Year 9 in England. So a 60–70 Flesch score suits a typical Year 9 or Year 10 pupil.
+Add five to the US grade to get the reader's age. Grade 8 means roughly age 13–14, which is Year 9 in England and Wales or the second year of secondary school in many other systems. So a 60–70 Flesch score suits a typical 13–15-year-old reader.
 
 ### What is a good Gunning Fog score for a blog?
 
@@ -206,10 +206,11 @@ Start with posts that already get impressions in Google Search Console but show 
 
 No. The checker runs entirely in your browser with JavaScript. Your draft is never uploaded or stored, so it's safe for unpublished client work.
 
-## Final thoughts
+## Use the score as a guide, not a goal
 
 Readability scores reward short sentences and short words, and readers do too, up to a point. Use the score to find the sentences that lose people, fix them in five passes, and let meaning win once you're in range.
 
 Drafting with AI? My guide on [how to write a blog post using AI](https://brightlyfuture.co.uk/blog/how-to-write-blog-post-using-ai/) covers the drafting side, and the [blog post word count guide](https://brightlyfuture.co.uk/blog/blog-post-word-count/) covers how long the finished post should be.
 
-For the bigger picture on tools, SEO and Google's rules, start with our [complete guide to AI content writing](https://brightlyfuture.co.uk/blog/ai-content-writing-guide/). If you'd rather hand the writing over, see our [content marketing service](https://brightlyfuture.co.uk/content-marketing/).
+For the bigger picture on tools, SEO and Google's rules, start with our [complete guide to AI content writing](https://brightlyfuture.co.uk/blog/ai-content-writing-guide/).
+
