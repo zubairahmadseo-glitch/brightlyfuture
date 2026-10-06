@@ -33,6 +33,24 @@ That matches my own experience. When I checked the searches below, the format wa
 
 One correction to the common version of this advice: follow the format, never the wording. If your title reads like the other nine, the searcher has no reason to choose it. For "best AI writing tools", every result says "best" and most have a number, so the angle that stands out is proof: how many tools you tested, how you tested them, or a result nobody else shows.
 
+## Which headline formulas work for blog posts?
+
+The best headline formula is the one that matches the format already ranking for your keyword. These five cover almost every blog search. Fill the brackets with your own keyword, number and benefit:
+
+| Search intent | Formula | Example |
+|---|---|---|
+| Learn a process | How to [outcome] (without [pain]) | How to Start a Blog Without Paying for Hosting |
+| Compare options | [N] Best [keyword] for [audience] ([proof]) | 12 Best AI Writing Tools for Bloggers (Tested) |
+| Choose between two | [X] vs [Y]: Which Is Better for [goal]? | Claude vs ChatGPT: Which Is Better for Blog Posts? |
+| Understand a concept | What Is [keyword]? [benefit] Explained | What Is Search Intent? The 3 Cs Explained |
+| Get ideas or examples | [N] [keyword] Examples That [result] | 25 Blog Title Examples That Earned Page-One Clicks |
+
+Only one line in that table ends in a question mark, and it's the one where the searcher is asking a question. That fits Backlinko's CTR data (covered in the wording section below): questions don't lift CTR by themselves, so use them when the query itself is a question.
+
+Keep a swipe file, a habit [Copyblogger recommends in its headline guide](https://copyblogger.com/how-to-write-headlines-that-work/): every time a title makes you click, save it in a note with the search you typed. After a month you'll have your own formula list built from your niche, not a generic one.
+
+The line to hold is click-worthy, not clickbait. Every word in the formula must be true of the article. "Tested" means you tested. "Complete" means nothing important is missing.
+
 ## How many words should a blog headline be?
 
 Aim for 6–12 words and 40–60 characters for a blog title that shows in Google. Longer titles usually get cut off or rewritten, and very short ones don't carry enough detail to win the click.
@@ -68,7 +86,7 @@ Specific benefit words and proof words earn clicks. Hype and fake suspense lose 
 What the data says about wording:
 
 - **Positive beats negative, slightly.** Backlinko found [titles with a positive sentiment had about a 4% higher CTR](https://backlinko.com/google-ctr-stats) than negative ones.
-- **Questions don't add clicks in Google.** The same study found question and non-question titles had similar CTRs, 15.5% vs 16.3%. Only 1 of my 69 ranking titles ended with a question mark.
+- **Questions don't add clicks in Google.** The same study found question and non-question titles had similar CTRs. Only 1 of my 69 ranking titles ended with a question mark.
 - **Clickbait phrases faded.** BuzzSumo saw emotional hooks like "will make you cry" dominate social headlines in 2017 and nearly disappear by 2020, replaced by practical, expert-led phrasing.
 
 The Emotional Marketing Value (EMV) score, one of the older headline tools, measures how many emotional words a headline contains. That can help for social posts. For search, a clear promise usually beats an emotional one, because the searcher already has a problem and wants it solved.
@@ -90,25 +108,21 @@ It happens a lot. Zyppy found Google [rewrote 61.6% of the title tags it studied
 
 That table settles a debate I see in many headline guides. HubSpot cites research on 3.3 million paid headlines where [bracketed clarifiers performed 38% better](https://blog.hubspot.com/marketing/a-simple-formula-for-writing-kick-ass-titles-ht), with "[Template]" earning the most views. That was paid link placements, not organic search. In Google, brackets are the fastest way to get your title rewritten. It's why my own titles use "(With Analyzer)" rather than "[With Analyzer]", and why only 1 of 69 ranking titles in my sample used square brackets.
 
-A newer factor: in March 2026, Google [confirmed it is testing AI-generated headline rewrites in regular search results](https://www.searchenginejournal.com/google-ai-headlines-in-search/570208/). Google called the test "small and narrow", but it used the same words for the Discover test that became a standard feature a month later. The best protection is the same as before: a title that already describes the page so well there's nothing to improve.
+A newer factor: in March 2026, Google [confirmed it is testing AI-generated headline rewrites in regular search results](https://www.searchenginejournal.com/google-ai-headlines-in-search/570208/). Google called the test "small and narrow", but it used similar language before AI headlines became a regular feature in Google Discover. The best protection is the same as before: a title that already describes the page so well there's nothing to improve.
 
-## Which headline formulas work for blog posts?
+## What is the best process for writing blog headlines?
 
-The best headline formula is the one that matches the format already ranking for your keyword. These five cover almost every blog search. Fill the brackets with your own keyword, number and benefit:
+Read the top 10, find the gap, write ten versions, check them, then measure. This is the routine I follow for every BrightlyFuture post, and each step takes minutes.
 
-| Search intent | Formula | Example |
-|---|---|---|
-| Learn a process | How to [outcome] (without [pain]) | How to Start a Blog Without Paying for Hosting |
-| Compare options | [N] Best [keyword] for [audience] ([proof]) | 12 Best AI Writing Tools for Bloggers (Tested) |
-| Choose between two | [X] vs [Y]: Which Is Better for [goal]? | Claude vs ChatGPT: Which Is Better for Blog Posts? |
-| Understand a concept | What Is [keyword]? [benefit] Explained | What Is Search Intent? The 3 Cs Explained |
-| Get ideas or examples | [N] [keyword] Examples That [result] | 25 Blog Title Examples That Earned Page-One Clicks |
+[IMG 07-headlines-headline-workflow.webp | 5-step process for writing blog headlines that get clicks]
 
-Only one line in that table ends in a question mark, and it's the one where the searcher is asking a question. That fits the data above: questions don't lift CTR by themselves, so use them when the query itself is a question.
+1. **Read the top 10 titles.** Note the format, length, whether they use numbers or a year, and the angle each one takes.
+2. **Find the gap.** Look for what no title promises: first-hand testing, a free tool, templates, newer data, or a narrower audience.
+3. **Write ten versions after the draft.** Start with a working title, then write the final headline once the article exists, because the content often ends up promising something sharper than you planned. Begin each version with the keyword, add the benefit, then the specific detail. The first few will be obvious. The good one usually shows up around version six or seven.
+4. **Check the shortlist.** 40–60 characters, no square brackets, no hype words, and a promise the article keeps.
+5. **Measure CTR after four to six weeks.** In Google Search Console, open Performance, filter by the page and compare CTR with pages at a similar average position. If it trails, rewrite the title and check again a month later.
 
-Keep a swipe file, a habit [Copyblogger recommends in its headline guide](https://copyblogger.com/how-to-write-headlines-that-work/): every time a title makes you click, save it in a note with the search you typed. After a month you'll have your own formula list built from your niche, not a generic one.
-
-The line to hold is click-worthy, not clickbait. Every word in the formula must be true of the article. "Tested" means you tested. "Complete" means nothing important is missing.
+AI can speed up step 3. Ask Claude or ChatGPT for ten headlines that include your keyword, stay under 60 characters and promise a specific outcome, then edit the best two by hand. Our [AI Blog Generator](https://brightlyfuture.co.uk/ai-blog-generator/) can draft headline options alongside the outline.
 
 ## What is a headline score, and should you trust it?
 
@@ -141,20 +155,6 @@ That's why the BrightlyFuture analyzer shows a checklist, not a mystery number. 
 
 Use any analyzer to catch mistakes. Then let real click data decide.
 
-## What is the best process for writing blog headlines?
-
-Read the top 10, find the gap, write ten versions, check them, then measure. This is the routine I follow for every BrightlyFuture post, and each step takes minutes.
-
-[IMG 07-headlines-headline-workflow.webp | 5-step process for writing blog headlines that get clicks]
-
-1. **Read the top 10 titles.** Note the format, length, whether they use numbers or a year, and the angle each one takes.
-2. **Find the gap.** Look for what no title promises: first-hand testing, a free tool, templates, newer data, or a narrower audience.
-3. **Write ten versions after the draft.** Start with a working title, then write the final headline once the article exists, because the content often ends up promising something sharper than you planned. Begin each version with the keyword, add the benefit, then the specific detail. The first few will be obvious. The good one usually shows up around version six or seven.
-4. **Check the shortlist.** 40–60 characters, no square brackets, no hype words, and a promise the article keeps.
-5. **Measure CTR after four to six weeks.** In Google Search Console, open Performance, filter by the page and compare CTR with pages at a similar average position. If it trails, rewrite the title and check again a month later.
-
-AI can speed up step 3. Ask Claude or ChatGPT for ten headlines that include your keyword, stay under 60 characters and promise a specific outcome, then edit the best two by hand. Our [AI Blog Generator](https://brightlyfuture.co.uk/ai-blog-generator/) can draft headline options alongside the outline.
-
 ## Frequently Asked Questions
 
 ### Should the H1 and the SEO title tag be the same?
@@ -181,10 +181,11 @@ No. Keep the slug as it is. WordPress doesn't change a published post's slug whe
 
 Use the natural version. Google matches close variants, so "How to Write Blog Headlines" can rank for "blog headline writing". Never force a clunky exact-match phrase, because readers notice it before Google does.
 
-## Final thoughts
+## Clear beats clever
 
 Great blog headlines aren't clever. They're clear. Read what ranks, match the format, add the angle nobody else has, and keep it tight. Then trust your Search Console data over any score.
 
 Once the headline earns the click, the article has to keep the reader. My guide on [how to improve your blog readability score](https://brightlyfuture.co.uk/blog/how-to-improve-blog-readability-score/) covers that part, and the [step-by-step guide to writing a blog post with AI](https://brightlyfuture.co.uk/blog/how-to-write-blog-post-using-ai/) shows the full process from idea to publish. If you're choosing a writing assistant, start with our [best AI blog writing tools](https://brightlyfuture.co.uk/blog/best-ai-blog-writing-tools/) comparison.
 
-For the bigger picture on tools, SEO and Google's rules, start with our [complete guide to AI content writing](https://brightlyfuture.co.uk/blog/ai-content-writing-guide/). If you'd rather hand the writing over, see our [content marketing service](https://brightlyfuture.co.uk/content-marketing/).
+For the bigger picture on tools, SEO and Google's rules, start with our [complete guide to AI content writing](https://brightlyfuture.co.uk/blog/ai-content-writing-guide/).
+
