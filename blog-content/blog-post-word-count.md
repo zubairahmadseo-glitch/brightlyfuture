@@ -67,7 +67,7 @@ How intent usually shapes length:
 | A comparison or list | "best AI blog writing tools" | Enough detail on each option to choose between them |
 | A broad overview (pillar page) | "AI content writing" | Every major subtopic, linking to detailed articles |
 
-Two of my own articles show the range. [How to write a blog post using AI](https://brightlyfuture.co.uk/blog/how-to-write-blog-post-using-ai/) runs over 3,000 words because the process has eight steps and a dozen prompts. This article is much shorter, because the question it answers is simpler.
+Two of my own articles show the range. My guide to writing a blog post using AI runs over 3,000 words because the process has eight steps and a dozen prompts. This article is much shorter, because the question it answers is simpler.
 
 ## How long should a post be to appear in AI Overviews?
 
