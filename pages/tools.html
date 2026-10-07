@@ -22,13 +22,6 @@
 .bf-tools .bft-stats{display:flex;justify-content:center;gap:36px;flex-wrap:wrap;margin-top:30px}
 .bf-tools .bft-stats strong{display:block;font-size:1.6rem;color:var(--pri)}
 .bf-tools .bft-stats span{font-size:.85rem;color:var(--muted)}
-.bf-tools .bft-jump{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:26px}
-.bf-tools .bft-jump a{background:#fff;border:1px solid var(--border);color:var(--head);padding:8px 16px;border-radius:50px;font-size:.9rem;font-weight:600;text-decoration:none}
-.bf-tools .bft-jump a:hover{border-color:var(--pri);color:var(--pri)}
-.bf-tools .bft-cat{margin-bottom:48px;scroll-margin-top:90px}
-.bf-tools .bft-cat:last-child{margin-bottom:0}
-.bf-tools .bft-cat h2{text-align:left;font-size:1.5rem;border-left:4px solid var(--pri);padding-left:12px;margin-bottom:6px}
-.bf-tools .bft-cat-desc{color:var(--muted);margin-bottom:20px}
 .bf-tools .bft-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:20px}
 .bf-tools .bft-card{position:relative;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:26px 22px;transition:transform .2s,box-shadow .2s,border-color .2s}
 .bf-tools .bft-card:hover{transform:translateY(-4px);box-shadow:0 12px 28px rgba(108,92,231,.15);border-color:var(--pri)}
@@ -54,6 +47,23 @@
 .bf-tools .bft-cta p{color:rgba(255,255,255,.88);max-width:620px;margin:0 auto 24px}
 .bf-tools .bft-cta .bft-btn{background:#fff;color:var(--pri)!important}
 .bf-tools .bft-cta .bft-btn-o{background:transparent;color:#fff!important;border-color:#fff}
+.bf-tools .bft-tools-head{text-align:center;margin-bottom:28px}
+.bf-tools .bft-search{position:relative;max-width:560px;margin:0 auto 18px}
+.bf-tools .bft-search span{position:absolute;left:18px;top:50%;transform:translateY(-50%);color:var(--muted);font-size:1.1rem}
+.bf-tools .bft-search input{width:100%;padding:15px 20px 15px 48px;border:2px solid var(--border);border-radius:50px;font-size:1rem;font-family:inherit;color:var(--head);background:#fff;outline:none;transition:border-color .2s}
+.bf-tools .bft-search input:focus{border-color:var(--pri)}
+.bf-tools .bft-tabs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.bf-tools .bft-tab{background:#fff;border:1px solid var(--border);color:var(--head);padding:9px 18px;border-radius:50px;font-size:.9rem;font-weight:600;font-family:inherit;cursor:pointer;transition:all .2s}
+.bf-tools .bft-tab:hover{border-color:var(--pri);color:var(--pri)}
+.bf-tools .bft-tab.bft-active{background:var(--pri);border-color:var(--pri);color:#fff}
+.bf-tools .bft-count{text-align:center;color:var(--muted);font-size:.9rem;margin:16px 0 0}
+.bf-tools .bft-featured{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;background:linear-gradient(135deg,#6C5CE7 0%,#1A1744 100%);border-radius:18px;padding:34px 36px;margin-bottom:36px}
+.bf-tools .bft-featured h2{color:#fff;text-align:left;margin-bottom:8px}
+.bf-tools .bft-featured p{color:rgba(255,255,255,.88);margin:0;max-width:600px}
+.bf-tools .bft-featured .bft-badge{display:inline-block;background:rgba(255,255,255,.18);color:#fff;font-size:.8rem;font-weight:700;padding:4px 12px;border-radius:50px;margin-bottom:10px}
+.bf-tools .bft-featured .bft-btn{background:#fff;color:var(--pri)!important}
+.bf-tools .bft-tag{display:inline-block;background:var(--bg);color:var(--pri);font-size:.75rem;font-weight:700;padding:3px 10px;border-radius:50px;margin-bottom:10px;align-self:flex-start}
+.bf-tools .bft-none{display:none;text-align:center;color:var(--muted);padding:40px 0}
 @media(max-width:600px){.bf-tools h1{font-size:1.8rem}.bf-tools h2{font-size:1.45rem}.bf-tools .bft-sec{padding:40px 16px}.bf-tools .bft-btn-o{margin:10px 0 0}.bf-tools .bft-stats{gap:20px}}
 </style>
 <div class="bf-tools">
@@ -62,32 +72,29 @@
 <h1>Free AI &amp; SEO Tools to <span class="bft-hl">Write, Rank and Grow</span> Faster</h1>
 <p>14 free tools for bloggers, marketers and creators. Generate blog posts, check readability, analyse headlines, write emails and create social captions in seconds, all in one place.</p>
 <div class="bft-stats"><div><strong>14</strong><span>Free Tools</span></div><div><strong>&pound;0</strong><span>No Hidden Costs</span></div><div><strong>0</strong><span>Sign-Ups Needed</span></div></div>
-<div class="bft-jump"><a href="#bft-c0">AI Writing Tools</a><a href="#bft-c1">Content &amp; SEO Analysis</a><a href="#bft-c2">Email Tools</a><a href="#bft-c3">Social Media &amp; YouTube Tools</a></div>
 </div></section>
 <section class="bft-sec" id="bft-all">
-<div class="bft-cat" id="bft-c0"><h2>AI Writing Tools</h2><p class="bft-cat-desc">Create, rewrite and check blog content in seconds.</p><div class="bft-grid">
-<article class="bft-card"><span class="bft-free">FREE</span><span class="bft-ico" aria-hidden="true">&#9998;</span><h3>AI Blog Generator</h3><p>Turn a topic or keyword into a structured, SEO-friendly blog draft with headings and intro in seconds.</p><a class="bft-link" href="https://brightlyfuture.co.uk/ai-blog-generator/">Use AI Blog Generator &rarr;</a></article>
-<article class="bft-card"><span class="bft-free">FREE</span><span class="bft-ico" aria-hidden="true">&#8635;</span><h3>AI Paraphrase &amp; Rewriter</h3><p>Rewrite sentences and paragraphs in a fresh, natural tone while keeping the original meaning.</p><a class="bft-link" href="https://brightlyfuture.co.uk/ai-paraphrase-rewriter/">Use AI Paraphrase &amp; Rewriter &rarr;</a></article>
-<article class="bft-card"><span class="bft-free">FREE</span><span class="bft-ico" aria-hidden="true">&#9906;</span><h3>AI Blog Detector</h3><p>Check whether a text looks AI-generated before you publish, so your content stays human and trustworthy.</p><a class="bft-link" href="https://brightlyfuture.co.uk/ai-blog-detector/">Use AI Blog Detector &rarr;</a></article>
-</div></div>
-<div class="bft-cat" id="bft-c1"><h2>Content &amp; SEO Analysis</h2><p class="bft-cat-desc">Polish your writing so it reads well and ranks better.</p><div class="bft-grid">
-<article class="bft-card"><span class="bft-free">FREE</span><span class="bft-ico" aria-hidden="true">&#8470;</span><h3>Word &amp; Character Counter</h3><p>Count words, characters, sentences and reading time instantly for blogs, essays and meta tags.</p><a class="bft-link" href="https://brightlyfuture.co.uk/word-character-counter/">Use Word &amp; Character Counter &rarr;</a></article>
-<article class="bft-card"><span class="bft-free">FREE</span><span class="bft-ico" aria-hidden="true">&#9673;</span><h3>Readability Checker</h3><p>Get your Flesch reading score and simple tips to make your content easier to read.</p><a class="bft-link" href="https://brightlyfuture.co.uk/readability-checker/">Use Readability Checker &rarr;</a></article>
-<article class="bft-card"><span class="bft-free">FREE</span><span class="bft-ico" aria-hidden="true">&#9733;</span><h3>Headline Analyzer</h3><p>Score your headlines for clicks, emotion and length, and write titles people actually want to open.</p><a class="bft-link" href="https://brightlyfuture.co.uk/headline-analyzer/">Use Headline Analyzer &rarr;</a></article>
-<article class="bft-card"><span class="bft-free">FREE</span><span class="bft-ico" aria-hidden="true">&#9741;</span><h3>Domain Checker</h3><p>Look up domain availability and registration details before you build your next website.</p><a class="bft-link" href="https://brightlyfuture.co.uk/domain-checker/">Use Domain Checker &rarr;</a></article>
-</div></div>
-<div class="bft-cat" id="bft-c2"><h2>Email Tools</h2><p class="bft-cat-desc">Write better emails and look professional in every inbox.</p><div class="bft-grid">
-<article class="bft-card"><span class="bft-free">FREE</span><span class="bft-ico" aria-hidden="true">&#9993;</span><h3>AI Email Writer</h3><p>Write clear, polished emails for work, sales or follow-ups in any tone with one click.</p><a class="bft-link" href="https://brightlyfuture.co.uk/ai-email-writer/">Use AI Email Writer &rarr;</a></article>
-<article class="bft-card"><span class="bft-free">FREE</span><span class="bft-ico" aria-hidden="true">&#9997;</span><h3>Email Signature Generator</h3><p>Design a professional HTML email signature for Gmail and Outlook in minutes.</p><a class="bft-link" href="https://brightlyfuture.co.uk/email-signature-generator/">Use Email Signature Generator &rarr;</a></article>
-</div></div>
-<div class="bft-cat" id="bft-c3"><h2>Social Media &amp; YouTube Tools</h2><p class="bft-cat-desc">Grow faster on Instagram, X and YouTube.</p><div class="bft-grid">
-<article class="bft-card"><span class="bft-free">FREE</span><span class="bft-ico" aria-hidden="true">&#10022;</span><h3>Instagram Bio Generator</h3><p>Generate catchy, creative Instagram bios that show your personality and attract followers.</p><a class="bft-link" href="https://brightlyfuture.co.uk/instagram-bio-generator/">Use Instagram Bio Generator &rarr;</a></article>
-<article class="bft-card"><span class="bft-free">FREE</span><span class="bft-ico" aria-hidden="true">&#10077;</span><h3>AI Caption Generator</h3><p>Create scroll-stopping captions for Instagram, Facebook, TikTok and LinkedIn posts.</p><a class="bft-link" href="https://brightlyfuture.co.uk/ai-caption-generator/">Use AI Caption Generator &rarr;</a></article>
-<article class="bft-card"><span class="bft-free">FREE</span><span class="bft-ico" aria-hidden="true">&#35;</span><h3>Hashtag Generator</h3><p>Find relevant, trending hashtags to boost your reach and engagement on every post.</p><a class="bft-link" href="https://brightlyfuture.co.uk/hashtag-generator/">Use Hashtag Generator &rarr;</a></article>
-<article class="bft-card"><span class="bft-free">FREE</span><span class="bft-ico" aria-hidden="true">&#10006;</span><h3>Twitter / X Character Counter</h3><p>Check your post length against X's 280-character limit before you hit publish.</p><a class="bft-link" href="https://brightlyfuture.co.uk/twitter-x-character-count/">Use Twitter / X Character Counter &rarr;</a></article>
-<article class="bft-card"><span class="bft-free">FREE</span><span class="bft-ico" aria-hidden="true">&#9654;</span><h3>YouTube Title &amp; Tag Generator</h3><p>Generate click-worthy YouTube titles and SEO tags to help your videos get found.</p><a class="bft-link" href="https://brightlyfuture.co.uk/youtube-title-tag-generator/">Use YouTube Title &amp; Tag Generator &rarr;</a></article>
-</div></div>
-</section>
+<div class="bft-featured"><div><span class="bft-badge">FEATURED TOOL</span><h2>AI Blog Generator</h2><p>Turn any topic or keyword into a structured, SEO-ready blog draft in seconds. The fastest way to beat a blank page.</p></div><a href="https://brightlyfuture.co.uk/ai-blog-generator/" class="bft-btn">Try It Free &rarr;</a></div>
+<div class="bft-tools-head"><h2>Find the Right Tool</h2><p class="bft-sub" style="margin-bottom:22px">Search by name or filter by category to find what you need.</p>
+<div class="bft-search"><span aria-hidden="true">&#9906;</span><input type="search" id="bft-q" placeholder="Search tools, e.g. hashtag, email, headline" aria-label="Search tools"></div>
+<div class="bft-tabs" role="tablist"><button type="button" class="bft-tab bft-active" data-f="all">All Tools (14)</button><button type="button" class="bft-tab" data-f="ai">AI Writing (3)</button><button type="button" class="bft-tab" data-f="seo">Content &amp; SEO (4)</button><button type="button" class="bft-tab" data-f="email">Email (2)</button><button type="button" class="bft-tab" data-f="social">Social Media (5)</button></div>
+<p class="bft-count" id="bft-count">Showing all 14 tools</p></div>
+<div class="bft-grid" id="bft-grid">
+<article class="bft-card" data-cat="ai"><span class="bft-free">FREE</span><span class="bft-ico" aria-hidden="true">&#9998;</span><span class="bft-tag">AI Writing</span><h3>AI Blog Generator</h3><p>Turn a topic or keyword into a structured, SEO-friendly blog draft with headings and intro in seconds.</p><a class="bft-link" href="https://brightlyfuture.co.uk/ai-blog-generator/">Use AI Blog Generator &rarr;</a></article>
+<article class="bft-card" data-cat="ai"><span class="bft-free">FREE</span><span class="bft-ico" aria-hidden="true">&#8635;</span><span class="bft-tag">AI Writing</span><h3>AI Paraphrase &amp; Rewriter</h3><p>Rewrite sentences and paragraphs in a fresh, natural tone while keeping the original meaning.</p><a class="bft-link" href="https://brightlyfuture.co.uk/ai-paraphrase-rewriter/">Use AI Paraphrase &amp; Rewriter &rarr;</a></article>
+<article class="bft-card" data-cat="ai"><span class="bft-free">FREE</span><span class="bft-ico" aria-hidden="true">&#9906;</span><span class="bft-tag">AI Writing</span><h3>AI Blog Detector</h3><p>Check whether a text looks AI-generated before you publish, so your content stays human and trustworthy.</p><a class="bft-link" href="https://brightlyfuture.co.uk/ai-blog-detector/">Use AI Blog Detector &rarr;</a></article>
+<article class="bft-card" data-cat="seo"><span class="bft-free">FREE</span><span class="bft-ico" aria-hidden="true">&#8470;</span><span class="bft-tag">Content &amp; SEO</span><h3>Word &amp; Character Counter</h3><p>Count words, characters, sentences and reading time instantly for blogs, essays and meta tags.</p><a class="bft-link" href="https://brightlyfuture.co.uk/word-character-counter/">Use Word &amp; Character Counter &rarr;</a></article>
+<article class="bft-card" data-cat="seo"><span class="bft-free">FREE</span><span class="bft-ico" aria-hidden="true">&#9673;</span><span class="bft-tag">Content &amp; SEO</span><h3>Readability Checker</h3><p>Get your Flesch reading score and simple tips to make your content easier to read.</p><a class="bft-link" href="https://brightlyfuture.co.uk/readability-checker/">Use Readability Checker &rarr;</a></article>
+<article class="bft-card" data-cat="seo"><span class="bft-free">FREE</span><span class="bft-ico" aria-hidden="true">&#9733;</span><span class="bft-tag">Content &amp; SEO</span><h3>Headline Analyzer</h3><p>Score your headlines for clicks, emotion and length, and write titles people actually want to open.</p><a class="bft-link" href="https://brightlyfuture.co.uk/headline-analyzer/">Use Headline Analyzer &rarr;</a></article>
+<article class="bft-card" data-cat="seo"><span class="bft-free">FREE</span><span class="bft-ico" aria-hidden="true">&#9741;</span><span class="bft-tag">Content &amp; SEO</span><h3>Domain Checker</h3><p>Look up domain availability and registration details before you build your next website.</p><a class="bft-link" href="https://brightlyfuture.co.uk/domain-checker/">Use Domain Checker &rarr;</a></article>
+<article class="bft-card" data-cat="email"><span class="bft-free">FREE</span><span class="bft-ico" aria-hidden="true">&#9993;</span><span class="bft-tag">Email</span><h3>AI Email Writer</h3><p>Write clear, polished emails for work, sales or follow-ups in any tone with one click.</p><a class="bft-link" href="https://brightlyfuture.co.uk/ai-email-writer/">Use AI Email Writer &rarr;</a></article>
+<article class="bft-card" data-cat="email"><span class="bft-free">FREE</span><span class="bft-ico" aria-hidden="true">&#9997;</span><span class="bft-tag">Email</span><h3>Email Signature Generator</h3><p>Design a professional HTML email signature for Gmail and Outlook in minutes.</p><a class="bft-link" href="https://brightlyfuture.co.uk/email-signature-generator/">Use Email Signature Generator &rarr;</a></article>
+<article class="bft-card" data-cat="social"><span class="bft-free">FREE</span><span class="bft-ico" aria-hidden="true">&#10022;</span><span class="bft-tag">Social Media</span><h3>Instagram Bio Generator</h3><p>Generate catchy, creative Instagram bios that show your personality and attract followers.</p><a class="bft-link" href="https://brightlyfuture.co.uk/instagram-bio-generator/">Use Instagram Bio Generator &rarr;</a></article>
+<article class="bft-card" data-cat="social"><span class="bft-free">FREE</span><span class="bft-ico" aria-hidden="true">&#10077;</span><span class="bft-tag">Social Media</span><h3>AI Caption Generator</h3><p>Create scroll-stopping captions for Instagram, Facebook, TikTok and LinkedIn posts.</p><a class="bft-link" href="https://brightlyfuture.co.uk/ai-caption-generator/">Use AI Caption Generator &rarr;</a></article>
+<article class="bft-card" data-cat="social"><span class="bft-free">FREE</span><span class="bft-ico" aria-hidden="true">&#35;</span><span class="bft-tag">Social Media</span><h3>Hashtag Generator</h3><p>Find relevant, trending hashtags to boost your reach and engagement on every post.</p><a class="bft-link" href="https://brightlyfuture.co.uk/hashtag-generator/">Use Hashtag Generator &rarr;</a></article>
+<article class="bft-card" data-cat="social"><span class="bft-free">FREE</span><span class="bft-ico" aria-hidden="true">&#10006;</span><span class="bft-tag">Social Media</span><h3>Twitter / X Character Counter</h3><p>Check your post length against the 280-character limit on X before you hit publish.</p><a class="bft-link" href="https://brightlyfuture.co.uk/twitter-x-character-count/">Use Twitter / X Character Counter &rarr;</a></article>
+<article class="bft-card" data-cat="social"><span class="bft-free">FREE</span><span class="bft-ico" aria-hidden="true">&#9654;</span><span class="bft-tag">Social Media</span><h3>YouTube Title &amp; Tag Generator</h3><p>Generate click-worthy YouTube titles and SEO tags to help your videos get found.</p><a class="bft-link" href="https://brightlyfuture.co.uk/youtube-title-tag-generator/">Use YouTube Title &amp; Tag Generator &rarr;</a></article>
+</div><p class="bft-none" id="bft-none">No tools match your search. Try another keyword or choose All Tools.</p></section>
 <section class="bft-alt"><div class="bft-sec"><h2>How to Use Our Free Tools</h2><p class="bft-sub">Get results in three simple steps, no learning curve and no account needed.</p><div class="bft-steps">
 <div class="bft-step"><span class="bft-num">1</span><h3>Pick a Tool</h3><p>Choose the tool that matches your task, from blog writing to hashtags.</p></div>
 <div class="bft-step"><span class="bft-num">2</span><h3>Add Your Input</h3><p>Paste your text, keyword or topic into the tool.</p></div>
@@ -109,4 +116,45 @@
 <details><summary>Which tool should I start with?</summary><p>Bloggers usually start with the AI Blog Generator, then check the draft with the Readability Checker and Headline Analyzer. Social media creators can start with the Caption and Hashtag Generators.</p></details>
 </div></section>
 </div>
+<script>
+(function(){
+  function init(){
+    var grid=document.getElementById('bft-grid');
+    if(!grid){return;}
+    if(grid.getAttribute('data-ready')){return;}
+    grid.setAttribute('data-ready','1');
+    var q=document.getElementById('bft-q');
+    var tabs=document.querySelectorAll('.bf-tools .bft-tab');
+    var cards=grid.querySelectorAll('.bft-card');
+    var none=document.getElementById('bft-none');
+    var count=document.getElementById('bft-count');
+    var filter='all';
+    function run(){
+      var term=q.value.toLowerCase().trim();
+      var shown=0;
+      for(var i=0;i!==cards.length;i++){
+        var c=cards[i];
+        var okCat=(filter==='all')?true:(c.getAttribute('data-cat')===filter);
+        var okText=(term==='')?true:(c.textContent.toLowerCase().indexOf(term)!==-1);
+        var show=okCat?okText:false;
+        c.style.display=show?'':'none';
+        if(show){shown++;}
+      }
+      none.style.display=(shown===0)?'block':'none';
+      count.textContent=(shown===cards.length)?'Showing all '+shown+' tools':'Showing '+shown+' of '+cards.length+' tools';
+    }
+    for(var j=0;j!==tabs.length;j++){
+      tabs[j].addEventListener('click',function(){
+        for(var k=0;k!==tabs.length;k++){tabs[k].classList.remove('bft-active');}
+        this.classList.add('bft-active');
+        filter=this.getAttribute('data-f');
+        run();
+      });
+    }
+    q.addEventListener('input',run);
+  }
+  if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+  window.addEventListener('load',init);
+})();
+</script>
 <script type="application/ld+json">[{"@context":"https://schema.org","@type":"ItemList","name":"Free AI and SEO Tools","itemListElement":[{"@type":"ListItem","position":1,"name":"AI Blog Generator","url":"https://brightlyfuture.co.uk/ai-blog-generator/"},{"@type":"ListItem","position":2,"name":"AI Paraphrase & Rewriter","url":"https://brightlyfuture.co.uk/ai-paraphrase-rewriter/"},{"@type":"ListItem","position":3,"name":"AI Blog Detector","url":"https://brightlyfuture.co.uk/ai-blog-detector/"},{"@type":"ListItem","position":4,"name":"Word & Character Counter","url":"https://brightlyfuture.co.uk/word-character-counter/"},{"@type":"ListItem","position":5,"name":"Readability Checker","url":"https://brightlyfuture.co.uk/readability-checker/"},{"@type":"ListItem","position":6,"name":"Headline Analyzer","url":"https://brightlyfuture.co.uk/headline-analyzer/"},{"@type":"ListItem","position":7,"name":"Domain Checker","url":"https://brightlyfuture.co.uk/domain-checker/"},{"@type":"ListItem","position":8,"name":"AI Email Writer","url":"https://brightlyfuture.co.uk/ai-email-writer/"},{"@type":"ListItem","position":9,"name":"Email Signature Generator","url":"https://brightlyfuture.co.uk/email-signature-generator/"},{"@type":"ListItem","position":10,"name":"Instagram Bio Generator","url":"https://brightlyfuture.co.uk/instagram-bio-generator/"},{"@type":"ListItem","position":11,"name":"AI Caption Generator","url":"https://brightlyfuture.co.uk/ai-caption-generator/"},{"@type":"ListItem","position":12,"name":"Hashtag Generator","url":"https://brightlyfuture.co.uk/hashtag-generator/"},{"@type":"ListItem","position":13,"name":"Twitter / X Character Counter","url":"https://brightlyfuture.co.uk/twitter-x-character-count/"},{"@type":"ListItem","position":14,"name":"YouTube Title & Tag Generator","url":"https://brightlyfuture.co.uk/youtube-title-tag-generator/"}]},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Are BrightlyFuture tools really free?","acceptedAnswer":{"@type":"Answer","text":"Yes. All tools on this page are 100% free to use, with no hidden charges and no credit card required."}},{"@type":"Question","name":"Do I need to sign up or create an account?","acceptedAnswer":{"@type":"Answer","text":"No. You can use every tool instantly without registration. Just open a tool and start."}},{"@type":"Question","name":"Is my content saved or shared?","acceptedAnswer":{"@type":"Answer","text":"No. We do not sell or share the text you enter. Read our Privacy Policy to learn more about how we handle data."}},{"@type":"Question","name":"Can I use the AI-generated content on my website?","acceptedAnswer":{"@type":"Answer","text":"Yes. You are free to use the results, but we recommend editing AI drafts, adding your own experience and fact-checking before publishing."}},{"@type":"Question","name":"Do the tools work on mobile?","acceptedAnswer":{"@type":"Answer","text":"Yes. Every tool is fully responsive and works on phones, tablets and desktops in any modern browser."}},{"@type":"Question","name":"Which tool should I start with?","acceptedAnswer":{"@type":"Answer","text":"Bloggers usually start with the AI Blog Generator, then check the draft with the Readability Checker and Headline Analyzer. Social media creators can start with the Caption and Hashtag Generators."}}]}]</script>
