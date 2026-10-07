@@ -89,7 +89,7 @@ My guide on [how to humanize AI content](https://brightlyfuture.co.uk/blog/how-t
 
 ## Does Google penalise paraphrased content?
 
-Not for being paraphrased. Google's [Search Quality Rater Guidelines](https://guidelines.raterhub.com/searchqualityevaluatorguidelines.pdf) (current version dated 11 September 2025) give the Lowest rating when almost all of a page is "copied, paraphrased, embedded, or reposted from other sources with little to no effort, little to no originality, and little to no added value". The problem is the missing value, not the method.
+Not for being paraphrased. Google's [Search Quality Rater Guidelines](https://guidelines.raterhub.com/searchqualityevaluatorguidelines.pdf) (current version dated 11 September 2025) give the Lowest rating when almost all of a page is "copied, paraphrased, embedded, auto or AI generated, or reposted from other sources with little to no effort, little to no originality, and little to no added value for visitors". The problem is the missing value, not the method.
 
 So the question isn't "paraphrase or rewrite?" It's "what did I add?" For a blog, that usually means a rewrite plus something the source didn't have: your test, your data, your example. For how Google treats AI-assisted writing more broadly, see [can Google detect AI content?](https://brightlyfuture.co.uk/blog/can-google-detect-ai-content/)
 
@@ -97,14 +97,14 @@ So the question isn't "paraphrase or rewrite?" It's "what did I add?" For a blog
 
 The best tool depends on the job. Sentence-level paraphrasers suit short passages. Chat-based AI suits full rewrites because you can tell it the audience, structure and facts to keep.
 
-- **QuillBot** – the best-known paraphraser. The free plan handles 125 words at a time with the Standard and Fluency modes; Premium unlocks the other modes and removes the limit.
+- **QuillBot** – the best-known paraphraser. The free plan limits how many words you can paraphrase at once and which modes you can use; the paid plan removes those limits.
 - **Spinbot and other synonym spinners** – swap words at speed. Fine for brainstorming alternative phrasings, risky for anything you publish, for the reasons my test showed.
 - **WordAI** – an article rewriter built for longer content rather than single sentences.
 - **Grammarly** – offers rewrite suggestions for clarity and tone inside your existing draft.
 - **Jasper and Copy.ai** – marketing writing platforms that include rewriting tools for ad and web copy.
 - **Claude and ChatGPT** – the most flexible for true rewriting, because you can give them a brief. I compared them in [best AI blog writing tools](https://brightlyfuture.co.uk/blog/best-ai-blog-writing-tools/).
 
-After my test, I rebuilt our own [free paraphraser](https://brightlyfuture.co.uk/ai-paraphrase-rewriter/) so it does more than swap words. It rewrites common wordy phrases, moves clauses, splits long sentences and runs entirely in your browser. It also shows a "Phrases kept" score: the share of 5-word phrases still matching your original, the same measure I used above. On my test paragraph, Standard mode kept about a fifth of them on average and Creative mode under a tenth, down from 83% for a basic spinner.
+After my test, I rebuilt our own [free paraphraser](https://brightlyfuture.co.uk/ai-paraphrase-rewriter/) so it does more than swap words. It sends your text to a free AI model to rewrite the sentences, and falls back to a built-in rule engine if the AI service is busy. Your text isn't saved by BrightlyFuture, but it does leave your browser, so don't paste anything confidential. The tool also shows a "Phrases kept" score: the share of 5-word phrases still matching your original, the same measure I used above. Use it to spot sentences that are still too close to the source.
 
 [IMG 06-paraphrasing-tool-phrases-kept.webp | Screenshot: the BrightlyFuture paraphraser showing words changed and the Phrases kept score]
 
@@ -128,10 +128,10 @@ You can, but you rarely should. Two near-identical posts on the same site compet
 
 It depends on your institution's policy. Many universities allow tools for language support but treat undisclosed AI rewriting of submitted work as misconduct. Check your course rules and declare the tool if they ask.
 
-## Final thoughts
+## Credit and added value matter more than the words
 
 Paraphrase when you need someone else's idea in your words. Rewrite when your own piece needs a new shape. Either way, the words are the easy part; credit and added value are what keep your content honest and worth ranking.
 
 For the full process from draft to publish, see the [step-by-step guide to writing a blog post with AI](https://brightlyfuture.co.uk/blog/how-to-write-blog-post-using-ai/).
 
-For the bigger picture on tools, SEO and Google's rules, start with our [complete guide to AI content writing](https://brightlyfuture.co.uk/blog/ai-content-writing-guide/). If you'd rather hand the writing over, see our [content marketing service](https://brightlyfuture.co.uk/content-marketing/).
+For the bigger picture on tools, SEO and Google's rules, start with our [complete guide to AI content writing](https://brightlyfuture.co.uk/blog/ai-content-writing-guide/).
