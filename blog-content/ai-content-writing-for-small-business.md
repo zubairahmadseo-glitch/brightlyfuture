@@ -4,9 +4,9 @@
 
 [IMG 01-small-business-featured.webp | AI content writing for small business – complete 2026 strategy]
 
-I run BrightlyFuture as a small team, and AI writes the first draft of almost everything we publish. Claude is my first choice for writing. I give it detailed instructions about the business, and the drafts come back in our tone, with our services and our rules. I tried ChatGPT for the same job and never got on with it for long pieces, but I still use it for images, where it's very good.
+I run BrightlyFuture as a small operation, and AI writes the first draft of almost everything I publish. Claude is my first choice for writing. I give it detailed instructions about the business, and the drafts come back in our tone, with our services and our rules. I tried ChatGPT for the same job and never got on with it for long pieces, but I still use it for images, where it's very good.
 
-That workflow took our Search Console clicks from 77 in the first month to 164 in the second and 970 in the third. It didn't work because AI wrote fast. It worked because AI freed up the hours I then spent adding tests, screenshots and checks that no model could produce.
+I used the same workflow on a health and fitness site, which reached 5,690 clicks and 1.14 million impressions in its first six months. Speed wasn't the reason. AI freed up hours that I then spent on research, fact-checks and details no model could produce.
 
 This guide is the strategy behind that, adapted for any small business: which content to hand to AI, what it costs, which tools you actually need, how to set Claude up as your business writer, and a 90-day plan to start.
 
@@ -38,7 +38,7 @@ The numbers depend on who is asked and what counts as AI, so read each one again
 
 - **UK micro-businesses:** the Office for National Statistics found [28% of businesses with 0–9 employees used AI](https://www.ons.gov.uk/businessindustryandtrade/business/businessservices/articles/artificialintelligenceinukbusinesses/2023to2026) by June 2026, and around 35% of businesses with 10 or more staff. Large language models were the most common type of AI in use.
 - **UK SMEs:** the British Chambers of Commerce reported in March 2026 that [54% of SMEs were actively adopting AI](https://www.britishchambers.org.uk/news/2026/03/half-of-smes-using-ai-with-limited-headcount-impact-so-far/), up from 35% a year earlier.
-- **US small businesses:** the U.S. Chamber of Commerce found [58% used generative AI](https://www.uschamber.com/technology/empowering-small-business-the-impact-of-technology-on-u-s-small-business) in its August 2025 report, up from 23% in 2023.
+- **US small businesses:** the U.S. Chamber of Commerce found that [almost 60% of small businesses use AI](https://www.uschamber.com/technology/empowering-small-business-the-impact-of-technology-on-u-s-small-business) for business operations, more than double the 2023 figure.
 
 The catch is that most adoption is shallow. Among businesses with 10 or more staff, the ONS found adopters used only about 1.6 AI technologies each on average. Most owners have tried a chatbot; few have built it into a weekly routine.
 
@@ -52,7 +52,7 @@ Usually, yes, but the saving is in time rather than in skipping expertise. AI cu
 
 The fairest comparison is with hiring a writer. The 2026 ProCopywriters survey of 383 UK freelance copywriters puts the [median day rate at £440](https://www.procopywriters.co.uk/what-you-should-expect-to-pay/), with most charging between £300 and £1,800 a day. A good copywriter brings research, strategy and editing, not just words, so the right question is which tasks need that level of skill.
 
-A practical split for most small businesses:
+Per-article freelance rates and what the ranking data says about AI versus human writing are covered in [AI blog writer vs human writer](https://brightlyfuture.co.uk/blog/ai-blog-writer-vs-human-writer/). A practical split for most small businesses:
 
 - **Use AI plus your own editing** for regular, lower-stakes content: GBP posts, social captions, newsletters, FAQ answers and most blog posts.
 - **Pay a professional** for the pages that make or lose money: your homepage, key service pages, sales emails and anything regulated.
@@ -70,7 +70,7 @@ Most small businesses need one general AI assistant and the AI features already 
 - **Jasper:** a marketing-focused AI platform with brand voice features. Worth considering for a team producing a lot of content; overkill for a sole trader.
 - **Google Business Profile:** not an AI tool, but one of the best places for AI-drafted content. Regular posts with real photos show customers you're active.
 
-Start with one assistant. Add another only when you hit a job the first one does badly.
+Start with one assistant. Add another only when you hit a job the first one does badly. To see what a structured blog draft looks like before you set anything up, try the free [AI Blog Generator](https://brightlyfuture.co.uk/ai-blog-generator/).
 
 ## How do you set up Claude as your business writer?
 
@@ -85,9 +85,9 @@ This is the single change that improved my drafts most. According to Anthropic's
 
 A starting set of instructions for a local business might look like this:
 
-> "You write marketing content for [Business name], a [trade] in [town], UK. Our customers are [who]. Write in UK English, in a friendly, plain tone, at a reading age of about 12. Use only prices, services and opening hours from the project files; if something isn't there, ask me rather than guessing. Never invent reviews, statistics or results. Avoid these words: [your banned list]. Every post should end with one clear next step: call, book or visit."
+> "You write marketing content for [Business name], a [trade] in [town, country]. Our customers are [who]. Write in [UK/US] English, in a friendly, plain tone, at a reading age of about 12. Use only prices, services and opening hours from the project files; if something isn't there, ask me rather than guessing. Never invent reviews, statistics or results. Avoid these words: [your banned list]. Every post should end with one clear next step: call, book or visit."
 
-On paid plans you can go a step further with [Skills](https://claude.com/blog/skills), which Anthropic launched in October 2025. A skill packages a repeatable routine, such as "turn this photo and offer into a Google Business Profile post", so Claude follows the same steps every time.
+You can go a step further with [Skills](https://claude.com/blog/skills), which Anthropic launched in October 2025. A skill packages a repeatable routine, such as "turn this photo and offer into a Google Business Profile post", so Claude follows the same steps every time.
 
 Keep the instructions short enough to maintain. Update the price list and FAQs whenever they change; stale files produce confidently wrong drafts.
 
@@ -130,7 +130,7 @@ The main risks are wrong facts, content that sounds like everyone else, and publ
 
 ### Is it safe to paste customer details into an AI tool?
 
-Only if your use of that tool meets UK GDPR, and the safest habit is not to paste names, emails, order details or health information at all. Check each provider's settings on whether your chats are used for training, and read the ICO's [guidance on AI and data protection](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/) if AI touches customer data in your business.
+Only if your use of that tool meets your data protection law (UK GDPR and EU GDPR, for example), and the safest habit is not to paste names, emails, order details or health information at all. Check each provider's settings on whether your chats are used for training, and, in the UK, read the ICO's [guidance on AI and data protection](https://ico.org.uk/for-organisations/uk-gdpr-guidance-and-resources/artificial-intelligence/guidance-on-ai-and-data-protection/) if AI touches customer data in your business.
 
 ### Can I use AI-generated images in my marketing?
 
@@ -144,10 +144,8 @@ Put the business brief, tone rules and banned words in one shared place so every
 
 Yes, Claude and ChatGPT both write in many languages, which helps businesses serving more than one community. Have a fluent speaker check anything customer-facing before it goes out, because small errors in tone or formality are easy to miss if you don't speak the language.
 
-## Final thoughts
+## Let AI draft, and spend the saved time on proof
 
 AI hasn't changed what makes small-business content work. It has changed how long the first draft takes. Give Claude your business brief, let it draft, and spend the time you save on the details only you know. Start with the 90-day plan, check your numbers at the end, and grow from what actually brings in customers.
-
-If you'd rather have content planned and written for you, our [content marketing service](https://brightlyfuture.co.uk/content-marketing/) uses this same process.
 
 For the bigger picture on tools, SEO and Google's rules, start with our [complete guide to AI content writing](https://brightlyfuture.co.uk/blog/ai-content-writing-guide/).
