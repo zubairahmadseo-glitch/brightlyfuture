@@ -4,7 +4,7 @@
 
 [IMG 01-google-ai-featured.webp | Can Google detect AI content – what the 2026 data says]
 
-Every article on BrightlyFuture starts as a Claude draft. I then edit it by hand, add my own tests and data, and check every source. Our Search Console clicks went from 77 in the first month to 164 in the second and 970 in the third. So when people ask whether Google can detect AI content, I have a stake in the answer.
+Every article on BrightlyFuture starts as a Claude draft. I then edit it by hand, add my own tests and data, and check every source. I've worked this way before: a health and fitness site I built with the same process, Claude drafts plus my own research and editing, reached 5,690 clicks and 1.14 million impressions in its first six months. So when people ask whether Google can detect AI content, I have a stake in the answer.
 
 The short version: it's the wrong question. Google has never said it runs an "is this AI?" check on your pages, and its public guidance says the opposite. What it does run are systems that find pages made to rank rather than to help. Below you'll find what Google has actually said up to September 2026, what the large studies show, and a test I ran that shows why AI detector scores tell you less than you think.
 
@@ -14,7 +14,7 @@ Google has not confirmed that it uses an AI-text classifier for ranking, and it 
 
 Three facts help frame this:
 
-- **Google's official position is method-neutral.** In its [February 2023 guidance on AI-generated content](https://developers.google.com/search/blog/2023/02/google-search-and-ai-content), Google said it rewards high-quality content however it's produced. Its [generative AI content guidance](https://developers.google.com/search/docs/fundamentals/using-gen-ai-content), last updated in December 2025, keeps that line: AI help is fine; generating many pages without adding value may break the scaled content abuse policy.
+- **Google's official position is method-neutral.** In its [February 2023 guidance on AI-generated content](https://developers.google.com/search/blog/2023/02/google-search-and-ai-content), Google said it rewards high-quality content however it's produced. Its [generative AI content guidance](https://developers.google.com/search/docs/fundamentals/using-gen-ai-content), updated again in October 2026, keeps that line: AI help is fine; generating many pages without adding value may break the scaled content abuse policy.
 - **Google does study AI content internally.** Search Engine Journal reported that the LinkedIn profile of Chris Nelson, a Google Search employee who co-authored that guidance, mentions building ranking solutions for the ["detection and treatment of AI-generated content"](https://www.searchenginejournal.com/evidence-that-google-detects-ai-generated-content/537571/). Google has not commented on it officially.
 - **SynthID only covers Google's own model.** DeepMind's SynthID-Text, described in a [Nature paper in October 2024](https://www.nature.com/articles/s41586-024-08025-4), watermarks Gemini output by nudging word choices. It can't identify text from other models, and the paper's authors caution that text watermarks can be circumvented by editing or paraphrasing.
 
@@ -31,7 +31,7 @@ The largest public study backs this up. In July 2025, Ahrefs checked the top 20 
 Two details from that study matter more than the headline:
 
 - Only 4.6% of ranking pages were fully AI-generated, while 81.9% mixed human and AI work.
-- Pages in position one used slightly less AI on average. Ahrefs calls the trend very weak, but it fits what I see on my own site: the posts that climb are the ones where I added a test, a screenshot or a number no one else had.
+- Pages in position one used slightly less AI on average. Ahrefs calls the trend very weak, but it matches what I saw on that health site: the posts that climbed were the ones where I added a test, a screenshot or a number no one else had.
 
 Google's July 2026 [guide to generative AI features in Search](https://developers.google.com/search/docs/fundamentals/ai-optimization-guide) makes the same point from another angle. It warns against "commodity content" built on common knowledge and asks for "unique expert or experienced takes that go beyond common knowledge." Raw AI output is commodity content by default, because it's built from what's already been written.
 
@@ -41,7 +41,7 @@ Google uses the same layers it uses for all content: spam policies enforced part
 
 [IMG 04-google-ai-how-google-judges.webp | What Google checks instead of who wrote the content]
 
-**Spam policies.** Google's [spam policies](https://developers.google.com/search/docs/essentials/spam-policies), last updated in August 2026, define scaled content abuse as generating many pages to manipulate rankings rather than help users. The policy lists "using generative AI tools or other similar tools" as one method, next to scraping and synonym swapping. Google enforces these policies through regular spam updates. Its [Search Status Dashboard](https://status.search.google.com/products/rGHU1u87FJnkP6W2GwMi/history) lists spam updates in August 2025, June 2026, August 2026 and one that began on 24 September 2026.
+**Spam policies.** Google's [spam policies](https://developers.google.com/search/docs/essentials/spam-policies), last updated in August 2026, define scaled content abuse as generating many pages to manipulate rankings rather than help users. The policy lists "using generative AI tools or other similar tools" as one method, next to scraping and synonym swapping. Google enforces these policies through regular spam updates. Its [Search Status Dashboard](https://status.search.google.com/products/rGHU1u87FJnkP6W2GwMi/history) lists spam updates in August 2025, March 2026, June 2026, August 2026 and one that began on 24 September 2026.
 
 **Core ranking systems.** In March 2024, Google announced a core update aimed at [reducing low-quality, unoriginal content in search results](https://blog.google/products-and-platforms/products/search/google-search-update-march-2024/). It expected a 40% reduction; after the rollout it reported 45%.
 
@@ -110,7 +110,7 @@ Keep AI in the drafting seat and yourself in the editing seat. Every risk in Goo
 2. **Has every fact been checked?** AI drafts invent statistics with confidence. Open each source and cut anything you can't confirm.
 3. **Is the metadata accurate?** Google's AI guidance singles out titles, meta descriptions, structured data and alt text.
 4. **Would you publish it at this pace without AI?** Scale without review is what the spam policy targets. Ten edited posts beat a hundred unread ones.
-5. **Does it read like a person wrote it for a person?** Check the [readability score](https://brightlyfuture.co.uk/readability-checker/) and run it through the [AI writing checker](https://brightlyfuture.co.uk/ai-blog-detector/) to find sentences that need your voice.
+5. **Does it read like a person wrote it for a person?** Check the [readability score](https://brightlyfuture.co.uk/readability-checker/) and run it through the AI writing checker to find sentences that need your voice.
 
 For the full drafting workflow, see the [step-by-step guide to writing a blog post with AI](https://brightlyfuture.co.uk/blog/how-to-write-blog-post-using-ai/). For editing techniques, see the humanizing guide linked above, and for where each side is stronger, [AI blog writer vs human writer](https://brightlyfuture.co.uk/blog/ai-blog-writer-vs-human-writer/). If you rework existing text, rewrite rather than spin: synonym swapping is named in Google's spam policies, as I explain in [paraphrasing vs rewriting](https://brightlyfuture.co.uk/blog/ai-paraphrasing-vs-rewriting/).
 
@@ -136,8 +136,8 @@ No. Humanizers change style, not substance. A page that adds nothing new is stil
 
 Yes. Google [says its AI features](https://developers.google.com/search/docs/appearance/ai-features) are rooted in the same core ranking and quality systems as regular results, and that no special optimisation is needed to appear in them. A page is eligible if it is indexed and can show a snippet, so the same quality bar applies whether a person or a model wrote the first draft.
 
-## Final thoughts
+## Google judges value, not authorship
 
-Google doesn't need to detect AI to deal with bad AI content. Its systems catch pages that add nothing, and unedited AI drafts usually add nothing. Use AI to write faster, then spend the saved time on the parts only you can supply. That combination is what grew this site, and it's what the 2026 data rewards.
+Google doesn't need to detect AI to deal with bad AI content. Its systems catch pages that add nothing, and unedited AI drafts usually add nothing. Use AI to write faster, then spend the saved time on the parts only you can supply. That combination is what grew the health site I mentioned at the start, and it's what the 2026 data rewards.
 
-For the bigger picture on tools, SEO and Google's rules, start with our [complete guide to AI content writing](https://brightlyfuture.co.uk/blog/ai-content-writing-guide/). If you'd rather hand the writing over, see our [content marketing service](https://brightlyfuture.co.uk/content-marketing/).
+For the bigger picture on tools, SEO and Google's rules, start with our [complete guide to AI content writing](https://brightlyfuture.co.uk/blog/ai-content-writing-guide/).
