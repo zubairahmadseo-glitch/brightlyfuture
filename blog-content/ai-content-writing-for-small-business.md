@@ -65,7 +65,7 @@ Most small businesses need one general AI assistant and the AI features already 
 - **Claude:** my first choice for writing. It follows long, detailed instructions consistently, which matters when you want every draft to sound like your business. I compare it with the alternatives in [best AI blog writing tools](https://brightlyfuture.co.uk/blog/best-ai-blog-writing-tools/).
 - **ChatGPT:** a strong all-rounder, and in my experience the better choice for generating images for posts and social media.
 - **Mailchimp:** its built-in assistant, [Intuit Assist, drafts emails](https://mailchimp.com/solutions/ai-tools/) inside the editor, so you don't need a separate tool for newsletters.
-- **HubSpot:** the [Breeze Content Agent](https://www.hubspot.com/products/content/content-ai-agent) drafts blog posts and landing pages from your business context. It's included in Content Hub Professional and Enterprise, so it suits businesses already paying for HubSpot.
+- **HubSpot:** its [Content Hub](https://www.hubspot.com/products/content/content-ai-agent) has built-in AI for drafting blog posts and landing pages, and even the free plan includes AI blog post creation. It suits businesses already using HubSpot as their CRM.
 - **WordPress:** where most small-business blogs live. Draft in your AI assistant, then paste into the editor and check formatting, links and images before publishing.
 - **Jasper:** a marketing-focused AI platform with brand voice features. Worth considering for a team producing a lot of content; overkill for a sole trader.
 - **Google Business Profile:** not an AI tool, but one of the best places for AI-drafted content. Regular posts with real photos show customers you're active.
