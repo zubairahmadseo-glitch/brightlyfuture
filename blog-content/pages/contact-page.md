@@ -1,5 +1,5 @@
-**Meta title:** Contact BrightlyFuture: Email, Phone & SEO Enquiries
-**Meta description:** Get in touch with Zubair Ahmad at BrightlyFuture about SEO help, content marketing, a tool problem or a correction. Email or call, details on this page.
+**Meta title:** Contact BrightlyFuture: Questions, Corrections & Ideas
+**Meta description:** Have a question about an article or tool, spotted a mistake, or want to contribute? Email or message me here. I read every message myself.
 
 # Contact BrightlyFuture
 
