@@ -4,7 +4,7 @@ Checked 11 October 2026 against the roadmap sheet "Pillar 2 - Social" and live G
 ## Method
 For every planned title I searched its main keyword and compared the top results. Two titles that pull up the same pages answer the same search, so they were merged. Titles with different top results were kept as separate articles.
 
-## Final cluster: 1 pillar + 9 articles
+## Final cluster: 1 pillar + 10 articles
 | # | Final article | Primary keyword | Replaces sheet # |
 |---|---|---|---|
 | 1 | Social Media Marketing Guide 2026 (PILLAR, includes the beginner section) | social media marketing guide for beginners | 1 + 11 |
