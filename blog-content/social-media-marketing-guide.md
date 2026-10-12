@@ -52,11 +52,13 @@ Pick the single result that matters most for the next three months:
 - **Traffic:** visits to your blog or website (link clicks)
 - **Leads or sales:** sign-ups, enquiries or orders (conversions)
 
-One goal stops you judging a traffic campaign by its likes, or an awareness campaign by its sales.
+Make it measurable and time-bound (the SMART approach): "200 visits a month from Instagram to the blog by March" is a goal; "grow on Instagram" is a wish. One goal also stops you judging a traffic campaign by its likes, or an awareness campaign by its sales.
 
 ### 2. Know your audience
 
 Write down who you want to reach, what problems they have and what they already search for or follow. Look at the accounts they follow and the questions they ask in comments. Your posts should answer those questions.
+
+Then check three or four competitors on the platform you're considering: which of their posts get comments and shares, which formats they use, and what nobody in your niche is covering yet. That gap is your starting angle. If you already have accounts, review them the same way before changing anything.
 
 ### 3. Pick one or two platforms
 
@@ -133,7 +135,7 @@ What that means in practice:
 - **Make the first second count.** Time spent is a signal, and people decide fast whether to stop scrolling.
 - **Create posts worth saving or sending.** Checklists, tips and useful examples get saved and shared more than announcements.
 - **Reply to comments.** Conversations show the platform people care about the post.
-- **Use hashtags and keywords for context, not reach.** Instagram now limits posts and Reels to [five hashtags](https://later.com/blog/instagram-hashtags/), so each one should describe the post accurately. Our free [Hashtag Generator](https://brightlyfuture.co.uk/hashtag-generator/) helps you find relevant ones.
+- **Use hashtags and keywords for context.** They tell the platform what a post is about; they don't create reach on their own. Our free [Hashtag Generator](https://brightlyfuture.co.uk/hashtag-generator/) helps you find relevant ones.
 
 ## How do you measure social media marketing results?
 
@@ -153,13 +155,31 @@ Two habits make these numbers useful:
 
 Review once a month, not every day. Daily numbers jump around; monthly patterns show what's working.
 
+## What's changing in social media marketing in 2026?
+
+Three changes affect how beginners should post this year: fewer hashtags, social posts showing up in Google, and audiences rewarding brands that sound human.
+
+- **Instagram limits hashtags to five.** Since December 2025, Instagram has capped posts and Reels at [five hashtags](https://later.com/blog/instagram-hashtags/), replacing the old limit of 30. A few accurate tags now beat a long list of popular ones.
+- **Social posts can rank in Google.** Since July 2025, public posts from Instagram business and creator accounts can appear in Google and Bing results, [according to Metricool](https://metricool.com/instagram-indexing-on-google/). Captions written with the words people search for now help on and off the app.
+- **Search works inside social apps too.** TikTok, Instagram and YouTube all have search bars people use to find products, places and how-tos, so clear keywords in captions, titles and on-screen text help people find you.
+
+## What are the most common social media marketing mistakes?
+
+Most beginner mistakes come from doing too much, too fast, without a goal.
+
+- **Joining every platform at once.** Five half-run accounts reach fewer people than one run well.
+- **Chasing every trend.** Sprout Social's [2025 Index](https://sproutsocial.com/insights/press/the-days-of-trend-chasing-are-over-new-research-from-sprout-social-reveals-a-third-of-consumers-think-jumping-on-viral-trends-is-embarrassing-for-brands/) found a third of consumers think brands jumping on viral trends is embarrassing, and 27% think it only works within 24–48 hours of a trend starting. Join a trend only when it fits your topic and you can post quickly.
+- **Selling in every post.** If every post is an offer, people stop reading. Most posts should teach, show or start a conversation.
+- **Posting and leaving.** Replying to comments keeps the conversation going and shows people that someone is there.
+- **Judging too early.** Changing direction every two weeks means you never learn what works.
+
 ## Should you use AI for social media marketing?
 
 Yes, for ideas, first drafts and repurposing, but not for the parts that make your posts yours. AI can turn one blog post into a week of caption drafts in minutes. It can't know your audience's in-jokes, your real results or what you actually think.
 
 Use it to speed up the blank-page stage, then edit every post: add a specific detail, a real example and your own voice. The editing steps in [how to humanize AI content](https://brightlyfuture.co.uk/blog/how-to-humanize-ai-content/) apply to captions as much as to blog posts.
 
-There's also a reason to stay authentic. Sprout Social's [2025 Index](https://sproutsocial.com/insights/press/the-days-of-trend-chasing-are-over-new-research-from-sprout-social-reveals-a-third-of-consumers-think-jumping-on-viral-trends-is-embarrassing-for-brands/) found that authenticity and relatability are the two traits consumers value most from brands, and about half say original content is what makes their favourite brands stand out. Generic AI posts are the opposite of both.
+There's also a reason to stay authentic: the same Sprout Social research found that authenticity and relatability are the two traits consumers value most from brands, and about half say original content is what makes their favourite brands stand out. Generic AI posts are the opposite of both.
 
 ## Social media marketing guides by topic
 
