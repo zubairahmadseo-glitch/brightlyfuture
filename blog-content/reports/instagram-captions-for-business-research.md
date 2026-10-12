@@ -91,3 +91,24 @@ Instagram, Meta, Instagram Insights, Instagram Reels, carousel, Stories, profess
 - #4 Bio: not covered here.
 - #5 Character limits: caption limit only here; other platforms there.
 - Caption Generator tool page: explains the tool; this article teaches the skill and links the tool once.
+
+## Final structure (approved basis: user intent + competitor headings)
+H1: How to Write Instagram Captions for Business (With Examples)
+Quick Answer (45–50 words)
+Intro (~120 words): problem, what the reader gets, link to pillar
+H2 What makes a good Instagram caption for business? (definition + 4 jobs of a caption)
+H2 How do you write an Instagram caption for business? (method)
+  H3 Step 1 Start with the goal of the post
+  H3 Step 2 Write the first line (hook) — 6 hook types with examples
+  H3 Step 3 Give the value (story, tip, proof)
+  H3 Step 4 End with one call to action — CTA table by goal
+  H3 Step 5 Format for skimming (line breaks, emojis, hashtags in one line + link #3)
+H2 How long should an Instagram caption be? (2,200 limit, preview not official, short vs long table)
+H2 What should you write for each business goal? (awareness / engagement / traffic / sales — template + example each)
+H2 Instagram caption examples by business type (cafe, salon, online shop, service/consultant, blogger) + before/after
+H2 How do captions differ for Reels, carousels and single images?
+H2 How do you make captions help people find you on Instagram and Google? (keywords, Google indexing July 2025, alt text)
+H2 How do you know if a caption is working? (Insights metrics, test one change at a time)
+H2 Can AI write your Instagram captions? (draft + edit; Caption Generator; humanize link)
+H2 FAQs (unique): edit after posting; same caption across posts/platforms; links in captions not clickable; @mentions/tagging; caption in comments vs caption; one-word captions
+H2 Closing: write your next caption this way
