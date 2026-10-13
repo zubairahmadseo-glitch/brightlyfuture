@@ -34,6 +34,8 @@ A few rules make a voice consistent:
 - **Decide on emojis once.** None, a few, or plenty; switching from post to post looks careless.
 - **Keep a short list of words you never use.** For many brands, that includes jargon customers don't say.
 
+Voice also depends on who you sell to. A B2B firm selling to other businesses can be more formal and data-led; a local shop or consumer brand can be more casual. Both should still sound like people, not press releases.
+
 ### Step 3: Write the first line (the hook)
 
 Instagram shows only the start of a caption in the feed, so the first line has to work on its own. It should make the reader want to tap "more" or watch to the end.
@@ -177,6 +179,7 @@ Write in batches from a list of your customers' real questions, and turn each id
 
 - **Keep a question list.** Every question a customer asks in person, by email or in comments is a caption.
 - **Batch once a week.** Write all of next week's captions in one sitting, so you're in a writing frame of mind instead of switching tasks every day.
+- **Use a set of caption ideas when you're stuck.** Behind the scenes, how a product is made, a customer's question answered, a common myth corrected, a team member introduced, a seasonal or local event, a before-and-after, or a customer's own photo reshared with their permission and credit.
 - **Turn one idea into three posts.** A tip can be a carousel, a short Reel and a story-based caption from your own experience.
 - **Use AI for the first draft, not the final one.** AI is useful when you're stuck on a hook or need five versions of a call to action. Our free [AI Caption Generator](https://brightlyfuture.co.uk/ai-caption-generator/) gives you drafts to start from. Then add the details only you know: your prices, your customers' words, your real results. The editing steps in [how to humanize AI content](https://brightlyfuture.co.uk/blog/how-to-humanize-ai-content/) apply to captions too.
 
@@ -214,6 +217,10 @@ Put them in the caption. Instagram's search matches caption text, and with only 
 ### Can a caption be just one word or an emoji?
 
 Yes, for a strong image or a well-known brand, a one-word caption can work. For most small businesses it wastes the chance to explain, invite a comment or point people to the next step. Save very short captions for posts where the picture says everything.
+
+### Do you need to label sponsored or gifted posts?
+
+Yes, if a post promotes something you were paid for, gifted or have a business link to, it must be clearly labelled as an ad. In the UK, the ASA and CMA's [influencer guidance](https://www.asa.org.uk/resource/influencers-guide.html) covers this; in the US, the FTC's [Disclosures 101](https://www.ftc.gov/business-guidance/blog/2019/11/disclosures-101-new-ftc-resources-social-media-influencers) says the same applies to free or discounted products. Put the label, such as "Ad", at the start of the caption where people can't miss it, and use Instagram's paid partnership label as well, not instead.
 
 ## Write your next caption this way
 
