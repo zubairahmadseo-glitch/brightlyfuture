@@ -34,6 +34,12 @@
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 
+<!-- Preload LCP hero image + preconnect image CDN (Core Web Vitals) -->
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="preload" as="image" href="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=1200&amp;q=70" fetchpriority="high">
+<!-- RSS feed for discovery -->
+<link rel="alternate" type="application/rss+xml" title="The Wow Style RSS Feed" href="https://thewowstyle.co.uk/feed/">
+
 <!-- Fonts: preconnect + display=swap for Core Web Vitals -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -355,6 +361,52 @@ ul{margin:0;padding:0;list-style:none}
 .scheme-demo button{border:1px solid #ccc;background:#fff;border-radius:999px;padding:6px 10px;cursor:pointer;display:flex;gap:6px;align-items:center;font:inherit}
 .scheme-demo button[aria-pressed="true"]{border-color:#111;font-weight:700}
 .scheme-demo i{width:12px;height:12px;border-radius:50%;display:inline-block}
+
+.wrap.sec{padding-left:16px;padding-right:16px}
+/* ===== Category cards ===== */
+.cat-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.cat-card{position:relative;display:block;aspect-ratio:4/5;border-radius:10px;overflow:hidden;background:var(--cream);color:#fff}
+.cat-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.cat-card:hover img{transform:scale(1.05)}
+.cat-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.78))}
+.cat-body{position:absolute;left:0;right:0;bottom:0;padding:16px;z-index:1;display:flex;flex-direction:column;gap:4px}
+.cat-name{font-family:var(--serif);font-size:22px;font-weight:700}
+.cat-desc{font-size:13px;color:#eee;line-height:1.4}
+.cat-count{align-self:flex-start;background:var(--accent);color:var(--on-accent);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border-radius:3px}
+.cat-count.soon{background:rgba(255,255,255,.2);color:#fff;backdrop-filter:blur(4px)}
+.cat-card:hover,.cat-card:hover .cat-name{color:#fff}
+/* Tabs */
+.tabs{display:flex;gap:8px;margin:-8px 0 20px;flex-wrap:wrap}
+.tabs button{border:1px solid var(--line);background:#fff;border-radius:999px;padding:7px 16px;font:600 13px var(--sans);cursor:pointer;color:var(--ink)}
+.tabs button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.card[hidden]{display:none}
+.pager{display:flex;align-items:center;gap:18px;padding-top:24px;font-weight:600;font-size:14px}
+/* Trust strip */
+.trust{padding-top:0}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.trust-grid div{background:var(--cream);padding:20px;display:flex;flex-direction:column;gap:4px}
+.trust-grid b{font-family:var(--serif);font-size:17px}
+.trust-grid span{font-size:13px;color:var(--muted)}
+.trust-link{text-align:center;font-size:13px;font-weight:600;margin-top:14px}
+/* FAQ */
+.faq details{border-bottom:1px solid var(--line);padding:4px 0}
+.faq summary{cursor:pointer;font-family:var(--serif);font-size:18px;font-weight:600;padding:14px 0;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::after{content:"+";color:var(--accent);font-size:22px;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq p{margin:0 0 14px;color:var(--ink-2)}
+/* Back to top + cookie */
+.to-top{position:fixed;left:16px;bottom:16px;width:44px;height:44px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;opacity:0;pointer-events:none;transition:opacity .3s;z-index:150}
+.to-top.show{opacity:1;pointer-events:auto}
+.to-top:hover{color:#fff;background:var(--accent)}
+.cookie{position:fixed;left:16px;right:16px;bottom:16px;max-width:720px;margin:0 auto;background:var(--ink);color:#eee;padding:16px 18px;border-radius:12px;display:flex;gap:14px;align-items:center;justify-content:space-between;flex-wrap:wrap;z-index:180;font-size:14px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.cookie[hidden]{display:none}
+.cookie p{margin:0}
+.cookie a{text-decoration:underline}
+.cookie .btn{border-color:#fff;color:#fff}
+.cookie .btn-accent{border-color:var(--accent);color:var(--on-accent)}
+.cookie div{display:flex;gap:8px}
+@media (max-width:1024px){.cat-grid,.trust-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.cat-grid{grid-template-columns:repeat(2,1fr);gap:10px}.cat-name{font-size:17px}.cat-desc{display:none}.trust-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -484,14 +536,56 @@ ul{margin:0;padding:0;list-style:none}
     </nav>
   </section>
 
+  <!-- ========== CATEGORY CARDS (silo hubs – each links to a category pillar page) ========== -->
+  <section class="wrap sec" aria-labelledby="cats-h" style="padding-top:8px">
+    <div class="sec-head"><h2 id="cats-h">Browse by Category</h2><a href="/sitemap/">All topics →</a></div>
+    <nav class="cat-grid" aria-label="Categories">
+      <a class="cat-card" href="/haircuts/">
+        <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=500&amp;q=60" alt="Haircuts category" width="300" height="375" loading="lazy">
+        <span class="cat-body"><span class="cat-count">48 guides</span><span class="cat-name">Haircuts</span><span class="cat-desc">Fades, bobs, crops &amp; cuts for every face shape</span></span>
+      </a>
+      <a class="cat-card" href="/hairstyles/">
+        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500&amp;q=60" alt="Hairstyles category" width="300" height="375" loading="lazy">
+        <span class="cat-body"><span class="cat-count soon">Coming soon</span><span class="cat-name">Hairstyles</span><span class="cat-desc">Updos, braids &amp; everyday styling</span></span>
+      </a>
+      <a class="cat-card" href="/hair-colour/">
+        <img src="https://images.unsplash.com/photo-1560869713-7d0a29430803?w=500&amp;q=60" alt="Hair Colour category" width="300" height="375" loading="lazy">
+        <span class="cat-body"><span class="cat-count soon">Coming soon</span><span class="cat-name">Hair Colour</span><span class="cat-desc">Balayage, highlights &amp; colour trends</span></span>
+      </a>
+      <a class="cat-card" href="/grooming/">
+        <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=500&amp;q=60" alt="Grooming category" width="300" height="375" loading="lazy">
+        <span class="cat-body"><span class="cat-count soon">Coming soon</span><span class="cat-name">Grooming</span><span class="cat-desc">Beards, skincare &amp; men's grooming</span></span>
+      </a>
+      <a class="cat-card" href="/fashion/">
+        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=500&amp;q=60" alt="Fashion category" width="300" height="375" loading="lazy">
+        <span class="cat-body"><span class="cat-count soon">Coming soon</span><span class="cat-name">Fashion</span><span class="cat-desc">Trends, outfits &amp; wardrobe guides</span></span>
+      </a>
+      <a class="cat-card" href="/beauty/">
+        <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=500&amp;q=60" alt="Beauty category" width="300" height="375" loading="lazy">
+        <span class="cat-body"><span class="cat-count soon">Coming soon</span><span class="cat-name">Beauty</span><span class="cat-desc">Makeup, skincare &amp; beauty edits</span></span>
+      </a>
+      <a class="cat-card" href="/celebrity-style/">
+        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=500&amp;q=60" alt="Celebrity Style category" width="300" height="375" loading="lazy">
+        <span class="cat-body"><span class="cat-count soon">Coming soon</span><span class="cat-name">Celebrity Style</span><span class="cat-desc">Red carpet &amp; street style looks</span></span>
+      </a>
+      <a class="cat-card" href="/shopping/">
+        <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=500&amp;q=60" alt="Shopping category" width="300" height="375" loading="lazy">
+        <span class="cat-body"><span class="cat-count soon">Coming soon</span><span class="cat-name">Shopping</span><span class="cat-desc">Tested tools, products &amp; deals</span></span>
+      </a>
+    </nav>
+  </section>
+
   <!-- ========== LATEST IN HAIRCUTS ========== -->
   <section class="wrap sec" aria-labelledby="latest-h" style="padding-top:0">
     <div class="sec-head"><h2 id="latest-h">Latest in Haircuts</h2><a href="/haircuts/">See all →</a></div>
-    <div class="grid-4">
-      <article class="card"><a href="/haircuts/mens/buzz-cut/" class="thumb"><img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=600&q=60" alt="Man with a short buzz cut" width="400" height="500" loading="lazy"></a><span class="kicker">Men</span><h3><a href="/haircuts/mens/buzz-cut/">Buzz Cut Guard Numbers Explained</a></h3><p class="meta"><time datetime="2026-10-02">2 Oct 2026</time></p></article>
-      <article class="card"><a href="/haircuts/womens/pixie/" class="thumb"><img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=600&q=60" alt="Woman with a textured pixie cut" width="400" height="500" loading="lazy"></a><span class="kicker">Women</span><h3><a href="/haircuts/womens/pixie/">Pixie Cuts That Grow Out Gracefully</a></h3><p class="meta"><time datetime="2026-09-30">30 Sep 2026</time></p></article>
-      <article class="card"><a href="/haircuts/face-shape/" class="thumb"><img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=600&q=60" alt="Stylist cutting a client's hair" width="400" height="500" loading="lazy"></a><span class="kicker">Face Shape</span><h3><a href="/haircuts/face-shape/">How to Pick a Haircut for Your Face Shape</a></h3><p class="meta"><time datetime="2026-09-28">28 Sep 2026</time></p></article>
-      <article class="card"><a href="/haircuts/womens/layered/" class="thumb"><img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=600&q=60" alt="Long layered hair with soft movement" width="400" height="500" loading="lazy"></a><span class="kicker">Women</span><h3><a href="/haircuts/womens/layered/">Long Layered Haircuts: 40 Ideas</a></h3><p class="meta"><time datetime="2026-09-26">26 Sep 2026</time></p></article>
+    <div class="tabs" role="toolbar" aria-label="Filter stories">
+      <button aria-pressed="true" data-f="all">All</button><button aria-pressed="false" data-f="men">Men</button><button aria-pressed="false" data-f="women">Women</button><button aria-pressed="false" data-f="guides">Guides</button>
+    </div>
+    <div class="grid-4" id="latestGrid">
+      <article class="card" data-cat="men"><a href="/haircuts/mens/buzz-cut/" class="thumb"><img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=600&q=60" alt="Man with a short buzz cut" width="400" height="500" loading="lazy"></a><span class="kicker">Men</span><h3><a href="/haircuts/mens/buzz-cut/">Buzz Cut Guard Numbers Explained</a></h3><p class="meta"><time datetime="2026-10-02">2 Oct 2026</time></p></article>
+      <article class="card" data-cat="women"><a href="/haircuts/womens/pixie/" class="thumb"><img src="https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=600&q=60" alt="Woman with a textured pixie cut" width="400" height="500" loading="lazy"></a><span class="kicker">Women</span><h3><a href="/haircuts/womens/pixie/">Pixie Cuts That Grow Out Gracefully</a></h3><p class="meta"><time datetime="2026-09-30">30 Sep 2026</time></p></article>
+      <article class="card" data-cat="guides"><a href="/haircuts/face-shape/" class="thumb"><img src="https://images.unsplash.com/photo-1562322140-8baeececf3df?w=600&q=60" alt="Stylist cutting a client's hair" width="400" height="500" loading="lazy"></a><span class="kicker">Face Shape</span><h3><a href="/haircuts/face-shape/">How to Pick a Haircut for Your Face Shape</a></h3><p class="meta"><time datetime="2026-09-28">28 Sep 2026</time></p></article>
+      <article class="card" data-cat="women"><a href="/haircuts/womens/layered/" class="thumb"><img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=600&q=60" alt="Long layered hair with soft movement" width="400" height="500" loading="lazy"></a><span class="kicker">Women</span><h3><a href="/haircuts/womens/layered/">Long Layered Haircuts: 40 Ideas</a></h3><p class="meta"><time datetime="2026-09-26">26 Sep 2026</time></p></article>
     </div>
   </section>
 
@@ -524,6 +618,8 @@ ul{margin:0;padding:0;list-style:none}
       <div class="ad ad-rect" aria-hidden="true">Advertisement · In-feed</div>
       <article class="card list-item"><a href="/haircuts/thin-hair/" class="thumb"><img src="https://images.unsplash.com/photo-1560869713-7d0a29430803?w=500&q=60" alt="Hairstylist adding volume to fine hair" width="240" height="180" loading="lazy"></a>
         <div><span class="kicker">Thin Hair</span><h3><a href="/haircuts/thin-hair/">Haircuts That Make Thin Hair Look Thicker</a></h3><p>Blunt lines, strategic layers and the cuts to avoid if you want more visible volume.</p><p class="meta">By <a href="/author/editor/">Editorial Team</a> · <time datetime="2026-09-20">20 Sep 2026</time></p></div></article>
+      <!-- Crawlable pagination: real <a href> links, never JS-only "load more" -->
+      <nav class="pager" aria-label="Pagination"><a href="/latest/" class="btn btn-dark">More stories</a><a href="/latest/page/2/">Page 2 →</a></nav>
     </section>
 
     <aside aria-label="Sidebar">
@@ -561,6 +657,118 @@ ul{margin:0;padding:0;list-style:none}
       <article class="card"><a href="/celebrity-style/" class="thumb land"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=700&q=60" alt="Stylish woman with shopping bags on the street" width="400" height="250" loading="lazy"></a><span class="kicker">Celebrity Style</span><h3><a href="/celebrity-style/">Red Carpet &amp; Street Style Looks</a></h3></article>
     </div>
   </section>
+
+  <!-- ========== E-E-A-T TRUST STRIP ========== -->
+  <section class="wrap sec trust" aria-labelledby="trust-h">
+    <h2 id="trust-h" class="sr-only">Why trust The Wow Style</h2>
+    <div class="trust-grid">
+      <div><b>Expert-reviewed</b><span>Guides checked by working barbers &amp; stylists</span></div>
+      <div><b>Updated regularly</b><span>Every guide shows its last-reviewed date</span></div>
+      <div><b>Independent</b><span>Affiliate links never change our picks</span></div>
+      <div><b>Real photography</b><span>Credited images, no misleading edits</span></div>
+    </div>
+    <p class="trust-link"><a href="/editorial-policy/">Read our editorial policy →</a></p>
+  </section>
+
+  <!-- ========== FAQ (visible Q&A + FAQPage schema) ========== -->
+  <section class="wrap sec" aria-labelledby="faq-h" style="padding-top:0">
+    <div class="sec-head"><h2 id="faq-h">Frequently Asked Questions</h2></div>
+    <div class="faq"><details><summary>What does The Wow Style cover?</summary><p>The Wow Style is a UK magazine covering haircuts, hairstyles, hair colour, grooming, fashion, beauty and celebrity style, starting with in-depth haircut guides.</p></details><details><summary>Who writes and reviews your haircut guides?</summary><p>Our guides are written by our editorial team and reviewed with working barbers and hairstylists. Each article shows its author, reviewer and last-updated date.</p></details><details><summary>How do I choose a haircut for my face shape?</summary><p>Start with our Face Shape Haircut Finder: identify whether your face is oval, round, square, heart, diamond or oblong, then use the matching guide for cuts that balance your proportions.</p></details><details><summary>Can I write a guest post for The Wow Style?</summary><p>Yes. We accept original, expert-led articles on hair, fashion and beauty. Read our Guest Post Guidelines and send your pitch through the Write for Us page.</p></details></div>
+    <script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": [
+  {
+   "@type": "Question",
+   "name": "What does The Wow Style cover?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "The Wow Style is a UK magazine covering haircuts, hairstyles, hair colour, grooming, fashion, beauty and celebrity style, starting with in-depth haircut guides."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Who writes and reviews your haircut guides?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Our guides are written by our editorial team and reviewed with working barbers and hairstylists. Each article shows its author, reviewer and last-updated date."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "How do I choose a haircut for my face shape?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Start with our Face Shape Haircut Finder: identify whether your face is oval, round, square, heart, diamond or oblong, then use the matching guide for cuts that balance your proportions."
+   }
+  },
+  {
+   "@type": "Question",
+   "name": "Can I write a guest post for The Wow Style?",
+   "acceptedAnswer": {
+    "@type": "Answer",
+    "text": "Yes. We accept original, expert-led articles on hair, fashion and beauty. Read our Guest Post Guidelines and send your pitch through the Write for Us page."
+   }
+  }
+ ]
+}</script>
+  </section>
+
+  <script type="application/ld+json">{
+ "@context": "https://schema.org",
+ "@type": "ItemList",
+ "name": "The Wow Style categories",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Haircuts",
+   "url": "https://thewowstyle.co.uk/haircuts/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Hairstyles",
+   "url": "https://thewowstyle.co.uk/hairstyles/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Hair Colour",
+   "url": "https://thewowstyle.co.uk/hair-colour/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 4,
+   "name": "Grooming",
+   "url": "https://thewowstyle.co.uk/grooming/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 5,
+   "name": "Fashion",
+   "url": "https://thewowstyle.co.uk/fashion/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 6,
+   "name": "Beauty",
+   "url": "https://thewowstyle.co.uk/beauty/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 7,
+   "name": "Celebrity Style",
+   "url": "https://thewowstyle.co.uk/celebrity-style/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 8,
+   "name": "Shopping",
+   "url": "https://thewowstyle.co.uk/shopping/"
+  }
+ ]
+}</script>
 
   <!-- ========== NEWSLETTER ========== -->
   <section class="newsletter" id="newsletter" aria-labelledby="nl-h">
@@ -634,6 +842,31 @@ ul{margin:0;padding:0;list-style:none}
   document.addEventListener('keydown',function(e){if(e.key==='Escape'){sp.classList.remove('open');nav.classList.remove('open')}});
   var d=new Date();
     document.getElementById('yr').textContent=d.getFullYear();
+})();
+</script>
+
+<!-- Back to top -->
+<a href="#main" class="to-top" id="toTop" aria-label="Back to top">↑</a>
+
+<!-- Cookie consent (UK GDPR / PECR). For AdSense in the UK, replace with a Google-certified CMP (e.g. Google Privacy & Messaging). -->
+<div class="cookie" id="cookie" role="region" aria-label="Cookie notice" hidden>
+  <p>We use cookies to personalise content and ads and to analyse traffic. <a href="/cookie-policy/">Cookie Policy</a></p>
+  <div><button class="btn" data-c="reject">Reject</button><button class="btn btn-accent" data-c="accept">Accept</button></div>
+</div>
+<script>
+(function(){
+  /* Category tabs: all cards stay in the HTML so Google can crawl them; JS only hides/shows. */
+  var tabs=document.querySelectorAll('.tabs button');
+  tabs.forEach(function(t){t.onclick=function(){
+    tabs.forEach(function(x){x.setAttribute('aria-pressed',x===t)});
+    document.querySelectorAll('#latestGrid .card').forEach(function(c){c.hidden=!(t.dataset.f==='all'||c.dataset.cat===t.dataset.f)});
+  }});
+  var tt=document.getElementById('toTop');
+  addEventListener('scroll',function(){tt.classList.toggle('show',scrollY>800)},{passive:true});
+  var ck=document.getElementById('cookie'),v=null;
+  try{v=localStorage.getItem('tws-consent')}catch(e){}
+  if(!v)ck.hidden=false;
+  ck.querySelectorAll('button').forEach(function(b){b.onclick=function(){try{localStorage.setItem('tws-consent',b.dataset.c)}catch(e){}ck.hidden=true}});
 })();
 </script>
 
