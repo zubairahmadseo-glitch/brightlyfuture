@@ -7,7 +7,7 @@ import threading
 import time
 from datetime import datetime, date
 from email.mime.text import MIMEText
-from urllib.parse import urljoin, urlparse
+from urllib.parse import unquote, urljoin, urlparse
 import xml.etree.ElementTree as ET
 
 import requests
@@ -20,7 +20,8 @@ UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3
                     "(KHTML, like Gecko) Chrome/124.0 Safari/537.36"}
 EMAIL_RE = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}")
 BAD_EMAIL_EXT = (".png", ".jpg", ".jpeg", ".gif", ".webp", ".svg", ".css", ".js")
-BAD_EMAIL_PARTS = ("example.com", "sentry", "wixpress", "domain.com", "email.com", "yourname")
+BAD_EMAIL_PARTS = ("example.com", "sentry", "wixpress", "domain.com", "email.com", "yourname",
+                   "doe.com", "smith.com", "company.com", "@test.", "noreply", "no-reply")
 CONTACT_PATHS = ["", "/contact", "/contact-us", "/about", "/about-us",
                  "/write-for-us", "/advertise", "/contribute"]
 DEFAULT_BLOCKS = ["facebook.com", "twitter.com", "x.com", "instagram.com", "youtube.com",
@@ -193,8 +194,8 @@ def extract_external_links(article_url, site_dom):
         return "", []
     soup = BeautifulSoup(r.text, "html.parser")
     title = soup.title.text.strip() if soup.title else article_url
-    body = soup.find("article") or soup.find(class_=re.compile(r"entry-content|article-body|post-content|content")) or soup
-    for bad in body.find_all(["nav", "header", "footer", "aside"]):
+    body = soup.body or soup
+    for bad in body.find_all(["nav", "header", "footer", "aside", "script", "style", "form"]):
         bad.decompose()
     links = []
     for a in body.find_all("a", href=True):
@@ -228,12 +229,12 @@ def find_emails(dom):
         soup = BeautifulSoup(text, "html.parser")
         for a in soup.select('a[href^="mailto:"]'):
             found.append(a["href"][7:].split("?")[0])
-        found += EMAIL_RE.findall(text.replace("[at]", "@").replace("(at)", "@"))
+        found += EMAIL_RE.findall(unquote(text).replace("[at]", "@").replace("(at)", "@"))
         if len(set(found)) >= 3:
             break
     clean = []
     for e in found:
-        e = e.strip().strip(".").lower()
+        e = unquote(e).strip().strip(".").lower()
         if e.endswith(BAD_EMAIL_EXT) or any(b in e for b in BAD_EMAIL_PARTS) or len(e) > 60:
             continue
         clean.append(e)
@@ -270,14 +271,15 @@ def run_scan(site_ids, d_from, d_to, max_articles, verify, collect):
                 title, links = extract_external_links(url, sdom)
                 con.execute("INSERT OR IGNORE INTO articles(site,url,title,published) VALUES(?,?,?,?)",
                             (site, url, title, pub))
+                doms = {}
                 for link in links:
-                    dom = domain_of(link)
-                    if is_blocked(dom, blocks):
-                        continue
-                    if con.execute("SELECT 1 FROM prospects WHERE domain=?", (dom,)).fetchone():
-                        continue
+                    doms.setdefault(domain_of(link), link)
+                new = {d: l for d, l in doms.items() if not is_blocked(d, blocks)
+                       and not con.execute("SELECT 1 FROM prospects WHERE domain=?", (d,)).fetchone()}
+                log(f"  {url} → {len(doms)} external domains, {len(new)} new (rest blocked/already found)")
+                for dom, link in new.items():
                     code = verify_link(link) if verify else None
-                    if verify and not (200 <= (code or 0) < 400):
+                    if verify and not (200 <= (code or 0) < 400 or code in (401, 403, 429)):
                         log(f"  ✗ {link} broken ({code})")
                         continue
                     emails = find_emails(dom) if collect else []
