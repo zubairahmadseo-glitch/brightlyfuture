@@ -6,22 +6,22 @@
 
 Most hashtag advice online was written for a different Instagram. It tells you to add 20 or 30 tags, or hands you a list of 280 "best hashtags" to copy. Neither works now: Instagram has cut the limit to five, and its own team says hashtags don't increase reach on their own.
 
-That makes hashtags simpler, not useless. This guide shows how to choose five that describe your post accurately and reach the people who might actually buy from you, with a ready-made set for six common types of business. It's part of our [social media marketing guide](https://brightlyfuture.co.uk/blog/social-media-marketing-guide/).
+Hashtags still have a job, and with only five slots it's easier to do well. This guide shows how to choose five that describe your post accurately and reach the people who might actually buy from you, with a ready-made set for six common types of business. It's part of our [social media marketing guide](https://brightlyfuture.co.uk/blog/social-media-marketing-guide/).
 
 ## Do Instagram hashtags still work for business in 2026?
 
-Yes, but as labels, not as a reach booster. Hashtags tell Instagram what a post is about and help people who search or follow that topic find it. They won't push an average post to thousands of new people.
+Yes, as labels. Hashtags tell Instagram what a post is about and help people who search or follow that topic find it. They won't push an average post to thousands of new people; the post itself does most of that work.
 
 Two changes explain why:
 
-- **The five-tag limit.** In December 2025 Instagram told users it "will gradually update the number of hashtags that you can include in a caption for a reel or post to five", replacing the old limit of 30, as [Social Media Today reported](https://www.socialmediatoday.com/news/instagram-implements-new-limits-on-hashtag-use/808309/).
-- **What Instagram says hashtags do.** Instagram chief Adam Mosseri has said several times that hashtags don't increase reach, but are a good way to let people know what a post is about (same report).
+- **The five-tag limit.** After a year of tests, some of which limited users to three tags, in December 2025 Instagram told users it "will gradually update the number of hashtags that you can include in a caption for a reel or post to five", replacing the old limit of 30, as [Social Media Today reported](https://www.socialmediatoday.com/news/instagram-implements-new-limits-on-hashtag-use/808309/).
+- **What Instagram says hashtags do.** Instagram chief Adam Mosseri said in February and again in May 2025 that hashtags don't improve reach, while describing them as a way to say what a post is about (same report).
 
 So a hashtag strategy now has one job: pick the five tags that most accurately describe the post for the people you want to reach.
 
 ## How many hashtags should a business use on Instagram?
 
-Use up to five on posts and Reels; that's the maximum Instagram allows. Three to five accurate tags is a sensible range. Using fewer is fine when there aren't five that genuinely fit; a vague tag added to fill a slot only blurs what the post is about.
+Use up to five on posts and Reels, including carousels; that's the maximum Instagram allows. Three to five accurate tags is a sensible range. Using fewer is fine when there aren't five that genuinely fit; a vague tag added to fill a slot only blurs what the post is about.
 
 ## How do you choose the right 5 hashtags for your business?
 
@@ -41,7 +41,7 @@ Fill five slots, each with a different job: topic, niche, location, community an
 
 Not every post needs every slot. An online shop that sells across the country may swap the local slot for a second product tag; a seasonal post can use a **seasonal or event** tag, such as a local food festival, in place of the community slot.
 
-Write hashtags in **CamelCase**, with a capital letter at the start of each word (#VeganBaking, not #veganbaking). The University of Kentucky's [accessibility guidance](https://ada.uky.edu/digital-accessibility/social-media) recommends it because screen readers can then read the words separately. It's also easier for everyone to read.
+Write hashtags in **CamelCase**, with a capital letter at the start of each word (#VeganBaking, not #veganbaking). The University of Kentucky's [accessibility guidance](https://ada.uky.edu/digital-accessibility/social-media) recommends it because screen readers can then read the words separately. It's also easier for everyone to read. Keep each tag to letters and numbers: spaces and symbols such as $ or % break a hashtag.
 
 ### Step 2: Find hashtags your customers use
 
@@ -68,7 +68,7 @@ Hashtag sizes change constantly, so check them yourself in the app rather than t
 
 A branded hashtag is unique to your business, such as your name or a campaign phrase. It's worth having if customers post about you, because it gathers their photos on one page that you and future customers can browse.
 
-Keep it short, easy to spell and clearly yours. Put it in your bio and on packaging, menus or receipts so customers know it exists. If you want to reshare a customer's photo, ask their permission first and credit them in the caption.
+Keep it short, easy to spell and clearly yours. Print it on packaging, menus or receipts so customers know it exists. Before you choose one, search it in Instagram to make sure no one else is already using it for something unrelated. If you want to reshare a customer's photo, ask their permission first and credit them in the caption.
 
 If customers rarely post about you, skip the branded tag on most posts and use that slot for a niche or local tag instead.
 
@@ -124,7 +124,7 @@ Focus on **the topic of the post, not the fact that you blog**. Readers search f
 
 **Example set (a food blogger sharing a recipe Reel):** #EasyDinnerIdeas #OnePotMeals #VeganRecipes #HomeCooking #[YourBlogName]
 
-**Mistake to avoid:** using only creator-community tags such as #BloggersOfInstagram. They connect you with other bloggers, which is useful for networking but rarely brings readers. If the post is sponsored or gifted, label it as an ad as well; tags like #Ad don't count towards discovery, but they are part of being honest with your audience.
+**Mistake to avoid:** using only creator-community tags such as #BloggersOfInstagram. They connect you with other bloggers, which is useful for networking but rarely brings readers. If a post is sponsored or gifted, it must be clearly labelled as an ad. Instagram's paid partnership label does this without using a hashtag; if you use #Ad instead, it takes one of your five slots.
 
 ## What hashtag mistakes should businesses avoid?
 
@@ -133,8 +133,7 @@ Most hashtag mistakes come from treating tags as a reach trick instead of a desc
 - **Copying the same set onto every post.** Each post shows something different, so its tags should too. Keep two or three sets for your regular post types and adjust them each time.
 - **Chasing trending tags that don't fit.** A trending tag on an unrelated post reaches people who scroll straight past.
 - **Using broad, overused tags.** #InstaGood or #PhotoOfTheDay tell Instagram almost nothing.
-- **Using restricted tags.** Check each tag's page before using it, as in step 3.
-- **Hiding hashtags on a private account.** Posts from private accounts don't appear on hashtag pages, so hashtags only help public profiles.
+- **Expecting hashtags to work on a private account.** Posts from private accounts don't appear on hashtag pages, so hashtags only help public profiles.
 - **Expecting hashtags to fix weak posts.** The caption and the content still do most of the work. Our guide to [writing Instagram captions for business](https://brightlyfuture.co.uk/blog/how-to-write-instagram-captions-for-business/) covers that side, including where to place your hashtags.
 
 ## How do you know if your hashtags are working?
