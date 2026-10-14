@@ -91,7 +91,7 @@ If you'd rather start from a draft, our free [Instagram Bio Generator](https://b
 
 ## How do you write your own Instagram bio?
 
-Write your name field first, then the four lines, then check the result on your phone. It takes about 15 minutes.
+Write your name field first, then the four lines, then check the result on your phone.
 
 [SCREENSHOT PLACEHOLDER: Instagram "Edit profile" screen showing the Name, Username, Bio and Links fields. Add manually.]
 
@@ -114,11 +114,11 @@ If your bio says "Book a table", your first link or action button should take pe
 
 ### Step 4: Check it on a phone
 
-Save the bio and view your profile from another account or ask someone to look. Check that the lines break where you meant, that emojis don't replace important words and that the whole bio shows without tapping "more". Bios over a few lines can be cut off on some screens.
+Save the bio and view your profile from another account or ask someone to look. Check that the lines break where you meant and that emojis don't replace important words. To start a new line, press return on your phone's keyboard while editing the bio.
 
 ## Before and after: fixing a weak bio
 
-Most weak bios describe a feeling instead of the business. Here's an illustration: a typical salon bio, rewritten with the formula.
+Many weak bios describe a feeling instead of the business. Here's an illustration: a typical salon bio, rewritten with the formula.
 
 **Before:**
 ✨ Living the dream ✨ / Passion for beauty 💕 / Est. 2018 / DM for info
@@ -131,7 +131,7 @@ Gel nails and nail art in Leeds / Appointment only, Tue–Sat / See prices in Hi
 What changed:
 
 - **"Living the dream" became the service and the place.** A visitor now knows in a second if this salon is for them.
-- **"DM for info" became a clear booking action.** Fewer people message to ask a question they could answer themselves.
+- **"DM for info" became a clear booking action.** Visitors can book straight away instead of waiting for a reply.
 - **Prices moved to Highlights.** The bio stays short and the detail is one tap away.
 
 ## How do you use the links in your Instagram bio?
@@ -154,10 +154,11 @@ Your category, contact buttons, Highlights and pinned posts carry the informatio
 
 [SCREENSHOT PLACEHOLDER: a business profile showing the category label under the name and the Call / Email / Book buttons. Add manually.]
 
+- **Profile photo.** Use your logo for a brand, or a clear headshot if customers buy from you as a person. It shows as a small circle, so keep it simple.
 - **Category.** Professional accounts can show a label such as "Bakery" or "Accountant" under the name. Pick the closest match so visitors understand your business before reading the bio.
 - **Contact and action buttons.** Add the ways customers actually contact you: call, email, directions or a booking button. Then you don't need your phone number in the bio text.
 - **Story Highlights.** Use them for prices, FAQs, reviews and how to order. Name them clearly ("Prices", "Reviews") so people find them.
-- **Pinned posts.** Pin up to three posts that answer the next question: your best-selling product, a client result or how to book.
+- **Pinned posts.** Instagram lets you pin up to three posts or Reels to the top of your grid. Pin ones that answer the next question: your best-selling product, a client result or how to book.
 - **Branded hashtag.** If customers post about you, add your branded hashtag to the bio so their photos are one tap away. Our guide to [Instagram hashtag strategy for business](https://brightlyfuture.co.uk/instagram-hashtag-strategy-for-business/) explains when one is worth having.
 
 ## What Instagram bio mistakes should businesses avoid?
@@ -184,13 +185,17 @@ Look at the proportion, not just the totals. A post that goes viral brings more 
 
 ## Frequently Asked Questions
 
+### How do you change your Instagram bio?
+
+Go to your profile, tap Edit profile, then tap Bio. Type your new text, then tap Done or the tick to save. Changes show straight away.
+
 ### Should you add pronouns to a business profile?
 
-It's optional. Pronouns suit a personal brand where you are the business, such as a coach or creator. For a business account with a team, they usually aren't needed. Instagram shows them next to your name, and you can choose who sees them.
+It's optional. Pronouns suit a personal brand where you are the business, such as a coach or creator. For a business account with a team, they usually aren't needed. You can add up to four in Edit profile, and turn on "Show to followers only" if you don't want everyone to see them, as [Instagram's Help Centre](https://help.instagram.com/iphone-app/3936623839758564) explains.
 
-### How often should you change your Instagram bio?
+### Can you tag another account in your bio?
 
-Update it whenever something it mentions changes, such as hours, offers or your main link. Beyond that, leave it alone long enough to measure, about two weeks per change, so you can tell what worked.
+Yes. Type @ followed by the username and it becomes a link to that profile. It's useful for a founder's personal account, a second location or a sister brand. Only tag accounts you want visitors to leave your profile for.
 
 ### Should you use your own name or your business name?
 
