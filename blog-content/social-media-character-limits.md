@@ -36,10 +36,11 @@ X doesn't count every character the same way. According to [X's developer docume
 - **Emojis count as 2**, so a post of only emojis fits 140.
 - **Every link counts as 23**, however long the address is, because X shortens it.
 - **Chinese, Japanese and Korean characters count as 2.**
+- **@mentions added automatically at the start of a reply don't count**; ones you type yourself do.
 
 ## What is the Instagram character limit?
 
-An Instagram caption can be up to 2,200 characters, and a bio up to 150. Since December 2025 a post or Reel can also carry no more than five hashtags, and the hashtags count towards the 2,200.
+An Instagram caption can be up to 2,200 characters, and a bio up to 150. Since December 2025 a post or Reel can also carry no more than five hashtags.
 
 Each of these has its own guide on BrightlyFuture:
 
@@ -90,12 +91,13 @@ The safest test is to preview the post on a phone before publishing. Whatever is
 
 [IMG 03-character-limits-limit-vs-visible.webp | Hard character limit vs what people see before "more"]
 
-## Do emojis, spaces and links count as characters?
+## Do emojis, spaces, links and hashtags count as characters?
 
-Yes, all three count, but not always as one character each.
+Yes, all of them count, but not always as one character each.
 
 - **Spaces and line breaks** count as one character each on every platform.
 - **Emojis** often count as two, and some, such as flags or skin-tone variants, as more. X counts every emoji as 2.
+- **Hashtags and @mentions** count like any other text, including the # and @ symbols.
 - **Links** count at their full length on most platforms. X is the exception, counting any link as 23. On Instagram, links in captions aren't clickable, so they cost characters without bringing clicks.
 
 If your text is close to a limit, paste it into the platform's own post box: its counter is the one that decides.
@@ -121,9 +123,9 @@ Often enough that any list goes out of date. Recent examples include TikTok's ca
 
 No. Ads have their own fields, such as headline and primary text, with separate limits and recommended lengths set in each platform's ad manager. Check the ad specs in Meta Ads Manager, LinkedIn Campaign Manager or TikTok Ads Manager when you build the ad.
 
-### Do hashtags and @mentions count towards the limit?
+### Do photos and videos use up characters?
 
-Yes. Hashtags and @mentions are part of the text, so every character in them counts, including the # and @ symbols.
+No. On X, media attached through the official apps counts as zero characters, according to X's documentation, and on other platforms images and videos sit outside the caption entirely. Only the text you type, including any link to the media, counts.
 
 ### Can you post the same text on every platform?
 
