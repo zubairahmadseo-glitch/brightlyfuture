@@ -124,3 +124,47 @@ Quick Answer · intro (problem: impressions but no clicks; link pillar)
 - Cluster 1 "How to Write Blog Headlines" owns general headline formulas; link once, don't repeat.
 - #5 character limits: link for the 100 limit; no other platform limits here.
 - Descriptions: one line only (no description guide).
+
+---
+## Update (17 Oct 2026): Ahrefs Content Explorer export, "how to write youtube" (30 pages)
+| Page | DR | Traffic | Words | What it adds |
+|---|---|---|---|---|
+| [vidIQ: How to Write YouTube Titles](https://vidiq.com/blog/post/youtube-video-title/) | 80 | 56 | 1,855 | Top organic page; already analysed |
+| YouTube video "Perfect TITLE, DESCRIPTION, TAGS" | 98 | 216 | – | Searchers often want title + description together |
+| [Teleprompter: Title and Description (2026)](https://www.teleprompter.com/blog/youtube-title-and-description) | 71 | 60 | 3,612 | Title + description in one guide: first two lines, keyword placement, template |
+| [CoSchedule: 40 YouTube title ideas](https://coschedule.com/headlines/youtube-video-title-ideas) | 84 | 51 | 1,482 | Ideas by video type (how-to, list, review, vlog, Shorts); title analyzer |
+| [vidIQ: Titles for YouTube Shorts](https://vidiq.com/blog/post/youtube-shorts-titles/) | 80 | 16 | 1,562 | Shorts show in YouTube search and Google video carousels; related-video link; first 40 characters |
+| [Creator Hooks: Title Analyzer](https://creatorhooks.com/youtube-title-analyzer) | 39 | 179 | 1,281 | 3-question clickbait check: does the video deliver, etc. |
+| [Humble & Brag: Clickbait titles](https://humbleandbrag.com/blog/clickbait-youtube-titles) | 24 | 12 | 968 | "Search to suggest" shift (unsourced) |
+| vidIQ Title Flip framework | 80 | 26 | 1,770 | Fetch failed |
+| Essay/song/meta-title/Etsy videos | 98 | – | – | Off-topic: "how to write a title" SERP is mixed; our H1/intro must say "YouTube video titles" clearly |
+
+**New information to use**
+1. **Shorts deserve their own H2**, not just a FAQ (dedicated ranking page exists): Shorts titles show in YouTube search; can't be A/B tested (official).
+2. **Title + description together**: add a short H2 on the description lines that back up the title (official Tips for video descriptions: 1–2 main words in both; first lines visible). Tags stay in #7.
+3. **Decide search vs browse from your own data**: YouTube Analytics Traffic source (YouTube search vs Browse features vs Suggested) instead of the unsourced "search to suggest" claim.
+4. **Ideas by video type** (how-to, list, review, comparison, case study) as the formula table rows.
+5. **Pre-publish check**: Creator Hooks' honesty questions + our [Headline Analyzer](https://brightlyfuture.co.uk/headline-analyzer/) (internal tool, 200).
+6. Traffic numbers are tiny across all pages (max 216): low-volume, so win on completeness and long-tail coverage.
+
+## Final structure (replaces the one above)
+H1: How to Write YouTube Titles That Get More Views (2026)
+Quick Answer · intro (impressions but no clicks; scope: YouTube video titles; link pillar)
+1. H2 What makes a YouTube title get clicked? (clear promise in viewers' words + thumbnail match; title works differently in search vs browse)
+2. H2 What do the top-ranking YouTube titles have in common? (our 60-title data + caveat)
+3. H2 How do you write a YouTube title, step by step?
+   - Step 1 Check where your views come from (Traffic source) [SCREENSHOT: Analytics > Reach > Traffic source types]
+   - Step 2 Find the words viewers search (search bar suggestions, Research tab) [SCREENSHOT: Analytics Research tab]
+   - Step 3 Write 10 versions
+   - Step 4 Put the key words first and check it on a phone
+   - Step 5 Match the thumbnail and the first 30 seconds
+4. H2 YouTube title formulas by type of video (how-to, list, review, comparison, mistake, result/case study; business example each)
+5. H2 How long should a YouTube title be? (100 official; median 55 in sample; link #5)
+6. H2 How do you write titles for YouTube Shorts?
+7. H2 What should the description add to your title? (official tips; first lines; one line on tags → #7)
+8. H2 Where is the line between a curious title and clickbait? (YouTube policy + India enforcement + 3 honesty questions)
+9. H2 What does YouTube's own help say about titles? (branded queries; summary list with links)
+10. H2 How do you test which title works? (Test & Compare rules; manual before/after for Shorts) [SCREENSHOT: Studio Test & Compare]
+11. H2 Should you change the title of an old video?
+12. FAQs (unique): hashtags in titles; capital letters / ALL CAPS; emojis; year in title; titles in other languages (translations)
+13. Closing + Headline Analyzer link
