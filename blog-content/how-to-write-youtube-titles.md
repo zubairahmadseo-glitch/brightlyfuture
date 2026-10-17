@@ -17,7 +17,7 @@ The title also does a slightly different job depending on where the video is sho
 | Where the viewer sees it | What they're doing | What the title needs |
 |---|---|---|
 | YouTube search | Looking for an answer | The words they typed, near the start, and a reason to pick yours |
-| Home and Suggested videos | Browsing, not searching | A reason to stop: a result, a question or a surprise |
+| Home and Suggested videos | Browsing, not searching | A reason to stop: a result, a question, a surprise or a feeling (relief, worry, excitement) |
 | Shorts feed | Swiping | Context for the clip; the video itself does most of the work |
 
 A tutorial that people search for needs a search title. A story or opinion video that mostly appears on the home page needs a browse title. Step 1 below shows how to tell which one your video is.
@@ -73,11 +73,11 @@ Use the viewer's words, not your industry's. A bookkeeper might call it "Self As
 
 ### Step 3: Write ten versions
 
-Your first title is rarely your best. Write ten, each using a different angle from the formula table below: a how-to, a number, a mistake, a result. Then pick the two or three that make the clearest promise.
+Your first title is rarely your best. Write ten, each using a different angle from the formula table below: a how-to, a number, a mistake, a result. Then pick the two or three that make the clearest promise. An AI tool can draft extra variations quickly, but edit them into your viewers' words; our guide to [making AI writing sound human](https://brightlyfuture.co.uk/how-to-humanize-ai-content/) shows what to change.
 
 ### Step 4: Put the key words first and check it on a phone
 
-Move the main keyword into the first 40 characters, cut words that add nothing ("video", "amazing", "very"), and read the title on a phone. Titles are cut off sooner on small screens, and the cut point varies with the device and where the video appears. If the visible part still makes sense, the title works.
+Move the main keyword into the first 40 characters, cut words that add nothing ("video", "amazing", "very"), use the keyword once rather than repeating it, and read the title on a phone. Titles are cut off sooner on small screens, and the cut point varies with the device and where the video appears. If the visible part still makes sense, the title works.
 
 ### Step 5: Match the thumbnail and the first 30 seconds
 
@@ -139,7 +139,7 @@ A curious title becomes clickbait when the video doesn't deliver what the title 
 - YouTube's [spam and deceptive practices policy](https://support.google.com/youtube/answer/2801973) bans "malicious clickbait": misleading titles, thumbnails or descriptions that trick people into watching something that doesn't deliver. Its example is a title promising a full sports match on a video that shows only a clip. Violations can lead to removal, a warning or a strike.
 - In December 2024 YouTube said it would [step up enforcement against "egregious clickbait"](https://blog.google/intl/en-in/products/platforms/strengthening-enforcement-against-egregious-clickbait-on-youtube/), starting in India, especially for breaking news. Its example: a title saying "the president resigned!" on a video that never covers a resignation.
 
-Clickbait also fails on its own terms. When viewers click and leave, the video loses watch time, and YouTube's title test picks winners by watch time, not clicks.
+Clickbait also fails on its own terms: viewers who click and leave early cut your watch time, which is the number YouTube's own title test uses to pick a winner.
 
 Before publishing, ask three questions: does the video deliver exactly what the title promises? Would a viewer who watched to the end feel the title was fair? Is the promise in the first 30 seconds? If any answer is no, rewrite the title, not the video.
 
@@ -150,7 +150,7 @@ YouTube's help pages give five rules for titles, scattered across different arti
 1. **Titles can be up to 100 characters** and can't include invalid characters ([YouTube Help](https://support.google.com/youtube/answer/57404)).
 2. **Use one or two main words** that describe the video in both the title and description, found with the Research tab or Google Ads Keyword Planner ([Tips for video descriptions](https://support.google.com/youtube/answer/12948449)).
 3. **Don't mislead.** Titles that promise what the video doesn't deliver break the spam and deceptive practices policy.
-4. **Test up to three titles** with Test & Compare; the winner is the one with the most watch time.
+4. **Test up to three titles** with Test & Compare (details below).
 5. **Translate titles** for viewers in other languages; translated titles and descriptions [can appear in search for speakers of those languages](https://support.google.com/youtube/answer/4792576).
 
 Everything else, from power words to emojis, is creator advice rather than YouTube guidance.
