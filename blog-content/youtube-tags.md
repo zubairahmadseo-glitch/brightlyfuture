@@ -17,6 +17,8 @@ YouTube tags are descriptive keywords you add to a video in YouTube Studio to he
 
 YouTube's upload help describes the Tags field the same way: "descriptive keywords to help correct search mistakes" ([YouTube Help](https://support.google.com/youtube/answer/57404)).
 
+Creators who have tested this report the same thing. Social Video Plaza uploaded videos with and without tags and found that [a video without tags didn't "fall flat on its face"](https://www.socialvideoplaza.com/en/articles/youtube-tags); it was one small channel's test, but it matches what YouTube says.
+
 So tags aren't dead, and they aren't a ranking lever. They're a backup that catches searches your title and description miss. That's worth two minutes per video, not twenty.
 
 ## How do you add tags to a YouTube video?
@@ -56,7 +58,7 @@ Tags are useful when people search for your topic in a way your title doesn't co
 | UK and US spellings | "How to colour-grade video" | color grading |
 | Other names for the same thing | A "sourdough starter" recipe | levain, wild yeast starter |
 
-Then add your main topic phrase, the same words that are already in your title. Five to ten tags covering these cases is plenty for most videos.
+Then add your main topic phrase, the same words that are already in your title.
 
 Don't add tags that describe other people's videos, unrelated trending topics or your competitors' channel names. They don't describe your video, so they don't help the right viewers find it.
 
@@ -73,7 +75,7 @@ Two limits apply:
 
 Tags aren't shown on the video page, but they're in the page's code, which is how tag extractors and browser extensions such as vidIQ and TubeBuddy display them. You can see them, but copying them won't help much, for three reasons:
 
-- **Tags play a "minimal role"**, by YouTube's own account, so a competitor's tags aren't the reason their video ranks. Their title, thumbnail, viewer response and channel history are.
+- **Tags carry little weight**, by YouTube's own account, so a competitor's tags aren't the reason their video ranks. Their title, thumbnail, viewer response and channel history are.
 - **Their tags describe their video.** If yours covers something different, their tags don't fit.
 - **Tag generators** suggest tags from a topic. They're quick for spotting a misspelling or alternative name you hadn't thought of, but delete anything that doesn't describe your video.
 
@@ -90,7 +92,7 @@ Tags are hidden keywords that help YouTube match searches; hashtags are visible,
 | Where you add them | Tags box in YouTube Studio | Title or description, with # | Title, description, spoken words |
 | Visible to viewers? | No | Yes, as clickable links | Yes, as normal text |
 | What they do | Help catch misspelled or alternative searches | Link to a page of videos using the same hashtag | Tell viewers and YouTube what the video covers |
-| YouTube's guidance | "Minimal role" in discovery | Over 60 hashtags and YouTube ignores them all | Use 1–2 main words in title and description |
+| YouTube's guidance | Small role, mainly for misspellings | Over 60 hashtags and YouTube ignores them all | Use 1–2 main words in title and description |
 
 According to [YouTube's hashtag help page](https://support.google.com/youtube/answer/6390658), up to three hashtags from your description can appear next to your title, and a hashtag in your title links viewers away to other videos with the same hashtag. Tags don't need a # symbol and never appear on the page.
 
@@ -142,7 +144,7 @@ No. Reusing one block of tags on every upload makes them describe your channel, 
 
 ### How long do new tags take to work?
 
-YouTube doesn't publish a timeframe, and because tags play a minimal role, you're unlikely to see a measurable change from tags alone. If you want to test a change, adjust the title or description and compare views from YouTube search in Analytics over the next few weeks.
+YouTube doesn't publish a timeframe, and because tags count for so little, you're unlikely to see a measurable change from tags alone. If you want to test a change, adjust the title or description and compare views from YouTube search in Analytics over the next few weeks.
 
 ## Your 2-minute tag routine
 
