@@ -93,3 +93,34 @@ Quick Answer (YouTube quote: minimal role; misspellings) · intro (link pillar)
 - #6 YouTube titles owns title writing; here only "put the keyword in the title" + link.
 - #3 Instagram hashtags owns Instagram; here YouTube hashtags only, briefly.
 - Description detail: one short H2 section only, no description template.
+
+---
+## Update (19 Oct 2026): Ahrefs "youtube tags" matching terms (US), 227 terms
+Volumes read from the export (US monthly): youtube tags generator ~1,100 · how to add tags to youtube video 700 · what are tags on youtube ~500 · how to add tags to a youtube video 450 · how many tags should i use on youtube 450 · what are youtube tags 400 · what do tags do on youtube 400 · what tags should i use on youtube 200 · youtube video tags 200 · add tags to youtube video 200 · youtube tags tips 150 · youtube tags extractor 150 · best tags to use on youtube 150. All KD 0–18.
+
+**Query clusters found (and how we cover them)**
+| Cluster | Example terms | Coverage |
+|---|---|---|
+| What tags are / do | what are youtube tags, what do tags do on youtube, how do youtube tags work, what are youtube tags used for | H2 1 |
+| Do they matter | do youtube tags matter, are tags important on youtube, do tags help youtube videos, does adding tags help | H2 1 |
+| How to add | how to add tags to youtube video, after upload, on mobile, from mobile, to youtube shorts | H2 "How do you add tags" with computer + mobile + Shorts (official: tags can be edited on mobile in the YouTube app) |
+| How many / limit | how many tags should i use, how many tags can you have, youtube tags limit, **your tags are too long / youtube tags too long** | H2 "How many tags" (limit error explained) |
+| **See other videos' tags** (largest long-tail cluster: 25+ variants) | how to see tags on a youtube video, youtube tags viewer/extractor/finder/checker, hidden tags, see tags on mobile | **New H2**: can you see a video's tags (hidden on the page; extractors/extensions; whether copying helps) |
+| What tags to use | what tags should i use, good/best tags, tags to get more views, viral/trending tags, copy and paste tags, gaming/music/fortnite tags | H2 "When tags are useful" + myths table ("no list of tags gets views") |
+| Tags vs hashtags vs keywords | youtube tags vs hashtags, youtube keywords vs tags, tags in youtube description, do youtube tags need hashtags | H2 table |
+| Shorts | do tags help youtube shorts, how to add tags to youtube shorts, best tags for youtube shorts | FAQ / add section |
+| Case | are youtube tags case sensitive | Not verifiable; leave out |
+| Off-topic | skin tags, question tags (English grammar), channel tags 2017 | Ignore |
+
+## Revised structure
+H1: YouTube Tags in 2026: What They Do and What Still Matters
+1. H2 What are YouTube tags, and do they still matter in 2026?
+2. H2 When are YouTube tags actually useful? (misspellings, alt names, UK/US spelling; examples)
+3. H2 What's the difference between tags, hashtags and keywords?
+4. H2 How many tags should you use on YouTube? (handful; excessive = spam; "tags too long" limit)
+5. H2 How do you add tags to a YouTube video? (computer; mobile; after upload; Shorts) [SCREENSHOT]
+6. H2 Can you see the tags on someone else's video? (hidden; extractors; copying doesn't help)
+7. H2 Where should your keywords go instead of tags?
+8. H2 Which YouTube tag tips are myths? (incl. viral/trending/copy-paste tag lists)
+9. FAQs: do tags help Shorts; tag generators; changing tags on old videos; tags in other languages; can tags get a video removed
+10. Closing: 2-minute routine
