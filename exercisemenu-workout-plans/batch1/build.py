@@ -153,6 +153,7 @@ def render(p):
     hero = f'''<div class="emp-hero">
 <span class="emp-badge">{esc(p["badge"])}</span>
 <p class="emp-hero-lead">{p["hero_lead"]}</p>
+<p class="emp-hero-review">✓ Reviewed by FISAF-certified coaches · Content verified by registered dietitian</p>
 <ul class="emp-hero-meta">{"".join(f"<li>{m}</li>" for m in p["hero_meta"])}<li>📄 Last reviewed: October 2026</li></ul>
 <a class="emp-jump" href="#workouts">See the workouts ↓</a>
 </div>
