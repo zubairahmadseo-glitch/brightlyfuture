@@ -1,0 +1,342 @@
+<!-- wp:html -->
+<style>
+/* ExerciseMenu workout plan pages — shared styles (scoped to .emp so the theme is untouched) */
+.emp{--emp-ink:#1a1a2e;--emp-ink2:#0f3460;--emp-accent:#e94560;--emp-accent-d:#c9304a;--emp-glow:rgba(233,69,96,.09);--emp-text:#2d2d3a;--emp-muted:#6b7280;--emp-bg:#fff;--emp-alt:#f8f9fb;--emp-line:#e5e7eb;--emp-line2:#f0f1f3;--emp-green:#047857;--emp-green-bg:#ecfdf5;--emp-blue:#0369a1;--emp-blue-bg:#f0f9ff;--emp-amber:#b45309;--emp-amber-bg:#fffbeb;--emp-r:12px;--emp-rs:8px;--emp-mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--emp-text);line-height:1.7;font-size:17px}
+.emp *,.emp *::before,.emp *::after{box-sizing:border-box}
+.emp h2{font-size:clamp(1.35rem,3vw,1.75rem);line-height:1.3;color:var(--emp-ink);margin:0 0 .75rem;font-weight:700}
+.emp h3{font-size:clamp(1.1rem,2.4vw,1.3rem);line-height:1.35;color:var(--emp-ink);margin:1.4rem 0 .5rem;font-weight:700}
+.emp p{margin:0 0 1rem}
+.emp a{color:var(--emp-accent-d);text-decoration:underline;text-underline-offset:2px}
+.emp a:hover{color:var(--emp-accent)}
+.emp ul,.emp ol{margin:0 0 1rem 1.2rem;padding:0}
+.emp li{margin:.25rem 0}
+.emp .emp-section{padding:28px 0;border-bottom:1px solid var(--emp-line2)}
+.emp .emp-section:last-child{border-bottom:0}
+/* hero */
+.emp .emp-hero{background:linear-gradient(135deg,var(--emp-ink) 0%,#16213e 55%,var(--emp-ink2) 100%);color:#fff;border-radius:var(--emp-r);padding:clamp(22px,4vw,36px);margin:0 0 18px}
+.emp .emp-badge{display:inline-block;background:rgba(233,69,96,.22);border:1px solid rgba(233,69,96,.4);color:#fecdd3;padding:4px 12px;border-radius:20px;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px}
+.emp .emp-hero-lead{font-size:clamp(1rem,2vw,1.12rem);color:rgba(255,255,255,.88);margin:0 0 14px;max-width:680px}
+.emp .emp-hero-meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.84rem;color:rgba(255,255,255,.78);margin:0;padding:0;list-style:none}
+.emp .emp-hero-meta li{margin:0}
+/* stats */
+.emp .emp-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:0 0 22px}
+.emp .emp-stat{border:1px solid var(--emp-line);border-radius:var(--emp-r);padding:14px 10px;text-align:center;background:var(--emp-bg);box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.emp .emp-stat-v{font-family:var(--emp-mono);font-size:1.2rem;font-weight:700;color:var(--emp-ink)}
+.emp .emp-stat-l{font-size:.72rem;color:var(--emp-muted);text-transform:uppercase;letter-spacing:.5px}
+/* boxes */
+.emp .emp-answer{background:var(--emp-glow);border-left:4px solid var(--emp-accent);border-radius:0 var(--emp-rs) var(--emp-rs) 0;padding:16px 20px;margin:0 0 18px}
+.emp .emp-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;color:var(--emp-accent-d)}
+.emp .emp-answer p{margin:0}
+.emp .emp-takeaways{border:1px solid var(--emp-line);border-radius:var(--emp-r);padding:16px 20px;margin:0 0 18px;background:var(--emp-alt)}
+.emp .emp-takeaways ul{margin:0;list-style:none}
+.emp .emp-takeaways li{position:relative;padding-left:22px}
+.emp .emp-takeaways li::before{content:"✓";position:absolute;left:0;color:var(--emp-green);font-weight:700}
+.emp .emp-science,.emp .emp-tip,.emp .emp-warn{border-radius:var(--emp-r);padding:16px 20px;margin:18px 0;font-size:.95rem}
+.emp .emp-science{background:var(--emp-blue-bg);border:1px solid #bae6fd}
+.emp .emp-science .emp-label{color:var(--emp-blue)}
+.emp .emp-tip{background:var(--emp-green-bg);border:1px solid #a7f3d0}
+.emp .emp-tip .emp-label{color:var(--emp-green)}
+.emp .emp-warn{background:var(--emp-amber-bg);border:1px solid #fde68a}
+.emp .emp-warn .emp-label{color:var(--emp-amber)}
+.emp .emp-science p:last-child,.emp .emp-tip p:last-child,.emp .emp-warn p:last-child{margin:0}
+/* toc */
+.emp .emp-toc{background:var(--emp-alt);border:1px solid var(--emp-line);border-radius:var(--emp-r);padding:16px 20px;margin:0 0 8px}
+.emp .emp-toc summary{cursor:pointer;font-weight:700;color:var(--emp-ink);font-size:.95rem}
+.emp .emp-toc ol{columns:2;column-gap:28px;margin:12px 0 0 1.2rem;font-size:.92rem}
+.emp .emp-toc a{color:var(--emp-text);text-decoration:none}
+.emp .emp-toc a:hover{color:var(--emp-accent-d);text-decoration:underline}
+@media (max-width:640px){.emp .emp-toc ol{columns:1}}
+/* weekly schedule */
+.emp .emp-week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin:18px 0}
+@media (max-width:640px){.emp .emp-week{grid-template-columns:repeat(4,1fr)}}
+.emp .emp-wd{border-radius:var(--emp-rs);padding:10px 6px;text-align:center;border:2px solid var(--emp-line);background:var(--emp-alt)}
+.emp .emp-wd b{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.5px;color:var(--emp-muted)}
+.emp .emp-wd span{font-size:.8rem;font-weight:600;color:var(--emp-ink);line-height:1.3;display:block}
+.emp .emp-wd.c1{background:#eff6ff;border-color:#bfdbfe}.emp .emp-wd.c1 b{color:#2563eb}
+.emp .emp-wd.c2{background:#f5f3ff;border-color:#c4b5fd}.emp .emp-wd.c2 b{color:#7c3aed}
+.emp .emp-wd.c3{background:#ecfdf5;border-color:#a7f3d0}.emp .emp-wd.c3 b{color:#059669}
+.emp .emp-wd.c4{background:#fff1f2;border-color:#fecdd3}.emp .emp-wd.c4 b{color:#e11d48}
+.emp .emp-wd.c5{background:#fff7ed;border-color:#fed7aa}.emp .emp-wd.c5 b{color:#c2410c}
+.emp .emp-wd.c6{background:#f0fdfa;border-color:#99f6e4}.emp .emp-wd.c6 b{color:#0f766e}
+.emp .emp-wd.rest{background:var(--emp-amber-bg);border-color:#fde68a}.emp .emp-wd.rest b{color:#d97706}
+/* day tabs (pure CSS, no JavaScript) */
+.emp .emp-tabs{margin:18px 0}
+.emp .emp-tabs>input{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.emp .emp-tabbar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.emp .emp-tabbar label{cursor:pointer;border:2px solid var(--emp-line);background:var(--emp-bg);color:var(--emp-ink);border-radius:30px;padding:7px 16px;font-weight:700;font-size:.9rem;line-height:1.2;user-select:none;transition:background .15s,border-color .15s}
+.emp .emp-tabbar label small{display:block;font-weight:500;font-size:.7rem;color:var(--emp-muted)}
+.emp .emp-tabbar label:hover{border-color:var(--emp-accent)}
+.emp .emp-panel{display:none}
+.emp .emp-tabs>input:focus-visible+.emp-tabbar{outline:none}
+.emp #emp-t1:checked~.emp-tabbar label[for=emp-t1],.emp #emp-t2:checked~.emp-tabbar label[for=emp-t2],.emp #emp-t3:checked~.emp-tabbar label[for=emp-t3],.emp #emp-t4:checked~.emp-tabbar label[for=emp-t4],.emp #emp-t5:checked~.emp-tabbar label[for=emp-t5],.emp #emp-t6:checked~.emp-tabbar label[for=emp-t6],.emp #emp-tall:checked~.emp-tabbar label[for=emp-tall]{background:var(--emp-accent);border-color:var(--emp-accent);color:#fff}
+.emp #emp-t1:checked~.emp-tabbar label[for=emp-t1] small,.emp #emp-t2:checked~.emp-tabbar label[for=emp-t2] small,.emp #emp-t3:checked~.emp-tabbar label[for=emp-t3] small,.emp #emp-t4:checked~.emp-tabbar label[for=emp-t4] small,.emp #emp-t5:checked~.emp-tabbar label[for=emp-t5] small,.emp #emp-t6:checked~.emp-tabbar label[for=emp-t6] small{color:rgba(255,255,255,.85)}
+.emp #emp-t1:focus-visible~.emp-tabbar label[for=emp-t1],.emp #emp-t2:focus-visible~.emp-tabbar label[for=emp-t2],.emp #emp-t3:focus-visible~.emp-tabbar label[for=emp-t3],.emp #emp-t4:focus-visible~.emp-tabbar label[for=emp-t4],.emp #emp-t5:focus-visible~.emp-tabbar label[for=emp-t5],.emp #emp-t6:focus-visible~.emp-tabbar label[for=emp-t6],.emp #emp-tall:focus-visible~.emp-tabbar label[for=emp-tall]{outline:3px solid var(--emp-ink2);outline-offset:2px}
+.emp #emp-t1:checked~.emp-panels .emp-p1,.emp #emp-t2:checked~.emp-panels .emp-p2,.emp #emp-t3:checked~.emp-panels .emp-p3,.emp #emp-t4:checked~.emp-panels .emp-p4,.emp #emp-t5:checked~.emp-panels .emp-p5,.emp #emp-t6:checked~.emp-panels .emp-p6,.emp #emp-tall:checked~.emp-panels .emp-panel{display:block}
+@media print{.emp .emp-panel{display:block!important}.emp .emp-tabbar{display:none}}
+/* workout card */
+.emp .emp-wo{border:1px solid var(--emp-line);border-radius:var(--emp-r);overflow:hidden;margin:0 0 18px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.emp .emp-wo-h{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;padding:14px 18px;background:var(--emp-ink);color:#fff}
+.emp .emp-wo-h h3{margin:0;color:#fff;font-size:1.15rem}
+.emp .emp-wo-h.c1{background:#2563eb}.emp .emp-wo-h.c2{background:#7c3aed}.emp .emp-wo-h.c3{background:#059669}.emp .emp-wo-h.c4{background:#e11d48}.emp .emp-wo-h.c5{background:#c2410c}.emp .emp-wo-h.c6{background:#0f766e}
+.emp .emp-tag{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:3px 10px;border-radius:20px;background:rgba(255,255,255,.22)}
+.emp .emp-wo-meta{display:flex;flex-wrap:wrap;gap:6px 18px;padding:10px 18px;background:var(--emp-alt);font-size:.82rem;color:var(--emp-muted);border-bottom:1px solid var(--emp-line)}
+.emp .emp-tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.emp table{width:100%;border-collapse:collapse;font-size:.92rem;margin:0}
+.emp .emp-ex th{background:var(--emp-alt);text-align:left;font-size:.7rem;text-transform:uppercase;letter-spacing:.7px;color:var(--emp-muted);padding:9px 12px;border-bottom:2px solid var(--emp-line);white-space:nowrap}
+.emp .emp-ex td{padding:11px 12px;border-bottom:1px solid var(--emp-line2);vertical-align:middle}
+.emp .emp-ex tr:last-child td{border-bottom:0}
+.emp .emp-ex .n{font-family:var(--emp-mono);color:#9ca3af;font-weight:700;width:30px}
+.emp .emp-ex .x{font-weight:600;color:var(--emp-ink)}
+.emp .emp-ex .x a{color:var(--emp-ink);text-decoration-color:var(--emp-accent)}
+.emp .emp-ex .t{display:block;font-size:.76rem;color:var(--emp-muted);font-weight:400}
+.emp .emp-ex .s{font-family:var(--emp-mono);font-weight:700;color:var(--emp-accent-d);white-space:nowrap}
+.emp .emp-ex .r,.emp .emp-ex .e{font-family:var(--emp-mono);font-size:.85rem;color:var(--emp-muted);white-space:nowrap}
+.emp .emp-wo-notes{padding:12px 18px;background:var(--emp-alt);border-top:1px solid var(--emp-line);font-size:.86rem;color:#4b5563}
+.emp .emp-wo-notes p{margin:0}
+@media (max-width:560px){.emp .emp-ex{font-size:.86rem}.emp .emp-ex th:nth-child(1),.emp .emp-ex td:nth-child(1){display:none}.emp .emp-ex td,.emp .emp-ex th{padding:9px 7px}.emp .emp-ex .r,.emp .emp-ex .e{white-space:normal;font-size:.76rem}.emp .emp-ex .s{font-size:.82rem}}
+/* data tables */
+.emp .emp-data{border:1px solid var(--emp-line);border-radius:var(--emp-rs);overflow:hidden;margin:16px 0}
+.emp .emp-data th{background:var(--emp-ink);color:#fff;text-align:left;font-size:.74rem;text-transform:uppercase;letter-spacing:.5px;padding:9px 12px}
+.emp .emp-data td{padding:9px 12px;border-bottom:1px solid var(--emp-line);font-size:.9rem}
+.emp .emp-data tr:nth-child(even) td{background:var(--emp-alt)}
+/* steps */
+.emp .emp-steps{list-style:none;margin:16px 0;counter-reset:st}
+.emp .emp-steps li{counter-increment:st;position:relative;padding:0 0 12px 48px;min-height:36px}
+.emp .emp-steps li::before{content:counter(st);position:absolute;left:0;top:0;width:34px;height:34px;border-radius:50%;background:var(--emp-accent);color:#fff;font-family:var(--emp-mono);font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.85rem}
+/* macros */
+.emp .emp-macros{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:16px 0}
+.emp .emp-macro{border:1px solid var(--emp-line);border-radius:var(--emp-rs);padding:14px;text-align:center}
+.emp .emp-macro b{display:block;font-family:var(--emp-mono);font-size:1.25rem;color:var(--emp-accent-d)}
+.emp .emp-macro span{font-size:.82rem;color:var(--emp-muted)}
+/* faq */
+.emp .emp-faq details{border:1px solid var(--emp-line);border-radius:var(--emp-rs);margin:0 0 10px;background:var(--emp-bg)}
+.emp .emp-faq summary{cursor:pointer;list-style:none;padding:14px 44px 14px 18px;font-weight:600;color:var(--emp-ink);position:relative}
+.emp .emp-faq summary::-webkit-details-marker{display:none}
+.emp .emp-faq summary::after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);color:var(--emp-accent);font-size:1.3rem;font-weight:700}
+.emp .emp-faq details[open] summary::after{content:"−"}
+.emp .emp-faq .emp-faq-a{padding:0 18px 14px;color:#4b5563;font-size:.95rem}
+.emp .emp-faq .emp-faq-a p{margin:0}
+/* related plans */
+.emp .emp-related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:16px 0}
+.emp a.emp-card{display:block;border:1px solid var(--emp-line);border-radius:var(--emp-r);padding:16px 18px;color:inherit;text-decoration:none;background:var(--emp-bg);transition:border-color .15s,box-shadow .15s,transform .15s}
+.emp a.emp-card:hover{border-color:var(--emp-accent);box-shadow:0 6px 18px rgba(0,0,0,.08);transform:translateY(-2px)}
+.emp .emp-card-tag{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--emp-accent-d)}
+.emp .emp-card-t{display:block;font-weight:700;color:var(--emp-ink);margin:4px 0 4px;line-height:1.3}
+.emp .emp-card-d{display:block;font-size:.84rem;color:var(--emp-muted);line-height:1.5}
+.emp .emp-card-m{display:block;font-size:.75rem;color:var(--emp-ink2);margin-top:8px;font-weight:600}
+/* references + disclaimer */
+.emp .emp-refs{font-size:.84rem;color:var(--emp-muted)}
+.emp .emp-refs ol{margin-left:1.2rem}
+.emp .emp-refs a{color:var(--emp-muted)}
+.emp .emp-disclaimer{font-size:.85rem;color:var(--emp-muted);border-top:1px solid var(--emp-line);padding-top:14px;margin-top:8px}
+</style>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<div class="emp-hero">
+<span class="emp-badge">Intermediate · 3 Days</span>
+<p class="emp-hero-lead">Past the beginner stage but still limited to three gym days? This 3 day full body workout rotates a heavy, a light and a medium session so you can train every muscle three times a week without grinding yourself down.</p>
+<ul class="emp-hero-meta"><li>📅 3 days/week</li><li>⏱ 60–75 min</li><li>📊 Intermediate</li><li>🏋️ Full gym</li><li>📄 Last reviewed: October 2026</li></ul>
+</div>
+<div class="emp-stats"><div class="emp-stat"><div class="emp-stat-v">3</div><div class="emp-stat-l">Training days</div></div><div class="emp-stat"><div class="emp-stat-v">3×</div><div class="emp-stat-l">Frequency/muscle</div></div><div class="emp-stat"><div class="emp-stat-v">9–12</div><div class="emp-stat-l">Sets/major muscle/wk</div></div><div class="emp-stat"><div class="emp-stat-v">8 wk</div><div class="emp-stat-l">Block length</div></div><div class="emp-stat"><div class="emp-stat-v">H/L/M</div><div class="emp-stat-l">Daily load rotation</div></div></div>
+<div class="emp-answer"><span class="emp-label">Quick answer</span><p>This 3 day full body workout trains every major muscle on Monday, Wednesday and Friday. Monday is heavy (4–6 reps), Wednesday is light (10–15 reps with shorter rests) and Friday is medium (6–10 reps), with different exercises each day so joints and motivation stay fresh.</p></div>
+<div class="emp-takeaways"><span class="emp-label" style="color:var(--emp-green)">Key takeaways</span><ul><li>Each day uses different exercises, so you practice 15+ movements a week instead of repeating one workout three times.</li><li>Heavy, light and medium days spread fatigue: only one session a week pushes near-maximal loads.</li><li>Weekly volume lands at about 9–12 sets for chest, back, quads, biceps and triceps.</li><li>Progress the heavy day by load, and the light and medium days by reps first.</li><li>Built for lifters with 6–24 months of training who can only commit three days.</li></ul></div>
+<p>Most 3-day full body programs online are written for beginners: the same three lifts, three times a week, adding weight every session. Once that stops working, intermediate lifters usually jump to a 4- or 5-day split. If your schedule only allows three days, that jump is not an option.</p><p>This plan is the answer for that lifter. It keeps the full-body structure but varies exercise selection, rep ranges and rest periods across the week, so you get enough volume to keep growing and enough variation to keep progressing.</p>
+<details class="emp-toc" open><summary>In this plan</summary><ol><li><a href="#why">Why a Full Body Split Still Works for Intermediates</a></li><li><a href="#who">Who This Program Is For</a></li><li><a href="#schedule">Weekly Schedule</a></li><li><a href="#workouts">The 3-Day Full Body Workouts</a></li><li><a href="#volume">Weekly Volume Check</a></li><li><a href="#progression">Progression by Day</a></li><li><a href="#deload">Deload Every 8th Week</a></li><li><a href="#warmup">Warm-Up and Substitutions</a></li><li><a href="#nutrition">Fuelling Three Hard Sessions</a></li><li><a href="#compare">3-Day Full Body vs Other 3-Day Options</a></li><li><a href="#faq">FAQ</a></li></ol></details>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="why">
+<h2>Why a Full Body Split Still Works for Intermediates</h2>
+<p>Full-body training is not only for beginners. A <a href="https://pubmed.ncbi.nlm.nih.gov/38595233/" rel="noopener" target="_blank">2024 meta-analysis of 14 studies</a> found split and full-body routines produced similar strength and muscle gains when weekly volume was matched. What changes for intermediate lifters is that each session needs more structure, because three identical heavy workouts a week become hard to recover from.</p>
+<div class="emp-science"><span class="emp-label">🔬 Frequency and strength</span><p>Training more often helps strength. A <a href="https://pubmed.ncbi.nlm.nih.gov/29470825/" rel="noopener" target="_blank">2018 meta-analysis</a> found strength gains rose from 1 to 4+ sessions a week, mostly because higher frequency allowed more total volume. The <a href="https://pubmed.ncbi.nlm.nih.gov/41343037/" rel="noopener" target="_blank">2026 Pelland meta-regression</a> also found strength kept improving as frequency increased, with diminishing returns. Training each lift pattern three times a week gives you more practice with the movements you want to get stronger in.</p></div>
+<p>The heavy/light/medium rotation here is a fatigue tool, not magic. The <a href="https://pubmed.ncbi.nlm.nih.gov/41843416/" rel="noopener" target="_blank">2026 ACSM position stand</a> found periodization models did not consistently change outcomes. The benefit is practical: you only grind heavy loads once a week, so the other two sessions stay productive.</p>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="who">
+<h2>Who This Program Is For</h2>
+<ul>
+<li>You have 6–24 months of consistent training and your beginner gains have slowed.</li>
+<li>You can train <strong>three non-consecutive days</strong> (Mon/Wed/Fri or Tue/Thu/Sat).</li>
+<li>You can squat, bench, hinge and press with solid technique.</li>
+<li>You want both strength and size, not a pure powerlifting or pure bodybuilding plan.</li>
+</ul>
+<div class="emp-tip"><span class="emp-label">💡 Not sure you're intermediate?</span><p>If you can still add weight to your main lifts every session, you are still a beginner, and a simpler program will move you faster. Start with our <a href="https://exercisemenu.com/workout-plans/full-body-workout-plan/">full body workout plan for beginners</a> and come back when progress slows to weekly or slower.</p></div>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="schedule">
+<h2>Weekly Schedule</h2>
+<p>Keep at least one rest day between sessions. Monday's heavy work gets the full weekend to recover before it, and Friday's medium day sets up two days off.</p>
+<div class="emp-week"><div class="emp-wd c4"><b>Mon</b><span>Heavy</span></div><div class="emp-wd rest"><b>Tue</b><span>Rest</span></div><div class="emp-wd c1"><b>Wed</b><span>Light</span></div><div class="emp-wd rest"><b>Thu</b><span>Rest</span></div><div class="emp-wd c2"><b>Fri</b><span>Medium</span></div><div class="emp-wd rest"><b>Sat</b><span>Rest</span></div><div class="emp-wd rest"><b>Sun</b><span>Rest</span></div></div>
+<div class="emp-tw emp-data"><table><thead><tr><th>Day</th><th>Rep focus</th><th>Rest periods</th><th>Main lifts</th></tr></thead><tbody><tr><td>Day 1 – Heavy</td><td>4–8 reps</td><td>2–3 min</td><td>Back squat, bench press, weighted pull-up</td></tr><tr><td>Day 2 – Light</td><td>10–15 reps</td><td>60–90 sec</td><td>Leg press, dumbbell bench, cable row</td></tr><tr><td>Day 3 – Medium</td><td>6–10 reps</td><td>90 sec–2.5 min</td><td>Trap bar deadlift, overhead press, split squat</td></tr></tbody></table></div>
+<p>Walking, cycling or mobility work on rest days is fine. Avoid hard leg conditioning on Thursday because it carries into Friday's deadlifts and split squats.</p>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="workouts">
+<h2>The 3-Day Full Body Workouts</h2>
+<p>Tap a day to see the session. Effort is written as reps in reserve (RIR): RIR 2 means you finish with two clean reps left. The <a href="https://exercisemenu.com/rpe-vs-rir/">RPE vs RIR guide</a> explains how to judge it.</p>
+<div class="emp-tabs">
+<input type="radio" name="emp-day" id="emp-t1" checked>
+<input type="radio" name="emp-day" id="emp-t2">
+<input type="radio" name="emp-day" id="emp-t3">
+<input type="radio" name="emp-day" id="emp-tall">
+<div class="emp-tabbar" role="group" aria-label="Choose a training day"><label for="emp-t1">Day 1<small>Heavy</small></label><label for="emp-t2">Day 2<small>Light</small></label><label for="emp-t3">Day 3<small>Medium</small></label><label for="emp-tall">All days<small>Show every workout</small></label></div>
+<div class="emp-panels">
+<div class="emp-panel emp-p1">
+<div class="emp-wo">
+<div class="emp-wo-h c4"><h3>Day 1 — Heavy</h3><span class="emp-tag">4–8 reps</span></div>
+<div class="emp-wo-meta"><span>⏱ 65–75 min</span><span>🎯 6 exercises</span><span>📊 20 working sets</span><span>💪 Full body</span></div>
+<div class="emp-tw"><table class="emp-ex"><thead><tr><th>#</th><th>Exercise</th><th>Sets × Reps</th><th>Rest</th><th>Effort</th></tr></thead>
+<tbody>
+<tr><td class="n">1</td><td class="x">Back Squat<span class="t">Primary: quads, glutes · Secondary: adductors, core</span></td><td class="s">4 × 4–6</td><td class="r">3 min</td><td class="e">RIR 2</td></tr>
+<tr><td class="n">2</td><td class="x"><a href="https://exercisemenu.com/exercises/barbell-bench-press/">Barbell Bench Press</a><span class="t">Primary: chest · Secondary: front delts, triceps</span></td><td class="s">4 × 4–6</td><td class="r">3 min</td><td class="e">RIR 2</td></tr>
+<tr><td class="n">3</td><td class="x">Weighted Pull-Up<span class="t">Primary: lats · Secondary: biceps</span></td><td class="s">3 × 5–7</td><td class="r">2–3 min</td><td class="e">RIR 2</td></tr>
+<tr><td class="n">4</td><td class="x">Romanian Deadlift<span class="t">Primary: hamstrings, glutes</span></td><td class="s">3 × 6–8</td><td class="r">2–3 min</td><td class="e">RIR 2</td></tr>
+<tr><td class="n">5</td><td class="x">Dumbbell Lateral Raise<span class="t">Primary: side delts</span></td><td class="s">3 × 12–15</td><td class="r">60 sec</td><td class="e">RIR 1</td></tr>
+<tr><td class="n">6</td><td class="x">Standing Calf Raise<span class="t">Primary: calves</span></td><td class="s">3 × 8–12</td><td class="r">60–90 sec</td><td class="e">RIR 1</td></tr>
+</tbody></table></div>
+<div class="emp-wo-notes"><p><strong>Notes:</strong> Squat and bench are the priority. If time is short, cut lateral raises and calf raises, not the main lifts.</p></div>
+</div>
+</div>
+<div class="emp-panel emp-p2">
+<div class="emp-wo">
+<div class="emp-wo-h c1"><h3>Day 2 — Light</h3><span class="emp-tag">10–15 reps</span></div>
+<div class="emp-wo-meta"><span>⏱ 55–65 min</span><span>🎯 7 exercises</span><span>📊 21 working sets</span><span>💪 Full body</span></div>
+<div class="emp-tw"><table class="emp-ex"><thead><tr><th>#</th><th>Exercise</th><th>Sets × Reps</th><th>Rest</th><th>Effort</th></tr></thead>
+<tbody>
+<tr><td class="n">1</td><td class="x">Leg Press<span class="t">Primary: quads · Secondary: glutes</span></td><td class="s">3 × 12–15</td><td class="r">90 sec</td><td class="e">RIR 1–2</td></tr>
+<tr><td class="n">2</td><td class="x"><a href="https://exercisemenu.com/exercises/dumbbell-bench-press/">Dumbbell Bench Press</a><span class="t">Primary: chest · Secondary: triceps</span></td><td class="s">3 × 10–12</td><td class="r">90 sec</td><td class="e">RIR 1–2</td></tr>
+<tr><td class="n">3</td><td class="x">Seated Cable Row<span class="t">Primary: mid-back · Secondary: rear delts, biceps</span></td><td class="s">3 × 10–12</td><td class="r">90 sec</td><td class="e">RIR 1</td></tr>
+<tr><td class="n">4</td><td class="x">Seated Leg Curl<span class="t">Primary: hamstrings</span></td><td class="s">3 × 12–15</td><td class="r">60–90 sec</td><td class="e">RIR 1</td></tr>
+<tr><td class="n">5</td><td class="x">Cable Lateral Raise<span class="t">Primary: side delts</span></td><td class="s">3 × 12–15</td><td class="r">60 sec</td><td class="e">RIR 0–1</td></tr>
+<tr><td class="n">6</td><td class="x"><a href="https://exercisemenu.com/exercises/dumbbell-biceps-curl/">Dumbbell Biceps Curl</a><span class="t">Primary: biceps</span></td><td class="s">3 × 10–15</td><td class="r">60 sec</td><td class="e">RIR 1</td></tr>
+<tr><td class="n">7</td><td class="x">Triceps Pushdown<span class="t">Primary: triceps</span></td><td class="s">3 × 12–15</td><td class="r">60 sec</td><td class="e">RIR 1</td></tr>
+</tbody></table></div>
+<div class="emp-wo-notes"><p><strong>Notes:</strong> Run the curl and pushdown as a superset. The aim today is clean reps and a strong pump, not heavy loads.</p></div>
+</div>
+</div>
+<div class="emp-panel emp-p3">
+<div class="emp-wo">
+<div class="emp-wo-h c2"><h3>Day 3 — Medium</h3><span class="emp-tag">6–10 reps</span></div>
+<div class="emp-wo-meta"><span>⏱ 60–70 min</span><span>🎯 7 exercises</span><span>📊 19 working sets</span><span>💪 Full body</span></div>
+<div class="emp-tw"><table class="emp-ex"><thead><tr><th>#</th><th>Exercise</th><th>Sets × Reps</th><th>Rest</th><th>Effort</th></tr></thead>
+<tbody>
+<tr><td class="n">1</td><td class="x"><a href="https://exercisemenu.com/how-to-trap-bar-deadlift/">Trap Bar Deadlift</a><span class="t">Primary: glutes, quads, hamstrings · Secondary: upper back</span></td><td class="s">3 × 5–7</td><td class="r">3 min</td><td class="e">RIR 2</td></tr>
+<tr><td class="n">2</td><td class="x">Standing Overhead Press<span class="t">Primary: front delts · Secondary: triceps, upper chest</span></td><td class="s">3 × 6–8</td><td class="r">2–3 min</td><td class="e">RIR 2</td></tr>
+<tr><td class="n">3</td><td class="x">Bulgarian Split Squat<span class="t">Primary: quads, glutes</span></td><td class="s">3 × 8–10 / leg</td><td class="r">2 min</td><td class="e">RIR 2</td></tr>
+<tr><td class="n">4</td><td class="x">Chest-Supported Dumbbell Row<span class="t">Primary: mid-back, lats</span></td><td class="s">3 × 8–10</td><td class="r">90 sec</td><td class="e">RIR 1–2</td></tr>
+<tr><td class="n">5</td><td class="x">Incline Dumbbell Press (30°)<span class="t">Primary: upper chest · Secondary: front delts</span></td><td class="s">3 × 8–10</td><td class="r">2 min</td><td class="e">RIR 1–2</td></tr>
+<tr><td class="n">6</td><td class="x"><a href="https://exercisemenu.com/exercises/dumbbell-hammer-curl/">Hammer Curl</a><span class="t">Primary: brachialis, biceps</span></td><td class="s">2 × 10–12</td><td class="r">60 sec</td><td class="e">RIR 1</td></tr>
+<tr><td class="n">7</td><td class="x">Overhead Cable Triceps Extension<span class="t">Primary: triceps (long head)</span></td><td class="s">2 × 10–12</td><td class="r">60 sec</td><td class="e">RIR 1</td></tr>
+</tbody></table></div>
+<div class="emp-wo-notes"><p><strong>Notes:</strong> Rest a full 2 minutes between split-squat legs if you need it. Superset the hammer curl and overhead extension.</p></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="volume">
+<h2>Weekly Volume Check</h2>
+<p>Three full-body sessions give each muscle several smaller doses instead of one large one. Direct sets count fully; indirect sets count as half.</p>
+<div class="emp-tw emp-data"><table><thead><tr><th>Muscle</th><th>Direct sets</th><th>Indirect (×0.5)</th><th>Weekly total</th></tr></thead><tbody><tr><td>Quads</td><td>10</td><td>Trap bar deadlift 3 → 1.5</td><td>≈ 11.5</td></tr><tr><td>Hamstrings</td><td>6</td><td>Trap bar deadlift 3 → 1.5</td><td>≈ 7.5</td></tr><tr><td>Glutes</td><td>–</td><td>Squats, hinges, split squats 16 → 8</td><td>≈ 8</td></tr><tr><td>Chest</td><td>10</td><td>–</td><td>10</td></tr><tr><td>Back</td><td>9</td><td>–</td><td>9</td></tr><tr><td>Side delts</td><td>6</td><td>Overhead press 3 → 1.5</td><td>≈ 7.5</td></tr><tr><td>Biceps</td><td>5</td><td>Pulls & rows 9 → 4.5</td><td>≈ 9.5</td></tr><tr><td>Triceps</td><td>5</td><td>Presses 13 → 6.5</td><td>≈ 11.5</td></tr><tr><td>Calves</td><td>3</td><td>–</td><td>3</td></tr></tbody></table></div>
+<p>The <a href="https://pubmed.ncbi.nlm.nih.gov/41843416/" rel="noopener" target="_blank">ACSM position stand</a> associates more growth with 10+ weekly sets per muscle, and <a href="https://pubmed.ncbi.nlm.nih.gov/30153194/" rel="noopener" target="_blank">Schoenfeld et al. (2019)</a> found strength gains were similar across low and high volumes while size kept rising with more sets. This plan sits near the 10-set mark for most muscles to keep sessions under 75 minutes. If hamstrings, side delts or calves are a priority, add 2–3 sets to the light day; see <a href="https://exercisemenu.com/how-many-sets-per-muscle-group-per-week/">how many sets per muscle group per week</a> for guidance on adding volume.</p>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="progression">
+<h2>Progression by Day</h2>
+<p>Each day progresses differently, which is the main skill an intermediate lifter needs. Read the <a href="https://exercisemenu.com/what-is-progressive-overload/">progressive overload guide</a> for the wider principles.</p>
+<div class="emp-tw emp-data"><table><thead><tr><th>Day</th><th>Rule</th><th>Example</th></tr></thead><tbody><tr><td>Heavy</td><td>When all sets hit the top of the range at RIR 2, add 2.5 kg (upper) or 5 kg (lower)</td><td>Squat 4 × 6 at 100 kg → next week 105 kg × 4</td></tr><tr><td>Light</td><td>Add reps until all sets reach 15, then add the smallest load</td><td>Leg press 3 × 12, 13, 14 → 3 × 15 → add 10 kg</td></tr><tr><td>Medium</td><td>Double progression in the 6–10 range</td><td>OHP 3 × 8 → 3 × 10 → add 2.5 kg</td></tr></tbody></table></div>
+<p>Progress on the light day will look slow on paper. That's expected. Its job is to add volume with low joint stress, not to set records. If the heavy day stalls for two weeks, check sleep and calories before changing the program.</p>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="deload">
+<h2>Deload Every 8th Week</h2>
+<p>Run weeks 1–7 as written and deload in week 8. Keep all three days, cut sets roughly in half, and stop each set at RIR 3–4. In a <a href="https://pubmed.ncbi.nlm.nih.gov/38499934/" rel="noopener" target="_blank">survey of strength and physique athletes</a>, deloads lasted about a week, came every 5–6 weeks on average, and mostly reduced sets and reps while keeping training frequency. If you feel worn down by week 5 or 6, deload then. The <a href="https://exercisemenu.com/what-is-a-deload-week/">deload week guide</a> lists the warning signs.</p>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="warmup">
+<h2>Warm-Up and Substitutions</h2>
+<p>Warm up for 5–8 minutes with light cardio and a few bodyweight squats, hip hinges and band pull-aparts. Then ramp up on the first lift: bar or light load × 8, about 60% × 5, about 80% × 2–3. The <a href="https://exercisemenu.com/how-to-warm-up-before-a-workout/">warm-up guide</a> covers this in more detail.</p>
+<div class="emp-tw emp-data"><table><thead><tr><th>Exercise</th><th>Swap</th><th>When</th></tr></thead><tbody><tr><td>Back squat</td><td>Safety-bar squat or hack squat</td><td>Shoulder or lower-back discomfort</td></tr><tr><td>Weighted pull-up</td><td>Lat pulldown 4 × 6–8</td><td>Fewer than 6 strict bodyweight reps</td></tr><tr><td>Trap bar deadlift</td><td>Conventional deadlift or dumbbell RDL</td><td>No trap bar available</td></tr><tr><td>Bulgarian split squat</td><td>Reverse lunge or leg press</td><td>Balance issues</td></tr><tr><td>Standing overhead press</td><td>Seated dumbbell press</td><td>Lower-back arching</td></tr></tbody></table></div>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="nutrition">
+<h2>Fuelling Three Hard Sessions</h2>
+<p>Three full-body days demand more recovery per session than a split. Aim for about 1.6 g of protein per kg of body weight daily, the point where gains plateaued in a <a href="https://pubmed.ncbi.nlm.nih.gov/28698222/" rel="noopener" target="_blank">meta-analysis of 49 trials</a>. Spread it over 3–5 meals of roughly 0.25 g/kg each, as the <a href="https://pubmed.ncbi.nlm.nih.gov/28642676/" rel="noopener" target="_blank">ISSN protein position stand</a> suggests. Have a carb-containing meal 1–3 hours before training so the heavy day doesn't feel flat. For meal ideas, see the <a href="https://exercisemenu.com/best-pre-workout-meal-for-muscle-gain/">best pre-workout meals for muscle gain</a>.</p>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="compare">
+<h2>3-Day Full Body vs Other 3-Day Options</h2>
+<div class="emp-tw emp-data"><table><thead><tr><th>Plan</th><th>Best for</th><th>Main difference</th></tr></thead><tbody><tr><td>3-day full body (this plan)</td><td>Intermediates with 3 days</td><td>Heavy/light/medium days, varied exercises</td></tr><tr><td>Beginner full body</td><td>First 3–6 months</td><td>Same lifts each session, add weight every workout</td></tr><tr><td>5×5</td><td>Strength-first lifters</td><td>Five sets of five on 3–5 barbell lifts</td></tr><tr><td>3-day PPL</td><td>Lifters who like split sessions</td><td>Each muscle trained once a week</td></tr></tbody></table></div>
+<p>When three days a week becomes too limiting for your goals, a 4-day split is the natural next step, because it lets you add volume without lengthening each session.</p>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section emp-faq" id="faq">
+<h2>3-Day Full Body Workout FAQ</h2>
+<details><summary>Can I do this 3 day full body workout on consecutive days?</summary><div class="emp-faq-a"><p>It's not recommended. Each session trains every muscle, so back-to-back days leave you under-recovered. Keep at least 48 hours between sessions.</p></div></details>
+<details><summary>Is 3 days a week enough to build muscle as an intermediate?</summary><div class="emp-faq-a"><p>Yes. With about 9–12 hard sets per major muscle each week and steady progression, three sessions can keep you growing for years, though progress is slower than on a higher-volume 4–5 day plan.</p></div></details>
+<details><summary>Can I add a fourth day?</summary><div class="emp-faq-a"><p>Add an optional short arms-and-delts session on Saturday (lateral raises, curls, triceps extensions, 2–3 sets each) if you have time. Keep it light enough that Monday's heavy day is not affected.</p></div></details>
+<details><summary>What if I miss the heavy day?</summary><div class="emp-faq-a"><p>Do the heavy session at your next workout and skip the light day that week. The heavy day drives strength, so it should not be the session you drop.</p></div></details>
+<details><summary>Should I train abs separately?</summary><div class="emp-faq-a"><p>Squats, deadlifts, split squats and overhead presses all train your trunk. If you want direct ab work, add 2–3 sets of cable crunches or hanging knee raises to the light day.</p></div></details>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="related-plans">
+<h2>Related Workout Plans</h2>
+<div class="emp-related"><a class="emp-card" href="https://exercisemenu.com/workout-plans/full-body-workout-plan/"><span class="emp-card-tag">Beginner</span><span class="emp-card-t">Full Body Workout Plan for Beginners</span><span class="emp-card-d">Three full-body gym sessions a week to learn the main lifts.</span><span class="emp-card-m">3 days · Beginner</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/beginner-strength-training-program/"><span class="emp-card-tag">Strength</span><span class="emp-card-t">Beginner Strength Training Program</span><span class="emp-card-d">12 weeks of linear progression on the main lifts.</span><span class="emp-card-m">3 days · Beginner</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/5x5-workout/"><span class="emp-card-tag">Strength</span><span class="emp-card-t">5×5 Strength &amp; Muscle Program</span><span class="emp-card-d">Five sets of five on the big barbell lifts.</span><span class="emp-card-m">3 days · Beginner–Intermediate</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/4-day-workout-split/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">4-Day Workout Split</span><span class="emp-card-d">Torso/Limbs split plus how every 4-day option compares.</span><span class="emp-card-m">4 days · Intermediate</span></a></div>
+</section>
+<div class="emp-refs"><h3>References</h3><ol><li>Ramos-Campo DJ, et al. Efficacy of split versus full-body resistance training on strength and muscle growth: a systematic review with meta-analysis. <em>J Strength Cond Res</em>. 2024. <a href="https://pubmed.ncbi.nlm.nih.gov/38595233/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/38595233/</a></li><li>Grgic J, et al. Effect of resistance training frequency on gains in muscular strength: a systematic review and meta-analysis. <em>Sports Med</em>. 2018. <a href="https://pubmed.ncbi.nlm.nih.gov/29470825/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/29470825/</a></li><li>Pelland JC, et al. The resistance training dose response: meta-regressions exploring the effects of weekly volume and frequency on muscle hypertrophy and strength gains. <em>Sports Med</em>. 2026. <a href="https://pubmed.ncbi.nlm.nih.gov/41343037/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/41343037/</a></li><li>Currier BS, et al. American College of Sports Medicine Position Stand: Resistance Training Prescription for Muscle Function, Hypertrophy, and Physical Performance in Healthy Adults. <em>Med Sci Sports Exerc</em>. 2026. <a href="https://pubmed.ncbi.nlm.nih.gov/41843416/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/41843416/</a></li><li>Schoenfeld BJ, et al. Resistance training volume enhances muscle hypertrophy but not strength in trained men. <em>Med Sci Sports Exerc</em>. 2019. <a href="https://pubmed.ncbi.nlm.nih.gov/30153194/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/30153194/</a></li><li>Rogerson D, et al. Deloading practices in strength and physique sports: a cross-sectional survey. <em>Sports Med Open</em>. 2024. <a href="https://pubmed.ncbi.nlm.nih.gov/38499934/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/38499934/</a></li><li>Morton RW, et al. A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength. <em>Br J Sports Med</em>. 2018. <a href="https://pubmed.ncbi.nlm.nih.gov/28698222/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/28698222/</a></li><li>Jäger R, et al. International Society of Sports Nutrition position stand: protein and exercise. <em>J Int Soc Sports Nutr</em>. 2017. <a href="https://pubmed.ncbi.nlm.nih.gov/28642676/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/28642676/</a></li></ol></div>
+<p class="emp-disclaimer">This plan is general education for healthy adults, not medical advice. If you have an injury, a heart, joint or blood-pressure condition, or you are pregnant or postpartum, check with your doctor or a physiotherapist before starting a new training program.</p>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I do this 3 day full body workout on consecutive days?", "acceptedAnswer": {"@type": "Answer", "text": "It's not recommended. Each session trains every muscle, so back-to-back days leave you under-recovered. Keep at least 48 hours between sessions."}}, {"@type": "Question", "name": "Is 3 days a week enough to build muscle as an intermediate?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. With about 9–12 hard sets per major muscle each week and steady progression, three sessions can keep you growing for years, though progress is slower than on a higher-volume 4–5 day plan."}}, {"@type": "Question", "name": "Can I add a fourth day?", "acceptedAnswer": {"@type": "Answer", "text": "Add an optional short arms-and-delts session on Saturday (lateral raises, curls, triceps extensions, 2–3 sets each) if you have time. Keep it light enough that Monday's heavy day is not affected."}}, {"@type": "Question", "name": "What if I miss the heavy day?", "acceptedAnswer": {"@type": "Answer", "text": "Do the heavy session at your next workout and skip the light day that week. The heavy day drives strength, so it should not be the session you drop."}}, {"@type": "Question", "name": "Should I train abs separately?", "acceptedAnswer": {"@type": "Answer", "text": "Squats, deadlifts, split squats and overhead presses all train your trunk. If you want direct ab work, add 2–3 sets of cable crunches or hanging knee raises to the light day."}}]}</script>
+<!-- /wp:html -->

@@ -1,0 +1,205 @@
+from .common import L, box, table, cite, refs, WEEK, TABS, DISCLAIMER
+
+PAGE = {
+    "num": 5,
+    "slug": "bro-split",
+    "title": "Bro Split Workout Plan: The 5-Day Bodybuilding Routine",
+    "meta_title": "Bro Split Workout Plan: 5-Day Routine With Sets & Reps",
+    "meta_desc": "A 5-day bro split workout plan with full sets, reps, rest and RIR for chest, back, shoulders, legs and arms, plus weekly volume, progression and deloads.",
+    "focus_kw": "bro split workout plan",
+    "badge": "Classic Bodybuilding Split",
+    "hero_lead": "One muscle group per day, five days a week. This bro split workout plan keeps the focused, high-pump sessions bodybuilders love and fixes the classic weak spot: too little weekly volume for some muscles.",
+    "hero_meta": ["📅 5 days/week", "⏱ 55–75 min", "📊 Intermediate", "🏋️ Full gym"],
+    "stats": [("5", "Training days"), ("30", "Exercises"), ("9–16", "Sets/major muscle/wk"), ("8 wk", "Block length"), ("1×", "Direct hits/muscle")],
+    "quick_answer": "A bro split trains one main muscle group per session: chest Monday, back Tuesday, shoulders Wednesday, legs Thursday and arms Friday. Each muscle gets one hard, high-volume session plus indirect work from the other days. It suits intermediate lifters who can train five days a week.",
+    "takeaways": [
+        "The day order (chest → back → shoulders → legs → arms) keeps 48+ hours between sessions that load the same small muscles.",
+        "Major muscles land at roughly 9–16 hard sets per week once indirect work from presses and rows is counted at half value.",
+        "Rest 2–3 minutes on compound lifts and 60–90 seconds on isolation moves to keep rep quality high.",
+        "Use double progression: add load only after every set reaches the top of the rep range at the target RIR.",
+        "Deload in week 8 (or sooner if lifts stall two sessions in a row) by halving sets and stopping further from failure.",
+    ],
+    "intro": "<p>The bro split has a bad reputation online, mostly because the popular versions pile 25 sets onto chest day and leave hamstrings, rear delts and calves under-trained. Built properly, a bro split workout plan grows muscle as well as other splits when weekly volume is matched.</p><p>Below you get the full 5-day schedule, every exercise with sets, reps, rest and effort targets, a weekly volume audit, and the progression and deload rules that keep the plan working past the first month.</p>",
+    "sections": [
+        ("what-is", "What Is a Bro Split Workout Plan?", f"""
+<p>A bro split is a body-part split: each training day targets one major muscle group (sometimes two small ones) with several exercises from different angles. The term comes from gym culture, where "chest day Monday" is a running joke, but the structure traces back to classic bodybuilding programs.</p>
+<p>The appeal is focus. You can push one muscle hard with 12–16 sets, use machines and cables that suit that muscle, and leave with a strong pump. The trade-off is frequency: each muscle gets one direct session per week.</p>
+{box("science", "🔬 What the research says", f"<p>A {cite('freq2016', '2016 meta-analysis')} found that training a muscle twice a week produced more growth than once a week. Newer, larger analyses refine that picture. A {cite('split2024', '2024 meta-analysis of 14 studies')} found split and full-body routines produced similar strength and size gains when weekly volume was equal, and a {cite('pelland2026', '2026 dose-response meta-regression')} found frequency had little effect on growth once volume was accounted for. The takeaway: a bro split works when total weekly sets are adequate.</p>")}
+<p>That is why this plan counts sets carefully. If you follow it, every major muscle gets enough work across the week, not only on its named day.</p>
+"""),
+        ("who", "Who Should Use This 5-Day Bro Split?", f"""
+<p>This plan fits lifters who have trained consistently for at least 6–12 months and can perform the bench press, squat, row and overhead press with stable technique. Beginners progress faster with full-body training, where each lift is practiced several times a week.</p>
+<ul>
+<li>You can train <strong>five days a week</strong> and want sessions under 75 minutes.</li>
+<li>You enjoy machine and cable work and a muscle-focused training style.</li>
+<li>Your recovery suits one hard session per muscle, then several days off it.</li>
+<li>You want a change of stimulus after months of a {L('/push-pull-legs-split/', 'push pull legs split')} or upper/lower routine.</li>
+</ul>
+{box("tip", "💡 Coach's note", f"<p>If you can only commit to four days, skip this plan. Missing one day of a bro split removes a muscle group for the whole week. A 4-day split that trains everything twice is more forgiving.</p>")}
+<p>If that profile fits, the next step is the weekly layout, because the order of days matters more on a bro split than on most programs.</p>
+"""),
+        ("schedule", "Bro Split Schedule: The Weekly Layout", f"""
+<p>The plan runs Monday to Friday with the weekend off. The order is built around overlap: muscles that assist on one day (triceps on chest day, biceps on back day) get at least 48 hours before their own session.</p>
+{WEEK}
+{table(["Day", "Main target", "Also trained indirectly"], [
+    ["Mon – Chest", "Pecs", "Front delts, triceps"],
+    ["Tue – Back", "Lats, mid-back, rear delts", "Biceps, forearms"],
+    ["Wed – Shoulders", "Side, rear and front delts, upper traps", "Triceps"],
+    ["Thu – Legs", "Quads, hamstrings, glutes, calves", "Lower back, core"],
+    ["Fri – Arms", "Biceps, triceps", "Forearms, calves (second session)"],
+])}
+<p>If you need a different start day, keep the sequence and keep two rest days in the week. You can also place one rest day after legs (Mon, Tue, Wed, Thu, Sat) if Thursday legs leaves you too sore for Friday arms. The {L('/how-to-create-a-weekly-workout-schedule/', 'weekly workout schedule guide')} shows how to fit training around work shifts.</p>
+"""),
+        ("workouts", "The 5-Day Bro Split Workouts", f"""
+<p>Pick a day below to see the full session. Each workout opens with a heavy compound lift in the 6–10 rep range, then moves to machine, cable and dumbbell work in the 10–15 range where you can train close to failure with less joint stress.</p>
+<p><strong>How to read "Effort":</strong> RIR means reps in reserve. RIR 1–2 means you stop each set with one or two good reps left. If the scale is new to you, read the {L('/rpe-vs-rir/', 'RPE vs RIR guide')} first.</p>
+{TABS}
+{box("science", "🔬 Why the rest periods differ", f"<p>In a study of trained men, {cite('rest2016', '3-minute rests produced more strength and quad growth than 1-minute rests')} on the same program. A {cite('restsys2017', 'systematic review')} concluded both short and long rests can build muscle, with a possible edge for longer rests in trained lifters. That is why the heavy compound lifts here use 2–3 minutes and the isolation work uses 60–90 seconds.</p>")}
+"""),
+        ("volume", "Weekly Volume per Muscle Group", f"""
+<p>Hard sets per muscle per week is the most useful single number for judging a hypertrophy plan. The table counts direct sets fully and indirect sets (for example, triceps during bench press) at half value, the method that best predicted growth in the {cite('pelland2026', 'Pelland 2026 meta-regression')}.</p>
+{table(["Muscle", "Direct sets", "Indirect (×0.5)", "Weekly total"], [
+    ["Chest", "13", "Close-grip bench 3 → 1.5", "≈ 14.5"],
+    ["Lats & mid-back", "14", "–", "14"],
+    ["Side delts", "7", "Shoulder press 4 → 2", "≈ 9"],
+    ["Rear delts", "6", "Rows 7 → 3.5", "≈ 9.5"],
+    ["Front delts", "4", "Chest pressing 10 → 5", "≈ 9"],
+    ["Biceps", "9", "Pulls & rows 11 → 5.5", "≈ 14.5"],
+    ["Triceps", "9", "Chest & shoulder presses 14 → 7", "≈ 16"],
+    ["Quads", "10", "–", "10"],
+    ["Hamstrings & glutes", "8", "Back extension 3 → 1.5", "≈ 9.5"],
+    ["Calves", "7 (2 sessions)", "–", "7"],
+])}
+<p>The {cite('acsm2026', '2026 ACSM position stand')} links hypertrophy with 10 or more sets per muscle per week, and an {cite('vol2017', 'earlier dose-response meta-analysis')} showed growth keeps rising as sets increase. Most muscles here sit at or just under 10–16 sets, a productive range for intermediate lifters. Calves and delts sit slightly lower because they also work during walking, squats and every pressing day. If one of them lags, add two sets to its session rather than adding a sixth day. Our {L('/how-many-sets-per-muscle-group-per-week/', 'sets per muscle group guide')} explains how to adjust from there.</p>
+{box("warn", "⚠️ More sets on one day is not always better", "<p>Stacking 20+ sets for one muscle into a single session usually means the last sets are done tired and with poor technique. If you want more chest or back volume, move it to a second day (for example, two sets of push-ups or pulldowns at the end of shoulder day) instead of extending one session.</p>")}
+"""),
+        ("progression", "How to Progress: Double Progression", f"""
+<p>Every exercise uses a rep range. Stay at one weight until you hit the top of the range on all sets at the listed RIR, then add load and work back up. This is double progression, a simple form of {L('/what-is-progressive-overload/', 'progressive overload')}.</p>
+<ol class="emp-steps">
+<li><strong>Start conservatively.</strong> In week 1, choose loads that leave 3 reps in reserve. You are learning the exercise order and machine settings.</li>
+<li><strong>Build reps.</strong> Example: Bench press 4 × 6–8 at 80 kg. Week 2: 8, 7, 7, 6. Week 3: 8, 8, 7, 7. Week 4: 8, 8, 8, 8.</li>
+<li><strong>Add load.</strong> Once all sets hit 8, add the smallest jump available (2.5 kg on barbells, 1–2 kg per dumbbell) and restart near 6 reps. The {cite('acsm2009', 'ACSM progression guidelines')} suggest a 2–10% load increase once you can do one or two reps beyond the target.</li>
+<li><strong>Log it.</strong> Write down weight, reps and RIR for every set. Progress you cannot see on paper is progress you cannot manage.</li>
+</ol>
+<p>Isolation moves progress slower than compound lifts. A lateral raise may stay at the same dumbbell for 3–4 weeks while reps climb, and that still counts as progress.</p>
+"""),
+        ("deload", "Deload Protocol", f"""
+<p>Plan a lighter week after week 7, then start a new 8-week block with slightly heavier starting weights. Deload earlier if your main lifts drop two sessions in a row, joints ache, or sleep and motivation slide.</p>
+<p>In a {cite('deload2024', 'survey of strength and physique athletes')}, deloads lasted about a week and were taken every 5–6 weeks on average, mostly by cutting sets and reps while keeping the same training days. This plan follows that pattern:</p>
+<ul>
+<li>Keep the same five days and exercises.</li>
+<li>Cut working sets roughly in half (4 sets → 2, 3 sets → 1–2).</li>
+<li>Keep loads about the same or slightly lighter, and stop every set at RIR 3–4.</li>
+</ul>
+<p>More detail on timing is in the {L('/what-is-a-deload-week/', 'deload week guide')}.</p>
+"""),
+        ("warmup", "Warm-Up and Exercise Substitutions", f"""
+<h3>Warm-up (8–10 minutes)</h3>
+<p>Do 5 minutes of easy cardio, then 2–3 ramp-up sets of the first exercise: an empty bar or light load for 8–10 reps, about 60% of your working weight for 5 reps, then about 80% for 2–3 reps. Later exercises need only one lighter feeder set.</p>
+<h3>Common substitutions</h3>
+{table(["If you can't do…", "Swap to", "Why"], [
+    ["Barbell bench press", "Dumbbell bench press or machine press", "Same muscles, more shoulder-friendly path"],
+    ["Pull-ups", "Lat pulldown", "Lets you load below bodyweight"],
+    ["Back squat", "Hack squat or leg press", "Less lower-back loading, same quad focus"],
+    ["Romanian deadlift", "Dumbbell RDL or 45° back extension", "Lighter, easier to learn"],
+    ["Weighted dips", "Decline or flat dumbbell press", "Avoids deep shoulder extension"],
+])}
+<p>Keep a swap for the full 8-week block so you can track progress on it.</p>
+"""),
+        ("nutrition", "Nutrition for Muscle Growth on a Bro Split", f"""
+<p>Training creates the stimulus; food decides how much muscle you build from it. Three numbers matter most:</p>
+<div class="emp-macros">
+<div class="emp-macro"><b>1.6 g/kg</b><span>Daily protein (up to 2.2 g/kg)</span></div>
+<div class="emp-macro"><b>+10–20%</b><span>Calories above maintenance to gain</span></div>
+<div class="emp-macro"><b>3–5 g</b><span>Creatine monohydrate per day (optional)</span></div>
+</div>
+<p>A {cite('protein2018', 'meta-analysis of 49 trials')} found muscle gains from protein plateaued around 1.62 g per kg of body weight per day, with 2.2 g/kg as a safe upper target. For gaining size, a {cite('offseason2019', 'bodybuilding nutrition review')} recommends a 10–20% calorie surplus aimed at roughly 0.25–0.5% of body weight gained per week. Creatine monohydrate at 3–5 g per day is the {cite('creatine', 'best-supported supplement')} for strength training. Use our {L('/protein-calculator/', 'protein calculator')} to get your exact daily target.</p>
+"""),
+        ("comparison", "Bro Split vs Push Pull Legs vs Upper/Lower", f"""
+<p>All three splits build muscle when weekly sets are similar. The better choice depends on your schedule and how you recover.</p>
+{table(["", "Bro split (this plan)", "Push Pull Legs", "Upper/Lower"], [
+    ["Days per week", "5", "6 (or 3)", "4"],
+    ["Direct hits per muscle", "1×", "2× (6-day)", "2×"],
+    ["Session focus", "One muscle group", "Movement pattern", "Half the body"],
+    ["Missed-day impact", "High: a muscle skips the week", "Medium", "Low–medium"],
+    ["Best for", "Intermediate lifters who like focused sessions", "Lifters with 6 days to train", "Busy lifters wanting 2× frequency"],
+])}
+<p>A smart compromise is to run this bro split for one 8-week block, then switch to a split with twice-weekly frequency. Changing the stimulus every few months keeps training fresh without program-hopping every few weeks.</p>
+"""),
+        ("mistakes", "Common Bro Split Mistakes", f"""
+<ul>
+<li><strong>Skipping legs or doing "legs lite".</strong> Thursday is the only direct quad and hamstring session. Treat it as the priority day of the week.</li>
+<li><strong>Turning arm day into a third chest day.</strong> Heavy pressing on Friday cuts into Monday's recovery. Keep Friday to the listed close-grip bench sets.</li>
+<li><strong>Training everything to failure.</strong> A {cite('failure2023', '2023 meta-analysis')} found little to no extra growth from going to failure compared with stopping just short. Use failure only on the last set of isolation moves.</li>
+<li><strong>Too many exercises.</strong> Seven or eight exercises per muscle push sessions past 90 minutes and add {L('/what-is-junk-volume/', 'junk volume')}. Five or six well-chosen moves are enough.</li>
+<li><strong>Random weights each week.</strong> Without a log and a progression rule, a bro split turns into pump sessions with no long-term overload.</li>
+</ul>
+<p>Avoid those five errors and run the plan for a full 8-week block before judging it. Take progress photos and measurements at the start and end so you judge the plan on results, not on how sore you feel.</p>
+"""),
+    ],
+    "schedule": [("Mon", "Chest", "c1"), ("Tue", "Back", "c2"), ("Wed", "Shoulders", "c5"), ("Thu", "Legs", "c3"), ("Fri", "Arms", "c4"), ("Sat", "Rest", "rest"), ("Sun", "Rest", "rest")],
+    "days": [
+        {"tab": "Day 1", "tab_sub": "Chest", "title": "Day 1 — Chest & Abs", "tag": "Push focus", "color": 1, "time": "55–65 min", "focus": "Chest / Abs",
+         "exercises": [
+             ("Barbell Bench Press", "Primary: chest · Secondary: front delts, triceps", "4 × 6–8", "2–3 min", "RIR 1–2"),
+             ("Incline Dumbbell Press (30°)", "Primary: upper chest · Secondary: front delts", "3 × 8–10", "2 min", "RIR 1–2"),
+             ("Weighted Dip (or Assisted Dip)", "Primary: lower chest · Secondary: triceps", "3 × 8–12", "2 min", "RIR 1–2"),
+             ("Cable Fly (high to low)", "Primary: chest (stretch focus)", "3 × 12–15", "60–90 sec", "RIR 0–1"),
+             ("Cable Crunch", "Primary: abs", "3 × 10–15", "60 sec", "RIR 1"),
+         ],
+         "notes": "Lean forward slightly on dips to bias the chest. If dips bother your shoulders, use the decline dumbbell press. On cable flyes, pause for a second in the stretched position."},
+        {"tab": "Day 2", "tab_sub": "Back", "title": "Day 2 — Back & Rear Delts", "tag": "Pull focus", "color": 2, "time": "60–70 min", "focus": "Lats / Mid-back / Rear delts",
+         "exercises": [
+             ("Pull-Up (weighted or assisted)", "Primary: lats · Secondary: biceps", "4 × 6–10", "2–3 min", "RIR 1–2"),
+             ("Barbell Row", "Primary: mid-back, lats · Secondary: rear delts, biceps", "4 × 6–8", "2–3 min", "RIR 2"),
+             ("Chest-Supported Dumbbell Row", "Primary: mid-back, rear delts", "3 × 10–12", "90 sec", "RIR 1"),
+             ("Straight-Arm Cable Pulldown", "Primary: lats", "3 × 12–15", "60–90 sec", "RIR 1"),
+             ("Face Pull", "Primary: rear delts · Secondary: rotator cuff", "3 × 12–15", "60 sec", "RIR 1"),
+             ("45° Back Extension", "Primary: spinal erectors · Secondary: glutes, hamstrings", "3 × 10–12", "90 sec", "RIR 2"),
+         ],
+         "notes": "Swap pull-ups for lat pulldowns if you cannot complete 6 strict reps. Keep the barbell row torso at about 45° and avoid jerking the weight up."},
+        {"tab": "Day 3", "tab_sub": "Shoulders", "title": "Day 3 — Shoulders & Traps", "tag": "Delt focus", "color": 5, "time": "50–60 min", "focus": "Delts / Traps / Abs",
+         "exercises": [
+             ("Seated Dumbbell Shoulder Press", "Primary: front delts · Secondary: side delts, triceps", "4 × 6–10", "2–3 min", "RIR 1–2"),
+             ("Dumbbell Lateral Raise", "Primary: side delts", "4 × 12–15", "60–90 sec", "RIR 0–1"),
+             ("Cable Lateral Raise (single arm)", "Primary: side delts", "3 × 12–15", "60 sec", "RIR 0–1"),
+             ("Reverse Pec Deck", "Primary: rear delts", "3 × 12–15", "60 sec", "RIR 0–1"),
+             ("Dumbbell Shrug", "Primary: upper traps", "3 × 10–12", "60–90 sec", "RIR 1"),
+             ("Hanging Knee Raise", "Primary: abs, hip flexors", "3 × 10–15", "60 sec", "RIR 1"),
+         ],
+         "notes": "Side delts respond well to higher reps and short rests, so keep lateral raises strict and controlled rather than heavy and swung."},
+        {"tab": "Day 4", "tab_sub": "Legs", "title": "Day 4 — Legs", "tag": "Priority day", "color": 3, "time": "65–75 min", "focus": "Quads / Hamstrings / Glutes / Calves",
+         "exercises": [
+             ("Back Squat", "Primary: quads, glutes · Secondary: adductors", "4 × 6–8", "3 min", "RIR 2"),
+             ("Romanian Deadlift", "Primary: hamstrings, glutes", "4 × 8–10", "2–3 min", "RIR 2"),
+             ("Leg Press", "Primary: quads · Secondary: glutes", "3 × 10–12", "2 min", "RIR 1–2"),
+             ("Seated Leg Curl", "Primary: hamstrings", "4 × 10–12", "90 sec", "RIR 1"),
+             ("Leg Extension", "Primary: quads (rectus femoris)", "3 × 12–15", "60–90 sec", "RIR 0–1"),
+             ("Standing Calf Raise", "Primary: calves (gastrocnemius)", "4 × 10–15", "60–90 sec", "RIR 1"),
+         ],
+         "notes": f"The seated leg curl is chosen over the lying version because training the hamstrings at longer lengths produced more growth in a {cite('maeo2021', 'controlled trial')}. Pause 1–2 seconds at the bottom of each calf raise."},
+        {"tab": "Day 5", "tab_sub": "Arms", "title": "Day 5 — Arms & Calves", "tag": "Arm focus", "color": 4, "time": "55–65 min", "focus": "Biceps / Triceps / Calves",
+         "exercises": [
+             ("Close-Grip Bench Press", "Primary: triceps · Secondary: chest", "3 × 6–10", "2–3 min", "RIR 2"),
+             ("Barbell Curl", "Primary: biceps", "3 × 8–10", "90 sec", "RIR 1"),
+             ("Overhead Cable Triceps Extension", "Primary: triceps (long head)", "3 × 10–12", "90 sec", "RIR 1"),
+             ("Incline Dumbbell Curl", "Primary: biceps (long head)", "3 × 10–12", "60–90 sec", "RIR 1"),
+             ("Hammer Curl", "Primary: brachialis, brachioradialis", "3 × 10–12", "60 sec", "RIR 1"),
+             ("Triceps Pushdown", "Primary: triceps", "3 × 12–15", "60 sec", "RIR 0–1"),
+             ("Seated Calf Raise", "Primary: calves (soleus)", "3 × 12–15", "60 sec", "RIR 1"),
+         ],
+         "notes": "Pair biceps and triceps moves as supersets (e.g., curl then pushdown) to cut the session by about 15 minutes without hurting performance on small-muscle work."},
+    ],
+    "faq_title": "Bro Split Workout Plan FAQ",
+    "faqs": [
+        ("Is a bro split good for natural lifters?", "Yes, if weekly volume per muscle reaches roughly 10 or more hard sets and you progress loads over time. Natural lifters who recover slowly from high-volume sessions may do better with the same sets spread over two days per muscle."),
+        ("How long should I run a bro split?", "Run it in 8-week blocks: seven training weeks and one deload week. Many lifters complete two or three blocks, then switch to a twice-a-week split for a change of stimulus."),
+        ("Can I do a bro split in 4 days?", "You can combine shoulders and arms into one day, but that session runs long and side delts tend to get shortchanged. A 4-day schedule usually works better with a torso/limbs or upper/lower layout."),
+        ("Should I train abs every day on a bro split?", "No. Abs recover like other muscles. Two or three focused sessions a week, such as the cable crunch and hanging knee raise in this plan, are enough alongside the bracing done on squats and rows."),
+        ("Can women follow a bro split?", "Yes. Men and women gain muscle at similar relative rates on the same program. Many women add a second glute session, for example hip thrusts at the start of arm day."),
+        ("What if I miss a day?", "Do the missed session the next day and push the rest of the week back by one day. Avoid skipping legs; if you must drop a session, drop arms, since biceps and triceps already get indirect work."),
+    ],
+    "related": ["push-pull-legs", "5-day-workout-split", "upper-lower-split", "ppl-hypertrophy-program"],
+    "refs": refs("freq2016", "split2024", "pelland2026", "acsm2026", "vol2017", "rest2016", "restsys2017", "acsm2009", "deload2024", "failure2023", "maeo2021", "protein2018", "offseason2019", "creatine"),
+    "disclaimer": DISCLAIMER,
+}
