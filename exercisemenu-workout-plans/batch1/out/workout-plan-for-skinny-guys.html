@@ -1,0 +1,341 @@
+<!-- wp:html -->
+<style>
+/* ExerciseMenu workout plan pages — shared styles (scoped to .emp so the theme is untouched) */
+.emp{--emp-ink:#1a1a2e;--emp-ink2:#0f3460;--emp-accent:#e94560;--emp-accent-d:#c9304a;--emp-glow:rgba(233,69,96,.09);--emp-text:#2d2d3a;--emp-muted:#6b7280;--emp-bg:#fff;--emp-alt:#f8f9fb;--emp-line:#e5e7eb;--emp-line2:#f0f1f3;--emp-green:#047857;--emp-green-bg:#ecfdf5;--emp-blue:#0369a1;--emp-blue-bg:#f0f9ff;--emp-amber:#b45309;--emp-amber-bg:#fffbeb;--emp-r:12px;--emp-rs:8px;--emp-mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--emp-text);line-height:1.7;font-size:17px}
+.emp *,.emp *::before,.emp *::after{box-sizing:border-box}
+.emp h2{font-size:clamp(1.35rem,3vw,1.75rem);line-height:1.3;color:var(--emp-ink);margin:0 0 .75rem;font-weight:700}
+.emp h3{font-size:clamp(1.1rem,2.4vw,1.3rem);line-height:1.35;color:var(--emp-ink);margin:1.4rem 0 .5rem;font-weight:700}
+.emp p{margin:0 0 1rem}
+.emp a{color:var(--emp-accent-d);text-decoration:underline;text-underline-offset:2px}
+.emp a:hover{color:var(--emp-accent)}
+.emp ul,.emp ol{margin:0 0 1rem 1.2rem;padding:0}
+.emp li{margin:.25rem 0}
+.emp .emp-section{padding:28px 0;border-bottom:1px solid var(--emp-line2)}
+.emp .emp-section:last-child{border-bottom:0}
+/* hero */
+.emp .emp-hero{background:linear-gradient(135deg,var(--emp-ink) 0%,#16213e 55%,var(--emp-ink2) 100%);color:#fff;border-radius:var(--emp-r);padding:clamp(22px,4vw,36px);margin:0 0 18px}
+.emp .emp-badge{display:inline-block;background:rgba(233,69,96,.22);border:1px solid rgba(233,69,96,.4);color:#fecdd3;padding:4px 12px;border-radius:20px;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px}
+.emp .emp-hero-lead{font-size:clamp(1rem,2vw,1.12rem);color:rgba(255,255,255,.88);margin:0 0 14px;max-width:680px}
+.emp .emp-hero-meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.84rem;color:rgba(255,255,255,.78);margin:0;padding:0;list-style:none}
+.emp .emp-hero-meta li{margin:0}
+/* stats */
+.emp .emp-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:0 0 22px}
+.emp .emp-stat{border:1px solid var(--emp-line);border-radius:var(--emp-r);padding:14px 10px;text-align:center;background:var(--emp-bg);box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.emp .emp-stat-v{font-family:var(--emp-mono);font-size:1.2rem;font-weight:700;color:var(--emp-ink)}
+.emp .emp-stat-l{font-size:.72rem;color:var(--emp-muted);text-transform:uppercase;letter-spacing:.5px}
+/* boxes */
+.emp .emp-answer{background:var(--emp-glow);border-left:4px solid var(--emp-accent);border-radius:0 var(--emp-rs) var(--emp-rs) 0;padding:16px 20px;margin:0 0 18px}
+.emp .emp-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;color:var(--emp-accent-d)}
+.emp .emp-answer p{margin:0}
+.emp .emp-takeaways{border:1px solid var(--emp-line);border-radius:var(--emp-r);padding:16px 20px;margin:0 0 18px;background:var(--emp-alt)}
+.emp .emp-takeaways ul{margin:0;list-style:none}
+.emp .emp-takeaways li{position:relative;padding-left:22px}
+.emp .emp-takeaways li::before{content:"✓";position:absolute;left:0;color:var(--emp-green);font-weight:700}
+.emp .emp-science,.emp .emp-tip,.emp .emp-warn{border-radius:var(--emp-r);padding:16px 20px;margin:18px 0;font-size:.95rem}
+.emp .emp-science{background:var(--emp-blue-bg);border:1px solid #bae6fd}
+.emp .emp-science .emp-label{color:var(--emp-blue)}
+.emp .emp-tip{background:var(--emp-green-bg);border:1px solid #a7f3d0}
+.emp .emp-tip .emp-label{color:var(--emp-green)}
+.emp .emp-warn{background:var(--emp-amber-bg);border:1px solid #fde68a}
+.emp .emp-warn .emp-label{color:var(--emp-amber)}
+.emp .emp-science p:last-child,.emp .emp-tip p:last-child,.emp .emp-warn p:last-child{margin:0}
+/* toc */
+.emp .emp-toc{background:var(--emp-alt);border:1px solid var(--emp-line);border-radius:var(--emp-r);padding:16px 20px;margin:0 0 8px}
+.emp .emp-toc summary{cursor:pointer;font-weight:700;color:var(--emp-ink);font-size:.95rem}
+.emp .emp-toc ol{columns:2;column-gap:28px;margin:12px 0 0 1.2rem;font-size:.92rem}
+.emp .emp-toc a{color:var(--emp-text);text-decoration:none}
+.emp .emp-toc a:hover{color:var(--emp-accent-d);text-decoration:underline}
+@media (max-width:640px){.emp .emp-toc ol{columns:1}}
+/* weekly schedule */
+.emp .emp-week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin:18px 0}
+@media (max-width:640px){.emp .emp-week{grid-template-columns:repeat(4,1fr)}}
+.emp .emp-wd{border-radius:var(--emp-rs);padding:10px 6px;text-align:center;border:2px solid var(--emp-line);background:var(--emp-alt)}
+.emp .emp-wd b{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.5px;color:var(--emp-muted)}
+.emp .emp-wd span{font-size:.8rem;font-weight:600;color:var(--emp-ink);line-height:1.3;display:block}
+.emp .emp-wd.c1{background:#eff6ff;border-color:#bfdbfe}.emp .emp-wd.c1 b{color:#2563eb}
+.emp .emp-wd.c2{background:#f5f3ff;border-color:#c4b5fd}.emp .emp-wd.c2 b{color:#7c3aed}
+.emp .emp-wd.c3{background:#ecfdf5;border-color:#a7f3d0}.emp .emp-wd.c3 b{color:#059669}
+.emp .emp-wd.c4{background:#fff1f2;border-color:#fecdd3}.emp .emp-wd.c4 b{color:#e11d48}
+.emp .emp-wd.c5{background:#fff7ed;border-color:#fed7aa}.emp .emp-wd.c5 b{color:#c2410c}
+.emp .emp-wd.c6{background:#f0fdfa;border-color:#99f6e4}.emp .emp-wd.c6 b{color:#0f766e}
+.emp .emp-wd.rest{background:var(--emp-amber-bg);border-color:#fde68a}.emp .emp-wd.rest b{color:#d97706}
+/* day tabs (pure CSS, no JavaScript) */
+.emp .emp-tabs{margin:18px 0}
+.emp .emp-tabs>input{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.emp .emp-tabbar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.emp .emp-tabbar label{cursor:pointer;border:2px solid var(--emp-line);background:var(--emp-bg);color:var(--emp-ink);border-radius:30px;padding:7px 16px;font-weight:700;font-size:.9rem;line-height:1.2;user-select:none;transition:background .15s,border-color .15s}
+.emp .emp-tabbar label small{display:block;font-weight:500;font-size:.7rem;color:var(--emp-muted)}
+.emp .emp-tabbar label:hover{border-color:var(--emp-accent)}
+.emp .emp-panel{display:none}
+.emp .emp-tabs>input:focus-visible+.emp-tabbar{outline:none}
+.emp #emp-t1:checked~.emp-tabbar label[for=emp-t1],.emp #emp-t2:checked~.emp-tabbar label[for=emp-t2],.emp #emp-t3:checked~.emp-tabbar label[for=emp-t3],.emp #emp-t4:checked~.emp-tabbar label[for=emp-t4],.emp #emp-t5:checked~.emp-tabbar label[for=emp-t5],.emp #emp-t6:checked~.emp-tabbar label[for=emp-t6],.emp #emp-tall:checked~.emp-tabbar label[for=emp-tall]{background:var(--emp-accent);border-color:var(--emp-accent);color:#fff}
+.emp #emp-t1:checked~.emp-tabbar label[for=emp-t1] small,.emp #emp-t2:checked~.emp-tabbar label[for=emp-t2] small,.emp #emp-t3:checked~.emp-tabbar label[for=emp-t3] small,.emp #emp-t4:checked~.emp-tabbar label[for=emp-t4] small,.emp #emp-t5:checked~.emp-tabbar label[for=emp-t5] small,.emp #emp-t6:checked~.emp-tabbar label[for=emp-t6] small{color:rgba(255,255,255,.85)}
+.emp #emp-t1:focus-visible~.emp-tabbar label[for=emp-t1],.emp #emp-t2:focus-visible~.emp-tabbar label[for=emp-t2],.emp #emp-t3:focus-visible~.emp-tabbar label[for=emp-t3],.emp #emp-t4:focus-visible~.emp-tabbar label[for=emp-t4],.emp #emp-t5:focus-visible~.emp-tabbar label[for=emp-t5],.emp #emp-t6:focus-visible~.emp-tabbar label[for=emp-t6],.emp #emp-tall:focus-visible~.emp-tabbar label[for=emp-tall]{outline:3px solid var(--emp-ink2);outline-offset:2px}
+.emp #emp-t1:checked~.emp-panels .emp-p1,.emp #emp-t2:checked~.emp-panels .emp-p2,.emp #emp-t3:checked~.emp-panels .emp-p3,.emp #emp-t4:checked~.emp-panels .emp-p4,.emp #emp-t5:checked~.emp-panels .emp-p5,.emp #emp-t6:checked~.emp-panels .emp-p6,.emp #emp-tall:checked~.emp-panels .emp-panel{display:block}
+@media print{.emp .emp-panel{display:block!important}.emp .emp-tabbar{display:none}}
+/* workout card */
+.emp .emp-wo{border:1px solid var(--emp-line);border-radius:var(--emp-r);overflow:hidden;margin:0 0 18px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.emp .emp-wo-h{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;padding:14px 18px;background:var(--emp-ink);color:#fff}
+.emp .emp-wo-h h3{margin:0;color:#fff;font-size:1.15rem}
+.emp .emp-wo-h.c1{background:#2563eb}.emp .emp-wo-h.c2{background:#7c3aed}.emp .emp-wo-h.c3{background:#059669}.emp .emp-wo-h.c4{background:#e11d48}.emp .emp-wo-h.c5{background:#c2410c}.emp .emp-wo-h.c6{background:#0f766e}
+.emp .emp-tag{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:3px 10px;border-radius:20px;background:rgba(255,255,255,.22)}
+.emp .emp-wo-meta{display:flex;flex-wrap:wrap;gap:6px 18px;padding:10px 18px;background:var(--emp-alt);font-size:.82rem;color:var(--emp-muted);border-bottom:1px solid var(--emp-line)}
+.emp .emp-tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.emp table{width:100%;border-collapse:collapse;font-size:.92rem;margin:0}
+.emp .emp-ex th{background:var(--emp-alt);text-align:left;font-size:.7rem;text-transform:uppercase;letter-spacing:.7px;color:var(--emp-muted);padding:9px 12px;border-bottom:2px solid var(--emp-line);white-space:nowrap}
+.emp .emp-ex td{padding:11px 12px;border-bottom:1px solid var(--emp-line2);vertical-align:middle}
+.emp .emp-ex tr:last-child td{border-bottom:0}
+.emp .emp-ex .n{font-family:var(--emp-mono);color:#9ca3af;font-weight:700;width:30px}
+.emp .emp-ex .x{font-weight:600;color:var(--emp-ink)}
+.emp .emp-ex .x a{color:var(--emp-ink);text-decoration-color:var(--emp-accent)}
+.emp .emp-ex .t{display:block;font-size:.76rem;color:var(--emp-muted);font-weight:400}
+.emp .emp-ex .s{font-family:var(--emp-mono);font-weight:700;color:var(--emp-accent-d);white-space:nowrap}
+.emp .emp-ex .r,.emp .emp-ex .e{font-family:var(--emp-mono);font-size:.85rem;color:var(--emp-muted);white-space:nowrap}
+.emp .emp-wo-notes{padding:12px 18px;background:var(--emp-alt);border-top:1px solid var(--emp-line);font-size:.86rem;color:#4b5563}
+.emp .emp-wo-notes p{margin:0}
+@media (max-width:560px){.emp .emp-ex{font-size:.86rem}.emp .emp-ex th:nth-child(1),.emp .emp-ex td:nth-child(1){display:none}.emp .emp-ex td,.emp .emp-ex th{padding:9px 7px}.emp .emp-ex .r,.emp .emp-ex .e{white-space:normal;font-size:.76rem}.emp .emp-ex .s{font-size:.82rem}}
+/* data tables */
+.emp .emp-data{border:1px solid var(--emp-line);border-radius:var(--emp-rs);overflow:hidden;margin:16px 0}
+.emp .emp-data th{background:var(--emp-ink);color:#fff;text-align:left;font-size:.74rem;text-transform:uppercase;letter-spacing:.5px;padding:9px 12px}
+.emp .emp-data td{padding:9px 12px;border-bottom:1px solid var(--emp-line);font-size:.9rem}
+.emp .emp-data tr:nth-child(even) td{background:var(--emp-alt)}
+/* steps */
+.emp .emp-steps{list-style:none;margin:16px 0;counter-reset:st}
+.emp .emp-steps li{counter-increment:st;position:relative;padding:0 0 12px 48px;min-height:36px}
+.emp .emp-steps li::before{content:counter(st);position:absolute;left:0;top:0;width:34px;height:34px;border-radius:50%;background:var(--emp-accent);color:#fff;font-family:var(--emp-mono);font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.85rem}
+/* macros */
+.emp .emp-macros{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:16px 0}
+.emp .emp-macro{border:1px solid var(--emp-line);border-radius:var(--emp-rs);padding:14px;text-align:center}
+.emp .emp-macro b{display:block;font-family:var(--emp-mono);font-size:1.25rem;color:var(--emp-accent-d)}
+.emp .emp-macro span{font-size:.82rem;color:var(--emp-muted)}
+/* faq */
+.emp .emp-faq details{border:1px solid var(--emp-line);border-radius:var(--emp-rs);margin:0 0 10px;background:var(--emp-bg)}
+.emp .emp-faq summary{cursor:pointer;list-style:none;padding:14px 44px 14px 18px;font-weight:600;color:var(--emp-ink);position:relative}
+.emp .emp-faq summary::-webkit-details-marker{display:none}
+.emp .emp-faq summary::after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);color:var(--emp-accent);font-size:1.3rem;font-weight:700}
+.emp .emp-faq details[open] summary::after{content:"−"}
+.emp .emp-faq .emp-faq-a{padding:0 18px 14px;color:#4b5563;font-size:.95rem}
+.emp .emp-faq .emp-faq-a p{margin:0}
+/* related plans */
+.emp .emp-related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:16px 0}
+.emp a.emp-card{display:block;border:1px solid var(--emp-line);border-radius:var(--emp-r);padding:16px 18px;color:inherit;text-decoration:none;background:var(--emp-bg);transition:border-color .15s,box-shadow .15s,transform .15s}
+.emp a.emp-card:hover{border-color:var(--emp-accent);box-shadow:0 6px 18px rgba(0,0,0,.08);transform:translateY(-2px)}
+.emp .emp-card-tag{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--emp-accent-d)}
+.emp .emp-card-t{display:block;font-weight:700;color:var(--emp-ink);margin:4px 0 4px;line-height:1.3}
+.emp .emp-card-d{display:block;font-size:.84rem;color:var(--emp-muted);line-height:1.5}
+.emp .emp-card-m{display:block;font-size:.75rem;color:var(--emp-ink2);margin-top:8px;font-weight:600}
+/* references + disclaimer */
+.emp .emp-refs{font-size:.84rem;color:var(--emp-muted)}
+.emp .emp-refs ol{margin-left:1.2rem}
+.emp .emp-refs a{color:var(--emp-muted)}
+.emp .emp-disclaimer{font-size:.85rem;color:var(--emp-muted);border-top:1px solid var(--emp-line);padding-top:14px;margin-top:8px}
+</style>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<div class="emp-hero">
+<span class="emp-badge">Hardgainer Plan</span>
+<p class="emp-hero-lead">If you train but the scale never moves, the gym is rarely the main problem. This workout plan for skinny guys keeps sessions short and compound-focused, and pairs them with an eating plan built for people who are full after half a plate.</p>
+<ul class="emp-hero-meta"><li>📅 3 days/week</li><li>⏱ 45–55 min</li><li>📊 Beginner–Intermediate</li><li>🏋️ Gym</li><li>📄 Last reviewed: October 2026</li></ul>
+</div>
+<div class="emp-stats"><div class="emp-stat"><div class="emp-stat-v">3</div><div class="emp-stat-l">Training days</div></div><div class="emp-stat"><div class="emp-stat-v">45–55</div><div class="emp-stat-l">Minutes/session</div></div><div class="emp-stat"><div class="emp-stat-v">18</div><div class="emp-stat-l">Exercises</div></div><div class="emp-stat"><div class="emp-stat-v">~0.5%</div><div class="emp-stat-l">BW gain/week target</div></div><div class="emp-stat"><div class="emp-stat-v">4–5</div><div class="emp-stat-l">Meals/day</div></div></div>
+<div class="emp-answer"><span class="emp-label">Quick answer</span><p>The best workout plan for skinny guys is three 45–55 minute sessions a week (upper, lower and full body) built on compound lifts that add weight steadily, combined with a calorie surplus of about 10–20%. The training builds muscle; eating enough to gain about 0.5% of body weight per week makes it show.</p></div>
+<div class="emp-takeaways"><span class="emp-label" style="color:var(--emp-green)">Key takeaways</span><ul><li>Most "hardgainers" under-eat; tracking intake for one week usually shows the gap.</li><li>Three short sessions are enough for newer lifters; more volume does not fix a calorie shortfall.</li><li>Each session starts with a big compound lift and ends within an hour.</li><li>Liquid calories, calorie-dense foods and a fixed meal schedule make a surplus easier to hit.</li><li>Weigh in daily and track the weekly average; add 200 kcal/day if it has not moved in two weeks.</li></ul></div>
+<p>Skinny guys usually get the same advice: "just eat more." It's correct but useless without a plan. Low appetite, fast metabolism claims and busy days all get in the way, and many skinny lifters respond by training longer and harder, which burns even more calories.</p><p>This plan takes the opposite approach. Training is short and focused on lifts that build the most muscle per minute. The eating section gives practical ways to add 300–600 calories a day without forcing down huge meals.</p>
+<details class="emp-toc" open><summary>In this plan</summary><ol><li><a href="#why">Why Skinny Guys Struggle to Gain</a></li><li><a href="#who">Who This Plan Is For</a></li><li><a href="#schedule">Weekly Schedule</a></li><li><a href="#workouts">The 3-Day Workouts</a></li><li><a href="#progression">Progression: Add Weight, Then Reps</a></li><li><a href="#eating">The Eating Plan for Skinny Guys</a></li><li><a href="#cardio">Cardio, Sleep and Daily Activity</a></li><li><a href="#mistakes">Mistakes That Keep Skinny Guys Skinny</a></li><li><a href="#faq">FAQ</a></li></ol></details>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="why">
+<h2>Why Skinny Guys Struggle to Gain</h2>
+<p>Two things are true. First, people do respond differently to training. In a <a href="https://pubmed.ncbi.nlm.nih.gov/15947721/" rel="noopener" target="_blank">study of 585 men and women</a> following the same 12-week arm program, muscle size changes ranged from −2% to +59%. Genetics play a real role.</p>
+<p>Second, almost nobody gains weight without eating more energy than they burn. A <a href="https://pubmed.ncbi.nlm.nih.gov/31482093/" rel="noopener" target="_blank">2019 review</a> concluded an energy surplus provides an anabolic stimulus on its own and supports muscle growth from training. For most skinny lifters, the bottleneck is not a special gene but a calorie intake that never reaches surplus.</p>
+<div class="emp-tip"><span class="emp-label">💡 Quick test</span><p>Log everything you eat for 7 days and weigh yourself each morning. If weight is flat, your average intake is your maintenance. Most self-described hardgainers find they eat less than they thought, especially on busy days.</p></div>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="who">
+<h2>Who This Plan Is For</h2>
+<ul>
+<li>You are lean or underweight and want to add muscle and body weight.</li>
+<li>You have 0–18 months of lifting experience.</li>
+<li>You can train three days a week for 45–55 minutes.</li>
+<li>You have struggled to gain on longer, high-volume routines.</li>
+</ul>
+<p>If you are completely new to the gym, the first two weeks of this plan double as technique practice. Start light, learn each movement, and build from there. The <a href="https://exercisemenu.com/how-many-reps-and-sets-should-a-beginner-do/">beginner reps and sets guide</a> explains why starting easy speeds up progress.</p>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="schedule">
+<h2>Weekly Schedule</h2>
+<div class="emp-week"><div class="emp-wd c1"><b>Mon</b><span>Upper</span></div><div class="emp-wd rest"><b>Tue</b><span>Rest</span></div><div class="emp-wd c3"><b>Wed</b><span>Lower</span></div><div class="emp-wd rest"><b>Thu</b><span>Rest</span></div><div class="emp-wd c4"><b>Fri</b><span>Full Body</span></div><div class="emp-wd rest"><b>Sat</b><span>Rest</span></div><div class="emp-wd rest"><b>Sun</b><span>Rest</span></div></div>
+<p>Upper, lower and full-body sessions train every major muscle at least twice a week with less total time than a 5- or 6-day split. That matters when every calorie spent counts.</p>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="workouts">
+<h2>The 3-Day Workouts</h2>
+<p>Pick a day. Every session starts with the hardest lift while you are fresh. Effort uses reps in reserve: RIR 2 means you stop with two clean reps left. Keep rests at 2–3 minutes for the first two lifts so you can lift heavy; the <a href="https://exercisemenu.com/how-long-to-rest-between-sets/">rest between sets guide</a> explains why.</p>
+<div class="emp-tabs">
+<input type="radio" name="emp-day" id="emp-t1" checked>
+<input type="radio" name="emp-day" id="emp-t2">
+<input type="radio" name="emp-day" id="emp-t3">
+<input type="radio" name="emp-day" id="emp-tall">
+<div class="emp-tabbar" role="group" aria-label="Choose a training day"><label for="emp-t1">Day 1<small>Upper</small></label><label for="emp-t2">Day 2<small>Lower</small></label><label for="emp-t3">Day 3<small>Full Body</small></label><label for="emp-tall">All days<small>Show every workout</small></label></div>
+<div class="emp-panels">
+<div class="emp-panel emp-p1">
+<div class="emp-wo">
+<div class="emp-wo-h c1"><h3>Day 1 — Upper Body</h3><span class="emp-tag">Push + Pull</span></div>
+<div class="emp-wo-meta"><span>⏱ 45–55 min</span><span>🎯 6 exercises</span><span>📊 16 working sets</span><span>💪 Chest / Back / Shoulders / Arms</span></div>
+<div class="emp-tw"><table class="emp-ex"><thead><tr><th>#</th><th>Exercise</th><th>Sets × Reps</th><th>Rest</th><th>Effort</th></tr></thead>
+<tbody>
+<tr><td class="n">1</td><td class="x"><a href="https://exercisemenu.com/exercises/barbell-bench-press/">Barbell Bench Press</a><span class="t">Primary: chest · Secondary: front delts, triceps</span></td><td class="s">3 × 6–8</td><td class="r">2–3 min</td><td class="e">RIR 2</td></tr>
+<tr><td class="n">2</td><td class="x">Lat Pulldown<span class="t">Primary: lats · Secondary: biceps</span></td><td class="s">3 × 8–10</td><td class="r">2 min</td><td class="e">RIR 2</td></tr>
+<tr><td class="n">3</td><td class="x">Seated Dumbbell Shoulder Press<span class="t">Primary: front delts · Secondary: triceps</span></td><td class="s">3 × 8–10</td><td class="r">2 min</td><td class="e">RIR 2</td></tr>
+<tr><td class="n">4</td><td class="x">Seated Cable Row<span class="t">Primary: mid-back · Secondary: rear delts</span></td><td class="s">3 × 10–12</td><td class="r">90 sec</td><td class="e">RIR 1–2</td></tr>
+<tr><td class="n">5</td><td class="x"><a href="https://exercisemenu.com/exercises/dumbbell-biceps-curl/">Dumbbell Biceps Curl</a><span class="t">Primary: biceps</span></td><td class="s">2 × 10–12</td><td class="r">60 sec</td><td class="e">RIR 1</td></tr>
+<tr><td class="n">6</td><td class="x">Triceps Pushdown<span class="t">Primary: triceps</span></td><td class="s">2 × 10–12</td><td class="r">60 sec</td><td class="e">RIR 1</td></tr>
+</tbody></table></div>
+<div class="emp-wo-notes"><p><strong>Notes:</strong> Superset the curl and pushdown. If you cannot do 6 bench reps with the empty bar, use the dumbbell bench press until you can.</p></div>
+</div>
+</div>
+<div class="emp-panel emp-p2">
+<div class="emp-wo">
+<div class="emp-wo-h c3"><h3>Day 2 — Lower Body</h3><span class="emp-tag">Legs + Core</span></div>
+<div class="emp-wo-meta"><span>⏱ 45–55 min</span><span>🎯 6 exercises</span><span>📊 15 working sets</span><span>💪 Quads / Hamstrings / Glutes / Calves</span></div>
+<div class="emp-tw"><table class="emp-ex"><thead><tr><th>#</th><th>Exercise</th><th>Sets × Reps</th><th>Rest</th><th>Effort</th></tr></thead>
+<tbody>
+<tr><td class="n">1</td><td class="x">Back Squat<span class="t">Primary: quads, glutes · Secondary: adductors, core</span></td><td class="s">3 × 6–8</td><td class="r">3 min</td><td class="e">RIR 2</td></tr>
+<tr><td class="n">2</td><td class="x">Romanian Deadlift<span class="t">Primary: hamstrings, glutes</span></td><td class="s">3 × 8–10</td><td class="r">2–3 min</td><td class="e">RIR 2</td></tr>
+<tr><td class="n">3</td><td class="x">Leg Press<span class="t">Primary: quads</span></td><td class="s">2 × 10–12</td><td class="r">2 min</td><td class="e">RIR 1–2</td></tr>
+<tr><td class="n">4</td><td class="x">Seated Leg Curl<span class="t">Primary: hamstrings</span></td><td class="s">2 × 10–12</td><td class="r">90 sec</td><td class="e">RIR 1</td></tr>
+<tr><td class="n">5</td><td class="x">Standing Calf Raise<span class="t">Primary: calves</span></td><td class="s">3 × 10–15</td><td class="r">60 sec</td><td class="e">RIR 1</td></tr>
+<tr><td class="n">6</td><td class="x">Cable Crunch<span class="t">Primary: abs</span></td><td class="s">2 × 10–15</td><td class="r">60 sec</td><td class="e">RIR 1</td></tr>
+</tbody></table></div>
+<div class="emp-wo-notes"><p><strong>Notes:</strong> If back squats feel awkward, start with a goblet squat for 2–4 weeks, then move to the barbell.</p></div>
+</div>
+</div>
+<div class="emp-panel emp-p3">
+<div class="emp-wo">
+<div class="emp-wo-h c4"><h3>Day 3 — Full Body</h3><span class="emp-tag">Strength + Size</span></div>
+<div class="emp-wo-meta"><span>⏱ 50–55 min</span><span>🎯 6 exercises</span><span>📊 16 working sets</span><span>💪 Full body</span></div>
+<div class="emp-tw"><table class="emp-ex"><thead><tr><th>#</th><th>Exercise</th><th>Sets × Reps</th><th>Rest</th><th>Effort</th></tr></thead>
+<tbody>
+<tr><td class="n">1</td><td class="x"><a href="https://exercisemenu.com/how-to-trap-bar-deadlift/">Trap Bar Deadlift</a><span class="t">Primary: glutes, quads, hamstrings · Secondary: upper back</span></td><td class="s">3 × 5–8</td><td class="r">3 min</td><td class="e">RIR 2</td></tr>
+<tr><td class="n">2</td><td class="x">Incline Dumbbell Press (30°)<span class="t">Primary: upper chest · Secondary: front delts</span></td><td class="s">3 × 8–10</td><td class="r">2 min</td><td class="e">RIR 2</td></tr>
+<tr><td class="n">3</td><td class="x">Pull-Up (or Assisted Pull-Up)<span class="t">Primary: lats · Secondary: biceps</span></td><td class="s">3 × 6–10</td><td class="r">2 min</td><td class="e">RIR 1–2</td></tr>
+<tr><td class="n">4</td><td class="x">Bulgarian Split Squat<span class="t">Primary: quads, glutes</span></td><td class="s">2 × 8–10 / leg</td><td class="r">90 sec</td><td class="e">RIR 2</td></tr>
+<tr><td class="n">5</td><td class="x">Dumbbell Lateral Raise<span class="t">Primary: side delts</span></td><td class="s">3 × 12–15</td><td class="r">60 sec</td><td class="e">RIR 1</td></tr>
+<tr><td class="n">6</td><td class="x"><a href="https://exercisemenu.com/exercises/dumbbell-hammer-curl/">Hammer Curl</a><span class="t">Primary: brachialis, biceps</span></td><td class="s">2 × 10–12</td><td class="r">60 sec</td><td class="e">RIR 1</td></tr>
+</tbody></table></div>
+<div class="emp-wo-notes"><p><strong>Notes:</strong> No trap bar? Use a conventional deadlift for 3 × 5. Add 2 sets of push-ups to failure at the end if you have time.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div class="emp-science"><span class="emp-label">🔬 Why compound lifts first?</span><p>Multi-joint lifts train several large muscles at once and allow the heaviest loads. The <a href="https://pubmed.ncbi.nlm.nih.gov/41843416/" rel="noopener" target="_blank">2026 ACSM position stand</a> found strength gains were better when exercises came early in a session, and that 2–3 sets of heavier loads at 2+ sessions per week drove strength. Strength in the 6–10 rep range carries over to more muscle when paired with enough food.</p></div>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="progression">
+<h2>Progression: Add Weight, Then Reps</h2>
+<p>Use double progression. When you hit the top of the rep range on all sets with about 2 reps in reserve, add weight next session: 2.5 kg on upper-body barbell lifts, 5 kg on squats and deadlifts, the next dumbbell up on accessories. The <a href="https://pubmed.ncbi.nlm.nih.gov/19204579/" rel="noopener" target="_blank">ACSM progression model</a> recommends 2–10% increases once you can exceed the target reps.</p>
+<div class="emp-tw emp-data"><table><thead><tr><th>Week</th><th>Bench press 3 × 6–8</th><th>What happened</th></tr></thead><tbody><tr><td>1</td><td>60 kg × 8, 7, 6</td><td>Start</td></tr><tr><td>2</td><td>60 kg × 8, 8, 7</td><td>Reps up</td></tr><tr><td>3</td><td>60 kg × 8, 8, 8</td><td>Top of range reached</td></tr><tr><td>4</td><td>62.5 kg × 7, 6, 6</td><td>Load up, reps reset</td></tr></tbody></table></div>
+<p>Skinny lifters often see their main lifts rise every 1–2 weeks for the first several months if they eat enough. If lifts stall while body weight is flat, the fix is food first. More ideas are in <a href="https://exercisemenu.com/progressive-overload-for-beginners/">progressive overload for beginners</a>.</p>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="eating">
+<h2>The Eating Plan for Skinny Guys</h2>
+<p>Training starts the process; food finishes it. The targets below come from a <a href="https://pubmed.ncbi.nlm.nih.gov/31247944/" rel="noopener" target="_blank">review of nutrition for muscle gain</a>, which recommends a 10–20% surplus and a gain of about 0.25–0.5% of body weight per week for novice and intermediate lifters. Newer, lean lifters can usually aim for the top of that range.</p>
+<div class="emp-macros">
+<div class="emp-macro"><b>+10–20%</b><span>Calories above maintenance</span></div>
+<div class="emp-macro"><b>~0.5%</b><span>Body weight gain/week</span></div>
+<div class="emp-macro"><b>1.6–2.2 g/kg</b><span>Protein/day</span></div>
+<div class="emp-macro"><b>4–5</b><span>Meals and snacks/day</span></div>
+</div>
+<p>Protein gains plateaued around 1.6 g/kg/day in a <a href="https://pubmed.ncbi.nlm.nih.gov/28698222/" rel="noopener" target="_blank">meta-analysis of 49 trials</a>; more protein will not replace missing calories. Use the <a href="https://exercisemenu.com/protein-calculator/">protein calculator</a> for your own target.</p>
+<h3>Ways to add 300–600 calories a day</h3>
+<ul>
+<li><strong>Drink some calories.</strong> A shake of whole milk, a banana, oats and peanut butter adds roughly 600–800 kcal and is easier for many people than another plate of food.</li>
+<li><strong>Use calorie-dense foods.</strong> Olive oil on rice and vegetables, nuts, nut butters, dried fruit, cheese and whole-milk yogurt add calories without much volume.</li>
+<li><strong>Eat on a schedule.</strong> Set fixed meal times. Low-appetite eaters often skip meals when they wait to feel hungry.</li>
+<li><strong>Add a carb-protein snack around training.</strong> See <a href="https://exercisemenu.com/best-pre-workout-snacks-for-muscle-gain/">pre-workout snacks for muscle gain</a> and <a href="https://exercisemenu.com/post-workout-snacks-for-muscle-gain/">post-workout snacks for muscle gain</a>.</li>
+</ul>
+<div class="emp-tw emp-data"><table><thead><tr><th>Morning weight trend (2 weeks)</th><th>Action</th></tr></thead><tbody><tr><td>Flat or down</td><td>Add 200 kcal/day</td></tr><tr><td>Up about 0.25–0.5% BW/week</td><td>Keep going</td></tr><tr><td>Up more than 0.75% BW/week</td><td>Remove 150–200 kcal/day</td></tr></tbody></table></div>
+<p>Creatine monohydrate at 3–5 g/day is the <a href="https://pubmed.ncbi.nlm.nih.gov/28615996/" rel="noopener" target="_blank">best-researched supplement</a> for strength training and also adds some body weight from stored water. It is optional.</p>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="cardio">
+<h2>Cardio, Sleep and Daily Activity</h2>
+<p>You do not need to stop cardio. Two 20–30 minute easy sessions a week keep your heart and lungs fit. If your weight trend stalls, eat more rather than dropping all activity. Long, hard conditioning sessions are the ones to limit, since they burn the calories you are trying to store.</p>
+<p>Sleep 7–9 hours where possible. Poor sleep makes it harder to eat well, recover and progress your lifts.</p>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="mistakes">
+<h2>Mistakes That Keep Skinny Guys Skinny</h2>
+<ul>
+<li><strong>Program-hopping every month.</strong> Muscle shows up after months of consistent progression, not weeks.</li>
+<li><strong>Training 6 days with high volume.</strong> More sets cannot work without the calories to recover from them.</li>
+<li><strong>Relying on "I eat a lot."</strong> Without weighing yourself, it's impossible to know whether you are in a surplus.</li>
+<li><strong>Too much isolation work.</strong> Curls and raises have a place, but squats, presses, rows and deadlifts build the most size early. See <a href="https://exercisemenu.com/compound-vs-isolation/">compound vs isolation exercises</a>.</li>
+</ul>
+<p>Fix the eating, run the plan for 12 weeks, and compare photos, measurements and lifts. That comparison tells you more than any single weigh-in.</p>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section emp-faq" id="faq">
+<h2>Workout Plan for Skinny Guys FAQ</h2>
+<details><summary>How fast can a skinny guy gain weight?</summary><div class="emp-faq-a"><p>A realistic target is about 0.5% of body weight per week, roughly 0.3 kg for a 65 kg lifter. Faster gains are possible but tend to add more fat.</p></div></details>
+<details><summary>Is 3 days a week enough for a skinny guy?</summary><div class="emp-faq-a"><p>Yes. Newer lifters grow well on three weekly sessions with steady progression, and shorter training leaves more calories for growth. Move to four days once progress slows despite eating enough.</p></div></details>
+<details><summary>Do I need mass gainer shakes?</summary><div class="emp-faq-a"><p>No. A homemade shake with milk, oats, banana and peanut butter gives similar calories with more fibre and nutrients, at lower cost.</p></div></details>
+<details><summary>Should I stop all cardio to bulk?</summary><div class="emp-faq-a"><p>No. Light cardio twice a week supports health and appetite. Cut back only on long, intense sessions, and eat a little more on active days.</p></div></details>
+<details><summary>What if I get full too quickly?</summary><div class="emp-faq-a"><p>Eat smaller meals more often, drink part of your calories, and choose calorie-dense foods like nuts, oils and whole-milk dairy over high-fibre, bulky foods for a few meals a day.</p></div></details>
+<details><summary>Can a skinny guy build muscle with home workouts?</summary><div class="emp-faq-a"><p>Yes, with enough load and food. Bodyweight and dumbbell training work, but progressing load is harder without heavier equipment.</p></div></details>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="related-plans">
+<h2>Related Workout Plans</h2>
+<div class="emp-related"><a class="emp-card" href="https://exercisemenu.com/workout-plans/lean-bulk-workout-plan/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">12-Week Lean Bulk Workout Plan</span><span class="emp-card-d">Three training phases matched to a small calorie surplus.</span><span class="emp-card-m">4 days · Intermediate</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/full-body-workout-plan/"><span class="emp-card-tag">Beginner</span><span class="emp-card-t">Full Body Workout Plan for Beginners</span><span class="emp-card-d">Three full-body gym sessions a week to learn the main lifts.</span><span class="emp-card-m">3 days · Beginner</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/beginner-strength-training-program/"><span class="emp-card-tag">Strength</span><span class="emp-card-t">Beginner Strength Training Program</span><span class="emp-card-d">12 weeks of linear progression on the main lifts.</span><span class="emp-card-m">3 days · Beginner</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/5x5-workout/"><span class="emp-card-tag">Strength</span><span class="emp-card-t">5×5 Strength &amp; Muscle Program</span><span class="emp-card-d">Five sets of five on the big barbell lifts.</span><span class="emp-card-m">3 days · Beginner–Intermediate</span></a></div>
+</section>
+<div class="emp-refs"><h3>References</h3><ol><li>Hubal MJ, et al. Variability in muscle size and strength gain after unilateral resistance training. <em>Med Sci Sports Exerc</em>. 2005. <a href="https://pubmed.ncbi.nlm.nih.gov/15947721/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/15947721/</a></li><li>Slater GJ, et al. Is an energy surplus required to maximize skeletal muscle hypertrophy associated with resistance training? <em>Front Nutr</em>. 2019. <a href="https://pubmed.ncbi.nlm.nih.gov/31482093/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/31482093/</a></li><li>Currier BS, et al. American College of Sports Medicine Position Stand: Resistance Training Prescription for Muscle Function, Hypertrophy, and Physical Performance in Healthy Adults. <em>Med Sci Sports Exerc</em>. 2026. <a href="https://pubmed.ncbi.nlm.nih.gov/41843416/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/41843416/</a></li><li>American College of Sports Medicine. Position stand: Progression models in resistance training for healthy adults. <em>Med Sci Sports Exerc</em>. 2009. <a href="https://pubmed.ncbi.nlm.nih.gov/19204579/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/19204579/</a></li><li>Iraki J, et al. Nutrition recommendations for bodybuilders in the off-season: a narrative review. <em>Sports (Basel)</em>. 2019. <a href="https://pubmed.ncbi.nlm.nih.gov/31247944/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/31247944/</a></li><li>Morton RW, et al. A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength. <em>Br J Sports Med</em>. 2018. <a href="https://pubmed.ncbi.nlm.nih.gov/28698222/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/28698222/</a></li><li>Kreider RB, et al. International Society of Sports Nutrition position stand: safety and efficacy of creatine supplementation in exercise, sport, and medicine. <em>J Int Soc Sports Nutr</em>. 2017. <a href="https://pubmed.ncbi.nlm.nih.gov/28615996/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/28615996/</a></li></ol></div>
+<p class="emp-disclaimer">This plan is general education for healthy adults, not medical advice. If you have an injury, a heart, joint or blood-pressure condition, or you are pregnant or postpartum, check with your doctor or a physiotherapist before starting a new training program.</p>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How fast can a skinny guy gain weight?", "acceptedAnswer": {"@type": "Answer", "text": "A realistic target is about 0.5% of body weight per week, roughly 0.3 kg for a 65 kg lifter. Faster gains are possible but tend to add more fat."}}, {"@type": "Question", "name": "Is 3 days a week enough for a skinny guy?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Newer lifters grow well on three weekly sessions with steady progression, and shorter training leaves more calories for growth. Move to four days once progress slows despite eating enough."}}, {"@type": "Question", "name": "Do I need mass gainer shakes?", "acceptedAnswer": {"@type": "Answer", "text": "No. A homemade shake with milk, oats, banana and peanut butter gives similar calories with more fibre and nutrients, at lower cost."}}, {"@type": "Question", "name": "Should I stop all cardio to bulk?", "acceptedAnswer": {"@type": "Answer", "text": "No. Light cardio twice a week supports health and appetite. Cut back only on long, intense sessions, and eat a little more on active days."}}, {"@type": "Question", "name": "What if I get full too quickly?", "acceptedAnswer": {"@type": "Answer", "text": "Eat smaller meals more often, drink part of your calories, and choose calorie-dense foods like nuts, oils and whole-milk dairy over high-fibre, bulky foods for a few meals a day."}}, {"@type": "Question", "name": "Can a skinny guy build muscle with home workouts?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, with enough load and food. Bodyweight and dumbbell training work, but progressing load is harder without heavier equipment."}}]}</script>
+<!-- /wp:html -->

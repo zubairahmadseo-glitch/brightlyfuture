@@ -34,6 +34,9 @@ R = {
     "kraemer2004": ("Kraemer WJ, Ratamess NA. Fundamentals of resistance training: progression and exercise prescription. <em>Med Sci Sports Exerc</em>. 2004.", PM + "15064596/"),
     "maeo2021": ("Maeo S, et al. Greater hamstrings muscle hypertrophy but similar damage protection after training at long versus short muscle lengths. <em>Med Sci Sports Exerc</em>. 2021.", PM + "33009197/"),
     "restsys2017": ("Grgic J, et al. The effects of short versus long inter-set rest intervals in resistance training on measures of muscle hypertrophy: a systematic review. <em>Eur J Sport Sci</em>. 2017.", PM + "28641044/"),
+    "wolf2025": ("Wolf M, et al. Lengthened partial repetitions elicit similar muscular adaptations as full range of motion repetitions during resistance training in trained individuals. <em>PeerJ</em>. 2025.", PM + "39959841/"),
+    "dropset2026": ("Havers T, et al. Acute and chronic effects of drop-set training: a meta-analysis and systematic review. <em>Sports Med Open</em>. 2026.", PM + "41920484/"),
+    "advanced2026": ("Tsartsapakis I, et al. Effects of advanced resistance training systems on muscle hypertrophy and strength in recreationally trained adults: a systematic review and meta-analysis. <em>J Funct Morphol Kinesiol</em>. 2026.", PM + "41718208/"),
 }
 
 

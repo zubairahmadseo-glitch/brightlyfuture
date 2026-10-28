@@ -30,5 +30,37 @@
     "meta_title": "Lean Bulk Workout Plan: 12-Week Training & Calorie Guide",
     "meta_desc": "A 12-week lean bulk workout plan: a 4-day split in three phases, plus the calorie surplus, protein and weekly weight-gain targets that limit fat gain.",
     "focus_kw": "lean bulk workout plan"
+  },
+  {
+    "num": 9,
+    "slug": "hypertrophy-program",
+    "title": "4-Day Hypertrophy Program: A 6-Week Muscle-Building Mesocycle",
+    "meta_title": "4-Day Hypertrophy Program: 6-Week Muscle Building Plan",
+    "meta_desc": "A 4-day hypertrophy program run as a 6-week mesocycle: anterior/posterior split, weekly set ramps, RIR targets and a planned deload for steady growth.",
+    "focus_kw": "hypertrophy program"
+  },
+  {
+    "num": 10,
+    "slug": "workout-plan-for-skinny-guys",
+    "title": "Workout Plan for Skinny Guys: 3-Day Hardgainer Program and Eating Plan",
+    "meta_title": "Workout Plan for Skinny Guys: 3-Day Hardgainer Program",
+    "meta_desc": "A workout plan for skinny guys who struggle to gain: short 3-day upper/lower/full body sessions, simple progression and an eating plan that adds weight.",
+    "focus_kw": "workout plan for skinny guys"
+  },
+  {
+    "num": 11,
+    "slug": "5-day-workout-split",
+    "title": "5-Day Workout Split: Upper, Lower, Push, Pull, Legs Gym Plan",
+    "meta_title": "5-Day Workout Split: Upper/Lower + PPL Gym Program",
+    "meta_desc": "A 5 day workout split that trains every muscle twice a week: upper, lower, push, pull and legs days with full sets, reps, rest, progression and deloads.",
+    "focus_kw": "5 day workout split"
+  },
+  {
+    "num": 12,
+    "slug": "ppl-hypertrophy-program",
+    "title": "6-Day PPL Hypertrophy Program for Advanced Lifters",
+    "meta_title": "6-Day PPL Hypertrophy Program (Advanced Lifters)",
+    "meta_desc": "An advanced 6-day PPL hypertrophy program: 13–18 sets per major muscle, a 6-week mesocycle, drop sets and rest-pause with purpose, and specialization.",
+    "focus_kw": "ppl hypertrophy program"
   }
 ]
