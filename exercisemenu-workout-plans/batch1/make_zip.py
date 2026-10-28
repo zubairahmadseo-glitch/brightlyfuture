@@ -3,7 +3,7 @@ import json, pathlib, shutil, sys, zipfile
 
 ROOT = pathlib.Path(__file__).parent
 dest = pathlib.Path(sys.argv[1])
-name = "ExerciseMenu-Workout-Plans-Batch1"
+name = "ExerciseMenu-Workout-Plans-All-15"
 base = dest / name
 shutil.rmtree(base, ignore_errors=True)
 base.mkdir(parents=True)

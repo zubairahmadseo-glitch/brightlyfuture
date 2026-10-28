@@ -43,13 +43,6 @@
 .emp .emp-warn{background:var(--emp-amber-bg);border:1px solid #fde68a}
 .emp .emp-warn .emp-label{color:var(--emp-amber)}
 .emp .emp-science p:last-child,.emp .emp-tip p:last-child,.emp .emp-warn p:last-child{margin:0}
-/* toc */
-.emp .emp-toc{background:var(--emp-alt);border:1px solid var(--emp-line);border-radius:var(--emp-r);padding:16px 20px;margin:0 0 8px}
-.emp .emp-toc summary{cursor:pointer;font-weight:700;color:var(--emp-ink);font-size:.95rem}
-.emp .emp-toc ol{columns:2;column-gap:28px;margin:12px 0 0 1.2rem;font-size:.92rem}
-.emp .emp-toc a{color:var(--emp-text);text-decoration:none}
-.emp .emp-toc a:hover{color:var(--emp-accent-d);text-decoration:underline}
-@media (max-width:640px){.emp .emp-toc ol{columns:1}}
 /* weekly schedule */
 .emp .emp-week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin:18px 0}
 @media (max-width:640px){.emp .emp-week{grid-template-columns:repeat(4,1fr)}}
@@ -133,6 +126,19 @@
 .emp .emp-refs ol{margin-left:1.2rem}
 .emp .emp-refs a{color:var(--emp-muted)}
 .emp .emp-disclaimer{font-size:.85rem;color:var(--emp-muted);border-top:1px solid var(--emp-line);padding-top:14px;margin-top:8px}
+/* jump button + chips */
+.emp a.emp-jump{display:inline-block;margin-top:16px;background:var(--emp-accent);color:#fff;text-decoration:none;font-weight:700;padding:10px 20px;border-radius:30px;font-size:.92rem}
+.emp a.emp-jump:hover{background:var(--emp-accent-d);color:#fff}
+.emp .emp-chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 6px;font-size:.84rem}
+.emp .emp-chips span{font-weight:700;color:var(--emp-muted);margin-right:2px}
+.emp .emp-chips a{border:1px solid var(--emp-line);background:var(--emp-alt);border-radius:20px;padding:4px 11px;color:var(--emp-ink);text-decoration:none}
+.emp .emp-chips a:hover{border-color:var(--emp-accent);color:var(--emp-accent-d)}
+/* author box */
+.emp .emp-author{display:flex;gap:16px;align-items:flex-start;background:var(--emp-alt);border:1px solid var(--emp-line);border-radius:var(--emp-r);padding:18px 20px;margin:24px 0}
+.emp .emp-author-av{flex:0 0 56px;height:56px;border-radius:50%;background:var(--emp-accent);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.emp .emp-author p{margin:0 0 6px;font-size:.92rem}
+.emp .emp-author p.emp-author-n{font-weight:700;color:var(--emp-ink);font-size:1rem;margin:0}
+.emp .emp-author p.emp-author-c{color:var(--emp-muted);font-size:.8rem;margin:0 0 8px}
 </style>
 
 
@@ -142,37 +148,12 @@
 <span class="emp-badge">Beginner · Strength</span>
 <p class="emp-hero-lead">New to the barbell and want to get strong? This beginner workout plan teaches the squat, bench press, deadlift and overhead press, then adds weight to them every week for 12 weeks, with sessions under an hour.</p>
 <ul class="emp-hero-meta"><li>📅 3 days/week</li><li>⏱ 45–60 min</li><li>📊 Beginner (0–6 months)</li><li>🏋️ Barbell + basic gym</li><li>📄 Last reviewed: October 2026</li></ul>
+<a class="emp-jump" href="#workouts">See the workouts ↓</a>
 </div>
 <div class="emp-stats"><div class="emp-stat"><div class="emp-stat-v">12 wk</div><div class="emp-stat-l">Program length</div></div><div class="emp-stat"><div class="emp-stat-v">3</div><div class="emp-stat-l">Training days</div></div><div class="emp-stat"><div class="emp-stat-v">3 × 5</div><div class="emp-stat-l">Main lift sets</div></div><div class="emp-stat"><div class="emp-stat-v">+2.5–5 kg</div><div class="emp-stat-l">Weekly jumps</div></div><div class="emp-stat"><div class="emp-stat-v">4</div><div class="emp-stat-l">Barbell lifts learned</div></div></div>
 <div class="emp-answer"><span class="emp-label">Quick answer</span><p>This beginner workout plan runs three full-body days a week for 12 weeks. Days 1 and 2 build strength with 3 sets of 5 on the squat, bench press, deadlift and overhead press. Day 3 uses lighter sets of 8. You add a small amount of weight to each main lift every week while form stays solid.</p></div>
-<p>A good beginner workout plan is simple enough to follow without thinking and specific enough to make you stronger every week. This 12-week program does both. You train three days a week, master four barbell lifts, and follow one progression rule.</p><p>Beginners usually gain strength quickly, and much of that early progress comes from learning the movements. That's why this plan trains each main pattern at least twice a week and keeps the rep counts low enough to focus on form.</p>
-<details class="emp-toc" open><summary>In this plan</summary><ol><li><a href="#why">Why a Strength-First Plan for Beginners?</a></li><li><a href="#who">Who This Beginner Program Is For</a></li><li><a href="#schedule">Weekly Schedule</a></li><li><a href="#workouts">The Beginner Workouts</a></li><li><a href="#phases">The 12 Weeks at a Glance</a></li><li><a href="#progression">How to Progress Every Week</a></li><li><a href="#rest">Rest Periods and Warm-Ups</a></li><li><a href="#mistakes">Beginner Mistakes to Avoid</a></li><li><a href="#nutrition">Eating for Strength Gains</a></li><li><a href="#next">What to Do After 12 Weeks</a></li><li><a href="#faq">FAQ</a></li></ol></details>
-</div>
-
-
-
-<div class="emp">
-<section class="emp-section" id="why">
-<h2>Why a Strength-First Plan for Beginners?</h2>
-<p>Getting stronger first lets you use heavier loads later in muscle-building training. The <a href="https://pubmed.ncbi.nlm.nih.gov/41843416/" rel="noopener" target="_blank">2026 ACSM position stand</a> found resistance training also improves physical function, and that strength improved most with heavier loads (80% of your one-rep max or more), 2–3 sets per exercise, lifts placed at the start of the session, and two or more sessions a week. This plan follows each of those points.</p>
-<div class="emp-science"><span class="emp-label">🔬 Beginners also build muscle</span><p>Training for strength builds muscle too. In a <a href="https://pubmed.ncbi.nlm.nih.gov/33433148/" rel="noopener" target="_blank">network meta-analysis</a>, untrained participants showed greater muscle growth than trained ones, and growth was similar across load ranges. Heavy sets of 5 on the main lifts plus 8–12 rep accessories cover both goals.</p></div>
-<p>If your main goal is muscle size rather than strength, our <a href="https://exercisemenu.com/workout-plans/full-body-workout-plan/">full body workout plan for beginners</a> is the better starting point.</p>
-</section>
-</div>
-
-
-
-<div class="emp">
-<section class="emp-section" id="who">
-<h2>Who This Beginner Program Is For</h2>
-<ul>
-<li>You have lifted for less than six months, or not at all.</li>
-<li>You have access to a barbell, squat rack, bench and a few dumbbells and machines.</li>
-<li>You can train three non-consecutive days a week for 45–60 minutes.</li>
-<li>You are healthy and free of injuries that limit squatting, hinging or pressing.</li>
-</ul>
-<p>Not sure about sets and reps yet? The <a href="https://exercisemenu.com/how-many-reps-and-sets-should-a-beginner-do/">beginner sets and reps guide</a> explains the basics behind this plan.</p>
-</section>
+<p>Use the day tabs to see each workout. The 12-week phases, progression rules and warm-up follow the workouts.</p>
+<nav class="emp-chips" aria-label="Jump to a section"><span>Jump to:</span><a href="#schedule">Schedule</a><a href="#workouts">Workouts</a><a href="#phases">12-week phases</a><a href="#progression">Progression</a><a href="#rest">Rest &amp; warm-up</a><a href="#why">Why it works</a><a href="#who">Who it&#x27;s for</a><a href="#mistakes">Mistakes</a><a href="#nutrition">Nutrition</a><a href="#next">After 12 weeks</a><a href="#faq">FAQ</a></nav>
 </div>
 
 
@@ -290,6 +271,32 @@
 
 
 <div class="emp">
+<section class="emp-section" id="why">
+<h2>Why a Strength-First Plan for Beginners?</h2>
+<p>Getting stronger first lets you use heavier loads later in muscle-building training. The <a href="https://pubmed.ncbi.nlm.nih.gov/41843416/" rel="noopener" target="_blank">2026 ACSM position stand</a> found resistance training also improves physical function, and that strength improved most with heavier loads (80% of your one-rep max or more), 2–3 sets per exercise, lifts placed at the start of the session, and two or more sessions a week. This plan follows each of those points.</p>
+<div class="emp-science"><span class="emp-label">🔬 Beginners also build muscle</span><p>Training for strength builds muscle too. In a <a href="https://pubmed.ncbi.nlm.nih.gov/33433148/" rel="noopener" target="_blank">network meta-analysis</a>, untrained participants showed greater muscle growth than trained ones, and growth was similar across load ranges. Heavy sets of 5 on the main lifts plus 8–12 rep accessories cover both goals.</p></div>
+<p>If your main goal is muscle size rather than strength, our <a href="https://exercisemenu.com/workout-plans/full-body-workout-plan/">full body workout plan for beginners</a> is the better starting point.</p>
+</section>
+</div>
+
+
+
+<div class="emp">
+<section class="emp-section" id="who">
+<h2>Who This Beginner Program Is For</h2>
+<ul>
+<li>You have lifted for less than six months, or not at all.</li>
+<li>You have access to a barbell, squat rack, bench and a few dumbbells and machines.</li>
+<li>You can train three non-consecutive days a week for 45–60 minutes.</li>
+<li>You are healthy and free of injuries that limit squatting, hinging or pressing.</li>
+</ul>
+<p>Not sure about sets and reps yet? The <a href="https://exercisemenu.com/how-many-reps-and-sets-should-a-beginner-do/">beginner sets and reps guide</a> explains the basics behind this plan.</p>
+</section>
+</div>
+
+
+
+<div class="emp">
 <section class="emp-section" id="mistakes">
 <h2>Beginner Mistakes to Avoid</h2>
 <ul>
@@ -328,7 +335,7 @@
 <details><summary>How much weight should a beginner start with?</summary><div class="emp-faq-a"><p>Start with a load you can lift for 5 reps with 3–4 reps left, often just the empty bar for presses and squats. Starting light gives more weeks of steady progress.</p></div></details>
 <details><summary>Is 3 days a week enough for a beginner?</summary><div class="emp-faq-a"><p>Yes. Three full-body sessions train every pattern two or three times a week, which is plenty for strength and muscle in the first months of lifting.</p></div></details>
 <details><summary>Should beginners do cardio too?</summary><div class="emp-faq-a"><p>Yes. Two or three sessions of 20–30 minutes of moderate cardio per week support heart health. Do them on rest days or after lifting, not before heavy squats.</p></div></details>
-<details><summary>Can women follow this beginner workout plan?</summary><div class="emp-faq-a"><p>Yes. Women gain strength at similar or faster relative rates than men in the early months of training, and the same lifts and progression work.</p></div></details>
+<details><summary>Can women follow this beginner workout plan?</summary><div class="emp-faq-a"><p>Yes. Women gain strength at <a href="https://pubmed.ncbi.nlm.nih.gov/32218059/" rel="noopener" target="_blank">similar or faster relative rates</a> than men in the early months of training, and the same lifts and progression work.</p></div></details>
 <details><summary>What if I can&#x27;t squat or deadlift with a barbell yet?</summary><div class="emp-faq-a"><p>Use a goblet squat and dumbbell Romanian deadlift for the first 2–4 weeks, then move to the barbell once the movement feels natural.</p></div></details>
 <details><summary>When will I see results?</summary><div class="emp-faq-a"><p>Strength usually rises within the first two weeks as your technique improves. Visible muscle changes often take 8–12 weeks of consistent training and eating.</p></div></details>
 </section>
@@ -337,9 +344,20 @@
 
 
 <div class="emp">
+<aside class="emp-author" aria-label="About the author">
+<div class="emp-author-av" aria-hidden="true">SB</div>
+<div><p class="emp-author-n">Sadia Baloch</p>
+<p class="emp-author-c">FISAF-certified fitness trainer</p>
+<p>Sadia Baloch is a FISAF-certified fitness trainer who has personally coached hundreds of clients over the past 7 years. She specializes in strength training, fat loss, and workout programming for beginners through intermediate lifters. Every article on ExerciseMenu.com is based on the same methods she uses with her in-person clients daily.</p></div>
+</aside>
+</div>
+
+
+
+<div class="emp">
 <section class="emp-section" id="related-plans">
 <h2>Related Workout Plans</h2>
-<div class="emp-related"><a class="emp-card" href="https://exercisemenu.com/workout-plans/full-body-workout-plan/"><span class="emp-card-tag">Beginner</span><span class="emp-card-t">Full Body Workout Plan for Beginners</span><span class="emp-card-d">Three full-body gym sessions a week for people new to lifting.</span><span class="emp-card-m">3 days · Beginner</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/5x5-workout/"><span class="emp-card-tag">Strength</span><span class="emp-card-t">5×5 Strength &amp; Muscle Program</span><span class="emp-card-d">Five sets of five on the big barbell lifts.</span><span class="emp-card-m">Strength · Barbell</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/3-day-full-body-workout/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">3-Day Full Body Workout (Intermediate)</span><span class="emp-card-d">Heavy, light and medium full-body days for busy lifters.</span><span class="emp-card-m">3 days · Intermediate</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/powerlifting-program-for-beginners/"><span class="emp-card-tag">Strength</span><span class="emp-card-t">Powerlifting Program for Beginners</span><span class="emp-card-d">12 weeks of squat, bench and deadlift ending in a test day.</span><span class="emp-card-m">3 days · Beginner–Intermediate</span></a></div>
+<div class="emp-related"><a class="emp-card" href="https://exercisemenu.com/workout-plans/full-body-workout-plan/"><span class="emp-card-tag">Beginner</span><span class="emp-card-t">Full Body Workout Plan for Beginners</span><span class="emp-card-d">Three full-body gym days led by the squat, bench press and deadlift.</span><span class="emp-card-m">3 days · Beginner</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/5x5-workout/"><span class="emp-card-tag">Strength</span><span class="emp-card-t">5×5 Strength &amp; Muscle Program</span><span class="emp-card-d">Two alternating barbell workouts, adding weight every session.</span><span class="emp-card-m">3 days · Beginner</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/3-day-full-body-workout/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">3-Day Full Body Workout (Intermediate)</span><span class="emp-card-d">Heavy, light and medium full-body days for busy lifters.</span><span class="emp-card-m">3 days · Intermediate</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/powerlifting-program-for-beginners/"><span class="emp-card-tag">Strength</span><span class="emp-card-t">Powerlifting Program for Beginners</span><span class="emp-card-d">12 weeks of squat, bench and deadlift ending in a test day.</span><span class="emp-card-m">3 days · Beginner–Intermediate</span></a></div>
 </section>
 <div class="emp-refs"><h3>References</h3><ol><li>Currier BS, et al. American College of Sports Medicine Position Stand: Resistance Training Prescription for Muscle Function, Hypertrophy, and Physical Performance in Healthy Adults. <em>Med Sci Sports Exerc</em>. 2026. <a href="https://pubmed.ncbi.nlm.nih.gov/41843416/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/41843416/</a></li><li>Lopez P, et al. Resistance training load effects on muscle hypertrophy and strength gain: systematic review and network meta-analysis. <em>Med Sci Sports Exerc</em>. 2021. <a href="https://pubmed.ncbi.nlm.nih.gov/33433148/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/33433148/</a></li><li>American College of Sports Medicine. Position stand: Progression models in resistance training for healthy adults. <em>Med Sci Sports Exerc</em>. 2009. <a href="https://pubmed.ncbi.nlm.nih.gov/19204579/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/19204579/</a></li><li>Grgic J, et al. Effects of rest interval duration in resistance training on measures of muscular strength: a systematic review. <em>Sports Med</em>. 2018. <a href="https://pubmed.ncbi.nlm.nih.gov/28933024/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/28933024/</a></li><li>Refalo MC, et al. Influence of resistance training proximity-to-failure on skeletal muscle hypertrophy: a systematic review with meta-analysis. <em>Sports Med</em>. 2023. <a href="https://pubmed.ncbi.nlm.nih.gov/36334240/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/36334240/</a></li><li>Morton RW, et al. A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength. <em>Br J Sports Med</em>. 2018. <a href="https://pubmed.ncbi.nlm.nih.gov/28698222/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/28698222/</a></li><li>Roberts BM, Nuckols G, Krieger JW. Sex differences in resistance training: a systematic review and meta-analysis. <em>J Strength Cond Res</em>. 2020. <a href="https://pubmed.ncbi.nlm.nih.gov/32218059/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/32218059/</a></li></ol></div>
 <p class="emp-disclaimer">This plan is general education for healthy adults, not medical advice. If you have an injury, a heart, joint or blood-pressure condition, or you are pregnant or postpartum, check with your doctor or a physiotherapist before starting a new training program.</p>

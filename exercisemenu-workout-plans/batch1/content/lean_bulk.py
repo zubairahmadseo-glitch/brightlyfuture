@@ -12,7 +12,7 @@ PAGE = {
     "hero_meta": ["📅 4 days/week", "⏱ 55–70 min", "📊 Intermediate", "🏋️ Full gym", "🍽 Nutrition included"],
     "stats": [("12 wk", "Program length"), ("3", "Training phases"), ("+10–20%", "Calorie surplus"), ("0.25–0.5%", "BW gain/week"), ("1.6–2.2", "Protein g/kg")],
     "quick_answer": "A lean bulk pairs progressive strength training with a small calorie surplus of about 10–20% above maintenance, aiming to gain 0.25–0.5% of body weight per week. This 12-week plan trains four days a week (Push, Pull, Legs, Full Body) and moves through volume, deload and intensity phases.",
-    "intro": "<p>\"Lean bulk\" means gaining muscle with as little fat as possible. Most bulks that go wrong do so through food: a large surplus, fast weight gain, and months of dieting afterwards to lose the extra fat.</p><p>This page starts with the 12-week, 4-day training program, with every set and rep. After the workouts you will find how to set your calorie surplus, track your rate of gain, and adjust when the scale moves too fast or too slow.</p>",
+    "intro": "<p>The 12-week training plan comes first. After the workouts you'll find how to set your calorie surplus, track your weight and adjust.</p>",
     "sections": [
         ("program", "Program Overview: Three Phases", f"""
 <p>The training runs four days a week for 12 weeks. The exercises stay the same throughout so you can see progress; sets and rep ranges change by phase.</p>
@@ -146,7 +146,7 @@ PAGE = {
     ],
     "faq_title": "Lean Bulk Workout Plan FAQ",
     "faqs": [
-        ("How much muscle can I gain in 12 weeks?", "It varies widely with training age, genetics, sleep and food. In one large study, arm muscle size changes after the same 12-week program ranged from almost none to nearly 60%, so track your own progress instead of chasing a fixed number."),
+        ("How much muscle can I gain in 12 weeks?", f"It varies widely with training age, genetics, sleep and food. {cite('hubal2005', 'In one large study')}, arm muscle size changes after the same 12-week program ranged from almost none to nearly 60%, so track your own progress instead of chasing a fixed number."),
         ("Should I do cardio on a lean bulk?", "Yes, in moderation. Two or three 20–30 minute easy sessions a week support heart health. Add about 100–200 kcal on cardio days if your weight trend drops below target."),
         ("Should I bulk or cut first?", "If you are lean and want more size, bulk first. If you carry more fat than you are comfortable with, a few months of cutting or eating at maintenance first usually makes the later bulk more enjoyable."),
         ("What should I eat before training?", "A meal with 20–40 g of protein and a solid carb portion 1–3 hours before training, such as rice and chicken or oats with Greek yogurt, is easy to digest for most people."),

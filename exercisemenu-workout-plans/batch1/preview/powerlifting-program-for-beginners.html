@@ -43,13 +43,6 @@
 .emp .emp-warn{background:var(--emp-amber-bg);border:1px solid #fde68a}
 .emp .emp-warn .emp-label{color:var(--emp-amber)}
 .emp .emp-science p:last-child,.emp .emp-tip p:last-child,.emp .emp-warn p:last-child{margin:0}
-/* toc */
-.emp .emp-toc{background:var(--emp-alt);border:1px solid var(--emp-line);border-radius:var(--emp-r);padding:16px 20px;margin:0 0 8px}
-.emp .emp-toc summary{cursor:pointer;font-weight:700;color:var(--emp-ink);font-size:.95rem}
-.emp .emp-toc ol{columns:2;column-gap:28px;margin:12px 0 0 1.2rem;font-size:.92rem}
-.emp .emp-toc a{color:var(--emp-text);text-decoration:none}
-.emp .emp-toc a:hover{color:var(--emp-accent-d);text-decoration:underline}
-@media (max-width:640px){.emp .emp-toc ol{columns:1}}
 /* weekly schedule */
 .emp .emp-week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin:18px 0}
 @media (max-width:640px){.emp .emp-week{grid-template-columns:repeat(4,1fr)}}
@@ -133,6 +126,19 @@
 .emp .emp-refs ol{margin-left:1.2rem}
 .emp .emp-refs a{color:var(--emp-muted)}
 .emp .emp-disclaimer{font-size:.85rem;color:var(--emp-muted);border-top:1px solid var(--emp-line);padding-top:14px;margin-top:8px}
+/* jump button + chips */
+.emp a.emp-jump{display:inline-block;margin-top:16px;background:var(--emp-accent);color:#fff;text-decoration:none;font-weight:700;padding:10px 20px;border-radius:30px;font-size:.92rem}
+.emp a.emp-jump:hover{background:var(--emp-accent-d);color:#fff}
+.emp .emp-chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 6px;font-size:.84rem}
+.emp .emp-chips span{font-weight:700;color:var(--emp-muted);margin-right:2px}
+.emp .emp-chips a{border:1px solid var(--emp-line);background:var(--emp-alt);border-radius:20px;padding:4px 11px;color:var(--emp-ink);text-decoration:none}
+.emp .emp-chips a:hover{border-color:var(--emp-accent);color:var(--emp-accent-d)}
+/* author box */
+.emp .emp-author{display:flex;gap:16px;align-items:flex-start;background:var(--emp-alt);border:1px solid var(--emp-line);border-radius:var(--emp-r);padding:18px 20px;margin:24px 0}
+.emp .emp-author-av{flex:0 0 56px;height:56px;border-radius:50%;background:var(--emp-accent);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.emp .emp-author p{margin:0 0 6px;font-size:.92rem}
+.emp .emp-author p.emp-author-n{font-weight:700;color:var(--emp-ink);font-size:1rem;margin:0}
+.emp .emp-author p.emp-author-c{color:var(--emp-muted);font-size:.8rem;margin:0 0 8px}
 </style>
 
 
@@ -142,33 +148,12 @@
 <span class="emp-badge">Squat · Bench · Deadlift</span>
 <p class="emp-hero-lead">Powerlifting is three lifts: squat, bench press and deadlift, each tested for one heavy rep. This powerlifting program for beginners trains them three days a week through three phases and finishes with a test day where you set your first real totals.</p>
 <ul class="emp-hero-meta"><li>📅 3 days/week</li><li>⏱ 55–75 min</li><li>📊 Beginner–Intermediate</li><li>🏋️ Barbell, rack, bench</li><li>📄 Last reviewed: October 2026</li></ul>
+<a class="emp-jump" href="#workouts">See the workouts ↓</a>
 </div>
 <div class="emp-stats"><div class="emp-stat"><div class="emp-stat-v">12 wk</div><div class="emp-stat-l">Program length</div></div><div class="emp-stat"><div class="emp-stat-v">3</div><div class="emp-stat-l">Phases</div></div><div class="emp-stat"><div class="emp-stat-v">2–3×</div><div class="emp-stat-l">Weekly practice per lift</div></div><div class="emp-stat"><div class="emp-stat-v">RPE 6→9</div><div class="emp-stat-l">Effort ramp</div></div><div class="emp-stat"><div class="emp-stat-v">1</div><div class="emp-stat-l">Test day</div></div></div>
 <div class="emp-answer"><span class="emp-label">Quick answer</span><p>A good powerlifting program for beginners practices the squat, bench press and deadlift two to three times a week, uses moderate loads to build technique first, then gets heavier in planned phases. This 12-week plan runs three days a week with RPE targets and ends with a test day for all three lifts.</p></div>
-<p>Plenty of beginners are already strong enough to try powerlifting. What they lack is a plan that practises the three lifts the way they are judged, builds strength in a sensible order, and teaches them to handle heavy singles safely.</p><p>This program gives you that structure. You need about six months of general lifting experience and the ability to squat, bench and deadlift with consistent form. If you are newer than that, run our <a href="https://exercisemenu.com/workout-plans/beginner-strength-training-program/">beginner strength training program</a> first.</p>
-<details class="emp-toc" open><summary>In this plan</summary><ol><li><a href="#rules">What Makes Powerlifting Different?</a></li><li><a href="#rpe">How RPE Works in This Program</a></li><li><a href="#schedule">Weekly Schedule</a></li><li><a href="#phases">The Three Phases</a></li><li><a href="#workouts">The Powerlifting Workouts</a></li><li><a href="#rest">Rest Periods and Warm-Ups</a></li><li><a href="#taper">Week 12: Taper and Test Day</a></li><li><a href="#nutrition">Nutrition, Recovery and Body Weight</a></li><li><a href="#next">After the Test Day</a></li><li><a href="#faq">FAQ</a></li></ol></details>
-</div>
-
-
-
-<div class="emp">
-<section class="emp-section" id="rules">
-<h2>What Makes Powerlifting Different?</h2>
-<p>In a powerlifting meet, each lift must meet a standard. Training to those standards from week 1 makes your gym numbers a much better match for the platform.</p>
-<div class="emp-tw emp-data"><table><thead><tr><th>Lift</th><th>What judges look for</th><th>How this plan trains it</th></tr></thead><tbody><tr><td>Squat</td><td>Hip crease below the top of the knee, then stand to full lockout</td><td>Competition-depth squats, plus paused squats on Day 3</td></tr><tr><td>Bench press</td><td>Bar held motionless on the chest before pressing; shoulders and glutes stay on the bench and feet stay on the floor</td><td>Paused bench on Day 2, touch-and-go only for volume</td></tr><tr><td>Deadlift</td><td>Stand fully upright with hips and knees locked, no hitching</td><td>Full lockout every rep; no bouncing between reps</td></tr></tbody></table></div>
-<p>Federations differ slightly in their rules, so read the rulebook of any meet you enter. For technique details, see <a href="https://exercisemenu.com/high-bar-vs-low-bar-squat/">high-bar vs low-bar squat</a>, <a href="https://exercisemenu.com/bench-press-grip-width/">bench press grip width</a> and <a href="https://exercisemenu.com/sumo-vs-conventional-deadlift/">sumo vs conventional deadlift</a>.</p>
-</section>
-</div>
-
-
-
-<div class="emp">
-<section class="emp-section" id="rpe">
-<h2>How RPE Works in This Program</h2>
-<p>Loads are set by RPE (rating of perceived exertion), not fixed percentages. That lets the program adjust on days you feel strong or tired. This plan uses the <a href="https://pubmed.ncbi.nlm.nih.gov/26049792/" rel="noopener" target="_blank">reps-in-reserve RPE scale introduced and tested by Zourdos et al.</a>:</p>
-<div class="emp-tw emp-data"><table><thead><tr><th>RPE</th><th>Meaning</th><th>Reps in reserve</th></tr></thead><tbody><tr><td>10</td><td>Maximal effort, no reps left</td><td>0</td></tr><tr><td>9</td><td>One more rep possible</td><td>1</td></tr><tr><td>8</td><td>Two more reps possible</td><td>2</td></tr><tr><td>7</td><td>Three more reps possible; bar moves quickly</td><td>3</td></tr><tr><td>6</td><td>Four or more reps left; warm-up feel</td><td>4+</td></tr></tbody></table></div>
-<p>In that study, novice lifters rated a true maximum lift as easier than experienced lifters did, so expect to have fewer reps left than you think and pick loads conservatively. The <a href="https://exercisemenu.com/rpe-calculator/">RPE calculator</a> converts RPE and reps into an estimated one-rep max, and our <a href="https://exercisemenu.com/rpe-vs-rir/">RPE vs RIR guide</a> explains the scale in more depth.</p>
-</section>
+<p>Use the day tabs to see each workout. The 12-week phase table, RPE scale and test-day guide follow the workouts.</p>
+<nav class="emp-chips" aria-label="Jump to a section"><span>Jump to:</span><a href="#schedule">Schedule</a><a href="#workouts">Workouts</a><a href="#phases">12-week phases</a><a href="#rpe">RPE scale</a><a href="#rules">Competition rules</a><a href="#rest">Rest &amp; warm-up</a><a href="#taper">Test day</a><a href="#nutrition">Nutrition</a><a href="#next">After 12 weeks</a><a href="#faq">FAQ</a></nav>
 </div>
 
 
@@ -185,20 +170,9 @@
 
 
 <div class="emp">
-<section class="emp-section" id="phases">
-<h2>The Three Phases</h2>
-<p>The weekly structure stays the same for 12 weeks. What changes is sets, reps and RPE on the main lifts.</p>
-<div class="emp-tw emp-data"><table><thead><tr><th>Main lift</th><th>Weeks 1–4: Base</th><th>Weeks 5–8: Strength</th><th>Weeks 9–11: Peak</th></tr></thead><tbody><tr><td>Squat (Day 1)</td><td>4 × 6 @ RPE 7</td><td>5 × 4 @ RPE 7–8</td><td>Top set @ RPE 8 (wk 9: 3 reps, wk 10: 2, wk 11: 1), then 3 × 3 at −10%</td></tr><tr><td>Bench (Day 1)</td><td>3 × 8 @ RPE 7</td><td>4 × 6 @ RPE 7</td><td>3 × 5 @ RPE 7</td></tr><tr><td>Paused bench (Day 2)</td><td>4 × 5 @ RPE 7</td><td>5 × 3 @ RPE 8</td><td>Top set @ RPE 8 (3, 2, 1 reps), then 3 × 3 at −10%</td></tr><tr><td>Deadlift (Day 2)</td><td>3 × 5 @ RPE 7</td><td>4 × 3 @ RPE 7–8</td><td>Top set @ RPE 8 (3, 2, 1 reps), then 2 × 3 at −10%</td></tr><tr><td>Paused squat (Day 3)</td><td>3 × 5 @ RPE 6–7</td><td>3 × 4 @ RPE 7</td><td>2 × 3 @ RPE 7</td></tr></tbody></table></div>
-<p>Heavier work arrives late on purpose. A <a href="https://pubmed.ncbi.nlm.nih.gov/33433148/" rel="noopener" target="_blank">network meta-analysis</a> found high loads produced the largest strength gains, and the <a href="https://pubmed.ncbi.nlm.nih.gov/41843416/" rel="noopener" target="_blank">2026 ACSM position stand</a> found heavier loads (80%+ of max) improved strength most. The base phase builds the muscle and technique that make those heavy weeks productive.</p>
-</section>
-</div>
-
-
-
-<div class="emp">
 <section class="emp-section" id="workouts">
 <h2>The Powerlifting Workouts</h2>
-<p>Pick a day. The main-lift sets shown are for <strong>weeks 1–4</strong>; use the phase table above for weeks 5–11. Accessories stay the same all program.</p>
+<p>Pick a day. The main-lift sets shown are for <strong>weeks 1–4</strong>; use the phase table below for weeks 5–11. RPE 7 means about 3 reps left, RPE 8 about 2. Accessories stay the same all program.</p>
 <div class="emp-tabs">
 <input type="radio" name="emp-day" id="emp-t1" checked>
 <input type="radio" name="emp-day" id="emp-t2">
@@ -253,6 +227,39 @@
 </div>
 </div>
 </div>
+</section>
+</div>
+
+
+
+<div class="emp">
+<section class="emp-section" id="phases">
+<h2>The Three Phases</h2>
+<p>The weekly structure stays the same for 12 weeks. What changes is sets, reps and RPE on the main lifts.</p>
+<div class="emp-tw emp-data"><table><thead><tr><th>Main lift</th><th>Weeks 1–4: Base</th><th>Weeks 5–8: Strength</th><th>Weeks 9–11: Peak</th></tr></thead><tbody><tr><td>Squat (Day 1)</td><td>4 × 6 @ RPE 7</td><td>5 × 4 @ RPE 7–8</td><td>Top set @ RPE 8 (wk 9: 3 reps, wk 10: 2, wk 11: 1), then 3 × 3 at −10%</td></tr><tr><td>Bench (Day 1)</td><td>3 × 8 @ RPE 7</td><td>4 × 6 @ RPE 7</td><td>3 × 5 @ RPE 7</td></tr><tr><td>Paused bench (Day 2)</td><td>4 × 5 @ RPE 7</td><td>5 × 3 @ RPE 8</td><td>Top set @ RPE 8 (3, 2, 1 reps), then 3 × 3 at −10%</td></tr><tr><td>Deadlift (Day 2)</td><td>3 × 5 @ RPE 7</td><td>4 × 3 @ RPE 7–8</td><td>Top set @ RPE 8 (3, 2, 1 reps), then 2 × 3 at −10%</td></tr><tr><td>Paused squat (Day 3)</td><td>3 × 5 @ RPE 6–7</td><td>3 × 4 @ RPE 7</td><td>2 × 3 @ RPE 7</td></tr></tbody></table></div>
+<p>Heavier work arrives late on purpose. A <a href="https://pubmed.ncbi.nlm.nih.gov/33433148/" rel="noopener" target="_blank">network meta-analysis</a> found high loads produced the largest strength gains, and the <a href="https://pubmed.ncbi.nlm.nih.gov/41843416/" rel="noopener" target="_blank">2026 ACSM position stand</a> found heavier loads (80%+ of max) improved strength most. The base phase builds the muscle and technique that make those heavy weeks productive.</p>
+</section>
+</div>
+
+
+
+<div class="emp">
+<section class="emp-section" id="rpe">
+<h2>How RPE Works in This Program</h2>
+<p>Loads are set by RPE (rating of perceived exertion), not fixed percentages. That lets the program adjust on days you feel strong or tired. This plan uses the <a href="https://pubmed.ncbi.nlm.nih.gov/26049792/" rel="noopener" target="_blank">reps-in-reserve RPE scale introduced and tested by Zourdos et al.</a>:</p>
+<div class="emp-tw emp-data"><table><thead><tr><th>RPE</th><th>Meaning</th><th>Reps in reserve</th></tr></thead><tbody><tr><td>10</td><td>Maximal effort, no reps left</td><td>0</td></tr><tr><td>9</td><td>One more rep possible</td><td>1</td></tr><tr><td>8</td><td>Two more reps possible</td><td>2</td></tr><tr><td>7</td><td>Three more reps possible; bar moves quickly</td><td>3</td></tr><tr><td>6</td><td>Four or more reps left; warm-up feel</td><td>4+</td></tr></tbody></table></div>
+<p>In that study, novice lifters rated a true maximum lift as easier than experienced lifters did, so expect to have fewer reps left than you think and pick loads conservatively. The <a href="https://exercisemenu.com/rpe-calculator/">RPE calculator</a> converts RPE and reps into an estimated one-rep max, and our <a href="https://exercisemenu.com/rpe-vs-rir/">RPE vs RIR guide</a> explains the scale in more depth.</p>
+</section>
+</div>
+
+
+
+<div class="emp">
+<section class="emp-section" id="rules">
+<h2>What Makes Powerlifting Different?</h2>
+<p>In a powerlifting meet, each lift must meet a standard. Training to those standards from week 1 makes your gym numbers a much better match for the platform.</p>
+<div class="emp-tw emp-data"><table><thead><tr><th>Lift</th><th>What judges look for</th><th>How this plan trains it</th></tr></thead><tbody><tr><td>Squat</td><td>Hip crease below the top of the knee, then stand to full lockout</td><td>Competition-depth squats, plus paused squats on Day 3</td></tr><tr><td>Bench press</td><td>Bar held motionless on the chest before pressing; shoulders and glutes stay on the bench and feet stay on the floor</td><td>Paused bench on Day 2, touch-and-go only for volume</td></tr><tr><td>Deadlift</td><td>Stand fully upright with hips and knees locked, no hitching</td><td>Full lockout every rep; no bouncing between reps</td></tr></tbody></table></div>
+<p>Federations differ slightly in their rules, so read the rulebook of any meet you enter. For technique details, see <a href="https://exercisemenu.com/high-bar-vs-low-bar-squat/">high-bar vs low-bar squat</a>, <a href="https://exercisemenu.com/bench-press-grip-width/">bench press grip width</a> and <a href="https://exercisemenu.com/sumo-vs-conventional-deadlift/">sumo vs conventional deadlift</a>.</p>
 </section>
 </div>
 
@@ -319,9 +326,20 @@
 
 
 <div class="emp">
+<aside class="emp-author" aria-label="About the author">
+<div class="emp-author-av" aria-hidden="true">SB</div>
+<div><p class="emp-author-n">Sadia Baloch</p>
+<p class="emp-author-c">FISAF-certified fitness trainer</p>
+<p>Sadia Baloch is a FISAF-certified fitness trainer who has personally coached hundreds of clients over the past 7 years. She specializes in strength training, fat loss, and workout programming for beginners through intermediate lifters. Every article on ExerciseMenu.com is based on the same methods she uses with her in-person clients daily.</p></div>
+</aside>
+</div>
+
+
+
+<div class="emp">
 <section class="emp-section" id="related-plans">
 <h2>Related Workout Plans</h2>
-<div class="emp-related"><a class="emp-card" href="https://exercisemenu.com/workout-plans/5x5-workout/"><span class="emp-card-tag">Strength</span><span class="emp-card-t">5×5 Strength &amp; Muscle Program</span><span class="emp-card-d">Five sets of five on the big barbell lifts.</span><span class="emp-card-m">Strength · Barbell</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/beginner-strength-training-program/"><span class="emp-card-tag">Strength</span><span class="emp-card-t">Beginner Strength Training Program</span><span class="emp-card-d">12 weeks of linear progression on the main lifts.</span><span class="emp-card-m">3 days · Beginner</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/upper-lower-split/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">4-Day Upper Lower Split</span><span class="emp-card-d">Upper body and lower body, each trained twice a week.</span><span class="emp-card-m">4 days</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/3-day-full-body-workout/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">3-Day Full Body Workout (Intermediate)</span><span class="emp-card-d">Heavy, light and medium full-body days for busy lifters.</span><span class="emp-card-m">3 days · Intermediate</span></a></div>
+<div class="emp-related"><a class="emp-card" href="https://exercisemenu.com/workout-plans/5x5-workout/"><span class="emp-card-tag">Strength</span><span class="emp-card-t">5×5 Strength &amp; Muscle Program</span><span class="emp-card-d">Two alternating barbell workouts, adding weight every session.</span><span class="emp-card-m">3 days · Beginner</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/beginner-strength-training-program/"><span class="emp-card-tag">Strength</span><span class="emp-card-t">Beginner Strength Training Program</span><span class="emp-card-d">12 weeks of linear progression on the main lifts.</span><span class="emp-card-m">3 days · Beginner</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/upper-lower-split/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">4-Day Upper Lower Split</span><span class="emp-card-d">Upper and lower body twice a week with simple double progression.</span><span class="emp-card-m">4 days · Beginner–Intermediate</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/3-day-full-body-workout/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">3-Day Full Body Workout (Intermediate)</span><span class="emp-card-d">Heavy, light and medium full-body days for busy lifters.</span><span class="emp-card-m">3 days · Intermediate</span></a></div>
 </section>
 <div class="emp-refs"><h3>References</h3><ol><li>Zourdos MC, et al. Novel resistance training-specific rating of perceived exertion scale measuring repetitions in reserve. <em>J Strength Cond Res</em>. 2016. <a href="https://pubmed.ncbi.nlm.nih.gov/26049792/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/26049792/</a></li><li>Grgic J, et al. Effect of resistance training frequency on gains in muscular strength: a systematic review and meta-analysis. <em>Sports Med</em>. 2018. <a href="https://pubmed.ncbi.nlm.nih.gov/29470825/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/29470825/</a></li><li>Currier BS, et al. Resistance training prescription for muscle strength and hypertrophy in healthy adults: a systematic review and Bayesian network meta-analysis. <em>Br J Sports Med</em>. 2023. <a href="https://pubmed.ncbi.nlm.nih.gov/37414459/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/37414459/</a></li><li>Lopez P, et al. Resistance training load effects on muscle hypertrophy and strength gain: systematic review and network meta-analysis. <em>Med Sci Sports Exerc</em>. 2021. <a href="https://pubmed.ncbi.nlm.nih.gov/33433148/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/33433148/</a></li><li>Currier BS, et al. American College of Sports Medicine Position Stand: Resistance Training Prescription for Muscle Function, Hypertrophy, and Physical Performance in Healthy Adults. <em>Med Sci Sports Exerc</em>. 2026. <a href="https://pubmed.ncbi.nlm.nih.gov/41843416/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/41843416/</a></li><li>Grgic J, et al. Effects of rest interval duration in resistance training on measures of muscular strength: a systematic review. <em>Sports Med</em>. 2018. <a href="https://pubmed.ncbi.nlm.nih.gov/28933024/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/28933024/</a></li><li>Travis SK, et al. Tapering and peaking maximal strength for powerlifting performance: a review. <em>Sports (Basel)</em>. 2020. <a href="https://pubmed.ncbi.nlm.nih.gov/32917000/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/32917000/</a></li><li>Morton RW, et al. A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength. <em>Br J Sports Med</em>. 2018. <a href="https://pubmed.ncbi.nlm.nih.gov/28698222/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/28698222/</a></li><li>Kreider RB, et al. International Society of Sports Nutrition position stand: safety and efficacy of creatine supplementation in exercise, sport, and medicine. <em>J Int Soc Sports Nutr</em>. 2017. <a href="https://pubmed.ncbi.nlm.nih.gov/28615996/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/28615996/</a></li></ol></div>
 <p class="emp-disclaimer">This plan is general education for healthy adults, not medical advice. If you have an injury, a heart, joint or blood-pressure condition, or you are pregnant or postpartum, check with your doctor or a physiotherapist before starting a new training program.</p>

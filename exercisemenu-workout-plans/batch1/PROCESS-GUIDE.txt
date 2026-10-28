@@ -1,4 +1,4 @@
-EXERCISEMENU - WORKOUT PLANS BATCH 1 (#5 - #15)  -  FINAL (audited 28 Oct 2026)
+EXERCISEMENU - WORKOUT PLANS #1 - #15 (FINAL, 15 pages)
 ================================================
 
 HAR FOLDER MEIN 3 FILES HAIN
@@ -25,7 +25,7 @@ STEP 0 - PARENT PAGE (sirf ek dafa)
 4. "Save draft" karein (hub page aap baad mein banayenge).
    (Agar /workout-plans/ page pehle se maujood hai to yeh step chhor dein.)
 
-STEP 1 - HAR PLAN KE LIYE (11 dafa)
+STEP 1 - HAR PLAN KE LIYE (15 dafa)
 -----------------------------------
 1. Pages > Add New Page
 2. Title box mein 2-SEO-SETTINGS.txt se "PAGE TITLE" paste karein.
@@ -65,11 +65,19 @@ BAAD MEIN EDIT KARNA
 Kisi section ko badalna ho to us section ka Custom HTML block select karein aur us ka
 code edit karein. Pehla block (style) saare design ka CSS hai; use mat chherein.
 
-PUBLISH KA ORDER (suggestion)
------------------------------
-Related plan cards #1-#4 (push-pull-legs, full-body-workout-plan, upper-lower-split,
-5x5-workout) ko bhi link karte hain. Woh pages bhi isi slug ke saath /workout-plans/ ke
-neeche publish karein, warna un cards par 404 aayega.
+PLANS #1 - #4 (aap ke purane pages)
+-----------------------------------
+In 4 pages ka content bhi is zip mein naye design aur fixes ke saath hai. Agar WordPress
+mein ye pages pehle se draft hain, to purana content poora delete karke naya code paste
+karein. Slugs brief ke mutabiq hain (2-SEO-SETTINGS.txt dekhein):
+  #3 upper-lower-split   (doc mein 4-day-upper-lower-split-workout-plan tha)
+  #4 5x5-workout         (doc mein 5x5-strength-and-muscle-building-program tha)
+Related plan cards inhi slugs ko link karte hain, is liye slug wahi rakhein.
+
+AUTHOR BOX
+----------
+Har page mein FAQ ke baad Sadia Baloch ka author box pehle se shamil hai (alag Custom HTML
+block). Text badalna ho to sirf us block ko edit karein.
 
 PAGES
 -----

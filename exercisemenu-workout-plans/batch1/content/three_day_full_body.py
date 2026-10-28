@@ -12,22 +12,8 @@ PAGE = {
     "hero_meta": ["📅 3 days/week", "⏱ 60–75 min", "📊 Intermediate", "🏋️ Full gym"],
     "stats": [("3", "Training days"), ("3×", "Frequency/muscle"), ("9–12", "Sets/major muscle/wk"), ("8 wk", "Block length"), ("H/L/M", "Daily load rotation")],
     "quick_answer": "This 3 day full body workout trains every major muscle on Monday, Wednesday and Friday. Monday is heavy (4–6 reps on the main lifts), Wednesday is light (10–15 reps with shorter rests) and Friday is medium (5–10 reps), with different exercises each day.",
-    "intro": "<p>Many 3-day full body programs are written for beginners: the same few lifts, three times a week, adding weight every session. Once that stops working, intermediate lifters usually jump to a 4- or 5-day split. If your schedule only allows three days, that jump is not an option.</p><p>This plan is built for that situation. It keeps the full-body structure but varies exercise selection, rep ranges and rest periods across the week, so you get enough volume to keep growing and enough variation to keep progressing.</p>",
+    "intro": "<p>Use the day tabs to see the heavy, light and medium sessions. Progression, deloads and FAQs follow the workouts.</p>",
     "sections": [
-        ("why", "Why a Full Body Split Still Works for Intermediates", f"""
-<p>Full-body training works for intermediate lifters too. A {cite('split2024', '2024 meta-analysis of 14 studies')} found split and full-body routines produced similar strength and muscle gains when weekly volume was matched. What changes for intermediate lifters is that each session needs more structure, because three identical heavy workouts a week become hard to recover from.</p>
-{box("science", "🔬 Frequency and strength", f"<p>Training more often helps strength. A {cite('freqstr2018', '2018 meta-analysis')} found strength gains rose from 1 to 4+ sessions a week, mostly because higher frequency allowed more total volume. The {cite('pelland2026', '2026 Pelland meta-regression')} also found strength kept improving as frequency increased, with diminishing returns. Training each lift pattern three times a week gives you more practice with the movements you want to get stronger in.</p>")}
-<p>The heavy/light/medium rotation is a way to manage fatigue. The {cite('acsm2026', '2026 ACSM position stand')} found periodization models did not consistently change outcomes, so its value here is practical: you only grind heavy loads once a week, so the other two sessions stay productive.</p>
-"""),
-        ("who", "Who This Program Is For", f"""
-<ul>
-<li>You have 6–24 months of consistent training and your beginner gains have slowed.</li>
-<li>You can train <strong>three non-consecutive days</strong> (Mon/Wed/Fri or Tue/Thu/Sat).</li>
-<li>You can squat, bench, hinge and press with solid technique.</li>
-<li>You want both strength and size, not a pure powerlifting or pure bodybuilding plan.</li>
-</ul>
-{box("tip", "💡 Not sure you're intermediate?", f"<p>If you can still add weight to your main lifts every session, you are still a beginner, and a simpler program will move you faster. Start with our {L('/workout-plans/full-body-workout-plan/', 'full body workout plan for beginners')} and come back when progress slows to weekly or slower.</p>")}
-"""),
         ("schedule", "Weekly Schedule", f"""
 <p>Keep at least one rest day between sessions. Monday's heavy session follows two rest days, and Friday's medium session is followed by two.</p>
 {WEEK}
@@ -78,6 +64,18 @@ PAGE = {
     ["Bulgarian split squat", "Reverse lunge or leg press", "Balance issues"],
     ["Standing overhead press", "Seated dumbbell press", "Lower-back arching"],
 ])}
+"""),
+        ("why", "Why Full Body Still Works for Intermediates", f"""
+<p>Split and full-body routines produced similar strength and muscle gains when weekly volume was matched in a {cite('split2024', '2024 meta-analysis of 14 studies')}. Training a lift more often also helps strength: gains rose with weekly frequency in a {cite('freqstr2018', '2018 meta-analysis')}, and the {cite('pelland2026', '2026 Pelland meta-regression')} found the same with diminishing returns. The heavy/light/medium rotation is a fatigue tool; the {cite('acsm2026', '2026 ACSM position stand')} found periodization models did not consistently change outcomes, so its value is practical: you grind heavy loads only once a week.</p>
+"""),
+        ("who", "Who This Program Is For", f"""
+<ul>
+<li>You have 6–24 months of consistent training and your beginner gains have slowed.</li>
+<li>You can train <strong>three non-consecutive days</strong> (Mon/Wed/Fri or Tue/Thu/Sat).</li>
+<li>You can squat, bench, hinge and press with solid technique.</li>
+<li>You want both strength and size, not a pure powerlifting or pure bodybuilding plan.</li>
+</ul>
+{box("tip", "💡 Not sure you're intermediate?", f"<p>If you can still add weight to your main lifts every session, you are still a beginner, and a simpler program will move you faster. Start with our {L('/workout-plans/full-body-workout-plan/', 'full body workout plan for beginners')} and come back when progress slows to weekly or slower.</p>")}
 """),
         ("nutrition", "What to Eat on This Plan", f"""
 <p>Aim for about 1.6 g of protein per kg of body weight daily, the point where gains plateaued in a {cite('protein2018', 'meta-analysis of 49 trials')}. Spread it evenly over 3–5 meals; the {cite('issnprotein', 'ISSN protein position stand')} suggests 20–40 g per meal every 3–4 hours. A meal with carbs and protein 1–3 hours before training helps you start the session fuelled. For meal ideas, see the {L('/best-pre-workout-meal-for-muscle-gain/', 'best pre-workout meals for muscle gain')}.</p>

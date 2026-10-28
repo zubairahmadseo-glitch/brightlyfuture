@@ -12,28 +12,8 @@ PAGE = {
     "hero_meta": ["📅 3 days/week", "⏱ 55–75 min", "📊 Beginner–Intermediate", "🏋️ Barbell, rack, bench"],
     "stats": [("12 wk", "Program length"), ("3", "Phases"), ("2–3×", "Weekly practice per lift"), ("RPE 6→9", "Effort ramp"), ("1", "Test day")],
     "quick_answer": "A good powerlifting program for beginners practices the squat, bench press and deadlift two to three times a week, uses moderate loads to build technique first, then gets heavier in planned phases. This 12-week plan runs three days a week with RPE targets and ends with a test day for all three lifts.",
-    "intro": f"<p>Plenty of beginners are already strong enough to try powerlifting. What they lack is a plan that practises the three lifts the way they are judged, builds strength in a sensible order, and teaches them to handle heavy singles safely.</p><p>This program gives you that structure. You need about six months of general lifting experience and the ability to squat, bench and deadlift with consistent form. If you are newer than that, run our {L('/workout-plans/beginner-strength-training-program/', 'beginner strength training program')} first.</p>",
+    "intro": "<p>Use the day tabs to see each workout. The 12-week phase table, RPE scale and test-day guide follow the workouts.</p>",
     "sections": [
-        ("rules", "What Makes Powerlifting Different?", f"""
-<p>In a powerlifting meet, each lift must meet a standard. Training to those standards from week 1 makes your gym numbers a much better match for the platform.</p>
-{table(["Lift", "What judges look for", "How this plan trains it"], [
-    ["Squat", "Hip crease below the top of the knee, then stand to full lockout", "Competition-depth squats, plus paused squats on Day 3"],
-    ["Bench press", "Bar held motionless on the chest before pressing; shoulders and glutes stay on the bench and feet stay on the floor", "Paused bench on Day 2, touch-and-go only for volume"],
-    ["Deadlift", "Stand fully upright with hips and knees locked, no hitching", "Full lockout every rep; no bouncing between reps"],
-])}
-<p>Federations differ slightly in their rules, so read the rulebook of any meet you enter. For technique details, see {L('/high-bar-vs-low-bar-squat/', 'high-bar vs low-bar squat')}, {L('/bench-press-grip-width/', 'bench press grip width')} and {L('/sumo-vs-conventional-deadlift/', 'sumo vs conventional deadlift')}.</p>
-"""),
-        ("rpe", "How RPE Works in This Program", f"""
-<p>Loads are set by RPE (rating of perceived exertion), not fixed percentages. That lets the program adjust on days you feel strong or tired. This plan uses the {cite('rpe2016', 'reps-in-reserve RPE scale introduced and tested by Zourdos et al.')}:</p>
-{table(["RPE", "Meaning", "Reps in reserve"], [
-    ["10", "Maximal effort, no reps left", "0"],
-    ["9", "One more rep possible", "1"],
-    ["8", "Two more reps possible", "2"],
-    ["7", "Three more reps possible; bar moves quickly", "3"],
-    ["6", "Four or more reps left; warm-up feel", "4+"],
-])}
-<p>In that study, novice lifters rated a true maximum lift as easier than experienced lifters did, so expect to have fewer reps left than you think and pick loads conservatively. The {L('/rpe-calculator/', 'RPE calculator')} converts RPE and reps into an estimated one-rep max, and our {L('/rpe-vs-rir/', 'RPE vs RIR guide')} explains the scale in more depth.</p>
-"""),
         ("schedule", "Weekly Schedule", f"""
 {WEEK}
 {table(["Day", "Squat", "Bench", "Deadlift"], [
@@ -42,6 +22,10 @@ PAGE = {
     ["Day 3", "Paused squat (technique)", "Close-grip bench", "Romanian deadlift"],
 ])}
 {box("science", "🔬 Why this frequency?", f"<p>A {cite('freqstr2018', 'meta-analysis on training frequency')} found strength gains rose with more weekly sessions, mostly because frequency allowed more total practice and volume. A {cite('currier2023', 'network meta-analysis of 178 studies')} ranked higher-load, multi-set training three times a week as the most effective prescription for strength.</p>")}
+"""),
+        ("workouts", "The Powerlifting Workouts", f"""
+<p>Pick a day. The main-lift sets shown are for <strong>weeks 1–4</strong>; use the phase table below for weeks 5–11. RPE 7 means about 3 reps left, RPE 8 about 2. Accessories stay the same all program.</p>
+{TABS}
 """),
         ("phases", "The Three Phases", f"""
 <p>The weekly structure stays the same for 12 weeks. What changes is sets, reps and RPE on the main lifts.</p>
@@ -54,9 +38,25 @@ PAGE = {
 ])}
 <p>Heavier work arrives late on purpose. A {cite('load2021', 'network meta-analysis')} found high loads produced the largest strength gains, and the {cite('acsm2026', '2026 ACSM position stand')} found heavier loads (80%+ of max) improved strength most. The base phase builds the muscle and technique that make those heavy weeks productive.</p>
 """),
-        ("workouts", "The Powerlifting Workouts", f"""
-<p>Pick a day. The main-lift sets shown are for <strong>weeks 1–4</strong>; use the phase table above for weeks 5–11. Accessories stay the same all program.</p>
-{TABS}
+        ("rpe", "How RPE Works in This Program", f"""
+<p>Loads are set by RPE (rating of perceived exertion), not fixed percentages. That lets the program adjust on days you feel strong or tired. This plan uses the {cite('rpe2016', 'reps-in-reserve RPE scale introduced and tested by Zourdos et al.')}:</p>
+{table(["RPE", "Meaning", "Reps in reserve"], [
+    ["10", "Maximal effort, no reps left", "0"],
+    ["9", "One more rep possible", "1"],
+    ["8", "Two more reps possible", "2"],
+    ["7", "Three more reps possible; bar moves quickly", "3"],
+    ["6", "Four or more reps left; warm-up feel", "4+"],
+])}
+<p>In that study, novice lifters rated a true maximum lift as easier than experienced lifters did, so expect to have fewer reps left than you think and pick loads conservatively. The {L('/rpe-calculator/', 'RPE calculator')} converts RPE and reps into an estimated one-rep max, and our {L('/rpe-vs-rir/', 'RPE vs RIR guide')} explains the scale in more depth.</p>
+"""),
+        ("rules", "What Makes Powerlifting Different?", f"""
+<p>In a powerlifting meet, each lift must meet a standard. Training to those standards from week 1 makes your gym numbers a much better match for the platform.</p>
+{table(["Lift", "What judges look for", "How this plan trains it"], [
+    ["Squat", "Hip crease below the top of the knee, then stand to full lockout", "Competition-depth squats, plus paused squats on Day 3"],
+    ["Bench press", "Bar held motionless on the chest before pressing; shoulders and glutes stay on the bench and feet stay on the floor", "Paused bench on Day 2, touch-and-go only for volume"],
+    ["Deadlift", "Stand fully upright with hips and knees locked, no hitching", "Full lockout every rep; no bouncing between reps"],
+])}
+<p>Federations differ slightly in their rules, so read the rulebook of any meet you enter. For technique details, see {L('/high-bar-vs-low-bar-squat/', 'high-bar vs low-bar squat')}, {L('/bench-press-grip-width/', 'bench press grip width')} and {L('/sumo-vs-conventional-deadlift/', 'sumo vs conventional deadlift')}.</p>
 """),
         ("rest", "Rest Periods and Warm-Ups", f"""
 <p>Rest 3–5 minutes between heavy sets of the main lifts and 90 seconds to 2 minutes on accessories. A {cite('rest2018', 'systematic review')} found rests over 2 minutes were needed to maximise strength gains in trained lifters.</p>

@@ -18,6 +18,7 @@ CSS = (ROOT / "shared.css").read_text()
 SITE = "https://exercisemenu.com"
 
 PAGES = [
+    "push_pull_legs", "full_body_beginners", "upper_lower", "five_by_five",
     "bro_split", "four_day_split", "three_day_full_body", "lean_bulk",
     "hypertrophy_program", "skinny_guys", "five_day_split", "ppl_hypertrophy",
     "beginner_strength", "women_strength", "powerlifting_beginners",
@@ -37,10 +38,10 @@ EXERCISE_LINKS = {
 
 # All 15 batch-1 plans, for related-plan cards.
 PLANS = {
-    "push-pull-legs": ("Muscle Building", "Push Pull Legs Workout Plan", "The classic 6-day PPL with strength and hypertrophy days.", "6 days · Intermediate–Advanced"),
-    "full-body-workout-plan": ("Beginner", "Full Body Workout Plan for Beginners", "Three full-body gym sessions a week for people new to lifting.", "3 days · Beginner"),
-    "upper-lower-split": ("Muscle Building", "4-Day Upper Lower Split", "Upper body and lower body, each trained twice a week.", "4 days"),
-    "5x5-workout": ("Strength", "5×5 Strength & Muscle Program", "Five sets of five on the big barbell lifts.", "Strength · Barbell"),
+    "push-pull-legs": ("Muscle Building", "Push Pull Legs Workout Plan", "6-day PPL with heavy A days and higher-rep B days.", "6 days · Intermediate–Advanced"),
+    "full-body-workout-plan": ("Beginner", "Full Body Workout Plan for Beginners", "Three full-body gym days led by the squat, bench press and deadlift.", "3 days · Beginner"),
+    "upper-lower-split": ("Muscle Building", "4-Day Upper Lower Split", "Upper and lower body twice a week with simple double progression.", "4 days · Beginner–Intermediate"),
+    "5x5-workout": ("Strength", "5×5 Strength & Muscle Program", "Two alternating barbell workouts, adding weight every session.", "3 days · Beginner"),
     "bro-split": ("Muscle Building", "Bro Split 5-Day Workout Plan", "One muscle group per day, done the evidence-based way.", "5 days · Intermediate"),
     "4-day-workout-split": ("Muscle Building", "4-Day Workout Split", "Torso/Limbs split plus how every 4-day option compares.", "4 days · Intermediate"),
     "3-day-full-body-workout": ("Muscle Building", "3-Day Full Body Workout (Intermediate)", "Heavy, light and medium full-body days for busy lifters.", "3 days · Intermediate"),
@@ -53,6 +54,28 @@ PLANS = {
     "strength-training-for-women": ("Strength", "Strength Training Plan for Women", "Three full-body days with glute, posture and bone-health focus.", "3 days · Beginner–Intermediate"),
     "powerlifting-program-for-beginners": ("Strength", "Powerlifting Program for Beginners", "12 weeks of squat, bench and deadlift ending in a test day.", "3 days · Beginner–Intermediate"),
 }
+
+# Short labels for the "Jump to" chips (falls back to the H2 text).
+CHIPS = {
+    "workouts": "Workouts", "schedule": "Schedule", "volume": "Weekly sets", "progression": "Progression",
+    "deload": "Deload", "nutrition": "Nutrition", "warmup": "Warm-up", "mistakes": "Mistakes",
+    "comparison": "Compare splits", "compare": "Compare plans", "who": "Who it's for", "options": "Choose a split",
+    "what-is": "What is it", "why": "Why it works", "phases": "12-week phases", "rules": "Competition rules",
+    "rpe": "RPE scale", "rest": "Rest & warm-up", "taper": "Test day", "next": "After 12 weeks",
+    "mesocycle": "6-week block", "split": "The split", "principles": "The science", "technique": "Technique",
+    "techniques": "Drop sets & rest-pause", "specialization": "Weak points", "eating": "Eating plan",
+    "cardio": "Cardio & sleep", "rate": "Rate of gain", "tracking": "Tracking", "after": "After 12 weeks",
+    "program": "Program phases", "myths": "Will I get bulky?", "cycle": "Menstrual cycle", "bones": "Bone health",
+    "subs": "Exercise swaps", "start": "Starting weights", "stalls": "When you stall", "accessories": "Accessories",
+    "rest-days": "Rest days",
+}
+
+AUTHOR_BOX = """<aside class="emp-author" aria-label="About the author">
+<div class="emp-author-av" aria-hidden="true">SB</div>
+<div><p class="emp-author-n">Sadia Baloch</p>
+<p class="emp-author-c">FISAF-certified fitness trainer</p>
+<p>Sadia Baloch is a FISAF-certified fitness trainer who has personally coached hundreds of clients over the past 7 years. She specializes in strength training, fat loss, and workout programming for beginners through intermediate lifters. Every article on ExerciseMenu.com is based on the same methods she uses with her in-person clients daily.</p></div>
+</aside>"""
 
 
 def esc(s):
@@ -131,11 +154,12 @@ def render(p):
 <span class="emp-badge">{esc(p["badge"])}</span>
 <p class="emp-hero-lead">{p["hero_lead"]}</p>
 <ul class="emp-hero-meta">{"".join(f"<li>{m}</li>" for m in p["hero_meta"])}<li>📄 Last reviewed: October 2026</li></ul>
+<a class="emp-jump" href="#workouts">See the workouts ↓</a>
 </div>
 <div class="emp-stats">{"".join(f'<div class="emp-stat"><div class="emp-stat-v">{esc(v)}</div><div class="emp-stat-l">{esc(l)}</div></div>' for v, l in p["stats"])}</div>
 <div class="emp-answer"><span class="emp-label">Quick answer</span><p>{p["quick_answer"]}</p></div>
 {p["intro"]}
-<details class="emp-toc" open><summary>In this plan</summary><ol>{"".join(f'<li><a href="#{sid}">{esc(t)}</a></li>' for sid, t, _ in p["sections"])}<li><a href="#faq">FAQ</a></li></ol></details>'''
+<nav class="emp-chips" aria-label="Jump to a section"><span>Jump to:</span>{"".join(f'<a href="#{sid}">{esc(CHIPS.get(sid, t))}</a>' for sid, t, _ in p["sections"])}<a href="#faq">FAQ</a></nav>'''
     blocks.append(block(wrap(hero)))
 
     for sid, title, body in p["sections"]:
@@ -146,6 +170,7 @@ def render(p):
         f'<details><summary>{esc(q)}</summary><div class="emp-faq-a"><p>{a}</p></div></details>\n' for q, a in p["faqs"]
     )
     blocks.append(block(wrap(f'<section class="emp-section emp-faq" id="faq">\n<h2>{esc(p["faq_title"])}</h2>\n{faq_html}</section>')))
+    blocks.append(block(wrap(AUTHOR_BOX)))
 
     cards = []
     for slug in p["related"]:

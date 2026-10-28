@@ -39,13 +39,6 @@
 .emp .emp-warn{background:var(--emp-amber-bg);border:1px solid #fde68a}
 .emp .emp-warn .emp-label{color:var(--emp-amber)}
 .emp .emp-science p:last-child,.emp .emp-tip p:last-child,.emp .emp-warn p:last-child{margin:0}
-/* toc */
-.emp .emp-toc{background:var(--emp-alt);border:1px solid var(--emp-line);border-radius:var(--emp-r);padding:16px 20px;margin:0 0 8px}
-.emp .emp-toc summary{cursor:pointer;font-weight:700;color:var(--emp-ink);font-size:.95rem}
-.emp .emp-toc ol{columns:2;column-gap:28px;margin:12px 0 0 1.2rem;font-size:.92rem}
-.emp .emp-toc a{color:var(--emp-text);text-decoration:none}
-.emp .emp-toc a:hover{color:var(--emp-accent-d);text-decoration:underline}
-@media (max-width:640px){.emp .emp-toc ol{columns:1}}
 /* weekly schedule */
 .emp .emp-week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin:18px 0}
 @media (max-width:640px){.emp .emp-week{grid-template-columns:repeat(4,1fr)}}
@@ -129,6 +122,19 @@
 .emp .emp-refs ol{margin-left:1.2rem}
 .emp .emp-refs a{color:var(--emp-muted)}
 .emp .emp-disclaimer{font-size:.85rem;color:var(--emp-muted);border-top:1px solid var(--emp-line);padding-top:14px;margin-top:8px}
+/* jump button + chips */
+.emp a.emp-jump{display:inline-block;margin-top:16px;background:var(--emp-accent);color:#fff;text-decoration:none;font-weight:700;padding:10px 20px;border-radius:30px;font-size:.92rem}
+.emp a.emp-jump:hover{background:var(--emp-accent-d);color:#fff}
+.emp .emp-chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 6px;font-size:.84rem}
+.emp .emp-chips span{font-weight:700;color:var(--emp-muted);margin-right:2px}
+.emp .emp-chips a{border:1px solid var(--emp-line);background:var(--emp-alt);border-radius:20px;padding:4px 11px;color:var(--emp-ink);text-decoration:none}
+.emp .emp-chips a:hover{border-color:var(--emp-accent);color:var(--emp-accent-d)}
+/* author box */
+.emp .emp-author{display:flex;gap:16px;align-items:flex-start;background:var(--emp-alt);border:1px solid var(--emp-line);border-radius:var(--emp-r);padding:18px 20px;margin:24px 0}
+.emp .emp-author-av{flex:0 0 56px;height:56px;border-radius:50%;background:var(--emp-accent);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.emp .emp-author p{margin:0 0 6px;font-size:.92rem}
+.emp .emp-author p.emp-author-n{font-weight:700;color:var(--emp-ink);font-size:1rem;margin:0}
+.emp .emp-author p.emp-author-c{color:var(--emp-muted);font-size:.8rem;margin:0 0 8px}
 </style>
 <!-- /wp:html -->
 
@@ -138,37 +144,12 @@
 <span class="emp-badge">Hybrid Split · 5 Days</span>
 <p class="emp-hero-lead">Many 5-day splits train each muscle once a week. This 5 day workout split combines an upper/lower pair with a push/pull/legs rotation, so every muscle gets one heavy and one higher-rep session each week.</p>
 <ul class="emp-hero-meta"><li>📅 5 days/week</li><li>⏱ 45–70 min</li><li>📊 Intermediate</li><li>🏋️ Full gym</li><li>📄 Last reviewed: October 2026</li></ul>
+<a class="emp-jump" href="#workouts">See the workouts ↓</a>
 </div>
 <div class="emp-stats"><div class="emp-stat"><div class="emp-stat-v">5</div><div class="emp-stat-l">Training days</div></div><div class="emp-stat"><div class="emp-stat-v">2×</div><div class="emp-stat-l">Frequency/muscle</div></div><div class="emp-stat"><div class="emp-stat-v">11–14</div><div class="emp-stat-l">Sets/major muscle/wk</div></div><div class="emp-stat"><div class="emp-stat-v">8 wk</div><div class="emp-stat-l">Block length</div></div><div class="emp-stat"><div class="emp-stat-v">29</div><div class="emp-stat-l">Exercises</div></div></div>
 <div class="emp-answer"><span class="emp-label">Quick answer</span><p>This 5 day workout split runs Upper and Lower on Monday and Tuesday with heavier 5–8 rep work, rests Wednesday, then runs Push, Pull and Legs Thursday to Saturday with 8–15 rep hypertrophy work. Each muscle is trained twice a week with about 11–14 weekly sets for most major groups.</p></div>
-<p>Many popular 5 day workout split routines are body-part splits: chest Monday, back Tuesday and so on. That works, but it trains each muscle once a week. With five days you can train each muscle twice, which keeps sessions shorter and helps strength.</p><p>This plan uses a hybrid known as ULPPL: Upper, Lower, Push, Pull, Legs. Below are the full workouts, the weekly volume per muscle, and the rules for progressing and deloading.</p>
-<details class="emp-toc" open><summary>In this plan</summary><ol><li><a href="#why">Why Choose a Hybrid 5-Day Split?</a></li><li><a href="#who">Who This 5-Day Split Is For</a></li><li><a href="#schedule">The 5-Day Workout Split Schedule</a></li><li><a href="#workouts">The Workouts</a></li><li><a href="#volume">Weekly Volume per Muscle</a></li><li><a href="#progression">Progression Rules</a></li><li><a href="#deload">Deload Protocol</a></li><li><a href="#nutrition">Nutrition and Recovery</a></li><li><a href="#mistakes">Common 5-Day Split Mistakes</a></li><li><a href="#faq">FAQ</a></li></ol></details>
-</div>
-<!-- /wp:html -->
-
-<!-- wp:html -->
-<div class="emp">
-<section class="emp-section" id="why">
-<h2>Why Choose a Hybrid 5-Day Split?</h2>
-<p>A <a href="https://pubmed.ncbi.nlm.nih.gov/27102172/" rel="noopener" target="_blank">meta-analysis on training frequency</a> found muscles trained twice a week grew more than muscles trained once. More recent work in the <a href="https://pubmed.ncbi.nlm.nih.gov/41343037/" rel="noopener" target="_blank">Pelland 2026 meta-regression</a> suggests weekly volume explains most of that effect, while extra frequency still helps strength. Either way, splitting your weekly sets across two sessions keeps each session shorter and each set fresher.</p>
-<div class="emp-tw emp-data"><table><thead><tr><th></th><th>Classic 5-day bro split</th><th>5-day hybrid (this plan)</th></tr></thead><tbody><tr><td>Layout</td><td>Chest · Back · Shoulders · Legs · Arms</td><td>Upper · Lower · Push · Pull · Legs</td></tr><tr><td>Direct hits per muscle</td><td>1×</td><td>2×</td></tr><tr><td>Rep focus</td><td>Varies by program</td><td>Heavy (5–8) + volume (8–15)</td></tr><tr><td>Leg sessions per week</td><td>1</td><td>2</td></tr><tr><td>Best for</td><td>Bodybuilding-style lifters who like single-muscle days</td><td>Lifters who want strength and size together</td></tr></tbody></table></div>
-<p>If you prefer one muscle group per day, our <a href="https://exercisemenu.com/workout-plans/bro-split/">bro split workout plan</a> covers that approach with the same attention to weekly volume.</p>
-</section>
-</div>
-<!-- /wp:html -->
-
-<!-- wp:html -->
-<div class="emp">
-<section class="emp-section" id="who">
-<h2>Who This 5-Day Split Is For</h2>
-<ul>
-<li>You have trained consistently for at least a year and know the main barbell lifts.</li>
-<li>You can commit to five sessions of 45–70 minutes.</li>
-<li>You want strength numbers to rise while adding size.</li>
-<li>You have outgrown a 3- or 4-day program and need more weekly volume.</li>
-</ul>
-<div class="emp-tip"><span class="emp-label">💡 Coach's note</span><p>Five days is a big commitment. If you regularly miss one session a week, a 4-day plan you finish beats a 5-day plan you half-finish. See <a href="https://exercisemenu.com/how-to-create-a-weekly-workout-schedule/">how to create a weekly workout schedule</a> for help choosing.</p></div>
-</section>
+<p>Use the day tabs to see each workout. Weekly sets, progression and deload rules follow the workouts.</p>
+<nav class="emp-chips" aria-label="Jump to a section"><span>Jump to:</span><a href="#schedule">Schedule</a><a href="#workouts">Workouts</a><a href="#volume">Weekly sets</a><a href="#progression">Progression</a><a href="#deload">Deload</a><a href="#why">Why it works</a><a href="#who">Who it&#x27;s for</a><a href="#nutrition">Nutrition</a><a href="#mistakes">Mistakes</a><a href="#faq">FAQ</a></nav>
 </div>
 <!-- /wp:html -->
 
@@ -316,6 +297,32 @@
 
 <!-- wp:html -->
 <div class="emp">
+<section class="emp-section" id="why">
+<h2>Why Choose a Hybrid 5-Day Split?</h2>
+<p>A <a href="https://pubmed.ncbi.nlm.nih.gov/27102172/" rel="noopener" target="_blank">meta-analysis on training frequency</a> found muscles trained twice a week grew more than muscles trained once. More recent work in the <a href="https://pubmed.ncbi.nlm.nih.gov/41343037/" rel="noopener" target="_blank">Pelland 2026 meta-regression</a> suggests weekly volume explains most of that effect, while extra frequency still helps strength. Either way, splitting your weekly sets across two sessions keeps each session shorter and each set fresher.</p>
+<div class="emp-tw emp-data"><table><thead><tr><th></th><th>Classic 5-day bro split</th><th>5-day hybrid (this plan)</th></tr></thead><tbody><tr><td>Layout</td><td>Chest · Back · Shoulders · Legs · Arms</td><td>Upper · Lower · Push · Pull · Legs</td></tr><tr><td>Direct hits per muscle</td><td>1×</td><td>2×</td></tr><tr><td>Rep focus</td><td>Varies by program</td><td>Heavy (5–8) + volume (8–15)</td></tr><tr><td>Leg sessions per week</td><td>1</td><td>2</td></tr><tr><td>Best for</td><td>Bodybuilding-style lifters who like single-muscle days</td><td>Lifters who want strength and size together</td></tr></tbody></table></div>
+<p>If you prefer one muscle group per day, our <a href="https://exercisemenu.com/workout-plans/bro-split/">bro split workout plan</a> covers that approach with the same attention to weekly volume.</p>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="who">
+<h2>Who This 5-Day Split Is For</h2>
+<ul>
+<li>You have trained consistently for at least a year and know the main barbell lifts.</li>
+<li>You can commit to five sessions of 45–70 minutes.</li>
+<li>You want strength numbers to rise while adding size.</li>
+<li>You have outgrown a 3- or 4-day program and need more weekly volume.</li>
+</ul>
+<div class="emp-tip"><span class="emp-label">💡 Coach's note</span><p>Five days is a big commitment. If you regularly miss one session a week, a 4-day plan you finish beats a 5-day plan you half-finish. See <a href="https://exercisemenu.com/how-to-create-a-weekly-workout-schedule/">how to create a weekly workout schedule</a> for help choosing.</p></div>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
 <section class="emp-section" id="nutrition">
 <h2>Nutrition and Recovery</h2>
 <p>Eat about 1.6–2.2 g of protein per kg of body weight daily; gains plateaued around 1.62 g/kg in a <a href="https://pubmed.ncbi.nlm.nih.gov/28698222/" rel="noopener" target="_blank">meta-analysis of 49 trials</a>. To build muscle, aim for a modest surplus and a weight gain of 0.25–0.5% of body weight per week, as recommended in a <a href="https://pubmed.ncbi.nlm.nih.gov/31247944/" rel="noopener" target="_blank">review of off-season nutrition</a>. Sleep 7–9 hours: five training days leave little margin for short nights. Get your number from the <a href="https://exercisemenu.com/protein-calculator/">protein calculator</a>.</p>
@@ -353,9 +360,20 @@
 
 <!-- wp:html -->
 <div class="emp">
+<aside class="emp-author" aria-label="About the author">
+<div class="emp-author-av" aria-hidden="true">SB</div>
+<div><p class="emp-author-n">Sadia Baloch</p>
+<p class="emp-author-c">FISAF-certified fitness trainer</p>
+<p>Sadia Baloch is a FISAF-certified fitness trainer who has personally coached hundreds of clients over the past 7 years. She specializes in strength training, fat loss, and workout programming for beginners through intermediate lifters. Every article on ExerciseMenu.com is based on the same methods she uses with her in-person clients daily.</p></div>
+</aside>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
 <section class="emp-section" id="related-plans">
 <h2>Related Workout Plans</h2>
-<div class="emp-related"><a class="emp-card" href="https://exercisemenu.com/workout-plans/bro-split/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">Bro Split 5-Day Workout Plan</span><span class="emp-card-d">One muscle group per day, done the evidence-based way.</span><span class="emp-card-m">5 days · Intermediate</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/push-pull-legs/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">Push Pull Legs Workout Plan</span><span class="emp-card-d">The classic 6-day PPL with strength and hypertrophy days.</span><span class="emp-card-m">6 days · Intermediate–Advanced</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/upper-lower-split/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">4-Day Upper Lower Split</span><span class="emp-card-d">Upper body and lower body, each trained twice a week.</span><span class="emp-card-m">4 days</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/ppl-hypertrophy-program/"><span class="emp-card-tag">Advanced</span><span class="emp-card-t">6-Day PPL Hypertrophy Program</span><span class="emp-card-d">High-volume PPL with intensity techniques for experienced lifters.</span><span class="emp-card-m">6 days · Advanced</span></a></div>
+<div class="emp-related"><a class="emp-card" href="https://exercisemenu.com/workout-plans/bro-split/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">Bro Split 5-Day Workout Plan</span><span class="emp-card-d">One muscle group per day, done the evidence-based way.</span><span class="emp-card-m">5 days · Intermediate</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/push-pull-legs/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">Push Pull Legs Workout Plan</span><span class="emp-card-d">6-day PPL with heavy A days and higher-rep B days.</span><span class="emp-card-m">6 days · Intermediate–Advanced</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/upper-lower-split/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">4-Day Upper Lower Split</span><span class="emp-card-d">Upper and lower body twice a week with simple double progression.</span><span class="emp-card-m">4 days · Beginner–Intermediate</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/ppl-hypertrophy-program/"><span class="emp-card-tag">Advanced</span><span class="emp-card-t">6-Day PPL Hypertrophy Program</span><span class="emp-card-d">High-volume PPL with intensity techniques for experienced lifters.</span><span class="emp-card-m">6 days · Advanced</span></a></div>
 </section>
 <div class="emp-refs"><h3>References</h3><ol><li>Schoenfeld BJ, Ogborn D, Krieger JW. Effects of resistance training frequency on measures of muscle hypertrophy: a systematic review and meta-analysis. <em>Sports Med</em>. 2016. <a href="https://pubmed.ncbi.nlm.nih.gov/27102172/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/27102172/</a></li><li>Pelland JC, et al. The resistance training dose response: meta-regressions exploring the effects of weekly volume and frequency on muscle hypertrophy and strength gains. <em>Sports Med</em>. 2026. <a href="https://pubmed.ncbi.nlm.nih.gov/41343037/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/41343037/</a></li><li>Lopez P, et al. Resistance training load effects on muscle hypertrophy and strength gain: systematic review and network meta-analysis. <em>Med Sci Sports Exerc</em>. 2021. <a href="https://pubmed.ncbi.nlm.nih.gov/33433148/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/33433148/</a></li><li>Currier BS, et al. Resistance training prescription for muscle strength and hypertrophy in healthy adults: a systematic review and Bayesian network meta-analysis. <em>Br J Sports Med</em>. 2023. <a href="https://pubmed.ncbi.nlm.nih.gov/37414459/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/37414459/</a></li><li>Currier BS, et al. American College of Sports Medicine Position Stand: Resistance Training Prescription for Muscle Function, Hypertrophy, and Physical Performance in Healthy Adults. <em>Med Sci Sports Exerc</em>. 2026. <a href="https://pubmed.ncbi.nlm.nih.gov/41843416/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/41843416/</a></li><li>Schoenfeld BJ, Ogborn D, Krieger JW. Dose-response relationship between weekly resistance training volume and increases in muscle mass. <em>J Sports Sci</em>. 2017. <a href="https://pubmed.ncbi.nlm.nih.gov/27433992/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/27433992/</a></li><li>Rogerson D, et al. Deloading practices in strength and physique sports: a cross-sectional survey. <em>Sports Med Open</em>. 2024. <a href="https://pubmed.ncbi.nlm.nih.gov/38499934/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/38499934/</a></li><li>Morton RW, et al. A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength. <em>Br J Sports Med</em>. 2018. <a href="https://pubmed.ncbi.nlm.nih.gov/28698222/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/28698222/</a></li><li>Iraki J, et al. Nutrition recommendations for bodybuilders in the off-season: a narrative review. <em>Sports (Basel)</em>. 2019. <a href="https://pubmed.ncbi.nlm.nih.gov/31247944/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/31247944/</a></li><li>Grgic J, et al. Effects of rest interval duration in resistance training on measures of muscular strength: a systematic review. <em>Sports Med</em>. 2018. <a href="https://pubmed.ncbi.nlm.nih.gov/28933024/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/28933024/</a></li></ol></div>
 <p class="emp-disclaimer">This plan is general education for healthy adults, not medical advice. If you have an injury, a heart, joint or blood-pressure condition, or you are pregnant or postpartum, check with your doctor or a physiotherapist before starting a new training program.</p>

@@ -43,13 +43,6 @@
 .emp .emp-warn{background:var(--emp-amber-bg);border:1px solid #fde68a}
 .emp .emp-warn .emp-label{color:var(--emp-amber)}
 .emp .emp-science p:last-child,.emp .emp-tip p:last-child,.emp .emp-warn p:last-child{margin:0}
-/* toc */
-.emp .emp-toc{background:var(--emp-alt);border:1px solid var(--emp-line);border-radius:var(--emp-r);padding:16px 20px;margin:0 0 8px}
-.emp .emp-toc summary{cursor:pointer;font-weight:700;color:var(--emp-ink);font-size:.95rem}
-.emp .emp-toc ol{columns:2;column-gap:28px;margin:12px 0 0 1.2rem;font-size:.92rem}
-.emp .emp-toc a{color:var(--emp-text);text-decoration:none}
-.emp .emp-toc a:hover{color:var(--emp-accent-d);text-decoration:underline}
-@media (max-width:640px){.emp .emp-toc ol{columns:1}}
 /* weekly schedule */
 .emp .emp-week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin:18px 0}
 @media (max-width:640px){.emp .emp-week{grid-template-columns:repeat(4,1fr)}}
@@ -133,6 +126,19 @@
 .emp .emp-refs ol{margin-left:1.2rem}
 .emp .emp-refs a{color:var(--emp-muted)}
 .emp .emp-disclaimer{font-size:.85rem;color:var(--emp-muted);border-top:1px solid var(--emp-line);padding-top:14px;margin-top:8px}
+/* jump button + chips */
+.emp a.emp-jump{display:inline-block;margin-top:16px;background:var(--emp-accent);color:#fff;text-decoration:none;font-weight:700;padding:10px 20px;border-radius:30px;font-size:.92rem}
+.emp a.emp-jump:hover{background:var(--emp-accent-d);color:#fff}
+.emp .emp-chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 6px;font-size:.84rem}
+.emp .emp-chips span{font-weight:700;color:var(--emp-muted);margin-right:2px}
+.emp .emp-chips a{border:1px solid var(--emp-line);background:var(--emp-alt);border-radius:20px;padding:4px 11px;color:var(--emp-ink);text-decoration:none}
+.emp .emp-chips a:hover{border-color:var(--emp-accent);color:var(--emp-accent-d)}
+/* author box */
+.emp .emp-author{display:flex;gap:16px;align-items:flex-start;background:var(--emp-alt);border:1px solid var(--emp-line);border-radius:var(--emp-r);padding:18px 20px;margin:24px 0}
+.emp .emp-author-av{flex:0 0 56px;height:56px;border-radius:50%;background:var(--emp-accent);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.emp .emp-author p{margin:0 0 6px;font-size:.92rem}
+.emp .emp-author p.emp-author-n{font-weight:700;color:var(--emp-ink);font-size:1rem;margin:0}
+.emp .emp-author p.emp-author-c{color:var(--emp-muted);font-size:.8rem;margin:0 0 8px}
 </style>
 
 
@@ -142,39 +148,12 @@
 <span class="emp-badge">2× Frequency in 4 Days</span>
 <p class="emp-hero-lead">Four sessions a week is enough to train every muscle twice, as long as the days are split the right way. This plan uses a torso/limbs split with a heavier A rotation and a higher-rep B rotation.</p>
 <ul class="emp-hero-meta"><li>📅 4 days/week</li><li>⏱ 60–75 min</li><li>📊 Intermediate</li><li>🏋️ Full gym</li><li>📄 Last reviewed: October 2026</li></ul>
+<a class="emp-jump" href="#workouts">See the workouts ↓</a>
 </div>
 <div class="emp-stats"><div class="emp-stat"><div class="emp-stat-v">4</div><div class="emp-stat-l">Training days</div></div><div class="emp-stat"><div class="emp-stat-v">2×</div><div class="emp-stat-l">Frequency/muscle</div></div><div class="emp-stat"><div class="emp-stat-v">10–14</div><div class="emp-stat-l">Sets/major muscle/wk</div></div><div class="emp-stat"><div class="emp-stat-v">8 wk</div><div class="emp-stat-l">Block length</div></div><div class="emp-stat"><div class="emp-stat-v">A/B</div><div class="emp-stat-l">Heavy + volume</div></div></div>
 <div class="emp-answer"><span class="emp-label">Quick answer</span><p>A good 4-day workout split trains each muscle twice a week, which keeps sessions shorter and helps strength. This plan alternates torso days (chest, back, shoulders) with limbs days (legs, biceps, triceps) on Monday, Tuesday, Thursday and Friday, using one heavier and one higher-rep version of each day.</p></div>
-<p>Four days a week is enough to train each muscle twice and still leave three rest days. But "4-day split" covers several layouts, and some of them train certain muscles only once.</p><p>This page gives you a complete torso/limbs program with every set and rep, then compares it with the other common 4-day splits so you can choose with confidence.</p>
-<details class="emp-toc" open><summary>In this plan</summary><ol><li><a href="#options">Which 4-Day Split Should You Choose?</a></li><li><a href="#who">Who This 4-Day Split Is For</a></li><li><a href="#schedule">4-Day Workout Split Schedule</a></li><li><a href="#workouts">The Workouts: Torso and Limbs, A and B</a></li><li><a href="#volume">Weekly Sets per Muscle</a></li><li><a href="#progression">Progression Rules</a></li><li><a href="#deload">Deload and Long-Term Plan</a></li><li><a href="#nutrition">What to Eat on This Plan</a></li><li><a href="#mistakes">Mistakes That Stall a 4-Day Split</a></li><li><a href="#faq">FAQ</a></li></ol></details>
-</div>
-
-
-
-<div class="emp">
-<section class="emp-section" id="options">
-<h2>Which 4-Day Split Should You Choose?</h2>
-<p>All of the common 4-day layouts can build muscle. The differences are how often each muscle is trained, how long sessions run, and how much one missed day hurts the week.</p>
-<div class="emp-tw emp-data"><table><thead><tr><th>4-day split</th><th>Layout</th><th>Frequency/muscle</th><th>Best for</th></tr></thead><tbody><tr><td>Torso/Limbs (this plan)</td><td>Torso A · Limbs A · Torso B · Limbs B</td><td>2×</td><td>Lifters who want arm and leg focus twice a week</td></tr><tr><td>Upper/Lower</td><td>Upper · Lower · Upper · Lower</td><td>2×</td><td>Strength-focused lifters; simplest to run</td></tr><tr><td>PPL + Upper</td><td>Push · Pull · Legs · Upper</td><td>1–2×</td><td>Lifters moving from PPL with only 4 days</td></tr><tr><td>4-day bro split</td><td>Chest/Tri · Back/Bi · Legs · Shoulders/Arms</td><td>1× direct</td><td>Bodybuilding-style lifters who recover slowly</td></tr><tr><td>Full body ×4</td><td>Full · Full · Full · Full</td><td>4×</td><td>Experienced lifters spreading volume thin</td></tr></tbody></table></div>
-<div class="emp-science"><span class="emp-label">🔬 Does frequency matter?</span><p>A <a href="https://pubmed.ncbi.nlm.nih.gov/27102172/" rel="noopener" target="_blank">2016 meta-analysis</a> found training a muscle twice a week grew it more than once a week. A larger <a href="https://pubmed.ncbi.nlm.nih.gov/41343037/" rel="noopener" target="_blank">2026 meta-regression</a> found frequency mattered little for growth once weekly sets were equal, but more frequent training did improve strength. Splitting sets over two sessions also keeps each workout shorter and fresher, which is the practical reason this plan uses 2× frequency.</p></div>
-<p>If you prefer a classic upper/lower layout, our <a href="https://exercisemenu.com/workout-plans/upper-lower-split/">4-day upper lower split</a> covers it in full. If you want torso/limbs, keep reading.</p>
-</section>
-</div>
-
-
-
-<div class="emp">
-<section class="emp-section" id="who">
-<h2>Who This 4-Day Split Is For</h2>
-<p>This plan suits lifters with 6+ months of consistent training who can bench, squat, row and hinge with good form. It fits people who:</p>
-<ul>
-<li>Can train four days, ideally Monday, Tuesday, Thursday and Friday.</li>
-<li>Want arms trained directly twice a week, alongside legs.</li>
-<li>Want strength and size together, through heavy A days and volume B days.</li>
-<li>Have 60–75 minutes per session.</li>
-</ul>
-<div class="emp-tip"><span class="emp-label">💡 Coach's note</span><p>New to lifting? Start with a full-body plan for 3–6 months first. Full-body training gives you practice on each lift three times a week while you learn technique. Compare the two approaches in our <a href="https://exercisemenu.com/upper-lower-split-vs-full-body/">upper/lower vs full body guide</a>.</p></div>
-</section>
+<p>Use the day tabs to see each workout. After the workouts you'll find weekly sets, progression rules and how the other 4-day splits compare.</p>
+<nav class="emp-chips" aria-label="Jump to a section"><span>Jump to:</span><a href="#schedule">Schedule</a><a href="#workouts">Workouts</a><a href="#volume">Weekly sets</a><a href="#progression">Progression</a><a href="#deload">Deload</a><a href="#options">Choose a split</a><a href="#who">Who it&#x27;s for</a><a href="#nutrition">Nutrition</a><a href="#mistakes">Mistakes</a><a href="#faq">FAQ</a></nav>
 </div>
 
 
@@ -289,16 +268,8 @@
 <div class="emp">
 <section class="emp-section" id="progression">
 <h2>Progression Rules</h2>
-<p>Each rotation progresses differently, a simple application of <a href="https://exercisemenu.com/what-is-progressive-overload/">progressive overload</a>.</p>
-<h3>A days (heavy)</h3>
-<ol class="emp-steps">
-<li>Start week 1 at a load you could lift for about 2 more reps than the top of the range.</li>
-<li>When every set reaches the top of the range (e.g., 4 × 7 on bench) at RIR 2 or more, add 2.5 kg to upper-body lifts or 5 kg to squats.</li>
-<li>If you miss the bottom of the range on two straight sessions, drop the load 5–10% and build back up.</li>
-</ol>
-<h3>B days (volume)</h3>
-<p>Use double progression: add reps until every set hits the top of the range at the listed RIR, then add the smallest available load. The <a href="https://pubmed.ncbi.nlm.nih.gov/19204579/" rel="noopener" target="_blank">ACSM progression model</a> recommends 2–10% load jumps once you exceed the target reps by one or two.</p>
-<p>Track every session; a training log is the most reliable way to know the plan is working. The <a href="https://exercisemenu.com/how-to-track-your-workouts/">workout tracking guide</a> shows a simple format.</p>
+<p><strong>A days (heavy):</strong> when every set reaches the top of the range at RIR 2 (e.g., 4 × 7 on bench), add 2.5 kg to upper-body lifts or 5 kg to squats. If you miss the bottom of the range two sessions in a row, drop the load 5–10% and build back up.</p>
+<p><strong>B days (volume):</strong> add reps until every set reaches the top of the range, then add the smallest available load. The <a href="https://pubmed.ncbi.nlm.nih.gov/19204579/" rel="noopener" target="_blank">ACSM progression model</a> recommends 2–10% load jumps once you exceed the target reps by one or two. Log every session; the <a href="https://exercisemenu.com/how-to-track-your-workouts/">workout tracking guide</a> shows a simple format, and <a href="https://exercisemenu.com/what-is-progressive-overload/">progressive overload</a> explains the principle.</p>
 </section>
 </div>
 
@@ -309,6 +280,30 @@
 <h2>Deload and Long-Term Plan</h2>
 <p>Train weeks 1–7 as written, then deload in week 8. Keep the same four days and exercises, cut sets by about half, and stop every set at RIR 3–4. A <a href="https://pubmed.ncbi.nlm.nih.gov/37730925/" rel="noopener" target="_blank">Delphi consensus of coaches and researchers</a> defines a deload as a planned period of reduced training stress to manage fatigue and prepare for the next block.</p>
 <p>After the deload, start block two with loads about 2.5–5% heavier than block one's week 1. Swap 1–2 accessory exercises per day if they feel stale, but keep the main lifts so progress stays measurable. Our <a href="https://exercisemenu.com/what-is-a-deload-week/">deload week guide</a> covers signs you need one earlier.</p>
+</section>
+</div>
+
+
+
+<div class="emp">
+<section class="emp-section" id="options">
+<h2>Which 4-Day Split Should You Choose?</h2>
+<div class="emp-tw emp-data"><table><thead><tr><th>4-day split</th><th>Layout</th><th>Frequency/muscle</th><th>Best for</th></tr></thead><tbody><tr><td>Torso/Limbs (this plan)</td><td>Torso A · Limbs A · Torso B · Limbs B</td><td>2×</td><td>Arms and legs trained twice a week</td></tr><tr><td>Upper/Lower</td><td>Upper · Lower · Upper · Lower</td><td>2×</td><td>Strength focus; simplest to run</td></tr><tr><td>PPL + Upper</td><td>Push · Pull · Legs · Upper</td><td>1–2×</td><td>Lifters moving from PPL with 4 days</td></tr><tr><td>4-day bro split</td><td>Chest/Tri · Back/Bi · Legs · Shoulders/Arms</td><td>1× direct</td><td>One muscle group per session</td></tr></tbody></table></div>
+<p>All of these can build muscle. A <a href="https://pubmed.ncbi.nlm.nih.gov/27102172/" rel="noopener" target="_blank">2016 meta-analysis</a> found twice-weekly training grew muscle more than once a week, while a <a href="https://pubmed.ncbi.nlm.nih.gov/41343037/" rel="noopener" target="_blank">2026 meta-regression</a> found frequency mattered little for growth once weekly sets were equal but did help strength. For the classic layout, see our <a href="https://exercisemenu.com/workout-plans/upper-lower-split/">4-day upper lower split</a>.</p>
+</section>
+</div>
+
+
+
+<div class="emp">
+<section class="emp-section" id="who">
+<h2>Who This 4-Day Split Is For</h2>
+<ul>
+<li>6+ months of consistent training with good form on the bench press, squat, row and hinge.</li>
+<li>Four training days (ideally Monday, Tuesday, Thursday, Friday) and 60–75 minutes per session.</li>
+<li>You want strength and size together, with arms trained directly twice a week.</li>
+</ul>
+<p>New to lifting? Start with a full-body plan for 3–6 months; our <a href="https://exercisemenu.com/upper-lower-split-vs-full-body/">upper/lower vs full body guide</a> compares the two.</p>
 </section>
 </div>
 
@@ -327,12 +322,10 @@
 <section class="emp-section" id="mistakes">
 <h2>Mistakes That Stall a 4-Day Split</h2>
 <ul>
-<li><strong>Stacking Torso A and Torso B on consecutive days.</strong> Pressing and rowing two days in a row can leave the second session under-recovered.</li>
-<li><strong>Rushing rests on heavy lifts.</strong> Trained lifters gained more strength with <a href="https://pubmed.ncbi.nlm.nih.gov/28933024/" rel="noopener" target="_blank">rests longer than 2 minutes</a>. Keep 2–3 minutes on A-day compounds.</li>
-<li><strong>Treating arm work as an afterthought.</strong> On limbs days, arms come after legs, so keep arm sets controlled and close to the listed RIR rather than rushing them.</li>
-<li><strong>Changing exercises every week.</strong> Constant novelty makes it impossible to see progress. Keep the main lifts for the full 8-week block.</li>
+<li><strong>Torso A and Torso B on back-to-back days.</strong> The second session is usually weaker.</li>
+<li><strong>Short rests on heavy lifts.</strong> Trained lifters gained more strength with <a href="https://pubmed.ncbi.nlm.nih.gov/28933024/" rel="noopener" target="_blank">rests longer than 2 minutes</a>; keep 2–3 minutes on A-day compounds.</li>
+<li><strong>Changing exercises every week.</strong> Keep the main lifts for the full 8-week block so you can see progress.</li>
 </ul>
-<p>When progress slows across a whole block, check total weekly sets, sleep and food before changing the split.</p>
 </section>
 </div>
 
@@ -353,9 +346,20 @@
 
 
 <div class="emp">
+<aside class="emp-author" aria-label="About the author">
+<div class="emp-author-av" aria-hidden="true">SB</div>
+<div><p class="emp-author-n">Sadia Baloch</p>
+<p class="emp-author-c">FISAF-certified fitness trainer</p>
+<p>Sadia Baloch is a FISAF-certified fitness trainer who has personally coached hundreds of clients over the past 7 years. She specializes in strength training, fat loss, and workout programming for beginners through intermediate lifters. Every article on ExerciseMenu.com is based on the same methods she uses with her in-person clients daily.</p></div>
+</aside>
+</div>
+
+
+
+<div class="emp">
 <section class="emp-section" id="related-plans">
 <h2>Related Workout Plans</h2>
-<div class="emp-related"><a class="emp-card" href="https://exercisemenu.com/workout-plans/upper-lower-split/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">4-Day Upper Lower Split</span><span class="emp-card-d">Upper body and lower body, each trained twice a week.</span><span class="emp-card-m">4 days</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/hypertrophy-program/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">4-Day Hypertrophy Program</span><span class="emp-card-d">A 6-week mesocycle with set ramps and RIR targets.</span><span class="emp-card-m">4 days · Intermediate</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/5-day-workout-split/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">5-Day Workout Split</span><span class="emp-card-d">Upper, Lower, Push, Pull, Legs: every muscle twice a week.</span><span class="emp-card-m">5 days · Intermediate</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/bro-split/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">Bro Split 5-Day Workout Plan</span><span class="emp-card-d">One muscle group per day, done the evidence-based way.</span><span class="emp-card-m">5 days · Intermediate</span></a></div>
+<div class="emp-related"><a class="emp-card" href="https://exercisemenu.com/workout-plans/upper-lower-split/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">4-Day Upper Lower Split</span><span class="emp-card-d">Upper and lower body twice a week with simple double progression.</span><span class="emp-card-m">4 days · Beginner–Intermediate</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/hypertrophy-program/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">4-Day Hypertrophy Program</span><span class="emp-card-d">A 6-week mesocycle with set ramps and RIR targets.</span><span class="emp-card-m">4 days · Intermediate</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/5-day-workout-split/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">5-Day Workout Split</span><span class="emp-card-d">Upper, Lower, Push, Pull, Legs: every muscle twice a week.</span><span class="emp-card-m">5 days · Intermediate</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/bro-split/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">Bro Split 5-Day Workout Plan</span><span class="emp-card-d">One muscle group per day, done the evidence-based way.</span><span class="emp-card-m">5 days · Intermediate</span></a></div>
 </section>
 <div class="emp-refs"><h3>References</h3><ol><li>Schoenfeld BJ, Ogborn D, Krieger JW. Effects of resistance training frequency on measures of muscle hypertrophy: a systematic review and meta-analysis. <em>Sports Med</em>. 2016. <a href="https://pubmed.ncbi.nlm.nih.gov/27102172/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/27102172/</a></li><li>Pelland JC, et al. The resistance training dose response: meta-regressions exploring the effects of weekly volume and frequency on muscle hypertrophy and strength gains. <em>Sports Med</em>. 2026. <a href="https://pubmed.ncbi.nlm.nih.gov/41343037/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/41343037/</a></li><li>Lopez P, et al. Resistance training load effects on muscle hypertrophy and strength gain: systematic review and network meta-analysis. <em>Med Sci Sports Exerc</em>. 2021. <a href="https://pubmed.ncbi.nlm.nih.gov/33433148/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/33433148/</a></li><li>Currier BS, et al. Resistance training prescription for muscle strength and hypertrophy in healthy adults: a systematic review and Bayesian network meta-analysis. <em>Br J Sports Med</em>. 2023. <a href="https://pubmed.ncbi.nlm.nih.gov/37414459/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/37414459/</a></li><li>Currier BS, et al. American College of Sports Medicine Position Stand: Resistance Training Prescription for Muscle Function, Hypertrophy, and Physical Performance in Healthy Adults. <em>Med Sci Sports Exerc</em>. 2026. <a href="https://pubmed.ncbi.nlm.nih.gov/41843416/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/41843416/</a></li><li>American College of Sports Medicine. Position stand: Progression models in resistance training for healthy adults. <em>Med Sci Sports Exerc</em>. 2009. <a href="https://pubmed.ncbi.nlm.nih.gov/19204579/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/19204579/</a></li><li>Bell L, et al. Integrating deloading into strength and physique sports training programmes: an international Delphi consensus approach. <em>Sports Med Open</em>. 2023. <a href="https://pubmed.ncbi.nlm.nih.gov/37730925/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/37730925/</a></li><li>Morton RW, et al. A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength. <em>Br J Sports Med</em>. 2018. <a href="https://pubmed.ncbi.nlm.nih.gov/28698222/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/28698222/</a></li><li>Iraki J, et al. Nutrition recommendations for bodybuilders in the off-season: a narrative review. <em>Sports (Basel)</em>. 2019. <a href="https://pubmed.ncbi.nlm.nih.gov/31247944/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/31247944/</a></li><li>Grgic J, et al. Effects of rest interval duration in resistance training on measures of muscular strength: a systematic review. <em>Sports Med</em>. 2018. <a href="https://pubmed.ncbi.nlm.nih.gov/28933024/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/28933024/</a></li></ol></div>
 <p class="emp-disclaimer">This plan is general education for healthy adults, not medical advice. If you have an injury, a heart, joint or blood-pressure condition, or you are pregnant or postpartum, check with your doctor or a physiotherapist before starting a new training program.</p>

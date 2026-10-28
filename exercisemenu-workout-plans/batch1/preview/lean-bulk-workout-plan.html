@@ -43,13 +43,6 @@
 .emp .emp-warn{background:var(--emp-amber-bg);border:1px solid #fde68a}
 .emp .emp-warn .emp-label{color:var(--emp-amber)}
 .emp .emp-science p:last-child,.emp .emp-tip p:last-child,.emp .emp-warn p:last-child{margin:0}
-/* toc */
-.emp .emp-toc{background:var(--emp-alt);border:1px solid var(--emp-line);border-radius:var(--emp-r);padding:16px 20px;margin:0 0 8px}
-.emp .emp-toc summary{cursor:pointer;font-weight:700;color:var(--emp-ink);font-size:.95rem}
-.emp .emp-toc ol{columns:2;column-gap:28px;margin:12px 0 0 1.2rem;font-size:.92rem}
-.emp .emp-toc a{color:var(--emp-text);text-decoration:none}
-.emp .emp-toc a:hover{color:var(--emp-accent-d);text-decoration:underline}
-@media (max-width:640px){.emp .emp-toc ol{columns:1}}
 /* weekly schedule */
 .emp .emp-week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin:18px 0}
 @media (max-width:640px){.emp .emp-week{grid-template-columns:repeat(4,1fr)}}
@@ -133,6 +126,19 @@
 .emp .emp-refs ol{margin-left:1.2rem}
 .emp .emp-refs a{color:var(--emp-muted)}
 .emp .emp-disclaimer{font-size:.85rem;color:var(--emp-muted);border-top:1px solid var(--emp-line);padding-top:14px;margin-top:8px}
+/* jump button + chips */
+.emp a.emp-jump{display:inline-block;margin-top:16px;background:var(--emp-accent);color:#fff;text-decoration:none;font-weight:700;padding:10px 20px;border-radius:30px;font-size:.92rem}
+.emp a.emp-jump:hover{background:var(--emp-accent-d);color:#fff}
+.emp .emp-chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 6px;font-size:.84rem}
+.emp .emp-chips span{font-weight:700;color:var(--emp-muted);margin-right:2px}
+.emp .emp-chips a{border:1px solid var(--emp-line);background:var(--emp-alt);border-radius:20px;padding:4px 11px;color:var(--emp-ink);text-decoration:none}
+.emp .emp-chips a:hover{border-color:var(--emp-accent);color:var(--emp-accent-d)}
+/* author box */
+.emp .emp-author{display:flex;gap:16px;align-items:flex-start;background:var(--emp-alt);border:1px solid var(--emp-line);border-radius:var(--emp-r);padding:18px 20px;margin:24px 0}
+.emp .emp-author-av{flex:0 0 56px;height:56px;border-radius:50%;background:var(--emp-accent);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.emp .emp-author p{margin:0 0 6px;font-size:.92rem}
+.emp .emp-author p.emp-author-n{font-weight:700;color:var(--emp-ink);font-size:1rem;margin:0}
+.emp .emp-author p.emp-author-c{color:var(--emp-muted);font-size:.8rem;margin:0 0 8px}
 </style>
 
 
@@ -142,11 +148,12 @@
 <span class="emp-badge">12-Week Program</span>
 <p class="emp-hero-lead">A lean bulk is a training plan and an eating plan working together. This 12-week lean bulk workout plan gives you both: a 4-day split that ramps volume, then intensity, and calorie targets designed to add muscle while keeping fat gain small.</p>
 <ul class="emp-hero-meta"><li>📅 4 days/week</li><li>⏱ 55–70 min</li><li>📊 Intermediate</li><li>🏋️ Full gym</li><li>🍽 Nutrition included</li><li>📄 Last reviewed: October 2026</li></ul>
+<a class="emp-jump" href="#workouts">See the workouts ↓</a>
 </div>
 <div class="emp-stats"><div class="emp-stat"><div class="emp-stat-v">12 wk</div><div class="emp-stat-l">Program length</div></div><div class="emp-stat"><div class="emp-stat-v">3</div><div class="emp-stat-l">Training phases</div></div><div class="emp-stat"><div class="emp-stat-v">+10–20%</div><div class="emp-stat-l">Calorie surplus</div></div><div class="emp-stat"><div class="emp-stat-v">0.25–0.5%</div><div class="emp-stat-l">BW gain/week</div></div><div class="emp-stat"><div class="emp-stat-v">1.6–2.2</div><div class="emp-stat-l">Protein g/kg</div></div></div>
 <div class="emp-answer"><span class="emp-label">Quick answer</span><p>A lean bulk pairs progressive strength training with a small calorie surplus of about 10–20% above maintenance, aiming to gain 0.25–0.5% of body weight per week. This 12-week plan trains four days a week (Push, Pull, Legs, Full Body) and moves through volume, deload and intensity phases.</p></div>
-<p>"Lean bulk" means gaining muscle with as little fat as possible. Most bulks that go wrong do so through food: a large surplus, fast weight gain, and months of dieting afterwards to lose the extra fat.</p><p>This page starts with the 12-week, 4-day training program, with every set and rep. After the workouts you will find how to set your calorie surplus, track your rate of gain, and adjust when the scale moves too fast or too slow.</p>
-<details class="emp-toc" open><summary>In this plan</summary><ol><li><a href="#program">Program Overview: Three Phases</a></li><li><a href="#workouts">The Lean Bulk Workouts</a></li><li><a href="#volume">Weekly Volume by Phase</a></li><li><a href="#progression">Progression During the Bulk</a></li><li><a href="#rate">How Fast Should You Gain on a Lean Bulk?</a></li><li><a href="#nutrition">Lean Bulk Calories and Macros</a></li><li><a href="#tracking">How to Track and Adjust the Bulk</a></li><li><a href="#after">What to Do After 12 Weeks</a></li><li><a href="#mistakes">Lean Bulk Mistakes to Avoid</a></li><li><a href="#faq">FAQ</a></li></ol></details>
+<p>The 12-week training plan comes first. After the workouts you'll find how to set your calorie surplus, track your weight and adjust.</p>
+<nav class="emp-chips" aria-label="Jump to a section"><span>Jump to:</span><a href="#program">Program phases</a><a href="#workouts">Workouts</a><a href="#volume">Weekly sets</a><a href="#progression">Progression</a><a href="#rate">Rate of gain</a><a href="#nutrition">Nutrition</a><a href="#tracking">Tracking</a><a href="#after">After 12 weeks</a><a href="#mistakes">Mistakes</a><a href="#faq">FAQ</a></nav>
 </div>
 
 
@@ -345,7 +352,7 @@
 <div class="emp">
 <section class="emp-section emp-faq" id="faq">
 <h2>Lean Bulk Workout Plan FAQ</h2>
-<details><summary>How much muscle can I gain in 12 weeks?</summary><div class="emp-faq-a"><p>It varies widely with training age, genetics, sleep and food. In one large study, arm muscle size changes after the same 12-week program ranged from almost none to nearly 60%, so track your own progress instead of chasing a fixed number.</p></div></details>
+<details><summary>How much muscle can I gain in 12 weeks?</summary><div class="emp-faq-a"><p>It varies widely with training age, genetics, sleep and food. <a href="https://pubmed.ncbi.nlm.nih.gov/15947721/" rel="noopener" target="_blank">In one large study</a>, arm muscle size changes after the same 12-week program ranged from almost none to nearly 60%, so track your own progress instead of chasing a fixed number.</p></div></details>
 <details><summary>Should I do cardio on a lean bulk?</summary><div class="emp-faq-a"><p>Yes, in moderation. Two or three 20–30 minute easy sessions a week support heart health. Add about 100–200 kcal on cardio days if your weight trend drops below target.</p></div></details>
 <details><summary>Should I bulk or cut first?</summary><div class="emp-faq-a"><p>If you are lean and want more size, bulk first. If you carry more fat than you are comfortable with, a few months of cutting or eating at maintenance first usually makes the later bulk more enjoyable.</p></div></details>
 <details><summary>What should I eat before training?</summary><div class="emp-faq-a"><p>A meal with 20–40 g of protein and a solid carb portion 1–3 hours before training, such as rice and chicken or oats with Greek yogurt, is easy to digest for most people.</p></div></details>
@@ -357,9 +364,20 @@
 
 
 <div class="emp">
+<aside class="emp-author" aria-label="About the author">
+<div class="emp-author-av" aria-hidden="true">SB</div>
+<div><p class="emp-author-n">Sadia Baloch</p>
+<p class="emp-author-c">FISAF-certified fitness trainer</p>
+<p>Sadia Baloch is a FISAF-certified fitness trainer who has personally coached hundreds of clients over the past 7 years. She specializes in strength training, fat loss, and workout programming for beginners through intermediate lifters. Every article on ExerciseMenu.com is based on the same methods she uses with her in-person clients daily.</p></div>
+</aside>
+</div>
+
+
+
+<div class="emp">
 <section class="emp-section" id="related-plans">
 <h2>Related Workout Plans</h2>
-<div class="emp-related"><a class="emp-card" href="https://exercisemenu.com/workout-plans/workout-plan-for-skinny-guys/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">Workout Plan for Skinny Guys</span><span class="emp-card-d">Short compound-first sessions plus an eating plan that works.</span><span class="emp-card-m">3 days · Beginner–Intermediate</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/hypertrophy-program/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">4-Day Hypertrophy Program</span><span class="emp-card-d">A 6-week mesocycle with set ramps and RIR targets.</span><span class="emp-card-m">4 days · Intermediate</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/push-pull-legs/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">Push Pull Legs Workout Plan</span><span class="emp-card-d">The classic 6-day PPL with strength and hypertrophy days.</span><span class="emp-card-m">6 days · Intermediate–Advanced</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/upper-lower-split/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">4-Day Upper Lower Split</span><span class="emp-card-d">Upper body and lower body, each trained twice a week.</span><span class="emp-card-m">4 days</span></a></div>
+<div class="emp-related"><a class="emp-card" href="https://exercisemenu.com/workout-plans/workout-plan-for-skinny-guys/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">Workout Plan for Skinny Guys</span><span class="emp-card-d">Short compound-first sessions plus an eating plan that works.</span><span class="emp-card-m">3 days · Beginner–Intermediate</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/hypertrophy-program/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">4-Day Hypertrophy Program</span><span class="emp-card-d">A 6-week mesocycle with set ramps and RIR targets.</span><span class="emp-card-m">4 days · Intermediate</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/push-pull-legs/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">Push Pull Legs Workout Plan</span><span class="emp-card-d">6-day PPL with heavy A days and higher-rep B days.</span><span class="emp-card-m">6 days · Intermediate–Advanced</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/upper-lower-split/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">4-Day Upper Lower Split</span><span class="emp-card-d">Upper and lower body twice a week with simple double progression.</span><span class="emp-card-m">4 days · Beginner–Intermediate</span></a></div>
 </section>
 <div class="emp-refs"><h3>References</h3><ol><li>Iraki J, et al. Nutrition recommendations for bodybuilders in the off-season: a narrative review. <em>Sports (Basel)</em>. 2019. <a href="https://pubmed.ncbi.nlm.nih.gov/31247944/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/31247944/</a></li><li>Garthe I, et al. Effect of nutritional intervention on body composition and performance in elite athletes. <em>Eur J Sport Sci</em>. 2013. <a href="https://pubmed.ncbi.nlm.nih.gov/23679146/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/23679146/</a></li><li>Slater GJ, et al. Is an energy surplus required to maximize skeletal muscle hypertrophy associated with resistance training? <em>Front Nutr</em>. 2019. <a href="https://pubmed.ncbi.nlm.nih.gov/31482093/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/31482093/</a></li><li>Hubal MJ, et al. Variability in muscle size and strength gain after unilateral resistance training. <em>Med Sci Sports Exerc</em>. 2005. <a href="https://pubmed.ncbi.nlm.nih.gov/15947721/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/15947721/</a></li><li>Morton RW, et al. A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength. <em>Br J Sports Med</em>. 2018. <a href="https://pubmed.ncbi.nlm.nih.gov/28698222/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/28698222/</a></li><li>Kreider RB, et al. International Society of Sports Nutrition position stand: safety and efficacy of creatine supplementation in exercise, sport, and medicine. <em>J Int Soc Sports Nutr</em>. 2017. <a href="https://pubmed.ncbi.nlm.nih.gov/28615996/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/28615996/</a></li><li>Schoenfeld BJ, Ogborn D, Krieger JW. Dose-response relationship between weekly resistance training volume and increases in muscle mass. <em>J Sports Sci</em>. 2017. <a href="https://pubmed.ncbi.nlm.nih.gov/27433992/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/27433992/</a></li><li>Lopez P, et al. Resistance training load effects on muscle hypertrophy and strength gain: systematic review and network meta-analysis. <em>Med Sci Sports Exerc</em>. 2021. <a href="https://pubmed.ncbi.nlm.nih.gov/33433148/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/33433148/</a></li><li>Pelland JC, et al. The resistance training dose response: meta-regressions exploring the effects of weekly volume and frequency on muscle hypertrophy and strength gains. <em>Sports Med</em>. 2026. <a href="https://pubmed.ncbi.nlm.nih.gov/41343037/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/41343037/</a></li><li>Currier BS, et al. American College of Sports Medicine Position Stand: Resistance Training Prescription for Muscle Function, Hypertrophy, and Physical Performance in Healthy Adults. <em>Med Sci Sports Exerc</em>. 2026. <a href="https://pubmed.ncbi.nlm.nih.gov/41843416/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/41843416/</a></li></ol></div>
 <p class="emp-disclaimer">This plan is general education for healthy adults, not medical advice. If you have an injury, a heart, joint or blood-pressure condition, or you are pregnant or postpartum, check with your doctor or a physiotherapist before starting a new training program.</p>

@@ -39,13 +39,6 @@
 .emp .emp-warn{background:var(--emp-amber-bg);border:1px solid #fde68a}
 .emp .emp-warn .emp-label{color:var(--emp-amber)}
 .emp .emp-science p:last-child,.emp .emp-tip p:last-child,.emp .emp-warn p:last-child{margin:0}
-/* toc */
-.emp .emp-toc{background:var(--emp-alt);border:1px solid var(--emp-line);border-radius:var(--emp-r);padding:16px 20px;margin:0 0 8px}
-.emp .emp-toc summary{cursor:pointer;font-weight:700;color:var(--emp-ink);font-size:.95rem}
-.emp .emp-toc ol{columns:2;column-gap:28px;margin:12px 0 0 1.2rem;font-size:.92rem}
-.emp .emp-toc a{color:var(--emp-text);text-decoration:none}
-.emp .emp-toc a:hover{color:var(--emp-accent-d);text-decoration:underline}
-@media (max-width:640px){.emp .emp-toc ol{columns:1}}
 /* weekly schedule */
 .emp .emp-week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin:18px 0}
 @media (max-width:640px){.emp .emp-week{grid-template-columns:repeat(4,1fr)}}
@@ -129,6 +122,19 @@
 .emp .emp-refs ol{margin-left:1.2rem}
 .emp .emp-refs a{color:var(--emp-muted)}
 .emp .emp-disclaimer{font-size:.85rem;color:var(--emp-muted);border-top:1px solid var(--emp-line);padding-top:14px;margin-top:8px}
+/* jump button + chips */
+.emp a.emp-jump{display:inline-block;margin-top:16px;background:var(--emp-accent);color:#fff;text-decoration:none;font-weight:700;padding:10px 20px;border-radius:30px;font-size:.92rem}
+.emp a.emp-jump:hover{background:var(--emp-accent-d);color:#fff}
+.emp .emp-chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 6px;font-size:.84rem}
+.emp .emp-chips span{font-weight:700;color:var(--emp-muted);margin-right:2px}
+.emp .emp-chips a{border:1px solid var(--emp-line);background:var(--emp-alt);border-radius:20px;padding:4px 11px;color:var(--emp-ink);text-decoration:none}
+.emp .emp-chips a:hover{border-color:var(--emp-accent);color:var(--emp-accent-d)}
+/* author box */
+.emp .emp-author{display:flex;gap:16px;align-items:flex-start;background:var(--emp-alt);border:1px solid var(--emp-line);border-radius:var(--emp-r);padding:18px 20px;margin:24px 0}
+.emp .emp-author-av{flex:0 0 56px;height:56px;border-radius:50%;background:var(--emp-accent);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.emp .emp-author p{margin:0 0 6px;font-size:.92rem}
+.emp .emp-author p.emp-author-n{font-weight:700;color:var(--emp-ink);font-size:1rem;margin:0}
+.emp .emp-author p.emp-author-c{color:var(--emp-muted);font-size:.8rem;margin:0 0 8px}
 </style>
 <!-- /wp:html -->
 
@@ -138,26 +144,12 @@
 <span class="emp-badge">Women&#x27;s Strength Plan</span>
 <p class="emp-hero-lead">Women do not need a separate, lighter version of strength training. This 3-day plan uses the same proven lifts as any good program, with extra emphasis on glutes and legs, a 2-day option for busy weeks, and straight answers to the questions women ask most.</p>
 <ul class="emp-hero-meta"><li>📅 3 days/week (2-day option)</li><li>⏱ 45–60 min</li><li>📊 Beginner–Intermediate</li><li>🏋️ Gym</li><li>📄 Last reviewed: October 2026</li></ul>
+<a class="emp-jump" href="#workouts">See the workouts ↓</a>
 </div>
 <div class="emp-stats"><div class="emp-stat"><div class="emp-stat-v">3</div><div class="emp-stat-l">Training days</div></div><div class="emp-stat"><div class="emp-stat-v">19</div><div class="emp-stat-l">Exercises</div></div><div class="emp-stat"><div class="emp-stat-v">≈ 13</div><div class="emp-stat-l">Glute sets/week</div></div><div class="emp-stat"><div class="emp-stat-v">8 wk</div><div class="emp-stat-l">Block length</div></div><div class="emp-stat"><div class="emp-stat-v">1.6 g/kg</div><div class="emp-stat-l">Protein/day</div></div></div>
 <div class="emp-answer"><span class="emp-label">Quick answer</span><p>A good strength training plan for women uses 2–3 full-body sessions a week built on squats, hip thrusts, deadlift variations, presses and rows, using 6–15 reps and adding weight over time. This plan follows that pattern with extra glute and leg volume and a progression rule you can use for months.</p></div>
-<p>Many women start strength training with light weights and high reps because they were told heavier lifting makes you bulky. The research says otherwise. Building muscle is what creates shape, and heavier loading also supports bone health as you age.</p><p>This page gives you a full 3-day plan with every set and rep, a simple way to progress, and the evidence behind the most common concerns.</p>
-<details class="emp-toc" open><summary>In this plan</summary><ol><li><a href="#who">Who This Plan Is For</a></li><li><a href="#schedule">Weekly Schedule (and the 2-Day Option)</a></li><li><a href="#workouts">The Strength Workouts</a></li><li><a href="#progression">How to Progress</a></li><li><a href="#volume">Weekly Volume: Where the Work Goes</a></li><li><a href="#myths">Will Strength Training Make Women Bulky?</a></li><li><a href="#cycle">Should You Train Around Your Menstrual Cycle?</a></li><li><a href="#bones">Strength Training and Bone Health</a></li><li><a href="#nutrition">Nutrition for Women Who Lift</a></li><li><a href="#faq">FAQ</a></li></ol></details>
-</div>
-<!-- /wp:html -->
-
-<!-- wp:html -->
-<div class="emp">
-<section class="emp-section" id="who">
-<h2>Who This Plan Is For</h2>
-<ul>
-<li>Women with 0–2 years of lifting experience who want a structured gym plan.</li>
-<li>Goals of strength, shape (especially glutes and legs), fat loss support or long-term health.</li>
-<li>Access to a gym with barbells, dumbbells, cables and basic machines.</li>
-<li>Time for three 45–60 minute sessions a week, or two when life is busy.</li>
-</ul>
-<p>For a deeper look at rep ranges, read our guide to <a href="https://exercisemenu.com/reps-and-sets-for-woman/">reps and sets for women</a>. If fat loss is your main goal and you are just starting out, the <a href="https://exercisemenu.com/3-week-beginner-fat-loss-workout-plan-for-women/">3-week beginner fat loss plan for women</a> is a gentler on-ramp.</p>
-</section>
+<p>Use the day tabs to see each workout. Progression, weekly sets and answers to common questions follow the workouts.</p>
+<nav class="emp-chips" aria-label="Jump to a section"><span>Jump to:</span><a href="#schedule">Schedule</a><a href="#workouts">Workouts</a><a href="#progression">Progression</a><a href="#volume">Weekly sets</a><a href="#who">Who it&#x27;s for</a><a href="#myths">Will I get bulky?</a><a href="#cycle">Menstrual cycle</a><a href="#bones">Bone health</a><a href="#nutrition">Nutrition</a><a href="#faq">FAQ</a></nav>
 </div>
 <!-- /wp:html -->
 
@@ -261,6 +253,21 @@
 
 <!-- wp:html -->
 <div class="emp">
+<section class="emp-section" id="who">
+<h2>Who This Plan Is For</h2>
+<ul>
+<li>Women with 0–2 years of lifting experience who want a structured gym plan.</li>
+<li>Goals of strength, shape (especially glutes and legs), fat loss support or long-term health.</li>
+<li>Access to a gym with barbells, dumbbells, cables and basic machines.</li>
+<li>Time for three 45–60 minute sessions a week, or two when life is busy.</li>
+</ul>
+<p>For a deeper look at rep ranges, read our guide to <a href="https://exercisemenu.com/reps-and-sets-for-woman/">reps and sets for women</a>. If fat loss is your main goal and you are just starting out, the <a href="https://exercisemenu.com/3-week-beginner-fat-loss-workout-plan-for-women/">3-week beginner fat loss plan for women</a> is a gentler on-ramp.</p>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
 <section class="emp-section" id="myths">
 <h2>Will Strength Training Make Women Bulky?</h2>
 <p>No, not by accident. A <a href="https://pubmed.ncbi.nlm.nih.gov/32218059/" rel="noopener" target="_blank">meta-analysis comparing men and women</a> on the same programs found similar relative muscle growth between sexes and greater relative upper-body strength gains in women. Relative gains are not the same as absolute size, though. In a <a href="https://pubmed.ncbi.nlm.nih.gov/15947721/" rel="noopener" target="_blank">study of 585 adults</a> following the same 12-week arm program, women gained more relative strength than men, while men gained slightly more muscle size.</p>
@@ -317,9 +324,20 @@
 
 <!-- wp:html -->
 <div class="emp">
+<aside class="emp-author" aria-label="About the author">
+<div class="emp-author-av" aria-hidden="true">SB</div>
+<div><p class="emp-author-n">Sadia Baloch</p>
+<p class="emp-author-c">FISAF-certified fitness trainer</p>
+<p>Sadia Baloch is a FISAF-certified fitness trainer who has personally coached hundreds of clients over the past 7 years. She specializes in strength training, fat loss, and workout programming for beginners through intermediate lifters. Every article on ExerciseMenu.com is based on the same methods she uses with her in-person clients daily.</p></div>
+</aside>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
 <section class="emp-section" id="related-plans">
 <h2>Related Workout Plans</h2>
-<div class="emp-related"><a class="emp-card" href="https://exercisemenu.com/workout-plans/beginner-strength-training-program/"><span class="emp-card-tag">Strength</span><span class="emp-card-t">Beginner Strength Training Program</span><span class="emp-card-d">12 weeks of linear progression on the main lifts.</span><span class="emp-card-m">3 days · Beginner</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/full-body-workout-plan/"><span class="emp-card-tag">Beginner</span><span class="emp-card-t">Full Body Workout Plan for Beginners</span><span class="emp-card-d">Three full-body gym sessions a week for people new to lifting.</span><span class="emp-card-m">3 days · Beginner</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/upper-lower-split/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">4-Day Upper Lower Split</span><span class="emp-card-d">Upper body and lower body, each trained twice a week.</span><span class="emp-card-m">4 days</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/hypertrophy-program/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">4-Day Hypertrophy Program</span><span class="emp-card-d">A 6-week mesocycle with set ramps and RIR targets.</span><span class="emp-card-m">4 days · Intermediate</span></a></div>
+<div class="emp-related"><a class="emp-card" href="https://exercisemenu.com/workout-plans/beginner-strength-training-program/"><span class="emp-card-tag">Strength</span><span class="emp-card-t">Beginner Strength Training Program</span><span class="emp-card-d">12 weeks of linear progression on the main lifts.</span><span class="emp-card-m">3 days · Beginner</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/full-body-workout-plan/"><span class="emp-card-tag">Beginner</span><span class="emp-card-t">Full Body Workout Plan for Beginners</span><span class="emp-card-d">Three full-body gym days led by the squat, bench press and deadlift.</span><span class="emp-card-m">3 days · Beginner</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/upper-lower-split/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">4-Day Upper Lower Split</span><span class="emp-card-d">Upper and lower body twice a week with simple double progression.</span><span class="emp-card-m">4 days · Beginner–Intermediate</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/hypertrophy-program/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">4-Day Hypertrophy Program</span><span class="emp-card-d">A 6-week mesocycle with set ramps and RIR targets.</span><span class="emp-card-m">4 days · Intermediate</span></a></div>
 </section>
 <div class="emp-refs"><h3>References</h3><ol><li>Roberts BM, Nuckols G, Krieger JW. Sex differences in resistance training: a systematic review and meta-analysis. <em>J Strength Cond Res</em>. 2020. <a href="https://pubmed.ncbi.nlm.nih.gov/32218059/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/32218059/</a></li><li>Hubal MJ, et al. Variability in muscle size and strength gain after unilateral resistance training. <em>Med Sci Sports Exerc</em>. 2005. <a href="https://pubmed.ncbi.nlm.nih.gov/15947721/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/15947721/</a></li><li>Currier BS, et al. American College of Sports Medicine Position Stand: Resistance Training Prescription for Muscle Function, Hypertrophy, and Physical Performance in Healthy Adults. <em>Med Sci Sports Exerc</em>. 2026. <a href="https://pubmed.ncbi.nlm.nih.gov/41843416/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/41843416/</a></li><li>Colenso-Semple LM, et al. Current evidence shows no influence of women's menstrual cycle phase on acute strength performance or adaptations to resistance exercise training. <em>Front Sports Act Living</em>. 2023. <a href="https://pubmed.ncbi.nlm.nih.gov/37033884/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/37033884/</a></li><li>Watson SL, et al. High-intensity resistance and impact training improves bone mineral density and physical function in postmenopausal women with osteopenia and osteoporosis: the LIFTMOR randomized controlled trial. <em>J Bone Miner Res</em>. 2018. <a href="https://pubmed.ncbi.nlm.nih.gov/28975661/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/28975661/</a></li><li>Morton RW, et al. A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength. <em>Br J Sports Med</em>. 2018. <a href="https://pubmed.ncbi.nlm.nih.gov/28698222/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/28698222/</a></li><li>Jäger R, et al. International Society of Sports Nutrition position stand: protein and exercise. <em>J Int Soc Sports Nutr</em>. 2017. <a href="https://pubmed.ncbi.nlm.nih.gov/28642676/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/28642676/</a></li></ol></div>
 <p class="emp-disclaimer">This plan is general education for healthy adults, not medical advice. If you have an injury, a heart, joint or blood-pressure condition, or you are pregnant or postpartum, check with your doctor or a physiotherapist before starting a new training program.</p>

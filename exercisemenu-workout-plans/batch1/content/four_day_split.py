@@ -12,30 +12,8 @@ PAGE = {
     "hero_meta": ["📅 4 days/week", "⏱ 60–75 min", "📊 Intermediate", "🏋️ Full gym"],
     "stats": [("4", "Training days"), ("2×", "Frequency/muscle"), ("10–14", "Sets/major muscle/wk"), ("8 wk", "Block length"), ("A/B", "Heavy + volume")],
     "quick_answer": "A good 4-day workout split trains each muscle twice a week, which keeps sessions shorter and helps strength. This plan alternates torso days (chest, back, shoulders) with limbs days (legs, biceps, triceps) on Monday, Tuesday, Thursday and Friday, using one heavier and one higher-rep version of each day.",
-    "intro": "<p>Four days a week is enough to train each muscle twice and still leave three rest days. But \"4-day split\" covers several layouts, and some of them train certain muscles only once.</p><p>This page gives you a complete torso/limbs program with every set and rep, then compares it with the other common 4-day splits so you can choose with confidence.</p>",
+    "intro": "<p>Use the day tabs to see each workout. After the workouts you'll find weekly sets, progression rules and how the other 4-day splits compare.</p>",
     "sections": [
-        ("options", "Which 4-Day Split Should You Choose?", f"""
-<p>All of the common 4-day layouts can build muscle. The differences are how often each muscle is trained, how long sessions run, and how much one missed day hurts the week.</p>
-{table(["4-day split", "Layout", "Frequency/muscle", "Best for"], [
-    ["Torso/Limbs (this plan)", "Torso A · Limbs A · Torso B · Limbs B", "2×", "Lifters who want arm and leg focus twice a week"],
-    ["Upper/Lower", "Upper · Lower · Upper · Lower", "2×", "Strength-focused lifters; simplest to run"],
-    ["PPL + Upper", "Push · Pull · Legs · Upper", "1–2×", "Lifters moving from PPL with only 4 days"],
-    ["4-day bro split", "Chest/Tri · Back/Bi · Legs · Shoulders/Arms", "1× direct", "Bodybuilding-style lifters who recover slowly"],
-    ["Full body ×4", "Full · Full · Full · Full", "4×", "Experienced lifters spreading volume thin"],
-])}
-{box("science", "🔬 Does frequency matter?", f"<p>A {cite('freq2016', '2016 meta-analysis')} found training a muscle twice a week grew it more than once a week. A larger {cite('pelland2026', '2026 meta-regression')} found frequency mattered little for growth once weekly sets were equal, but more frequent training did improve strength. Splitting sets over two sessions also keeps each workout shorter and fresher, which is the practical reason this plan uses 2× frequency.</p>")}
-<p>If you prefer a classic upper/lower layout, our {L('/workout-plans/upper-lower-split/', '4-day upper lower split')} covers it in full. If you want torso/limbs, keep reading.</p>
-"""),
-        ("who", "Who This 4-Day Split Is For", f"""
-<p>This plan suits lifters with 6+ months of consistent training who can bench, squat, row and hinge with good form. It fits people who:</p>
-<ul>
-<li>Can train four days, ideally Monday, Tuesday, Thursday and Friday.</li>
-<li>Want arms trained directly twice a week, alongside legs.</li>
-<li>Want strength and size together, through heavy A days and volume B days.</li>
-<li>Have 60–75 minutes per session.</li>
-</ul>
-{box("tip", "💡 Coach's note", f"<p>New to lifting? Start with a full-body plan for 3–6 months first. Full-body training gives you practice on each lift three times a week while you learn technique. Compare the two approaches in our {L('/upper-lower-split-vs-full-body/', 'upper/lower vs full body guide')}.</p>")}
-"""),
         ("schedule", "4-Day Workout Split Schedule", f"""
 <p>The week runs on two on, one off, two on, two off. Each muscle gets one heavy and one volume session with at least 72 hours between them.</p>
 {WEEK}
@@ -63,32 +41,39 @@ PAGE = {
 <p>The {cite('acsm2026', '2026 ACSM position stand')} ties greater hypertrophy to 10 or more weekly sets per muscle. Chest, back, quads, biceps and triceps clear that mark. If rear delts or calves are a priority, add 2 sets of face pulls to Torso A and 2 sets of calf raises to Limbs A. See {L('/how-many-sets-per-muscle-group-per-week/', 'how many sets per muscle group per week')} to fine-tune.</p>
 """),
         ("progression", "Progression Rules", f"""
-<p>Each rotation progresses differently, a simple application of {L('/what-is-progressive-overload/', 'progressive overload')}.</p>
-<h3>A days (heavy)</h3>
-<ol class="emp-steps">
-<li>Start week 1 at a load you could lift for about 2 more reps than the top of the range.</li>
-<li>When every set reaches the top of the range (e.g., 4 × 7 on bench) at RIR 2 or more, add 2.5 kg to upper-body lifts or 5 kg to squats.</li>
-<li>If you miss the bottom of the range on two straight sessions, drop the load 5–10% and build back up.</li>
-</ol>
-<h3>B days (volume)</h3>
-<p>Use double progression: add reps until every set hits the top of the range at the listed RIR, then add the smallest available load. The {cite('acsm2009', 'ACSM progression model')} recommends 2–10% load jumps once you exceed the target reps by one or two.</p>
-<p>Track every session; a training log is the most reliable way to know the plan is working. The {L('/how-to-track-your-workouts/', 'workout tracking guide')} shows a simple format.</p>
+<p><strong>A days (heavy):</strong> when every set reaches the top of the range at RIR 2 (e.g., 4 × 7 on bench), add 2.5 kg to upper-body lifts or 5 kg to squats. If you miss the bottom of the range two sessions in a row, drop the load 5–10% and build back up.</p>
+<p><strong>B days (volume):</strong> add reps until every set reaches the top of the range, then add the smallest available load. The {cite('acsm2009', 'ACSM progression model')} recommends 2–10% load jumps once you exceed the target reps by one or two. Log every session; the {L('/how-to-track-your-workouts/', 'workout tracking guide')} shows a simple format, and {L('/what-is-progressive-overload/', 'progressive overload')} explains the principle.</p>
 """),
         ("deload", "Deload and Long-Term Plan", f"""
 <p>Train weeks 1–7 as written, then deload in week 8. Keep the same four days and exercises, cut sets by about half, and stop every set at RIR 3–4. A {cite('delphi2023', 'Delphi consensus of coaches and researchers')} defines a deload as a planned period of reduced training stress to manage fatigue and prepare for the next block.</p>
 <p>After the deload, start block two with loads about 2.5–5% heavier than block one's week 1. Swap 1–2 accessory exercises per day if they feel stale, but keep the main lifts so progress stays measurable. Our {L('/what-is-a-deload-week/', 'deload week guide')} covers signs you need one earlier.</p>
+"""),
+        ("options", "Which 4-Day Split Should You Choose?", f"""
+{table(["4-day split", "Layout", "Frequency/muscle", "Best for"], [
+    ["Torso/Limbs (this plan)", "Torso A · Limbs A · Torso B · Limbs B", "2×", "Arms and legs trained twice a week"],
+    ["Upper/Lower", "Upper · Lower · Upper · Lower", "2×", "Strength focus; simplest to run"],
+    ["PPL + Upper", "Push · Pull · Legs · Upper", "1–2×", "Lifters moving from PPL with 4 days"],
+    ["4-day bro split", "Chest/Tri · Back/Bi · Legs · Shoulders/Arms", "1× direct", "One muscle group per session"],
+])}
+<p>All of these can build muscle. A {cite('freq2016', '2016 meta-analysis')} found twice-weekly training grew muscle more than once a week, while a {cite('pelland2026', '2026 meta-regression')} found frequency mattered little for growth once weekly sets were equal but did help strength. For the classic layout, see our {L('/workout-plans/upper-lower-split/', '4-day upper lower split')}.</p>
+"""),
+        ("who", "Who This 4-Day Split Is For", f"""
+<ul>
+<li>6+ months of consistent training with good form on the bench press, squat, row and hinge.</li>
+<li>Four training days (ideally Monday, Tuesday, Thursday, Friday) and 60–75 minutes per session.</li>
+<li>You want strength and size together, with arms trained directly twice a week.</li>
+</ul>
+<p>New to lifting? Start with a full-body plan for 3–6 months; our {L('/upper-lower-split-vs-full-body/', 'upper/lower vs full body guide')} compares the two.</p>
 """),
         ("nutrition", "What to Eat on This Plan", f"""
 <p>Muscle gains from protein plateaued at intakes around 1.6 g/kg/day in a {cite('protein2018', 'meta-analysis of 49 trials')}, and a {cite('offseason2019', 'review of off-season bodybuilding nutrition')} recommends a slow gain of 0.25–0.5% of body weight per week to limit fat gain. If you want to lose fat while running this plan, keep protein high and keep the training loads; the program itself does not need to change. Work out your number with the {L('/protein-calculator/', 'protein calculator')}.</p>
 """),
         ("mistakes", "Mistakes That Stall a 4-Day Split", f"""
 <ul>
-<li><strong>Stacking Torso A and Torso B on consecutive days.</strong> Pressing and rowing two days in a row can leave the second session under-recovered.</li>
-<li><strong>Rushing rests on heavy lifts.</strong> Trained lifters gained more strength with {cite('rest2018', 'rests longer than 2 minutes')}. Keep 2–3 minutes on A-day compounds.</li>
-<li><strong>Treating arm work as an afterthought.</strong> On limbs days, arms come after legs, so keep arm sets controlled and close to the listed RIR rather than rushing them.</li>
-<li><strong>Changing exercises every week.</strong> Constant novelty makes it impossible to see progress. Keep the main lifts for the full 8-week block.</li>
+<li><strong>Torso A and Torso B on back-to-back days.</strong> The second session is usually weaker.</li>
+<li><strong>Short rests on heavy lifts.</strong> Trained lifters gained more strength with {cite('rest2018', 'rests longer than 2 minutes')}; keep 2–3 minutes on A-day compounds.</li>
+<li><strong>Changing exercises every week.</strong> Keep the main lifts for the full 8-week block so you can see progress.</li>
 </ul>
-<p>When progress slows across a whole block, check total weekly sets, sleep and food before changing the split.</p>
 """),
     ],
     "schedule": [("Mon", "Torso A", "c1"), ("Tue", "Limbs A", "c3"), ("Wed", "Rest", "rest"), ("Thu", "Torso B", "c2"), ("Fri", "Limbs B", "c6"), ("Sat", "Rest", "rest"), ("Sun", "Rest", "rest")],

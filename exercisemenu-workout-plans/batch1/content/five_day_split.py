@@ -12,28 +12,8 @@ PAGE = {
     "hero_meta": ["📅 5 days/week", "⏱ 45–70 min", "📊 Intermediate", "🏋️ Full gym"],
     "stats": [("5", "Training days"), ("2×", "Frequency/muscle"), ("11–14", "Sets/major muscle/wk"), ("8 wk", "Block length"), ("29", "Exercises")],
     "quick_answer": "This 5 day workout split runs Upper and Lower on Monday and Tuesday with heavier 5–8 rep work, rests Wednesday, then runs Push, Pull and Legs Thursday to Saturday with 8–15 rep hypertrophy work. Each muscle is trained twice a week with about 11–14 weekly sets for most major groups.",
-    "intro": "<p>Many popular 5 day workout split routines are body-part splits: chest Monday, back Tuesday and so on. That works, but it trains each muscle once a week. With five days you can train each muscle twice, which keeps sessions shorter and helps strength.</p><p>This plan uses a hybrid known as ULPPL: Upper, Lower, Push, Pull, Legs. Below are the full workouts, the weekly volume per muscle, and the rules for progressing and deloading.</p>",
+    "intro": "<p>Use the day tabs to see each workout. Weekly sets, progression and deload rules follow the workouts.</p>",
     "sections": [
-        ("why", "Why Choose a Hybrid 5-Day Split?", f"""
-<p>A {cite('freq2016', 'meta-analysis on training frequency')} found muscles trained twice a week grew more than muscles trained once. More recent work in the {cite('pelland2026', 'Pelland 2026 meta-regression')} suggests weekly volume explains most of that effect, while extra frequency still helps strength. Either way, splitting your weekly sets across two sessions keeps each session shorter and each set fresher.</p>
-{table(["", "Classic 5-day bro split", "5-day hybrid (this plan)"], [
-    ["Layout", "Chest · Back · Shoulders · Legs · Arms", "Upper · Lower · Push · Pull · Legs"],
-    ["Direct hits per muscle", "1×", "2×"],
-    ["Rep focus", "Varies by program", "Heavy (5–8) + volume (8–15)"],
-    ["Leg sessions per week", "1", "2"],
-    ["Best for", "Bodybuilding-style lifters who like single-muscle days", "Lifters who want strength and size together"],
-])}
-<p>If you prefer one muscle group per day, our {L('/workout-plans/bro-split/', 'bro split workout plan')} covers that approach with the same attention to weekly volume.</p>
-"""),
-        ("who", "Who This 5-Day Split Is For", f"""
-<ul>
-<li>You have trained consistently for at least a year and know the main barbell lifts.</li>
-<li>You can commit to five sessions of 45–70 minutes.</li>
-<li>You want strength numbers to rise while adding size.</li>
-<li>You have outgrown a 3- or 4-day program and need more weekly volume.</li>
-</ul>
-{box("tip", "💡 Coach's note", f"<p>Five days is a big commitment. If you regularly miss one session a week, a 4-day plan you finish beats a 5-day plan you half-finish. See {L('/how-to-create-a-weekly-workout-schedule/', 'how to create a weekly workout schedule')} for help choosing.</p>")}
-"""),
         ("schedule", "The 5-Day Workout Split Schedule", f"""
 {WEEK}
 {table(["Day", "Focus", "Rep range", "Rest (compounds)"], [
@@ -75,6 +55,26 @@ PAGE = {
 """),
         ("deload", "Deload Protocol", f"""
 <p>Run weeks 1–7 as written, then deload in week 8: same five days, same exercises, about half the sets, RIR 3–4 on everything. In a {cite('deload2024', 'survey on deloading')}, athletes deloaded roughly every 5–6 weeks for about a week, mostly by reducing sets and reps. If you feel run down sooner, deload sooner. Full guidance is in the {L('/what-is-a-deload-week/', 'deload week guide')}.</p>
+"""),
+        ("why", "Why Choose a Hybrid 5-Day Split?", f"""
+<p>A {cite('freq2016', 'meta-analysis on training frequency')} found muscles trained twice a week grew more than muscles trained once. More recent work in the {cite('pelland2026', 'Pelland 2026 meta-regression')} suggests weekly volume explains most of that effect, while extra frequency still helps strength. Either way, splitting your weekly sets across two sessions keeps each session shorter and each set fresher.</p>
+{table(["", "Classic 5-day bro split", "5-day hybrid (this plan)"], [
+    ["Layout", "Chest · Back · Shoulders · Legs · Arms", "Upper · Lower · Push · Pull · Legs"],
+    ["Direct hits per muscle", "1×", "2×"],
+    ["Rep focus", "Varies by program", "Heavy (5–8) + volume (8–15)"],
+    ["Leg sessions per week", "1", "2"],
+    ["Best for", "Bodybuilding-style lifters who like single-muscle days", "Lifters who want strength and size together"],
+])}
+<p>If you prefer one muscle group per day, our {L('/workout-plans/bro-split/', 'bro split workout plan')} covers that approach with the same attention to weekly volume.</p>
+"""),
+        ("who", "Who This 5-Day Split Is For", f"""
+<ul>
+<li>You have trained consistently for at least a year and know the main barbell lifts.</li>
+<li>You can commit to five sessions of 45–70 minutes.</li>
+<li>You want strength numbers to rise while adding size.</li>
+<li>You have outgrown a 3- or 4-day program and need more weekly volume.</li>
+</ul>
+{box("tip", "💡 Coach's note", f"<p>Five days is a big commitment. If you regularly miss one session a week, a 4-day plan you finish beats a 5-day plan you half-finish. See {L('/how-to-create-a-weekly-workout-schedule/', 'how to create a weekly workout schedule')} for help choosing.</p>")}
 """),
         ("nutrition", "Nutrition and Recovery", f"""
 <p>Eat about 1.6–2.2 g of protein per kg of body weight daily; gains plateaued around 1.62 g/kg in a {cite('protein2018', 'meta-analysis of 49 trials')}. To build muscle, aim for a modest surplus and a weight gain of 0.25–0.5% of body weight per week, as recommended in a {cite('offseason2019', 'review of off-season nutrition')}. Sleep 7–9 hours: five training days leave little margin for short nights. Get your number from the {L('/protein-calculator/', 'protein calculator')}.</p>

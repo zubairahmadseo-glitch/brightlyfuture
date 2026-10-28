@@ -43,13 +43,6 @@
 .emp .emp-warn{background:var(--emp-amber-bg);border:1px solid #fde68a}
 .emp .emp-warn .emp-label{color:var(--emp-amber)}
 .emp .emp-science p:last-child,.emp .emp-tip p:last-child,.emp .emp-warn p:last-child{margin:0}
-/* toc */
-.emp .emp-toc{background:var(--emp-alt);border:1px solid var(--emp-line);border-radius:var(--emp-r);padding:16px 20px;margin:0 0 8px}
-.emp .emp-toc summary{cursor:pointer;font-weight:700;color:var(--emp-ink);font-size:.95rem}
-.emp .emp-toc ol{columns:2;column-gap:28px;margin:12px 0 0 1.2rem;font-size:.92rem}
-.emp .emp-toc a{color:var(--emp-text);text-decoration:none}
-.emp .emp-toc a:hover{color:var(--emp-accent-d);text-decoration:underline}
-@media (max-width:640px){.emp .emp-toc ol{columns:1}}
 /* weekly schedule */
 .emp .emp-week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin:18px 0}
 @media (max-width:640px){.emp .emp-week{grid-template-columns:repeat(4,1fr)}}
@@ -133,6 +126,19 @@
 .emp .emp-refs ol{margin-left:1.2rem}
 .emp .emp-refs a{color:var(--emp-muted)}
 .emp .emp-disclaimer{font-size:.85rem;color:var(--emp-muted);border-top:1px solid var(--emp-line);padding-top:14px;margin-top:8px}
+/* jump button + chips */
+.emp a.emp-jump{display:inline-block;margin-top:16px;background:var(--emp-accent);color:#fff;text-decoration:none;font-weight:700;padding:10px 20px;border-radius:30px;font-size:.92rem}
+.emp a.emp-jump:hover{background:var(--emp-accent-d);color:#fff}
+.emp .emp-chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 6px;font-size:.84rem}
+.emp .emp-chips span{font-weight:700;color:var(--emp-muted);margin-right:2px}
+.emp .emp-chips a{border:1px solid var(--emp-line);background:var(--emp-alt);border-radius:20px;padding:4px 11px;color:var(--emp-ink);text-decoration:none}
+.emp .emp-chips a:hover{border-color:var(--emp-accent);color:var(--emp-accent-d)}
+/* author box */
+.emp .emp-author{display:flex;gap:16px;align-items:flex-start;background:var(--emp-alt);border:1px solid var(--emp-line);border-radius:var(--emp-r);padding:18px 20px;margin:24px 0}
+.emp .emp-author-av{flex:0 0 56px;height:56px;border-radius:50%;background:var(--emp-accent);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.emp .emp-author p{margin:0 0 6px;font-size:.92rem}
+.emp .emp-author p.emp-author-n{font-weight:700;color:var(--emp-ink);font-size:1rem;margin:0}
+.emp .emp-author p.emp-author-c{color:var(--emp-muted);font-size:.8rem;margin:0 0 8px}
 </style>
 
 
@@ -142,37 +148,12 @@
 <span class="emp-badge">Hardgainer Plan</span>
 <p class="emp-hero-lead">If you train but the scale never moves, food is often the missing piece. This workout plan for skinny guys keeps sessions short and compound-focused, and pairs them with an eating plan built for people who are full after half a plate.</p>
 <ul class="emp-hero-meta"><li>📅 3 days/week</li><li>⏱ 45–55 min</li><li>📊 Beginner–Intermediate</li><li>🏋️ Gym</li><li>📄 Last reviewed: October 2026</li></ul>
+<a class="emp-jump" href="#workouts">See the workouts ↓</a>
 </div>
 <div class="emp-stats"><div class="emp-stat"><div class="emp-stat-v">3</div><div class="emp-stat-l">Training days</div></div><div class="emp-stat"><div class="emp-stat-v">45–55</div><div class="emp-stat-l">Minutes/session</div></div><div class="emp-stat"><div class="emp-stat-v">18</div><div class="emp-stat-l">Exercises</div></div><div class="emp-stat"><div class="emp-stat-v">~0.5%</div><div class="emp-stat-l">BW gain/week target</div></div><div class="emp-stat"><div class="emp-stat-v">4–5</div><div class="emp-stat-l">Meals/day</div></div></div>
 <div class="emp-answer"><span class="emp-label">Quick answer</span><p>A good workout plan for skinny guys is three 45–55 minute sessions a week (upper, lower and full body) built on compound lifts that add weight steadily, combined with a calorie surplus of about 10–20%. The training builds muscle; eating enough to gain about 0.5% of body weight per week makes it show.</p></div>
-<p>Skinny guys usually get the same advice: "just eat more." It's correct but useless without a plan. Low appetite, fast metabolism claims and busy days all get in the way, and some skinny lifters respond by training longer and harder, which burns even more calories.</p><p>This plan takes the opposite approach. Training is short and built on compound lifts that work several large muscles at once. The eating section gives practical ways to add 300–700 calories a day without forcing down huge meals.</p>
-<details class="emp-toc" open><summary>In this plan</summary><ol><li><a href="#why">Why Skinny Guys Struggle to Gain</a></li><li><a href="#who">Who This Plan Is For</a></li><li><a href="#schedule">Weekly Schedule</a></li><li><a href="#workouts">The 3-Day Workouts</a></li><li><a href="#progression">Progression: Add Weight, Then Reps</a></li><li><a href="#eating">The Eating Plan for Skinny Guys</a></li><li><a href="#cardio">Cardio, Sleep and Daily Activity</a></li><li><a href="#mistakes">Mistakes That Keep Skinny Guys Skinny</a></li><li><a href="#faq">FAQ</a></li></ol></details>
-</div>
-
-
-
-<div class="emp">
-<section class="emp-section" id="why">
-<h2>Why Skinny Guys Struggle to Gain</h2>
-<p>First, people do respond differently to training. In a <a href="https://pubmed.ncbi.nlm.nih.gov/15947721/" rel="noopener" target="_blank">study of 585 men and women</a> following the same 12-week arm program, muscle size changes ranged from −2% to +59%. Individual differences are real.</p>
-<p>Second, you cannot keep gaining weight without eating more energy than you burn. A <a href="https://pubmed.ncbi.nlm.nih.gov/31482093/" rel="noopener" target="_blank">2019 review</a> concluded an energy surplus provides an anabolic stimulus on its own and supports muscle growth from training. For many skinny lifters, the part they can change is calorie intake, which often never reaches a real surplus.</p>
-<div class="emp-tip"><span class="emp-label">💡 Quick test</span><p>Log everything you eat for 7 days and weigh yourself each morning. If weight is flat, your average intake is your maintenance. Many self-described hardgainers find they eat less than they thought, especially on busy days.</p></div>
-</section>
-</div>
-
-
-
-<div class="emp">
-<section class="emp-section" id="who">
-<h2>Who This Plan Is For</h2>
-<ul>
-<li>You are lean or underweight and want to add muscle and body weight.</li>
-<li>You have 0–18 months of lifting experience.</li>
-<li>You can train three days a week for 45–55 minutes.</li>
-<li>You have struggled to gain on longer, high-volume routines.</li>
-</ul>
-<p>If you are completely new to the gym, the first two weeks of this plan double as technique practice. Start light, learn each movement, and build from there. The <a href="https://exercisemenu.com/how-many-reps-and-sets-should-a-beginner-do/">beginner reps and sets guide</a> explains why starting easy pays off.</p>
-</section>
+<p>Use the day tabs to see each workout. The eating plan right after the workouts matters as much as the training.</p>
+<nav class="emp-chips" aria-label="Jump to a section"><span>Jump to:</span><a href="#schedule">Schedule</a><a href="#workouts">Workouts</a><a href="#progression">Progression</a><a href="#eating">Eating plan</a><a href="#why">Why it works</a><a href="#who">Who it&#x27;s for</a><a href="#cardio">Cardio &amp; sleep</a><a href="#mistakes">Mistakes</a><a href="#faq">FAQ</a></nav>
 </div>
 
 
@@ -291,6 +272,32 @@
 
 
 <div class="emp">
+<section class="emp-section" id="why">
+<h2>Why Skinny Guys Struggle to Gain</h2>
+<p>First, people do respond differently to training. In a <a href="https://pubmed.ncbi.nlm.nih.gov/15947721/" rel="noopener" target="_blank">study of 585 men and women</a> following the same 12-week arm program, muscle size changes ranged from −2% to +59%. Individual differences are real.</p>
+<p>Second, you cannot keep gaining weight without eating more energy than you burn. A <a href="https://pubmed.ncbi.nlm.nih.gov/31482093/" rel="noopener" target="_blank">2019 review</a> concluded an energy surplus provides an anabolic stimulus on its own and supports muscle growth from training. For many skinny lifters, the part they can change is calorie intake, which often never reaches a real surplus.</p>
+<div class="emp-tip"><span class="emp-label">💡 Quick test</span><p>Log everything you eat for 7 days and weigh yourself each morning. If weight is flat, your average intake is your maintenance. Many self-described hardgainers find they eat less than they thought, especially on busy days.</p></div>
+</section>
+</div>
+
+
+
+<div class="emp">
+<section class="emp-section" id="who">
+<h2>Who This Plan Is For</h2>
+<ul>
+<li>You are lean or underweight and want to add muscle and body weight.</li>
+<li>You have 0–18 months of lifting experience.</li>
+<li>You can train three days a week for 45–55 minutes.</li>
+<li>You have struggled to gain on longer, high-volume routines.</li>
+</ul>
+<p>If you are completely new to the gym, the first two weeks of this plan double as technique practice. Start light, learn each movement, and build from there. The <a href="https://exercisemenu.com/how-many-reps-and-sets-should-a-beginner-do/">beginner reps and sets guide</a> explains why starting easy pays off.</p>
+</section>
+</div>
+
+
+
+<div class="emp">
 <section class="emp-section" id="cardio">
 <h2>Cardio, Sleep and Daily Activity</h2>
 <p>You do not need to stop cardio. Two 20–30 minute easy sessions a week keep your heart and lungs fit. If your weight trend stalls, eat more rather than dropping all activity. Long, hard conditioning sessions are the ones to limit, since they burn the calories you are trying to store.</p>
@@ -330,9 +337,20 @@
 
 
 <div class="emp">
+<aside class="emp-author" aria-label="About the author">
+<div class="emp-author-av" aria-hidden="true">SB</div>
+<div><p class="emp-author-n">Sadia Baloch</p>
+<p class="emp-author-c">FISAF-certified fitness trainer</p>
+<p>Sadia Baloch is a FISAF-certified fitness trainer who has personally coached hundreds of clients over the past 7 years. She specializes in strength training, fat loss, and workout programming for beginners through intermediate lifters. Every article on ExerciseMenu.com is based on the same methods she uses with her in-person clients daily.</p></div>
+</aside>
+</div>
+
+
+
+<div class="emp">
 <section class="emp-section" id="related-plans">
 <h2>Related Workout Plans</h2>
-<div class="emp-related"><a class="emp-card" href="https://exercisemenu.com/workout-plans/lean-bulk-workout-plan/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">12-Week Lean Bulk Workout Plan</span><span class="emp-card-d">Three training phases matched to a small calorie surplus.</span><span class="emp-card-m">4 days · Intermediate</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/full-body-workout-plan/"><span class="emp-card-tag">Beginner</span><span class="emp-card-t">Full Body Workout Plan for Beginners</span><span class="emp-card-d">Three full-body gym sessions a week for people new to lifting.</span><span class="emp-card-m">3 days · Beginner</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/beginner-strength-training-program/"><span class="emp-card-tag">Strength</span><span class="emp-card-t">Beginner Strength Training Program</span><span class="emp-card-d">12 weeks of linear progression on the main lifts.</span><span class="emp-card-m">3 days · Beginner</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/5x5-workout/"><span class="emp-card-tag">Strength</span><span class="emp-card-t">5×5 Strength &amp; Muscle Program</span><span class="emp-card-d">Five sets of five on the big barbell lifts.</span><span class="emp-card-m">Strength · Barbell</span></a></div>
+<div class="emp-related"><a class="emp-card" href="https://exercisemenu.com/workout-plans/lean-bulk-workout-plan/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">12-Week Lean Bulk Workout Plan</span><span class="emp-card-d">Three training phases matched to a small calorie surplus.</span><span class="emp-card-m">4 days · Intermediate</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/full-body-workout-plan/"><span class="emp-card-tag">Beginner</span><span class="emp-card-t">Full Body Workout Plan for Beginners</span><span class="emp-card-d">Three full-body gym days led by the squat, bench press and deadlift.</span><span class="emp-card-m">3 days · Beginner</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/beginner-strength-training-program/"><span class="emp-card-tag">Strength</span><span class="emp-card-t">Beginner Strength Training Program</span><span class="emp-card-d">12 weeks of linear progression on the main lifts.</span><span class="emp-card-m">3 days · Beginner</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/5x5-workout/"><span class="emp-card-tag">Strength</span><span class="emp-card-t">5×5 Strength &amp; Muscle Program</span><span class="emp-card-d">Two alternating barbell workouts, adding weight every session.</span><span class="emp-card-m">3 days · Beginner</span></a></div>
 </section>
 <div class="emp-refs"><h3>References</h3><ol><li>Hubal MJ, et al. Variability in muscle size and strength gain after unilateral resistance training. <em>Med Sci Sports Exerc</em>. 2005. <a href="https://pubmed.ncbi.nlm.nih.gov/15947721/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/15947721/</a></li><li>Slater GJ, et al. Is an energy surplus required to maximize skeletal muscle hypertrophy associated with resistance training? <em>Front Nutr</em>. 2019. <a href="https://pubmed.ncbi.nlm.nih.gov/31482093/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/31482093/</a></li><li>Currier BS, et al. American College of Sports Medicine Position Stand: Resistance Training Prescription for Muscle Function, Hypertrophy, and Physical Performance in Healthy Adults. <em>Med Sci Sports Exerc</em>. 2026. <a href="https://pubmed.ncbi.nlm.nih.gov/41843416/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/41843416/</a></li><li>American College of Sports Medicine. Position stand: Progression models in resistance training for healthy adults. <em>Med Sci Sports Exerc</em>. 2009. <a href="https://pubmed.ncbi.nlm.nih.gov/19204579/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/19204579/</a></li><li>Iraki J, et al. Nutrition recommendations for bodybuilders in the off-season: a narrative review. <em>Sports (Basel)</em>. 2019. <a href="https://pubmed.ncbi.nlm.nih.gov/31247944/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/31247944/</a></li><li>Morton RW, et al. A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength. <em>Br J Sports Med</em>. 2018. <a href="https://pubmed.ncbi.nlm.nih.gov/28698222/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/28698222/</a></li><li>Kreider RB, et al. International Society of Sports Nutrition position stand: safety and efficacy of creatine supplementation in exercise, sport, and medicine. <em>J Int Soc Sports Nutr</em>. 2017. <a href="https://pubmed.ncbi.nlm.nih.gov/28615996/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/28615996/</a></li></ol></div>
 <p class="emp-disclaimer">This plan is general education for healthy adults, not medical advice. If you have an injury, a heart, joint or blood-pressure condition, or you are pregnant or postpartum, check with your doctor or a physiotherapist before starting a new training program.</p>

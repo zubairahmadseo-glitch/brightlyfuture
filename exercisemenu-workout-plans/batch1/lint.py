@@ -25,6 +25,10 @@ for m in [m for m in PAGES if pathlib.Path("content", m + ".py").exists()]:
     for v, lab in p["stats"]:
         if "xercise" in lab and v != str(uniq): probs.append(f"exercise stat {v} != {uniq}")
     if re.search(r"\{(L|cite|box|table)\(|\{\{(WEEK|TABS)\}\}", html): probs.append("UNRENDERED TEMPLATE CODE")
+    body_html = re.sub(r'<div class="emp-refs">.*?</ol></div>', "", html, flags=re.S)
+    for _, url in p["refs"]:
+        if url not in body_html: probs.append("ref not cited in body: " + url)
+    if 'id="workouts"' not in html: probs.append("no #workouts section")
     low = " " + text.lower() + " "
     for b in BANNED:
         if re.search(r"\b" + re.escape(b) + r"\b", low): probs.append("banned:" + b)

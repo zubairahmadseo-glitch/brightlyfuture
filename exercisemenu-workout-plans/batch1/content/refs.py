@@ -37,6 +37,9 @@ R = {
     "wolf2025": ("Wolf M, et al. Lengthened partial repetitions elicit similar muscular adaptations as full range of motion repetitions during resistance training in trained individuals. <em>PeerJ</em>. 2025.", PM + "39959841/"),
     "dropset2026": ("Havers T, et al. Acute and chronic effects of drop-set training: a meta-analysis and systematic review. <em>Sports Med Open</em>. 2026.", PM + "41920484/"),
     "advanced2026": ("Tsartsapakis I, et al. Effects of advanced resistance training systems on muscle hypertrophy and strength in recreationally trained adults: a systematic review and meta-analysis. <em>J Funct Morphol Kinesiol</em>. 2026.", PM + "41718208/"),
+    "radaelli2015": ("Radaelli R, et al. Dose-response of 1, 3, and 5 sets of resistance exercise on strength, local muscular endurance, and hypertrophy. <em>J Strength Cond Res</em>. 2015.", PM + "25546444/"),
+    "seynnes2007": ("Seynnes OR, de Boer M, Narici MV. Early skeletal muscle hypertrophy and architectural changes in response to high-intensity resistance training. <em>J Appl Physiol</em>. 2007.", PM + "17053104/"),
+    "ralston2017": ("Ralston GW, et al. The effect of weekly set volume on strength gain: a meta-analysis. <em>Sports Med</em>. 2017.", PM + "28755103/"),
 }
 
 

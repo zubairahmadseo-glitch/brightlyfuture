@@ -12,25 +12,8 @@ PAGE = {
     "hero_meta": ["📅 5 days/week", "⏱ 55–75 min", "📊 Intermediate", "🏋️ Full gym"],
     "stats": [("5", "Training days"), ("30", "Exercises"), ("9–16", "Sets/major muscle/wk"), ("8 wk", "Block length"), ("1×", "Direct hits/muscle")],
     "quick_answer": "A bro split trains one main muscle group per session: chest Monday, back Tuesday, shoulders Wednesday, legs Thursday and arms Friday. Each muscle gets one hard, high-volume session plus indirect work from the other days. It suits intermediate lifters who can train five days a week.",
-    "intro": "<p>Many bro split routines online cram a huge number of chest sets into one day and leave hamstrings, rear delts and calves under-trained. Built with the right weekly volume, a bro split workout plan builds muscle as well as other splits.</p><p>Below you get the full 5-day schedule, every exercise with sets, reps, rest and effort targets, a weekly volume audit, and the progression and deload rules that keep the plan working past the first month.</p>",
+    "intro": "<p>Use the day tabs to see each workout. Weekly sets, progression, deloads and FAQs follow the workouts.</p>",
     "sections": [
-        ("what-is", "What Is a Bro Split Workout Plan?", f"""
-<p>A bro split is a body-part split: each training day targets one major muscle group (sometimes two small ones) with several exercises from different angles.</p>
-<p>The appeal is focus. You can push one muscle hard with 12–16 sets, use machines and cables that suit that muscle, and leave with a strong pump. The trade-off is frequency: each muscle gets one direct session per week.</p>
-{box("science", "🔬 What the research says", f"<p>A {cite('freq2016', '2016 meta-analysis')} found that training a muscle twice a week produced more growth than once a week. Newer, larger analyses refine that picture. A {cite('split2024', '2024 meta-analysis of 14 studies')} found split and full-body routines produced similar strength and size gains when weekly volume was equal, and a {cite('pelland2026', '2026 dose-response meta-regression')} found frequency had little effect on growth once volume was accounted for. So a bro split works, as long as total weekly sets are high enough.</p>")}
-<p>That is why this plan counts sets carefully, including the work each muscle gets on other days.</p>
-"""),
-        ("who", "Who Should Use This 5-Day Bro Split?", f"""
-<p>This plan fits lifters who have trained consistently for at least 6–12 months and can perform the bench press, squat, row and overhead press with stable technique. Beginners progress faster with full-body training, where each lift is practiced several times a week.</p>
-<ul>
-<li>You can train <strong>five days a week</strong> and want sessions under 75 minutes.</li>
-<li>You enjoy machine and cable work and a muscle-focused training style.</li>
-<li>Your recovery suits one hard session per muscle, then several days off it.</li>
-<li>You want a change of stimulus after months of a {L('/push-pull-legs-split/', 'push pull legs split')} or upper/lower routine.</li>
-</ul>
-{box("tip", "💡 Coach's note", f"<p>If you can only commit to four days, skip this plan. Missing one day of a bro split removes a muscle group for the whole week. Our {L('/workout-plans/4-day-workout-split/', '4-day workout split')} trains everything twice and is more forgiving.</p>")}
-<p>If that profile fits, the next step is the weekly layout, because the order of days matters more on a bro split than on most programs.</p>
-"""),
         ("schedule", "Bro Split Schedule: The Weekly Layout", f"""
 <p>The plan runs Monday to Friday with the weekend off. The order is built around overlap: muscles that assist on one day (triceps on chest day, biceps on back day) get at least 48 hours before their own session.</p>
 {WEEK}
@@ -49,8 +32,7 @@ PAGE = {
 {TABS}
 {box("science", "🔬 Why the rest periods differ", f"<p>In a study of trained men, {cite('rest2016', '3-minute rests produced more strength and quad growth than 1-minute rests')} on the same program. A {cite('restsys2017', 'systematic review')} concluded both short and long rests can build muscle, with a possible edge for longer rests in trained lifters. That is why the heavy compound lifts here use 2–3 minutes and the isolation work uses 60–90 seconds.</p>")}
 """),
-        ("volume", "Weekly Volume per Muscle Group", f"""
-<p>Hard sets per muscle per week is one of the most useful numbers for judging a hypertrophy plan. The table counts direct sets fully and indirect sets (for example, triceps during bench press) at half value, the method that best predicted growth in the {cite('pelland2026', 'Pelland 2026 meta-regression')}.</p>
+        ("volume", "Weekly Sets per Muscle", f"""
 {table(["Muscle", "Direct sets", "Indirect (×0.5)", "Weekly total"], [
     ["Chest", "13", "Close-grip bench 3 → 1.5", "≈ 14.5"],
     ["Lats & mid-back", "14", "–", "14"],
@@ -63,18 +45,10 @@ PAGE = {
     ["Hamstrings", "8", "Back extension 3 → 1.5", "≈ 9.5"],
     ["Calves", "7 (2 sessions)", "–", "7"],
 ])}
-<p>The {cite('acsm2026', '2026 ACSM position stand')} links hypertrophy with 10 or more sets per muscle per week, and an {cite('vol2017', 'earlier dose-response meta-analysis')} showed growth keeps rising as sets increase. Chest, back, biceps, triceps and quads sit at 10–16 sets. Delts and hamstrings sit just under 10, and calves at 7. If one of these is a priority, add two sets to its session instead of adding a sixth day. Our {L('/how-many-sets-per-muscle-group-per-week/', 'sets per muscle group guide')} explains how to adjust from there.</p>
-{box("warn", "⚠️ More sets on one day is not always better", "<p>Stacking 20+ sets for one muscle into a single session usually means the last sets are done tired and with poor technique. If you want more chest or back volume, move it to a second day (for example, two sets of push-ups or pulldowns at the end of shoulder day) instead of extending one session.</p>")}
+<p>Indirect sets count as half, the method that best fit the data in the {cite('pelland2026', 'Pelland 2026 meta-regression')}. The {cite('acsm2026', '2026 ACSM position stand')} links hypertrophy with 10 or more sets per muscle per week, and {cite('vol2017', 'growth kept rising with more sets')} in an earlier meta-analysis. To bring up delts, hamstrings or calves, add two sets to their session rather than a sixth day; piling 20+ sets for one muscle into a single session mostly adds tired, low-quality sets. See {L('/how-many-sets-per-muscle-group-per-week/', 'sets per muscle group')} for more.</p>
 """),
         ("progression", "How to Progress: Double Progression", f"""
-<p>Every exercise uses a rep range. Stay at one weight until you hit the top of the range on all sets at the listed RIR, then add load and work back up. This is double progression, a simple form of {L('/what-is-progressive-overload/', 'progressive overload')}.</p>
-<ol class="emp-steps">
-<li><strong>Start conservatively.</strong> In week 1, choose loads that leave 3 reps in reserve. You are learning the exercise order and machine settings.</li>
-<li><strong>Build reps.</strong> Example: Bench press 4 × 6–8 at 80 kg. Week 2: 8, 7, 7, 6. Week 3: 8, 8, 7, 7. Week 4: 8, 8, 8, 8.</li>
-<li><strong>Add load.</strong> Once all sets hit 8, add the smallest jump available (2.5 kg on barbells, 1–2 kg per dumbbell) and restart near 6 reps. The {cite('acsm2009', 'ACSM progression guidelines')} suggest a 2–10% load increase once you can do one or two reps beyond the target.</li>
-<li><strong>Log it.</strong> Write down weight, reps and RIR for every set.</li>
-</ol>
-<p>Isolation moves progress slower than compound lifts. A lateral raise may stay at the same dumbbell for 3–4 weeks while reps climb, and that still counts as progress.</p>
+<p>Stay at one weight until every set reaches the top of the rep range at the listed RIR, then add the smallest jump available (2.5 kg on barbells, 1–2 kg per dumbbell) and work back up. Example, bench press 4 × 6–8 at 80 kg: week 2 = 8, 7, 7, 6; week 3 = 8, 8, 7, 7; week 4 = 8, 8, 8, 8 → add 2.5 kg. The {cite('acsm2009', 'ACSM progression guidelines')} suggest a 2–10% load increase once you can do one or two reps beyond the target. Start week 1 with about 3 reps in reserve, and log every set. Isolation moves progress more slowly; adding reps at the same dumbbell still counts. More in {L('/what-is-progressive-overload/', 'what is progressive overload')}.</p>
 """),
         ("deload", "Deload Protocol", f"""
 <p>Plan a lighter week after week 7, then start a new 8-week block with slightly heavier starting weights. Deload earlier if your main lifts drop two sessions in a row, joints ache, or sleep and motivation slide.</p>
@@ -102,8 +76,16 @@ PAGE = {
         ("nutrition", "What to Eat on a Bro Split", f"""
 <p>Two numbers matter most. Eat about 1.6 g of protein per kg of body weight daily: muscle gains from protein plateaued near 1.62 g/kg in a {cite('protein2018', 'meta-analysis of 49 trials')}. If you want to add size, eat slightly above maintenance; a {cite('offseason2019', 'bodybuilding nutrition review')} suggests a 10–20% surplus with a gain of about 0.25–0.5% of body weight per week. Get your protein target from the {L('/protein-calculator/', 'protein calculator')}.</p>
 """),
+        ("who", "Who This Bro Split Is For", f"""
+<ul>
+<li>6–12+ months of consistent training with solid form on the bench press, squat, row and overhead press.</li>
+<li>Five training days a week and up to 75 minutes per session.</li>
+<li>You like machine and cable work and one muscle-focused session per day.</li>
+</ul>
+<p>Beginners progress faster on full-body training. If you can only train four days, missing a day here removes a muscle for the week; our {L('/workout-plans/4-day-workout-split/', '4-day workout split')} trains everything twice and is more forgiving.</p>
+"""),
         ("comparison", "Bro Split vs Push Pull Legs vs Upper/Lower", f"""
-<p>All three splits build muscle when weekly sets are similar. The better choice depends on your schedule and how you recover.</p>
+<p>All three splits build muscle when weekly sets are similar: a {cite('split2024', '2024 meta-analysis')} found split and full-body routines produced similar gains when volume was matched, and a {cite('pelland2026', '2026 meta-regression')} found training frequency had little effect on growth once weekly sets were accounted for. Choose by your schedule and how you recover.</p>
 {table(["", "Bro split (this plan)", "Push Pull Legs", "Upper/Lower"], [
     ["Days per week", "5", "6 (or 3)", "4"],
     ["Direct hits per muscle", "1×", "2× (6-day)", "2×"],
@@ -115,13 +97,11 @@ PAGE = {
 """),
         ("mistakes", "Common Bro Split Mistakes", f"""
 <ul>
-<li><strong>Skipping legs or doing "legs lite".</strong> Thursday is the only direct quad and hamstring session. Treat it as the priority day of the week.</li>
-<li><strong>Turning arm day into a third pressing day.</strong> Extra heavy pressing on Friday cuts into Monday's recovery. Keep Friday to the listed close-grip bench sets.</li>
-<li><strong>Training everything to failure.</strong> A {cite('failure2023', '2023 meta-analysis')} found little to no extra growth from going to failure compared with stopping just short. Use failure only on the last set of isolation moves.</li>
-<li><strong>Too many exercises.</strong> Seven or eight exercises per muscle push sessions past 90 minutes and add {L('/what-is-junk-volume/', 'junk volume')}. Five or six well-chosen moves are enough.</li>
-<li><strong>Random weights each week.</strong> Without a log and a progression rule, a bro split turns into pump sessions with no long-term overload.</li>
+<li><strong>Treating legs as optional.</strong> Thursday is the only direct quad and hamstring session.</li>
+<li><strong>Training everything to failure.</strong> A {cite('failure2023', '2023 meta-analysis')} found little extra growth from failure versus stopping just short. Save it for the last set of isolation moves.</li>
+<li><strong>Too many exercises.</strong> Seven or eight per muscle adds {L('/what-is-junk-volume/', 'junk volume')} and pushes sessions past 90 minutes.</li>
+<li><strong>No log.</strong> Without written numbers there is no progression, only pump sessions.</li>
 </ul>
-<p>Avoid those five errors and run the plan for a full 8-week block before judging it. Take progress photos and measurements at the start and end so you judge the plan on results, not on how sore you feel.</p>
 """),
     ],
     "schedule": [("Mon", "Chest", "c1"), ("Tue", "Back", "c2"), ("Wed", "Shoulders", "c5"), ("Thu", "Legs", "c3"), ("Fri", "Arms", "c4"), ("Sat", "Rest", "rest"), ("Sun", "Rest", "rest")],
@@ -187,6 +167,6 @@ PAGE = {
         ("What if I miss a day?", "Do the missed session the next day and push the rest of the week back by one day. Avoid skipping legs; if you must drop a session, drop arms, since biceps and triceps already get indirect work."),
     ],
     "related": ["push-pull-legs", "5-day-workout-split", "upper-lower-split", "ppl-hypertrophy-program"],
-    "refs": refs("freq2016", "split2024", "pelland2026", "acsm2026", "vol2017", "rest2016", "restsys2017", "acsm2009", "deload2024", "failure2023", "maeo2021", "protein2018", "offseason2019"),
+    "refs": refs("split2024", "pelland2026", "acsm2026", "vol2017", "rest2016", "restsys2017", "acsm2009", "deload2024", "failure2023", "maeo2021", "protein2018", "offseason2019"),
     "disclaimer": DISCLAIMER,
 }

@@ -12,22 +12,8 @@ PAGE = {
     "hero_meta": ["📅 3 days/week", "⏱ 45–55 min", "📊 Beginner–Intermediate", "🏋️ Gym"],
     "stats": [("3", "Training days"), ("45–55", "Minutes/session"), ("18", "Exercises"), ("~0.5%", "BW gain/week target"), ("4–5", "Meals/day")],
     "quick_answer": "A good workout plan for skinny guys is three 45–55 minute sessions a week (upper, lower and full body) built on compound lifts that add weight steadily, combined with a calorie surplus of about 10–20%. The training builds muscle; eating enough to gain about 0.5% of body weight per week makes it show.",
-    "intro": "<p>Skinny guys usually get the same advice: \"just eat more.\" It's correct but useless without a plan. Low appetite, fast metabolism claims and busy days all get in the way, and some skinny lifters respond by training longer and harder, which burns even more calories.</p><p>This plan takes the opposite approach. Training is short and built on compound lifts that work several large muscles at once. The eating section gives practical ways to add 300–700 calories a day without forcing down huge meals.</p>",
+    "intro": "<p>Use the day tabs to see each workout. The eating plan right after the workouts matters as much as the training.</p>",
     "sections": [
-        ("why", "Why Skinny Guys Struggle to Gain", f"""
-<p>First, people do respond differently to training. In a {cite('hubal2005', 'study of 585 men and women')} following the same 12-week arm program, muscle size changes ranged from −2% to +59%. Individual differences are real.</p>
-<p>Second, you cannot keep gaining weight without eating more energy than you burn. A {cite('surplus2019', '2019 review')} concluded an energy surplus provides an anabolic stimulus on its own and supports muscle growth from training. For many skinny lifters, the part they can change is calorie intake, which often never reaches a real surplus.</p>
-{box("tip", "💡 Quick test", "<p>Log everything you eat for 7 days and weigh yourself each morning. If weight is flat, your average intake is your maintenance. Many self-described hardgainers find they eat less than they thought, especially on busy days.</p>")}
-"""),
-        ("who", "Who This Plan Is For", f"""
-<ul>
-<li>You are lean or underweight and want to add muscle and body weight.</li>
-<li>You have 0–18 months of lifting experience.</li>
-<li>You can train three days a week for 45–55 minutes.</li>
-<li>You have struggled to gain on longer, high-volume routines.</li>
-</ul>
-<p>If you are completely new to the gym, the first two weeks of this plan double as technique practice. Start light, learn each movement, and build from there. The {L('/how-many-reps-and-sets-should-a-beginner-do/', 'beginner reps and sets guide')} explains why starting easy pays off.</p>
-"""),
         ("schedule", "Weekly Schedule", f"""
 {WEEK}
 <p>Upper, lower and full-body sessions train every major muscle at least twice a week with less total time than a 5- or 6-day split. That matters when every calorie spent counts.</p>
@@ -69,6 +55,20 @@ PAGE = {
     ["Up more than 0.5% BW/week (after week 2)", "Remove 150–200 kcal/day"],
 ])}
 <p>Creatine monohydrate at 3–5 g/day is the {cite('creatine', 'best-researched supplement')} for strength training and also adds some body weight from stored water. It is optional.</p>
+"""),
+        ("why", "Why Skinny Guys Struggle to Gain", f"""
+<p>First, people do respond differently to training. In a {cite('hubal2005', 'study of 585 men and women')} following the same 12-week arm program, muscle size changes ranged from −2% to +59%. Individual differences are real.</p>
+<p>Second, you cannot keep gaining weight without eating more energy than you burn. A {cite('surplus2019', '2019 review')} concluded an energy surplus provides an anabolic stimulus on its own and supports muscle growth from training. For many skinny lifters, the part they can change is calorie intake, which often never reaches a real surplus.</p>
+{box("tip", "💡 Quick test", "<p>Log everything you eat for 7 days and weigh yourself each morning. If weight is flat, your average intake is your maintenance. Many self-described hardgainers find they eat less than they thought, especially on busy days.</p>")}
+"""),
+        ("who", "Who This Plan Is For", f"""
+<ul>
+<li>You are lean or underweight and want to add muscle and body weight.</li>
+<li>You have 0–18 months of lifting experience.</li>
+<li>You can train three days a week for 45–55 minutes.</li>
+<li>You have struggled to gain on longer, high-volume routines.</li>
+</ul>
+<p>If you are completely new to the gym, the first two weeks of this plan double as technique practice. Start light, learn each movement, and build from there. The {L('/how-many-reps-and-sets-should-a-beginner-do/', 'beginner reps and sets guide')} explains why starting easy pays off.</p>
 """),
         ("cardio", "Cardio, Sleep and Daily Activity", f"""
 <p>You do not need to stop cardio. Two 20–30 minute easy sessions a week keep your heart and lungs fit. If your weight trend stalls, eat more rather than dropping all activity. Long, hard conditioning sessions are the ones to limit, since they burn the calories you are trying to store.</p>

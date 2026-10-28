@@ -12,17 +12,8 @@ PAGE = {
     "hero_meta": ["📅 6 days/week", "⏱ 50–65 min", "📊 Advanced (2+ years)", "🏋️ Full gym"],
     "stats": [("6", "Training days"), ("13–18", "Sets/major muscle/wk"), ("6 wk", "Mesocycle"), ("2×", "Frequency/muscle"), ("34", "Exercises")],
     "quick_answer": "This PPL hypertrophy program runs Push, Pull, Legs twice a week with different exercises on the A and B days. Every session targets muscle growth with mostly 8–15 rep sets taken 0–2 reps from failure. Weeks 1–5 build effort and volume, drop sets and rest-pause appear in weeks 3–5, and week 6 is a deload.",
-    "intro": f"<p>Many push pull legs programs mix strength and size work, which suits intermediate lifters. After two or more years of training, though, many lifters want a block that chases growth only: more sets, closer to failure, with tighter control over fatigue.</p><p>This advanced 6-day plan does that. If you are still building your base, our standard {L('/workout-plans/push-pull-legs/', 'push pull legs workout plan')} with heavy and volume days is the better fit.</p>",
+    "intro": "<p>Check the 6-week block table, then use the day tabs to see each workout. Intensity techniques, weekly sets and specialization follow.</p>",
     "sections": [
-        ("who", "Who This Advanced PPL Program Is For", f"""
-<ul>
-<li>You have 2+ years of consistent, logged training and have already run a PPL or upper/lower split.</li>
-<li>You can recover from six sessions a week: 7+ hours of sleep, enough food, manageable stress.</li>
-<li>Your main goal is muscle size, and you accept slower strength progress during this block.</li>
-<li>You can judge reps in reserve accurately (within about 1–2 reps). The {L('/rpe-vs-rir/', 'RPE vs RIR guide')} helps you calibrate.</li>
-</ul>
-{box("warn", "⚠️ Not a fix for stalled progress", "<p>If you have stopped growing on a moderate-volume plan, check sleep, calorie intake and effort before adding volume. Adding sets on top of poor recovery usually makes things worse.</p>")}
-"""),
         ("schedule", "Weekly Schedule", f"""
 {WEEK}
 <p>Sunday is the only full rest day, so keep it free of hard conditioning. If six days in a row is too much, use the rolling option: Push A, Pull A, Legs A, Rest, Push B, Pull B, Legs B, Rest. That spreads the six sessions over eight days.</p>
@@ -83,6 +74,15 @@ PAGE = {
     ["Sleep", "7+ hours, falling asleep easily", "Restless for a week → drop week-3 extra sets"],
 ])}
 <p>Eat enough to support the volume: about 1.6–2.2 g/kg of protein per day, which covers the point where gains plateaued in a {cite('protein2018', 'meta-analysis of 49 trials')}, and calories at or slightly above maintenance. Running this plan in a deep calorie deficit is a poor match for its volume.</p>
+"""),
+        ("who", "Who This Advanced PPL Program Is For", f"""
+<ul>
+<li>You have 2+ years of consistent, logged training and have already run a PPL or upper/lower split.</li>
+<li>You can recover from six sessions a week: 7+ hours of sleep, enough food, manageable stress.</li>
+<li>Your main goal is muscle size, and you accept slower strength progress during this block.</li>
+<li>You can judge reps in reserve accurately (within about 1–2 reps). The {L('/rpe-vs-rir/', 'RPE vs RIR guide')} helps you calibrate.</li>
+</ul>
+{box("warn", "⚠️ Not a fix for stalled progress", "<p>If you have stopped growing on a moderate-volume plan, check sleep, calorie intake and effort before adding volume. Adding sets on top of poor recovery usually makes things worse.</p>")}
 """),
     ],
     "schedule": [("Mon", "Push A", "c1"), ("Tue", "Pull A", "c2"), ("Wed", "Legs A", "c3"), ("Thu", "Push B", "c4"), ("Fri", "Pull B", "c5"), ("Sat", "Legs B", "c6"), ("Sun", "Rest", "rest")],

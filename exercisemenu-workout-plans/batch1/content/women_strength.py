@@ -12,17 +12,8 @@ PAGE = {
     "hero_meta": ["📅 3 days/week (2-day option)", "⏱ 45–60 min", "📊 Beginner–Intermediate", "🏋️ Gym"],
     "stats": [("3", "Training days"), ("19", "Exercises"), ("≈ 13", "Glute sets/week"), ("8 wk", "Block length"), ("1.6 g/kg", "Protein/day")],
     "quick_answer": "A good strength training plan for women uses 2–3 full-body sessions a week built on squats, hip thrusts, deadlift variations, presses and rows, using 6–15 reps and adding weight over time. This plan follows that pattern with extra glute and leg volume and a progression rule you can use for months.",
-    "intro": "<p>Many women start strength training with light weights and high reps because they were told heavier lifting makes you bulky. The research says otherwise. Building muscle is what creates shape, and heavier loading also supports bone health as you age.</p><p>This page gives you a full 3-day plan with every set and rep, a simple way to progress, and the evidence behind the most common concerns.</p>",
+    "intro": "<p>Use the day tabs to see each workout. Progression, weekly sets and answers to common questions follow the workouts.</p>",
     "sections": [
-        ("who", "Who This Plan Is For", f"""
-<ul>
-<li>Women with 0–2 years of lifting experience who want a structured gym plan.</li>
-<li>Goals of strength, shape (especially glutes and legs), fat loss support or long-term health.</li>
-<li>Access to a gym with barbells, dumbbells, cables and basic machines.</li>
-<li>Time for three 45–60 minute sessions a week, or two when life is busy.</li>
-</ul>
-<p>For a deeper look at rep ranges, read our guide to {L('/reps-and-sets-for-woman/', 'reps and sets for women')}. If fat loss is your main goal and you are just starting out, the {L('/3-week-beginner-fat-loss-workout-plan-for-women/', '3-week beginner fat loss plan for women')} is a gentler on-ramp.</p>
-"""),
         ("schedule", "Weekly Schedule (and the 2-Day Option)", f"""
 {WEEK}
 <p><strong>2-day option:</strong> train Day 1 and Day 2 on non-consecutive days (for example Tuesday and Friday), and add one set to the dumbbell bench press and lat pulldown. Glutes and legs are still trained in both sessions; chest and back get one session each.</p>
@@ -51,6 +42,15 @@ PAGE = {
     ["Arms & shoulders", "≈ 4–7 each", "Presses, curls, pushdowns, lateral raises"],
 ])}
 <p>Direct sets count fully and indirect sets count as half. Glutes and legs get the most volume because many women name them as a priority; the upper body gets enough to grow stronger and keep posture balanced. The {cite('acsm2026', '2026 ACSM position stand')} links more growth with 10+ weekly sets per muscle, so add 2 sets of upper-body work per session if that is your priority.</p>
+"""),
+        ("who", "Who This Plan Is For", f"""
+<ul>
+<li>Women with 0–2 years of lifting experience who want a structured gym plan.</li>
+<li>Goals of strength, shape (especially glutes and legs), fat loss support or long-term health.</li>
+<li>Access to a gym with barbells, dumbbells, cables and basic machines.</li>
+<li>Time for three 45–60 minute sessions a week, or two when life is busy.</li>
+</ul>
+<p>For a deeper look at rep ranges, read our guide to {L('/reps-and-sets-for-woman/', 'reps and sets for women')}. If fat loss is your main goal and you are just starting out, the {L('/3-week-beginner-fat-loss-workout-plan-for-women/', '3-week beginner fat loss plan for women')} is a gentler on-ramp.</p>
 """),
         ("myths", "Will Strength Training Make Women Bulky?", f"""
 <p>No, not by accident. A {cite('sex2020', 'meta-analysis comparing men and women')} on the same programs found similar relative muscle growth between sexes and greater relative upper-body strength gains in women. Relative gains are not the same as absolute size, though. In a {cite('hubal2005', 'study of 585 adults')} following the same 12-week arm program, women gained more relative strength than men, while men gained slightly more muscle size.</p>

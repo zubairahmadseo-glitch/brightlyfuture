@@ -12,22 +12,8 @@ PAGE = {
     "hero_meta": ["📅 3 days/week", "⏱ 45–60 min", "📊 Beginner (0–6 months)", "🏋️ Barbell + basic gym"],
     "stats": [("12 wk", "Program length"), ("3", "Training days"), ("3 × 5", "Main lift sets"), ("+2.5–5 kg", "Weekly jumps"), ("4", "Barbell lifts learned")],
     "quick_answer": "This beginner workout plan runs three full-body days a week for 12 weeks. Days 1 and 2 build strength with 3 sets of 5 on the squat, bench press, deadlift and overhead press. Day 3 uses lighter sets of 8. You add a small amount of weight to each main lift every week while form stays solid.",
-    "intro": "<p>A good beginner workout plan is simple enough to follow without thinking and specific enough to make you stronger every week. This 12-week program does both. You train three days a week, master four barbell lifts, and follow one progression rule.</p><p>Beginners usually gain strength quickly, and much of that early progress comes from learning the movements. That's why this plan trains each main pattern at least twice a week and keeps the rep counts low enough to focus on form.</p>",
+    "intro": "<p>Use the day tabs to see each workout. The 12-week phases, progression rules and warm-up follow the workouts.</p>",
     "sections": [
-        ("why", "Why a Strength-First Plan for Beginners?", f"""
-<p>Getting stronger first lets you use heavier loads later in muscle-building training. The {cite('acsm2026', '2026 ACSM position stand')} found resistance training also improves physical function, and that strength improved most with heavier loads (80% of your one-rep max or more), 2–3 sets per exercise, lifts placed at the start of the session, and two or more sessions a week. This plan follows each of those points.</p>
-{box("science", "🔬 Beginners also build muscle", f"<p>Training for strength builds muscle too. In a {cite('load2021', 'network meta-analysis')}, untrained participants showed greater muscle growth than trained ones, and growth was similar across load ranges. Heavy sets of 5 on the main lifts plus 8–12 rep accessories cover both goals.</p>")}
-<p>If your main goal is muscle size rather than strength, our {L('/workout-plans/full-body-workout-plan/', 'full body workout plan for beginners')} is the better starting point.</p>
-"""),
-        ("who", "Who This Beginner Program Is For", f"""
-<ul>
-<li>You have lifted for less than six months, or not at all.</li>
-<li>You have access to a barbell, squat rack, bench and a few dumbbells and machines.</li>
-<li>You can train three non-consecutive days a week for 45–60 minutes.</li>
-<li>You are healthy and free of injuries that limit squatting, hinging or pressing.</li>
-</ul>
-<p>Not sure about sets and reps yet? The {L('/how-many-reps-and-sets-should-a-beginner-do/', 'beginner sets and reps guide')} explains the basics behind this plan.</p>
-"""),
         ("schedule", "Weekly Schedule", f"""
 {WEEK}
 <p>Day 1 and Day 3 both train squat and bench, so keep at least one rest day between all sessions. Tuesday/Thursday/Saturday works equally well.</p>
@@ -65,6 +51,20 @@ PAGE = {
 <li>Ramp-up sets: empty bar × 8–10, then 2–3 sets of 3–5 reps working up to your work weight.</li>
 </ol>
 <p>The {L('/warm-up-set-calculator/', 'warm-up set calculator')} works out the ramp-up loads for you. A standard men's Olympic barbell weighs 20 kg and a women's Olympic bar 15 kg; see {L('/how-much-does-a-barbell-weigh/', 'how much a barbell weighs')} for other bars.</p>
+"""),
+        ("why", "Why a Strength-First Plan for Beginners?", f"""
+<p>Getting stronger first lets you use heavier loads later in muscle-building training. The {cite('acsm2026', '2026 ACSM position stand')} found resistance training also improves physical function, and that strength improved most with heavier loads (80% of your one-rep max or more), 2–3 sets per exercise, lifts placed at the start of the session, and two or more sessions a week. This plan follows each of those points.</p>
+{box("science", "🔬 Beginners also build muscle", f"<p>Training for strength builds muscle too. In a {cite('load2021', 'network meta-analysis')}, untrained participants showed greater muscle growth than trained ones, and growth was similar across load ranges. Heavy sets of 5 on the main lifts plus 8–12 rep accessories cover both goals.</p>")}
+<p>If your main goal is muscle size rather than strength, our {L('/workout-plans/full-body-workout-plan/', 'full body workout plan for beginners')} is the better starting point.</p>
+"""),
+        ("who", "Who This Beginner Program Is For", f"""
+<ul>
+<li>You have lifted for less than six months, or not at all.</li>
+<li>You have access to a barbell, squat rack, bench and a few dumbbells and machines.</li>
+<li>You can train three non-consecutive days a week for 45–60 minutes.</li>
+<li>You are healthy and free of injuries that limit squatting, hinging or pressing.</li>
+</ul>
+<p>Not sure about sets and reps yet? The {L('/how-many-reps-and-sets-should-a-beginner-do/', 'beginner sets and reps guide')} explains the basics behind this plan.</p>
 """),
         ("mistakes", "Beginner Mistakes to Avoid", f"""
 <ul>
@@ -118,7 +118,7 @@ PAGE = {
         ("How much weight should a beginner start with?", "Start with a load you can lift for 5 reps with 3–4 reps left, often just the empty bar for presses and squats. Starting light gives more weeks of steady progress."),
         ("Is 3 days a week enough for a beginner?", "Yes. Three full-body sessions train every pattern two or three times a week, which is plenty for strength and muscle in the first months of lifting."),
         ("Should beginners do cardio too?", "Yes. Two or three sessions of 20–30 minutes of moderate cardio per week support heart health. Do them on rest days or after lifting, not before heavy squats."),
-        ("Can women follow this beginner workout plan?", "Yes. Women gain strength at similar or faster relative rates than men in the early months of training, and the same lifts and progression work."),
+        ("Can women follow this beginner workout plan?", f"Yes. Women gain strength at {cite('sex2020', 'similar or faster relative rates')} than men in the early months of training, and the same lifts and progression work."),
         ("What if I can't squat or deadlift with a barbell yet?", "Use a goblet squat and dumbbell Romanian deadlift for the first 2–4 weeks, then move to the barbell once the movement feels natural."),
         ("When will I see results?", "Strength usually rises within the first two weeks as your technique improves. Visible muscle changes often take 8–12 weeks of consistent training and eating."),
     ],
