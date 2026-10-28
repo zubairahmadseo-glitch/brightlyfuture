@@ -62,5 +62,29 @@
     "meta_title": "6-Day PPL Hypertrophy Program (Advanced Lifters)",
     "meta_desc": "An advanced 6-day PPL hypertrophy program: 13–18 sets per major muscle, a 6-week mesocycle, drop sets and rest-pause with purpose, and specialization.",
     "focus_kw": "ppl hypertrophy program"
+  },
+  {
+    "num": 13,
+    "slug": "beginner-strength-training-program",
+    "title": "Beginner Workout Plan: 12-Week Strength Training Program (3 Days)",
+    "meta_title": "Beginner Workout Plan: 12-Week Strength Program (3 Days)",
+    "meta_desc": "A 12-week beginner workout plan for getting stronger: three gym days, sets of 5 on the main barbell lifts, simple weekly progression and safe warm-ups.",
+    "focus_kw": "beginner workout plan"
+  },
+  {
+    "num": 14,
+    "slug": "strength-training-for-women",
+    "title": "Strength Training for Women: A 3-Day Gym Workout Plan",
+    "meta_title": "Strength Training for Women: 3-Day Gym Workout Plan",
+    "meta_desc": "A strength training for women plan: 3 full-body gym days with glute and leg emphasis, clear progression, and evidence on toning, cycles and bone health.",
+    "focus_kw": "strength training for women"
+  },
+  {
+    "num": 15,
+    "slug": "powerlifting-program-for-beginners",
+    "title": "Powerlifting Program for Beginners: 12 Weeks to Your First Test Day",
+    "meta_title": "Powerlifting Program for Beginners: 12-Week Plan",
+    "meta_desc": "A 12-week powerlifting program for beginners: squat, bench and deadlift 3 days a week with RPE targets, three training phases and a test day to finish.",
+    "focus_kw": "powerlifting program for beginners"
   }
 ]

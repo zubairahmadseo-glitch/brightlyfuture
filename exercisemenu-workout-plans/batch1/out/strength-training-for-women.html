@@ -1,0 +1,332 @@
+<!-- wp:html -->
+<style>
+/* ExerciseMenu workout plan pages — shared styles (scoped to .emp so the theme is untouched) */
+.emp{--emp-ink:#1a1a2e;--emp-ink2:#0f3460;--emp-accent:#e94560;--emp-accent-d:#c9304a;--emp-glow:rgba(233,69,96,.09);--emp-text:#2d2d3a;--emp-muted:#6b7280;--emp-bg:#fff;--emp-alt:#f8f9fb;--emp-line:#e5e7eb;--emp-line2:#f0f1f3;--emp-green:#047857;--emp-green-bg:#ecfdf5;--emp-blue:#0369a1;--emp-blue-bg:#f0f9ff;--emp-amber:#b45309;--emp-amber-bg:#fffbeb;--emp-r:12px;--emp-rs:8px;--emp-mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--emp-text);line-height:1.7;font-size:17px}
+.emp *,.emp *::before,.emp *::after{box-sizing:border-box}
+.emp h2{font-size:clamp(1.35rem,3vw,1.75rem);line-height:1.3;color:var(--emp-ink);margin:0 0 .75rem;font-weight:700}
+.emp h3{font-size:clamp(1.1rem,2.4vw,1.3rem);line-height:1.35;color:var(--emp-ink);margin:1.4rem 0 .5rem;font-weight:700}
+.emp p{margin:0 0 1rem}
+.emp a{color:var(--emp-accent-d);text-decoration:underline;text-underline-offset:2px}
+.emp a:hover{color:var(--emp-accent)}
+.emp ul,.emp ol{margin:0 0 1rem 1.2rem;padding:0}
+.emp li{margin:.25rem 0}
+.emp .emp-section{padding:28px 0;border-bottom:1px solid var(--emp-line2)}
+.emp .emp-section:last-child{border-bottom:0}
+/* hero */
+.emp .emp-hero{background:linear-gradient(135deg,var(--emp-ink) 0%,#16213e 55%,var(--emp-ink2) 100%);color:#fff;border-radius:var(--emp-r);padding:clamp(22px,4vw,36px);margin:0 0 18px}
+.emp .emp-badge{display:inline-block;background:rgba(233,69,96,.22);border:1px solid rgba(233,69,96,.4);color:#fecdd3;padding:4px 12px;border-radius:20px;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px}
+.emp .emp-hero-lead{font-size:clamp(1rem,2vw,1.12rem);color:rgba(255,255,255,.88);margin:0 0 14px;max-width:680px}
+.emp .emp-hero-meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.84rem;color:rgba(255,255,255,.78);margin:0;padding:0;list-style:none}
+.emp .emp-hero-meta li{margin:0}
+/* stats */
+.emp .emp-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:0 0 22px}
+.emp .emp-stat{border:1px solid var(--emp-line);border-radius:var(--emp-r);padding:14px 10px;text-align:center;background:var(--emp-bg);box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.emp .emp-stat-v{font-family:var(--emp-mono);font-size:1.2rem;font-weight:700;color:var(--emp-ink)}
+.emp .emp-stat-l{font-size:.72rem;color:var(--emp-muted);text-transform:uppercase;letter-spacing:.5px}
+/* boxes */
+.emp .emp-answer{background:var(--emp-glow);border-left:4px solid var(--emp-accent);border-radius:0 var(--emp-rs) var(--emp-rs) 0;padding:16px 20px;margin:0 0 18px}
+.emp .emp-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;color:var(--emp-accent-d)}
+.emp .emp-answer p{margin:0}
+.emp .emp-takeaways{border:1px solid var(--emp-line);border-radius:var(--emp-r);padding:16px 20px;margin:0 0 18px;background:var(--emp-alt)}
+.emp .emp-takeaways ul{margin:0;list-style:none}
+.emp .emp-takeaways li{position:relative;padding-left:22px}
+.emp .emp-takeaways li::before{content:"✓";position:absolute;left:0;color:var(--emp-green);font-weight:700}
+.emp .emp-science,.emp .emp-tip,.emp .emp-warn{border-radius:var(--emp-r);padding:16px 20px;margin:18px 0;font-size:.95rem}
+.emp .emp-science{background:var(--emp-blue-bg);border:1px solid #bae6fd}
+.emp .emp-science .emp-label{color:var(--emp-blue)}
+.emp .emp-tip{background:var(--emp-green-bg);border:1px solid #a7f3d0}
+.emp .emp-tip .emp-label{color:var(--emp-green)}
+.emp .emp-warn{background:var(--emp-amber-bg);border:1px solid #fde68a}
+.emp .emp-warn .emp-label{color:var(--emp-amber)}
+.emp .emp-science p:last-child,.emp .emp-tip p:last-child,.emp .emp-warn p:last-child{margin:0}
+/* toc */
+.emp .emp-toc{background:var(--emp-alt);border:1px solid var(--emp-line);border-radius:var(--emp-r);padding:16px 20px;margin:0 0 8px}
+.emp .emp-toc summary{cursor:pointer;font-weight:700;color:var(--emp-ink);font-size:.95rem}
+.emp .emp-toc ol{columns:2;column-gap:28px;margin:12px 0 0 1.2rem;font-size:.92rem}
+.emp .emp-toc a{color:var(--emp-text);text-decoration:none}
+.emp .emp-toc a:hover{color:var(--emp-accent-d);text-decoration:underline}
+@media (max-width:640px){.emp .emp-toc ol{columns:1}}
+/* weekly schedule */
+.emp .emp-week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin:18px 0}
+@media (max-width:640px){.emp .emp-week{grid-template-columns:repeat(4,1fr)}}
+.emp .emp-wd{border-radius:var(--emp-rs);padding:10px 6px;text-align:center;border:2px solid var(--emp-line);background:var(--emp-alt)}
+.emp .emp-wd b{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.5px;color:var(--emp-muted)}
+.emp .emp-wd span{font-size:.8rem;font-weight:600;color:var(--emp-ink);line-height:1.3;display:block}
+.emp .emp-wd.c1{background:#eff6ff;border-color:#bfdbfe}.emp .emp-wd.c1 b{color:#2563eb}
+.emp .emp-wd.c2{background:#f5f3ff;border-color:#c4b5fd}.emp .emp-wd.c2 b{color:#7c3aed}
+.emp .emp-wd.c3{background:#ecfdf5;border-color:#a7f3d0}.emp .emp-wd.c3 b{color:#059669}
+.emp .emp-wd.c4{background:#fff1f2;border-color:#fecdd3}.emp .emp-wd.c4 b{color:#e11d48}
+.emp .emp-wd.c5{background:#fff7ed;border-color:#fed7aa}.emp .emp-wd.c5 b{color:#c2410c}
+.emp .emp-wd.c6{background:#f0fdfa;border-color:#99f6e4}.emp .emp-wd.c6 b{color:#0f766e}
+.emp .emp-wd.rest{background:var(--emp-amber-bg);border-color:#fde68a}.emp .emp-wd.rest b{color:#d97706}
+/* day tabs (pure CSS, no JavaScript) */
+.emp .emp-tabs{margin:18px 0}
+.emp .emp-tabs>input{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.emp .emp-tabbar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.emp .emp-tabbar label{cursor:pointer;border:2px solid var(--emp-line);background:var(--emp-bg);color:var(--emp-ink);border-radius:30px;padding:7px 16px;font-weight:700;font-size:.9rem;line-height:1.2;user-select:none;transition:background .15s,border-color .15s}
+.emp .emp-tabbar label small{display:block;font-weight:500;font-size:.7rem;color:var(--emp-muted)}
+.emp .emp-tabbar label:hover{border-color:var(--emp-accent)}
+.emp .emp-panel{display:none}
+.emp .emp-tabs>input:focus-visible+.emp-tabbar{outline:none}
+.emp #emp-t1:checked~.emp-tabbar label[for=emp-t1],.emp #emp-t2:checked~.emp-tabbar label[for=emp-t2],.emp #emp-t3:checked~.emp-tabbar label[for=emp-t3],.emp #emp-t4:checked~.emp-tabbar label[for=emp-t4],.emp #emp-t5:checked~.emp-tabbar label[for=emp-t5],.emp #emp-t6:checked~.emp-tabbar label[for=emp-t6],.emp #emp-tall:checked~.emp-tabbar label[for=emp-tall]{background:var(--emp-accent);border-color:var(--emp-accent);color:#fff}
+.emp #emp-t1:checked~.emp-tabbar label[for=emp-t1] small,.emp #emp-t2:checked~.emp-tabbar label[for=emp-t2] small,.emp #emp-t3:checked~.emp-tabbar label[for=emp-t3] small,.emp #emp-t4:checked~.emp-tabbar label[for=emp-t4] small,.emp #emp-t5:checked~.emp-tabbar label[for=emp-t5] small,.emp #emp-t6:checked~.emp-tabbar label[for=emp-t6] small{color:rgba(255,255,255,.85)}
+.emp #emp-t1:focus-visible~.emp-tabbar label[for=emp-t1],.emp #emp-t2:focus-visible~.emp-tabbar label[for=emp-t2],.emp #emp-t3:focus-visible~.emp-tabbar label[for=emp-t3],.emp #emp-t4:focus-visible~.emp-tabbar label[for=emp-t4],.emp #emp-t5:focus-visible~.emp-tabbar label[for=emp-t5],.emp #emp-t6:focus-visible~.emp-tabbar label[for=emp-t6],.emp #emp-tall:focus-visible~.emp-tabbar label[for=emp-tall]{outline:3px solid var(--emp-ink2);outline-offset:2px}
+.emp #emp-t1:checked~.emp-panels .emp-p1,.emp #emp-t2:checked~.emp-panels .emp-p2,.emp #emp-t3:checked~.emp-panels .emp-p3,.emp #emp-t4:checked~.emp-panels .emp-p4,.emp #emp-t5:checked~.emp-panels .emp-p5,.emp #emp-t6:checked~.emp-panels .emp-p6,.emp #emp-tall:checked~.emp-panels .emp-panel{display:block}
+@media print{.emp .emp-panel{display:block!important}.emp .emp-tabbar{display:none}}
+/* workout card */
+.emp .emp-wo{border:1px solid var(--emp-line);border-radius:var(--emp-r);overflow:hidden;margin:0 0 18px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.emp .emp-wo-h{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;padding:14px 18px;background:var(--emp-ink);color:#fff}
+.emp .emp-wo-h h3{margin:0;color:#fff;font-size:1.15rem}
+.emp .emp-wo-h.c1{background:#2563eb}.emp .emp-wo-h.c2{background:#7c3aed}.emp .emp-wo-h.c3{background:#059669}.emp .emp-wo-h.c4{background:#e11d48}.emp .emp-wo-h.c5{background:#c2410c}.emp .emp-wo-h.c6{background:#0f766e}
+.emp .emp-tag{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:3px 10px;border-radius:20px;background:rgba(255,255,255,.22)}
+.emp .emp-wo-meta{display:flex;flex-wrap:wrap;gap:6px 18px;padding:10px 18px;background:var(--emp-alt);font-size:.82rem;color:var(--emp-muted);border-bottom:1px solid var(--emp-line)}
+.emp .emp-tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.emp table{width:100%;border-collapse:collapse;font-size:.92rem;margin:0}
+.emp .emp-ex th{background:var(--emp-alt);text-align:left;font-size:.7rem;text-transform:uppercase;letter-spacing:.7px;color:var(--emp-muted);padding:9px 12px;border-bottom:2px solid var(--emp-line);white-space:nowrap}
+.emp .emp-ex td{padding:11px 12px;border-bottom:1px solid var(--emp-line2);vertical-align:middle}
+.emp .emp-ex tr:last-child td{border-bottom:0}
+.emp .emp-ex .n{font-family:var(--emp-mono);color:#9ca3af;font-weight:700;width:30px}
+.emp .emp-ex .x{font-weight:600;color:var(--emp-ink)}
+.emp .emp-ex .x a{color:var(--emp-ink);text-decoration-color:var(--emp-accent)}
+.emp .emp-ex .t{display:block;font-size:.76rem;color:var(--emp-muted);font-weight:400}
+.emp .emp-ex .s{font-family:var(--emp-mono);font-weight:700;color:var(--emp-accent-d);white-space:nowrap}
+.emp .emp-ex .r,.emp .emp-ex .e{font-family:var(--emp-mono);font-size:.85rem;color:var(--emp-muted);white-space:nowrap}
+.emp .emp-wo-notes{padding:12px 18px;background:var(--emp-alt);border-top:1px solid var(--emp-line);font-size:.86rem;color:#4b5563}
+.emp .emp-wo-notes p{margin:0}
+@media (max-width:560px){.emp .emp-ex{font-size:.86rem}.emp .emp-ex th:nth-child(1),.emp .emp-ex td:nth-child(1){display:none}.emp .emp-ex td,.emp .emp-ex th{padding:9px 7px}.emp .emp-ex .r,.emp .emp-ex .e{white-space:normal;font-size:.76rem}.emp .emp-ex .s{font-size:.82rem}}
+/* data tables */
+.emp .emp-data{border:1px solid var(--emp-line);border-radius:var(--emp-rs);overflow:hidden;margin:16px 0}
+.emp .emp-data th{background:var(--emp-ink);color:#fff;text-align:left;font-size:.74rem;text-transform:uppercase;letter-spacing:.5px;padding:9px 12px}
+.emp .emp-data td{padding:9px 12px;border-bottom:1px solid var(--emp-line);font-size:.9rem}
+.emp .emp-data tr:nth-child(even) td{background:var(--emp-alt)}
+/* steps */
+.emp .emp-steps{list-style:none;margin:16px 0;counter-reset:st}
+.emp .emp-steps li{counter-increment:st;position:relative;padding:0 0 12px 48px;min-height:36px}
+.emp .emp-steps li::before{content:counter(st);position:absolute;left:0;top:0;width:34px;height:34px;border-radius:50%;background:var(--emp-accent);color:#fff;font-family:var(--emp-mono);font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.85rem}
+/* macros */
+.emp .emp-macros{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:16px 0}
+.emp .emp-macro{border:1px solid var(--emp-line);border-radius:var(--emp-rs);padding:14px;text-align:center}
+.emp .emp-macro b{display:block;font-family:var(--emp-mono);font-size:1.25rem;color:var(--emp-accent-d)}
+.emp .emp-macro span{font-size:.82rem;color:var(--emp-muted)}
+/* faq */
+.emp .emp-faq details{border:1px solid var(--emp-line);border-radius:var(--emp-rs);margin:0 0 10px;background:var(--emp-bg)}
+.emp .emp-faq summary{cursor:pointer;list-style:none;padding:14px 44px 14px 18px;font-weight:600;color:var(--emp-ink);position:relative}
+.emp .emp-faq summary::-webkit-details-marker{display:none}
+.emp .emp-faq summary::after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);color:var(--emp-accent);font-size:1.3rem;font-weight:700}
+.emp .emp-faq details[open] summary::after{content:"−"}
+.emp .emp-faq .emp-faq-a{padding:0 18px 14px;color:#4b5563;font-size:.95rem}
+.emp .emp-faq .emp-faq-a p{margin:0}
+/* related plans */
+.emp .emp-related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:16px 0}
+.emp a.emp-card{display:block;border:1px solid var(--emp-line);border-radius:var(--emp-r);padding:16px 18px;color:inherit;text-decoration:none;background:var(--emp-bg);transition:border-color .15s,box-shadow .15s,transform .15s}
+.emp a.emp-card:hover{border-color:var(--emp-accent);box-shadow:0 6px 18px rgba(0,0,0,.08);transform:translateY(-2px)}
+.emp .emp-card-tag{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--emp-accent-d)}
+.emp .emp-card-t{display:block;font-weight:700;color:var(--emp-ink);margin:4px 0 4px;line-height:1.3}
+.emp .emp-card-d{display:block;font-size:.84rem;color:var(--emp-muted);line-height:1.5}
+.emp .emp-card-m{display:block;font-size:.75rem;color:var(--emp-ink2);margin-top:8px;font-weight:600}
+/* references + disclaimer */
+.emp .emp-refs{font-size:.84rem;color:var(--emp-muted)}
+.emp .emp-refs ol{margin-left:1.2rem}
+.emp .emp-refs a{color:var(--emp-muted)}
+.emp .emp-disclaimer{font-size:.85rem;color:var(--emp-muted);border-top:1px solid var(--emp-line);padding-top:14px;margin-top:8px}
+</style>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<div class="emp-hero">
+<span class="emp-badge">Women&#x27;s Strength Plan</span>
+<p class="emp-hero-lead">Strength training for women does not need a pink-dumbbell version of the real thing. This 3-day plan uses the same proven lifts as any good program, with extra emphasis on glutes and legs, a 2-day option for busy weeks, and straight answers to the questions women ask most.</p>
+<ul class="emp-hero-meta"><li>📅 3 days/week (2-day option)</li><li>⏱ 45–60 min</li><li>📊 Beginner–Intermediate</li><li>🏋️ Gym</li><li>📄 Last reviewed: October 2026</li></ul>
+</div>
+<div class="emp-stats"><div class="emp-stat"><div class="emp-stat-v">3</div><div class="emp-stat-l">Training days</div></div><div class="emp-stat"><div class="emp-stat-v">19</div><div class="emp-stat-l">Exercises</div></div><div class="emp-stat"><div class="emp-stat-v">≈ 13</div><div class="emp-stat-l">Glute sets/week</div></div><div class="emp-stat"><div class="emp-stat-v">8 wk</div><div class="emp-stat-l">Block length</div></div><div class="emp-stat"><div class="emp-stat-v">1.6 g/kg</div><div class="emp-stat-l">Protein/day</div></div></div>
+<div class="emp-answer"><span class="emp-label">Quick answer</span><p>Strength training for women works best with 2–3 full-body sessions a week built on squats, hip thrusts, deadlift variations, presses and rows, using 6–15 reps and adding weight over time. This plan follows that pattern with extra glute and leg volume and a progression rule you can use for months.</p></div>
+<div class="emp-takeaways"><span class="emp-label" style="color:var(--emp-green)">Key takeaways</span><ul><li>Women and men gain muscle at similar relative rates on the same program, so women do not need lighter, high-rep-only training.</li><li>Muscle grows gradually; "bulky" results from a few months of lifting are not realistic for most women.</li><li>Current evidence does not show that you need to plan training around your menstrual cycle; adjust by how you feel.</li><li>Heavy, supervised resistance training improved bone density in postmenopausal women with low bone mass in the LIFTMOR trial.</li><li>Two sessions a week still bring results; three gives more room for progress.</li></ul></div>
+<p>Many women start strength training with light weights and high reps because they were told heavier lifting makes you bulky. The research says otherwise, and so do the results of women who lift. Muscle builds shape; strength makes daily life easier; heavy loading supports bones as you age.</p><p>This page gives you a full 3-day plan with every set and rep, a simple way to progress, and the evidence behind the most common concerns.</p>
+<details class="emp-toc" open><summary>In this plan</summary><ol><li><a href="#myths">Will Strength Training Make Women Bulky?</a></li><li><a href="#who">Who This Plan Is For</a></li><li><a href="#schedule">Weekly Schedule (and the 2-Day Option)</a></li><li><a href="#workouts">The Strength Workouts</a></li><li><a href="#volume">Weekly Volume: Where the Work Goes</a></li><li><a href="#progression">How to Progress</a></li><li><a href="#cycle">Should You Train Around Your Menstrual Cycle?</a></li><li><a href="#bones">Strength Training and Bone Health</a></li><li><a href="#nutrition">Nutrition for Women Who Lift</a></li><li><a href="#faq">FAQ</a></li></ol></details>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="myths">
+<h2>Will Strength Training Make Women Bulky?</h2>
+<p>No, not by accident. A <a href="https://pubmed.ncbi.nlm.nih.gov/32218059/" rel="noopener" target="_blank">meta-analysis comparing men and women</a> on the same programs found similar relative muscle growth between sexes and greater relative upper-body strength gains in women. Relative is the key word. In a <a href="https://pubmed.ncbi.nlm.nih.gov/15947721/" rel="noopener" target="_blank">study of 585 adults</a> following the same 12-week arm program, women gained more relative strength than men, while men gained slightly more muscle size.</p>
+<p>What women see after a few months of lifting is usually firmer, more defined arms, legs and glutes, especially if body fat drops. Building visibly large muscle takes years of deliberate training and eating in a surplus.</p>
+<div class="emp-tip"><span class="emp-label">💡 "Toning" is building muscle</span><p>"Toned" describes visible muscle with moderate body fat. The way to get it is the same for everyone: build muscle with progressive strength training, and manage body fat with nutrition.</p></div>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="who">
+<h2>Who This Plan Is For</h2>
+<ul>
+<li>Women with 0–2 years of lifting experience who want a structured gym plan.</li>
+<li>Goals of strength, shape (especially glutes and legs), fat loss support or long-term health.</li>
+<li>Access to a gym with barbells, dumbbells, cables and basic machines.</li>
+<li>Time for three 45–60 minute sessions a week, or two when life is busy.</li>
+</ul>
+<p>For a deeper look at rep ranges, read our guide to <a href="https://exercisemenu.com/reps-and-sets-for-woman/">reps and sets for women</a>. If fat loss is your main goal and you are just starting out, the <a href="https://exercisemenu.com/3-week-beginner-fat-loss-workout-plan-for-women/">3-week beginner fat loss plan for women</a> is a gentler on-ramp.</p>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="schedule">
+<h2>Weekly Schedule (and the 2-Day Option)</h2>
+<div class="emp-week"><div class="emp-wd c4"><b>Mon</b><span>Day 1</span></div><div class="emp-wd rest"><b>Tue</b><span>Rest</span></div><div class="emp-wd c2"><b>Wed</b><span>Day 2</span></div><div class="emp-wd rest"><b>Thu</b><span>Rest</span></div><div class="emp-wd c6"><b>Fri</b><span>Day 3</span></div><div class="emp-wd rest"><b>Sat</b><span>Walk / rest</span></div><div class="emp-wd rest"><b>Sun</b><span>Rest</span></div></div>
+<p><strong>2-day option:</strong> train Day 1 and Day 2 on non-consecutive days (for example Tuesday and Friday), and add one set to the hip thrust and lat pulldown. This keeps every major muscle trained twice a week.</p>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="workouts">
+<h2>The Strength Workouts</h2>
+<p>Select a day. Effort is in reps in reserve (RIR): RIR 2 means you could do two more good reps. Start new lifts at RIR 3 for the first two weeks. The <a href="https://exercisemenu.com/rpe-vs-rir/">RPE vs RIR guide</a> explains how to judge it.</p>
+<div class="emp-tabs">
+<input type="radio" name="emp-day" id="emp-t1" checked>
+<input type="radio" name="emp-day" id="emp-t2">
+<input type="radio" name="emp-day" id="emp-t3">
+<input type="radio" name="emp-day" id="emp-tall">
+<div class="emp-tabbar" role="group" aria-label="Choose a training day"><label for="emp-t1">Day 1<small>Squat + Push</small></label><label for="emp-t2">Day 2<small>Hinge + Pull</small></label><label for="emp-t3">Day 3<small>Full Body</small></label><label for="emp-tall">All days<small>Show every workout</small></label></div>
+<div class="emp-panels">
+<div class="emp-panel emp-p1">
+<div class="emp-wo">
+<div class="emp-wo-h c4"><h3>Day 1 — Squat, Glutes &amp; Push</h3><span class="emp-tag">Lower + upper push</span></div>
+<div class="emp-wo-meta"><span>⏱ 50–60 min</span><span>🎯 6 exercises</span><span>📊 15 working sets</span><span>💪 Quads / Glutes / Chest / Shoulders</span></div>
+<div class="emp-tw"><table class="emp-ex"><thead><tr><th>#</th><th>Exercise</th><th>Sets × Reps</th><th>Rest</th><th>Effort</th></tr></thead>
+<tbody>
+<tr><td class="n">1</td><td class="x">Back Squat (or Goblet Squat)<span class="t">Primary: quads, glutes · Secondary: adductors, core</span></td><td class="s">3 × 6–10</td><td class="r">2–3 min</td><td class="e">RIR 2</td></tr>
+<tr><td class="n">2</td><td class="x">Barbell Hip Thrust<span class="t">Primary: glutes · Secondary: hamstrings</span></td><td class="s">3 × 8–12</td><td class="r">2 min</td><td class="e">RIR 1–2</td></tr>
+<tr><td class="n">3</td><td class="x"><a href="https://exercisemenu.com/exercises/dumbbell-bench-press/">Dumbbell Bench Press</a><span class="t">Primary: chest · Secondary: front delts, triceps</span></td><td class="s">3 × 8–12</td><td class="r">90 sec</td><td class="e">RIR 2</td></tr>
+<tr><td class="n">4</td><td class="x">Seated Dumbbell Shoulder Press<span class="t">Primary: shoulders · Secondary: triceps</span></td><td class="s">2 × 8–12</td><td class="r">90 sec</td><td class="e">RIR 2</td></tr>
+<tr><td class="n">5</td><td class="x">Seated Leg Curl<span class="t">Primary: hamstrings</span></td><td class="s">2 × 10–15</td><td class="r">60–90 sec</td><td class="e">RIR 1–2</td></tr>
+<tr><td class="n">6</td><td class="x">Pallof Press<span class="t">Primary: obliques, deep core</span></td><td class="s">2 × 10 / side</td><td class="r">60 sec</td><td class="e">Controlled</td></tr>
+</tbody></table></div>
+<div class="emp-wo-notes"><p><strong>Notes:</strong> Use a pad on the bar for hip thrusts. Beginners should goblet squat for the first 2–4 weeks before moving to the barbell.</p></div>
+</div>
+</div>
+<div class="emp-panel emp-p2">
+<div class="emp-wo">
+<div class="emp-wo-h c2"><h3>Day 2 — Hinge, Glutes &amp; Pull</h3><span class="emp-tag">Lower + upper pull</span></div>
+<div class="emp-wo-meta"><span>⏱ 50–60 min</span><span>🎯 6 exercises</span><span>📊 15 working sets</span><span>💪 Hamstrings / Glutes / Back / Arms</span></div>
+<div class="emp-tw"><table class="emp-ex"><thead><tr><th>#</th><th>Exercise</th><th>Sets × Reps</th><th>Rest</th><th>Effort</th></tr></thead>
+<tbody>
+<tr><td class="n">1</td><td class="x">Romanian Deadlift<span class="t">Primary: hamstrings, glutes · Secondary: back</span></td><td class="s">3 × 6–10</td><td class="r">2–3 min</td><td class="e">RIR 2</td></tr>
+<tr><td class="n">2</td><td class="x">Lat Pulldown<span class="t">Primary: lats · Secondary: biceps</span></td><td class="s">3 × 8–12</td><td class="r">90 sec</td><td class="e">RIR 1–2</td></tr>
+<tr><td class="n">3</td><td class="x">Bulgarian Split Squat<span class="t">Primary: glutes, quads</span></td><td class="s">2 × 8–12 / leg</td><td class="r">90 sec</td><td class="e">RIR 2</td></tr>
+<tr><td class="n">4</td><td class="x">Seated Cable Row<span class="t">Primary: mid-back · Secondary: rear delts</span></td><td class="s">3 × 10–12</td><td class="r">90 sec</td><td class="e">RIR 1–2</td></tr>
+<tr><td class="n">5</td><td class="x">Cable Glute Kickback<span class="t">Primary: glutes</span></td><td class="s">2 × 12–15 / leg</td><td class="r">60 sec</td><td class="e">RIR 1</td></tr>
+<tr><td class="n">6</td><td class="x"><a href="https://exercisemenu.com/exercises/dumbbell-biceps-curl/">Dumbbell Biceps Curl</a><span class="t">Primary: biceps</span></td><td class="s">2 × 10–15</td><td class="r">60 sec</td><td class="e">RIR 1–2</td></tr>
+</tbody></table></div>
+<div class="emp-wo-notes"><p><strong>Notes:</strong> For more glute work on split squats, lean your torso slightly forward and use a longer stance.</p></div>
+</div>
+</div>
+<div class="emp-panel emp-p3">
+<div class="emp-wo">
+<div class="emp-wo-h c6"><h3>Day 3 — Full Body Strength</h3><span class="emp-tag">Strength + carry</span></div>
+<div class="emp-wo-meta"><span>⏱ 50–60 min</span><span>🎯 7 exercises</span><span>📊 18 working sets</span><span>💪 Full body</span></div>
+<div class="emp-tw"><table class="emp-ex"><thead><tr><th>#</th><th>Exercise</th><th>Sets × Reps</th><th>Rest</th><th>Effort</th></tr></thead>
+<tbody>
+<tr><td class="n">1</td><td class="x"><a href="https://exercisemenu.com/how-to-trap-bar-deadlift/">Trap Bar Deadlift</a><span class="t">Primary: glutes, quads, hamstrings · Secondary: upper back, grip</span></td><td class="s">3 × 5–8</td><td class="r">2–3 min</td><td class="e">RIR 2</td></tr>
+<tr><td class="n">2</td><td class="x">Incline Dumbbell Press (30°)<span class="t">Primary: upper chest · Secondary: front delts</span></td><td class="s">3 × 8–12</td><td class="r">90 sec</td><td class="e">RIR 2</td></tr>
+<tr><td class="n">3</td><td class="x">Leg Press<span class="t">Primary: quads, glutes</span></td><td class="s">3 × 10–15</td><td class="r">2 min</td><td class="e">RIR 1–2</td></tr>
+<tr><td class="n">4</td><td class="x">One-Arm Dumbbell Row<span class="t">Primary: lats, mid-back</span></td><td class="s">3 × 8–12</td><td class="r">90 sec</td><td class="e">RIR 1–2</td></tr>
+<tr><td class="n">5</td><td class="x">Dumbbell Lateral Raise<span class="t">Primary: side delts</span></td><td class="s">2 × 12–15</td><td class="r">60 sec</td><td class="e">RIR 1</td></tr>
+<tr><td class="n">6</td><td class="x">Triceps Pushdown<span class="t">Primary: triceps</span></td><td class="s">2 × 10–15</td><td class="r">60 sec</td><td class="e">RIR 1–2</td></tr>
+<tr><td class="n">7</td><td class="x">Farmer&#x27;s Carry<span class="t">Primary: grip, traps, core</span></td><td class="s">2 × 30–40 m</td><td class="r">90 sec</td><td class="e">Heavy but upright</td></tr>
+</tbody></table></div>
+<div class="emp-wo-notes"><p><strong>Notes:</strong> Place feet higher on the leg press platform for more glute and hamstring involvement. Superset lateral raises with pushdowns.</p></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="volume">
+<h2>Weekly Volume: Where the Work Goes</h2>
+<div class="emp-tw emp-data"><table><thead><tr><th>Muscle</th><th>Weekly sets (approx.)</th><th>Main exercises</th></tr></thead><tbody><tr><td>Glutes</td><td>≈ 13</td><td>Hip thrust, split squat, kickback, squat, deadlift variations</td></tr><tr><td>Quads</td><td>≈ 9.5</td><td>Squat, leg press, split squat</td></tr><tr><td>Hamstrings</td><td>≈ 8</td><td>Romanian deadlift, leg curl</td></tr><tr><td>Back</td><td>9</td><td>Lat pulldown, cable row, dumbbell row</td></tr><tr><td>Chest</td><td>6</td><td>Dumbbell bench, incline press</td></tr><tr><td>Arms & shoulders</td><td>≈ 4–7 each</td><td>Presses, curls, pushdowns, lateral raises</td></tr></tbody></table></div>
+<p>Direct sets count fully and indirect sets count as half. Glutes and legs get the most volume because most women name them as a priority; the upper body gets enough to grow stronger and keep posture balanced. The <a href="https://pubmed.ncbi.nlm.nih.gov/41843416/" rel="noopener" target="_blank">2026 ACSM position stand</a> links more growth with 10+ weekly sets per muscle, so add 2 sets of upper-body work per session if that is your priority.</p>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="progression">
+<h2>How to Progress</h2>
+<p>Use double progression on every exercise. Work within the rep range, and when you hit the top on all sets at the listed RIR, increase the load: 2.5 kg on barbell lifts, the next dumbbell up, or one plate on machines. This is the core of <a href="https://exercisemenu.com/what-is-progressive-overload/">progressive overload</a>.</p>
+<div class="emp-tw emp-data"><table><thead><tr><th>Week</th><th>Hip thrust 3 × 8–12</th><th>Next step</th></tr></thead><tbody><tr><td>1</td><td>40 kg × 12, 10, 9</td><td>Stay at 40 kg</td></tr><tr><td>2</td><td>40 kg × 12, 11, 10</td><td>Stay</td></tr><tr><td>3</td><td>40 kg × 12, 12, 12</td><td>Add 5 kg</td></tr><tr><td>4</td><td>45 kg × 10, 9, 8</td><td>Build reps again</td></tr></tbody></table></div>
+<p>Small dumbbell jumps can feel large on upper-body lifts. When the next dumbbell is too heavy, add one rep per set per week instead, or use fractional plates on a barbell. Run weeks 1–7 as written and take a lighter week 8 with half the sets, then start a new block. The <a href="https://exercisemenu.com/what-is-a-deload-week/">deload week guide</a> explains why.</p>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="cycle">
+<h2>Should You Train Around Your Menstrual Cycle?</h2>
+<p>Current research does not support rigid cycle-based programming. A <a href="https://pubmed.ncbi.nlm.nih.gov/37033884/" rel="noopener" target="_blank">2023 umbrella review</a> concluded it is premature to say short-term hormone changes across the cycle meaningfully affect strength performance or long-term gains from resistance training.</p>
+<p>Symptoms are real, though. If cramps, fatigue or poor sleep hit during certain days, it is fine to lower the load, cut a set, or swap to RIR 3 for that session. Keep training consistently across the month and let your logbook, not the calendar, guide you.</p>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="bones">
+<h2>Strength Training and Bone Health</h2>
+<p>Bone responds to high loads. In the <a href="https://pubmed.ncbi.nlm.nih.gov/28975661/" rel="noopener" target="_blank">LIFTMOR randomized trial</a>, postmenopausal women with low bone mass did 8 months of twice-weekly, supervised high-intensity resistance and impact training (5 sets of 5 at more than 85% of their one-rep max). They improved spine and hip bone density and physical function, with only one minor adverse event.</p>
+<div class="emp-warn"><span class="emp-label">⚠️ Important context</span><p>LIFTMOR participants were screened and closely supervised. If you have osteopenia or osteoporosis, get medical clearance and coaching before lifting heavy. The deadlift and squat variations in this plan should be learned with lighter loads first.</p></div>
+<p>For older women, our article on why <a href="https://exercisemenu.com/aging-women-need-high-intensity-exercise/">aging women need high-intensity exercise</a> covers more of the health case.</p>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="nutrition">
+<h2>Nutrition for Women Who Lift</h2>
+<p>Protein needs are the same per kilogram for women as for men. Gains from protein plateaued near 1.6 g/kg/day in a <a href="https://pubmed.ncbi.nlm.nih.gov/28698222/" rel="noopener" target="_blank">meta-analysis of 49 trials</a>, and the <a href="https://pubmed.ncbi.nlm.nih.gov/28642676/" rel="noopener" target="_blank">ISSN position stand</a> suggests spreading it across meals of about 0.25 g/kg each. For a 65 kg woman, that is about 105 g a day, roughly 25–30 g over four meals. Use the <a href="https://exercisemenu.com/protein-calculator/">protein calculator</a> for your own number.</p>
+<p>Eating too little is a common reason women stop progressing. If your lifts stall for several weeks and you feel tired, review your total intake before changing the program.</p>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section emp-faq" id="faq">
+<h2>Strength Training for Women FAQ</h2>
+<details><summary>How heavy should women lift?</summary><div class="emp-faq-a"><p>Heavy enough that the last 1–3 reps of each set are hard while form stays clean. For most exercises in this plan, that means loads you can lift 6–15 times.</p></div></details>
+<details><summary>Can I do this plan to lose fat?</summary><div class="emp-faq-a"><p>Yes. Strength training preserves muscle while you eat in a calorie deficit, so more of the weight you lose comes from fat. Keep protein high and the loads as heavy as you can manage.</p></div></details>
+<details><summary>Is strength training safe during pregnancy?</summary><div class="emp-faq-a"><p>Many women continue strength training during pregnancy, but needs change by trimester and individual health. Get guidance from your doctor or midwife before continuing or starting any program.</p></div></details>
+<details><summary>How long until I see results?</summary><div class="emp-faq-a"><p>Strength usually improves within 2–4 weeks. Visible changes in shape typically take 8–12 weeks of consistent training and eating.</p></div></details>
+<details><summary>Do I need different exercises than men?</summary><div class="emp-faq-a"><p>No. The same movements build muscle and strength for everyone. This plan simply places more weekly volume on glutes and legs.</p></div></details>
+<details><summary>Can I add cardio?</summary><div class="emp-faq-a"><p>Yes. Two or three sessions of walking, cycling or swimming per week support heart health and recovery. Avoid hard leg intervals the day before Day 1 or Day 3.</p></div></details>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="related-plans">
+<h2>Related Workout Plans</h2>
+<div class="emp-related"><a class="emp-card" href="https://exercisemenu.com/workout-plans/beginner-strength-training-program/"><span class="emp-card-tag">Strength</span><span class="emp-card-t">Beginner Strength Training Program</span><span class="emp-card-d">12 weeks of linear progression on the main lifts.</span><span class="emp-card-m">3 days · Beginner</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/full-body-workout-plan/"><span class="emp-card-tag">Beginner</span><span class="emp-card-t">Full Body Workout Plan for Beginners</span><span class="emp-card-d">Three full-body gym sessions a week to learn the main lifts.</span><span class="emp-card-m">3 days · Beginner</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/upper-lower-split/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">4-Day Upper Lower Split</span><span class="emp-card-d">Upper and lower body twice a week with A/B sessions.</span><span class="emp-card-m">4 days · Intermediate</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/hypertrophy-program/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">4-Day Hypertrophy Program</span><span class="emp-card-d">A 6-week mesocycle with set ramps and RIR targets.</span><span class="emp-card-m">4 days · Intermediate</span></a></div>
+</section>
+<div class="emp-refs"><h3>References</h3><ol><li>Roberts BM, Nuckols G, Krieger JW. Sex differences in resistance training: a systematic review and meta-analysis. <em>J Strength Cond Res</em>. 2020. <a href="https://pubmed.ncbi.nlm.nih.gov/32218059/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/32218059/</a></li><li>Hubal MJ, et al. Variability in muscle size and strength gain after unilateral resistance training. <em>Med Sci Sports Exerc</em>. 2005. <a href="https://pubmed.ncbi.nlm.nih.gov/15947721/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/15947721/</a></li><li>Currier BS, et al. American College of Sports Medicine Position Stand: Resistance Training Prescription for Muscle Function, Hypertrophy, and Physical Performance in Healthy Adults. <em>Med Sci Sports Exerc</em>. 2026. <a href="https://pubmed.ncbi.nlm.nih.gov/41843416/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/41843416/</a></li><li>Colenso-Semple LM, et al. Current evidence shows no influence of women's menstrual cycle phase on acute strength performance or adaptations to resistance exercise training. <em>Front Sports Act Living</em>. 2023. <a href="https://pubmed.ncbi.nlm.nih.gov/37033884/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/37033884/</a></li><li>Watson SL, et al. High-intensity resistance and impact training improves bone mineral density and physical function in postmenopausal women with osteopenia and osteoporosis: the LIFTMOR randomized controlled trial. <em>J Bone Miner Res</em>. 2018. <a href="https://pubmed.ncbi.nlm.nih.gov/28975661/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/28975661/</a></li><li>Morton RW, et al. A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength. <em>Br J Sports Med</em>. 2018. <a href="https://pubmed.ncbi.nlm.nih.gov/28698222/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/28698222/</a></li><li>Jäger R, et al. International Society of Sports Nutrition position stand: protein and exercise. <em>J Int Soc Sports Nutr</em>. 2017. <a href="https://pubmed.ncbi.nlm.nih.gov/28642676/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/28642676/</a></li></ol></div>
+<p class="emp-disclaimer">This plan is general education for healthy adults, not medical advice. If you have an injury, a heart, joint or blood-pressure condition, or you are pregnant or postpartum, check with your doctor or a physiotherapist before starting a new training program.</p>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How heavy should women lift?", "acceptedAnswer": {"@type": "Answer", "text": "Heavy enough that the last 1–3 reps of each set are hard while form stays clean. For most exercises in this plan, that means loads you can lift 6–15 times."}}, {"@type": "Question", "name": "Can I do this plan to lose fat?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Strength training preserves muscle while you eat in a calorie deficit, so more of the weight you lose comes from fat. Keep protein high and the loads as heavy as you can manage."}}, {"@type": "Question", "name": "Is strength training safe during pregnancy?", "acceptedAnswer": {"@type": "Answer", "text": "Many women continue strength training during pregnancy, but needs change by trimester and individual health. Get guidance from your doctor or midwife before continuing or starting any program."}}, {"@type": "Question", "name": "How long until I see results?", "acceptedAnswer": {"@type": "Answer", "text": "Strength usually improves within 2–4 weeks. Visible changes in shape typically take 8–12 weeks of consistent training and eating."}}, {"@type": "Question", "name": "Do I need different exercises than men?", "acceptedAnswer": {"@type": "Answer", "text": "No. The same movements build muscle and strength for everyone. This plan simply places more weekly volume on glutes and legs."}}, {"@type": "Question", "name": "Can I add cardio?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Two or three sessions of walking, cycling or swimming per week support heart health and recovery. Avoid hard leg intervals the day before Day 1 or Day 3."}}]}</script>
+<!-- /wp:html -->
