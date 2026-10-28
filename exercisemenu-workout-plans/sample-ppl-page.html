@@ -1,0 +1,1958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Push Pull Legs Workout Plan (6-Day PPL Split) | ExerciseMenu</title>
+<meta name="description" content="Follow this complete push pull legs workout plan with 33 exercises across a 6-day PPL split. Includes A/B strength-hypertrophy programming, progressive overload system, and nutrition guide. The best PPL routine for muscle growth.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary: #1a1a2e;
+  --primary-light: #16213e;
+  --accent: #e94560;
+  --accent-hover: #d63851;
+  --accent-glow: rgba(233, 69, 96, 0.15);
+  --text: #2d2d3a;
+  --text-light: #6b7280;
+  --text-muted: #9ca3af;
+  --bg: #ffffff;
+  --bg-alt: #f8f9fb;
+  --bg-card: #ffffff;
+  --border: #e5e7eb;
+  --border-light: #f0f1f3;
+  --push-color: #3b82f6;
+  --push-bg: #eff6ff;
+  --push-border: #bfdbfe;
+  --pull-color: #8b5cf6;
+  --pull-bg: #f5f3ff;
+  --pull-border: #c4b5fd;
+  --legs-color: #10b981;
+  --legs-bg: #ecfdf5;
+  --legs-border: #a7f3d0;
+  --rest-color: #f59e0b;
+  --rest-bg: #fffbeb;
+  --strength-tag: #dc2626;
+  --hypertrophy-tag: #7c3aed;
+  --green: #059669;
+  --green-bg: #ecfdf5;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-xs: 6px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ─── Typography ─── */
+h1, h2, h3, h4 { font-weight: 700; line-height: 1.25; color: var(--primary); }
+h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); }
+h2 { font-size: clamp(1.4rem, 3vw, 1.9rem); margin-bottom: 0.75rem; }
+h3 { font-size: clamp(1.1rem, 2.5vw, 1.35rem); margin-bottom: 0.5rem; }
+p { margin-bottom: 1rem; }
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+strong { font-weight: 600; }
+
+/* ─── Layout ─── */
+.container { max-width: 880px; margin: 0 auto; padding: 0 16px; }
+
+/* ─── Breadcrumbs ─── */
+.breadcrumbs {
+  padding: 12px 0;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+.breadcrumbs a { color: var(--text-light); }
+.breadcrumbs span { margin: 0 6px; }
+
+/* ─── Hero ─── */
+.hero {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 50%, #0f3460 100%);
+  padding: clamp(2.5rem, 6vw, 4rem) 0;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(233,69,96,0.12) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(233,69,96,0.2);
+  border: 1px solid rgba(233,69,96,0.3);
+  color: #fca5a5;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 16px;
+}
+.hero h1 { color: #fff; margin-bottom: 14px; }
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.15rem);
+  color: rgba(255,255,255,0.8);
+  max-width: 620px;
+  line-height: 1.65;
+}
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 20px;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.7);
+}
+.hero-meta span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* ─── Quick Stats Bar ─── */
+.quick-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin: -30px 0 30px;
+  position: relative;
+  z-index: 2;
+}
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 16px;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+}
+.stat-card .stat-icon { font-size: 1.5rem; margin-bottom: 4px; }
+.stat-card .stat-value {
+  font-family: 'Space Mono', monospace;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+.stat-card .stat-label {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+
+/* ─── Table of Contents ─── */
+.toc {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  margin: 30px 0;
+}
+.toc-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-light);
+  margin-bottom: 14px;
+}
+.toc ol {
+  list-style: none;
+  counter-reset: toc;
+  columns: 2;
+  column-gap: 30px;
+}
+@media (max-width: 600px) { .toc ol { columns: 1; } }
+.toc li {
+  counter-increment: toc;
+  padding: 5px 0;
+  font-size: 0.9rem;
+  break-inside: avoid;
+}
+.toc li::before {
+  content: counter(toc, decimal-leading-zero);
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--accent);
+  margin-right: 8px;
+  font-weight: 700;
+}
+.toc a { color: var(--text); }
+.toc a:hover { color: var(--accent); }
+
+/* ─── Sections ─── */
+.section {
+  padding: 40px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+.section:last-of-type { border-bottom: none; }
+
+/* ─── Key Takeaway Box ─── */
+.key-takeaway {
+  background: var(--accent-glow);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 20px 24px;
+  margin: 20px 0;
+  font-size: 0.95rem;
+}
+.key-takeaway strong { color: var(--accent); }
+
+/* ─── Science Box ─── */
+.science-box {
+  background: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin: 20px 0;
+  font-size: 0.9rem;
+}
+.science-box .science-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #0284c7;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ─── Coach Tip ─── */
+.coach-tip {
+  background: var(--green-bg);
+  border: 1px solid #a7f3d0;
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  margin: 18px 0;
+  font-size: 0.9rem;
+}
+.coach-tip .tip-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--green);
+  margin-bottom: 6px;
+}
+
+/* ─── Weekly Schedule ─── */
+.week-schedule {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  margin: 24px 0;
+}
+@media (max-width: 600px) {
+  .week-schedule { grid-template-columns: repeat(4, 1fr); }
+}
+.day-card {
+  border-radius: var(--radius-sm);
+  padding: 14px 8px;
+  text-align: center;
+  border: 2px solid transparent;
+  transition: transform 0.15s;
+}
+.day-card:hover { transform: translateY(-2px); }
+.day-card .day-name {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+.day-card .day-type { font-size: 0.82rem; font-weight: 600; }
+.day-push { background: var(--push-bg); border-color: var(--push-border); }
+.day-push .day-name { color: var(--push-color); }
+.day-pull { background: var(--pull-bg); border-color: var(--pull-border); }
+.day-pull .day-name { color: var(--pull-color); }
+.day-legs { background: var(--legs-bg); border-color: var(--legs-border); }
+.day-legs .day-name { color: var(--legs-color); }
+.day-rest { background: var(--rest-bg); border-color: #fde68a; }
+.day-rest .day-name { color: var(--rest-color); }
+
+/* ─── Muscle Map ─── */
+.muscle-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 24px 0;
+}
+@media (max-width: 600px) { .muscle-grid { grid-template-columns: 1fr; } }
+.muscle-card {
+  border-radius: var(--radius);
+  padding: 22px;
+  border: 2px solid;
+}
+.muscle-card h4 {
+  font-size: 1rem;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.muscle-card ul {
+  list-style: none;
+  font-size: 0.88rem;
+}
+.muscle-card li {
+  padding: 3px 0;
+  padding-left: 16px;
+  position: relative;
+}
+.muscle-card li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: inherit;
+  opacity: 0.5;
+}
+.mc-push { background: var(--push-bg); border-color: var(--push-border); }
+.mc-push h4 { color: var(--push-color); }
+.mc-pull { background: var(--pull-bg); border-color: var(--pull-border); }
+.mc-pull h4 { color: var(--pull-color); }
+.mc-legs { background: var(--legs-bg); border-color: var(--legs-border); }
+.mc-legs h4 { color: var(--legs-color); }
+
+/* ─── Workout Tables ─── */
+.workout-block {
+  margin: 30px 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+.workout-header {
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.workout-header h3 { margin: 0; color: #fff; }
+.workout-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.2);
+  color: #fff;
+}
+.wh-push { background: var(--push-color); }
+.wh-pull { background: var(--pull-color); }
+.wh-legs { background: var(--legs-color); }
+
+.workout-meta {
+  display: flex;
+  gap: 20px;
+  padding: 12px 24px;
+  background: var(--bg-alt);
+  font-size: 0.82rem;
+  color: var(--text-light);
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+.workout-meta span { display: flex; align-items: center; gap: 5px; }
+
+table.exercise-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+.exercise-table thead th {
+  background: var(--bg-alt);
+  padding: 10px 16px;
+  text-align: left;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-light);
+  border-bottom: 2px solid var(--border);
+}
+.exercise-table tbody td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: middle;
+}
+.exercise-table tbody tr:last-child td { border-bottom: none; }
+.exercise-table tbody tr:hover { background: var(--bg-alt); }
+.exercise-table .ex-num {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  width: 36px;
+}
+.exercise-table .ex-name { font-weight: 600; color: var(--primary); }
+.exercise-table .ex-target {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  margin-top: 2px;
+}
+.exercise-table .ex-sets {
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.exercise-table .ex-rest {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+.exercise-table .ex-rpe {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.workout-notes {
+  padding: 16px 24px;
+  background: var(--bg-alt);
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+.workout-notes strong { color: var(--text); }
+
+/* ─── Volume Summary Table ─── */
+.volume-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 0.88rem;
+}
+.volume-table th {
+  background: var(--primary);
+  color: #fff;
+  padding: 10px 16px;
+  text-align: left;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.volume-table td {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.volume-table tbody tr:nth-child(even) { background: var(--bg-alt); }
+.volume-table .vol-optimal { color: var(--green); font-weight: 700; }
+.volume-table .vol-high { color: var(--accent); font-weight: 600; }
+
+/* ─── Progression System ─── */
+.progression-steps {
+  display: grid;
+  gap: 16px;
+  margin: 24px 0;
+  counter-reset: step;
+}
+.prog-step {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  counter-increment: step;
+}
+.prog-step::before {
+  content: counter(step);
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  background: var(--accent);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+.prog-step div { flex: 1; }
+.prog-step h4 { font-size: 0.95rem; margin-bottom: 4px; }
+.prog-step p { font-size: 0.88rem; color: var(--text-light); margin: 0; }
+
+/* ─── Deload Box ─── */
+.deload-box {
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin: 20px 0;
+}
+.deload-box .deload-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #c2410c;
+  margin-bottom: 6px;
+}
+
+/* ─── Nutrition Section ─── */
+.macro-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin: 20px 0;
+}
+.macro-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 18px;
+  text-align: center;
+}
+.macro-card .macro-value {
+  font-family: 'Space Mono', monospace;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+.macro-card .macro-unit {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.macro-card .macro-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+/* ─── FAQ ─── */
+.faq-item {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.faq-question {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-align: left;
+}
+.faq-question:hover { background: var(--bg-alt); }
+.faq-icon {
+  font-size: 1.2rem;
+  color: var(--accent);
+  transition: transform 0.2s;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+.faq-item.open .faq-icon { transform: rotate(45deg); }
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+.faq-answer-inner {
+  padding: 0 20px 16px;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  line-height: 1.7;
+}
+
+/* ─── CTA Box ─── */
+.cta-box {
+  background: linear-gradient(135deg, var(--primary) 0%, #0f3460 100%);
+  border-radius: var(--radius);
+  padding: 36px;
+  text-align: center;
+  color: #fff;
+  margin: 40px 0;
+}
+.cta-box h2 { color: #fff; margin-bottom: 10px; }
+.cta-box p { color: rgba(255,255,255,0.8); margin-bottom: 20px; }
+.cta-btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  padding: 14px 36px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+.cta-btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  text-decoration: none;
+}
+
+/* ─── Author Box ─── */
+.author-box {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 24px;
+  background: var(--bg-alt);
+  border-radius: var(--radius);
+  margin: 30px 0;
+}
+.author-avatar {
+  width: 64px;
+  height: 64px;
+  background: var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+}
+.author-info .author-name { font-weight: 700; font-size: 1rem; }
+.author-info .author-creds { font-size: 0.82rem; color: var(--text-light); }
+
+/* ─── Related Articles ─── */
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+.related-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.related-card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+}
+.related-card .related-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.related-card h4 { font-size: 0.95rem; margin-bottom: 6px; }
+.related-card p { font-size: 0.8rem; color: var(--text-light); margin: 0; }
+
+/* ─── Footer ─── */
+.site-footer {
+  background: var(--primary);
+  color: rgba(255,255,255,0.7);
+  padding: 40px 0;
+  text-align: center;
+  font-size: 0.85rem;
+  margin-top: 40px;
+}
+.site-footer a { color: var(--accent); }
+.footer-links { margin-top: 10px; display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+
+/* ─── Utilities ─── */
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+.text-accent { color: var(--accent); }
+.mt-0 { margin-top: 0; }
+ul.check-list { list-style: none; margin: 16px 0; }
+ul.check-list li {
+  padding: 6px 0 6px 28px;
+  position: relative;
+  font-size: 0.92rem;
+}
+ul.check-list li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--green);
+  font-weight: 700;
+}
+ul.styled-list { list-style: none; margin: 16px 0; }
+ul.styled-list li {
+  padding: 5px 0 5px 22px;
+  position: relative;
+  font-size: 0.92rem;
+}
+ul.styled-list li::before {
+  content: '•';
+  position: absolute;
+  left: 6px;
+  color: var(--accent);
+  font-weight: 700;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ BREADCRUMBS ═══════════════ -->
+<div class="container">
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href="/">Home</a> <span>›</span>
+    <a href="/workout-plans/">Workout Plans</a> <span>›</span>
+    <strong>Push Pull Legs Workout Plan</strong>
+  </nav>
+</div>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-badge">★ Most Popular Plan</div>
+    <h1>Push Pull Legs Workout Plan<br><span style="font-weight:500;font-size:0.7em;opacity:0.85">The Complete 6-Day PPL Split for Maximum Muscle Growth</span></h1>
+    <p class="hero-subtitle">This push pull legs workout plan is a research-backed, periodized PPL program with alternating strength and hypertrophy days, progressive overload tracking, and a built-in deload protocol. Designed for intermediate to advanced lifters who want a structured 6-day push pull legs routine that trains each muscle group twice per week for maximum muscle growth.</p>
+    <div class="hero-meta">
+      <span>📅 6 days/week</span>
+      <span>⏱ 55–75 min/session</span>
+      <span>📊 Level: Intermediate–Advanced</span>
+      <span>🏋️ Equipment: Full gym</span>
+      <span>📄 Last updated: Oct 2026</span>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════ QUICK STATS ═══════════════ -->
+<div class="container">
+  <div class="quick-stats">
+    <div class="stat-card">
+      <div class="stat-icon">🎯</div>
+      <div class="stat-value">33</div>
+      <div class="stat-label">Unique Exercises</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">🔄</div>
+      <div class="stat-value">2×</div>
+      <div class="stat-label">Frequency / Muscle</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">📈</div>
+      <div class="stat-value">10–20</div>
+      <div class="stat-label">Sets / Muscle / Week</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">📆</div>
+      <div class="stat-value">8 wk</div>
+      <div class="stat-label">Program Length</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">⚡</div>
+      <div class="stat-value">A/B</div>
+      <div class="stat-label">Strength + Hypertrophy</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════ TABLE OF CONTENTS ═══════════════ -->
+<div class="container">
+  <nav class="toc" aria-label="Table of contents">
+    <div class="toc-title">In This Plan</div>
+    <ol>
+      <li><a href="#what-is-ppl">What Is a Push Pull Legs Split?</a></li>
+      <li><a href="#who-is-it-for">Who Should Follow This PPL Program?</a></li>
+      <li><a href="#weekly-schedule">Push Pull Legs Schedule</a></li>
+      <li><a href="#muscle-groups">Push Pull Legs Exercises by Muscle Group</a></li>
+      <li><a href="#workout-a">PPL Workout A: Strength Days</a></li>
+      <li><a href="#workout-b">PPL Workout B: Hypertrophy Days</a></li>
+      <li><a href="#volume-summary">PPL Weekly Volume Summary</a></li>
+      <li><a href="#progressive-overload">Progressive Overload for PPL</a></li>
+      <li><a href="#deload">Deload Protocol</a></li>
+      <li><a href="#warmup">Warm-Up & Cool-Down</a></li>
+      <li><a href="#nutrition">Nutrition Guidelines for PPL</a></li>
+      <li><a href="#mistakes">8 Common PPL Mistakes</a></li>
+      <li><a href="#ppl-vs-others">Push Pull Legs vs Upper Lower</a></li>
+      <li><a href="#faq">Push Pull Legs FAQ</a></li>
+    </ol>
+  </nav>
+</div>
+
+<!-- ═══════════════ WHAT IS PPL ═══════════════ -->
+<div class="container">
+<section class="section" id="what-is-ppl">
+  <h2>What Is a Push Pull Legs Split?</h2>
+  <p>A push pull legs split (often called a PPL split) is a training structure that divides your workouts by <strong>movement pattern</strong> rather than individual muscles. Each session trains all the muscles involved in one type of movement, which means related muscles always work together and recover together.</p>
+  <p>Instead of a "chest day" where your triceps and shoulders get hit as secondary movers without dedicated work, a <strong>Push day</strong> trains chest, shoulders, and triceps together — the three muscle groups that work whenever you push something away from your body. This is biomechanically efficient: your shoulders and triceps are already warm and primed from pressing, so you get more out of their isolation work.</p>
+
+  <div class="key-takeaway">
+    <strong>Why PPL works:</strong> The 6-day version hits every muscle group twice per week — the sweet spot for hypertrophy according to Schoenfeld et al.'s meta-analysis (2016), which found that training a muscle 2× per week produced significantly more growth than 1× per week.
+  </div>
+
+  <p>The 6-day push pull legs program follows a repeating <strong>Push → Pull → Legs → Push → Pull → Legs → Rest</strong> cycle. Each pattern appears twice: once with a <strong>strength focus</strong> (heavier loads, lower reps) and once with a <strong>hypertrophy focus</strong> (moderate loads, higher reps). This undulating periodization approach makes the PPL training split one of the most effective routines for building both raw strength and muscle size simultaneously.</p>
+</section>
+
+<!-- ═══════════════ WHO IS IT FOR ═══════════════ -->
+<section class="section" id="who-is-it-for">
+  <h2>Who Should Follow This Push Pull Legs Program?</h2>
+  <p>This push pull legs workout plan is designed for lifters who have at least <strong>6–12 months of consistent training experience</strong> and can perform the core compound lifts (bench press, squat, deadlift, overhead press, barbell row) with proper form.</p>
+
+  <ul class="check-list">
+    <li>You can train <strong>6 days per week</strong> and have 55–75 minutes per session</li>
+    <li>You've graduated from a beginner program (like Starting Strength, StrongLifts, or a full-body plan)</li>
+    <li>Your compound lifts have stalled on a 3-day program and you need more volume</li>
+    <li>You want to build both strength <em>and</em> muscle size</li>
+    <li>You have access to a fully equipped gym (barbell, dumbbells, cables, machines)</li>
+  </ul>
+
+  <div class="coach-tip">
+    <div class="tip-label">💡 Coach's Note</div>
+    <p style="margin:0">If you can only train 3–4 days per week, a push pull legs split isn't your best option — you'd only hit each muscle once per week. Consider our <a href="/workout-plans/upper-lower-split/">Upper Lower Split workout plan</a> (4 days) or <a href="/workout-plans/full-body-workout-plan/">Full Body Workout Plan</a> (3 days) instead. The PPL routine's real advantage only kicks in at 6 sessions per week.</p>
+  </div>
+</section>
+
+<!-- ═══════════════ WEEKLY SCHEDULE ═══════════════ -->
+<section class="section" id="weekly-schedule">
+  <h2>Push Pull Legs Schedule & Weekly Structure</h2>
+  <p>This PPL workout plan runs on a fixed 7-day push pull legs schedule. "A" days use heavier loads with lower reps for strength development. "B" days use moderate loads with higher reps for hypertrophy. This alternating structure prevents staleness and ensures you develop both force production and metabolic stress — the two primary drivers of muscle growth.</p>
+
+  <div class="week-schedule">
+    <div class="day-card day-push">
+      <div class="day-name">Monday</div>
+      <div class="day-type">Push A</div>
+      <div style="font-size:0.7rem;color:var(--text-muted);margin-top:3px">Strength</div>
+    </div>
+    <div class="day-card day-pull">
+      <div class="day-name">Tuesday</div>
+      <div class="day-type">Pull A</div>
+      <div style="font-size:0.7rem;color:var(--text-muted);margin-top:3px">Strength</div>
+    </div>
+    <div class="day-card day-legs">
+      <div class="day-name">Wednesday</div>
+      <div class="day-type">Legs A</div>
+      <div style="font-size:0.7rem;color:var(--text-muted);margin-top:3px">Strength</div>
+    </div>
+    <div class="day-card day-push">
+      <div class="day-name">Thursday</div>
+      <div class="day-type">Push B</div>
+      <div style="font-size:0.7rem;color:var(--text-muted);margin-top:3px">Hypertrophy</div>
+    </div>
+    <div class="day-card day-pull">
+      <div class="day-name">Friday</div>
+      <div class="day-type">Pull B</div>
+      <div style="font-size:0.7rem;color:var(--text-muted);margin-top:3px">Hypertrophy</div>
+    </div>
+    <div class="day-card day-legs">
+      <div class="day-name">Saturday</div>
+      <div class="day-type">Legs B</div>
+      <div style="font-size:0.7rem;color:var(--text-muted);margin-top:3px">Hypertrophy</div>
+    </div>
+    <div class="day-card day-rest">
+      <div class="day-name">Sunday</div>
+      <div class="day-type">Rest</div>
+      <div style="font-size:0.7rem;color:var(--text-muted);margin-top:3px">Recovery</div>
+    </div>
+  </div>
+
+  <div class="science-box">
+    <div class="science-label">🔬 What the Research Says</div>
+    <p style="margin:0">A 2016 meta-analysis by Schoenfeld, Ogborn, and Krieger found that training each muscle group <strong>at least twice per week</strong> led to significantly greater hypertrophy compared to once per week, even when total weekly volume was equated. The 6-day push pull legs split achieves this naturally — each muscle gets trained in both the A and B sessions, making this PPL schedule ideal for muscle growth. (Source: <em>Sports Medicine</em>, 2016)</p>
+  </div>
+</section>
+
+<!-- ═══════════════ MUSCLE GROUPS ═══════════════ -->
+<section class="section" id="muscle-groups">
+  <h2>Push Pull Legs Exercises by Muscle Group</h2>
+  <p>Here's exactly which muscles are trained on each day of the PPL split and why they're grouped together. Understanding your push day exercises, pull day exercises, and leg day exercises helps you see the logic behind this routine:</p>
+
+  <div class="muscle-grid">
+    <div class="muscle-card mc-push">
+      <h4>💪 Push Day</h4>
+      <ul>
+        <li>Chest (pecs)</li>
+        <li>Front & side delts</li>
+        <li>Triceps</li>
+      </ul>
+      <p style="font-size:0.8rem;color:var(--text-light);margin-top:10px">All muscles that extend or push away from the body.</p>
+    </div>
+    <div class="muscle-card mc-pull">
+      <h4>🏋️ Pull Day</h4>
+      <ul>
+        <li>Back (lats, traps, rhomboids)</li>
+        <li>Rear delts</li>
+        <li>Biceps</li>
+        <li>Forearms</li>
+      </ul>
+      <p style="font-size:0.8rem;color:var(--text-light);margin-top:10px">All muscles that pull toward the body.</p>
+    </div>
+    <div class="muscle-card mc-legs">
+      <h4>🦵 Legs Day</h4>
+      <ul>
+        <li>Quads</li>
+        <li>Hamstrings</li>
+        <li>Glutes</li>
+        <li>Calves</li>
+        <li>Core (secondary)</li>
+      </ul>
+      <p style="font-size:0.8rem;color:var(--text-light);margin-top:10px">Full lower body + core stability.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ WORKOUT A: STRENGTH ═══════════════ -->
+<section class="section" id="workout-a">
+  <h2>Push Pull Legs Workout A — Strength Days</h2>
+  <p>The "A" sessions in this push pull legs routine prioritize heavier loads (4–8 rep range) with longer rest periods (2.5–4 minutes). The goal is to build raw strength through progressive overload on compound movements. Compound lifts come first when your nervous system is fresh; isolation work follows to accumulate additional volume.</p>
+
+  <div class="science-box">
+    <div class="science-label">🔬 Rest Periods</div>
+    <p style="margin:0">A study by Schoenfeld et al. (2016) found that 3-minute rest periods led to greater strength gains on bench press and squat compared to 1-minute rests. For heavy compound lifts, longer rest allows better performance on subsequent sets. (Source: <em>Journal of Strength and Conditioning Research</em>, 30(7), 2016)</p>
+  </div>
+
+  <!-- PUSH A -->
+  <div class="workout-block">
+    <div class="workout-header wh-push">
+      <h3>Push A — Strength</h3>
+      <span class="workout-tag">Heavy Day</span>
+    </div>
+    <div class="workout-meta">
+      <span>⏱ ~60–70 min</span>
+      <span>🎯 6 exercises</span>
+      <span>📊 19 total sets</span>
+      <span>💪 Chest / Shoulders / Triceps</span>
+    </div>
+    <table class="exercise-table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Exercise</th>
+          <th>Sets × Reps</th>
+          <th>Rest</th>
+          <th>RPE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ex-num">1</td>
+          <td>
+            <div class="ex-name">Barbell Bench Press</div>
+            <div class="ex-target">Primary: Chest · Secondary: Front delts, triceps</div>
+          </td>
+          <td class="ex-sets">4 × 4–6</td>
+          <td class="ex-rest">3–4 min</td>
+          <td class="ex-rpe">8–9</td>
+        </tr>
+        <tr>
+          <td class="ex-num">2</td>
+          <td>
+            <div class="ex-name">Overhead Press (Barbell)</div>
+            <div class="ex-target">Primary: Front & side delts · Secondary: Triceps, upper chest</div>
+          </td>
+          <td class="ex-sets">4 × 5–7</td>
+          <td class="ex-rest">3 min</td>
+          <td class="ex-rpe">8</td>
+        </tr>
+        <tr>
+          <td class="ex-num">3</td>
+          <td>
+            <div class="ex-name">Incline Dumbbell Press (30°)</div>
+            <div class="ex-target">Primary: Upper chest · Secondary: Front delts, triceps</div>
+          </td>
+          <td class="ex-sets">3 × 6–8</td>
+          <td class="ex-rest">2.5 min</td>
+          <td class="ex-rpe">8</td>
+        </tr>
+        <tr>
+          <td class="ex-num">4</td>
+          <td>
+            <div class="ex-name">Weighted Dips</div>
+            <div class="ex-target">Primary: Lower chest, triceps · Secondary: Front delts</div>
+          </td>
+          <td class="ex-sets">3 × 6–8</td>
+          <td class="ex-rest">2.5 min</td>
+          <td class="ex-rpe">8</td>
+        </tr>
+        <tr>
+          <td class="ex-num">5</td>
+          <td>
+            <div class="ex-name">Dumbbell Lateral Raise</div>
+            <div class="ex-target">Primary: Side delts</div>
+          </td>
+          <td class="ex-sets">3 × 10–12</td>
+          <td class="ex-rest">90 sec</td>
+          <td class="ex-rpe">8</td>
+        </tr>
+        <tr>
+          <td class="ex-num">6</td>
+          <td>
+            <div class="ex-name">Close-Grip Bench Press</div>
+            <div class="ex-target">Primary: Triceps · Secondary: Chest</div>
+          </td>
+          <td class="ex-sets">2 × 6–8</td>
+          <td class="ex-rest">2 min</td>
+          <td class="ex-rpe">8</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="workout-notes">
+      <strong>Notes:</strong> Bench press is the priority lift — do 2–3 warm-up sets before your working sets (bar × 10, 50% × 5, 75% × 3). On dips, use a belt for added weight once bodyweight feels easy for 8+ reps. If you can't do dips, substitute with flat dumbbell press.
+    </div>
+  </div>
+
+  <!-- PULL A -->
+  <div class="workout-block">
+    <div class="workout-header wh-pull">
+      <h3>Pull A — Strength</h3>
+      <span class="workout-tag">Heavy Day</span>
+    </div>
+    <div class="workout-meta">
+      <span>⏱ ~60–70 min</span>
+      <span>🎯 6 exercises</span>
+      <span>📊 19 total sets</span>
+      <span>🏋️ Back / Rear Delts / Biceps</span>
+    </div>
+    <table class="exercise-table">
+      <thead>
+        <tr><th>#</th><th>Exercise</th><th>Sets × Reps</th><th>Rest</th><th>RPE</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ex-num">1</td>
+          <td>
+            <div class="ex-name">Conventional Deadlift</div>
+            <div class="ex-target">Primary: Posterior chain · Secondary: Back, traps, core</div>
+          </td>
+          <td class="ex-sets">3 × 4–6</td>
+          <td class="ex-rest">4 min</td>
+          <td class="ex-rpe">8–9</td>
+        </tr>
+        <tr>
+          <td class="ex-num">2</td>
+          <td>
+            <div class="ex-name">Barbell Bent-Over Row</div>
+            <div class="ex-target">Primary: Lats, mid-back · Secondary: Rear delts, biceps</div>
+          </td>
+          <td class="ex-sets">4 × 5–7</td>
+          <td class="ex-rest">3 min</td>
+          <td class="ex-rpe">8</td>
+        </tr>
+        <tr>
+          <td class="ex-num">3</td>
+          <td>
+            <div class="ex-name">Weighted Pull-Ups</div>
+            <div class="ex-target">Primary: Lats · Secondary: Biceps, rear delts</div>
+          </td>
+          <td class="ex-sets">3 × 5–8</td>
+          <td class="ex-rest">2.5 min</td>
+          <td class="ex-rpe">8</td>
+        </tr>
+        <tr>
+          <td class="ex-num">4</td>
+          <td>
+            <div class="ex-name">Seated Cable Row</div>
+            <div class="ex-target">Primary: Mid-back, rhomboids · Secondary: Biceps</div>
+          </td>
+          <td class="ex-sets">3 × 8–10</td>
+          <td class="ex-rest">2 min</td>
+          <td class="ex-rpe">8</td>
+        </tr>
+        <tr>
+          <td class="ex-num">5</td>
+          <td>
+            <div class="ex-name">Face Pulls</div>
+            <div class="ex-target">Primary: Rear delts, rotator cuff · Secondary: Mid-traps</div>
+          </td>
+          <td class="ex-sets">3 × 15–20</td>
+          <td class="ex-rest">90 sec</td>
+          <td class="ex-rpe">7</td>
+        </tr>
+        <tr>
+          <td class="ex-num">6</td>
+          <td>
+            <div class="ex-name">Barbell Curl</div>
+            <div class="ex-target">Primary: Biceps (both heads)</div>
+          </td>
+          <td class="ex-sets">3 × 6–8</td>
+          <td class="ex-rest">90 sec</td>
+          <td class="ex-rpe">8</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="workout-notes">
+      <strong>Notes:</strong> Deadlifts are placed first because they're the most demanding lift in the program — they need a fresh CNS. Keep sets at 3 (not 4) to manage fatigue. If your grip fails on rows/pulls before your back does, use lifting straps. Can't do pull-ups? Substitute lat pulldowns.
+    </div>
+  </div>
+
+  <!-- LEGS A -->
+  <div class="workout-block">
+    <div class="workout-header wh-legs">
+      <h3>Legs A — Strength</h3>
+      <span class="workout-tag">Heavy Day</span>
+    </div>
+    <div class="workout-meta">
+      <span>⏱ ~65–75 min</span>
+      <span>🎯 6 exercises</span>
+      <span>📊 20 total sets</span>
+      <span>🦵 Quads / Hamstrings / Glutes / Calves</span>
+    </div>
+    <table class="exercise-table">
+      <thead>
+        <tr><th>#</th><th>Exercise</th><th>Sets × Reps</th><th>Rest</th><th>RPE</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ex-num">1</td>
+          <td>
+            <div class="ex-name">Barbell Back Squat</div>
+            <div class="ex-target">Primary: Quads, glutes · Secondary: Core, hamstrings</div>
+          </td>
+          <td class="ex-sets">4 × 4–6</td>
+          <td class="ex-rest">3–4 min</td>
+          <td class="ex-rpe">8–9</td>
+        </tr>
+        <tr>
+          <td class="ex-num">2</td>
+          <td>
+            <div class="ex-name">Romanian Deadlift</div>
+            <div class="ex-target">Primary: Hamstrings, glutes · Secondary: Lower back</div>
+          </td>
+          <td class="ex-sets">4 × 6–8</td>
+          <td class="ex-rest">3 min</td>
+          <td class="ex-rpe">8</td>
+        </tr>
+        <tr>
+          <td class="ex-num">3</td>
+          <td>
+            <div class="ex-name">Bulgarian Split Squat</div>
+            <div class="ex-target">Primary: Quads, glutes (each leg) · Secondary: Core</div>
+          </td>
+          <td class="ex-sets">3 × 8–10 / leg</td>
+          <td class="ex-rest">2 min</td>
+          <td class="ex-rpe">8</td>
+        </tr>
+        <tr>
+          <td class="ex-num">4</td>
+          <td>
+            <div class="ex-name">Lying Leg Curl</div>
+            <div class="ex-target">Primary: Hamstrings</div>
+          </td>
+          <td class="ex-sets">3 × 8–10</td>
+          <td class="ex-rest">2 min</td>
+          <td class="ex-rpe">8</td>
+        </tr>
+        <tr>
+          <td class="ex-num">5</td>
+          <td>
+            <div class="ex-name">Leg Extension</div>
+            <div class="ex-target">Primary: Quads (isolation)</div>
+          </td>
+          <td class="ex-sets">3 × 10–12</td>
+          <td class="ex-rest">90 sec</td>
+          <td class="ex-rpe">8</td>
+        </tr>
+        <tr>
+          <td class="ex-num">6</td>
+          <td>
+            <div class="ex-name">Standing Calf Raise</div>
+            <div class="ex-target">Primary: Gastrocnemius</div>
+          </td>
+          <td class="ex-sets">3 × 10–12</td>
+          <td class="ex-rest">90 sec</td>
+          <td class="ex-rpe">9</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="workout-notes">
+      <strong>Notes:</strong> Squat to at least parallel (hip crease at or below knee). Do 3 warm-up sets before working weight. On Bulgarian split squats, elevate your rear foot on a bench — focus on the front leg driving the movement. Pause for 1 second at the bottom of calf raises for a full stretch.
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ WORKOUT B: HYPERTROPHY ═══════════════ -->
+<section class="section" id="workout-b">
+  <h2>Push Pull Legs Workout B — Hypertrophy Days</h2>
+  <p>The "B" sessions in this PPL workout plan use moderate loads (8–15 rep range) with shorter rest periods (60–120 seconds). The emphasis shifts from absolute strength to <strong>time under tension, metabolic stress, and accumulated volume</strong> — the three mechanisms of hypertrophy identified by Schoenfeld (2010). You'll use more isolation exercises and different angles to target muscles for maximum growth in ways the A days don't.</p>
+
+  <!-- PUSH B -->
+  <div class="workout-block">
+    <div class="workout-header wh-push">
+      <h3>Push B — Hypertrophy</h3>
+      <span class="workout-tag">Volume Day</span>
+    </div>
+    <div class="workout-meta">
+      <span>⏱ ~55–65 min</span>
+      <span>🎯 7 exercises</span>
+      <span>📊 23 total sets</span>
+      <span>💪 Chest / Shoulders / Triceps</span>
+    </div>
+    <table class="exercise-table">
+      <thead>
+        <tr><th>#</th><th>Exercise</th><th>Sets × Reps</th><th>Rest</th><th>RPE</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ex-num">1</td>
+          <td>
+            <div class="ex-name">Incline Dumbbell Press (30°)</div>
+            <div class="ex-target">Primary: Upper chest · Secondary: Front delts</div>
+          </td>
+          <td class="ex-sets">4 × 8–12</td>
+          <td class="ex-rest">2 min</td>
+          <td class="ex-rpe">8</td>
+        </tr>
+        <tr>
+          <td class="ex-num">2</td>
+          <td>
+            <div class="ex-name">Flat Dumbbell Press</div>
+            <div class="ex-target">Primary: Mid chest · Secondary: Triceps</div>
+          </td>
+          <td class="ex-sets">3 × 10–12</td>
+          <td class="ex-rest">2 min</td>
+          <td class="ex-rpe">8</td>
+        </tr>
+        <tr>
+          <td class="ex-num">3</td>
+          <td>
+            <div class="ex-name">Seated Dumbbell Shoulder Press</div>
+            <div class="ex-target">Primary: Front & side delts · Secondary: Triceps</div>
+          </td>
+          <td class="ex-sets">3 × 10–12</td>
+          <td class="ex-rest">2 min</td>
+          <td class="ex-rpe">8</td>
+        </tr>
+        <tr>
+          <td class="ex-num">4</td>
+          <td>
+            <div class="ex-name">Cable Fly (Low-to-High)</div>
+            <div class="ex-target">Primary: Upper chest (stretch + contraction)</div>
+          </td>
+          <td class="ex-sets">3 × 12–15</td>
+          <td class="ex-rest">90 sec</td>
+          <td class="ex-rpe">7–8</td>
+        </tr>
+        <tr>
+          <td class="ex-num">5</td>
+          <td>
+            <div class="ex-name">Dumbbell Lateral Raise</div>
+            <div class="ex-target">Primary: Side delts</div>
+          </td>
+          <td class="ex-sets">4 × 15–20</td>
+          <td class="ex-rest">60 sec</td>
+          <td class="ex-rpe">8</td>
+        </tr>
+        <tr>
+          <td class="ex-num">6</td>
+          <td>
+            <div class="ex-name">Cable Tricep Pushdown</div>
+            <div class="ex-target">Primary: Triceps (lateral head)</div>
+          </td>
+          <td class="ex-sets">3 × 12–15</td>
+          <td class="ex-rest">60 sec</td>
+          <td class="ex-rpe">8</td>
+        </tr>
+        <tr>
+          <td class="ex-num">7</td>
+          <td>
+            <div class="ex-name">Overhead Tricep Extension (Cable)</div>
+            <div class="ex-target">Primary: Triceps (long head)</div>
+          </td>
+          <td class="ex-sets">3 × 12–15</td>
+          <td class="ex-rest">60 sec</td>
+          <td class="ex-rpe">8</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="workout-notes">
+      <strong>Notes:</strong> Dumbbells replace the barbell on Push B for a different stimulus and greater range of motion. On lateral raises, use a controlled tempo — 2 seconds up, 1 second hold at the top, 2 seconds down. Two tricep exercises target both heads: pushdowns hit the lateral head, overhead extensions hit the long head.
+    </div>
+  </div>
+
+  <!-- PULL B -->
+  <div class="workout-block">
+    <div class="workout-header wh-pull">
+      <h3>Pull B — Hypertrophy</h3>
+      <span class="workout-tag">Volume Day</span>
+    </div>
+    <div class="workout-meta">
+      <span>⏱ ~55–65 min</span>
+      <span>🎯 7 exercises</span>
+      <span>📊 23 total sets</span>
+      <span>🏋️ Back / Rear Delts / Biceps</span>
+    </div>
+    <table class="exercise-table">
+      <thead>
+        <tr><th>#</th><th>Exercise</th><th>Sets × Reps</th><th>Rest</th><th>RPE</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ex-num">1</td>
+          <td>
+            <div class="ex-name">Wide-Grip Lat Pulldown</div>
+            <div class="ex-target">Primary: Lats (width) · Secondary: Biceps</div>
+          </td>
+          <td class="ex-sets">4 × 10–12</td>
+          <td class="ex-rest">2 min</td>
+          <td class="ex-rpe">8</td>
+        </tr>
+        <tr>
+          <td class="ex-num">2</td>
+          <td>
+            <div class="ex-name">One-Arm Dumbbell Row</div>
+            <div class="ex-target">Primary: Lats, mid-back · Secondary: Rear delt, bicep</div>
+          </td>
+          <td class="ex-sets">3 × 10–12 / arm</td>
+          <td class="ex-rest">90 sec</td>
+          <td class="ex-rpe">8</td>
+        </tr>
+        <tr>
+          <td class="ex-num">3</td>
+          <td>
+            <div class="ex-name">Seated Cable Row (Close Grip)</div>
+            <div class="ex-target">Primary: Mid-back thickness · Secondary: Biceps</div>
+          </td>
+          <td class="ex-sets">3 × 12–15</td>
+          <td class="ex-rest">90 sec</td>
+          <td class="ex-rpe">8</td>
+        </tr>
+        <tr>
+          <td class="ex-num">4</td>
+          <td>
+            <div class="ex-name">Cable Face Pulls</div>
+            <div class="ex-target">Primary: Rear delts · Secondary: External rotators</div>
+          </td>
+          <td class="ex-sets">3 × 20–25</td>
+          <td class="ex-rest">60 sec</td>
+          <td class="ex-rpe">7</td>
+        </tr>
+        <tr>
+          <td class="ex-num">5</td>
+          <td>
+            <div class="ex-name">Reverse Pec Deck (Rear Delt Fly)</div>
+            <div class="ex-target">Primary: Rear delts</div>
+          </td>
+          <td class="ex-sets">3 × 15–20</td>
+          <td class="ex-rest">60 sec</td>
+          <td class="ex-rpe">8</td>
+        </tr>
+        <tr>
+          <td class="ex-num">6</td>
+          <td>
+            <div class="ex-name">Dumbbell Curl</div>
+            <div class="ex-target">Primary: Biceps (both heads)</div>
+          </td>
+          <td class="ex-sets">3 × 10–12</td>
+          <td class="ex-rest">90 sec</td>
+          <td class="ex-rpe">8</td>
+        </tr>
+        <tr>
+          <td class="ex-num">7</td>
+          <td>
+            <div class="ex-name">Incline Dumbbell Hammer Curl</div>
+            <div class="ex-target">Primary: Brachialis, bicep long head</div>
+          </td>
+          <td class="ex-sets">4 × 12–15</td>
+          <td class="ex-rest">60 sec</td>
+          <td class="ex-rpe">8</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="workout-notes">
+      <strong>Notes:</strong> No deadlifts on Pull B — this lets your lower back recover for Legs B the next day. The pulldown replaces pull-ups with more controlled tempo work. Incline hammer curls stretch the long head of the bicep, which regular curls miss. Squeeze the contraction on rear delt work — don't swing.
+    </div>
+  </div>
+
+  <!-- LEGS B -->
+  <div class="workout-block">
+    <div class="workout-header wh-legs">
+      <h3>Legs B — Hypertrophy</h3>
+      <span class="workout-tag">Volume Day</span>
+    </div>
+    <div class="workout-meta">
+      <span>⏱ ~60–70 min</span>
+      <span>🎯 7 exercises</span>
+      <span>📊 24 total sets</span>
+      <span>🦵 Quads / Hamstrings / Glutes / Calves</span>
+    </div>
+    <table class="exercise-table">
+      <thead>
+        <tr><th>#</th><th>Exercise</th><th>Sets × Reps</th><th>Rest</th><th>RPE</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ex-num">1</td>
+          <td>
+            <div class="ex-name">Leg Press</div>
+            <div class="ex-target">Primary: Quads, glutes · Secondary: Hamstrings</div>
+          </td>
+          <td class="ex-sets">4 × 12–15</td>
+          <td class="ex-rest">2 min</td>
+          <td class="ex-rpe">8</td>
+        </tr>
+        <tr>
+          <td class="ex-num">2</td>
+          <td>
+            <div class="ex-name">Barbell Hip Thrust</div>
+            <div class="ex-target">Primary: Glutes · Secondary: Hamstrings</div>
+          </td>
+          <td class="ex-sets">4 × 10–12</td>
+          <td class="ex-rest">2 min</td>
+          <td class="ex-rpe">8</td>
+        </tr>
+        <tr>
+          <td class="ex-num">3</td>
+          <td>
+            <div class="ex-name">Walking Lunges (Dumbbells)</div>
+            <div class="ex-target">Primary: Quads, glutes · Secondary: Core stability</div>
+          </td>
+          <td class="ex-sets">3 × 12–14 / leg</td>
+          <td class="ex-rest">90 sec</td>
+          <td class="ex-rpe">8</td>
+        </tr>
+        <tr>
+          <td class="ex-num">4</td>
+          <td>
+            <div class="ex-name">Lying Leg Curl</div>
+            <div class="ex-target">Primary: Hamstrings</div>
+          </td>
+          <td class="ex-sets">4 × 12–15</td>
+          <td class="ex-rest">90 sec</td>
+          <td class="ex-rpe">8</td>
+        </tr>
+        <tr>
+          <td class="ex-num">5</td>
+          <td>
+            <div class="ex-name">Leg Extension</div>
+            <div class="ex-target">Primary: Quads (isolation)</div>
+          </td>
+          <td class="ex-sets">3 × 15–20</td>
+          <td class="ex-rest">60 sec</td>
+          <td class="ex-rpe">8</td>
+        </tr>
+        <tr>
+          <td class="ex-num">6</td>
+          <td>
+            <div class="ex-name">Seated Calf Raise</div>
+            <div class="ex-target">Primary: Soleus</div>
+          </td>
+          <td class="ex-sets">3 × 15–20</td>
+          <td class="ex-rest">60 sec</td>
+          <td class="ex-rpe">9</td>
+        </tr>
+        <tr>
+          <td class="ex-num">7</td>
+          <td>
+            <div class="ex-name">Cable Woodchop or Hanging Leg Raise</div>
+            <div class="ex-target">Primary: Core (obliques / lower abs)</div>
+          </td>
+          <td class="ex-sets">3 × 12–15</td>
+          <td class="ex-rest">60 sec</td>
+          <td class="ex-rpe">7</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="workout-notes">
+      <strong>Notes:</strong> No heavy barbell squats on Legs B — the leg press provides quad stimulus without the same spinal load. Hip thrusts are one of the most effective glute exercises based on EMG activation research. Seated calf raises target the soleus (standing targets the gastrocnemius), giving full calf development across both leg days. Core work is added here since it's the last training day before rest.
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ VOLUME SUMMARY ═══════════════ -->
+<section class="section" id="volume-summary">
+  <h2>PPL Weekly Volume Summary by Muscle Group</h2>
+  <p>This table shows the total direct working sets each muscle group receives per week across all 6 days of the push pull legs split. The "optimal range" column is based on Schoenfeld et al.'s meta-analysis (2017) and Pelland et al.'s dose-response analysis (2025), which found that <strong>10–20 sets per muscle group per week</strong> is the most efficient range for trained lifters.</p>
+
+  <table class="volume-table">
+    <thead>
+      <tr>
+        <th>Muscle Group</th>
+        <th>A Day Sets</th>
+        <th>B Day Sets</th>
+        <th>Total / Week</th>
+        <th>Optimal Range</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Chest</strong></td>
+        <td>10 (bench, incline, dips)</td>
+        <td>10 (incline, flat, fly)</td>
+        <td class="vol-optimal"><strong>20</strong></td>
+        <td>10–20</td>
+      </tr>
+      <tr>
+        <td><strong>Side Delts</strong></td>
+        <td>3 (lateral raise)</td>
+        <td>4 (lateral raise)</td>
+        <td class="vol-optimal"><strong>7</strong> + indirect</td>
+        <td>8–16</td>
+      </tr>
+      <tr>
+        <td><strong>Front Delts</strong></td>
+        <td>4 (OHP) + indirect</td>
+        <td>3 (DB press) + indirect</td>
+        <td class="vol-optimal"><strong>7</strong> + 10 indirect</td>
+        <td>6–12</td>
+      </tr>
+      <tr>
+        <td><strong>Triceps</strong></td>
+        <td>2 (CGBP) + indirect</td>
+        <td>6 (pushdown, overhead)</td>
+        <td class="vol-optimal"><strong>8</strong> + 10 indirect</td>
+        <td>6–12</td>
+      </tr>
+      <tr>
+        <td><strong>Back (Lats)</strong></td>
+        <td>10 (row, pull-up, cable row)</td>
+        <td>10 (pulldown, DB row, cable)</td>
+        <td class="vol-optimal"><strong>20</strong></td>
+        <td>10–20</td>
+      </tr>
+      <tr>
+        <td><strong>Rear Delts</strong></td>
+        <td>3 (face pulls)</td>
+        <td>6 (face pulls, reverse fly)</td>
+        <td class="vol-optimal"><strong>9</strong></td>
+        <td>8–16</td>
+      </tr>
+      <tr>
+        <td><strong>Biceps</strong></td>
+        <td>3 (barbell curl)</td>
+        <td>7 (DB curl, hammer curl)</td>
+        <td class="vol-optimal"><strong>10</strong> + indirect</td>
+        <td>8–14</td>
+      </tr>
+      <tr>
+        <td><strong>Quads</strong></td>
+        <td>10 (squat, BSS, extension)</td>
+        <td>10 (leg press, lunge, ext.)</td>
+        <td class="vol-optimal"><strong>20</strong></td>
+        <td>10–20</td>
+      </tr>
+      <tr>
+        <td><strong>Hamstrings</strong></td>
+        <td>7 (RDL, leg curl)</td>
+        <td>4 (leg curl)</td>
+        <td class="vol-optimal"><strong>11</strong></td>
+        <td>8–16</td>
+      </tr>
+      <tr>
+        <td><strong>Glutes</strong></td>
+        <td>7 (squat, RDL, BSS)</td>
+        <td>7 (hip thrust, lunge)</td>
+        <td class="vol-optimal"><strong>14</strong></td>
+        <td>8–16</td>
+      </tr>
+      <tr>
+        <td><strong>Calves</strong></td>
+        <td>3 (standing)</td>
+        <td>3 (seated)</td>
+        <td class="vol-optimal"><strong>6</strong></td>
+        <td>6–12</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="coach-tip">
+    <div class="tip-label">💡 Volume Adjustment</div>
+    <p style="margin:0">If you're recovering well and want more growth for a lagging muscle group, add 1–2 sets per week to that muscle's exercises. If you're feeling burnt out or your performance is dropping, remove 1–2 sets from the B-day exercises first. Track your performance — if your numbers are consistently going up, you're in the right volume range.</p>
+  </div>
+</section>
+
+<!-- ═══════════════ PROGRESSIVE OVERLOAD ═══════════════ -->
+<section class="section" id="progressive-overload">
+  <h2>Progressive Overload System for PPL</h2>
+  <p>Progressive overload is the #1 driver of long-term muscle growth in any push pull legs program. Without it, your body has no reason to adapt and build more muscle. This PPL workout plan uses a <strong>double progression</strong> model — you work within a rep range, and only add weight once you hit the top of that range on all sets.</p>
+
+  <div class="key-takeaway">
+    <strong>The Rule:</strong> When you can complete all prescribed sets at the top of the rep range with proper form, increase the weight by the smallest increment available (typically 2.5 kg / 5 lbs for upper body, 5 kg / 10 lbs for lower body) at your next session.
+  </div>
+
+  <h3>How Double Progression Works — Example</h3>
+  <p>Let's say you're doing Barbell Bench Press for 4 × 4–6 reps at 80 kg:</p>
+
+  <div class="progression-steps">
+    <div class="prog-step">
+      <div></div>
+      <div>
+        <h4>Week 1: 80 kg → 6, 5, 5, 4 reps</h4>
+        <p>You didn't hit 6 reps on all sets, so stay at 80 kg next session.</p>
+      </div>
+    </div>
+    <div class="prog-step">
+      <div></div>
+      <div>
+        <h4>Week 2: 80 kg → 6, 6, 5, 5 reps</h4>
+        <p>Getting closer — still not 6 on all sets. Stay at 80 kg.</p>
+      </div>
+    </div>
+    <div class="prog-step">
+      <div></div>
+      <div>
+        <h4>Week 3: 80 kg → 6, 6, 6, 6 reps</h4>
+        <p>All 4 sets hit the top of the range. Time to increase.</p>
+      </div>
+    </div>
+    <div class="prog-step">
+      <div></div>
+      <div>
+        <h4>Week 4: 82.5 kg → 5, 4, 4, 4 reps</h4>
+        <p>New weight, reps drop back down. Now work your way back up to 6 across all sets.</p>
+      </div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:28px">Other Progression Methods</h3>
+  <p>If you can't add weight (common on isolation exercises), use these alternatives:</p>
+  <ul class="styled-list">
+    <li><strong>Add reps</strong> — Go from 3 × 12 to 3 × 13, then 3 × 14, then increase weight and restart at 12.</li>
+    <li><strong>Add a set</strong> — Go from 3 × 12 to 4 × 12, then drop back to 3 sets with heavier weight.</li>
+    <li><strong>Improve tempo</strong> — Slow down the eccentric (lowering) phase from 1 second to 2–3 seconds.</li>
+    <li><strong>Reduce rest</strong> — Same weight and reps but with shorter rest shows improved conditioning.</li>
+  </ul>
+
+  <div class="coach-tip">
+    <div class="tip-label">💡 Tracking Tip</div>
+    <p style="margin:0">Log every workout. Write down the exercise, weight, and reps for every set. You can't progressively overload if you don't know what you did last week. Use a notebook, a notes app, or a training app — whatever you'll actually use consistently.</p>
+  </div>
+</section>
+
+<!-- ═══════════════ DELOAD ═══════════════ -->
+<section class="section" id="deload">
+  <h2>Deload Protocol for Your PPL Routine</h2>
+  <p>A deload is a planned reduction in training intensity and/or volume that allows your body to fully recover, repair tissue, and come back stronger. This push pull legs workout plan runs in <strong>4-week blocks</strong>: 3 weeks of hard training followed by 1 deload week.</p>
+
+  <div class="deload-box">
+    <div class="deload-label">🔄 Deload Schedule</div>
+    <p><strong>Weeks 1–3:</strong> Train as prescribed (progressive overload) → <strong>Week 4:</strong> Deload</p>
+    <p><strong>Weeks 5–7:</strong> Train hard again (with new PRs) → <strong>Week 8:</strong> Deload or test maxes</p>
+    <p style="margin:0"><strong>During deload week:</strong> Same exercises, same schedule, but reduce working weight by 40–50% and reduce sets by 1–2 per exercise. Keep the reps the same. This maintains movement patterns while dramatically reducing fatigue.</p>
+  </div>
+
+  <div class="science-box">
+    <div class="science-label">🔬 Why Deloads Work</div>
+    <p style="margin:0">Fitness adaptation follows the General Adaptation Syndrome (Hans Selye, 1950): stress → fatigue → recovery → supercompensation. Without planned recovery, you accumulate fatigue faster than you adapt, leading to stalled progress or overtraining. A deload dissipates accumulated fatigue while preserving the fitness you've built, setting you up for new PRs in the next training block.</p>
+  </div>
+</section>
+
+<!-- ═══════════════ WARM-UP ═══════════════ -->
+<section class="section" id="warmup">
+  <h2>Warm-Up & Cool-Down Protocol</h2>
+
+  <h3>Pre-Workout Warm-Up (10 minutes)</h3>
+  <p>Never skip the warm-up. Cold muscles are weaker and more injury-prone. Here's a three-phase warm-up that takes about 10 minutes:</p>
+
+  <ul class="styled-list">
+    <li><strong>Phase 1 — General (3 min):</strong> Light cardio (rowing machine, bike, or brisk walking) to raise core temperature and increase blood flow.</li>
+    <li><strong>Phase 2 — Dynamic Stretching (4 min):</strong> Arm circles, leg swings, hip circles, band pull-aparts, bodyweight squats. Move through full ranges of motion — never hold static stretches before lifting.</li>
+    <li><strong>Phase 3 — Specific (3 min):</strong> 2–3 warm-up sets of your first exercise with ascending weight. Example for bench press: bar × 10, 50% × 6, 75% × 3. This "ramps" your nervous system for heavy loads.</li>
+  </ul>
+
+  <h3>Post-Workout Cool-Down (5 minutes)</h3>
+  <p>Light static stretching for the muscles you trained — hold each stretch 30–60 seconds. This won't prevent soreness, but it can help maintain flexibility over time.</p>
+</section>
+
+<!-- ═══════════════ NUTRITION ═══════════════ -->
+<section class="section" id="nutrition">
+  <h2>Nutrition Guidelines for Your Push Pull Legs Routine</h2>
+  <p>Training is the stimulus, but <strong>nutrition is what builds the muscle</strong>. Even the best push pull legs workout plan won't deliver results if you're not eating enough protein and calories. Here's what the research says about fuelling a 6-day PPL split:</p>
+
+  <div class="macro-grid">
+    <div class="macro-card">
+      <div class="macro-value">1.6–2.2</div>
+      <div class="macro-unit">g/kg body weight</div>
+      <div class="macro-label">Daily Protein</div>
+    </div>
+    <div class="macro-card">
+      <div class="macro-value">+300–500</div>
+      <div class="macro-unit">calories above maintenance</div>
+      <div class="macro-label">Surplus (Bulking)</div>
+    </div>
+    <div class="macro-card">
+      <div class="macro-value">7–9</div>
+      <div class="macro-unit">hours per night</div>
+      <div class="macro-label">Sleep</div>
+    </div>
+    <div class="macro-card">
+      <div class="macro-value">3–4 L</div>
+      <div class="macro-unit">daily minimum</div>
+      <div class="macro-label">Water Intake</div>
+    </div>
+  </div>
+
+  <div class="science-box">
+    <div class="science-label">🔬 Protein Research</div>
+    <p style="margin:0">A meta-analysis by Morton et al. (2018) in the <em>British Journal of Sports Medicine</em> found that protein supplementation significantly increased muscle mass gains during resistance training, with a recommended intake of <strong>1.6 g/kg/day</strong> for most people. Intakes above 2.2 g/kg/day showed no additional benefit. Spread your protein across 3–5 meals for optimal muscle protein synthesis.</p>
+  </div>
+
+  <h3>Meal Timing Around Training</h3>
+  <ul class="styled-list">
+    <li><strong>Pre-workout (1–2 hours before):</strong> A balanced meal with protein + carbs. Example: chicken breast with rice, or oatmeal with protein powder.</li>
+    <li><strong>Post-workout (within 2 hours):</strong> Another protein-rich meal. The "anabolic window" is real but wider than people think — within 2 hours is fine, not 30 minutes.</li>
+    <li><strong>Before bed:</strong> Casein protein or a slow-digesting protein source (cottage cheese, Greek yogurt) supports overnight recovery.</li>
+  </ul>
+</section>
+
+<!-- ═══════════════ COMMON MISTAKES ═══════════════ -->
+<section class="section" id="mistakes">
+  <h2>8 Common Push Pull Legs Mistakes to Avoid</h2>
+
+  <div style="display:grid;gap:14px;margin:20px 0">
+    <div style="padding:16px 20px;background:var(--bg-alt);border-radius:var(--radius-sm);border-left:3px solid var(--accent)">
+      <strong>1. Ego Lifting</strong>
+      <p style="margin:6px 0 0;font-size:0.9rem;color:var(--text-light)">Lifting too heavy with bad form builds injuries, not muscle. Use a weight you can control through a full range of motion. If you have to swing, jerk, or bounce the weight, it's too heavy.</p>
+    </div>
+    <div style="padding:16px 20px;background:var(--bg-alt);border-radius:var(--radius-sm);border-left:3px solid var(--accent)">
+      <strong>2. Skipping Leg Day</strong>
+      <p style="margin:6px 0 0;font-size:0.9rem;color:var(--text-light)">We know. Leg day is hard. But your quads and glutes are the largest muscles in your body — they produce the most growth hormone when trained hard. Skipping them limits your whole-body growth potential.</p>
+    </div>
+    <div style="padding:16px 20px;background:var(--bg-alt);border-radius:var(--radius-sm);border-left:3px solid var(--accent)">
+      <strong>3. Too Much Volume</strong>
+      <p style="margin:6px 0 0;font-size:0.9rem;color:var(--text-light)">More sets aren't always better. Pelland et al.'s 2025 dose-response analysis found that beyond ~20 sets per muscle per week, additional volume shows diminishing returns. Stick to the program as written and add sets only when you're recovering well.</p>
+    </div>
+    <div style="padding:16px 20px;background:var(--bg-alt);border-radius:var(--radius-sm);border-left:3px solid var(--accent)">
+      <strong>4. Neglecting Rear Delts and Rotator Cuff</strong>
+      <p style="margin:6px 0 0;font-size:0.9rem;color:var(--text-light)">All that pressing without pulling creates internal rotation and shoulder problems. This program includes face pulls on both Pull days for a reason — don't skip them.</p>
+    </div>
+    <div style="padding:16px 20px;background:var(--bg-alt);border-radius:var(--radius-sm);border-left:3px solid var(--accent)">
+      <strong>5. Not Tracking Workouts</strong>
+      <p style="margin:6px 0 0;font-size:0.9rem;color:var(--text-light)">If you don't know what you lifted last week, you can't progressively overload this week. Log everything: exercise, weight, reps, and how it felt (RPE). This data drives your progress.</p>
+    </div>
+    <div style="padding:16px 20px;background:var(--bg-alt);border-radius:var(--radius-sm);border-left:3px solid var(--accent)">
+      <strong>6. Ignoring Recovery</strong>
+      <p style="margin:6px 0 0;font-size:0.9rem;color:var(--text-light)">Muscle grows during rest, not during training. Aim for 7–9 hours of sleep, eat enough protein (1.6–2.2 g/kg), stay hydrated, and take your deload weeks seriously.</p>
+    </div>
+    <div style="padding:16px 20px;background:var(--bg-alt);border-radius:var(--radius-sm);border-left:3px solid var(--accent)">
+      <strong>7. Changing the Program Every Week</strong>
+      <p style="margin:6px 0 0;font-size:0.9rem;color:var(--text-light)">Program hopping is one of the biggest progress killers. Run this plan for the full 8 weeks before making changes. Consistency + progressive overload beats novelty every time.</p>
+    </div>
+    <div style="padding:16px 20px;background:var(--bg-alt);border-radius:var(--radius-sm);border-left:3px solid var(--accent)">
+      <strong>8. Doing Cardio Before Lifting</strong>
+      <p style="margin:6px 0 0;font-size:0.9rem;color:var(--text-light)">Long cardio sessions before weights deplete glycogen and reduce your strength output. If you want to do cardio, do it after lifting or on rest days. A light 5-minute warm-up is fine — a 30-minute run before squats is not.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PPL VS OTHERS ═══════════════ -->
+<section class="section" id="ppl-vs-others">
+  <h2>Push Pull Legs vs Upper Lower & Other Splits</h2>
+
+  <div style="overflow-x:auto">
+  <table class="volume-table">
+    <thead>
+      <tr>
+        <th>Split</th>
+        <th>Days / Week</th>
+        <th>Frequency / Muscle</th>
+        <th>Best For</th>
+        <th>Drawback</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>PPL (6-Day)</strong></td>
+        <td>6</td>
+        <td>2×</td>
+        <td>Intermediate–advanced lifters wanting maximum growth</td>
+        <td>Requires 6 gym days</td>
+      </tr>
+      <tr>
+        <td><strong>Upper/Lower</strong></td>
+        <td>4</td>
+        <td>2×</td>
+        <td>Lifters who can train 4 days</td>
+        <td>Sessions can run long (full upper body in one workout)</td>
+      </tr>
+      <tr>
+        <td><strong>Full Body</strong></td>
+        <td>3</td>
+        <td>3×</td>
+        <td>Beginners, time-limited lifters</td>
+        <td>Lower volume per session limits advanced growth</td>
+      </tr>
+      <tr>
+        <td><strong>Bro Split</strong></td>
+        <td>5</td>
+        <td>1×</td>
+        <td>Bodybuilders wanting extreme per-session volume</td>
+        <td>Only hits each muscle once per week</td>
+      </tr>
+      <tr>
+        <td><strong>Push/Pull (4-Day)</strong></td>
+        <td>4</td>
+        <td>2×</td>
+        <td>Lifters who want 2× frequency without 6 days</td>
+        <td>Leg training compressed into pull/push days</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ═══════════════ FAQ ═══════════════ -->
+<section class="section" id="faq">
+  <h2>Push Pull Legs Workout Plan FAQ</h2>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="this.parentElement.classList.toggle('open');var a=this.nextElementSibling;a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px'">
+      <span>Can beginners use this push pull legs workout plan?</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner">
+      <p>We recommend at least 6 months of consistent training experience before starting a 6-day PPL. Beginners respond best to full-body programs 3× per week because they recover faster and don't need as much volume per muscle group. Once your compound lifts start stalling on a beginner program, that's when PPL becomes the logical next step. Check our <a href="/workout-plans/full-body-workout-plan/">Full Body Workout Plan for Beginners</a> if you're just starting out.</p>
+    </div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="this.parentElement.classList.toggle('open');var a=this.nextElementSibling;a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px'">
+      <span>Should I do a push pull legs split or upper lower split?</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner">
+      <p>It depends on how many days you can train. If you can commit to 6 days per week, PPL gives you more volume per muscle group and shorter, more focused sessions. If you can only train 4 days, Upper/Lower is the better choice — it still hits everything twice per week. Both splits are effective when followed consistently; the best split is the one you can actually stick to.</p>
+    </div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="this.parentElement.classList.toggle('open');var a=this.nextElementSibling;a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px'">
+      <span>How long should each PPL workout take?</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner">
+      <p>Strength days (A sessions) will take approximately 60–75 minutes because of the longer rest periods (3–4 minutes between heavy compound sets). Hypertrophy days (B sessions) will be shorter at 50–65 minutes due to shorter rests (60–120 seconds). If your workouts are consistently taking longer than 80 minutes, you're probably resting too long or doing extra exercises.</p>
+    </div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="this.parentElement.classList.toggle('open');var a=this.nextElementSibling;a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px'">
+      <span>Can I add abs and core work to this program?</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner">
+      <p>The program already includes core work on Legs B day (cable woodchops or hanging leg raises). Your core also gets significant indirect training from squats, deadlifts, overhead presses, and standing exercises. If you want more ab work, add 2–3 sets of planks or ab wheel rollouts at the end of any session — but don't overdo it. Your core needs recovery time too, and heavy compound lifts are already training it hard.</p>
+    </div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="this.parentElement.classList.toggle('open');var a=this.nextElementSibling;a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px'">
+      <span>What if I miss a day?</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner">
+      <p>If you miss one day, simply pick up where you left off — don't try to combine two workouts into one. For example, if you miss Pull A on Tuesday, do Pull A on Wednesday, then continue with Legs A on Thursday. Your rest day shifts to accommodate the missed session. If you miss more than 2 consecutive days, restart the cycle from wherever makes sense, ensuring you're not doing Push and Pull on the same day.</p>
+    </div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="this.parentElement.classList.toggle('open');var a=this.nextElementSibling;a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px'">
+      <span>Do I need to do deadlifts on Pull day?</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner">
+      <p>Conventional deadlifts are placed on Pull A because they heavily involve the posterior chain (back, glutes, hamstrings). However, if deadlifts exhaust you to the point where your rowing performance suffers significantly, you can move them to Legs A day instead — just do them after squats. Another option is to replace conventional deadlifts with rack pulls, which reduce lower body fatigue while still training the back heavily.</p>
+    </div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="this.parentElement.classList.toggle('open');var a=this.nextElementSibling;a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px'">
+      <span>When will I see results?</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner">
+      <p>With consistent training, proper nutrition, and adequate sleep, expect to see noticeable strength increases within the first 2–3 weeks. Visible muscle growth (hypertrophy) typically takes 6–8 weeks to become noticeable, and significant changes in physique take 3–6 months. Take progress photos every 4 weeks — the mirror lies, but photos side-by-side don't. Track your lifts too; if your weights are going up, muscle is being built whether you see it yet or not.</p>
+    </div></div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question" onclick="this.parentElement.classList.toggle('open');var a=this.nextElementSibling;a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px'">
+      <span>Can I follow this push pull legs routine while cutting?</span>
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer"><div class="faq-answer-inner">
+      <p>Yes, but with adjustments. During a caloric deficit, your recovery is compromised, so you may need to reduce volume by 20–30% (drop 1 set per exercise on B days). Keep the intensity (weight) high — this is the strongest signal to preserve muscle during a cut. Prioritize protein intake (2.0–2.2 g/kg during a cut is better than the lower end of the range). If you feel overly fatigued, switch to a 4-day Upper/Lower split until your cut is over.</p>
+    </div></div>
+  </div>
+</section>
+
+<!-- ═══════════════ CTA ═══════════════ -->
+<div class="cta-box">
+  <h2>Ready to Start This Push Pull Legs Workout Plan?</h2>
+  <p>Download the complete push pull legs program as a printable PDF or get access to our tracking spreadsheet with built-in progressive overload calculators.</p>
+  <a href="/workout-plans/" class="cta-btn">Browse All Workout Plans →</a>
+</div>
+
+<!-- ═══════════════ AUTHOR ═══════════════ -->
+<div class="author-box">
+  <div class="author-avatar">EM</div>
+  <div class="author-info">
+    <div class="author-name">ExerciseMenu Editorial Team</div>
+    <div class="author-creds">Reviewed by FISAF-certified coaches · Content verified by registered dietitian · Last updated October 2026</div>
+  </div>
+</div>
+
+<!-- ═══════════════ RELATED ARTICLES ═══════════════ -->
+<h3 style="margin-top:30px">Related Workout Plans to Push Pull Legs</h3>
+<div class="related-grid">
+  <a href="/workout-plans/upper-lower-split/" class="related-card" style="text-decoration:none;color:inherit">
+    <div class="related-tag">Muscle Building</div>
+    <h4>4-Day Upper Lower Split Workout</h4>
+    <p>Perfect for lifters who can only train 4 days per week but still want 2× frequency.</p>
+  </a>
+  <a href="/workout-plans/full-body-workout-plan/" class="related-card" style="text-decoration:none;color:inherit">
+    <div class="related-tag">Beginner</div>
+    <h4>Full Body Workout Plan (3-Day)</h4>
+    <p>The ideal starting point before graduating to PPL. Build your foundation first.</p>
+  </a>
+  <a href="/workout-plans/bro-split/" class="related-card" style="text-decoration:none;color:inherit">
+    <div class="related-tag">Muscle Building</div>
+    <h4>Bro Split 5-Day Workout Plan</h4>
+    <p>The classic bodybuilding split. Maximum volume per muscle, once per week.</p>
+  </a>
+  <a href="/workout-plans/body-recomposition/" class="related-card" style="text-decoration:none;color:inherit">
+    <div class="related-tag">Fat Loss</div>
+    <h4>Body Recomposition Workout Plan</h4>
+    <p>Build muscle and lose fat simultaneously. Combines strength training with nutrition strategy.</p>
+  </a>
+</div>
+
+</div><!-- /.container -->
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="site-footer">
+  <div class="container">
+    <p><strong>ExerciseMenu.com</strong> — Your complete guide to workout programming, exercise techniques, and sports nutrition.</p>
+    <div class="footer-links">
+      <a href="/">Home</a>
+      <a href="/workout-guides/">Workout Guides</a>
+      <a href="/workout-plans/">Workout Plans</a>
+      <a href="/blog/">Blog</a>
+      <a href="/about/">About</a>
+      <a href="/contact/">Contact</a>
+    </div>
+    <p style="margin-top:16px;font-size:0.78rem;color:rgba(255,255,255,0.4)">© 2026 ExerciseMenu.com. All rights reserved. Content is for informational purposes only. Consult a healthcare professional before starting any new exercise program.</p>
+  </div>
+</footer>
+
+</body>
+</html>

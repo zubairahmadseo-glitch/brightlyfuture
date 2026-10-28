@@ -1,0 +1,664 @@
+<title>100-Plan Roadmap</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Mono:wght@400;700&display=swap');
+
+  :root {
+    --bg: #fafaf8;
+    --fg: #1a1a2e;
+    --surface: #ffffff;
+    --surface-alt: #f0efe9;
+    --accent: #e94560;
+    --accent-soft: #fce8ec;
+    --green: #16a34a;
+    --green-soft: #dcfce7;
+    --amber: #d97706;
+    --amber-soft: #fef3c7;
+    --blue: #2563eb;
+    --blue-soft: #dbeafe;
+    --purple: #7c3aed;
+    --purple-soft: #ede9fe;
+    --teal: #0d9488;
+    --teal-soft: #ccfbf1;
+    --border: #e2e0d8;
+    --muted: #6b7280;
+    --font-display: 'DM Sans', system-ui, sans-serif;
+    --font-mono: 'Space Mono', 'Menlo', monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f0f17;
+      --fg: #e8e6df;
+      --surface: #1a1a24;
+      --surface-alt: #22222e;
+      --accent: #f2657a;
+      --accent-soft: #2d1520;
+      --green: #4ade80;
+      --green-soft: #0d2818;
+      --amber: #fbbf24;
+      --amber-soft: #2d2006;
+      --blue: #60a5fa;
+      --blue-soft: #0c1a2e;
+      --purple: #a78bfa;
+      --purple-soft: #1e1538;
+      --teal: #2dd4bf;
+      --teal-soft: #0a2520;
+      --border: #2e2e3a;
+      --muted: #9ca3af;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #0f0f17;
+    --fg: #e8e6df;
+    --surface: #1a1a24;
+    --surface-alt: #22222e;
+    --accent: #f2657a;
+    --accent-soft: #2d1520;
+    --green: #4ade80;
+    --green-soft: #0d2818;
+    --amber: #fbbf24;
+    --amber-soft: #2d2006;
+    --blue: #60a5fa;
+    --blue-soft: #0c1a2e;
+    --purple: #a78bfa;
+    --purple-soft: #1e1538;
+    --teal: #2dd4bf;
+    --teal-soft: #0a2520;
+    --border: #2e2e3a;
+    --muted: #9ca3af;
+    color-scheme: dark;
+  }
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-display);
+    line-height: 1.6;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 0;
+  }
+  .wrap { max-width: 960px; margin: 0 auto; padding-block: 2rem 4rem; }
+
+  /* Header */
+  .hdr { border-bottom: 3px solid var(--accent); padding-bottom: 1.5rem; margin-bottom: 2rem; }
+  .hdr h1 { font-size: clamp(1.5rem, 4vw, 2.1rem); font-weight: 700; margin: 0 0 .4rem; line-height: 1.2; text-wrap: balance; }
+  .hdr .sub { color: var(--muted); margin: 0 0 .8rem; font-size: .95rem; }
+  .meta-row { display: flex; flex-wrap: wrap; gap: .6rem 1.5rem; font-family: var(--font-mono); font-size: .72rem; color: var(--muted); }
+
+  h2 { font-size: 1.3rem; font-weight: 700; margin: 2.5rem 0 .8rem; padding-bottom: .4rem; border-bottom: 1px solid var(--border); }
+  h3 { font-size: 1.05rem; font-weight: 600; margin: 1.6rem 0 .5rem; }
+  p { margin: 0 0 .7rem; font-size: .92rem; }
+
+  /* Stats */
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px,1fr)); gap: .6rem; margin: 1.2rem 0; }
+  .stat { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: .8rem; text-align: center; }
+  .stat .n { font-family: var(--font-mono); font-size: 1.4rem; font-weight: 700; color: var(--accent); display: block; font-variant-numeric: tabular-nums; }
+  .stat .l { font-size: .7rem; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-top: .15rem; display: block; }
+
+  /* Category header */
+  .cat-hdr { display: flex; align-items: center; gap: .75rem; margin: 2.5rem 0 1rem; padding: .8rem 1rem; background: var(--surface); border-radius: 8px; border: 1px solid var(--border); }
+  .cat-num { font-family: var(--font-mono); font-size: .65rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); white-space: nowrap; }
+  .cat-name { font-size: 1.15rem; font-weight: 700; flex: 1; min-width: 0; }
+  .cat-count { font-family: var(--font-mono); font-size: .7rem; padding: .2rem .5rem; border-radius: 4px; white-space: nowrap; }
+  .cat-c1 { background: var(--accent-soft); color: var(--accent); }
+  .cat-c2 { background: var(--green-soft); color: var(--green); }
+  .cat-c3 { background: var(--blue-soft); color: var(--blue); }
+  .cat-c4 { background: var(--amber-soft); color: var(--amber); }
+  .cat-c5 { background: var(--purple-soft); color: var(--purple); }
+  .cat-c6 { background: var(--teal-soft); color: var(--teal); }
+
+  /* Table */
+  .tw { overflow-x: auto; margin: .5rem 0 1.5rem; border-radius: 8px; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; font-size: .82rem; min-width: 700px; }
+  thead { background: var(--surface-alt); }
+  th { text-align: left; padding: .5rem .6rem; font-weight: 600; font-size: .7rem; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); border-bottom: 1px solid var(--border); white-space: nowrap; }
+  td { padding: .45rem .6rem; border-bottom: 1px solid var(--border); vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+  .plan-name { font-weight: 600; }
+  .slug { font-family: var(--font-mono); font-size: .72rem; color: var(--accent); }
+
+  /* Priority tags */
+  .p { display: inline-block; font-size: .65rem; font-weight: 700; padding: .15rem .45rem; border-radius: 3px; text-transform: uppercase; letter-spacing: .04em; font-family: var(--font-mono); }
+  .p1 { background: var(--accent-soft); color: var(--accent); }
+  .p2 { background: var(--amber-soft); color: var(--amber); }
+  .p3 { background: var(--blue-soft); color: var(--blue); }
+  .vol { font-variant-numeric: tabular-nums; font-family: var(--font-mono); font-size: .78rem; }
+
+  /* Callout */
+  .callout { background: var(--accent-soft); border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0; padding: .8rem 1rem; margin: 1.2rem 0; font-size: .88rem; }
+  .callout b { color: var(--accent); }
+
+  /* Linking section */
+  .link-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: .75rem; margin: 1rem 0; }
+  .link-card { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: .8rem 1rem; }
+  .link-card h4 { font-size: .85rem; font-weight: 600; margin: 0 0 .3rem; color: var(--accent); }
+  .link-card p { font-size: .8rem; margin: 0; color: var(--muted); }
+
+  /* Strategy section */
+  .strat-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 1.2rem 1.5rem; margin: 1rem 0; }
+  .strat-card h4 { font-size: .9rem; font-weight: 700; margin: 0 0 .4rem; }
+  .strat-card p { font-size: .85rem; }
+  .strat-num { font-family: var(--font-mono); font-size: .65rem; color: var(--accent); text-transform: uppercase; letter-spacing: .08em; margin-bottom: .15rem; }
+
+  /* Phase timeline */
+  .phase { display: grid; grid-template-columns: 80px 1fr; gap: 0 1rem; margin: .5rem 0; padding: .6rem 0; border-bottom: 1px solid var(--border); }
+  .phase:last-child { border-bottom: none; }
+  .phase-label { font-family: var(--font-mono); font-size: .7rem; font-weight: 700; color: var(--accent); padding-top: .15rem; }
+  .phase-body { font-size: .85rem; }
+  .phase-body strong { font-weight: 600; }
+
+  .footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--border); font-size: .75rem; color: var(--muted); text-align: center; }
+</style>
+
+<div class="wrap">
+
+<header class="hdr">
+  <h1>ExerciseMenu.com — 100 Workout Plans Complete Roadmap</h1>
+  <p class="sub">Category-wise plan roadmap with verified keyword volumes, internal linking strategy, and ranking blueprint. Based on competitor analysis of LoadMuscle (92 plans), Muscle&Strength (1000+), SetForSet, HevyApp, and MuscleEvo.</p>
+  <div class="meta-row">
+    <span>Date: October 23, 2026</span>
+    <span>Target: /workout-plans/</span>
+    <span>Total Plans: 100</span>
+    <span>12 Categories</span>
+  </div>
+</header>
+
+<div class="stats">
+  <div class="stat"><span class="n">100</span><span class="l">Total Plans</span></div>
+  <div class="stat"><span class="n">12</span><span class="l">Categories</span></div>
+  <div class="stat"><span class="n">2,500+</span><span class="l">Words / Plan</span></div>
+  <div class="stat"><span class="n">600K+</span><span class="l">Monthly KW Volume</span></div>
+  <div class="stat"><span class="n">500+</span><span class="l">Internal Links</span></div>
+</div>
+
+<div class="callout">
+  <b>Strategy Recap:</b> LoadMuscle has 92 thin plans (~500 words each). Muscle&Strength has 1000+ plans but dated design. Our approach: 100 deeply comprehensive plans (2,500+ words each), targeting specific plan-level keywords where thin content is vulnerable. Quality beats quantity — each ExerciseMenu plan will be the most comprehensive, practical resource available for that keyword.
+</div>
+
+<div class="callout" style="border-left-color:#e94560">
+  <b>📊 Keyword Verification Status:</b><br>
+  <span style="color:#4ecdc4"><b>✓ = Verified</b></span> — Exact US monthly volume from SEOData.dev (Google Ads API) or RankHero (Ahrefs). ~35 keywords verified.<br>
+  <span style="color:#aaa"><b>No ✓ = Estimated</b></span> — Based on parent keyword ratios and industry data. SEOData.dev rate-limited for these. ~65 keywords estimated.<br>
+  <b>Note:</b> Some plans show parent keyword volume (e.g., "glute workout" 40.5K) because the article targets that broader search term with plan-specific content. The article URL slug will use the long-tail variant.
+</div>
+
+<h2>Existing ExerciseMenu Articles (No Overlap Zone)</h2>
+<p>These existing articles must NOT be duplicated by any new plan. New plans should LINK TO these articles instead. <span style="color:#e94560"><b>Update:</b> Plan #42 replaced — "Home Workout for Muscle Building (No Gym)" removed due to HIGH overlap with existing /5-day-workout-plan-to-build-muscle-at-home/ and /7-day-at-home-workout-plan-to-build-muscle/. Replaced with "Medicine Ball Workout Plan at Home" (zero overlap, leverages 9 existing medicine ball articles).</span></p>
+<div class="tw">
+<table>
+  <thead><tr><th>Existing Article</th><th>Topic</th><th>New Plans Should Link Here</th></tr></thead>
+  <tbody>
+    <tr><td>/3-week-beginner-fat-loss-workout-plan-for-women/</td><td>Women's beginner fat loss</td><td>Fat Loss plans</td></tr>
+    <tr><td>/5-day-workout-plan-to-build-muscle-at-home/</td><td>5-day home muscle building</td><td>Home & Muscle Building plans</td></tr>
+    <tr><td>/7-day-at-home-workout-plan-to-build-muscle/</td><td>7-day home muscle building</td><td>Home & Muscle Building plans</td></tr>
+    <tr><td>/hiit-high-intensity-1530-interval-training-sprint-workout-routine/</td><td>HIIT 15/30 method guide</td><td>HIIT & Cardio plans</td></tr>
+    <tr><td>/how-to-structure-a-workout/</td><td>Workout structure guide</td><td>ALL plans (foundational)</td></tr>
+    <tr><td>/how-to-create-a-weekly-workout-schedule/</td><td>Weekly schedule guide</td><td>ALL multi-day plans</td></tr>
+    <tr><td>/how-to-structure-a-30-minute-workout/</td><td>30-min workout guide</td><td>Quick Workout plans</td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ===== CATEGORY 1: MUSCLE BUILDING ===== -->
+<div class="cat-hdr">
+  <span class="cat-num">Category 01</span>
+  <span class="cat-name">Muscle Building & Hypertrophy</span>
+  <span class="cat-count cat-c1">12 Plans</span>
+</div>
+<p>Highest search volume category. "Workout plan" alone pulls 49.5K/mo. These plans target people who want structured muscle-building programs at the gym.</p>
+
+<div class="tw">
+<table>
+  <thead><tr><th>#</th><th>Plan Name</th><th>Target Keyword</th><th>Vol</th><th>KD</th><th>Priority</th><th>Internal Links</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td class="plan-name">Push Pull Legs Workout Plan (6-Day PPL)</td><td class="slug">"push pull legs workout plan"</td><td class="vol">12.1K ✓</td><td>Low-Med</td><td><span class="p p1">P1</span></td><td>Bench, Squat, Deadlift, Reps guides</td></tr>
+    <tr><td>2</td><td class="plan-name">Full Body Workout Plan for Beginners (3-Day)</td><td class="slug">"gym workout plan" (beginner intent)</td><td class="vol">40.5K ✓</td><td>12</td><td><span class="p p1">P1</span></td><td>All compound lift guides, Equipment</td></tr>
+    <tr><td>3</td><td class="plan-name">4-Day Upper Lower Split Workout</td><td class="slug">"upper lower split"</td><td class="vol">9.9K ✓</td><td>Low-Med</td><td><span class="p p1">P1</span></td><td>Bench, Squat, Deadlift, Cable guides</td></tr>
+    <tr><td>4</td><td class="plan-name">5×5 Strength & Muscle Program</td><td class="slug">"5x5 workout"</td><td class="vol">6.6K ✓</td><td>Low-Med</td><td><span class="p p1">P1</span></td><td>Squat, Bench, Deadlift, Reps guides</td></tr>
+    <tr><td>5</td><td class="plan-name">Bro Split 5-Day Workout Plan</td><td class="slug">"bro split workout plan"</td><td class="vol">9.9K ✓</td><td>Low</td><td><span class="p p1">P1</span></td><td>All body-part guides</td></tr>
+    <tr><td>6</td><td class="plan-name">4-Day Workout Split for Muscle Building</td><td class="slug">"4 day workout split"</td><td class="vol">12.1K ✓</td><td>Med</td><td><span class="p p1">P1</span></td><td>Reps & Sets, Advanced Techniques</td></tr>
+    <tr><td>7</td><td class="plan-name">3-Day Full Body Workout (Intermediate)</td><td class="slug">"3 day full body workout"</td><td class="vol">1.9K ✓</td><td>Low-Med</td><td><span class="p p2">P2</span></td><td>Compound lift guides, Nutrition</td></tr>
+    <tr><td>8</td><td class="plan-name">Lean Bulk Workout Plan (12-Week)</td><td class="slug">"lean bulk workout plan"</td><td class="vol">2K+</td><td>Low</td><td><span class="p p2">P2</span></td><td>Nutrition guides, Reps & Sets</td></tr>
+    <tr><td>9</td><td class="plan-name">Hypertrophy Training Program (4-Day)</td><td class="slug">"hypertrophy program"</td><td class="vol">1K ✓</td><td>Med</td><td><span class="p p2">P2</span></td><td>Advanced Techniques, Reps guides</td></tr>
+    <tr><td>10</td><td class="plan-name">Workout Plan for Skinny Guys / Hardgainers</td><td class="slug">"workout plan for skinny guys"</td><td class="vol">2K+</td><td>Low</td><td><span class="p p3">P3</span></td><td>Nutrition guides, Compound lifts</td></tr>
+    <tr><td>11</td><td class="plan-name">5-Day Workout Split (Gym)</td><td class="slug">"5 day workout split"</td><td class="vol">12.1K ✓</td><td>Med</td><td><span class="p p1">P1</span></td><td>All body-part guides</td></tr>
+    <tr><td>12</td><td class="plan-name">6-Day PPL Hypertrophy (Advanced)</td><td class="slug">"ppl hypertrophy program"</td><td class="vol">1.5K+</td><td>Low</td><td><span class="p p3">P3</span></td><td>Advanced Techniques, Reps guides</td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ===== CATEGORY 2: STRENGTH TRAINING ===== -->
+<div class="cat-hdr">
+  <span class="cat-num">Category 02</span>
+  <span class="cat-name">Strength Training</span>
+  <span class="cat-count cat-c2">10 Plans</span>
+</div>
+<p>"Strength training plan" pulls 9.9K/mo, "strength workout plan" 22.2K/mo (combined intent). Focused on progressive overload and getting stronger, not just bigger.</p>
+
+<div class="tw">
+<table>
+  <thead><tr><th>#</th><th>Plan Name</th><th>Target Keyword</th><th>Vol</th><th>KD</th><th>Priority</th><th>Internal Links</th></tr></thead>
+  <tbody>
+    <tr><td>13</td><td class="plan-name">Beginner Strength Training Program (3-Day)</td><td class="slug">"beginner workout plan"</td><td class="vol">12.1K ✓</td><td>Low</td><td><span class="p p1">P1</span></td><td>Squat, Bench, Deadlift, How to Structure</td></tr>
+    <tr><td>14</td><td class="plan-name">Strength Training Plan for Women</td><td class="slug">"strength training for women"</td><td class="vol">12.1K ✓</td><td>Low</td><td><span class="p p1">P1</span></td><td>Squat, Deadlift, Equipment guides</td></tr>
+    <tr><td>15</td><td class="plan-name">Powerlifting Program for Beginners</td><td class="slug">"powerlifting program for beginners"</td><td class="vol">2K+</td><td>Low-Med</td><td><span class="p p2">P2</span></td><td>Squat, Bench, Deadlift (all 14 articles)</td></tr>
+    <tr><td>16</td><td class="plan-name">Weightlifting Workout Plan (4-Day)</td><td class="slug">"weightlifting workout plan"</td><td class="vol">1.6K</td><td>Low</td><td><span class="p p2">P2</span></td><td>Compound lift guides, Reps & Sets</td></tr>
+    <tr><td>17</td><td class="plan-name">Strength and Conditioning Program</td><td class="slug">"strength and conditioning program"</td><td class="vol">2K+</td><td>Med</td><td><span class="p p3">P3</span></td><td>Advanced Techniques, HIIT guide</td></tr>
+    <tr><td>18</td><td class="plan-name">Barbell Only Workout Plan (3-Day)</td><td class="slug">"barbell workout plan"</td><td class="vol">1.5K+</td><td>Low</td><td><span class="p p3">P3</span></td><td>Squat, Bench, Deadlift guides</td></tr>
+    <tr><td>19</td><td class="plan-name">Strength Training for Over 40</td><td class="slug">"strength training over 40"</td><td class="vol">2K+</td><td>Low</td><td><span class="p p2">P2</span></td><td>Health & Wellness, Joint guides</td></tr>
+    <tr><td>20</td><td class="plan-name">Strength Endurance Workout Plan (4-Day)</td><td class="slug">"strength endurance workout"</td><td class="vol">1K+</td><td>Low</td><td><span class="p p3">P3</span></td><td>Advanced Techniques, Cardio</td></tr>
+    <tr><td>21</td><td class="plan-name">Progressive Overload Workout Plan</td><td class="slug">"progressive overload workout"</td><td class="vol">1.9K ✓</td><td>Low</td><td><span class="p p2">P2</span></td><td>Reps & Sets guides (all 8)</td></tr>
+    <tr><td>22</td><td class="plan-name">Compound Exercises Only Workout Plan</td><td class="slug">"compound exercise workout plan"</td><td class="vol">1.5K+</td><td>Low</td><td><span class="p p3">P3</span></td><td>Squat, Bench, Deadlift guides</td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ===== CATEGORY 3: FAT LOSS & WEIGHT LOSS ===== -->
+<div class="cat-hdr">
+  <span class="cat-num">Category 03</span>
+  <span class="cat-name">Fat Loss & Weight Loss</span>
+  <span class="cat-count cat-c3">10 Plans</span>
+</div>
+<p>Evergreen category with January + summer spikes. "Weight loss workout plan" — consistent demand. LoadMuscle has 8 plans here. Our 3-week women's plan already exists — these expand the category without overlap.</p>
+
+<div class="tw">
+<table>
+  <thead><tr><th>#</th><th>Plan Name</th><th>Target Keyword</th><th>Vol</th><th>KD</th><th>Priority</th><th>Internal Links</th></tr></thead>
+  <tbody>
+    <tr><td>23</td><td class="plan-name">12-Week Fat Loss Workout Plan</td><td class="slug">"fat loss workout plan"</td><td class="vol">5K+</td><td>Med</td><td><span class="p p1">P1</span></td><td>Nutrition (12 articles), HIIT guide</td></tr>
+    <tr><td>24</td><td class="plan-name">Gym Workout Plan for Weight Loss</td><td class="slug">"gym workout plan for weight loss"</td><td class="vol">3K+</td><td>Low-Med</td><td><span class="p p2">P2</span></td><td>Equipment guides, Nutrition</td></tr>
+    <tr><td>25</td><td class="plan-name">Fat Burning Workout Plan at Home</td><td class="slug">"fat burning workout"</td><td class="vol">4.4K ✓</td><td>Low</td><td><span class="p p2">P2</span></td><td>Existing home plans, Medicine Ball</td></tr>
+    <tr><td>26</td><td class="plan-name">Strength Training for Fat Loss (4-Day)</td><td class="slug">"strength training for fat loss"</td><td class="vol">2K+</td><td>Low-Med</td><td><span class="p p2">P2</span></td><td>Compound lifts, Nutrition guides</td></tr>
+    <tr><td>27</td><td class="plan-name">Metabolic Conditioning Workout Plan</td><td class="slug">"metabolic conditioning workout"</td><td class="vol">1.5K+</td><td>Low</td><td><span class="p p3">P3</span></td><td>HIIT guide, Advanced Techniques</td></tr>
+    <tr><td>28</td><td class="plan-name">Walking and Strength Plan for Weight Loss</td><td class="slug">"walking workout plan for weight loss"</td><td class="vol">2K+</td><td>Low</td><td><span class="p p2">P2</span></td><td>Health & Wellness, Beginner guides</td></tr>
+    <tr><td>29</td><td class="plan-name">Body Recomposition Workout Plan</td><td class="slug">"body recomposition"</td><td class="vol">27.1K ✓</td><td>Low</td><td><span class="p p1">P1</span></td><td>Nutrition guides, Reps & Sets</td></tr>
+    <tr><td>30</td><td class="plan-name">Low Impact Weight Loss Workout Plan</td><td class="slug">"low impact weight loss workout"</td><td class="vol">1.5K+</td><td>Low</td><td><span class="p p3">P3</span></td><td>Health & Wellness, Beginner guides</td></tr>
+    <tr><td>31</td><td class="plan-name">Cardio and Strength Combo Plan (3-Day)</td><td class="slug">"cardio and strength workout plan"</td><td class="vol">1.5K+</td><td>Low</td><td><span class="p p3">P3</span></td><td>HIIT guide, Compound lifts</td></tr>
+    <tr><td>32</td><td class="plan-name">30-Day Weight Loss Challenge Workout</td><td class="slug">"30 day weight loss workout plan"</td><td class="vol">2K+</td><td>Low-Med</td><td><span class="p p2">P2</span></td><td>Nutrition guides, All beginner plans</td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ===== CATEGORY 4: HOME WORKOUTS ===== -->
+<div class="cat-hdr">
+  <span class="cat-num">Category 04</span>
+  <span class="cat-name">Home Workouts</span>
+  <span class="cat-count cat-c4">10 Plans</span>
+</div>
+<p>"Home workout" pulls 60.5K/mo (KD 40). Post-pandemic home fitness demand is permanent. LoadMuscle has 8 home plans + 8 calisthenics. ExerciseMenu's existing home articles (5-day and 7-day) focus on building muscle — these plans diversify with equipment types and goals.</p>
+
+<div class="tw">
+<table>
+  <thead><tr><th>#</th><th>Plan Name</th><th>Target Keyword</th><th>Vol</th><th>KD</th><th>Priority</th><th>Internal Links</th></tr></thead>
+  <tbody>
+    <tr><td>33</td><td class="plan-name">Dumbbell Only Workout Plan (4-Day)</td><td class="slug">"dumbbell workout plan"</td><td class="vol">9.9K ✓</td><td>Low</td><td><span class="p p1">P1</span></td><td>Existing home articles, Equipment</td></tr>
+    <tr><td>34</td><td class="plan-name">Bodyweight Workout Plan (No Equipment)</td><td class="slug">"bodyweight workout"</td><td class="vol">22.2K ✓</td><td>Low</td><td><span class="p p1">P1</span></td><td>Medicine Ball, 30-min guide</td></tr>
+    <tr><td>35</td><td class="plan-name">Resistance Band Workout Plan (Full Body)</td><td class="slug">"resistance band workout"</td><td class="vol">27.1K ✓</td><td>Low</td><td><span class="p p1">P1</span></td><td>Equipment guides, Reps & Sets</td></tr>
+    <tr><td>36</td><td class="plan-name">Kettlebell Workout Plan (3-Day)</td><td class="slug">"kettlebell workout"</td><td class="vol">12.1K ✓</td><td>Low</td><td><span class="p p1">P1</span></td><td>Deadlift guides, Equipment</td></tr>
+    <tr><td>37</td><td class="plan-name">Home Gym Workout Plan (Bench + Dumbbells)</td><td class="slug">"home gym workout plan"</td><td class="vol">1.6K ✓</td><td>Low</td><td><span class="p p2">P2</span></td><td>Bench Press, Equipment guides</td></tr>
+    <tr><td>38</td><td class="plan-name">Apartment Friendly Workout (No Noise)</td><td class="slug">"apartment workout no noise"</td><td class="vol">1K+</td><td>Low</td><td><span class="p p3">P3</span></td><td>Bodyweight exercises, 30-min guide</td></tr>
+    <tr><td>39</td><td class="plan-name">Morning Workout Routine at Home (20 Min)</td><td class="slug">"morning workout routine at home"</td><td class="vol">3K+</td><td>Low</td><td><span class="p p2">P2</span></td><td>30-min guide, Nutrition guides</td></tr>
+    <tr><td>40</td><td class="plan-name">Home Workout Plan for Beginners</td><td class="slug">"home workout plan for beginners"</td><td class="vol">2K+</td><td>Low</td><td><span class="p p2">P2</span></td><td>How to Structure, Reps guides</td></tr>
+    <tr><td>41</td><td class="plan-name">Pull Up Bar Workout Plan (Home)</td><td class="slug">"pull up bar workout plan"</td><td class="vol">1.5K+</td><td>Low</td><td><span class="p p3">P3</span></td><td>Back guides, Equipment</td></tr>
+    <tr><td>42</td><td class="plan-name">Medicine Ball Workout Plan at Home (Full Body)</td><td class="slug">"medicine ball workout plan"</td><td class="vol">2K+</td><td>Low</td><td><span class="p p2">P2</span></td><td>Medicine Ball articles (all 9), Core plan</td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ===== CATEGORY 5: HIIT & CARDIO ===== -->
+<div class="cat-hdr">
+  <span class="cat-num">Category 05</span>
+  <span class="cat-name">HIIT & Cardio</span>
+  <span class="cat-count cat-c5">10 Plans</span>
+</div>
+<p>"HIIT workouts" pulls 71K/mo globally. "Tabata" 165K/mo. Massive demand. Existing HIIT article is a guide about 15/30 intervals — not a structured plan. These plans fill the gap.</p>
+
+<div class="tw">
+<table>
+  <thead><tr><th>#</th><th>Plan Name</th><th>Target Keyword</th><th>Vol</th><th>KD</th><th>Priority</th><th>Internal Links</th></tr></thead>
+  <tbody>
+    <tr><td>43</td><td class="plan-name">Beginner HIIT Workout Plan (4-Week)</td><td class="slug">"beginner hiit workout plan"</td><td class="vol">2K+</td><td>Low</td><td><span class="p p1">P1</span></td><td>HIIT guide, 30-min guide, Nutrition</td></tr>
+    <tr><td>44</td><td class="plan-name">Tabata Workout Plan (4-Week)</td><td class="slug">"tabata workout plan"</td><td class="vol">3K+</td><td>Low</td><td><span class="p p2">P2</span></td><td>HIIT guide, Advanced Techniques</td></tr>
+    <tr><td>45</td><td class="plan-name">EMOM Workout Plan (3-Day)</td><td class="slug">"emom workout plan"</td><td class="vol">1.5K+</td><td>Low</td><td><span class="p p3">P3</span></td><td>HIIT guide, Compound lifts</td></tr>
+    <tr><td>46</td><td class="plan-name">AMRAP Workout Plan for Beginners</td><td class="slug">"amrap workout plan"</td><td class="vol">1.5K+</td><td>Low</td><td><span class="p p3">P3</span></td><td>HIIT guide, Bodyweight exercises</td></tr>
+    <tr><td>47</td><td class="plan-name">Advanced HIIT Workout Plan (6-Week)</td><td class="slug">"advanced hiit workout plan"</td><td class="vol">1.5K+</td><td>Low-Med</td><td><span class="p p3">P3</span></td><td>HIIT guide, Advanced Techniques</td></tr>
+    <tr><td>48</td><td class="plan-name">Cardio Workout Plan for Beginners</td><td class="slug">"cardio workout plan for beginners"</td><td class="vol">2K+</td><td>Low</td><td><span class="p p2">P2</span></td><td>Health & Wellness, How to Structure</td></tr>
+    <tr><td>49</td><td class="plan-name">Low Impact HIIT Plan (No Jumping)</td><td class="slug">"low impact hiit workout plan"</td><td class="vol">1.5K+</td><td>Low</td><td><span class="p p2">P2</span></td><td>Health & Wellness, Beginner guides</td></tr>
+    <tr><td>50</td><td class="plan-name">Cardio Endurance Training Plan (8-Week)</td><td class="slug">"cardio endurance workout plan"</td><td class="vol">1K+</td><td>Low</td><td><span class="p p3">P3</span></td><td>HIIT guide, Nutrition guides</td></tr>
+    <tr><td>51</td><td class="plan-name">Sprint Interval Training Plan</td><td class="slug">"sprint interval training plan"</td><td class="vol">1K+</td><td>Low</td><td><span class="p p3">P3</span></td><td>HIIT guide, Advanced Techniques</td></tr>
+    <tr><td>52</td><td class="plan-name">Circuit Training Workout Plan (3-Day)</td><td class="slug">"circuit training"</td><td class="vol">14.8K ✓</td><td>Low</td><td><span class="p p1">P1</span></td><td>Equipment, Medicine Ball, HIIT</td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ===== CATEGORY 6: GLUTES & LEGS ===== -->
+<div class="cat-hdr">
+  <span class="cat-num">Category 06</span>
+  <span class="cat-name">Glutes & Legs</span>
+  <span class="cat-count cat-c6">8 Plans</span>
+</div>
+<p>Social media driven demand. "Glute workout" = 40.5K/mo US (verified). "Leg day workout" = 27.1K/mo US (verified). "Leg workout" = 74K/mo US. LoadMuscle has 8 plans here. ExerciseMenu's 5 squat guides provide strong internal linking foundation.</p>
+
+<div class="tw">
+<table>
+  <thead><tr><th>#</th><th>Plan Name</th><th>Target Keyword</th><th>Vol</th><th>KD</th><th>Priority</th><th>Internal Links</th></tr></thead>
+  <tbody>
+    <tr><td>53</td><td class="plan-name">Glute Workout Plan (Gym, 4-Week)</td><td class="slug">"glute workout"</td><td class="vol">40.5K ✓</td><td>Low</td><td><span class="p p1">P1</span></td><td>Squat guides, Cable guides, Deadlift</td></tr>
+    <tr><td>54</td><td class="plan-name">Leg Day Workout Plan (Complete)</td><td class="slug">"leg day workout"</td><td class="vol">27.1K ✓</td><td>Low</td><td><span class="p p1">P1</span></td><td>Squat guides (all 5), Deadlift</td></tr>
+    <tr><td>55</td><td class="plan-name">Glute Workout at Home (No Equipment)</td><td class="slug">"glute workout at home"</td><td class="vol">4K+</td><td>Low</td><td><span class="p p2">P2</span></td><td>Home articles, Medicine Ball</td></tr>
+    <tr><td>56</td><td class="plan-name">Dumbbell Leg Workout Plan (Home)</td><td class="slug">"dumbbell leg workout plan"</td><td class="vol">1.5K+</td><td>Low</td><td><span class="p p3">P3</span></td><td>Squat guides, Equipment</td></tr>
+    <tr><td>57</td><td class="plan-name">Quad and Hamstring Workout Plan</td><td class="slug">"quad and hamstring workout"</td><td class="vol">1K+</td><td>Low</td><td><span class="p p3">P3</span></td><td>Squat guides, Deadlift guides</td></tr>
+    <tr><td>58</td><td class="plan-name">Knee-Friendly Leg Workout Plan</td><td class="slug">"knee friendly leg workout"</td><td class="vol">1K+</td><td>Low</td><td><span class="p p3">P3</span></td><td>Health & Wellness, Squat (form)</td></tr>
+    <tr><td>59</td><td class="plan-name">Glute Activation Workout (Pre-Workout)</td><td class="slug">"glute activation workout"</td><td class="vol">2K+</td><td>Low</td><td><span class="p p2">P2</span></td><td>Squat guides, Cable exercises</td></tr>
+    <tr><td>60</td><td class="plan-name">Hip Thrust Workout Program</td><td class="slug">"hip thrust workout plan"</td><td class="vol">2K+</td><td>Low</td><td><span class="p p2">P2</span></td><td>Glute plan, Squat guides</td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ===== CATEGORY 7: CORE & ABS ===== -->
+<div class="cat-hdr">
+  <span class="cat-num">Category 07</span>
+  <span class="cat-name">Core & Abs</span>
+  <span class="cat-count cat-c1">8 Plans</span>
+</div>
+<p>"Ab workout" pulls 165K/mo US (verified). "Core workout" pulls 60.5K/mo US (verified). LoadMuscle has 8 plans. ExerciseMenu's 9 medicine ball articles provide strong core-related linking.</p>
+
+<div class="tw">
+<table>
+  <thead><tr><th>#</th><th>Plan Name</th><th>Target Keyword</th><th>Vol</th><th>KD</th><th>Priority</th><th>Internal Links</th></tr></thead>
+  <tbody>
+    <tr><td>61</td><td class="plan-name">6-Week Ab Workout Plan (Six Pack)</td><td class="slug">"ab workout"</td><td class="vol">165K ✓</td><td>Low-Med</td><td><span class="p p1">P1</span></td><td>Medicine Ball (9), Nutrition guides</td></tr>
+    <tr><td>62</td><td class="plan-name">Core Strengthening Workout Plan</td><td class="slug">"core workout"</td><td class="vol">60.5K ✓</td><td>Low</td><td><span class="p p1">P1</span></td><td>Medicine Ball, Advanced Techniques</td></tr>
+    <tr><td>63</td><td class="plan-name">Ab Workout at Home (No Equipment)</td><td class="slug">"ab workout at home plan"</td><td class="vol">2K+</td><td>Low</td><td><span class="p p2">P2</span></td><td>Medicine Ball, Home articles</td></tr>
+    <tr><td>64</td><td class="plan-name">10-Minute Daily Ab Workout</td><td class="slug">"10 minute ab workout daily"</td><td class="vol">2K+</td><td>Low</td><td><span class="p p2">P2</span></td><td>30-min guide, Medicine Ball</td></tr>
+    <tr><td>65</td><td class="plan-name">Plank Workout Challenge (30-Day)</td><td class="slug">"plank workout challenge"</td><td class="vol">1.5K+</td><td>Low</td><td><span class="p p3">P3</span></td><td>Core plan, Medicine Ball</td></tr>
+    <tr><td>66</td><td class="plan-name">Lower Back Friendly Core Workout</td><td class="slug">"lower back friendly core workout"</td><td class="vol">1K+</td><td>Low</td><td><span class="p p3">P3</span></td><td>Health & Wellness, Medicine Ball</td></tr>
+    <tr><td>67</td><td class="plan-name">Anti-Rotation Core Workout Plan</td><td class="slug">"anti rotation core workout"</td><td class="vol">800+</td><td>Low</td><td><span class="p p3">P3</span></td><td>Cable exercises, Advanced Techniques</td></tr>
+    <tr><td>68</td><td class="plan-name">Abs and Cardio Combo Workout Plan</td><td class="slug">"abs and cardio workout plan"</td><td class="vol">1K+</td><td>Low</td><td><span class="p p3">P3</span></td><td>HIIT guide, Medicine Ball, Nutrition</td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ===== CATEGORY 8: CALISTHENICS & BODYWEIGHT ===== -->
+<div class="cat-hdr">
+  <span class="cat-num">Category 08</span>
+  <span class="cat-name">Calisthenics & Bodyweight</span>
+  <span class="cat-count cat-c2">8 Plans</span>
+</div>
+<p>"Calisthenics workout plan" pulls 27.1K/mo US (verified). "Calisthenics routine" = 60.5K/mo. LoadMuscle has 8 calisthenics plans + ranks for "pistol squat progression" (1.7K/mo at pos 8). Passionate community — content gets shared heavily.</p>
+
+<div class="tw">
+<table>
+  <thead><tr><th>#</th><th>Plan Name</th><th>Target Keyword</th><th>Vol</th><th>KD</th><th>Priority</th><th>Internal Links</th></tr></thead>
+  <tbody>
+    <tr><td>69</td><td class="plan-name">Beginner Calisthenics Workout Plan (12-Week)</td><td class="slug">"calisthenics workout plan"</td><td class="vol">27.1K ✓</td><td>Low</td><td><span class="p p1">P1</span></td><td>Medicine Ball, Advanced Techniques</td></tr>
+    <tr><td>70</td><td class="plan-name">Push Up Workout Plan (Progressive)</td><td class="slug">"push up workout"</td><td class="vol">2.9K ✓</td><td>Low</td><td><span class="p p2">P2</span></td><td>Bench Press guides, Reps & Sets</td></tr>
+    <tr><td>71</td><td class="plan-name">Pull Up Progression Program</td><td class="slug">"pull up progression plan"</td><td class="vol">2K+</td><td>Low</td><td><span class="p p2">P2</span></td><td>Back guides, Reps & Sets</td></tr>
+    <tr><td>72</td><td class="plan-name">Pistol Squat Progression Plan</td><td class="slug">"pistol squat progression"</td><td class="vol">1.7K</td><td>Low</td><td><span class="p p2">P2</span></td><td>Squat guides, Advanced Techniques</td></tr>
+    <tr><td>73</td><td class="plan-name">Calisthenics Skills Program (Intermediate)</td><td class="slug">"calisthenics skills workout"</td><td class="vol">1K+</td><td>Low</td><td><span class="p p3">P3</span></td><td>Advanced Techniques, Reps & Sets</td></tr>
+    <tr><td>74</td><td class="plan-name">Handstand Progression Workout Plan</td><td class="slug">"handstand workout plan"</td><td class="vol">1K+</td><td>Low</td><td><span class="p p3">P3</span></td><td>Advanced Techniques, Core plan</td></tr>
+    <tr><td>75</td><td class="plan-name">Muscle Up Progression Program</td><td class="slug">"muscle up progression workout"</td><td class="vol">1K+</td><td>Low</td><td><span class="p p3">P3</span></td><td>Pull up plan, Advanced Techniques</td></tr>
+    <tr><td>76</td><td class="plan-name">Street Workout Plan for Beginners</td><td class="slug">"street workout plan beginners"</td><td class="vol">1K+</td><td>Low</td><td><span class="p p3">P3</span></td><td>Calisthenics plan, Medicine Ball</td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ===== CATEGORY 9: QUICK WORKOUTS ===== -->
+<div class="cat-hdr">
+  <span class="cat-num">Category 09</span>
+  <span class="cat-name">Quick Workouts (10-30 Min)</span>
+  <span class="cat-count cat-c3">8 Plans</span>
+</div>
+<p>Time-constrained audience. ExerciseMenu already has "How to Structure a 30-Minute Workout" (guide) — these are actual structured plans for short sessions. LoadMuscle has 8 quick plans.</p>
+
+<div class="tw">
+<table>
+  <thead><tr><th>#</th><th>Plan Name</th><th>Target Keyword</th><th>Vol</th><th>KD</th><th>Priority</th><th>Internal Links</th></tr></thead>
+  <tbody>
+    <tr><td>77</td><td class="plan-name">10-Minute Full Body Workout (Daily)</td><td class="slug">"full body workout"</td><td class="vol">33.1K ✓</td><td>Low</td><td><span class="p p1">P1</span></td><td>30-min guide, Bodyweight plan</td></tr>
+    <tr><td>78</td><td class="plan-name">15-Minute HIIT Workout Plan</td><td class="slug">"15 minute hiit workout"</td><td class="vol">2K+</td><td>Low</td><td><span class="p p2">P2</span></td><td>HIIT guide, 30-min guide</td></tr>
+    <tr><td>79</td><td class="plan-name">20-Minute Full Body Strength Workout</td><td class="slug">"20 minute strength workout"</td><td class="vol">2K+</td><td>Low</td><td><span class="p p2">P2</span></td><td>30-min guide, Compound lifts</td></tr>
+    <tr><td>80</td><td class="plan-name">30-Minute Gym Workout Plan</td><td class="slug">"30 minute gym workout plan"</td><td class="vol">2K+</td><td>Low</td><td><span class="p p2">P2</span></td><td>30-min guide, Equipment guides</td></tr>
+    <tr><td>81</td><td class="plan-name">Lunch Break Workout (20 Minutes)</td><td class="slug">"lunch break workout plan"</td><td class="vol">1K+</td><td>Low</td><td><span class="p p3">P3</span></td><td>30-min guide, Bodyweight exercises</td></tr>
+    <tr><td>82</td><td class="plan-name">15-Minute Core Workout (No Equipment)</td><td class="slug">"15 minute core workout"</td><td class="vol">1.5K+</td><td>Low</td><td><span class="p p3">P3</span></td><td>Core plan, Medicine Ball</td></tr>
+    <tr><td>83</td><td class="plan-name">Early Morning 15-Minute Workout</td><td class="slug">"morning 15 minute workout"</td><td class="vol">1.5K+</td><td>Low</td><td><span class="p p3">P3</span></td><td>Morning routine, Nutrition</td></tr>
+    <tr><td>84</td><td class="plan-name">10-Minute Stretching Routine (Daily)</td><td class="slug">"10 minute stretching routine"</td><td class="vol">2K+</td><td>Low</td><td><span class="p p2">P2</span></td><td>Health & Wellness, Recovery</td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ===== CATEGORY 10: BEGINNERS ===== -->
+<div class="cat-hdr">
+  <span class="cat-num">Category 10</span>
+  <span class="cat-name">Beginner Programs</span>
+  <span class="cat-count cat-c4">8 Plans</span>
+</div>
+<p>Beginners are the largest audience searching for workout plans. "Gym workout plan" (40.5K/mo KD 12) = predominantly beginner intent. Dedicated beginner category ensures no one falls through the cracks.</p>
+
+<div class="tw">
+<table>
+  <thead><tr><th>#</th><th>Plan Name</th><th>Target Keyword</th><th>Vol</th><th>KD</th><th>Priority</th><th>Internal Links</th></tr></thead>
+  <tbody>
+    <tr><td>85</td><td class="plan-name">Complete Beginner Gym Guide & Plan</td><td class="slug">"beginner gym workout"</td><td class="vol">3.6K ✓</td><td>Low</td><td><span class="p p1">P1</span></td><td>How to Structure, Reps, Equipment</td></tr>
+    <tr><td>86</td><td class="plan-name">First 90 Days Workout Program</td><td class="slug">"90 day workout plan beginners"</td><td class="vol">1.5K+</td><td>Low</td><td><span class="p p2">P2</span></td><td>All beginner content, Nutrition</td></tr>
+    <tr><td>87</td><td class="plan-name">Workout Plan for Complete Beginners (No Gym)</td><td class="slug">"workout plan for beginners at home"</td><td class="vol">3K+</td><td>Low</td><td><span class="p p2">P2</span></td><td>Home articles, 30-min guide</td></tr>
+    <tr><td>88</td><td class="plan-name">Beginner Workout Plan for Women (Gym)</td><td class="slug">"beginner workout plan for women"</td><td class="vol">2K+</td><td>Low</td><td><span class="p p2">P2</span></td><td>Glute plan, Fat loss plan, Nutrition</td></tr>
+    <tr><td>89</td><td class="plan-name">Beginner Workout Plan for Men (Gym)</td><td class="slug">"workout plan for men"</td><td class="vol">6.6K ✓</td><td>Low</td><td><span class="p p1">P1</span></td><td>Compound lifts, 5x5, Nutrition</td></tr>
+    <tr><td>90</td><td class="plan-name">Workout Plan for Seniors / Over 50</td><td class="slug">"workout plan for seniors"</td><td class="vol">2K+</td><td>Low</td><td><span class="p p2">P2</span></td><td>Health & Wellness, Low impact</td></tr>
+    <tr><td>91</td><td class="plan-name">Workout Plan for Teenagers</td><td class="slug">"workout plan for teenagers"</td><td class="vol">1.5K+</td><td>Low</td><td><span class="p p3">P3</span></td><td>Beginner guides, Reps & Sets</td></tr>
+    <tr><td>92</td><td class="plan-name">How to Start Working Out (Complete Plan)</td><td class="slug">"how to start working out plan"</td><td class="vol">3K+</td><td>Low</td><td><span class="p p2">P2</span></td><td>How to Structure, Weekly Schedule</td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ===== CATEGORY 11: WARM UP, MOBILITY & YOGA ===== -->
+<div class="cat-hdr">
+  <span class="cat-num">Category 11</span>
+  <span class="cat-name">Warm Up, Mobility & Recovery</span>
+  <span class="cat-count cat-c5">4 Plans</span>
+</div>
+<p>"Stretching" pulls 673K/mo. "Mobility" 201K/mo. "Yoga poses" 301K/mo. Support plans that complement main workout plans. LoadMuscle has 8 warm-up + 8 yoga plans.</p>
+
+<div class="tw">
+<table>
+  <thead><tr><th>#</th><th>Plan Name</th><th>Target Keyword</th><th>Vol</th><th>KD</th><th>Priority</th><th>Internal Links</th></tr></thead>
+  <tbody>
+    <tr><td>93</td><td class="plan-name">Full Body Warm Up Routine (Pre-Workout)</td><td class="slug">"warm up routine before workout"</td><td class="vol">3K+</td><td>Low</td><td><span class="p p2">P2</span></td><td>ALL gym plans (cross-link)</td></tr>
+    <tr><td>94</td><td class="plan-name">Full Body Mobility Routine for Lifters</td><td class="slug">"mobility routine"</td><td class="vol">880 ✓</td><td>Low</td><td><span class="p p3">P3</span></td><td>Squat, Deadlift, Health guides</td></tr>
+    <tr><td>95</td><td class="plan-name">Post Workout Stretching Routine</td><td class="slug">"post workout stretching routine"</td><td class="vol">2K+</td><td>Low</td><td><span class="p p2">P2</span></td><td>ALL plans, Health & Wellness</td></tr>
+    <tr><td>96</td><td class="plan-name">Active Recovery Day Workout</td><td class="slug">"active recovery day workout"</td><td class="vol">1.5K+</td><td>Low</td><td><span class="p p3">P3</span></td><td>Health & Wellness, Mobility</td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ===== CATEGORY 12: BODY PART SPECIFIC ===== -->
+<div class="cat-hdr">
+  <span class="cat-num">Category 12</span>
+  <span class="cat-name">Body Part Specific Plans</span>
+  <span class="cat-count cat-c6">4 Plans</span>
+</div>
+<p>"Chest workout" = 135K/mo US (verified). "Arm workout" = 74K/mo US (verified). "Back workouts" 165K/mo global. "Shoulder workouts" 135K/mo global. These target people who want focused body-part training days or specialization programs.</p>
+
+<div class="tw">
+<table>
+  <thead><tr><th>#</th><th>Plan Name</th><th>Target Keyword</th><th>Vol</th><th>KD</th><th>Priority</th><th>Internal Links</th></tr></thead>
+  <tbody>
+    <tr><td>97</td><td class="plan-name">Chest Workout Plan (4-Week)</td><td class="slug">"chest workout"</td><td class="vol">135K ✓</td><td>Low-Med</td><td><span class="p p1">P1</span></td><td>Bench Press guides (all 4)</td></tr>
+    <tr><td>98</td><td class="plan-name">Back Workout Plan (4-Week)</td><td class="slug">"back workout plan"</td><td class="vol">2K+</td><td>Low</td><td><span class="p p2">P2</span></td><td>Deadlift guides, Cable exercises</td></tr>
+    <tr><td>99</td><td class="plan-name">Shoulder Workout Plan (4-Week)</td><td class="slug">"shoulder workout plan"</td><td class="vol">2K+</td><td>Low</td><td><span class="p p2">P2</span></td><td>Bench Press (overhead), Equipment</td></tr>
+    <tr><td>100</td><td class="plan-name">Arm Workout Plan (Biceps & Triceps)</td><td class="slug">"arm workout"</td><td class="vol">74K ✓</td><td>Low</td><td><span class="p p1">P1</span></td><td>Cable exercises, Equipment guides</td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ===== INTERNAL LINKING MASTER PLAN ===== -->
+<h2>Internal Linking Master Plan</h2>
+
+<p>ExerciseMenu has 70+ existing articles across 11 categories. Here's how they connect to the 100 new plans — creating 500+ bidirectional links:</p>
+
+<div class="link-grid">
+  <div class="link-card">
+    <h4>Squat Guides (5 articles) →</h4>
+    <p>Links TO: PPL, UL Split, 5×5, Full Body, Powerlifting, Leg Day, Glute plans, Pistol Squat, all Strength plans = 15+ plans</p>
+  </div>
+  <div class="link-card">
+    <h4>Bench Press Guides (4 articles) →</h4>
+    <p>Links TO: PPL, UL Split, 5×5, Full Body, Chest Plan, Push Up Plan, Bro Split = 10+ plans</p>
+  </div>
+  <div class="link-card">
+    <h4>Deadlift Guides (5 articles) →</h4>
+    <p>Links TO: PPL, UL Split, 5×5, Back Plan, Powerlifting, Kettlebell, Barbell Only = 12+ plans</p>
+  </div>
+  <div class="link-card">
+    <h4>Reps & Sets Guides (8 articles) →</h4>
+    <p>Links TO: ALL 100 plans (rep scheme references). Highest-value linkable content on the site.</p>
+  </div>
+  <div class="link-card">
+    <h4>Equipment & Cable (7 articles) →</h4>
+    <p>Links TO: All gym plans, UL Split, PPL, Body Part plans, Glute Activation = 30+ plans</p>
+  </div>
+  <div class="link-card">
+    <h4>Medicine Ball (9 articles) →</h4>
+    <p>Links TO: Core plans, Calisthenics, HIIT plans, Home plans, Quick Workouts = 20+ plans</p>
+  </div>
+  <div class="link-card">
+    <h4>Pre-Workout Nutrition (6 articles) →</h4>
+    <p>Links TO: ALL 100 plans (nutrition section). Every plan gets a "fuel your workout" section.</p>
+  </div>
+  <div class="link-card">
+    <h4>Post-Workout Nutrition (6 articles) →</h4>
+    <p>Links TO: ALL 100 plans (recovery section). Every plan gets a "post-workout recovery" section.</p>
+  </div>
+  <div class="link-card">
+    <h4>Advanced Techniques (7 articles) →</h4>
+    <p>Links TO: PPL, UL Split, Hypertrophy, Bro Split, Calisthenics Skills, all intermediate/advanced plans = 25+ plans</p>
+  </div>
+  <div class="link-card">
+    <h4>Health & Wellness (5 articles) →</h4>
+    <p>Links TO: Fat Loss, HIIT, Senior, Low Impact, Recovery plans = 15+ plans</p>
+  </div>
+  <div class="link-card">
+    <h4>Existing Home Articles (2) →</h4>
+    <p>Links TO: All Home plans, Dumbbell, Bodyweight, Resistance Band = 10+ plans</p>
+  </div>
+  <div class="link-card">
+    <h4>How to Structure (3 articles) →</h4>
+    <p>Links TO: ALL 100 plans (foundational guidance). These are gateway articles to ALL plans.</p>
+  </div>
+</div>
+
+<div class="callout">
+  <b>Linking Rule:</b> Every new plan MUST include links to at least 5 existing ExerciseMenu articles. Every existing article should be updated to link to at least 3 relevant new plans. This creates the dense topical cluster Google rewards with higher authority signals.
+</div>
+
+<!-- ===== RANKING STRATEGY ===== -->
+<h2>How to Rank the /workout-plans/ Page & Individual Plans</h2>
+
+<div class="strat-card">
+  <div class="strat-num">Strategy 01</div>
+  <h4>Hub Page SEO — Make /workout-plans/ Rank for "Workout Plans" (22.6K/mo)</h4>
+  <p>The hub page targets "free workout plans", "workout plans", "workout routines" — broad terms. It ranks because it links to ALL 100 individual plans. Like LoadMuscle's hub ranks #2-3 for "workout routines" (458K/mo) by linking to 92 plans. More plans = more topical authority = higher hub ranking. Add each plan to the hub as it's published. Use CollectionPage schema. The hub page becomes the single most linked-to page on the site (every plan links back to it).</p>
+</div>
+
+<div class="strat-card">
+  <div class="strat-num">Strategy 02</div>
+  <h4>Individual Plan SEO — Long-Tail Keywords Win</h4>
+  <p>Each plan targets a specific long-tail keyword (e.g., "push pull legs workout plan" not "workout plan"). These long-tail terms have lower competition but high intent — searchers want THAT specific plan. Write 2,500+ words for each plan. Use HowTo schema + FAQ schema (5-7 FAQs per plan targeting related long-tail queries). Include a printable version/PDF download option.</p>
+</div>
+
+<div class="strat-card">
+  <div class="strat-num">Strategy 03</div>
+  <h4>Content Depth — Beat LoadMuscle's Thin Content</h4>
+  <p>LoadMuscle's 92 plans are ~500 words each. Our 100 plans at 2,500+ words = 5× deeper. Google's Helpful Content Update rewards comprehensive, original content. Each plan should include: full exercise lists with sets/reps/rest, progression models, deload protocols, exercise substitutions, nutrition guidelines, FAQ section, and printable schedule. This depth gap is our primary competitive advantage.</p>
+</div>
+
+<div class="strat-card">
+  <div class="strat-num">Strategy 04</div>
+  <h4>Internal Linking Power — 500+ Bidirectional Links</h4>
+  <p>Every plan links to 5+ existing articles. Every existing article links to 3+ new plans. Hub page links to all 100 plans. Plans cross-link to related plans (e.g., PPL links to UL Split as alternative). This creates 500+ internal links forming a dense topical cluster. Google uses internal links to understand site structure and distribute authority. Sites with strong internal linking rank 40% better on average.</p>
+</div>
+
+<div class="strat-card">
+  <div class="strat-num">Strategy 05</div>
+  <h4>E-E-A-T Signals — Expert Authority</h4>
+  <p>Every plan should include: Author byline (FISAF-certified coach), "Reviewed by" credit (registered dietitian for nutrition sections), last updated date, methodology section explaining the science behind the programming, references to research studies where applicable. These signals matter for YMYL (Your Money Your Life) fitness content.</p>
+</div>
+
+<div class="strat-card">
+  <div class="strat-num">Strategy 06</div>
+  <h4>Schema Markup — Rich Results</h4>
+  <p>Every plan page: HowTo schema (for the workout steps), FAQ schema (5-7 FAQs), Breadcrumb schema (Home → Workout Plans → [Category] → [Plan]). Hub page: CollectionPage schema, FAQ schema (10 FAQs), Breadcrumb schema. This earns rich snippets in Google Search, increasing CTR by 20-30%.</p>
+</div>
+
+<div class="strat-card">
+  <div class="strat-num">Strategy 07</div>
+  <h4>Publishing Velocity — Phase Approach</h4>
+  <p>Don't publish all 100 at once. Phase approach builds natural growth signals:</p>
+</div>
+
+<!-- Publishing phases -->
+<h3>Publishing Phases (25-Week Roadmap)</h3>
+
+<div class="phase">
+  <div class="phase-label">Phase 1<br>Weeks 1-5</div>
+  <div class="phase-body"><strong>Plans #1-10 (Priority 1):</strong> PPL, Full Body Beginner, UL Split, Dumbbell Only, Fat Loss, 5×5, Glute Plan, Calisthenics, Core & Abs, Beginner HIIT. Publish 2 plans/week. These are highest volume keywords. Update hub page after each publish.</div>
+</div>
+<div class="phase">
+  <div class="phase-label">Phase 2<br>Weeks 6-12</div>
+  <div class="phase-body"><strong>Plans #11-30 (Priority 2):</strong> Bro Split, 4-Day Split, 5-Day Split, Lean Bulk, Hypertrophy, Strength for Women, Powerlifting, Gym Weight Loss, Home Plans, Tabata, Cardio, Body Part plans. Publish 3 plans/week. Start monitoring Phase 1 rankings in GSC.</div>
+</div>
+<div class="phase">
+  <div class="phase-label">Phase 3<br>Weeks 13-19</div>
+  <div class="phase-body"><strong>Plans #31-60 (Priority 2-3):</strong> Remaining home, HIIT, glute/leg, core plans. Publish 4-5 plans/week. By now Phase 1 plans should be indexing and showing initial rankings. Optimize underperforming plans based on GSC data.</div>
+</div>
+<div class="phase">
+  <div class="phase-label">Phase 4<br>Weeks 20-25</div>
+  <div class="phase-body"><strong>Plans #61-100 (Priority 3):</strong> Long-tail calisthenics, quick workouts, beginner specializations, warm up/mobility, body part plans. Publish 5-7 plans/week. Complete the full 100-plan collection. Full internal linking audit.</div>
+</div>
+
+<div class="callout">
+  <b>After ALL 100 Plans Published:</b>
+  <br>1) Complete internal linking audit — every plan has 5+ internal links, every existing article links to 3+ plans
+  <br>2) Submit full sitemap to Google Search Console
+  <br>3) Update /workout-plans/ hub with all 100 plan links
+  <br>4) Create category landing sections on the hub for each of the 12 categories
+  <br>5) Monitor rankings weekly for first 3 months
+  <br>6) Optimize titles/meta for underperforming plans based on GSC impressions data
+  <br>7) Add "People Also Ask" FAQs to plans not earning featured snippets
+</div>
+
+<div class="strat-card">
+  <div class="strat-num">Strategy 08</div>
+  <h4>Ongoing Optimization (After Publishing)</h4>
+  <p><strong>Month 1-2:</strong> Monitor indexing in GSC. Identify plans with high impressions but low CTR — optimize title tags and meta descriptions.
+  <br><strong>Month 3-4:</strong> Identify plans ranking positions 4-10 — add more content, FAQs, and internal links to push them to top 3.
+  <br><strong>Month 5-6:</strong> Check for keyword cannibalization between plans. Create "comparison" sections (e.g., "PPL vs Upper Lower: Which is Better?" section within both plans).
+  <br><strong>Month 6+:</strong> Update plans with seasonal variations (summer cut plans, new year plans). Add user-generated content (success stories, transformation logs).
+  <br><strong>Ongoing:</strong> Every new blog post should link to at least 2 relevant workout plans. Every plan update refreshes the "last updated" date for freshness signals.</p>
+</div>
+
+<div class="strat-card">
+  <div class="strat-num">Strategy 09</div>
+  <h4>Beat LoadMuscle Specifically</h4>
+  <p><strong>Their weakness:</strong> 92 thin plans (~500 words), no FAQ schema, no author E-E-A-T signals, no internal linking to educational content, basic design.
+  <br><strong>Our advantage:</strong> 100 comprehensive plans (2,500+ words), FAQ + HowTo schema on every plan, FISAF-certified author byline, 500+ internal links to 70+ educational guides, modern responsive design with ExerciseMenu branding.
+  <br><strong>Timeline to outrank:</strong> 4-8 months for individual plan keywords. 6-12 months for hub page "workout plans" keyword. Their hub ranks for broad terms because of content volume — once we match (100 vs 92 plans) with 5× deeper content, Google will prefer our plans.</p>
+</div>
+
+<div class="strat-card">
+  <div class="strat-num">Strategy 10</div>
+  <h4>Off-Page Support (Optional but Powerful)</h4>
+  <p><strong>Pinterest:</strong> Create plan infographic pins for each plan. Fitness is one of Pinterest's top categories. Each pin links back to the plan page.
+  <br><strong>Reddit:</strong> Share plans in r/Fitness, r/bodyweightfitness, r/xxfitness when they add genuine value to discussions. Reddit sends high-quality referral traffic.
+  <br><strong>YouTube Shorts / Reels:</strong> 30-second exercise demos linking to the full plan. Cross-platform promotion.
+  <br><strong>Guest Posts:</strong> Write for small fitness blogs, linking back to specific plan pages (not the homepage). Target sites with DR 20-40 for achievable link building.</p>
+</div>
+
+<footer class="footer">
+  <p>ExerciseMenu.com — 100 Workout Plans Roadmap · Phase 4 Complete</p>
+  <p>Competitors analyzed: LoadMuscle.com (92 plans), Muscle&Strength.com (1000+ plans), SetForSet.com, HevyApp.com, MuscleEvo.net, BoostCamp.app</p>
+  <p>Data sources: Ahrefs keyword data, RankHero, SEOData.dev, Exploding Topics, Keywords Everywhere, Google Search analysis</p>
+</footer>
+
+</div>
