@@ -1,46 +1,41 @@
 # ExerciseMenu Workout Plans — Handoff Brief (read this first)
 
-New session: read this file, `roadmap.html`, and `sample-ppl-page.html` in this folder. Do NOT ask the user to re-explain.
+New session: read this whole file before doing anything. Do NOT ask the user to re-explain.
 Also load the `exercisemenu-content` skill. Reply to the user in Roman Urdu.
 
-## Task
-Write Batch 1 workout plan pages #5–#15 (11 pages) for exercisemenu.com and save each as a **WordPress DRAFT** (never publish).
-Plans #1–#4 are already written by the user (not live yet): PPL 6-Day, Full Body Beginners 3-Day, 4-Day Upper Lower, 5×5.
+## Current status (updated 28 Oct 2026)
+- **Plans #1–#15 are finished** and live in `batch1/` (content, builder, zip packaging). The user pastes pages into WordPress manually from the zip (`batch1/make_zip.py`); the REST connection failed (proxy rejected the network secret).
+- **Next plans come from `ExerciseMenu_Workout_Plans_YMYL_Safe_Roadmap.xlsx`** (tab "Remaining Plans", Status = "To write"). 14 YMYL-risk plans were removed (tab "Removed (YMYL Risk)") — never write those. Respect the "YMYL Notes" column for each plan.
+- Avoid keyword cannibalisation with written pages (e.g. #85 "beginner gym workout" and #77 "full body workout" vs #2 "gym workout plan") — give each a clearly different angle and tell the user.
 
-| # | Plan | Slug (under /workout-plans/) | Target keyword |
-|---|---|---|---|
-| 1 | Push Pull Legs (6-Day PPL) — DONE by user | push-pull-legs | push pull legs workout plan |
-| 2 | Full Body for Beginners (3-Day) — DONE | full-body-workout-plan | gym workout plan |
-| 3 | 4-Day Upper Lower Split — DONE | upper-lower-split | upper lower split |
-| 4 | 5×5 Strength & Muscle — DONE | 5x5-workout | 5x5 workout |
-| 5 | Bro Split 5-Day | bro-split | bro split workout plan |
-| 6 | 4-Day Workout Split | 4-day-workout-split | 4 day workout split |
-| 7 | 3-Day Full Body (Intermediate) | 3-day-full-body-workout | 3 day full body workout |
-| 8 | Lean Bulk (12-Week) | lean-bulk-workout-plan | lean bulk workout plan |
-| 9 | Hypertrophy Program (4-Day) | hypertrophy-program | hypertrophy program |
-| 10 | Skinny Guys / Hardgainers | workout-plan-for-skinny-guys | workout plan for skinny guys |
-| 11 | 5-Day Workout Split (Gym) | 5-day-workout-split | 5 day workout split |
-| 12 | 6-Day PPL Hypertrophy (Advanced) | ppl-hypertrophy-program | ppl hypertrophy program |
-| 13 | Beginner Strength Program (3-Day) | beginner-strength-training-program | beginner workout plan |
-| 14 | Strength Training for Women | strength-training-for-women | strength training for women |
-| 15 | Powerlifting for Beginners | powerlifting-program-for-beginners | powerlifting program for beginners |
+## MANDATORY workflow for every new plan (user instruction, 28 Oct 2026)
+Do these steps in order for each plan, and show the research to the user before writing:
 
-Avoid overlap between #2/#7/#13, #1/#12, #6/#9, #5/#11 — each must have a distinct angle.
+1. **Competitor research — top 7 ranking pages** for the plan's target keyword (WebSearch; fetch each page with WebFetch or curl). For each competitor record: URL, H1→H2→H3 outline, workout structure (days, exercises, sets/reps/rest), FAQs, data/sources used, word count, depth, and what they do badly.
+2. **From all 7 competitors, extract:**
+   - **Short-tail keywords** (1–2 words), **mid-tail** (3–4 words) and **long-tail** keywords (5+ words / question phrases) actually used in their titles, headings and body.
+   - **Entities** (exercises, muscles, equipment, training concepts, organisations, studies, people) — tag each as used by 3+ competitors (must include) or 2 (differentiator).
+3. **Own keyword research** beyond competitors:
+   - Autocomplete (all work from the container): Google `https://suggestqueries.google.com/complete/search?client=firefox&q=<kw>`, Bing `https://api.bing.com/osjson.aspx?query=<kw>`, DuckDuckGo `https://duckduckgo.com/ac/?q=<kw>&type=list`. Expand with modifiers (for beginners, for men, for women, at home, pdf, 3 days, 4 days, how to, best, vs, a–z).
+   - People Also Ask / related searches via WebSearch.
+   - **No search-volume tool is available** — keywords are content-derived, not volume-verified. Say so; the user cross-checks volumes in their keyword tool.
+4. **Gap analysis + structure** (what all cover, what 1–2 cover, what none cover), then build the page outline.
+5. **Then write the plan** in the batch 1 system (below), verify every claim, build, lint, audit, link-check, and deliver a paste-ready zip.
 
-## User requirements
-- YMYL: content must be 100% accurate. Verify every sets/reps/rest/nutrition claim against NSCA/ACSM/PubMed; cite with working links. Recheck every page after writing.
-- Follow the structure + design of `sample-ppl-page.html` (improve where better for users).
-- Add a **Day 1 / Day 2 / Day 3 tab filter** for the workouts (inspired by loadmuscle.com/workout-routines/weight-loss/beginner-weight-loss-workout-plan) — must work inside a WordPress Custom HTML block.
-- Bottom: related workout plan **cards** with internal links (slugs above; #1–#4 included).
-- Link exercise names to exercise pages ONLY if live (format: https://exercisemenu.com/exercises/dumbbell-biceps-curl/). Check sitemap first; never link non-live URLs.
-- Internal links to live guides (reps & sets, progressive overload, how-to-structure, etc. — verify via sitemap).
-- **NO author byline** (user said no "FISAF-certified coach Sadia Baloch" byline).
-- Easy to edit later in WordPress: one shared CSS block, clean sections.
-- Rank Math: meta title ≤60 chars, meta description ≤155 chars, focus keyword.
-- Parent page `/workout-plans/` (hub) will be built later by the user; create an empty DRAFT parent "Workout Plans" (slug workout-plans) if it does not exist.
-- User may paste Q&A from another Claude chat for cross-checking — use it to recheck.
+## Page standards (learned in batch 1 — keep them)
+- **Workout first:** Quick Answer → schedule → day tabs → everything else. Users come for the plan; don't make them dig. Keep pages short; no padding, no repeated info, FAQs must add new info.
+- **No Key Takeaways box** (user agreed it repeated the body).
+- **Day tabs are pure CSS** (radio inputs) so WordPress keeps them; "All days" tab included.
+- **Hero line on every page:** "✓ Training reviewed by FISAF-certified coaches · Nutrition reviewed by [Rimsha Shahid](https://exercisemenu.com/rimsha-shahid/), certified dietitian" (her profile title is "Certified Dietitian | Clinical Nutritionist" — never write "registered dietitian").
+- **Author box after the FAQ:** Sadia Baloch, FISAF-certified fitness trainer (text in `batch1/build.py` `AUTHOR_BOX`). No other bylines.
+- YMYL accuracy: every sets/reps/rest/nutrition claim must match a PubMed/ACSM/NSCA source read in full abstract; cite with working links (`batch1/content/refs.py`). Never invent downloads, tools, reviewers or credentials.
+- Link exercise names only to live `/exercises/` pages; internal links only to URLs in the live sitemap (re-check `post-sitemap.xml` and `page-sitemap.xml` each session).
+- Rank Math: meta title ≤60, description ≤155, focus keyword in title/description.
+- Related plan cards: 4 relevant plans from `PLANS` in `batch1/build.py` (add each new plan there).
 
-## WordPress connection
-- Auth via Claude **Network secret**: host `exercisemenu.com`, path `/wp-json/`, header `Authorization: Basic <base64>` injected automatically. Just call `https://exercisemenu.com/wp-json/wp/v2/...` with no auth header.
-- Wordfence: application passwords enabled. WPCode snippet "Rank Math REST meta" registers `rank_math_title`, `rank_math_description`, `rank_math_focus_keyword` for pages with show_in_rest.
-- First step: test (GET /wp-json/wp/v2/users/me?context=edit, then create + verify a test draft with Rank Math meta, then delete it).
+## How to build
+- Add `batch1/content/<plan>.py` (copy an existing one), add it to `PAGES` and `PLANS` in `batch1/build.py`.
+- `python3 build.py` → `python3 lint.py <live_paths.txt>` → `python3 audit.py` (session times, FAQ overlap, AI-phrases) → check all links → `python3 make_zip.py <dir>`.
+
+## WordPress connection (currently not working)
+- Auth via Claude **Network secret**: host `exercisemenu.com`, path `/wp-json/`, header `Authorization: Basic <base64>` injected automatically. On 28 Oct 2026 the proxy returned `X-Proxy-Error: upstream auth failed` — the user must fix the secret in the environment settings. `batch1/publish.py test` checks it; `publish.py drafts` saves drafts only.
