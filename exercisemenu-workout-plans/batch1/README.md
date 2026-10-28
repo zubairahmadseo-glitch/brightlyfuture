@@ -14,7 +14,9 @@ python3 publish.py drafts    # parent "Workout Plans" draft + 11 DRAFT pages (ne
 - `shared.css` — the one shared style block (scoped to `.emp`, no theme bleed)
 - `out/<slug>.html` — WordPress block content (Custom HTML blocks: CSS, intro, one block per section, FAQ, related + refs, FAQ schema)
 - `preview/<slug>.html` — open in a browser to preview
-- `lint.py` — meta lengths, quick-answer limits, banned phrases, internal links vs sitemap
+- `lint.py` — meta lengths, quick-answer limits, banned phrases, exercise-count stats, unrendered template code, internal links vs sitemap
+- `audit.py` — session-time estimates vs stated times, FAQ/body overlap, AI-style phrase scan
+- `make_zip.py` + `PROCESS-GUIDE.txt` — builds the paste-ready zip for manual WordPress entry
 
 ## Notes
 - Day tabs are pure CSS (radio inputs), no JavaScript, so WordPress cannot strip them; an "All days" tab shows every workout and print shows all.

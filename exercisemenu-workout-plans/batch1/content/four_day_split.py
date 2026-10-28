@@ -4,22 +4,15 @@ PAGE = {
     "num": 6,
     "slug": "4-day-workout-split",
     "title": "4-Day Workout Split: The Torso/Limbs Plan for Muscle and Strength",
-    "meta_title": "4-Day Workout Split: Torso/Limbs Plan With Sets & Reps",
+    "meta_title": "4-Day Workout Split: Train Every Muscle Twice (Full Plan)",
     "meta_desc": "This 4 day workout split trains every muscle twice a week. Full torso/limbs workouts, sets and reps, progression rules and how each 4-day split compares.",
     "focus_kw": "4 day workout split",
     "badge": "2× Frequency in 4 Days",
     "hero_lead": "Four sessions a week is enough to train every muscle twice, as long as the days are split the right way. This plan uses a torso/limbs split with a heavier A rotation and a higher-rep B rotation.",
     "hero_meta": ["📅 4 days/week", "⏱ 60–75 min", "📊 Intermediate", "🏋️ Full gym"],
     "stats": [("4", "Training days"), ("2×", "Frequency/muscle"), ("10–14", "Sets/major muscle/wk"), ("8 wk", "Block length"), ("A/B", "Heavy + volume")],
-    "quick_answer": "The best 4-day workout split for most intermediate lifters trains each muscle twice a week. This plan alternates torso days (chest, back, shoulders) with limbs days (legs, biceps, triceps) on Monday, Tuesday, Thursday and Friday, using one heavier and one higher-rep version of each day.",
-    "takeaways": [
-        "Torso/limbs separates upper-body pressing and pulling from arm isolation, so arms get fresh, focused work twice a week.",
-        "A days use 5–8 reps on the main lifts for strength; B days use 8–15 reps for extra hypertrophy volume.",
-        "Wednesday, Saturday and Sunday stay off, giving each muscle 72 hours between direct sessions.",
-        "Upper/lower, torso/limbs, PPL + upper and a 4-day bro split all work; choose by recovery and schedule (comparison table below).",
-        "Run the plan for 7 weeks, deload in week 8, then repeat with heavier starting loads.",
-    ],
-    "intro": "<p>A 4-day workout split hits the sweet spot for many lifters: enough sessions to train each muscle twice a week, and enough rest days to recover and keep a life outside the gym. The catch is that \"4-day split\" covers several layouts, and some of them train certain muscles only once.</p><p>This page gives you a complete torso/limbs program with every set and rep, then compares it with the other common 4-day splits so you can choose with confidence.</p>",
+    "quick_answer": "A good 4-day workout split trains each muscle twice a week, which keeps sessions shorter and helps strength. This plan alternates torso days (chest, back, shoulders) with limbs days (legs, biceps, triceps) on Monday, Tuesday, Thursday and Friday, using one heavier and one higher-rep version of each day.",
+    "intro": "<p>Four days a week is enough to train each muscle twice and still leave three rest days. But \"4-day split\" covers several layouts, and some of them train certain muscles only once.</p><p>This page gives you a complete torso/limbs program with every set and rep, then compares it with the other common 4-day splits so you can choose with confidence.</p>",
     "sections": [
         ("options", "Which 4-Day Split Should You Choose?", f"""
 <p>All of the common 4-day layouts can build muscle. The differences are how often each muscle is trained, how long sessions run, and how much one missed day hurts the week.</p>
@@ -37,11 +30,11 @@ PAGE = {
 <p>This plan suits lifters with 6+ months of consistent training who can bench, squat, row and hinge with good form. It fits people who:</p>
 <ul>
 <li>Can train four days, ideally Monday, Tuesday, Thursday and Friday.</li>
-<li>Want visible arm and leg development, since limbs days give both fresh effort.</li>
+<li>Want arms trained directly twice a week, alongside legs.</li>
 <li>Want strength and size together, through heavy A days and volume B days.</li>
 <li>Have 60–75 minutes per session.</li>
 </ul>
-{box("tip", "💡 Coach's note", f"<p>New to lifting? Start with a full-body plan for 3–6 months first. Full-body training lets you practice each lift three times a week, which speeds up technique learning. Compare the two approaches in our {L('/upper-lower-split-vs-full-body/', 'upper/lower vs full body guide')}.</p>")}
+{box("tip", "💡 Coach's note", f"<p>New to lifting? Start with a full-body plan for 3–6 months first. Full-body training gives you practice on each lift three times a week while you learn technique. Compare the two approaches in our {L('/upper-lower-split-vs-full-body/', 'upper/lower vs full body guide')}.</p>")}
 """),
         ("schedule", "4-Day Workout Split Schedule", f"""
 <p>The week runs on two on, one off, two on, two off. Each muscle gets one heavy and one volume session with at least 72 hours between them.</p>
@@ -79,28 +72,23 @@ PAGE = {
 </ol>
 <h3>B days (volume)</h3>
 <p>Use double progression: add reps until every set hits the top of the range at the listed RIR, then add the smallest available load. The {cite('acsm2009', 'ACSM progression model')} recommends 2–10% load jumps once you exceed the target reps by one or two.</p>
-<p>Track every session; a training log is the only reliable way to know the plan is working. The {L('/how-to-track-your-workouts/', 'workout tracking guide')} shows a simple format.</p>
+<p>Track every session; a training log is the most reliable way to know the plan is working. The {L('/how-to-track-your-workouts/', 'workout tracking guide')} shows a simple format.</p>
 """),
         ("deload", "Deload and Long-Term Plan", f"""
-<p>Train weeks 1–7 as written, then deload in week 8. Keep the same four days and exercises, cut sets by about half, and stop every set at RIR 3–4. A {cite('delphi2023', 'Delphi consensus of coaches and researchers')} defines a deload as a planned period of reduced training stress to manage fatigue and prepare for the next block, which is exactly its job here.</p>
+<p>Train weeks 1–7 as written, then deload in week 8. Keep the same four days and exercises, cut sets by about half, and stop every set at RIR 3–4. A {cite('delphi2023', 'Delphi consensus of coaches and researchers')} defines a deload as a planned period of reduced training stress to manage fatigue and prepare for the next block.</p>
 <p>After the deload, start block two with loads about 2.5–5% heavier than block one's week 1. Swap 1–2 accessory exercises per day if they feel stale, but keep the main lifts so progress stays measurable. Our {L('/what-is-a-deload-week/', 'deload week guide')} covers signs you need one earlier.</p>
 """),
-        ("nutrition", "Nutrition and Recovery", f"""
-<div class="emp-macros">
-<div class="emp-macro"><b>1.6–2.2 g/kg</b><span>Daily protein</span></div>
-<div class="emp-macro"><b>0.25–0.5%</b><span>Body weight gained per week if bulking</span></div>
-<div class="emp-macro"><b>7–9 h</b><span>Sleep per night</span></div>
-</div>
-<p>Protein intakes around 1.6 g/kg/day maximised gains in a {cite('protein2018', 'meta-analysis of 49 trials')}, and a {cite('offseason2019', 'review of off-season bodybuilding nutrition')} recommends a slow gain of 0.25–0.5% of body weight per week to limit fat gain. If you want to lose fat while running this plan, keep protein high and keep the training loads; the program itself does not need to change. Work out your number with the {L('/protein-calculator/', 'protein calculator')}.</p>
+        ("nutrition", "What to Eat on This Plan", f"""
+<p>Muscle gains from protein plateaued at intakes around 1.6 g/kg/day in a {cite('protein2018', 'meta-analysis of 49 trials')}, and a {cite('offseason2019', 'review of off-season bodybuilding nutrition')} recommends a slow gain of 0.25–0.5% of body weight per week to limit fat gain. If you want to lose fat while running this plan, keep protein high and keep the training loads; the program itself does not need to change. Work out your number with the {L('/protein-calculator/', 'protein calculator')}.</p>
 """),
         ("mistakes", "Mistakes That Stall a 4-Day Split", f"""
 <ul>
-<li><strong>Stacking Torso A and Torso B on consecutive days.</strong> Pressing and rowing two days in a row leaves the second session under-recovered.</li>
+<li><strong>Stacking Torso A and Torso B on consecutive days.</strong> Pressing and rowing two days in a row can leave the second session under-recovered.</li>
 <li><strong>Rushing rests on heavy lifts.</strong> Trained lifters gained more strength with {cite('rest2018', 'rests longer than 2 minutes')}. Keep 2–3 minutes on A-day compounds.</li>
 <li><strong>Treating arm work as an afterthought.</strong> On limbs days, arms come after legs, so keep arm sets controlled and close to the listed RIR rather than rushing them.</li>
 <li><strong>Changing exercises every week.</strong> Constant novelty makes it impossible to see progress. Keep the main lifts for the full 8-week block.</li>
 </ul>
-<p>Get those right and the four-day structure will carry you for many training blocks. When progress slows across a whole block, revisit total weekly sets before changing the split.</p>
+<p>When progress slows across a whole block, check total weekly sets, sleep and food before changing the split.</p>
 """),
     ],
     "schedule": [("Mon", "Torso A", "c1"), ("Tue", "Limbs A", "c3"), ("Wed", "Rest", "rest"), ("Thu", "Torso B", "c2"), ("Fri", "Limbs B", "c6"), ("Sat", "Rest", "rest"), ("Sun", "Rest", "rest")],
@@ -149,12 +137,12 @@ PAGE = {
     ],
     "faq_title": "4-Day Workout Split FAQ",
     "faqs": [
-        ("Is a 4-day split enough to build muscle?", "Yes. Four sessions let you train every muscle twice a week with 10 or more weekly sets for the major groups, which matches current hypertrophy guidelines for intermediate lifters."),
-        ("Can I do cardio on the off days?", "Yes. Easy cardio such as walking or cycling for 20–40 minutes on Wednesday or the weekend supports recovery and heart health. Keep hard intervals away from the day before Limbs A so your squats do not suffer."),
+        ("Can I add a fifth day for arms or weak points?", "Yes, if you recover well. Keep it short (30–40 minutes) and light, for example lateral raises, curls and triceps work for 2–3 sets each, and place it on Saturday so it does not crowd Torso A."),
+        ("Can I do cardio on the off days?", "Yes. Easy cardio such as walking or cycling for 20–40 minutes on Wednesday or the weekend supports heart health without hurting your lifting. Keep hard intervals away from the day before Limbs A so your squats do not suffer."),
         ("Can beginners use a 4-day workout split?", "Beginners can, but most progress faster on three full-body sessions a week while learning the lifts. After 3–6 months of steady progress, a 4-day split adds the extra volume you will start to need."),
-        ("Is torso/limbs better than upper/lower?", "Neither is better for growth when weekly sets are equal. Torso/limbs gives arms a dedicated slot twice a week, while upper/lower makes it easier to run heavy squats and deadlifts on separate days."),
-        ("How long should each workout take?", "Plan on 60–75 minutes including a 10-minute warm-up. Supersets on arm and calf work keep limbs days within that window."),
-        ("Can I train four days in a row?", "You can, but performance on day four usually drops. If your schedule forces it, run Torso A, Limbs A, Torso B, Limbs B and accept slightly lower loads on the last day."),
+        ("Is torso/limbs better than upper/lower?", "Neither is better for growth when weekly sets are equal. Torso/limbs gives arms a dedicated slot twice a week, while upper/lower is simpler to set up and keeps all leg work on dedicated lower-body days."),
+        ("Can I do this 4-day split with only dumbbells?", "Mostly. Swap barbell lifts for dumbbell versions, pulldowns for pull-ups or band-assisted pull-ups, and cable moves for dumbbell flyes and raises. Leg training is the hardest part to load at home, so use split squats and single-leg work."),
+        ("Can I train four days in a row?", "You can, but performance on day four may drop. If your schedule forces it, run Torso A, Limbs A, Torso B, Limbs B and accept slightly lower loads on the last day."),
     ],
     "related": ["upper-lower-split", "hypertrophy-program", "5-day-workout-split", "bro-split"],
     "refs": refs("freq2016", "pelland2026", "load2021", "currier2023", "acsm2026", "acsm2009", "delphi2023", "protein2018", "offseason2019", "rest2018"),

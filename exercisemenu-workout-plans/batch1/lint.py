@@ -21,6 +21,10 @@ for m in [m for m in PAGES if pathlib.Path("content", m + ".py").exists()]:
     if len(p["meta_desc"]) > 155: probs.append(f"meta_desc {len(p['meta_desc'])}")
     if len(qa.split()) >= 60 or len(qa) >= 320: probs.append(f"quick answer {len(qa.split())}w/{len(qa)}c")
     if p["focus_kw"].lower() not in (p["meta_desc"] + p["title"]).lower(): probs.append("focus kw missing in title/desc")
+    uniq = len({e[0] for d in p["days"] for e in d["exercises"]})
+    for v, lab in p["stats"]:
+        if "xercise" in lab and v != str(uniq): probs.append(f"exercise stat {v} != {uniq}")
+    if re.search(r"\{(L|cite|box|table)\(|\{\{(WEEK|TABS)\}\}", html): probs.append("UNRENDERED TEMPLATE CODE")
     low = " " + text.lower() + " "
     for b in BANNED:
         if re.search(r"\b" + re.escape(b) + r"\b", low): probs.append("banned:" + b)

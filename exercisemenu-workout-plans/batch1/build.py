@@ -37,10 +37,10 @@ EXERCISE_LINKS = {
 
 # All 15 batch-1 plans, for related-plan cards.
 PLANS = {
-    "push-pull-legs": ("Muscle Building", "Push Pull Legs Workout Plan", "The classic 6-day PPL with strength and hypertrophy days.", "6 days · Intermediate"),
-    "full-body-workout-plan": ("Beginner", "Full Body Workout Plan for Beginners", "Three full-body gym sessions a week to learn the main lifts.", "3 days · Beginner"),
-    "upper-lower-split": ("Muscle Building", "4-Day Upper Lower Split", "Upper and lower body twice a week with A/B sessions.", "4 days · Intermediate"),
-    "5x5-workout": ("Strength", "5×5 Strength & Muscle Program", "Five sets of five on the big barbell lifts.", "3 days · Beginner–Intermediate"),
+    "push-pull-legs": ("Muscle Building", "Push Pull Legs Workout Plan", "The classic 6-day PPL with strength and hypertrophy days.", "6 days · Intermediate–Advanced"),
+    "full-body-workout-plan": ("Beginner", "Full Body Workout Plan for Beginners", "Three full-body gym sessions a week for people new to lifting.", "3 days · Beginner"),
+    "upper-lower-split": ("Muscle Building", "4-Day Upper Lower Split", "Upper body and lower body, each trained twice a week.", "4 days"),
+    "5x5-workout": ("Strength", "5×5 Strength & Muscle Program", "Five sets of five on the big barbell lifts.", "Strength · Barbell"),
     "bro-split": ("Muscle Building", "Bro Split 5-Day Workout Plan", "One muscle group per day, done the evidence-based way.", "5 days · Intermediate"),
     "4-day-workout-split": ("Muscle Building", "4-Day Workout Split", "Torso/Limbs split plus how every 4-day option compares.", "4 days · Intermediate"),
     "3-day-full-body-workout": ("Muscle Building", "3-Day Full Body Workout (Intermediate)", "Heavy, light and medium full-body days for busy lifters.", "3 days · Intermediate"),
@@ -134,7 +134,6 @@ def render(p):
 </div>
 <div class="emp-stats">{"".join(f'<div class="emp-stat"><div class="emp-stat-v">{esc(v)}</div><div class="emp-stat-l">{esc(l)}</div></div>' for v, l in p["stats"])}</div>
 <div class="emp-answer"><span class="emp-label">Quick answer</span><p>{p["quick_answer"]}</p></div>
-<div class="emp-takeaways"><span class="emp-label" style="color:var(--emp-green)">Key takeaways</span><ul>{"".join(f"<li>{t}</li>" for t in p["takeaways"])}</ul></div>
 {p["intro"]}
 <details class="emp-toc" open><summary>In this plan</summary><ol>{"".join(f'<li><a href="#{sid}">{esc(t)}</a></li>' for sid, t, _ in p["sections"])}<li><a href="#faq">FAQ</a></li></ol></details>'''
     blocks.append(block(wrap(hero)))

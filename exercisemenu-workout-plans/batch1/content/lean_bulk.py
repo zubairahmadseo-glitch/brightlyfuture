@@ -12,51 +12,8 @@ PAGE = {
     "hero_meta": ["📅 4 days/week", "⏱ 55–70 min", "📊 Intermediate", "🏋️ Full gym", "🍽 Nutrition included"],
     "stats": [("12 wk", "Program length"), ("3", "Training phases"), ("+10–20%", "Calorie surplus"), ("0.25–0.5%", "BW gain/week"), ("1.6–2.2", "Protein g/kg")],
     "quick_answer": "A lean bulk pairs progressive strength training with a small calorie surplus of about 10–20% above maintenance, aiming to gain 0.25–0.5% of body weight per week. This 12-week plan trains four days a week (Push, Pull, Legs, Full Body) and moves through volume, deload and intensity phases.",
-    "takeaways": [
-        "Gaining faster than about 0.5% of body weight per week mainly adds fat, not extra muscle.",
-        "Protein around 1.6 g/kg/day is where muscle gains plateaued in research; 2.2 g/kg is a safe upper target.",
-        "Weeks 1–4 build the base, weeks 5–8 add sets, week 9 is a deload, and weeks 10–12 push heavier loads.",
-        "Judge the bulk by the 7-day average of your morning weight, not single weigh-ins.",
-        "Adjust calories by 150–200 kcal at a time, every 2 weeks, based on the weight trend.",
-    ],
-    "intro": "<p>\"Lean bulk\" means gaining muscle with as little fat as possible. Most bulks go wrong in the kitchen, not the gym: lifters eat a large surplus, gain weight quickly, and spend the next three months dieting off the fat.</p><p>This lean bulk workout plan fixes both sides. The training section gives you a 12-week, 4-day program with every set and rep. The nutrition section shows how to set your surplus, track your rate of gain, and adjust when the scale moves too fast or too slow.</p>",
+    "intro": "<p>\"Lean bulk\" means gaining muscle with as little fat as possible. Most bulks that go wrong do so through food: a large surplus, fast weight gain, and months of dieting afterwards to lose the extra fat.</p><p>This page starts with the 12-week, 4-day training program, with every set and rep. After the workouts you will find how to set your calorie surplus, track your rate of gain, and adjust when the scale moves too fast or too slow.</p>",
     "sections": [
-        ("rate", "How Fast Should You Gain on a Lean Bulk?", f"""
-<p>The target rate is the core of a lean bulk. A {cite('offseason2019', 'review of off-season bodybuilding nutrition')} recommends a 10–20% calorie surplus with weight gain of about 0.25–0.5% of body weight per week for novice and intermediate lifters, and a more conservative approach for advanced lifters.</p>
-{table(["Body weight", "0.25% per week", "0.5% per week", "Per 12 weeks"], [
-    ["60 kg", "0.15 kg", "0.30 kg", "1.8–3.6 kg"],
-    ["75 kg", "0.19 kg", "0.38 kg", "2.3–4.5 kg"],
-    ["90 kg", "0.23 kg", "0.45 kg", "2.7–5.4 kg"],
-])}
-{box("science", "🔬 Why faster is not better", f"<p>In a {cite('garthe2013', 'trial on elite athletes')}, a group eating a planned surplus gained more body weight than a group eating freely (3.9% vs 1.5%), but lean mass gains were the same. The difference was mostly fat: fat mass rose about 15% in the bigger-surplus group versus 3% in the other. A {cite('surplus2019', '2019 review')} adds that the ideal surplus for muscle gain has never been pinned down, so a moderate, monitored surplus is the safest bet.</p>")}
-<p>Use the lower end (0.25%) if you have trained for 2+ years or gain fat easily, and the upper end (0.5%) if you are newer to lifting or lean to start.</p>
-"""),
-        ("nutrition", "Lean Bulk Calories and Macros", f"""
-<ol class="emp-steps">
-<li><strong>Find maintenance.</strong> Track food and morning body weight for 14 days without trying to change either. If weight is stable, your average intake is maintenance.</li>
-<li><strong>Add 10–20%.</strong> Example: 2,500 kcal maintenance × 1.10–1.20 = 2,750–3,000 kcal. Start at the low end.</li>
-<li><strong>Set protein.</strong> 1.6–2.2 g per kg of body weight per day. Gains in muscle mass plateaued around 1.62 g/kg in a {cite('protein2018', 'meta-analysis of 49 trials')}.</li>
-<li><strong>Set fat.</strong> 0.5–1.5 g per kg per day, per the {cite('offseason2019', 'off-season nutrition review')}.</li>
-<li><strong>Fill the rest with carbs.</strong> That review suggests at least 3–5 g/kg/day to fuel training.</li>
-</ol>
-<div class="emp-macros">
-<div class="emp-macro"><b>1.6–2.2 g/kg</b><span>Protein</span></div>
-<div class="emp-macro"><b>0.5–1.5 g/kg</b><span>Fat</span></div>
-<div class="emp-macro"><b>≥3–5 g/kg</b><span>Carbohydrate</span></div>
-<div class="emp-macro"><b>3–5 g</b><span>Creatine/day (optional)</span></div>
-</div>
-<p>Split protein across 3–5 meals. Creatine monohydrate at 3–5 g per day is the {cite('creatine', 'most researched supplement')} for strength and lean mass, and it is optional. Use the {L('/protein-calculator/', 'protein calculator')} for your exact daily target.</p>
-"""),
-        ("tracking", "How to Track and Adjust the Bulk", f"""
-<p>Weigh yourself each morning after the bathroom and before eating, then compare weekly averages. Daily weight swings of 0.5–1 kg from water and food are normal and tell you nothing on their own.</p>
-{table(["2-week trend", "What it means", "Action"], [
-    ["Gaining less than 0.25% BW/week", "Surplus too small", "Add 150–200 kcal/day (mostly carbs)"],
-    ["Gaining 0.25–0.5% BW/week", "On target", "No change"],
-    ["Gaining more than 0.5% BW/week", "Surplus too large", "Remove 150–200 kcal/day"],
-    ["Waist growing quickly while lifts stall", "Likely mostly fat gain", "Reduce calories; check training effort"],
-])}
-<p>Re-check every two weeks. Expect the first week to jump more than the target as carbs and water refill your muscles; judge the bulk from week 2 onward.</p>
-"""),
         ("program", "Program Overview: Three Phases", f"""
 <p>The training runs four days a week for 12 weeks. The exercises stay the same throughout so you can see progress; sets and rep ranges change by phase.</p>
 {WEEK}
@@ -86,7 +43,43 @@ PAGE = {
 """),
         ("progression", "Progression During the Bulk", f"""
 <p>A surplus makes progression easier, so expect your logbook to move. Use double progression on every exercise: when all sets hit the top of the rep range at the target RIR, add the smallest available load. That is the core of {L('/what-is-progressive-overload/', 'progressive overload')}.</p>
-<p>On a well-run lean bulk, your main lifts should trend up every 1–3 weeks. If your weight is rising on target but lifts have not moved in three weeks, the issue is usually training effort or sleep, not food. If neither weight nor lifts move, add calories first.</p>
+<p>On a well-run lean bulk, your main lifts should trend up every 1–3 weeks. If your weight is rising on target but lifts have not moved in three weeks, check training effort and sleep before adding more food. If neither weight nor lifts move, add calories first.</p>
+"""),
+        ("rate", "How Fast Should You Gain on a Lean Bulk?", f"""
+<p>The target rate is the core of a lean bulk. A {cite('offseason2019', 'review of off-season bodybuilding nutrition')} recommends a 10–20% calorie surplus with weight gain of about 0.25–0.5% of body weight per week for novice and intermediate lifters, and a more conservative approach for advanced lifters.</p>
+{table(["Body weight", "0.25% per week", "0.5% per week", "Per 12 weeks"], [
+    ["60 kg", "0.15 kg", "0.30 kg", "1.8–3.6 kg"],
+    ["75 kg", "0.19 kg", "0.38 kg", "2.3–4.5 kg"],
+    ["90 kg", "0.23 kg", "0.45 kg", "2.7–5.4 kg"],
+])}
+{box("science", "🔬 Why faster is not better", f"<p>In a {cite('garthe2013', 'trial on elite athletes')}, a group eating a planned surplus gained more body weight than a group eating freely (3.9% vs 1.5%), but lean mass gains were the same. The difference was mostly fat: fat mass rose about 15% in the bigger-surplus group versus 3% in the other. A {cite('surplus2019', '2019 review')} adds that the ideal surplus for muscle gain has never been pinned down, so a moderate, monitored surplus is the safest bet.</p>")}
+<p>Use the lower end (0.25%) if you have trained for 2+ years or gain fat easily, and the upper end (0.5%) if you are newer to lifting or lean to start.</p>
+"""),
+        ("nutrition", "Lean Bulk Calories and Macros", f"""
+<ol class="emp-steps">
+<li><strong>Find maintenance.</strong> Track food and morning body weight for 14 days without trying to change either. If weight is stable, your average intake is maintenance.</li>
+<li><strong>Add 10–20%.</strong> Example: 2,500 kcal maintenance × 1.10–1.20 = 2,750–3,000 kcal. Start at the low end.</li>
+<li><strong>Set protein.</strong> 1.6–2.2 g per kg of body weight per day. Gains in muscle mass plateaued around 1.62 g/kg in a {cite('protein2018', 'meta-analysis of 49 trials')}.</li>
+<li><strong>Set fat.</strong> 0.5–1.5 g per kg per day, per the {cite('offseason2019', 'off-season nutrition review')}.</li>
+<li><strong>Fill the rest with carbs.</strong> That review suggests at least 3–5 g/kg/day to fuel training.</li>
+</ol>
+<div class="emp-macros">
+<div class="emp-macro"><b>1.6–2.2 g/kg</b><span>Protein</span></div>
+<div class="emp-macro"><b>0.5–1.5 g/kg</b><span>Fat</span></div>
+<div class="emp-macro"><b>≥3–5 g/kg</b><span>Carbohydrate</span></div>
+<div class="emp-macro"><b>3–5 g</b><span>Creatine/day (optional)</span></div>
+</div>
+<p>Split protein across 3–5 meals. Creatine monohydrate at 3–5 g per day is the {cite('creatine', 'most researched supplement')} for strength and lean mass, and it is optional. Use the {L('/protein-calculator/', 'protein calculator')} for your exact daily target.</p>
+"""),
+        ("tracking", "How to Track and Adjust the Bulk", f"""
+<p>Weigh yourself each morning after the bathroom and before eating, then compare weekly averages. Daily weight swings of 0.5–1 kg from water and food are common and tell you nothing on their own.</p>
+{table(["2-week trend", "What it means", "Action"], [
+    ["Gaining less than 0.25% BW/week", "Surplus too small", "Add 150–200 kcal/day (mostly carbs)"],
+    ["Gaining 0.25–0.5% BW/week", "On target", "No change"],
+    ["Gaining more than 0.5% BW/week", "Surplus too large", "Remove 150–200 kcal/day"],
+    ["Waist growing quickly while lifts stall", "Likely mostly fat gain", "Reduce calories; check training effort"],
+])}
+<p>Re-check every two weeks. Weight often jumps more than the target in the first week because of extra food and water in your body, so judge the bulk from week 2 onward.</p>
 """),
         ("after", "What to Do After 12 Weeks", f"""
 <p>At the end of week 12, compare your weekly-average weight, waist measurement, photos and main lifts with week 1. Then choose:</p>
@@ -100,7 +93,7 @@ PAGE = {
         ("mistakes", "Lean Bulk Mistakes to Avoid", f"""
 <ul>
 <li><strong>"See food" bulking.</strong> A large surplus adds fat faster than muscle, as the {cite('garthe2013', 'Garthe trial')} showed.</li>
-<li><strong>Ignoring the scale.</strong> Without a tracked trend, a lean bulk becomes a regular bulk within a month.</li>
+<li><strong>Ignoring the scale.</strong> Without a tracked trend, a lean bulk can quickly turn into a regular bulk.</li>
 <li><strong>Program-hopping.</strong> Changing exercises every few weeks hides whether the extra food is building strength.</li>
 <li><strong>Junk-food surplus.</strong> Calories count, but most of the surplus should come from carb-rich whole foods that fuel training. See {L('/post-workout-snacks-for-muscle-gain/', 'post-workout snacks for muscle gain')} for practical options.</li>
 </ul>
@@ -153,12 +146,12 @@ PAGE = {
     ],
     "faq_title": "Lean Bulk Workout Plan FAQ",
     "faqs": [
-        ("How much muscle can I gain in 12 weeks?", "It varies widely with training age, genetics and sleep. Responses to the same program differed several-fold between people in controlled studies, so track your own trend rather than chasing a fixed number."),
-        ("Should I do cardio on a lean bulk?", "Yes, in moderation. Two or three 20–30 minute easy sessions a week support heart health and appetite. Add about 100–200 kcal on cardio days if your weight trend drops below target."),
-        ("Can beginners do a lean bulk?", "Yes. Beginners can use the upper end of the gain range (about 0.5% of body weight per week) because they build muscle faster. Pair it with a beginner program until progress slows."),
-        ("What should I eat before training?", "A meal with 20–40 g of protein and a solid carb portion 1–3 hours before training, such as rice and chicken or oats with Greek yogurt, fuels the session without stomach issues."),
-        ("Is a lean bulk better than a dirty bulk?", "For most people, yes. Faster weight gain mostly adds fat rather than extra muscle, which lengthens the diet you need afterwards."),
-        ("Do I need supplements to lean bulk?", "No. Food covers everything. Creatine monohydrate and protein powder are useful for convenience, but neither is required."),
+        ("How much muscle can I gain in 12 weeks?", "It varies widely with training age, genetics, sleep and food. In one large study, arm muscle size changes after the same 12-week program ranged from almost none to nearly 60%, so track your own progress instead of chasing a fixed number."),
+        ("Should I do cardio on a lean bulk?", "Yes, in moderation. Two or three 20–30 minute easy sessions a week support heart health. Add about 100–200 kcal on cardio days if your weight trend drops below target."),
+        ("Should I bulk or cut first?", "If you are lean and want more size, bulk first. If you carry more fat than you are comfortable with, a few months of cutting or eating at maintenance first usually makes the later bulk more enjoyable."),
+        ("What should I eat before training?", "A meal with 20–40 g of protein and a solid carb portion 1–3 hours before training, such as rice and chicken or oats with Greek yogurt, is easy to digest for most people."),
+        ("Can I lean bulk without counting calories?", "Yes, if you weigh yourself daily. Eat similar meals each day, add one extra snack of about 200–300 kcal, and adjust portions based on your weekly average weight."),
+        ("How long should a lean bulk last?", "There is no fixed length. Keep going while you gain at the target rate, your lifts keep rising and you are comfortable with your waist measurement, and reassess every 12 weeks."),
     ],
     "related": ["workout-plan-for-skinny-guys", "hypertrophy-program", "push-pull-legs", "upper-lower-split"],
     "refs": refs("offseason2019", "garthe2013", "surplus2019", "hubal2005", "protein2018", "creatine", "vol2017", "load2021", "pelland2026", "acsm2026"),

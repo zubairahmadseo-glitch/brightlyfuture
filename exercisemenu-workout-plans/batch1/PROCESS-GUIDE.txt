@@ -1,0 +1,76 @@
+EXERCISEMENU - WORKOUT PLANS BATCH 1 (#5 - #15)  -  FINAL (audited 28 Oct 2026)
+================================================
+
+HAR FOLDER MEIN 3 FILES HAIN
+----------------------------
+1-PASTE-IN-WORDPRESS.txt      -> Poora page code. Yahi WordPress mein paste karna hai.
+2-SEO-SETTINGS.txt            -> Title, slug, parent, Rank Math title/description/keyword.
+3-PREVIEW-open-in-browser.html -> Double-click karein, browser mein page ka preview dikhega
+                                 (tabs bhi chalte hain). Sirf dekhne ke liye, paste nahi karna.
+
+ZAROORI BAATEIN (pehle parh lein)
+--------------------------------
+- Code ko sirf Notepad / VS Code / TextEdit (plain text) mein kholein. Word ya Google Docs
+  mein mat kholein; woh quotes (" ") badal dete hain aur code toot jata hai.
+- Aap ka WordPress user ADMINISTRATOR hona chahiye. Warna WordPress tabs wala code
+  (<input>, <style>) hata deta hai.
+- Pages ko normal Block Editor (Gutenberg) mein banayein, Elementor mein NAHI.
+- Har page mein CSS pehle block mein hai, is liye kuch alag se install nahi karna.
+
+STEP 0 - PARENT PAGE (sirf ek dafa)
+-----------------------------------
+1. Pages > Add New Page
+2. Title: Workout Plans
+3. Right sidebar > Page > URL / Permalink: workout-plans
+4. "Save draft" karein (hub page aap baad mein banayenge).
+   (Agar /workout-plans/ page pehle se maujood hai to yeh step chhor dein.)
+
+STEP 1 - HAR PLAN KE LIYE (11 dafa)
+-----------------------------------
+1. Pages > Add New Page
+2. Title box mein 2-SEO-SETTINGS.txt se "PAGE TITLE" paste karein.
+3. Code Editor kholein:
+     Upar right corner mein teen dots (⋮) > "Code editor"
+     (shortcut: Ctrl + Shift + Alt + M,  Mac: Cmd + Shift + Option + M)
+4. 1-PASTE-IN-WORDPRESS.txt kholein > Ctrl+A (sab select) > Ctrl+C
+   > WordPress code editor ke content box mein Ctrl+V.
+   (Title box mein nahi, neeche wale bare content box mein.)
+5. "Exit code editor" dabayein. Ab page alag-alag "Custom HTML" blocks mein dikhega:
+   CSS block, intro, har section ka block, FAQ, related plans, schema.
+6. Right sidebar > Page tab:
+     - Permalink / URL slug: 2-SEO-SETTINGS.txt wala SLUG
+     - Page Attributes > Parent: Workout Plans
+7. Rank Math (upar right "Rank Math" icon ya neeche Rank Math box):
+     - Focus Keyword: FOCUS KEYWORD
+     - "Edit Snippet" > Title: SEO TITLE,  Description: META DESCRIPTION
+8. "Save draft" > "Preview" mein khol kar check karein:
+     - Day 1 / Day 2 / ... tabs click karne par workout badalta hai
+     - "All days" sab workouts dikhata hai
+     - FAQ questions click karne par khulte hain
+9. Sab theek ho to Publish (jab aap chahein).
+
+AGAR KUCH GHALAT DIKHE
+----------------------
+- Page par CSS code text ki tarah likha nazar aaye  -> code Code Editor ke bajaye Visual
+  editor mein paste hua. Page ka content delete karke Step 1.3 se dobara karein.
+- Tabs kaam na karein / sab workouts ek saath dikhein -> user Administrator nahi hai,
+  ya koi security plugin HTML filter kar raha hai.
+- "This block contains unexpected or invalid content" -> "Attempt Block Recovery" dabayein,
+  ya code dobara Code Editor se paste karein.
+- Rank Math FAQ schema: page mein FAQPage schema pehle se hai (aakhri Custom HTML block).
+  Rank Math mein alag FAQ schema mat lagayein, warna double ho jayega.
+
+BAAD MEIN EDIT KARNA
+--------------------
+Kisi section ko badalna ho to us section ka Custom HTML block select karein aur us ka
+code edit karein. Pehla block (style) saare design ka CSS hai; use mat chherein.
+
+PUBLISH KA ORDER (suggestion)
+-----------------------------
+Related plan cards #1-#4 (push-pull-legs, full-body-workout-plan, upper-lower-split,
+5x5-workout) ko bhi link karte hain. Woh pages bhi isi slug ke saath /workout-plans/ ke
+neeche publish karein, warna un cards par 404 aayega.
+
+PAGES
+-----
+{PAGES}

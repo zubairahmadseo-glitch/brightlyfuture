@@ -9,17 +9,10 @@ PAGE = {
     "focus_kw": "ppl hypertrophy program",
     "badge": "Advanced · 6 Days",
     "hero_lead": "For lifters who have run push pull legs before and still want more size. This PPL hypertrophy program raises weekly volume, uses intensity techniques only where they save time, and runs in 6-week blocks with a built-in specialization option.",
-    "hero_meta": ["📅 6 days/week", "⏱ 60–75 min", "📊 Advanced (2+ years)", "🏋️ Full gym"],
-    "stats": [("6", "Training days"), ("13–18", "Sets/major muscle/wk"), ("6 wk", "Mesocycle"), ("2×", "Frequency/muscle"), ("36", "Exercises")],
-    "quick_answer": "This PPL hypertrophy program runs Push, Pull, Legs twice a week with different exercises on the A and B days. Every session targets muscle growth with 8–15 rep sets taken 0–2 reps from failure. Weeks 1–5 build effort and volume, drop sets and rest-pause appear in weeks 3–5, and week 6 is a deload.",
-    "takeaways": [
-        "A and B days use different exercises for the same muscles, adding variety without changing the split.",
-        "Weekly volume reaches about 14–18 sets for chest, back, biceps and triceps, higher than an intermediate plan.",
-        "Drop sets and rest-pause sets give similar growth to regular sets in less time; they are tools, not magic.",
-        "A specialization option moves 2–4 sets from a strong muscle to a lagging one each block.",
-        "If recovery drops (lifts falling, sleep worsening), deload early instead of pushing through.",
-    ],
-    "intro": "<p>Most push pull legs programs mix strength and size work. That's the right call for intermediate lifters. After two or more years of training, though, many lifters want a block that chases growth only: more sets, closer to failure, with tighter control over fatigue.</p><p>This advanced 6-day plan does that. If you are still building your base, our standard {L('/workout-plans/push-pull-legs/', 'push pull legs workout plan')} with heavy and volume days is the better fit.</p>",
+    "hero_meta": ["📅 6 days/week", "⏱ 50–65 min", "📊 Advanced (2+ years)", "🏋️ Full gym"],
+    "stats": [("6", "Training days"), ("13–18", "Sets/major muscle/wk"), ("6 wk", "Mesocycle"), ("2×", "Frequency/muscle"), ("34", "Exercises")],
+    "quick_answer": "This PPL hypertrophy program runs Push, Pull, Legs twice a week with different exercises on the A and B days. Every session targets muscle growth with mostly 8–15 rep sets taken 0–2 reps from failure. Weeks 1–5 build effort and volume, drop sets and rest-pause appear in weeks 3–5, and week 6 is a deload.",
+    "intro": f"<p>Many push pull legs programs mix strength and size work, which suits intermediate lifters. After two or more years of training, though, many lifters want a block that chases growth only: more sets, closer to failure, with tighter control over fatigue.</p><p>This advanced 6-day plan does that. If you are still building your base, our standard {L('/workout-plans/push-pull-legs/', 'push pull legs workout plan')} with heavy and volume days is the better fit.</p>",
     "sections": [
         ("who", "Who This Advanced PPL Program Is For", f"""
 <ul>
@@ -28,7 +21,7 @@ PAGE = {
 <li>Your main goal is muscle size, and you accept slower strength progress during this block.</li>
 <li>You can judge reps in reserve accurately (within about 1–2 reps). The {L('/rpe-vs-rir/', 'RPE vs RIR guide')} helps you calibrate.</li>
 </ul>
-{box("warn", "⚠️ Not a fix for stalled progress", "<p>If you have stopped growing on a moderate-volume plan, check sleep, calorie intake and effort before adding volume. More sets on top of poor recovery tends to dig a deeper hole.</p>")}
+{box("warn", "⚠️ Not a fix for stalled progress", "<p>If you have stopped growing on a moderate-volume plan, check sleep, calorie intake and effort before adding volume. Adding sets on top of poor recovery usually makes things worse.</p>")}
 """),
         ("schedule", "Weekly Schedule", f"""
 {WEEK}
@@ -43,7 +36,7 @@ PAGE = {
     ["5", "Same as week 3", "RIR 0–1 on isolation", "On marked exercises"],
     ["6", "Half of base sets", "RIR 3–4", "None (deload)"],
 ])}
-<p>This mirrors how coaches structure deloads. A {cite('delphi2023', 'Delphi consensus')} defined deloading as a planned reduction in training stress to manage fatigue and boost readiness, and a {cite('deload2024', 'survey of physique athletes')} found deloads came about every 5–6 weeks and lasted about a week. See the {L('/what-is-a-deload-week/', 'deload week guide')} for more.</p>
+<p>This matches how many strength and physique athletes deload. A {cite('delphi2023', 'Delphi consensus')} defined deloading as a planned reduction in training stress to manage fatigue and boost readiness, and a {cite('deload2024', 'survey of physique athletes')} found deloads came about every 5–6 weeks and lasted about a week. See the {L('/what-is-a-deload-week/', 'deload week guide')} for more.</p>
 """),
         ("workouts", "The PPL Hypertrophy Workouts", f"""
 <p>Select a day. Base sets are shown; follow the weekly effort target from the block table. "Last set" notes tell you which exercises get a drop set or rest-pause set in weeks 3–5.</p>
@@ -55,7 +48,7 @@ PAGE = {
 <li><strong>Drop set:</strong> reach the target RIR, cut the weight by 20–30%, and continue to about 1 rep from failure. One drop is enough. Learn the method in {L('/what-is-a-drop-set-and-how-does-it-work/', 'what a drop set is')}.</li>
 <li><strong>Rest-pause:</strong> reach the target, rack the weight for 15–20 breaths, then do as many clean reps as you can, repeated twice. Read the full method in {L('/what-are-rest-pause-sets/', 'what rest-pause sets are')}.</li>
 </ul>
-{box("science", "🔬 What the evidence shows", f"<p>A {cite('dropset2026', '2026 meta-analysis of 12 studies')} found drop sets produced similar long-term muscle growth and strength to traditional sets, while feeling harder in the moment. A {cite('advanced2026', '2026 review of advanced training systems')} found most systems matched traditional training for growth when volume and effort were equal, with a modest edge for rest-pause. The honest takeaway: these techniques save time; they do not replace volume and progression.</p>")}
+{box("science", "🔬 What the evidence shows", f"<p>A {cite('dropset2026', '2026 meta-analysis of 12 studies')} found drop sets produced similar long-term muscle growth and strength to traditional sets, while feeling harder in the moment. A {cite('advanced2026', '2026 review of advanced training systems')} found most systems matched traditional training for growth when volume and effort were equal, with a modest edge for rest-pause. In other words, these techniques save time; they do not replace volume and progression.</p>")}
 <p>Use them only on machine, cable and dumbbell isolation work, never on squats, deadlifts or barbell presses.</p>
 """),
         ("volume", "Weekly Volume (Base Weeks)", f"""
@@ -71,10 +64,10 @@ PAGE = {
     ["Triceps", "8", "Presses & dips 12 → 6", "≈ 14"],
     ["Calves", "8", "–", "8"],
 ])}
-<p>Weeks 3–5 add one set to each day's first exercise. The {cite('pelland2026', 'Pelland 2026 meta-regression')} found growth keeps rising with volume but with diminishing returns, and the {cite('vol2019', 'Schoenfeld 2019 trial')} in trained men found the highest-volume group grew the most. That is why advanced lifters run higher volumes, and why each extra set should be earned by good recovery. The {L('/training-volume-calculator/', 'training volume calculator')} helps track your totals.</p>
+<p>Weeks 3–5 add one set to each day's first exercise. The {cite('pelland2026', 'Pelland 2026 meta-regression')} found growth keeps rising with volume but with diminishing returns, and the {cite('vol2019', 'Schoenfeld 2019 trial')} in trained men found the highest-volume group grew the most. That is why this advanced plan uses higher volumes, and why each extra set should be earned by good recovery. The {L('/training-volume-calculator/', 'training volume calculator')} helps track your totals.</p>
 """),
         ("specialization", "Specialization: Bringing Up a Lagging Muscle", f"""
-<p>Advanced lifters rarely need more volume everywhere. Most need more for one or two muscles. Each block, pick one priority muscle:</p>
+<p>Many advanced lifters do not need more volume everywhere, only for one or two lagging muscles. Each block, pick one priority muscle:</p>
 <ol class="emp-steps">
 <li><strong>Add 2–4 weekly sets</strong> for the priority muscle, split across its two sessions, and move its exercise earlier in the session.</li>
 <li><strong>Remove 2–4 weekly sets</strong> from a muscle that is already ahead, so total fatigue stays similar.</li>
@@ -94,7 +87,7 @@ PAGE = {
     ],
     "schedule": [("Mon", "Push A", "c1"), ("Tue", "Pull A", "c2"), ("Wed", "Legs A", "c3"), ("Thu", "Push B", "c4"), ("Fri", "Pull B", "c5"), ("Sat", "Legs B", "c6"), ("Sun", "Rest", "rest")],
     "days": [
-        {"tab": "Day 1", "tab_sub": "Push A", "title": "Day 1 — Push A", "tag": "Chest · Delts · Triceps", "color": 1, "time": "60–70 min", "focus": "Chest / Shoulders / Triceps",
+        {"tab": "Day 1", "tab_sub": "Push A", "title": "Day 1 — Push A", "tag": "Chest · Delts · Triceps", "color": 1, "time": "50–60 min", "focus": "Chest / Shoulders / Triceps",
          "exercises": [
              ("Barbell Bench Press", "Primary: chest · Secondary: front delts, triceps", "3 × 6–10", "2–3 min", "RIR 1–2"),
              ("Seated Dumbbell Shoulder Press", "Primary: front delts · Secondary: triceps", "3 × 8–12", "2 min", "RIR 1–2"),
@@ -103,7 +96,7 @@ PAGE = {
              ("Overhead Cable Triceps Extension", "Primary: triceps (long head)", "3 × 10–15", "60–90 sec", "RIR 0–1"),
          ],
          "notes": "Weeks 3–5: drop set on the last cable fly set; rest-pause on the last lateral raise set."},
-        {"tab": "Day 2", "tab_sub": "Pull A", "title": "Day 2 — Pull A", "tag": "Back · Rear delts · Biceps", "color": 2, "time": "60–70 min", "focus": "Back / Rear delts / Biceps",
+        {"tab": "Day 2", "tab_sub": "Pull A", "title": "Day 2 — Pull A", "tag": "Back · Rear delts · Biceps", "color": 2, "time": "50–60 min", "focus": "Back / Rear delts / Biceps",
          "exercises": [
              ("Weighted Pull-Up (or Lat Pulldown)", "Primary: lats · Secondary: biceps", "3 × 6–10", "2–3 min", "RIR 1–2"),
              ("Chest-Supported Dumbbell Row", "Primary: mid-back, rear delts", "3 × 8–12", "2 min", "RIR 1"),
@@ -113,7 +106,7 @@ PAGE = {
              ("Hammer Curl", "Primary: brachialis", "2 × 10–15", "60 sec", "RIR 0–1"),
          ],
          "notes": "Weeks 3–5: rest-pause on the last reverse pec deck set; drop set on the last incline curl set."},
-        {"tab": "Day 3", "tab_sub": "Legs A", "title": "Day 3 — Legs A", "tag": "Quad focus", "color": 3, "time": "65–75 min", "focus": "Quads / Hamstrings / Calves",
+        {"tab": "Day 3", "tab_sub": "Legs A", "title": "Day 3 — Legs A", "tag": "Quad focus", "color": 3, "time": "55–65 min", "focus": "Quads / Hamstrings / Calves",
          "exercises": [
              ("Back Squat", "Primary: quads, glutes · Secondary: adductors", "3 × 6–10", "3 min", "RIR 1–2"),
              ("Romanian Deadlift", "Primary: hamstrings, glutes", "3 × 8–10", "2–3 min", "RIR 2"),
@@ -123,7 +116,7 @@ PAGE = {
              ("Cable Crunch", "Primary: abs", "2 × 10–15", "60 sec", "RIR 1"),
          ],
          "notes": "Weeks 3–5: drop set on the last leg extension set; rest-pause on the last calf raise set. Keep squats and RDLs at RIR 1–2 throughout."},
-        {"tab": "Day 4", "tab_sub": "Push B", "title": "Day 4 — Push B", "tag": "Chest · Delts · Triceps", "color": 4, "time": "60–70 min", "focus": "Chest / Shoulders / Triceps",
+        {"tab": "Day 4", "tab_sub": "Push B", "title": "Day 4 — Push B", "tag": "Chest · Delts · Triceps", "color": 4, "time": "50–60 min", "focus": "Chest / Shoulders / Triceps",
          "exercises": [
              ("Incline Barbell Bench Press", "Primary: upper chest · Secondary: front delts, triceps", "3 × 8–12", "2–3 min", "RIR 1–2"),
              ("Weighted Dip", "Primary: lower chest, triceps", "3 × 8–12", "2 min", "RIR 1–2"),
@@ -133,7 +126,7 @@ PAGE = {
              ("Triceps Pushdown", "Primary: triceps", "2 × 12–15", "60 sec", "RIR 0–1"),
          ],
          "notes": "Weeks 3–5: drop set on the last pec deck set and the last pushdown set. Skip dips if they cause shoulder pain; use a machine chest press instead."},
-        {"tab": "Day 5", "tab_sub": "Pull B", "title": "Day 5 — Pull B", "tag": "Back · Rear delts · Biceps", "color": 5, "time": "60–70 min", "focus": "Back / Rear delts / Biceps",
+        {"tab": "Day 5", "tab_sub": "Pull B", "title": "Day 5 — Pull B", "tag": "Back · Rear delts · Biceps", "color": 5, "time": "50–60 min", "focus": "Back / Rear delts / Biceps",
          "exercises": [
              ("Barbell Row", "Primary: mid-back, lats · Secondary: rear delts", "3 × 8–10", "2–3 min", "RIR 1–2"),
              ("Lat Pulldown (neutral grip)", "Primary: lats", "3 × 10–12", "2 min", "RIR 1"),
@@ -143,7 +136,7 @@ PAGE = {
              ("Cable Curl", "Primary: biceps", "2 × 12–15", "60 sec", "RIR 0–1"),
          ],
          "notes": "Weeks 3–5: drop set on the last cable curl set."},
-        {"tab": "Day 6", "tab_sub": "Legs B", "title": "Day 6 — Legs B", "tag": "Glute & hamstring focus", "color": 6, "time": "65–75 min", "focus": "Glutes / Hamstrings / Quads / Calves",
+        {"tab": "Day 6", "tab_sub": "Legs B", "title": "Day 6 — Legs B", "tag": "Glute & hamstring focus", "color": 6, "time": "55–65 min", "focus": "Glutes / Hamstrings / Quads / Calves",
          "exercises": [
              ("Hack Squat", "Primary: quads", "3 × 8–12", "2–3 min", "RIR 1–2"),
              ("Barbell Hip Thrust", "Primary: glutes · Secondary: hamstrings", "3 × 8–12", "2 min", "RIR 1–2"),
@@ -157,10 +150,10 @@ PAGE = {
     ],
     "faq_title": "PPL Hypertrophy Program FAQ",
     "faqs": [
-        ("How is this different from a normal PPL?", "A standard PPL often mixes heavy strength days with volume days. This version is hypertrophy-only: higher weekly volume, rep ranges of 6–20, effort taken closer to failure, and structured 6-week blocks."),
+        ("Can I swap exercises between the A and B days?", "Yes, as long as each day keeps the same muscles and movement types, for example two chest presses and a fly on push days. Keep your swaps for the whole 6-week block so progress stays measurable."),
         ("Can intermediate lifters use this PPL hypertrophy program?", "Lifters with about a year of training can run it with the week 3–5 extra sets and intensity techniques removed. Add those back once you recover well from the base volume."),
-        ("Do I need intensity techniques to grow?", "No. Drop sets and rest-pause mostly save time. If your sessions are not time-limited, you can replace them with one extra regular set."),
-        ("How many blocks should I run?", "Two or three 6-week blocks back to back works for most lifters. After that, a lower-volume strength block of 4–6 weeks helps resensitize you to volume."),
+        ("Is training 6 days a week safe for natural lifters?", "Yes, for healthy lifters who sleep and eat well. Each muscle group's two direct sessions are 72 hours apart. If joints ache or lifts drop, use the rolling 8-day schedule instead."),
+        ("How many blocks should I run?", "Two or three 6-week blocks back to back is a common approach. After that, a lower-volume strength block of 4–6 weeks lets you recover from the high volume while still training hard."),
         ("Should I bulk while running this program?", "A small surplus helps, about 0.25–0.5% of body weight gained per week. Advanced lifters should stay near the lower end to limit fat gain."),
         ("What if I can only train five days?", "Run the rolling schedule: the six sessions spread over eight days, with a rest day after each Legs day."),
     ],

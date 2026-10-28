@@ -4,27 +4,20 @@ PAGE = {
     "num": 7,
     "slug": "3-day-full-body-workout",
     "title": "3-Day Full Body Workout for Intermediate Lifters (Heavy, Light, Medium)",
-    "meta_title": "3-Day Full Body Workout: Intermediate Heavy/Light/Medium",
+    "meta_title": "3-Day Full Body Workout Plan for Intermediate Lifters",
     "meta_desc": "A 3 day full body workout for intermediate lifters: heavy, light and medium days, every set and rep, weekly volume, progression and deload in one plan.",
     "focus_kw": "3 day full body workout",
     "badge": "Intermediate · 3 Days",
     "hero_lead": "Past the beginner stage but still limited to three gym days? This 3 day full body workout rotates a heavy, a light and a medium session so you can train every muscle three times a week without grinding yourself down.",
     "hero_meta": ["📅 3 days/week", "⏱ 60–75 min", "📊 Intermediate", "🏋️ Full gym"],
     "stats": [("3", "Training days"), ("3×", "Frequency/muscle"), ("9–12", "Sets/major muscle/wk"), ("8 wk", "Block length"), ("H/L/M", "Daily load rotation")],
-    "quick_answer": "This 3 day full body workout trains every major muscle on Monday, Wednesday and Friday. Monday is heavy (4–6 reps), Wednesday is light (10–15 reps with shorter rests) and Friday is medium (6–10 reps), with different exercises each day so joints and motivation stay fresh.",
-    "takeaways": [
-        "Each day uses different exercises, so you practice 15+ movements a week instead of repeating one workout three times.",
-        "Heavy, light and medium days spread fatigue: only one session a week pushes near-maximal loads.",
-        "Weekly volume lands at about 9–12 sets for chest, back, quads, biceps and triceps.",
-        "Progress the heavy day by load, and the light and medium days by reps first.",
-        "Built for lifters with 6–24 months of training who can only commit three days.",
-    ],
-    "intro": "<p>Most 3-day full body programs online are written for beginners: the same three lifts, three times a week, adding weight every session. Once that stops working, intermediate lifters usually jump to a 4- or 5-day split. If your schedule only allows three days, that jump is not an option.</p><p>This plan is the answer for that lifter. It keeps the full-body structure but varies exercise selection, rep ranges and rest periods across the week, so you get enough volume to keep growing and enough variation to keep progressing.</p>",
+    "quick_answer": "This 3 day full body workout trains every major muscle on Monday, Wednesday and Friday. Monday is heavy (4–6 reps on the main lifts), Wednesday is light (10–15 reps with shorter rests) and Friday is medium (5–10 reps), with different exercises each day.",
+    "intro": "<p>Many 3-day full body programs are written for beginners: the same few lifts, three times a week, adding weight every session. Once that stops working, intermediate lifters usually jump to a 4- or 5-day split. If your schedule only allows three days, that jump is not an option.</p><p>This plan is built for that situation. It keeps the full-body structure but varies exercise selection, rep ranges and rest periods across the week, so you get enough volume to keep growing and enough variation to keep progressing.</p>",
     "sections": [
         ("why", "Why a Full Body Split Still Works for Intermediates", f"""
-<p>Full-body training is not only for beginners. A {cite('split2024', '2024 meta-analysis of 14 studies')} found split and full-body routines produced similar strength and muscle gains when weekly volume was matched. What changes for intermediate lifters is that each session needs more structure, because three identical heavy workouts a week become hard to recover from.</p>
+<p>Full-body training works for intermediate lifters too. A {cite('split2024', '2024 meta-analysis of 14 studies')} found split and full-body routines produced similar strength and muscle gains when weekly volume was matched. What changes for intermediate lifters is that each session needs more structure, because three identical heavy workouts a week become hard to recover from.</p>
 {box("science", "🔬 Frequency and strength", f"<p>Training more often helps strength. A {cite('freqstr2018', '2018 meta-analysis')} found strength gains rose from 1 to 4+ sessions a week, mostly because higher frequency allowed more total volume. The {cite('pelland2026', '2026 Pelland meta-regression')} also found strength kept improving as frequency increased, with diminishing returns. Training each lift pattern three times a week gives you more practice with the movements you want to get stronger in.</p>")}
-<p>The heavy/light/medium rotation here is a fatigue tool, not magic. The {cite('acsm2026', '2026 ACSM position stand')} found periodization models did not consistently change outcomes. The benefit is practical: you only grind heavy loads once a week, so the other two sessions stay productive.</p>
+<p>The heavy/light/medium rotation is a way to manage fatigue. The {cite('acsm2026', '2026 ACSM position stand')} found periodization models did not consistently change outcomes, so its value here is practical: you only grind heavy loads once a week, so the other two sessions stay productive.</p>
 """),
         ("who", "Who This Program Is For", f"""
 <ul>
@@ -36,12 +29,12 @@ PAGE = {
 {box("tip", "💡 Not sure you're intermediate?", f"<p>If you can still add weight to your main lifts every session, you are still a beginner, and a simpler program will move you faster. Start with our {L('/workout-plans/full-body-workout-plan/', 'full body workout plan for beginners')} and come back when progress slows to weekly or slower.</p>")}
 """),
         ("schedule", "Weekly Schedule", f"""
-<p>Keep at least one rest day between sessions. Monday's heavy work gets the full weekend to recover before it, and Friday's medium day sets up two days off.</p>
+<p>Keep at least one rest day between sessions. Monday's heavy session follows two rest days, and Friday's medium session is followed by two.</p>
 {WEEK}
 {table(["Day", "Rep focus", "Rest periods", "Main lifts"], [
-    ["Day 1 – Heavy", "4–8 reps", "2–3 min", "Back squat, bench press, weighted pull-up"],
+    ["Day 1 – Heavy", "4–6 reps (main lifts)", "2–3 min", "Back squat, bench press, weighted pull-up"],
     ["Day 2 – Light", "10–15 reps", "60–90 sec", "Leg press, dumbbell bench, cable row"],
-    ["Day 3 – Medium", "6–10 reps", "90 sec–2.5 min", "Trap bar deadlift, overhead press, split squat"],
+    ["Day 3 – Medium", "5–10 reps", "90 sec–2.5 min", "Trap bar deadlift, overhead press, split squat"],
 ])}
 <p>Walking, cycling or mobility work on rest days is fine. Avoid hard leg conditioning on Thursday because it carries into Friday's deadlifts and split squats.</p>
 """),
@@ -67,11 +60,11 @@ PAGE = {
         ("progression", "Progression by Day", f"""
 <p>Each day progresses differently, which is the main skill an intermediate lifter needs. Read the {L('/what-is-progressive-overload/', 'progressive overload guide')} for the wider principles.</p>
 {table(["Day", "Rule", "Example"], [
-    ["Heavy", "When all sets hit the top of the range at RIR 2, add 2.5 kg (upper) or 5 kg (lower)", "Squat 4 × 6 at 100 kg → next week 105 kg × 4"],
-    ["Light", "Add reps until all sets reach 15, then add the smallest load", "Leg press 3 × 12, 13, 14 → 3 × 15 → add 10 kg"],
-    ["Medium", "Double progression in the 6–10 range", "OHP 3 × 8 → 3 × 10 → add 2.5 kg"],
+    ["Heavy", "When all sets hit the top of the range at RIR 2, add 2.5 kg (upper) or 5 kg (lower)", "Squat 4 × 6 at 100 kg → next week 4 sets at 105 kg"],
+    ["Light", "Add reps until all sets reach 15, then add the smallest load", "Leg press 12, 13, 14 reps → 15, 15, 15 → add 10 kg"],
+    ["Medium", "Double progression within each rep range", "OHP 3 × 8 → 3 × 10 → add 2.5 kg"],
 ])}
-<p>Progress on the light day will look slow on paper. That's expected. Its job is to add volume with low joint stress, not to set records. If the heavy day stalls for two weeks, check sleep and calories before changing the program.</p>
+<p>Progress on the light day will look slow on paper. Its job is to add volume with low joint stress, not to set records. If the heavy day stalls for two weeks, check sleep and calories before changing the program.</p>
 """),
         ("deload", "Deload Every 8th Week", f"""
 <p>Run weeks 1–7 as written and deload in week 8. Keep all three days, cut sets roughly in half, and stop each set at RIR 3–4. In a {cite('deload2024', 'survey of strength and physique athletes')}, deloads lasted about a week, came every 5–6 weeks on average, and mostly reduced sets and reps while keeping training frequency. If you feel worn down by week 5 or 6, deload then. The {L('/what-is-a-deload-week/', 'deload week guide')} lists the warning signs.</p>
@@ -86,22 +79,22 @@ PAGE = {
     ["Standing overhead press", "Seated dumbbell press", "Lower-back arching"],
 ])}
 """),
-        ("nutrition", "Fuelling Three Hard Sessions", f"""
-<p>Three full-body days demand more recovery per session than a split. Aim for about 1.6 g of protein per kg of body weight daily, the point where gains plateaued in a {cite('protein2018', 'meta-analysis of 49 trials')}. Spread it over 3–5 meals of roughly 0.25 g/kg each, as the {cite('issnprotein', 'ISSN protein position stand')} suggests. Have a carb-containing meal 1–3 hours before training so the heavy day doesn't feel flat. For meal ideas, see the {L('/best-pre-workout-meal-for-muscle-gain/', 'best pre-workout meals for muscle gain')}.</p>
+        ("nutrition", "What to Eat on This Plan", f"""
+<p>Aim for about 1.6 g of protein per kg of body weight daily, the point where gains plateaued in a {cite('protein2018', 'meta-analysis of 49 trials')}. Spread it evenly over 3–5 meals; the {cite('issnprotein', 'ISSN protein position stand')} suggests 20–40 g per meal every 3–4 hours. A meal with carbs and protein 1–3 hours before training helps you start the session fuelled. For meal ideas, see the {L('/best-pre-workout-meal-for-muscle-gain/', 'best pre-workout meals for muscle gain')}.</p>
 """),
         ("compare", "3-Day Full Body vs Other 3-Day Options", f"""
 {table(["Plan", "Best for", "Main difference"], [
     ["3-day full body (this plan)", "Intermediates with 3 days", "Heavy/light/medium days, varied exercises"],
-    ["Beginner full body", "First 3–6 months", "Same lifts each session, add weight every workout"],
-    ["5×5", "Strength-first lifters", "Five sets of five on 3–5 barbell lifts"],
-    ["3-day PPL", "Lifters who like split sessions", "Each muscle trained once a week"],
+    ["Typical beginner full-body plan", "First 3–6 months", "Same lifts each session, add weight every workout"],
+    ["Typical 5×5 program", "Strength-first lifters", "Five sets of five on a few barbell lifts"],
+    ["3-day push/pull/legs", "Lifters who like split sessions", "Each muscle trained once a week"],
 ])}
 <p>When three days a week becomes too limiting for your goals, a 4-day split is the natural next step, because it lets you add volume without lengthening each session.</p>
 """),
     ],
     "schedule": [("Mon", "Heavy", "c4"), ("Tue", "Rest", "rest"), ("Wed", "Light", "c1"), ("Thu", "Rest", "rest"), ("Fri", "Medium", "c2"), ("Sat", "Rest", "rest"), ("Sun", "Rest", "rest")],
     "days": [
-        {"tab": "Day 1", "tab_sub": "Heavy", "title": "Day 1 — Heavy", "tag": "4–8 reps", "color": 4, "time": "65–75 min", "focus": "Full body",
+        {"tab": "Day 1", "tab_sub": "Heavy", "title": "Day 1 — Heavy", "tag": "4–6 reps", "color": 4, "time": "65–75 min", "focus": "Full body",
          "exercises": [
              ("Back Squat", "Primary: quads, glutes · Secondary: adductors, core", "4 × 4–6", "3 min", "RIR 2"),
              ("Barbell Bench Press", "Primary: chest · Secondary: front delts, triceps", "4 × 4–6", "3 min", "RIR 2"),
@@ -122,7 +115,7 @@ PAGE = {
              ("Triceps Pushdown", "Primary: triceps", "3 × 12–15", "60 sec", "RIR 1"),
          ],
          "notes": "Run the curl and pushdown as a superset. The aim today is clean reps and a strong pump, not heavy loads."},
-        {"tab": "Day 3", "tab_sub": "Medium", "title": "Day 3 — Medium", "tag": "6–10 reps", "color": 2, "time": "60–70 min", "focus": "Full body",
+        {"tab": "Day 3", "tab_sub": "Medium", "title": "Day 3 — Medium", "tag": "5–10 reps", "color": 2, "time": "60–70 min", "focus": "Full body",
          "exercises": [
              ("Trap Bar Deadlift", "Primary: glutes, quads, hamstrings · Secondary: upper back", "3 × 5–7", "3 min", "RIR 2"),
              ("Standing Overhead Press", "Primary: front delts · Secondary: triceps, upper chest", "3 × 6–8", "2–3 min", "RIR 2"),
@@ -137,7 +130,7 @@ PAGE = {
     "faq_title": "3-Day Full Body Workout FAQ",
     "faqs": [
         ("Can I do this 3 day full body workout on consecutive days?", "It's not recommended. Each session trains every muscle, so back-to-back days leave you under-recovered. Keep at least 48 hours between sessions."),
-        ("Is 3 days a week enough to build muscle as an intermediate?", "Yes. With about 9–12 hard sets per major muscle each week and steady progression, three sessions can keep you growing for years, though progress is slower than on a higher-volume 4–5 day plan."),
+        ("Is 3 days a week enough to build muscle as an intermediate?", "Yes. With about 9–12 hard sets per major muscle each week and steady progression, three sessions can keep you progressing for a long time, though progress is slower than on a higher-volume 4–5 day plan."),
         ("Can I add a fourth day?", "Add an optional short arms-and-delts session on Saturday (lateral raises, curls, triceps extensions, 2–3 sets each) if you have time. Keep it light enough that Monday's heavy day is not affected."),
         ("What if I miss the heavy day?", "Do the heavy session at your next workout and skip the light day that week. The heavy day drives strength, so it should not be the session you drop."),
         ("Should I train abs separately?", "Squats, deadlifts, split squats and overhead presses all train your trunk. If you want direct ab work, add 2–3 sets of cable crunches or hanging knee raises to the light day."),

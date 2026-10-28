@@ -8,25 +8,18 @@ PAGE = {
     "meta_desc": "A 5 day workout split that trains every muscle twice a week: upper, lower, push, pull and legs days with full sets, reps, rest, progression and deloads.",
     "focus_kw": "5 day workout split",
     "badge": "Hybrid Split · 5 Days",
-    "hero_lead": "Most 5-day splits train each muscle once a week. This 5 day workout split combines an upper/lower pair with a push/pull/legs rotation, so every muscle gets one heavy and one higher-rep session each week.",
-    "hero_meta": ["📅 5 days/week", "⏱ 55–70 min", "📊 Intermediate", "🏋️ Full gym"],
-    "stats": [("5", "Training days"), ("2×", "Frequency/muscle"), ("11–14", "Sets/major muscle/wk"), ("8 wk", "Block length"), ("30", "Exercises")],
+    "hero_lead": "Many 5-day splits train each muscle once a week. This 5 day workout split combines an upper/lower pair with a push/pull/legs rotation, so every muscle gets one heavy and one higher-rep session each week.",
+    "hero_meta": ["📅 5 days/week", "⏱ 45–70 min", "📊 Intermediate", "🏋️ Full gym"],
+    "stats": [("5", "Training days"), ("2×", "Frequency/muscle"), ("11–14", "Sets/major muscle/wk"), ("8 wk", "Block length"), ("29", "Exercises")],
     "quick_answer": "This 5 day workout split runs Upper and Lower on Monday and Tuesday with heavier 5–8 rep work, rests Wednesday, then runs Push, Pull and Legs Thursday to Saturday with 8–15 rep hypertrophy work. Each muscle is trained twice a week with about 11–14 weekly sets for most major groups.",
-    "takeaways": [
-        "The hybrid layout gives 2× weekly frequency in five days, which a classic bro split does not.",
-        "Monday and Tuesday build strength on the main lifts; Thursday to Saturday add volume for size.",
-        "A rest day on Wednesday splits the week so the heavy and volume halves don't collide.",
-        "Every muscle gets at least 72 hours between direct sessions.",
-        "Deload in week 8, then start the next block 2.5–5% heavier on the main lifts.",
-    ],
-    "intro": "<p>Search \"5 day workout split\" and most results show a body-part split: chest Monday, back Tuesday and so on. That works, but it trains each muscle once a week. If you can train five days, you can do better by training each muscle twice.</p><p>This plan uses a hybrid known as ULPPL: Upper, Lower, Push, Pull, Legs. Below are the full workouts, the weekly volume per muscle, and the rules for progressing and deloading.</p>",
+    "intro": "<p>Many popular 5 day workout split routines are body-part splits: chest Monday, back Tuesday and so on. That works, but it trains each muscle once a week. With five days you can train each muscle twice, which keeps sessions shorter and helps strength.</p><p>This plan uses a hybrid known as ULPPL: Upper, Lower, Push, Pull, Legs. Below are the full workouts, the weekly volume per muscle, and the rules for progressing and deloading.</p>",
     "sections": [
         ("why", "Why Choose a Hybrid 5-Day Split?", f"""
 <p>A {cite('freq2016', 'meta-analysis on training frequency')} found muscles trained twice a week grew more than muscles trained once. More recent work in the {cite('pelland2026', 'Pelland 2026 meta-regression')} suggests weekly volume explains most of that effect, while extra frequency still helps strength. Either way, splitting your weekly sets across two sessions keeps each session shorter and each set fresher.</p>
 {table(["", "Classic 5-day bro split", "5-day hybrid (this plan)"], [
     ["Layout", "Chest · Back · Shoulders · Legs · Arms", "Upper · Lower · Push · Pull · Legs"],
     ["Direct hits per muscle", "1×", "2×"],
-    ["Rep focus", "Mostly 8–12", "Heavy (5–8) + volume (8–15)"],
+    ["Rep focus", "Varies by program", "Heavy (5–8) + volume (8–15)"],
     ["Leg sessions per week", "1", "2"],
     ["Best for", "Bodybuilding-style lifters who like single-muscle days", "Lifters who want strength and size together"],
 ])}
@@ -35,7 +28,7 @@ PAGE = {
         ("who", "Who This 5-Day Split Is For", f"""
 <ul>
 <li>You have trained consistently for at least a year and know the main barbell lifts.</li>
-<li>You can commit to five sessions of 55–70 minutes.</li>
+<li>You can commit to five sessions of 45–70 minutes.</li>
 <li>You want strength numbers to rise while adding size.</li>
 <li>You have outgrown a 3- or 4-day program and need more weekly volume.</li>
 </ul>
@@ -75,20 +68,20 @@ PAGE = {
         ("progression", "Progression Rules", f"""
 <p>Heavy days and volume days progress differently, both forms of {L('/what-is-progressive-overload/', 'progressive overload')}.</p>
 {table(["Days", "Rule", "Example"], [
-    ["Upper & Lower (heavy)", "When all sets hit 8 reps at RIR 2, add 2.5 kg (upper) or 5 kg (lower)", "Squat 3 × 8 at 100 kg → 105 kg × 3 × 5–6"],
+    ["Upper & Lower (heavy)", "When all sets hit 8 reps at RIR 2, add 2.5 kg (upper) or 5 kg (lower)", "Squat 3 × 8 at 100 kg → 3 sets of 5–6 at 105 kg"],
     ["Push, Pull, Legs (volume)", "Double progression: add reps to the top of the range, then add the smallest load", "Incline DB press 3 × 12 at 26 kg → 28 kg"],
 ])}
 <p>Log every set. If a heavy lift stalls for two weeks in a row, drop it 5–10% and rebuild over three weeks.</p>
 """),
         ("deload", "Deload Protocol", f"""
-<p>Run weeks 1–7 as written, then deload in week 8: same five days, same exercises, about half the sets, RIR 3–4 on everything. Athletes in a {cite('deload2024', 'survey on deloading')} deloaded roughly every 5–6 weeks for about a week, mostly by reducing sets and reps. If you feel run down sooner, deload sooner. Full guidance is in the {L('/what-is-a-deload-week/', 'deload week guide')}.</p>
+<p>Run weeks 1–7 as written, then deload in week 8: same five days, same exercises, about half the sets, RIR 3–4 on everything. In a {cite('deload2024', 'survey on deloading')}, athletes deloaded roughly every 5–6 weeks for about a week, mostly by reducing sets and reps. If you feel run down sooner, deload sooner. Full guidance is in the {L('/what-is-a-deload-week/', 'deload week guide')}.</p>
 """),
         ("nutrition", "Nutrition and Recovery", f"""
-<p>Five sessions a week need fuel. Eat about 1.6–2.2 g of protein per kg of body weight daily; gains plateaued around 1.62 g/kg in a {cite('protein2018', 'meta-analysis of 49 trials')}. To build muscle, aim for a modest surplus and a weight gain of 0.25–0.5% of body weight per week, as recommended in a {cite('offseason2019', 'review of off-season nutrition')}. Sleep 7–9 hours: five training days leave little margin for short nights. Get your number from the {L('/protein-calculator/', 'protein calculator')}.</p>
+<p>Eat about 1.6–2.2 g of protein per kg of body weight daily; gains plateaued around 1.62 g/kg in a {cite('protein2018', 'meta-analysis of 49 trials')}. To build muscle, aim for a modest surplus and a weight gain of 0.25–0.5% of body weight per week, as recommended in a {cite('offseason2019', 'review of off-season nutrition')}. Sleep 7–9 hours: five training days leave little margin for short nights. Get your number from the {L('/protein-calculator/', 'protein calculator')}.</p>
 """),
         ("mistakes", "Common 5-Day Split Mistakes", f"""
 <ul>
-<li><strong>Making Push, Pull and Legs heavy too.</strong> The volume days are for controlled 8–15 rep work. Grinding heavy triples there wrecks Monday and Tuesday.</li>
+<li><strong>Making Push, Pull and Legs heavy too.</strong> The volume days are for controlled 8–15 rep work. Grinding heavy triples there can leave you under-recovered for Monday and Tuesday.</li>
 <li><strong>Short rests on heavy lifts.</strong> Trained lifters gained more strength with {cite('rest2018', 'rests over 2 minutes')}. Keep 2–3 minutes on Monday and Tuesday compounds.</li>
 <li><strong>Skipping Saturday legs.</strong> It's the only quad and glute volume day. Move it to Sunday rather than dropping it.</li>
 <li><strong>Adding a sixth day.</strong> More days rarely help when the five you have are not fully recovered.</li>
@@ -118,7 +111,7 @@ PAGE = {
              ("Hanging Knee Raise", "Primary: abs", "2 × 10–15", "60 sec", "RIR 1"),
          ],
          "notes": "Squat and RDL are the priority; cut the knee raises before cutting either of them."},
-        {"tab": "Day 3", "tab_sub": "Push", "title": "Day 3 — Push (Volume)", "tag": "Hypertrophy", "color": 4, "time": "55–65 min", "focus": "Chest / Delts / Triceps",
+        {"tab": "Day 3", "tab_sub": "Push", "title": "Day 3 — Push (Volume)", "tag": "Hypertrophy", "color": 4, "time": "50–60 min", "focus": "Chest / Delts / Triceps",
          "exercises": [
              ("Incline Dumbbell Press (30°)", "Primary: upper chest · Secondary: front delts", "3 × 8–12", "2 min", "RIR 1–2"),
              ("Dumbbell Bench Press", "Primary: chest · Secondary: triceps", "3 × 10–12", "2 min", "RIR 1–2"),
@@ -128,7 +121,7 @@ PAGE = {
              ("Triceps Pushdown", "Primary: triceps", "2 × 12–15", "60 sec", "RIR 0–1"),
          ],
          "notes": "Take 2–3 seconds to lower each press. Alternate cable lateral raise sets with triceps sets to save time."},
-        {"tab": "Day 4", "tab_sub": "Pull", "title": "Day 4 — Pull (Volume)", "tag": "Hypertrophy", "color": 2, "time": "55–65 min", "focus": "Back / Rear delts / Biceps",
+        {"tab": "Day 4", "tab_sub": "Pull", "title": "Day 4 — Pull (Volume)", "tag": "Hypertrophy", "color": 2, "time": "45–55 min", "focus": "Back / Rear delts / Biceps",
          "exercises": [
              ("Lat Pulldown", "Primary: lats · Secondary: biceps", "3 × 10–12", "2 min", "RIR 1–2"),
              ("Chest-Supported Dumbbell Row", "Primary: mid-back, rear delts", "3 × 10–12", "90 sec", "RIR 1"),
@@ -138,7 +131,7 @@ PAGE = {
              ("Hammer Curl", "Primary: brachialis", "2 × 10–15", "60 sec", "RIR 1"),
          ],
          "notes": "On rows, let the shoulder blades move forward at the stretch and squeeze back at the top."},
-        {"tab": "Day 5", "tab_sub": "Legs", "title": "Day 5 — Legs (Volume)", "tag": "Hypertrophy", "color": 6, "time": "60–70 min", "focus": "Quads / Glutes / Hamstrings / Calves",
+        {"tab": "Day 5", "tab_sub": "Legs", "title": "Day 5 — Legs (Volume)", "tag": "Hypertrophy", "color": 6, "time": "50–60 min", "focus": "Quads / Glutes / Hamstrings / Calves",
          "exercises": [
              ("Hack Squat (or Leg Press)", "Primary: quads", "3 × 10–15", "2 min", "RIR 1–2"),
              ("Barbell Hip Thrust", "Primary: glutes · Secondary: hamstrings", "3 × 8–12", "2 min", "RIR 1–2"),
@@ -152,10 +145,10 @@ PAGE = {
     "faq_title": "5-Day Workout Split FAQ",
     "faqs": [
         ("Is a 5-day split good for beginners?", "Usually not. Beginners progress fastest with three full-body sessions while they learn the lifts. Move to five days after a year or more of steady training."),
-        ("Which 5-day split is best for building muscle?", "Any split that gives each muscle 10 or more hard sets a week can build muscle. Hybrids like Upper/Lower/Push/Pull/Legs make that easier because each muscle is trained twice."),
+        ("What if I miss a day?", "Do the missed session next and shift the rest of the week by one day. If you must drop one, drop the Pull day, because back and biceps also get heavy work on Monday."),
         ("Can I do cardio on a 5-day split?", "Yes. Easy cardio on rest days or after upper-body sessions is fine. Keep hard intervals away from the day before a leg session."),
         ("How long should I run this 5-day split?", "Run it in 8-week blocks, including a deload week, for as long as your main lifts and body measurements keep improving."),
-        ("Can I swap Upper and Lower days?", "Yes. Doing Lower on Monday and Upper on Tuesday works as long as Saturday legs stays at least 72 hours from your next leg day."),
+        ("Can I swap the Upper and Lower days?", "You can, but Lower on Monday comes only 48 hours after Saturday's leg session. If your legs still feel tired on Monday, keep the original order."),
     ],
     "related": ["bro-split", "push-pull-legs", "upper-lower-split", "ppl-hypertrophy-program"],
     "refs": refs("freq2016", "pelland2026", "load2021", "currier2023", "acsm2026", "vol2017", "deload2024", "protein2018", "offseason2019", "rest2018"),
