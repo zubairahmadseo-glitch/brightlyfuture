@@ -3,9 +3,12 @@
  * Plugin Name: ExerciseMenu Exercises
  * Plugin URI:  https://exercisemenu.com
  * Description: Custom Post Type and meta boxes for Exercise pages on ExerciseMenu.com
- * Version:     1.1.1
+ * Version:     1.2.0
  * Author:      ExerciseMenu
  * Text Domain: exercisemenu
+ *
+ * CHANGELOG v1.2.0
+ * - New front-end layout matching the approved preview (profile beside GIF, contents menu, card sections)
  *
  * CHANGELOG v1.1.1
  * - REST: repeater fields registered as arrays of objects (were JSON strings, which rendered empty)

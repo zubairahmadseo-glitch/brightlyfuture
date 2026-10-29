@@ -1,4 +1,18 @@
-# ExerciseMenu Exercises Plugin — v1.1.1 Changelog
+# ExerciseMenu Exercises Plugin — v1.2.0 Changelog
+
+## New front-end layout (template only — no data or field changes)
+Only `templates/single-exercise.php` changed. All content still comes from the same fields.
+- Breadcrumb, H1, subtitle, tag chips and "Last updated" at the top.
+- Hero row: GIF card on the left, **Exercise Profile** card on the right (calorie estimate note included). The old right-hand sidebar is gone.
+- **Quick Answer** box under the hero.
+- **"On this page"** contents menu on the left (sticky on desktop). It lists only the sections that have content.
+- Every section is a card: How-To Steps (numbered), Muscles Worked (Primary / Secondary columns; "Name — description" is split into name and description; muscle map shown as a third column if set), Sets & Reps table, Common Mistakes and Tips (the text before the first colon becomes the item heading), Modifications (Easier / Harder cards), Workout Plans (day badge + plan title), Alternatives (square GIF cards with target muscle), FAQs (open/close without JavaScript), Sources, Related Training Articles (cards with category), safety note, and the "Browse All Exercises" button.
+- Light and dark mode use the site's colours; layout stacks to one column on phones.
+- The "← All exercises" link is removed (the breadcrumb covers it).
+
+---
+
+## v1.1.1
 
 ## Fixes on top of v1.1.0
 1. **REST repeaters fixed.** Steps, Sets & Reps, Modifications, FAQs, Related, Sources and Workout Plans are now registered as arrays of objects. In v1.1.0 they were JSON strings, so a page written through the API rendered those sections empty. Send them as JSON arrays (see example below). Old JSON strings are still read correctly and are converted once on the first admin page load.

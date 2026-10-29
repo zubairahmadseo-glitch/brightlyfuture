@@ -95,3 +95,10 @@ For EACH of the 8 pages, confirm:
 - [ ] Mistakes/Tips: the words before the first colon are bold
 - [ ] Google Rich Results Test on one exercise URL: one Article, one FAQPage, one BreadcrumbList
 - [ ] REST: `GET /wp-json/wp/v2/exercises/<id>?context=edit` (logged in) returns `meta._em_steps` as an array
+
+## v1.2.0 layout checks
+- [ ] GIF on the left, Exercise Profile on the right (one column on a phone)
+- [ ] "On this page" menu lists only sections that have content, and each link jumps to its section
+- [ ] FAQs open and close when clicked
+- [ ] Theme header and footer still show above and below the page
+- [ ] Clear LiteSpeed Cache (LiteSpeed Cache → Purge All) after updating, then reload the page
