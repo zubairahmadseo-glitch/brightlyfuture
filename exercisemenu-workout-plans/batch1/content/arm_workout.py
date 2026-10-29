@@ -44,7 +44,7 @@ PAGE = {
         ("mistakes", "Arm Workout Mistakes", f"""
 <ul>
 <li><strong>Swinging the weight.</strong> If your hips or shoulders move, the load is too heavy. Keep your upper arms still and lower each rep in about two seconds.</li>
-<li><strong>Short reps.</strong> Straighten your arm fully at the bottom of curls and bend fully on extensions; the stretched part of the rep is where much of the growth comes from.</li>
+<li><strong>Short reps.</strong> Straighten your arm fully at the bottom of curls and bend fully on extensions. Cutting the bottom of the rep skips the stretched position this plan is built around.</li>
 <li><strong>Only doing biceps.</strong> Skipping triceps leaves the bigger part of your arm untrained.</li>
 <li><strong>Training arms on the day before a heavy press or pull day.</strong> Tired arms limit your bench press and rows. Put arm work after those sessions, not before them.</li>
 </ul>

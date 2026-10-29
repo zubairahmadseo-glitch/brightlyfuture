@@ -16,14 +16,14 @@ PAGE = {
     "sections": [
         ("schedule", "Core Workout Schedule", f"""
 {WEEK}
-<p>Put core work at the end of your gym sessions on three non-consecutive days. Doing it at the start tires the muscles that keep your trunk stable during squats and deadlifts. Alternate Core A and Core B; on busy days, do the 10-minute version.</p>
+<p>Put core work at the end of your gym sessions on three non-consecutive days. Doing it first can tire the muscles that keep your trunk stable during squats and deadlifts. Alternate Core A and Core B; on busy days, do the 10-minute version.</p>
 """),
         ("workouts", "The Core Workouts", f"""
 <p>Holds are written in seconds; "/ side" means do the time or reps on each side. Rest 45–60 seconds between sets.</p>
 {TABS}
 """),
         ("functions", "What Each Core Exercise Trains", f"""
-<p>Your core is more than your six-pack muscle. It includes the rectus abdominis, the obliques on your sides, the deep transverse abdominis and the muscles along your spine. Each workout trains all of them by covering these five jobs:</p>
+<p>Your core is more than your six-pack muscle. It includes the rectus abdominis, the obliques on your sides, the deep transverse abdominis and the muscles along your spine. Core A and Core B each train all of them by covering these five jobs:</p>
 {table(["Core job", "Main muscles", "Exercises in this plan"], [
     ["Bending forward (flexion)", "Rectus abdominis", "Cable crunch, reverse crunch, hanging knee raise"],
     ["Resisting arching (anti-extension)", "Rectus abdominis, transverse abdominis", "Plank, ab wheel rollout, dead bug"],
@@ -34,7 +34,7 @@ PAGE = {
 <p>Rotation exercises such as the cable wood chop and the {L('/medicine-ball-ab-exercises/', 'medicine ball Russian twist')} add a sixth job, turning the trunk, and are optional extras.</p>
 """),
         ("progression", "How to Make Core Exercises Harder", f"""
-<p>Your abs adapt like any other muscle, so the same plank every week stops working. Progress in this order:</p>
+<p>Your abs adapt like any other muscle, so the same plank every week soon stops challenging them. Progress in this order:</p>
 {table(["Exercise type", "When to progress", "How"], [
     ["Holds (plank, side plank)", "You can hold 45–60 sec with good form", "Move to a harder version (feet elevated, long-lever plank) instead of holding longer"],
     ["Reps (crunch, leg raise)", "You hit the top of the rep range on every set", "Add weight on the cable stack or straighten your legs"],
@@ -60,20 +60,20 @@ PAGE = {
          "exercises": [
              ("Cable Crunch", "Primary: rectus abdominis", "3 × 10–15", "60 sec", "RIR 1–2"),
              ("Pallof Press", "Primary: obliques (anti-rotation)", "2 × 10 / side", "45 sec", "RIR 2"),
-             ("Hanging Knee Raise", "Primary: rectus abdominis, hip flexors", "2 × 8–15", "60 sec", "RIR 1–2"),
+             ("Dead Bug", "Primary: transverse abdominis, rectus abdominis", "2 × 8 / side", "45 sec", "Slow and controlled"),
              ("Side Plank", "Primary: obliques, quadratus lumborum", "2 × 20–45 sec / side", "45 sec", "Hold with good form"),
              ("Back Extension", "Primary: erector spinae · Secondary: glutes, hamstrings", "2 × 10–15", "60 sec", "RIR 2"),
          ],
-         "notes": "Kneel facing the cable for crunches and round your spine down toward your knees; keep your hips still. Raise your knees to hip height or higher on knee raises without swinging."},
+         "notes": "Kneel facing the cable for crunches and round your spine down toward your knees; keep your hips still. On dead bugs, press your lower back into the floor the whole time."},
         {"tab": "Core B", "tab_sub": "Gym", "title": "Core Workout B (Gym)", "tag": "Gym", "color": 2, "time": "20–25 min", "focus": "Abs / Obliques / Lower back",
          "exercises": [
              ("Ab Wheel Rollout", "Primary: rectus abdominis (anti-extension)", "3 × 6–12", "60 sec", "RIR 2"),
              ("Cable Wood Chop", "Primary: obliques (rotation)", "2 × 10 / side", "45 sec", "RIR 2"),
-             ("Dead Bug", "Primary: transverse abdominis, rectus abdominis", "2 × 8 / side", "45 sec", "Slow and controlled"),
+             ("Hanging Knee Raise", "Primary: rectus abdominis, hip flexors", "2 × 8–15", "60 sec", "RIR 1–2"),
              ("Suitcase Carry", "Primary: obliques, quadratus lumborum · Secondary: grip", "2 × 20–30 m / side", "60 sec", "Heavy, no leaning"),
              ("Bird Dog", "Primary: erector spinae, obliques · Secondary: glutes", "2 × 8 / side", "45 sec", "Pause 2 sec each rep"),
          ],
-         "notes": "Start ab wheel rollouts from your knees and roll only as far as you can without your lower back sagging. Carry a dumbbell or kettlebell in one hand and walk tall."},
+         "notes": "Start ab wheel rollouts from your knees and roll only as far as you can without your lower back sagging. Carry a dumbbell or kettlebell in one hand and walk tall. Raise your knees to hip height or higher on knee raises without swinging."},
         {"tab": "At home", "tab_sub": "No equipment", "title": "Core Workout at Home", "tag": "Home", "color": 4, "time": "20–25 min", "focus": "Abs / Obliques / Lower back",
          "exercises": [
              ("Reverse Crunch", "Primary: rectus abdominis", "3 × 10–15", "45 sec", "RIR 1–2"),

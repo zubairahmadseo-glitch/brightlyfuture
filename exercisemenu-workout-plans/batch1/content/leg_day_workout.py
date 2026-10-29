@@ -8,7 +8,7 @@ PAGE = {
     "meta_desc": "Not sure how to structure leg day? Pick a beginner, quad-focus, hamstring-focus or dumbbell leg day workout, with sets, reps, rest and progression.",
     "focus_kw": "leg day workout",
     "badge": "Body Part Plan · Legs",
-    "hero_lead": "Four complete leg day workouts: a beginner session, a quad-focused day, a hamstring and glute day, and a dumbbell-only version. Each one trains your quads, hamstrings, glutes and calves, in the order that gets the most from every exercise.",
+    "hero_lead": "Four complete leg day workouts: a beginner session, a quad-focused day, a hamstring and glute day, and a dumbbell-only version. The beginner and dumbbell days train every leg muscle in one session; the quad and hamstring days share the work across two sessions a week.",
     "hero_meta": ["📅 1–2 leg days/week", "⏱ 50–65 min", "📊 Beginner–Intermediate", "🏋️ Gym or dumbbells"],
     "stats": [("1–2", "Leg days/week"), ("4", "Leg day plans"), ("2–3 min", "Rest on big lifts"), ("5–15", "Rep range"), ("15", "Exercises")],
     "quick_answer": "A complete leg day workout starts with a heavy squat or leg press, then adds a hip hinge such as the Romanian deadlift, a single-leg exercise, a leg curl or leg extension, and calf raises. Do 3–4 sets of each and train legs twice a week if you can.",
@@ -30,11 +30,11 @@ PAGE = {
     ["4", "Isolation", "Trains what the big lifts miss", "Leg extension, seated leg curl"],
     ["5", "Calves", "Small muscle, needs its own work", "Standing or seated calf raise"],
 ])}
-{box("science", "🔬 Why squats aren't enough", f"<p>In a {cite('kubo2019', '10-week squat study')}, full squats grew the quads, glutes and inner thighs, but not the hamstrings or the rectus femoris (the quad that crosses the hip). That's why each plan here adds a hinge, a leg curl and, on the quad day, a leg extension. For the leg curl, choose the seated machine: it grew the hamstrings more than the lying leg curl in a {cite('maeo2021', '2021 study')}.</p>")}
+{box("science", "🔬 Why squats aren't enough", f"<p>In a {cite('kubo2019', '10-week squat study')}, full squats grew the quads, glutes and inner thighs, but not the hamstrings or the rectus femoris (the quad that crosses the hip). That's why every plan here includes a Romanian deadlift or a seated leg curl, and the quad day adds a leg extension. For the leg curl, choose the seated machine: it grew the hamstrings more than the lying leg curl in a {cite('maeo2021', '2021 study')}.</p>")}
 <p>For calves, spend most of each rep in the bottom half. Partial reps in the stretched position grew the inner calf more than full reps in a {cite('kassiano2023', 'calf training study')}, so pause at the bottom and don't rush the top.</p>
 """),
         ("volume", "How Many Sets and Reps on Leg Day?", f"""
-<p>Each workout has 15–16 hard sets. Use 5–8 reps on heavy squats, 8–12 on most other exercises and 10–15 on isolation and calf work. Rest 2–3 minutes between sets of squats and deadlifts: longer rest built more leg muscle than one-minute rest in a {cite('rest2016', 'study on rest periods')}. Running the quad day and hamstring day each week gives your quads about 14 direct sets, your glutes about 18, your hamstrings 7 and your calves 6. The {cite('acsm2026', '2026 ACSM position stand')} links 10 or more weekly sets per muscle with more growth, so if your hamstrings lag, add 2–3 sets of seated leg curls to the end of the quad day.</p>
+<p>Each workout has 15–16 hard sets. Use 5–8 reps on heavy squats, 8–12 on most other exercises and 10–15 on isolation and calf work. Rest 2–3 minutes between sets of squats and deadlifts: longer rest built more leg muscle than one-minute rest in a {cite('rest2016', 'study on rest periods')}. Running the quad day and hamstring day each week gives your quads about 12 direct sets, your hamstrings 10, your glutes about 16 and your calves 6, in line with the 10 or more weekly sets per muscle the {cite('acsm2026', '2026 ACSM position stand')} links with more growth. If your calves lag, add one set to each calf exercise.</p>
 <p>New to leg training? Start with two sets per exercise and add a set every two weeks. Our guide to {L('/how-many-sets-per-muscle-group-per-week/', 'sets per muscle group')} explains how to adjust.</p>
 """),
         ("progression", "How to Progress Your Leg Day", f"""
@@ -60,15 +60,15 @@ PAGE = {
              ("Standing Calf Raise", "Primary: calves", "3 × 12–15", "60 sec", "RIR 1–2"),
          ],
          "notes": "Hold one dumbbell at your chest for goblet squats and sit down between your heels. Use this workout twice a week for your first 8–12 weeks."},
-        {"tab": "Quad focus", "tab_sub": "Squat day", "title": "Leg Day A: Quad Focus", "tag": "Gym", "color": 2, "time": "55–65 min", "focus": "Quads / Glutes / Calves",
+        {"tab": "Quad focus", "tab_sub": "Squat day", "title": "Leg Day A: Quad Focus", "tag": "Gym", "color": 2, "time": "55–65 min", "focus": "Quads / Hamstrings / Glutes / Calves",
          "exercises": [
              ("Back Squat", "Primary: quads, glutes · Secondary: adductors", "4 × 5–8", "3 min", "RIR 2"),
              ("Leg Press", "Primary: quads, glutes", "3 × 8–12", "2 min", "RIR 1–2"),
-             ("Bulgarian Split Squat", "Primary: quads, glutes", "2 × 8–12 / leg", "90 sec", "RIR 1–2"),
              ("Leg Extension", "Primary: quads (incl. rectus femoris)", "3 × 10–15", "90 sec", "RIR 1"),
+             ("Seated Leg Curl", "Primary: hamstrings", "3 × 10–15", "90 sec", "RIR 1"),
              ("Barbell Standing Calf Raise", "Primary: gastrocnemius", "3 × 10–15", "90 sec", "RIR 1–2"),
          ],
-         "notes": "Keep your torso more upright on Bulgarian split squats to bias the quads. Pause one second in the stretch at the bottom of every calf raise."},
+         "notes": "Place your feet in the middle of the leg press platform and lower until your hips start to tuck. Pause one second in the stretch at the bottom of every calf raise."},
         {"tab": "Hamstring focus", "tab_sub": "Hinge day", "title": "Leg Day B: Hamstring and Glute Focus", "tag": "Gym", "color": 3, "time": "55–65 min", "focus": "Hamstrings / Glutes / Calves",
          "exercises": [
              ("Romanian Deadlift", "Primary: hamstrings, glutes", "4 × 6–10", "2–3 min", "RIR 2"),
@@ -91,7 +91,7 @@ PAGE = {
     "faq_title": "Leg Day Workout FAQ",
     "faqs": [
         ("Can I build legs without squats?", "Yes. The leg press, Bulgarian split squat and hack squat all train the quads and glutes well. Squats are one good option, not a requirement."),
-        ("Should I do cardio after leg day?", "Light walking or easy cycling is fine and can help you feel less stiff. Leave hard intervals or long runs for another day so they don't hurt your next leg session."),
+        ("Should I do cardio after leg day?", "Light walking or easy cycling is fine. Leave hard intervals or long runs for another day so they don't hurt your next leg session."),
         ("How long should leg day take?", "About 50–65 minutes including warm-up. Leg exercises need longer rests than upper-body work, so a leg day with 15–16 sets rarely fits into 30 minutes."),
         ("How many exercises should I do on leg day?", "Four to six is enough. Cover a squat or press, a hinge, a single-leg move and calves; adding more exercises past that usually means lower-quality sets on the ones that matter."),
         ("What should I train the day after leg day?", "Upper body. Your legs need 48–72 hours before another hard session, but your chest, back and arms are fresh."),

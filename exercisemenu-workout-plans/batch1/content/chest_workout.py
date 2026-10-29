@@ -25,7 +25,7 @@ PAGE = {
         ("exercises", "Best Chest Exercises by Area", f"""
 <p>Your pectoralis major has an upper (clavicular) part and a larger middle-to-lower (sternal) part, and the bench angle changes which part works hardest.</p>
 {table(["Exercise", "Main area", "Why it's in the plan"], [
-    ["Flat barbell or dumbbell bench press", "Middle and lower chest", "Heaviest chest lift; the best one to progress for strength"],
+    ["Flat barbell or dumbbell bench press", "Middle and lower chest", "Heaviest chest lift and the easiest to track"],
     ["Incline press (about 30°)", "Upper chest", "30° gave the highest upper-chest activity in an EMG study"],
     ["Dips (leaning forward)", "Lower chest, triceps", "Loads the chest through a deep stretch"],
     ["Cable or dumbbell fly", "Whole chest", "Trains the chest without the triceps limiting the set"],
@@ -44,7 +44,7 @@ PAGE = {
 <p>Within each week, use double progression: once every set reaches the top of its rep range, add the smallest jump available (2.5 kg on a barbell, 1–2 kg per dumbbell) and build the reps back up. That is the core of {L('/what-is-progressive-overload/', 'progressive overload')}. After two 4-week blocks, take a lighter week with half the sets.</p>
 """),
         ("volume", "How Many Chest Sets per Week?", f"""
-<p>The two gym workouts give you about 20 hard chest sets a week, and the dumbbell and home versions about 24, because you do the same workout twice. The {cite('acsm2026', '2026 ACSM position stand')} links more muscle growth with 10 or more sets per muscle per week, and a {cite('vol2017', 'dose-response meta-analysis')} found growth kept rising as sets increased. If you are new to lifting or your shoulders feel beaten up, start nearer 10 sets (2 per exercise) and add sets as you recover well. Our guide to {L('/how-many-sets-per-muscle-group-per-week/', 'sets per muscle group per week')} explains how to adjust.</p>
+<p>The two gym workouts give you about 20 hard chest sets a week, and the dumbbell and home versions about 24, because you do the same workout twice. The {cite('acsm2026', '2026 ACSM position stand')} links more muscle growth with 10 or more sets per muscle per week, and a {cite('vol2017', 'dose-response meta-analysis')} found growth kept rising as sets increased. If you are new to lifting or your shoulders feel beaten up, use 2 sets per exercise (about 14 sets a week) and add sets as you recover well. Our guide to {L('/how-many-sets-per-muscle-group-per-week/', 'sets per muscle group per week')} explains how to adjust.</p>
 """),
         ("split", "How to Fit These Chest Workouts Into Your Split", f"""
 <ul>
