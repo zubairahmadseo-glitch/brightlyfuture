@@ -202,11 +202,11 @@ w(f"""<!doctype html>
   - Every card, count and group must be generated from the Exercise posts (title, permalink, GIF, Target Muscle,
     Equipment, Category, Skill Level). GIFs are embedded here only for the preview; use the Media Library URLs.
   - Cards stay as normal <a href> links in the HTML so Google can crawl every exercise. Filters only hide/show cards.
-  - Rank Math: Title "Exercise Library: Form Guides, GIFs & Muscles Worked" · Description (see meta tag below).
+  - Rank Math: Title "Exercise Library by Muscle Group: GIFs & Form Guides" · Description (see meta tag below) · Focus keyword "exercise library".
   - Output the JSON-LD below (CollectionPage + ItemList + BreadcrumbList + FAQPage). Do not let Rank Math add a second FAQPage.
 -->
-<title>Exercise Library: Form Guides, GIFs &amp; Muscles Worked</title>
-<meta name="description" content="Browse our exercise library by muscle group and equipment. Every guide shows the GIF, step-by-step form, muscles worked, sets and reps, and mistakes.">
+<title>Exercise Library by Muscle Group: GIFs &amp; Form Guides</title>
+<meta name="description" content="Find exercises for chest, back, legs, shoulders and arms. Filter by equipment and level, then follow GIF form guides with sets, reps and common mistakes.">
 <link rel="canonical" href="{SITE}/exercises/">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False)}</script>
