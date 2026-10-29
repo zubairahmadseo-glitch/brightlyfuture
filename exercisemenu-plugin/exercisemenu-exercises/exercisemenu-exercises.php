@@ -3,9 +3,18 @@
  * Plugin Name: ExerciseMenu Exercises
  * Plugin URI:  https://exercisemenu.com
  * Description: Custom Post Type and meta boxes for Exercise pages on ExerciseMenu.com
- * Version:     1.1.0
+ * Version:     1.1.1
  * Author:      ExerciseMenu
  * Text Domain: exercisemenu
+ *
+ * CHANGELOG v1.1.1
+ * - REST: repeater fields registered as arrays of objects (were JSON strings, which rendered empty)
+ * - REST: post type now supports custom-fields so meta is exposed; Rank Math title/description/focus keyword registered
+ * - Repeater reads accept legacy JSON strings (em_get_list_meta)
+ * - Step Description no longer uses the HTML "required" attribute (it blocked saving); a warning is shown instead
+ * - Removed the old "Sidebar Workout Plans" box (duplicate of "Workout Plans Using This Exercise"); entries migrated once
+ * - Schema: author is the Organization; Rank Math's duplicate Article/FAQPage/BreadcrumbList removed on exercise pages
+ * - Related Articles label corrected (picker takes priority over manual entry)
  *
  * CHANGELOG v1.1.0
  * - SEO fields now defer to Rank Math (plugin no longer outputs <title>/<meta description>)
@@ -51,9 +60,11 @@ function em_register_exercise_cpt() {
         'public'             => true,
         'has_archive'        => true,
         'rewrite'            => [ 'slug' => 'exercises' ],
-        'supports'           => [ 'title', 'thumbnail' ],
+        // custom-fields is required for the REST API to expose post meta.
+        'supports'           => [ 'title', 'thumbnail', 'custom-fields' ],
         'menu_icon'          => 'dashicons-heart',
-        'show_in_rest'       => false,
+        'show_in_rest'       => true,
+        'rest_base'          => 'exercises',
         'menu_position'      => 5,
     ]);
 }
@@ -87,9 +98,13 @@ function em_register_meta_boxes() {
     add_meta_box( 'em_faqs',          'FAQs',                        'em_render_faqs_box',          'exercise', 'normal', 'default' );
     add_meta_box( 'em_workout_plans', 'Workout Plans Using This Exercise', 'em_render_workout_plans_box', 'exercise', 'normal', 'default' );
     add_meta_box( 'em_related',       'Related Articles',            'em_render_related_box',       'exercise', 'side',   'default' );
-    add_meta_box( 'em_sidebar_plans', 'Sidebar Workout Plans',       'em_render_plans_box',         'exercise', 'side',   'default' );
 }
 add_action( 'add_meta_boxes', 'em_register_meta_boxes' );
+
+// The core "Custom Fields" box appears because the CPT supports custom-fields (needed for REST). Hide it.
+add_action( 'add_meta_boxes_exercise', function() {
+    remove_meta_box( 'postcustom', 'exercise', 'normal' );
+}, 20 );
 
 
 // ─────────────────────────────────────────────
@@ -101,6 +116,16 @@ function em_nonce_field( $action ) {
 function em_verify_nonce( $action ) {
     return isset( $_POST[ $action . '_nonce' ] ) &&
            wp_verify_nonce( $_POST[ $action . '_nonce' ], $action );
+}
+
+// Read a list-type meta value. v1.1.0 REST writes could store JSON strings, so decode those too.
+function em_get_list_meta( $post_id, $key ) {
+    $value = get_post_meta( $post_id, $key, true );
+    if ( is_string( $value ) && $value !== '' ) {
+        $decoded = json_decode( $value, true );
+        $value   = is_array( $decoded ) ? $decoded : [];
+    }
+    return is_array( $value ) ? $value : [];
 }
 
 
@@ -309,27 +334,34 @@ function em_render_muscles_box( $post ) {
 // How-To Steps (repeater)
 function em_render_steps_box( $post ) {
     em_nonce_field( 'em_steps' );
-    $steps = get_post_meta( $post->ID, '_em_steps', true ) ?: [];
+    $steps = em_get_list_meta( $post->ID, '_em_steps' );
     if ( empty($steps) ) $steps = [ [ 'title' => '', 'desc' => '' ] ];
-    echo '<div class="em-meta-box">
-    <div id="em-steps-wrap">';
+    $missing_desc = 0;
+    foreach ( $steps as $s ) {
+        if ( trim( $s['title'] ?? '' ) !== '' && trim( $s['desc'] ?? '' ) === '' ) $missing_desc++;
+    }
+    echo '<div class="em-meta-box">';
+    if ( $missing_desc ) {
+        echo '<div style="background:#fff3cd;border-left:4px solid #ffc107;padding:8px 12px;margin-bottom:10px;border-radius:4px;font-size:12px;"><strong>' . (int) $missing_desc . ' step(s) have no description.</strong> Add a short description to each step.</div>';
+    }
+    echo '<div id="em-steps-wrap">';
     foreach ( $steps as $i => $step ) {
-        $t_len = strlen($step['title']);
+        $t_len = mb_strlen( $step['title'] ?? '' );
         echo '<div class="em-repeater-row">
             <button type="button" class="em-remove-row" onclick="emRemoveRow(this)">✕ Remove</button>
             <div class="em-field-group">
                 <label>Step ' . ($i+1) . ' Title <span class="em-char-count em-step-count" data-max="60">' . $t_len . '/60</span></label>
-                <input type="text" class="em-step-title" name="em_steps[' . $i . '][title]" value="' . esc_attr($step['title']) . '" maxlength="60" placeholder="e.g. Brace your core and stand tall">
+                <input type="text" class="em-step-title" name="em_steps[' . $i . '][title]" value="' . esc_attr($step['title'] ?? '') . '" maxlength="60" placeholder="e.g. Brace your core and stand tall">
             </div>
             <div class="em-field-group">
                 <label>Step ' . ($i+1) . ' Description <span style="color:#c0392b">*</span></label>
-                <textarea class="em-step-desc" name="em_steps[' . $i . '][desc]" required placeholder="Detail what to do in this step... (required)">' . esc_textarea($step['desc']) . '</textarea>
+                <textarea class="em-step-desc" name="em_steps[' . $i . '][desc]" placeholder="Detail what to do in this step...">' . esc_textarea($step['desc'] ?? '') . '</textarea>
             </div>
         </div>';
     }
     echo '</div>
     <button type="button" class="em-add-row" onclick="emAddStep()">+ Add Step</button>
-    <p class="em-hint">Step title is limited to 60 characters. Description is required for each step.</p>
+    <p class="em-hint">Step title is limited to 60 characters. Every step should have a description.</p>
     </div>
     <script>
     var emStepCount = ' . count($steps) . ';
@@ -338,7 +370,7 @@ function em_render_steps_box( $post ) {
         var wrap = document.getElementById("em-steps-wrap");
         var row = document.createElement("div");
         row.className = "em-repeater-row";
-        row.innerHTML = \'<button type="button" class="em-remove-row" onclick="emRemoveRow(this)">✕ Remove</button><div class="em-field-group"><label>Step Title <span class="em-char-count em-step-count" data-max="60">0/60</span></label><input type="text" class="em-step-title" name="em_steps[\'+i+\'][title]" maxlength="60" placeholder="Step title"></div><div class="em-field-group"><label>Step Description <span style="color:#c0392b">*</span></label><textarea class="em-step-desc" name="em_steps[\'+i+\'][desc]" required placeholder="Step detail... (required)"></textarea></div>\';
+        row.innerHTML = \'<button type="button" class="em-remove-row" onclick="emRemoveRow(this)">✕ Remove</button><div class="em-field-group"><label>Step Title <span class="em-char-count em-step-count" data-max="60">0/60</span></label><input type="text" class="em-step-title" name="em_steps[\'+i+\'][title]" maxlength="60" placeholder="Step title"></div><div class="em-field-group"><label>Step Description <span style="color:#c0392b">*</span></label><textarea class="em-step-desc" name="em_steps[\'+i+\'][desc]" placeholder="Step detail..."></textarea></div>\';
         wrap.appendChild(row);
         bindStepCounters();
     }
@@ -368,17 +400,17 @@ function em_render_sets_box( $post ) {
         [ 'goal' => 'Endurance',     'sets' => '2–3', 'reps' => '15–20', 'rest' => '30–60 sec' ],
         [ 'goal' => 'Beginner',      'sets' => '2–3', 'reps' => '10–12', 'rest' => '60–90 sec' ],
     ];
-    $rows = get_post_meta( $post->ID, '_em_sets_reps', true ) ?: $defaults;
+    $rows = em_get_list_meta( $post->ID, '_em_sets_reps' ) ?: $defaults;
     echo '<div class="em-meta-box">
     <table class="em-sets-table">
         <thead><tr><th>Goal</th><th>Sets</th><th>Reps</th><th>Rest</th></tr></thead>
         <tbody>';
     foreach ( $rows as $i => $row ) {
         echo '<tr>
-            <td><input type="text" name="em_sets_reps[' . $i . '][goal]" value="' . esc_attr($row['goal']) . '"></td>
-            <td><input type="text" name="em_sets_reps[' . $i . '][sets]" value="' . esc_attr($row['sets']) . '"></td>
-            <td><input type="text" name="em_sets_reps[' . $i . '][reps]" value="' . esc_attr($row['reps']) . '"></td>
-            <td><input type="text" name="em_sets_reps[' . $i . '][rest]" value="' . esc_attr($row['rest']) . '"></td>
+            <td><input type="text" name="em_sets_reps[' . $i . '][goal]" value="' . esc_attr($row['goal'] ?? '') . '"></td>
+            <td><input type="text" name="em_sets_reps[' . $i . '][sets]" value="' . esc_attr($row['sets'] ?? '') . '"></td>
+            <td><input type="text" name="em_sets_reps[' . $i . '][reps]" value="' . esc_attr($row['reps'] ?? '') . '"></td>
+            <td><input type="text" name="em_sets_reps[' . $i . '][rest]" value="' . esc_attr($row['rest'] ?? '') . '"></td>
         </tr>';
     }
     echo '</tbody></table>
@@ -389,7 +421,7 @@ function em_render_sets_box( $post ) {
 // Mistakes (repeater)
 function em_render_mistakes_box( $post ) {
     em_nonce_field( 'em_mistakes' );
-    $items = get_post_meta( $post->ID, '_em_mistakes', true ) ?: [ '' ];
+    $items = em_get_list_meta( $post->ID, '_em_mistakes' ) ?: [ '' ];
     echo '<div class="em-meta-box"><div id="em-mistakes-wrap">';
     foreach ( $items as $i => $item ) {
         echo '<div class="em-repeater-row">
@@ -418,7 +450,7 @@ function em_render_mistakes_box( $post ) {
 // Tips (repeater)
 function em_render_tips_box( $post ) {
     em_nonce_field( 'em_tips' );
-    $items = get_post_meta( $post->ID, '_em_tips', true ) ?: [ '' ];
+    $items = em_get_list_meta( $post->ID, '_em_tips' ) ?: [ '' ];
     echo '<div class="em-meta-box"><div id="em-tips-wrap">';
     foreach ( $items as $i => $item ) {
         echo '<div class="em-repeater-row">
@@ -443,7 +475,7 @@ function em_render_mods_box( $post ) {
         [ 'type' => 'harder', 'title' => '', 'desc' => '', 'link_id' => 0 ],
         [ 'type' => 'harder', 'title' => '', 'desc' => '', 'link_id' => 0 ],
     ];
-    $mods = get_post_meta( $post->ID, '_em_mods', true ) ?: $defaults;
+    $mods = em_get_list_meta( $post->ID, '_em_mods' ) ?: $defaults;
     $all_exercises = em_get_all_exercises_dropdown( $post->ID );
     echo '<div class="em-meta-box"><div id="em-mods-wrap">';
     foreach ( $mods as $i => $mod ) {
@@ -453,17 +485,17 @@ function em_render_mods_box( $post ) {
             <div class="em-field-group">
                 <label>Type</label>
                 <select name="em_mods[' . $i . '][type]">
-                    <option value="easier"' . selected($mod['type'],'easier',false) . '>🔽 Easier</option>
-                    <option value="harder"' . selected($mod['type'],'harder',false) . '>🔼 Harder</option>
+                    <option value="easier"' . selected($mod['type'] ?? 'easier','easier',false) . '>🔽 Easier</option>
+                    <option value="harder"' . selected($mod['type'] ?? 'easier','harder',false) . '>🔼 Harder</option>
                 </select>
             </div>
             <div class="em-field-group">
                 <label>Title (e.g. Cable Bicep Curl)</label>
-                <input type="text" name="em_mods[' . $i . '][title]" value="' . esc_attr($mod['title']) . '">
+                <input type="text" name="em_mods[' . $i . '][title]" value="' . esc_attr($mod['title'] ?? '') . '">
             </div>
             <div class="em-field-group">
                 <label>Description</label>
-                <textarea name="em_mods[' . $i . '][desc]">' . esc_textarea($mod['desc']) . '</textarea>
+                <textarea name="em_mods[' . $i . '][desc]">' . esc_textarea($mod['desc'] ?? '') . '</textarea>
             </div>
             <div class="em-field-group">
                 <label>Link to exercise page (optional)</label>
@@ -523,18 +555,18 @@ function em_options_html( $items, $selected_id ) {
 // FAQs (repeater)
 function em_render_faqs_box( $post ) {
     em_nonce_field( 'em_faqs' );
-    $faqs = get_post_meta( $post->ID, '_em_faqs', true ) ?: [ [ 'q' => '', 'a' => '' ] ];
+    $faqs = em_get_list_meta( $post->ID, '_em_faqs' ) ?: [ [ 'q' => '', 'a' => '' ] ];
     echo '<div class="em-meta-box"><div id="em-faqs-wrap">';
     foreach ( $faqs as $i => $faq ) {
         echo '<div class="em-repeater-row">
             <button type="button" class="em-remove-row" onclick="emRemoveRow(this)">✕ Remove</button>
             <div class="em-field-group">
                 <label>Question ' . ($i+1) . '</label>
-                <input type="text" name="em_faqs[' . $i . '][q]" value="' . esc_attr($faq['q']) . '" placeholder="e.g. How many sets should I do?">
+                <input type="text" name="em_faqs[' . $i . '][q]" value="' . esc_attr($faq['q'] ?? '') . '" placeholder="e.g. How many sets should I do?">
             </div>
             <div class="em-field-group">
                 <label>Answer ' . ($i+1) . '</label>
-                <textarea name="em_faqs[' . $i . '][a]" placeholder="Answer — must contain unique info not covered in article body...">' . esc_textarea($faq['a']) . '</textarea>
+                <textarea name="em_faqs[' . $i . '][a]" placeholder="Answer — must contain unique info not covered in article body...">' . esc_textarea($faq['a'] ?? '') . '</textarea>
             </div>
         </div>';
     }
@@ -556,7 +588,7 @@ function em_render_faqs_box( $post ) {
 // Related Articles — v1.1 upgraded to post picker; legacy text URLs still saved and rendered
 function em_render_related_box( $post ) {
     em_nonce_field( 'em_related' );
-    $related = get_post_meta( $post->ID, '_em_related', true ) ?: array_fill(0, 3, ['title'=>'','url'=>'','post_id'=>0]);
+    $related = em_get_list_meta( $post->ID, '_em_related' ) ?: array_fill(0, 3, ['title'=>'','url'=>'','post_id'=>0]);
     echo '<div class="em-meta-box">';
     for ( $i = 0; $i < 3; $i++ ) {
         $item = $related[$i] ?? ['title'=>'','url'=>'','post_id'=>0];
@@ -568,7 +600,7 @@ function em_render_related_box( $post ) {
             <input type="text" class="em-related-search" data-idx="' . $i . '" placeholder="Type to search posts and pages..." value="' . esc_attr($linked_title) . '" autocomplete="off">
             <input type="hidden" name="em_related[' . $i . '][post_id]" id="em_related_pid_' . $i . '" value="' . esc_attr($post_id) . '">
             <div class="em-related-results" id="em_related_results_' . $i . '" style="display:none;background:#fff;border:1px solid #ccc;max-height:180px;overflow-y:auto;position:relative;z-index:1;"></div>
-            <label style="margin-top:10px;font-weight:400;">OR legacy manual entry (overrides picker if filled):</label>
+            <label style="margin-top:10px;font-weight:400;">OR manual entry (used only when no post is picked above):</label>
             <input type="text" name="em_related[' . $i . '][title]" value="' . esc_attr($item['title'] ?? '') . '" placeholder="e.g. What Are Reps and Sets?">
             <input type="text" name="em_related[' . $i . '][url]"   value="' . esc_attr($item['url'] ?? '') . '" placeholder="/what-are-reps-and-sets/" style="margin-top:4px;">
         </div>';
@@ -620,7 +652,7 @@ add_action( 'wp_ajax_em_search_posts', function() {
 // Alternative Exercises
 function em_render_alt_exercises_box( $post ) {
     em_nonce_field( 'em_alt_exercises' );
-    $alts = get_post_meta( $post->ID, '_em_alt_exercises', true ) ?: [ 0, 0, 0, 0 ];
+    $alts = em_get_list_meta( $post->ID, '_em_alt_exercises' ) ?: [ 0, 0, 0, 0 ];
     $all_exercises = em_get_all_exercises_dropdown( $post->ID );
     echo '<div class="em-meta-box">
         <p class="em-hint">Pick 2–4 alternative exercises. They render as cards with GIF thumbnails at the bottom of the page.</p>';
@@ -640,7 +672,7 @@ function em_render_alt_exercises_box( $post ) {
 // Sources (citations)
 function em_render_sources_box( $post ) {
     em_nonce_field( 'em_sources' );
-    $sources = get_post_meta( $post->ID, '_em_sources', true ) ?: [ [ 'text' => '', 'url' => '' ] ];
+    $sources = em_get_list_meta( $post->ID, '_em_sources' ) ?: [ [ 'text' => '', 'url' => '' ] ];
     echo '<div class="em-meta-box"><div id="em-sources-wrap">';
     foreach ( $sources as $i => $src ) {
         echo '<div class="em-repeater-row">
@@ -714,7 +746,7 @@ function em_render_muscle_map_box( $post ) {
 // Workout Plans Using This Exercise (manual repeater)
 function em_render_workout_plans_box( $post ) {
     em_nonce_field( 'em_workout_plans' );
-    $plans = get_post_meta( $post->ID, '_em_workout_plans_list', true ) ?: [ [ 'post_id' => 0, 'day_label' => '' ] ];
+    $plans = em_get_list_meta( $post->ID, '_em_workout_plans_list' ) ?: [ [ 'post_id' => 0, 'day_label' => '' ] ];
     echo '<div class="em-meta-box">
         <p class="em-hint">Pick workout-plan posts/pages that include this exercise. Rendered as cards after Modifications.</p>
         <div id="em-wp-wrap">';
@@ -775,34 +807,6 @@ function em_render_workout_plans_box( $post ) {
     jQuery(bindWpSearch);
     </script>';
 }
-
-// Sidebar Plans
-function em_render_plans_box( $post ) {
-    em_nonce_field( 'em_sidebar_plans' );
-    $plans = get_post_meta( $post->ID, '_em_sidebar_plans', true ) ?: array_fill(0, 3, ['title'=>'','url'=>'','meta'=>'','coming_soon'=>'']);
-    echo '<div class="em-meta-box">';
-    foreach ( $plans as $i => $plan ) {
-        echo '<div class="em-repeater-row">
-            <div class="em-field-group">
-                <label>Plan ' . ($i+1) . ' Name</label>
-                <input type="text" name="em_sidebar_plans[' . $i . '][title]" value="' . esc_attr($plan['title']) . '" placeholder="e.g. Push Pull Legs Split">
-            </div>
-            <div class="em-field-group">
-                <label>URL (leave blank if Coming Soon)</label>
-                <input type="text" name="em_sidebar_plans[' . $i . '][url]" value="' . esc_attr($plan['url'] ?? '') . '" placeholder="/push-pull-legs-split/">
-            </div>
-            <div class="em-field-group">
-                <label>Meta text (e.g. "3–6 days/week · Intermediate")</label>
-                <input type="text" name="em_sidebar_plans[' . $i . '][meta]" value="' . esc_attr($plan['meta'] ?? '') . '">
-            </div>
-            <div class="em-field-group">
-                <label><input type="checkbox" name="em_sidebar_plans[' . $i . '][coming_soon]" value="1"' . checked($plan['coming_soon'] ?? '', '1', false) . '> Mark as Coming Soon</label>
-            </div>
-        </div>';
-    }
-    echo '</div>';
-}
-
 
 // ─────────────────────────────────────────────
 // 6. SAVE ALL META
@@ -978,19 +982,6 @@ function em_save_meta( $post_id ) {
         update_post_meta( $post_id, '_em_workout_plans_list', $plans_list );
     }
 
-    // Sidebar Plans
-    if ( em_verify_nonce('em_sidebar_plans') && isset($_POST['em_sidebar_plans']) ) {
-        $plans = [];
-        foreach ( $_POST['em_sidebar_plans'] as $plan ) {
-            $plans[] = [
-                'title'       => sanitize_text_field( $plan['title']       ?? '' ),
-                'url'         => sanitize_text_field( $plan['url']         ?? '' ),
-                'meta'        => sanitize_text_field( $plan['meta']        ?? '' ),
-                'coming_soon' => sanitize_text_field( $plan['coming_soon'] ?? '' ),
-            ];
-        }
-        update_post_meta( $post_id, '_em_sidebar_plans', $plans );
-    }
 }
 add_action( 'save_post_exercise', 'em_save_meta' );
 
@@ -1015,11 +1006,18 @@ function em_output_meta_tags() {
 }
 add_action( 'wp_head', 'em_output_meta_tags', 1 );
 
-// v1.1: Suppress Rank Math's own FAQPage schema to prevent duplicates (plugin outputs FAQPage below).
-add_filter( 'rank_math/snippet/rich_snippet_faqpage_entity', function( $data ) {
-    if ( is_singular('exercise') ) return [];
+// v1.1.1: On exercise pages the plugin outputs Article, ImageObject, FAQPage and BreadcrumbList.
+// Remove Rank Math's entities of those types so each appears only once. Rank Math's WebSite,
+// WebPage and Organization entities are kept.
+add_filter( 'rank_math/json_ld', function( $data ) {
+    if ( ! is_singular('exercise') || ! is_array( $data ) ) return $data;
+    $dupes = [ 'Article', 'BlogPosting', 'NewsArticle', 'FAQPage', 'BreadcrumbList' ];
+    foreach ( $data as $key => $entity ) {
+        $types = (array) ( is_array( $entity ) ? ( $entity['@type'] ?? [] ) : [] );
+        if ( array_intersect( $types, $dupes ) ) unset( $data[ $key ] );
+    }
     return $data;
-});
+}, 99 );
 
 
 // ─────────────────────────────────────────────
@@ -1030,7 +1028,7 @@ function em_output_schema() {
     $post_id = get_the_ID();
     $post    = get_post($post_id);
 
-    $faqs     = get_post_meta($post_id,'_em_faqs',true)       ?: [];
+    $faqs     = em_get_list_meta($post_id,'_em_faqs');
     $url      = get_permalink($post_id);
     $gif_media_id = (int) get_post_meta($post_id,'_em_gif_media_id',true);
     $gif_url      = $gif_media_id ? wp_get_attachment_url($gif_media_id) : get_post_meta($post_id,'_em_gif_url',true);
@@ -1046,7 +1044,8 @@ function em_output_schema() {
         'headline'      => get_the_title($post_id),
         'datePublished' => get_the_date('c', $post_id),
         'dateModified'  => get_the_modified_date('c', $post_id),
-        'author'        => [ '@type' => 'Person', 'name' => 'Sadia Baloch' ],
+        // No author byline is shown on the page, so the author is the site itself.
+        'author'        => [ '@type' => 'Organization', 'name' => 'Exercise Menu', 'url' => home_url('/') ],
         'publisher'     => [
             '@type' => 'Organization',
             'name'  => 'Exercise Menu',
@@ -1079,7 +1078,7 @@ function em_output_schema() {
     if ( ! empty($faqs) ) {
         $faq_entities = [];
         foreach ( $faqs as $faq ) {
-            if ( empty($faq['q']) ) continue;
+            if ( empty($faq['q']) || empty($faq['a']) ) continue;
             $faq_entities[] = [
                 '@type' => 'Question',
                 'name'  => $faq['q'],
@@ -1122,22 +1121,79 @@ add_filter( 'template_include', 'em_load_exercise_template' );
 
 
 // ─────────────────────────────────────────────
-// 10. v1.1 — REGISTER CPT WITH REST + show_in_rest ON POST TYPE
+// 10. v1.1.1 — LIST FIELD DEFINITIONS + SANITIZERS
 // ─────────────────────────────────────────────
-// Make the exercise CPT REST-accessible, so Rank Math picks it up for sitemaps
-// and so the fields can be read/written via /wp-json/wp/v2/exercises.
-add_action( 'init', function() {
-    global $wp_post_types;
-    if ( isset( $wp_post_types['exercise'] ) ) {
-        $wp_post_types['exercise']->show_in_rest          = true;
-        $wp_post_types['exercise']->rest_base             = 'exercises';
-        $wp_post_types['exercise']->rest_controller_class = 'WP_REST_Posts_Controller';
+// One definition per repeater: property => sanitizer type. Used for REST schema and for
+// sanitizing every write (admin form and REST both go through update_post_meta).
+function em_list_field_defs() {
+    return [
+        '_em_steps'              => [ 'title' => 'text', 'desc' => 'textarea' ],
+        '_em_sets_reps'          => [ 'goal' => 'text', 'sets' => 'text', 'reps' => 'text', 'rest' => 'text' ],
+        '_em_mods'               => [ 'type' => 'mod_type', 'title' => 'text', 'desc' => 'textarea', 'link_id' => 'int' ],
+        '_em_faqs'               => [ 'q' => 'faq', 'a' => 'faq_answer' ],
+        '_em_related'            => [ 'title' => 'text', 'url' => 'text', 'post_id' => 'int' ],
+        '_em_sources'            => [ 'text' => 'text', 'url' => 'url' ],
+        '_em_workout_plans_list' => [ 'post_id' => 'int', 'day_label' => 'text' ],
+    ];
+}
+
+function em_sanitize_value( $value, $type ) {
+    switch ( $type ) {
+        case 'int':        return (int) $value;
+        case 'url':        return esc_url_raw( (string) $value );
+        case 'textarea':   return sanitize_textarea_field( (string) $value );
+        case 'mod_type':   return $value === 'harder' ? 'harder' : 'easier';
+        case 'faq':        return trim( sanitize_text_field( (string) $value ), " \t\n\r\0\x0B:" );
+        case 'faq_answer': return trim( sanitize_textarea_field( (string) $value ), " \t\n\r\0\x0B:" );
+        default:           return sanitize_text_field( (string) $value );
     }
-}, 20 );
+}
+
+// Sanitize a list of objects. Accepts an array or a JSON string (v1.1.0 REST format).
+function em_sanitize_object_list( $value, $props ) {
+    if ( is_string( $value ) ) {
+        $decoded = json_decode( $value, true );
+        $value   = is_array( $decoded ) ? $decoded : [];
+    }
+    $out = [];
+    foreach ( (array) $value as $row ) {
+        if ( ! is_array( $row ) ) continue;
+        $clean = [];
+        $has_content = false;
+        foreach ( $props as $prop => $type ) {
+            $clean[ $prop ] = em_sanitize_value( $row[ $prop ] ?? '', $type );
+            if ( $type !== 'mod_type' && ! empty( $clean[ $prop ] ) ) $has_content = true;
+        }
+        if ( $has_content ) $out[] = $clean;
+    }
+    return $out;
+}
+
+function em_sanitize_string_list( $value, $sanitizer ) {
+    if ( is_string( $value ) ) {
+        $decoded = json_decode( $value, true );
+        $value   = is_array( $decoded ) ? $decoded : array_filter( explode( "\n", $value ) );
+    }
+    $out = [];
+    foreach ( (array) $value as $item ) {
+        $item = trim( call_user_func( $sanitizer, (string) $item ) );
+        if ( $item !== '' ) $out[] = $item;
+    }
+    return $out;
+}
+
+// REST read: legacy JSON strings are returned as arrays.
+function em_rest_prepare_list( $value ) {
+    if ( is_string( $value ) ) {
+        $decoded = json_decode( $value, true );
+        return is_array( $decoded ) ? $decoded : [];
+    }
+    return is_array( $value ) ? $value : [];
+}
 
 
 // ─────────────────────────────────────────────
-// 11. v1.1 — REGISTER ALL META FIELDS FOR REST API
+// 11. v1.1.1 — REGISTER ALL META FIELDS FOR REST API
 // ─────────────────────────────────────────────
 add_action( 'init', function() {
     $auth = function() { return current_user_can('edit_posts'); };
@@ -1159,6 +1215,17 @@ add_action( 'init', function() {
         ]);
     }
 
+    // Rank Math SEO fields, so the meta title/description/focus keyword can be set over REST.
+    foreach ( [ 'rank_math_title', 'rank_math_description', 'rank_math_focus_keyword' ] as $k ) {
+        register_post_meta( 'exercise', $k, [
+            'type'              => 'string',
+            'single'            => true,
+            'show_in_rest'      => true,
+            'sanitize_callback' => 'sanitize_text_field',
+            'auth_callback'     => $auth,
+        ]);
+    }
+
     // Integer fields
     foreach ( [ '_em_gif_media_id', '_em_muscle_map_id' ] as $k ) {
         register_post_meta( 'exercise', $k, [
@@ -1170,37 +1237,102 @@ add_action( 'init', function() {
         ]);
     }
 
-    // Array of strings
-    foreach ( [ '_em_primary_muscles', '_em_secondary_muscles', '_em_mistakes', '_em_tips' ] as $k ) {
+    // Arrays of strings
+    $string_lists = [
+        '_em_primary_muscles'   => 'sanitize_text_field',
+        '_em_secondary_muscles' => 'sanitize_text_field',
+        '_em_mistakes'          => 'sanitize_textarea_field',
+        '_em_tips'              => 'wp_kses_post',
+    ];
+    foreach ( $string_lists as $k => $sanitizer ) {
         register_post_meta( 'exercise', $k, [
-            'type'          => 'array',
-            'single'        => true,
-            'show_in_rest'  => [ 'schema' => [ 'items' => [ 'type' => 'string' ] ] ],
-            'auth_callback' => $auth,
+            'type'              => 'array',
+            'single'            => true,
+            'show_in_rest'      => [
+                'schema'           => [ 'type' => 'array', 'items' => [ 'type' => 'string' ] ],
+                'prepare_callback' => 'em_rest_prepare_list',
+            ],
+            'sanitize_callback' => function( $v ) use ( $sanitizer ) { return em_sanitize_string_list( $v, $sanitizer ); },
+            'auth_callback'     => $auth,
         ]);
     }
 
-    // Array of integers (alt exercises)
+    // Array of integers (alternative exercises)
     register_post_meta( 'exercise', '_em_alt_exercises', [
-        'type'          => 'array',
-        'single'        => true,
-        'show_in_rest'  => [ 'schema' => [ 'items' => [ 'type' => 'integer' ] ] ],
-        'auth_callback' => $auth,
+        'type'              => 'array',
+        'single'            => true,
+        'show_in_rest'      => [
+            'schema'           => [ 'type' => 'array', 'items' => [ 'type' => 'integer' ] ],
+            'prepare_callback' => 'em_rest_prepare_list',
+        ],
+        'sanitize_callback' => function( $v ) {
+            return array_values( array_filter( array_map( 'intval', em_rest_prepare_list( $v ) ) ) );
+        },
+        'auth_callback'     => $auth,
     ]);
 
-    // Complex repeaters — expose as string (JSON) for simplicity. Clients should
-    // JSON-decode after read and JSON-encode before write.
-    foreach ( [ '_em_steps', '_em_sets_reps', '_em_mods', '_em_faqs', '_em_related',
-                '_em_sources', '_em_workout_plans_list', '_em_sidebar_plans' ] as $k ) {
+    // Repeaters: arrays of objects (stored as arrays, same as the admin form saves them).
+    foreach ( em_list_field_defs() as $k => $props ) {
+        $properties = [];
+        foreach ( $props as $prop => $type ) {
+            $properties[ $prop ] = [ 'type' => $type === 'int' ? 'integer' : 'string' ];
+        }
         register_post_meta( 'exercise', $k, [
-            'type'              => 'string',
+            'type'              => 'array',
             'single'            => true,
-            'show_in_rest'      => true,
+            'show_in_rest'      => [
+                'schema'           => [
+                    'type'  => 'array',
+                    'items' => [ 'type' => 'object', 'properties' => $properties ],
+                ],
+                'prepare_callback' => 'em_rest_prepare_list',
+            ],
+            'sanitize_callback' => function( $v ) use ( $props ) { return em_sanitize_object_list( $v, $props ); },
             'auth_callback'     => $auth,
-            'sanitize_callback' => function( $v ) {
-                if ( is_array($v) ) return wp_json_encode($v);
-                return (string) $v;
-            },
         ]);
     }
 }, 11 );
+
+
+// ─────────────────────────────────────────────
+// 12. v1.1.1 — ONE-TIME DATA MIGRATION
+// ─────────────────────────────────────────────
+// - Moves old "Sidebar Workout Plans" entries into "Workout Plans Using This Exercise"
+//   when their URL matches a published post/page (the old meta is kept, not deleted).
+// - Converts any repeater stored as a JSON string (v1.1.0 REST writes) into an array.
+add_action( 'admin_init', function() {
+    if ( get_option( 'em_v111_migrated' ) ) return;
+    if ( ! current_user_can( 'manage_options' ) ) return;
+
+    $ids = get_posts([
+        'post_type'      => 'exercise',
+        'post_status'    => 'any',
+        'posts_per_page' => -1,
+        'fields'         => 'ids',
+        'no_found_rows'  => true,
+    ]);
+    foreach ( $ids as $id ) {
+        foreach ( array_merge( array_keys( em_list_field_defs() ), [ '_em_primary_muscles', '_em_secondary_muscles', '_em_mistakes', '_em_tips', '_em_alt_exercises' ] ) as $k ) {
+            $raw = get_post_meta( $id, $k, true );
+            if ( is_string( $raw ) && $raw !== '' ) {
+                update_post_meta( $id, $k, em_get_list_meta( $id, $k ) );
+            }
+        }
+
+        $old = get_post_meta( $id, '_em_sidebar_plans', true );
+        if ( empty( $old ) || ! is_array( $old ) ) continue;
+        $list = em_get_list_meta( $id, '_em_workout_plans_list' );
+        $have = wp_list_pluck( $list, 'post_id' );
+        foreach ( $old as $plan ) {
+            $url = trim( $plan['url'] ?? '' );
+            if ( $url === '' || ! empty( $plan['coming_soon'] ) ) continue;
+            $pid = url_to_postid( strpos( $url, 'http' ) === 0 ? $url : home_url( $url ) );
+            if ( $pid && ! in_array( $pid, $have, true ) ) {
+                $list[] = [ 'post_id' => $pid, 'day_label' => '' ];
+                $have[] = $pid;
+            }
+        }
+        update_post_meta( $id, '_em_workout_plans_list', $list );
+    }
+    update_option( 'em_v111_migrated', 1, false );
+} );

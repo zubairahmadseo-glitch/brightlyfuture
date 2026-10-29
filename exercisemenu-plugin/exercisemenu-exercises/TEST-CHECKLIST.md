@@ -87,3 +87,11 @@ For EACH of the 8 pages, confirm:
 3. Restore the pre-upgrade backup folder
 4. Activate the restored plugin
 5. All 8 pages should look exactly as before — if not, restore DB backup
+
+## v1.1.1 extra checks
+- [ ] Lying Triceps Extension: click "Update" — it saves (no blocked form); the Steps box shows a yellow "step(s) have no description" note
+- [ ] No page shows "Workout Plans Using This Exercise" twice; Secondary Muscles appear only in the Muscles Worked grid
+- [ ] Alternative exercise cards show the full square GIF (not cropped) in light and dark mode
+- [ ] Mistakes/Tips: the words before the first colon are bold
+- [ ] Google Rich Results Test on one exercise URL: one Article, one FAQPage, one BreadcrumbList
+- [ ] REST: `GET /wp-json/wp/v2/exercises/<id>?context=edit` (logged in) returns `meta._em_steps` as an array

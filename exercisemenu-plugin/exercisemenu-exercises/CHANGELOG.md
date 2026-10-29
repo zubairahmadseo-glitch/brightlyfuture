@@ -1,3 +1,22 @@
+# ExerciseMenu Exercises Plugin — v1.1.1 Changelog
+
+## Fixes on top of v1.1.0
+1. **REST repeaters fixed.** Steps, Sets & Reps, Modifications, FAQs, Related, Sources and Workout Plans are now registered as arrays of objects. In v1.1.0 they were JSON strings, so a page written through the API rendered those sections empty. Send them as JSON arrays (see example below). Old JSON strings are still read correctly and are converted once on the first admin page load.
+2. **REST meta now actually exposed.** The post type supports `custom-fields` (WordPress only returns `meta` in REST when this is on). The core "Custom Fields" box is hidden. Rank Math title, description and focus keyword are registered for REST.
+3. **Step Description is no longer HTML-required.** It blocked saving pages with empty descriptions and silently blocked "Update" when the box was collapsed. A yellow warning now shows how many steps are missing a description.
+4. **Duplicates removed.** The old "Sidebar Workout Plans" box and its sidebar card are gone (same heading as the new main section). Entries with a URL that matches a published page are copied into "Workout Plans Using This Exercise" once; the old data is kept in the database. The duplicate "Secondary Muscles" sidebar card is removed.
+5. **Schema.** Article author is now the Organization "Exercise Menu" (no author is shown on the page). Rank Math's Article/BlogPosting/NewsArticle, FAQPage and BreadcrumbList entities are removed on exercise pages so each appears once; Rank Math's WebSite/WebPage/Organization stay.
+6. **Hero GIF** loads with `loading="eager" fetchpriority="high"` (it is the LCP image).
+7. **Alternative cards** are square with `object-fit: contain` (no cropping); hard-coded greys replaced with theme variables so dark mode works.
+8. **Steps** show when they have a title OR a description, numbered 1, 2, 3 without gaps.
+9. **Mistakes/Tips** (until the v2 split): the text before the first colon is shown in bold. Tips containing HTML/links before the colon are left as they are.
+10. **Modification heading** reads "🔼 Harder — Title".
+11. **Related Articles label** fixed: the picker is used first; manual entry only when nothing is picked.
+12. **CTA text** changed to "Browse the full exercise library." until taxonomy filters ship in v2.
+13. Unpublished workout plans and alternatives are hidden on the front end; FAQs without an answer are skipped (page and schema).
+
+---
+
 # ExerciseMenu Exercises Plugin — v1.1.0 Changelog
 
 ## Changed files
@@ -81,7 +100,7 @@
 
 ### CPT public + Rank Math sitemap
 - CPT `exercise` was already registered with `'public' => true`.
-- NEW: `show_in_rest => true` is now forced on the CPT so Rank Math exposes it in the sitemap.
+- NEW: `show_in_rest => true` on the CPT (for the REST API). Note: the Rank Math sitemap does not depend on this; it only needs the setting below.
 - To enable in Rank Math UI:
   - Go to **Rank Math SEO → Titles & Meta → Exercises** (the CPT appears once `show_in_rest` is active)
   - Set **"Include in Sitemap"** to **ON**
@@ -125,14 +144,14 @@
 | `_em_mistakes` | array of strings | |
 | `_em_tips` | array of strings | |
 | `_em_alt_exercises` | array of integers | Exercise post IDs |
-| `_em_steps` | string (JSON) | `[{"title":"","desc":""},...]` |
-| `_em_sets_reps` | string (JSON) | `[{"goal":"","sets":"","reps":"","rest":""},...]` |
-| `_em_mods` | string (JSON) | `[{"type":"easier","title":"","desc":"","link_id":0},...]` |
-| `_em_faqs` | string (JSON) | `[{"q":"","a":""},...]` |
-| `_em_related` | string (JSON) | `[{"title":"","url":"","post_id":0},...]` |
-| `_em_sources` | string (JSON) | `[{"text":"","url":""},...]` |
-| `_em_workout_plans_list` | string (JSON) | `[{"post_id":0,"day_label":""},...]` |
-| `_em_sidebar_plans` | string (JSON) | `[{"title":"","url":"","meta":"","coming_soon":""},...]` |
+| `_em_steps` | array of objects (v1.1.1) | `[{"title":"","desc":""},...]` |
+| `_em_sets_reps` | array of objects (v1.1.1) | `[{"goal":"","sets":"","reps":"","rest":""},...]` |
+| `_em_mods` | array of objects (v1.1.1) | `[{"type":"easier","title":"","desc":"","link_id":0},...]` |
+| `_em_faqs` | array of objects (v1.1.1) | `[{"q":"","a":""},...]` |
+| `_em_related` | array of objects (v1.1.1) | `[{"title":"","url":"","post_id":0},...]` |
+| `_em_sources` | array of objects (v1.1.1) | `[{"text":"","url":""},...]` |
+| `_em_workout_plans_list` | array of objects (v1.1.1) | `[{"post_id":0,"day_label":""},...]` |
+| `rank_math_title` / `rank_math_description` / `rank_math_focus_keyword` | string (v1.1.1) | Rank Math SEO fields |
 
 ### REST write example
 ```bash
@@ -146,8 +165,8 @@ curl -X POST https://exercisemenu.com/wp-json/wp/v2/exercises \
       "_em_subtitle": "Isolation chest exercise...",
       "_em_quick_answer": "The dumbbell fly isolates...",
       "_em_gif_media_id": 1234,
-      "_em_steps": "[{\"title\":\"Lie flat\",\"desc\":\"On a bench...\"}]",
-      "_em_faqs": "[{\"q\":\"How many reps?\",\"a\":\"8-12 for growth.\"}]"
+      "_em_steps": [{"title":"Lie flat","desc":"On a bench..."}],
+      "_em_faqs": [{"q":"How many reps?","a":"8-12 for growth."}]
     }
   }'
 ```

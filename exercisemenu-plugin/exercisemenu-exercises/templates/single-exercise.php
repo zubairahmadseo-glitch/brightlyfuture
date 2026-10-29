@@ -13,16 +13,15 @@ $tags       = $tags_raw ? array_filter(array_map('trim', explode(',', $tags_raw)
 $gif_url    = get_post_meta($post_id,'_em_gif_url',true);
 $gif_alt    = get_post_meta($post_id,'_em_gif_alt',true) ?: $title . ' exercise animation — proper form demonstration';
 $qa         = get_post_meta($post_id,'_em_quick_answer',true);
-$primary    = get_post_meta($post_id,'_em_primary_muscles',true)   ?: [];
-$secondary  = get_post_meta($post_id,'_em_secondary_muscles',true) ?: [];
-$steps      = get_post_meta($post_id,'_em_steps',true)             ?: [];
-$sets_reps  = get_post_meta($post_id,'_em_sets_reps',true)         ?: [];
-$mistakes   = get_post_meta($post_id,'_em_mistakes',true)          ?: [];
-$tips       = get_post_meta($post_id,'_em_tips',true)              ?: [];
-$mods       = get_post_meta($post_id,'_em_mods',true)              ?: [];
-$faqs       = get_post_meta($post_id,'_em_faqs',true)              ?: [];
-$related    = get_post_meta($post_id,'_em_related',true)           ?: [];
-$plans      = get_post_meta($post_id,'_em_sidebar_plans',true)     ?: [];
+$primary = em_get_list_meta($post_id,'_em_primary_muscles');
+$secondary = em_get_list_meta($post_id,'_em_secondary_muscles');
+$steps = em_get_list_meta($post_id,'_em_steps');
+$sets_reps = em_get_list_meta($post_id,'_em_sets_reps');
+$mistakes = em_get_list_meta($post_id,'_em_mistakes');
+$tips = em_get_list_meta($post_id,'_em_tips');
+$mods = em_get_list_meta($post_id,'_em_mods');
+$faqs = em_get_list_meta($post_id,'_em_faqs');
+$related = em_get_list_meta($post_id,'_em_related');
 $target_m   = get_post_meta($post_id,'_em_target_muscle',true);
 $body_part  = get_post_meta($post_id,'_em_body_part',true);
 $equipment  = get_post_meta($post_id,'_em_equipment',true);
@@ -43,9 +42,21 @@ $final_gif       = $gif_media_url ?: $gif_url;
 $muscle_map_id   = (int) get_post_meta($post_id,'_em_muscle_map_id',true);
 $muscle_map_url  = $muscle_map_id ? wp_get_attachment_url($muscle_map_id) : '';
 
-$alt_exercises   = get_post_meta($post_id,'_em_alt_exercises',true) ?: [];
-$sources         = get_post_meta($post_id,'_em_sources',true)       ?: [];
-$workout_plans_list = get_post_meta($post_id,'_em_workout_plans_list',true) ?: [];
+$alt_exercises   = em_get_list_meta($post_id,'_em_alt_exercises');
+$sources         = em_get_list_meta($post_id,'_em_sources');
+$workout_plans_list = em_get_list_meta($post_id,'_em_workout_plans_list');
+
+// Mistakes/Tips are single text fields until v2. Bold the lead-in before the first colon
+// ("Flaring the Elbows: Letting…"). Skips colons inside HTML or URLs and long lead-ins.
+if ( ! function_exists('em_bold_lead') ) {
+  function em_bold_lead( $html ) {
+    $pos = strpos( $html, ':' );
+    if ( $pos === false || $pos > 90 ) return $html;
+    $lead = substr( $html, 0, $pos );
+    if ( strpos( $lead, '<' ) !== false || preg_match( '/https?$/i', $lead ) ) return $html;
+    return '<strong>' . $lead . ':</strong>' . substr( $html, $pos + 1 );
+  }
+}
 
 $last_updated    = get_the_modified_date('F j, Y', $post_id);
 
@@ -120,8 +131,10 @@ get_header();
 .em-info-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px;}
 .em-info-list li{display:flex;gap:12px;font-size:15px;line-height:1.6;align-items:flex-start;}
 .em-icon{flex-shrink:0;width:20px;height:20px;margin-top:2px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;}
-.em-info-list.mistakes .em-icon{background:#fff0ee;color:#c0392b;border:1px solid #f5c6c2;}
+.em-info-list.mistakes .em-icon{background:var(--accent-bg);color:var(--accent);border:1px solid var(--accent);}
 .em-info-list.tips .em-icon{background:#eef8f2;color:#1a7a4a;border:1px solid #b8dfc9;}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]) .em-info-list.tips .em-icon{background:#14261c;color:#5cc28d;border-color:#2d5a40;}}
+:root[data-theme="dark"] .em-info-list.tips .em-icon{background:#14261c;color:#5cc28d;border-color:#2d5a40;}
 
 .em-muscle-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;margin-top:8px;}
 .em-muscle-card{background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-md);padding:12px 14px;}
@@ -190,6 +203,22 @@ get_header();
 .em-cta-browse-sub{font-size:15px;color:var(--fg-muted);margin:0 0 24px;}
 .em-cta-browse-btn{display:inline-block;background:var(--accent);color:#ffffff !important;font-size:15px;font-weight:600;padding:13px 28px;border-radius:var(--radius-md);text-decoration:none !important;transition:background .15s;}
 .em-cta-browse-btn:hover{background:var(--accent-dark);color:#ffffff !important;text-decoration:none !important;}
+
+.em-last-updated{font-size:12px;color:var(--fg-xmuted);margin:6px 0 0;}
+.em-calorie-note{font-size:11px;color:var(--fg-xmuted);margin:-8px 16px 14px;line-height:1.4;}
+.em-plan-day{font-size:12px;color:var(--fg-muted);margin-top:2px;}
+.em-alt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px;}
+.em-alt-card{display:block;border:1px solid var(--border);border-radius:var(--radius-md);overflow:hidden;color:var(--fg);background:var(--bg-card);transition:border-color .15s;}
+.em-alt-card:hover{border-color:var(--accent);text-decoration:none;}
+.em-alt-card-img{aspect-ratio:1/1;background:#fff;overflow:hidden;}
+.em-alt-card-img img{width:100%;height:100%;object-fit:contain;}
+.em-alt-card-title{padding:12px 14px;font-size:14px;font-weight:600;color:var(--fg);}
+.em-sources-list{padding-left:20px;font-size:14px;color:var(--fg-muted);margin:0;}
+.em-sources-list li{margin-bottom:6px;}
+.em-muscles-wrap{display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;}
+.em-muscles-wrap .em-muscle-grid{flex:1;min-width:260px;}
+.em-muscle-map{flex:0 0 180px;max-width:180px;}
+.em-muscle-map img{width:100%;height:auto;border-radius:var(--radius-md);}
 </style>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -215,7 +244,7 @@ get_header();
         <?php if ($subtitle): ?>
         <p class="em-subtitle"><?php echo esc_html($subtitle); ?></p>
         <?php endif; ?>
-        <p class="em-last-updated" style="font-size:12px;color:#888;margin-top:4px;">Last updated: <?php echo esc_html($last_updated); ?></p>
+        <p class="em-last-updated">Last updated: <?php echo esc_html($last_updated); ?></p>
         <?php if (!empty($tags)): ?>
         <div class="em-tags">
           <?php foreach ($tags as $i => $tag): ?>
@@ -227,7 +256,7 @@ get_header();
 
       <?php if ($final_gif): ?>
       <div class="em-hero">
-        <img src="<?php echo esc_url($final_gif); ?>" alt="<?php echo esc_attr($gif_alt); ?>" loading="lazy"<?php if ($gif_width && $gif_height): ?> width="<?php echo $gif_width; ?>" height="<?php echo $gif_height; ?>"<?php endif; ?>>
+        <img src="<?php echo esc_url($final_gif); ?>" alt="<?php echo esc_attr($gif_alt); ?>" loading="eager" fetchpriority="high" decoding="async"<?php if ($gif_width && $gif_height): ?> width="<?php echo $gif_width; ?>" height="<?php echo $gif_height; ?>"<?php endif; ?>>
       </div>
       <?php endif; ?>
 
@@ -242,13 +271,16 @@ get_header();
       <div class="em-section">
         <h2>How to Do the <?php echo esc_html($title); ?></h2>
         <ol class="em-steps">
-          <?php foreach ($steps as $i => $step): ?>
-          <?php if (empty($step['title'])) continue; ?>
+          <?php $step_no = 0; foreach ($steps as $step):
+            $s_title = trim($step['title'] ?? '');
+            $s_desc  = trim($step['desc'] ?? '');
+            if ($s_title === '' && $s_desc === '') continue;
+            $step_no++; ?>
           <li>
-            <div class="em-step-num"><?php echo $i + 1; ?></div>
+            <div class="em-step-num"><?php echo (int) $step_no; ?></div>
             <div class="em-step-content">
-              <strong><?php echo esc_html($step['title']); ?></strong>
-              <span><?php echo esc_html($step['desc']); ?></span>
+              <?php if ($s_title !== ''): ?><strong><?php echo esc_html($s_title); ?></strong><?php endif; ?>
+              <?php if ($s_desc !== ''): ?><span><?php echo esc_html($s_desc); ?></span><?php endif; ?>
             </div>
           </li>
           <?php endforeach; ?>
@@ -260,8 +292,8 @@ get_header();
       <?php if (!empty($primary) || !empty($secondary)): ?>
       <div class="em-section">
         <h2>What Muscles Does the <?php echo esc_html($title); ?> Work?</h2>
-        <div class="em-muscles-wrap" style="display:flex;gap:24px;align-items:flex-start;flex-wrap:wrap;">
-          <div class="em-muscle-grid" style="flex:1;min-width:280px;">
+        <div class="em-muscles-wrap">
+          <div class="em-muscle-grid">
             <?php foreach ($primary as $m): ?>
             <?php if (empty(trim($m))) continue; ?>
             <div class="em-muscle-card primary">
@@ -278,8 +310,8 @@ get_header();
             <?php endforeach; ?>
           </div>
           <?php if ($muscle_map_url): ?>
-          <div class="em-muscle-map" style="flex:0 0 180px;max-width:180px;">
-            <img src="<?php echo esc_url($muscle_map_url); ?>" alt="<?php echo esc_attr($title); ?> muscles diagram" loading="lazy" style="width:100%;height:auto;border-radius:8px;">
+          <div class="em-muscle-map">
+            <img src="<?php echo esc_url($muscle_map_url); ?>" alt="<?php echo esc_attr($title); ?> muscles diagram" loading="lazy">
           </div>
           <?php endif; ?>
         </div>
@@ -298,9 +330,9 @@ get_header();
               <?php if (empty($row['goal'])) continue; ?>
               <tr>
                 <td class="goal"><?php echo esc_html($row['goal']); ?></td>
-                <td><?php echo esc_html($row['sets']); ?></td>
-                <td><?php echo esc_html($row['reps']); ?></td>
-                <td><?php echo esc_html($row['rest']); ?></td>
+                <td><?php echo esc_html($row['sets'] ?? ''); ?></td>
+                <td><?php echo esc_html($row['reps'] ?? ''); ?></td>
+                <td><?php echo esc_html($row['rest'] ?? ''); ?></td>
               </tr>
               <?php endforeach; ?>
             </tbody>
@@ -316,7 +348,7 @@ get_header();
         <ul class="em-info-list mistakes">
           <?php foreach ($mistakes as $mistake): ?>
           <?php if (empty(trim($mistake))) continue; ?>
-          <li><div class="em-icon">✕</div><div><?php echo wp_kses_post($mistake); ?></div></li>
+          <li><div class="em-icon">✕</div><div><?php echo em_bold_lead(esc_html(trim($mistake))); ?></div></li>
           <?php endforeach; ?>
         </ul>
       </div>
@@ -329,7 +361,7 @@ get_header();
         <ul class="em-info-list tips">
           <?php foreach ($tips as $tip): ?>
           <?php if (empty(trim($tip))) continue; ?>
-          <li><div class="em-icon">✓</div><div><?php echo wp_kses_post($tip); ?></div></li>
+          <li><div class="em-icon">✓</div><div><?php echo em_bold_lead(wp_kses_post(trim($tip))); ?></div></li>
           <?php endforeach; ?>
         </ul>
       </div>
@@ -350,8 +382,9 @@ get_header();
               : esc_html($mod['title']);
           ?>
           <div class="em-mod-card">
-            <h3><?php echo $mod['type'] === 'harder' ? '🔼' : '🔽'; ?> <?php echo ($mod['type'] === 'harder' ? 'Harder' : 'Easier'); ?>, <?php echo $mod_title_html; ?></h3>
-            <p><?php echo esc_html($mod['desc']); ?></p>
+            <?php $is_harder = ($mod['type'] ?? '') === 'harder'; ?>
+            <h3><?php echo $is_harder ? '🔼 Harder' : '🔽 Easier'; ?> — <?php echo $mod_title_html; ?></h3>
+            <p><?php echo esc_html($mod['desc'] ?? ''); ?></p>
           </div>
           <?php endforeach; ?>
         </div>
@@ -367,7 +400,7 @@ get_header();
           <?php foreach ($workout_plans_list as $wp_plan): ?>
             <?php
               $wp_id = (int) ($wp_plan['post_id'] ?? 0);
-              if ( ! $wp_id ) continue;
+              if ( ! $wp_id || get_post_status($wp_id) !== 'publish' ) continue;
               $wp_title = get_the_title($wp_id);
               $wp_link  = get_permalink($wp_id);
               $wp_day   = $wp_plan['day_label'] ?? '';
@@ -375,7 +408,7 @@ get_header();
             <a class="em-link-card" href="<?php echo esc_url($wp_link); ?>">
               <div>
                 <strong><?php echo esc_html($wp_title); ?></strong>
-                <?php if ($wp_day): ?><div style="font-size:12px;color:#666;margin-top:2px;"><?php echo esc_html($wp_day); ?></div><?php endif; ?>
+                <?php if ($wp_day): ?><div class="em-plan-day"><?php echo esc_html($wp_day); ?></div><?php endif; ?>
               </div>
               <div class="em-link-card-arrow">›</div>
             </a>
@@ -391,8 +424,8 @@ get_header();
         if ( ! empty($alt_ids) ):
       ?>
       <div class="em-section">
-        <h2>Alternative Exercises</h2>
-        <div class="em-alt-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;">
+        <h2><?php echo esc_html($title); ?> Alternatives</h2>
+        <div class="em-alt-grid">
           <?php foreach ($alt_ids as $alt_id): ?>
             <?php
               $alt_post = get_post($alt_id);
@@ -400,13 +433,13 @@ get_header();
               $alt_gif_id  = (int) get_post_meta($alt_id,'_em_gif_media_id',true);
               $alt_gif_url = $alt_gif_id ? wp_get_attachment_url($alt_gif_id) : get_post_meta($alt_id,'_em_gif_url',true);
             ?>
-            <a href="<?php echo esc_url(get_permalink($alt_id)); ?>" class="em-alt-card" style="display:block;border:1px solid #e5e7eb;border-radius:8px;overflow:hidden;text-decoration:none;color:inherit;background:#fff;">
+            <a href="<?php echo esc_url(get_permalink($alt_id)); ?>" class="em-alt-card">
               <?php if ($alt_gif_url): ?>
-                <div style="aspect-ratio:16/10;background:#f3f4f6;overflow:hidden;">
-                  <img src="<?php echo esc_url($alt_gif_url); ?>" alt="<?php echo esc_attr(get_the_title($alt_id)); ?> animation" loading="lazy" style="width:100%;height:100%;object-fit:cover;">
+                <div class="em-alt-card-img">
+                  <img src="<?php echo esc_url($alt_gif_url); ?>" alt="<?php echo esc_attr(get_the_title($alt_id)); ?> exercise demonstration" loading="lazy" width="360" height="360">
                 </div>
               <?php endif; ?>
-              <div style="padding:12px 14px;"><strong><?php echo esc_html(get_the_title($alt_id)); ?></strong></div>
+              <div class="em-alt-card-title"><?php echo esc_html(get_the_title($alt_id)); ?></div>
             </a>
           <?php endforeach; ?>
         </div>
@@ -447,14 +480,14 @@ get_header();
       <?php if (!empty($sources)): ?>
       <div class="em-section em-sources">
         <h2>Sources</h2>
-        <ol class="em-sources-list" style="padding-left:20px;font-size:14px;color:#4a4a4a;">
+        <ol class="em-sources-list">
           <?php foreach ($sources as $src): ?>
             <?php
               $s_text = $src['text'] ?? '';
               $s_url  = $src['url']  ?? '';
               if ( ! $s_text && ! $s_url ) continue;
             ?>
-            <li style="margin-bottom:6px;">
+            <li>
               <?php if ($s_url): ?>
                 <a href="<?php echo esc_url($s_url); ?>" target="_blank" rel="noopener"><?php echo esc_html($s_text ?: $s_url); ?></a>
               <?php else: ?>
@@ -472,7 +505,7 @@ get_header();
         <h2>Frequently Asked Questions</h2>
         <div class="em-faq-list" id="em-faq">
           <?php foreach ($faqs as $i => $faq): ?>
-          <?php if (empty($faq['q'])) continue; ?>
+          <?php if (empty($faq['q']) || empty($faq['a'])) continue; ?>
           <div class="em-faq-item">
             <button class="em-faq-q" aria-expanded="false" aria-controls="em-faq-<?php echo $i; ?>">
               <?php echo esc_html($faq['q']); ?>
@@ -491,7 +524,7 @@ get_header();
 
       <div class="em-cta-browse">
         <p class="em-cta-browse-heading">Looking for more exercises?</p>
-        <p class="em-cta-browse-sub">Browse the full exercise library — filtered by muscle group, equipment, and skill level.</p>
+        <p class="em-cta-browse-sub">Browse the full exercise library.</p>
         <a href="<?php echo esc_url(home_url('/exercises/')); ?>" class="em-cta-browse-btn">Browse All Exercises →</a>
       </div>
 
@@ -517,48 +550,9 @@ get_header();
         <div class="em-calorie-pill">
           <span>Est. <strong><?php echo esc_html($calories); ?></strong> per set</span>
         </div>
-        <p class="em-calorie-note" style="font-size:11px;color:#888;margin:6px 0 0;line-height:1.4;">Estimate for a 70 kg person, 30–60 second set.</p>
+        <p class="em-calorie-note">Estimate for a 70 kg person, 30–60 second set.</p>
         <?php endif; ?>
       </div>
-
-      <?php if (!empty($plans)): ?>
-      <div class="em-sidebar-card">
-        <div class="em-sidebar-card-header">Workout Plans Using This Exercise</div>
-        <ul class="em-plan-list">
-          <?php foreach ($plans as $plan): ?>
-          <?php if (empty($plan['title'])) continue; ?>
-          <?php if (!empty($plan['coming_soon']) && $plan['coming_soon'] === '1'): ?>
-          <li class="em-plan-item">
-            <div class="em-coming-soon">
-              <span class="em-plan-dot" style="background:var(--border-strong)"></span>
-              <span><?php echo esc_html($plan['title']); ?><span class="em-plan-meta">Coming soon</span></span>
-            </div>
-          </li>
-          <?php else: ?>
-          <li class="em-plan-item">
-            <a href="<?php echo esc_url(home_url($plan['url'])); ?>">
-              <span class="em-plan-dot"></span>
-              <span><?php echo esc_html($plan['title']); ?><?php if(!empty($plan['meta'])): ?><span class="em-plan-meta"><?php echo esc_html($plan['meta']); ?></span><?php endif; ?></span>
-            </a>
-          </li>
-          <?php endif; ?>
-          <?php endforeach; ?>
-        </ul>
-      </div>
-      <?php endif; ?>
-
-      <?php if (!empty($secondary)): ?>
-      <div class="em-sidebar-card">
-        <div class="em-sidebar-card-header">Secondary Muscles</div>
-        <?php foreach ($secondary as $i => $m): ?>
-        <?php if (empty(trim($m))) continue; ?>
-        <div class="em-profile-row" <?php echo ($i === count($secondary)-1) ? 'style="border-bottom:none"' : ''; ?>>
-          <span class="em-profile-label"><?php echo esc_html(trim($m)); ?></span>
-          <span class="em-profile-value" style="font-size:12px;color:var(--fg-muted)">secondary</span>
-        </div>
-        <?php endforeach; ?>
-      </div>
-      <?php endif; ?>
 
     </aside>
   </div>
