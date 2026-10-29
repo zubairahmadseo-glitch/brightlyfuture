@@ -13,21 +13,21 @@ E = html.escape
 SITE = "https://exercisemenu.com"
 
 GROUPS = [
-    ("chest", "Chest", "Chest exercises", "Presses on flat and incline benches that build the chest, front shoulders and triceps.",
+    ("chest", "Chest", "Chest Exercises", "Presses on flat and incline benches that build the chest, front shoulders and triceps.",
      ["barbell-bench-press", "barbell-incline-bench-press", "dumbbell-bench-press", "dumbbell-incline-bench-press"]),
-    ("back", "Back", "Back exercises", "Rows that build the lats and upper back and balance all the pressing you do.",
+    ("back", "Back", "Back Exercises", "Rows that build the lats and upper back and balance all the pressing you do.",
      ["barbell-bent-over-row", "dumbbell-one-arm-row"]),
-    ("shoulders", "Shoulders", "Shoulder exercises", "Overhead presses for the front delts and lateral raises for the side delts.",
+    ("shoulders", "Shoulders", "Shoulder Exercises", "Overhead presses for the front delts and lateral raises for the side delts.",
      ["barbell-overhead-press", "dumbbell-seated-shoulder-press", "dumbbell-lateral-raise"]),
-    ("biceps", "Biceps", "Biceps exercises", "Curls with a barbell, EZ bar and dumbbells, including neutral-grip hammer curls.",
+    ("biceps", "Biceps & Forearms", "Biceps and Forearm Exercises", "Curls with a barbell, EZ bar and dumbbells. Hammer curls add more work for the brachialis and forearms.",
      ["barbell-curl", "ez-bar-curl", "dumbbell-biceps-curl", "dumbbell-hammer-curl", "barbell-preacher-curl"]),
-    ("triceps", "Triceps", "Triceps exercises", "A heavy compound press and a lying extension that trains all three triceps heads.",
+    ("triceps", "Triceps", "Triceps Exercises", "A heavy compound press and a lying extension that trains all three triceps heads.",
      ["barbell-close-grip-bench-press", "barbell-lying-triceps-extension"]),
-    ("quads", "Quads & Legs", "Leg exercises for quads and glutes", "Squats and single-leg exercises that build the quads, glutes and adductors.",
+    ("quads", "Quads & Legs", "Leg Exercises for Quads and Glutes", "Squats and single-leg exercises that build the quads, glutes and adductors.",
      ["barbell-back-squat", "barbell-bulgarian-split-squat", "dumbbell-lunge"]),
-    ("glutes", "Glutes & Hamstrings", "Glute and hamstring exercises", "Hip hinges and hip thrusts that train the glutes, hamstrings and lower back.",
+    ("glutes", "Glutes & Hamstrings", "Glute and Hamstring Exercises", "Hip hinges and hip thrusts that train the glutes, hamstrings and lower back.",
      ["barbell-deadlift", "barbell-romanian-deadlift", "barbell-hip-thrust"]),
-    ("calves", "Calves", "Calf exercises", "Standing and seated calf raises through a full range of motion.",
+    ("calves", "Calves", "Calf Exercises", "Standing and seated calf raises through a full range of motion.",
      ["barbell-standing-calf-raise", "barbell-seated-calf-raise"]),
 ]
 GIF_KEY = {
@@ -40,7 +40,7 @@ GIF_KEY = {
     "dumbbell-incline-bench-press": "Dumbbell-Incline", "dumbbell-lateral-raise": "Lateral-Raise", "dumbbell-lunge": "Dumbbell-Lunge",
     "dumbbell-one-arm-row": "One-Arm-Row", "dumbbell-seated-shoulder-press": "Seated-Shoulder", "ez-bar-curl": "EZ-Barbell",
 }
-STARTERS = ["barbell-back-squat", "barbell-bench-press", "barbell-romanian-deadlift", "dumbbell-one-arm-row", "dumbbell-seated-shoulder-press", "dumbbell-biceps-curl"]
+STARTERS = ["dumbbell-lunge", "barbell-hip-thrust", "dumbbell-bench-press", "dumbbell-one-arm-row", "dumbbell-seated-shoulder-press", "dumbbell-biceps-curl"]
 
 data = {r[0]: dict(zip(["slug", "name", "target", "body", "equip", "cat", "level", "sub"], r)) for r in json.load(open(ex_json))}
 for d in data.values():
@@ -74,9 +74,6 @@ faqs = [
     ("How many sets and reps should I do?",
      "Every exercise guide has a sets and reps table for muscle growth, strength, endurance and beginners. For muscle growth, 3–4 sets of roughly 6–12 reps per exercise is a common starting point.",
      ("reps and sets for muscle growth", "/how-many-reps-and-sets-for-muscle-growth/")),
-    ("Which exercises are best for beginners?",
-     "Use the Beginner filter. Exercises marked Beginner, such as the dumbbell bench press, one-arm row and seated shoulder press, are easy to learn and simple to load.",
-     None),
     ("Do I need a gym for these exercises?",
      "Most exercises in the library use a barbell, dumbbells or an EZ bar, and some need a bench or rack. The equipment for each one is listed on its card and in its guide.",
      None),
@@ -219,16 +216,16 @@ w(f"""<!doctype html>
 <header class="hero">
   <div class="wrap">
     <h1>Exercise Library <span>Step-by-Step Form Guides</span></h1>
-    <p>Browse gym exercises by muscle group, equipment and skill level. Every exercise guide shows a GIF demonstration, how to do it with proper form, the muscles worked, sets and reps for your goal, and the mistakes to avoid. New to lifting? Start with our <a href="{SITE}/what-are-reps-and-sets/">reps and sets guide</a>.</p>
+    <p>Browse gym exercises by muscle group, equipment and skill level. Each guide shows a GIF demonstration, step-by-step proper form, the muscles worked, and sets and reps for your goal.</p>
     <form class="search" role="search" onsubmit="return false">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
       <label for="q" class="sr" style="position:absolute;left:-9999px">Search exercises</label>
-      <input id="q" type="search" placeholder="Search exercises or muscles, e.g. squat, triceps, dumbbell" autocomplete="off">
+      <input id="q" type="search" placeholder="Search exercises, e.g. squat or triceps" autocomplete="off">
     </form>
     <div class="stats">
       <div><b>{total}</b><span>Exercise guides</span></div>
       <div><b>{len(GROUPS)}</b><span>Muscle groups</span></div>
-      <div><b>100%</b><span>Free to use</span></div>
+      <div><b>4</b><span>Training goals per guide</span></div>
     </div>
   </div>
 </header>
@@ -246,14 +243,6 @@ for gid, label, h2, intro, slugs in GROUPS:
 w("""</ul>
   </section>
 
-  <section class="sec" style="padding-top:0" aria-labelledby="how-use">
-    <h2 id="how-use" style="font-size:24px;margin-bottom:14px">How to Use the Exercise Library</h2>
-    <ol class="how">
-      <li><b>Pick a muscle or filter</b>Choose a muscle group, or filter by equipment and skill level.</li>
-      <li><b>Open the exercise guide</b>Watch the GIF and follow the numbered steps and form tips.</li>
-      <li><b>Use the sets and reps table</b>Pick the row for your goal: muscle growth, strength, endurance or beginner.</li>
-    </ol>
-  </section>
 </div>
 
 <div class="filters" id="library">
@@ -287,7 +276,7 @@ w("""<p class="empty" id="empty">No exercises match these filters. <button type=
       <div class="panel">
         <span class="eyebrow">New to lifting?</span>
         <h3 id="start">Start With These 6 Exercises</h3>
-        <p style="margin:0;color:var(--muted);font-size:15px">One movement for each major pattern: squat, press, hinge, row and overhead press, plus one arm exercise.</p>
+        <p style="margin:0;color:var(--muted);font-size:15px">Six Beginner-level exercises that together train your legs, glutes, chest, back, shoulders and arms.</p>
         <ul>""")
 for s in STARTERS:
     w(f'<li><a href="{SITE}/exercises/{s}/">{E(data[s]["name"])}</a></li>')
@@ -328,11 +317,12 @@ w(f"""</section>
 
   <section class="cta" aria-labelledby="cta">
     <h2 id="cta">Ready to <span>Train Smarter?</span></h2>
-    <p>Pick your exercises, then use our free tools to set your training volume and choose the right weights.</p>
+    <p>Follow a ready-made workout plan, or use our guides and free tools to build your own.</p>
     <div class="row">
-      <a class="btn" href="{SITE}/workout-guides/">Browse Workout Guides →</a>
+      <!-- /workout-plans/ redirects to the homepage until the plans hub is live; publish it before this button goes live. -->
+      <a class="btn" href="{SITE}/workout-plans/">Browse Workout Plans →</a>
+      <a class="btn ghost" href="{SITE}/workout-guides/">Workout Guides</a>
       <a class="btn ghost" href="{SITE}/training-volume-calculator/">Training Volume Calculator</a>
-      <a class="btn ghost" href="{SITE}/how-to-calculate-your-1rm/">How to Find Your 1RM</a>
     </div>
   </section>
 </div>
@@ -356,6 +346,7 @@ w(f"""</section>
   [g,k,l,t].forEach(function(x){{x.addEventListener('change',run);}});
   q.addEventListener('input',function(){{run(); if(q.value.length===1) document.getElementById('library').scrollIntoView({{behavior:'smooth'}});}});
   document.getElementById('reset').addEventListener('click',function(){{q.value='';[g,k,l,t].forEach(function(x){{x.value='';}});run();}});
+  [].slice.call(document.querySelectorAll('.tile a')).forEach(function(a){{a.addEventListener('click',function(){{document.getElementById('reset').click();}});}});
   run();
 }})();
 </script>
