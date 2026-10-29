@@ -44,3 +44,23 @@ Avoid overlap between #2/#7/#13, #1/#12, #6/#9, #5/#11 — each must have a dist
 - Auth via Claude **Network secret**: host `exercisemenu.com`, path `/wp-json/`, header `Authorization: Basic <base64>` injected automatically. Just call `https://exercisemenu.com/wp-json/wp/v2/...` with no auth header.
 - Wordfence: application passwords enabled. WPCode snippet "Rank Math REST meta" registers `rank_math_title`, `rank_math_description`, `rank_math_focus_keyword` for pages with show_in_rest.
 - First step: test (GET /wp-json/wp/v2/users/me?context=edit, then create + verify a test draft with Rank Math meta, then delete it).
+
+## Approved Rank Math meta (use exactly; page content MUST deliver every promise in the description)
+
+| # | Meta title | Meta description |
+|---|---|---|
+| 1 | Push Pull Legs Workout Plan: 6-Day PPL Split (Free) | Free 6-day push pull legs workout plan with strength and hypertrophy days, sets, reps, rest times and a simple progression system to build muscle. |
+| 2 | Full Body Workout Plan for Beginners: 3 Days a Week | A simple 3-day full body gym plan for beginners. Exact exercises, sets, reps and rest, plus how to add weight safely each week. Free to follow. |
+| 3 | Upper Lower Split: 4-Day Workout Plan for Muscle | Train each muscle twice a week with this 4-day upper lower split. Full workouts with sets, reps and rest, progression rules and exercise swaps. |
+| 4 | 5x5 Workout: Simple Strength and Muscle Program | Get stronger with a proven 5x5 workout. Two alternating sessions, 3 days a week, starting weights, how to add weight and what to do when you stall. |
+| 5 | Bro Split Workout Plan: 5-Day Body Part Routine | One muscle group per day, five days a week. Full bro split routine with sets, reps and rest, plus how to make it work for natural lifters. |
+| 6 | 4 Day Workout Split: Best Options for Muscle Growth | Compare the best 4 day workout splits and follow a complete plan with sets, reps and rest. Pick the right split for your schedule and goals. |
+| 7 | 3 Day Full Body Workout for Intermediate Lifters | Past the beginner stage? This 3 day full body workout uses heavy, medium and light days to keep you progressing. Full sets, reps and rest. |
+| 8 | Lean Bulk Workout Plan: 12-Week Program to Gain Muscle | Build muscle with minimal fat gain. 12-week lean bulk workout plan with training splits, calorie surplus guidance and weekly progress checks. |
+| 9 | Hypertrophy Program: 4-Day Plan to Build Muscle | Evidence-based 4-day hypertrophy program with weekly set targets, rep ranges, rest times and progression to grow muscle steadily. |
+| 10 | Workout Plan for Skinny Guys: Gain Muscle and Size | Struggle to gain weight? This workout plan for skinny guys pairs heavy compound lifts with simple eating targets to add muscle week by week. |
+| 11 | 5 Day Workout Split: Complete Gym Plan for Muscle | Train five days a week with a balanced 5 day workout split. Daily workouts with sets, reps and rest, plus how to recover between sessions. |
+| 12 | PPL Hypertrophy Program: Advanced 6-Day Split | Advanced 6-day PPL hypertrophy program with higher volume, intensity techniques and a planned deload. For lifters with 1+ year of training. |
+| 13 | Beginner Workout Plan: 3-Day Strength Program | New to lifting? This 3-day beginner workout plan teaches the main lifts, sets your starting weights and shows you how to get stronger each week. |
+| 14 | Strength Training for Women: 3-Day Beginner Plan | A practical strength training plan for women. 3 days a week, clear exercise instructions, sets and reps, and how to progress with confidence. |
+| 15 | Powerlifting Program for Beginners: 12-Week Plan | Build your squat, bench and deadlift with a 12-week powerlifting program for beginners. Percentages, weekly progression and meet-day tips. |
