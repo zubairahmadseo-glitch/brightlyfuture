@@ -1,6 +1,6 @@
 # ExerciseMenu Workout Plans — Handoff Brief (read this first)
 
-New session: read this whole file before doing anything. Do NOT ask the user to re-explain.
+New session: read `HANDOFF.md` (full session summary) and this whole file before doing anything. Do NOT ask the user to re-explain.
 Also load the `exercisemenu-content` skill. Reply to the user in Roman Urdu.
 
 ## Current status (updated 28 Oct 2026)
