@@ -34,7 +34,7 @@ PAGE = {
 <p>The incline curl and the overhead extension both load the muscle while it is stretched, which is why each workout includes one of them.</p>
 """),
         ("volume", "How Many Sets for Arms per Week?", f"""
-<p>This plan gives each muscle about 12–16 direct sets a week. Rows and pull-downs also train your biceps, and presses train your triceps, so count each pulling or pressing set as about half a set for your arms. That means if you already do 10 sets of rows a week, your biceps get roughly 5 extra sets from them.</p>
+<p>This plan gives each muscle about 12–16 direct sets a week. Rows and pull-downs also train your biceps, and presses train your triceps, so count each pulling or pressing set as about half a set for your arms, as the {cite('pelland2026', '2026 dose-response meta-analysis')} did. That means if you already do 10 sets of rows a week, your biceps get roughly 5 extra sets from them.</p>
 <p>Training a muscle twice a week builds more muscle than once a week in a {cite('freq2016', 'meta-analysis of training frequency')}, and the {cite('acsm2026', '2026 ACSM position stand')} links 10 or more weekly sets per muscle with more growth. If your elbows get sore, drop one exercise per workout before you drop a session. Our guide to {L('/how-many-sets-per-muscle-group-per-week/', 'sets per muscle group')} shows how to adjust volume.</p>
 """),
         ("progression", "How to Progress Your Arm Workout", f"""
@@ -64,7 +64,7 @@ PAGE = {
         {"tab": "Gym B", "tab_sub": "Isolation day", "title": "Arm Workout B: Isolation Day", "tag": "Gym", "color": 2, "time": "30–40 min", "focus": "Biceps / Triceps",
          "exercises": [
              ("Barbell Lying Triceps Extension", "Primary: triceps long head", "3 × 8–12", "90 sec", "RIR 1–2"),
-             ("EZ-Bar Preacher Curl", "Primary: biceps (short head bias)", "3 × 8–12", "90 sec", "RIR 1–2"),
+             ("EZ-Bar Preacher Curl", "Primary: biceps", "3 × 8–12", "90 sec", "RIR 1–2"),
              ("Triceps Pushdown", "Primary: triceps lateral and medial heads", "3 × 10–15", "60 sec", "RIR 1"),
              ("Dumbbell Biceps Curl", "Primary: biceps", "3 × 10–12", "60 sec", "RIR 1"),
          ],
@@ -93,9 +93,9 @@ PAGE = {
         ("Will arm exercises get rid of flabby arms?", f"No exercise burns fat from one spot. In a {cite('vispute2011', '6-week study on ab training')}, targeted exercise didn't reduce fat in the trained area. Arm training builds the muscle underneath, and overall fat loss comes from your diet and total activity."),
         ("Are pull-ups and push-ups enough for arms?", "They train your arms, but less than direct work does. If arm size is a goal, add at least 2–3 sets of curls and triceps extensions twice a week."),
         ("How long until my arms get bigger?", "Training studies usually measure arm growth after 8–12 weeks of twice-weekly training. Arm size changes slowly, so track your curl and extension weights to see progress sooner."),
-        ("Should I train biceps or triceps first?", "Start with whichever is weaker. Alternating them as supersets also works and cuts the session time without reducing results."),
+        ("Should I train biceps or triceps first?", "Start with whichever is weaker. Pairing a biceps and a triceps exercise as a superset also works and shortens the session."),
     ],
     "related": ["chest-workout", "bro-split", "push-pull-legs", "hypertrophy-program"],
-    "refs": refs("maeo2023", "mannarino2021", "freq2016", "acsm2026", "load2021", "vispute2011"),
+    "refs": refs("maeo2023", "mannarino2021", "pelland2026", "freq2016", "acsm2026", "load2021", "vispute2011"),
     "disclaimer": DISCLAIMER,
 }

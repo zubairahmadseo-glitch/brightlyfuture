@@ -8,8 +8,8 @@ PAGE = {
     "meta_desc": "Which exercises actually grow your glutes? This glute workout uses hip thrusts, squats, hinges and lunges twice a week, with a gym and home version.",
     "focus_kw": "glute workout",
     "badge": "Body Part Plan · Glutes",
-    "hero_lead": "Two glute workouts a week built on the exercises that grew glute muscle in training studies: hip thrusts, deep squats, Romanian deadlifts and lunges, plus abduction work for the sides of your hips. Follow the gym or home version and add load every week.",
-    "hero_meta": ["📅 2 glute days/week", "⏱ 45–60 min", "📊 Beginner–Intermediate", "🏋️ Gym or home"],
+    "hero_lead": "Two glute workouts a week built on hip thrusts and deep squats, which grew glute muscle in MRI studies, plus Romanian deadlifts, lunges and abduction work for the sides of your hips. Follow the gym or home version and add load every week.",
+    "hero_meta": ["📅 2 glute days/week", "⏱ 45–55 min", "📊 Beginner–Intermediate", "🏋️ Gym or home"],
     "stats": [("2", "Glute days/week"), ("3", "Workout versions"), ("12–13", "Glute sets/session"), ("6–20", "Rep range"), ("11", "Exercises")],
     "quick_answer": "The best glute workout combines a hip thrust, a deep squat or lunge, a hip hinge such as the Romanian deadlift, and a hip abduction exercise. Train glutes twice a week with about 12 hard sets per session, and add weight or reps every week.",
     "intro": "<p>Pick a workout in the tabs. Below them you'll find why each exercise is there, how to progress and what to expect from glute training.</p>",
@@ -51,7 +51,7 @@ PAGE = {
     ],
     "schedule": [("Mon", "Glute Day A", "c1"), ("Tue", "Upper body", "rest"), ("Wed", "Rest", "rest"), ("Thu", "Glute Day B", "c2"), ("Fri", "Upper body", "rest"), ("Sat", "Rest / walk", "rest"), ("Sun", "Rest", "rest")],
     "days": [
-        {"tab": "Day A", "tab_sub": "Hip thrust focus", "title": "Glute Workout A: Hip Thrust Focus", "tag": "Gym", "color": 1, "time": "50–60 min", "focus": "Glutes / Hamstrings",
+        {"tab": "Day A", "tab_sub": "Hip thrust focus", "title": "Glute Workout A: Hip Thrust Focus", "tag": "Gym", "color": 1, "time": "45–55 min", "focus": "Glutes / Hamstrings",
          "exercises": [
              ("Barbell Hip Thrust", "Primary: gluteus maximus", "4 × 8–12", "2 min", "RIR 1–2"),
              ("Romanian Deadlift", "Primary: gluteus maximus, hamstrings", "3 × 8–10", "2 min", "RIR 2"),
@@ -59,7 +59,7 @@ PAGE = {
              ("Cable Hip Abduction", "Primary: gluteus medius and minimus", "2 × 12–15 / leg", "60 sec", "RIR 1"),
          ],
          "notes": "Pause for one second at the top of every hip thrust. On Bulgarian split squats, lean your torso slightly forward to bias the glutes."},
-        {"tab": "Day B", "tab_sub": "Squat focus", "title": "Glute Workout B: Squat Focus", "tag": "Gym", "color": 2, "time": "50–60 min", "focus": "Glutes / Quads",
+        {"tab": "Day B", "tab_sub": "Squat focus", "title": "Glute Workout B: Squat Focus", "tag": "Gym", "color": 2, "time": "45–55 min", "focus": "Glutes / Quads",
          "exercises": [
              ("Back Squat (full depth)", "Primary: gluteus maximus, quads, adductors", "4 × 6–10", "2–3 min", "RIR 2"),
              ("Reverse Lunge", "Primary: gluteus maximus, quads", "3 × 8–12 / leg", "90 sec", "RIR 1–2"),
