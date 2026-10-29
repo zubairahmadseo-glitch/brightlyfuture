@@ -283,15 +283,38 @@ table([
 ], widths=[130, 360])
 
 h("2. Plugin / Site Changes for the Developer", 1)
+h("2a. Change These Existing Sections", 2)
+table([
+    ["Plugin Section", "Change", "Why"],
+    ["SEO & Meta", "Make sure the plugin's Meta Title / Meta Description feed Rank Math (or Rank Math's own fields) — the page must output only ONE <title> and ONE meta description. Set the description counter to 155.", "Duplicate meta tags confuse Google; Google usually cuts descriptions around 155 characters."],
+    ["Exercise Basics", "Turn Target Muscle, Body Part, Equipment and Skill Level into taxonomies (dropdown / checkbox), not free text.", "The archive says 'filtered by muscle group, equipment, and skill level' — filters need taxonomies, and each term gets its own archive page (e.g. /equipment/dumbbells/)."],
+    ["Exercise Basics", "Rename 'Approx. Calories per set' → 'Estimated Calories per set' and show a fixed note on the page: 'Estimate for a 70 kg person, 30–60 s set.'", "It is an estimate; the note keeps it honest."],
+    ["GIF / Media", "Replace the URL text box with a Media Library picker; output width/height and loading=\"lazy\". Remove the 'Replace YOUR_CDN_URL' helper text.", "Fewer broken links and faster pages."],
+    ["How-To Steps", "Make Step Description required; limit Step Title to ~60 characters.", "Lying Triceps page has full sentences in the titles and every description empty."],
+    ["Common Mistakes", "Split each item into 'Mistake Title' + 'Mistake Description'.", "Today it is one textarea; Lying Triceps Mistake 5 has no title, so formatting is inconsistent."],
+    ["Tips", "Split each item into 'Tip Title' + 'Tip Description'.", "Same reason as Common Mistakes."],
+    ["Modifications (Easier/Harder)", "Add optional 'Link to exercise page' to each item.", "When the variation has its own page (e.g. Dumbbell Bench Press), it becomes an internal link."],
+    ["FAQs", "Trim leading/trailing spaces and punctuation on save.", "Dumbbell Biceps Curl FAQs show a stray ':' at the start."],
+    ["Sets & Reps Table", "Remove the line 'Rest periods follow ACSM guidelines' or link it to the ACSM position stand.", "An unlinked authority claim."],
+], widths=[90, 230, 170])
+
+h("2b. Add These New Sections", 2)
+table([
+    ["New Section", "Fields", "Why"],
+    ["Related Training Articles", "3 post pickers (shown as cards).", "It shows on the front end but there is no field — two live pages show it empty."],
+    ["Workout Plans Using This Exercise", "Repeater: Plan (post picker) + Day label (e.g. 'Push A'). Best: fill automatically from plans that link to this exercise.", "LoadMuscle has 'Workout plans with Push up'. This is the exercise → plan internal link you want."],
+    ["Alternative Exercises", "2–4 exercise post pickers, shown as cards with the GIF thumbnail.", "LoadMuscle has 'Alternatives'. Links exercise → exercise."],
+    ["Sources", "Repeater: Citation text + URL.", "Studies appear in one list at the bottom instead of inside Tips."],
+    ["Last Updated", "Automatic date from the post's modified date.", "Shows the page is maintained (no author byline needed)."],
+    ["Muscle Map Image (optional)", "Image picker.", "LoadMuscle shows a front/back muscle diagram."],
+], widths=[110, 200, 180])
+
+h("2c. Technical (no new field)", 2)
 for b in [
     "**Sitemap:** the 'exercises' post type is missing from sitemap_index.xml. Rank Math → Sitemap Settings → enable Exercises.",
     "**Slug:** change /exercises/992896/ → /exercises/barbell-standing-calf-raise/ and add a 301 redirect.",
-    "**Add a 'Workout Plans Using This Exercise' section** (repeater: Plan Title + URL + Day). LoadMuscle has this ('Workout plans with Push up') — it is the main exercise → plan internal link and we don't have it.",
-    "**Add an 'Alternative Exercises' section** (pick 2–4 other exercise posts). LoadMuscle shows this; it links exercise → exercise.",
-    "**Add a 'Sources' field** (one citation + URL per line) so citations sit at the bottom instead of inside Tips.",
-    "**Related Training Articles:** make it an editable field (3 URLs) — two live pages currently show it empty.",
-    "**Schema:** output HowTo (from How-To Steps) + FAQPage (from FAQs) JSON-LD from the plugin fields.",
-    "**Muscle map image (optional):** LoadMuscle shows a front/back muscle diagram; a 'Muscle Map Image' field would match it.",
+    "**Schema:** output FAQPage (from FAQs) + ImageObject (GIF) + Article/WebPage JSON-LD. Note: Google stopped showing HowTo rich results in 2023 and limits FAQ rich results, so schema helps understanding, not star-style snippets.",
+    "**REST API:** register the exercise post type and its meta with show_in_rest = true. Then pages can be filled automatically through the API instead of copy-paste.",
 ]:
     bullet(b)
 
