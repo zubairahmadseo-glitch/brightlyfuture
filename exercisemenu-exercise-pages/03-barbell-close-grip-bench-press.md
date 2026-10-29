@@ -29,7 +29,7 @@ How to do the barbell close-grip bench press for stronger triceps. Grip width, m
 | Skill Level | Intermediate |
 | Movement Pattern | Horizontal Push |
 | Also Known As | CGBP, Narrow-Grip Bench Press |
-| Approx. Calories per set | 4–7 kcal |
+| Approx. Calories per set | 2–4 kcal |
 
 ---
 

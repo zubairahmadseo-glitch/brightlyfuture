@@ -29,7 +29,7 @@ How to do the incline dumbbell bench press for upper chest growth. Best bench an
 | Skill Level | Beginner |
 | Movement Pattern | Incline Push |
 | Also Known As | Incline Dumbbell Press, Incline DB Press |
-| Approx. Calories per set | 4–6 kcal |
+| Approx. Calories per set | 2–4 kcal |
 
 ---
 

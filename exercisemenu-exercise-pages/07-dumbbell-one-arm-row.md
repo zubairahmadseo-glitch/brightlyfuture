@@ -30,7 +30,7 @@ How to do the one-arm dumbbell row with your hand braced on a rack or bench. Mus
 | Skill Level | Beginner |
 | Movement Pattern | Horizontal Pull |
 | Also Known As | Single-Arm Dumbbell Row, One-Arm Dumbbell Row |
-| Approx. Calories per set | 3–5 kcal per side |
+| Approx. Calories per set | 2–4 kcal per arm |
 
 ---
 
@@ -121,7 +121,7 @@ Forearm Flexors — hold the dumbbell.
 ## FAQs
 
 1. **Q: Should I put my knee on a bench or use a rack?**
-   A: Both work. A knee on a bench gives the most support, while a hand on a rack with a staggered stance lets you set a longer, more natural pulling path.
+   A: A knee on a bench gives the most support, while a hand on a rack with a staggered stance lets you set a longer, more natural pulling path.
 2. **Q: Where should I pull the dumbbell to?**
    A: Toward your lower ribs or hip. A path toward the hip with the elbow tucked emphasizes the lats.
 3. **Q: Is the one-arm row better than the barbell row?**

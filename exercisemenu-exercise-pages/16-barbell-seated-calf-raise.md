@@ -30,7 +30,7 @@ How to do the barbell seated calf raise on a bench to target the soleus. Setup, 
 | Skill Level | Beginner |
 | Movement Pattern | Plantar Flexion |
 | Also Known As | Seated Barbell Calf Raise, Bench Calf Raise |
-| Approx. Calories per set | 1–3 kcal |
+| Approx. Calories per set | 2–4 kcal |
 
 ---
 
@@ -122,7 +122,7 @@ Peroneus Longus and Brevis — stabilize the ankle on the outside of the lower l
 2. **Q: Do I need a block under my feet?**
    A: It is not required, but a block or plate under the balls of your feet lets your heels drop lower and increases the range of motion.
 3. **Q: How heavy should the barbell be?**
-   A: Start with a load you can move through a full range for 15–20 controlled reps. The soleus can usually handle heavier loads than people expect.
+   A: Start with a load you can move through a full range for 15–20 controlled reps. Add weight once you can complete every rep with a pause at the top and bottom.
 4. **Q: Why are my calves sore for days?**
    A: Calves are often undertrained, and the long stretch in a full-range calf raise can cause soreness when you start. It usually eases after a few sessions.
 5. **Q: Can I do seated calf raises at home?**

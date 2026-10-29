@@ -29,7 +29,7 @@ How to do the standing barbell overhead press with a strong bar path. Muscles wo
 | Skill Level | Intermediate |
 | Movement Pattern | Vertical Push |
 | Also Known As | Overhead Press, OHP, Military Press, Standing Shoulder Press |
-| Approx. Calories per set | 4–7 kcal |
+| Approx. Calories per set | 2–4 kcal |
 
 ---
 

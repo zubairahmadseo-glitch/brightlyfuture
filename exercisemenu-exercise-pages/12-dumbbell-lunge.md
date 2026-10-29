@@ -30,7 +30,7 @@ How to do the dumbbell forward lunge with good balance and knee position. Muscle
 | Skill Level | Beginner |
 | Movement Pattern | Lunge |
 | Also Known As | Dumbbell Forward Lunge, Alternating Dumbbell Lunge |
-| Approx. Calories per set | 5–8 kcal |
+| Approx. Calories per set | 2–4 kcal per leg |
 
 ---
 

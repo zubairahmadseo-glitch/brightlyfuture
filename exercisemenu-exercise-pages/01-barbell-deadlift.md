@@ -29,7 +29,7 @@ Learn how to do the barbell deadlift with correct form. Muscles worked, sets and
 | Skill Level | Intermediate |
 | Movement Pattern | Hip Hinge |
 | Also Known As | Conventional Deadlift, Barbell Deadlift from the Floor |
-| Approx. Calories per set | 6–10 kcal |
+| Approx. Calories per set | 3–6 kcal |
 
 ---
 

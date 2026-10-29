@@ -29,7 +29,7 @@ How to do the barbell hip thrust with your back on a bench. Setup, muscles worke
 | Skill Level | Beginner |
 | Movement Pattern | Hip Extension |
 | Also Known As | Hip Thrust, Barbell Glute Bridge (Bench) |
-| Approx. Calories per set | 4–7 kcal |
+| Approx. Calories per set | 2–4 kcal |
 
 ---
 
@@ -128,7 +128,7 @@ Abdominals — keep the ribs down and the pelvis from tilting.
 4. **Q: Why do I feel it in my quads?**
    A: Your feet are likely too close to your hips. Move them a little further away.
 5. **Q: How heavy can hip thrusts go?**
-   A: Many lifters can hip thrust more weight than they squat because the range of motion is shorter and the back is supported. Build up gradually with good lockout.
+   A: Loads climb quickly because the back is supported and the range of motion is short. Add weight only while you can still reach full hip lockout with a one-second squeeze.
 
 **Citation (for Tip 4 & FAQ 1):** Plotkin DL, et al. *Hip thrust and back squat training elicit similar gluteus muscle hypertrophy and transfer similarly to the deadlift.* Front Physiol. 2023;14:1279170. https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1279170/full
 

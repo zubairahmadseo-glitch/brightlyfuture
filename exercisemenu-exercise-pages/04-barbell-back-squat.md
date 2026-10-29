@@ -30,7 +30,7 @@ How to do the barbell back squat with correct depth and form. Muscles worked, se
 | Skill Level | Intermediate |
 | Movement Pattern | Squat |
 | Also Known As | Back Squat, Full Squat, High-Bar Squat |
-| Approx. Calories per set | 6–10 kcal |
+| Approx. Calories per set | 3–6 kcal |
 
 ---
 
@@ -69,7 +69,7 @@ Calves (Soleus and Gastrocnemius) — stabilize the ankles.
 
 | # | Step Title | Step Description |
 |---|---|---|
-| 1 | Set the bar in the rack | Set the bar at about mid-chest height. Step under it and rest it across your upper traps, not on your neck. Grip the bar just outside your shoulders. |
+| 1 | Set the bar in the rack | Set the bar at about armpit height. Step under it and rest it across your upper traps, not on your neck. Grip the bar just outside your shoulders. |
 | 2 | Unrack and set your stance | Stand up to lift the bar off the hooks, take two or three steps back, and set your feet about shoulder-width apart with toes turned slightly out. |
 | 3 | Brace | Take a deep breath into your belly and tighten your abs as if preparing for a punch. Keep your chest up and eyes forward. |
 | 4 | Squat down | Bend your hips and knees at the same time. Let your knees travel forward and out in line with your toes. Descend as low as you can while your back stays neutral and heels stay down. |

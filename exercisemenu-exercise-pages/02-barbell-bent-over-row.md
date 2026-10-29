@@ -29,7 +29,7 @@ How to do the barbell bent-over row with a flat back and strict pull. Muscles wo
 | Skill Level | Intermediate |
 | Movement Pattern | Horizontal Pull |
 | Also Known As | Bent-Over Barbell Row, Barbell Row |
-| Approx. Calories per set | 5–8 kcal |
+| Approx. Calories per set | 2–4 kcal |
 
 ---
 
@@ -121,7 +121,7 @@ Forearm Flexors — maintain grip on the bar.
 ## FAQs
 
 1. **Q: Should I use an overhand or underhand grip?**
-   A: Both work. An overhand grip is more common and biases the upper back, while an underhand grip lets the elbows stay closer to the body and involves more lats and biceps.
+   A: An overhand grip is more common and biases the upper back, while an underhand grip lets the elbows stay closer to the body and involves more lats and biceps.
 2. **Q: How bent over should I be?**
    A: A torso angle between about 45 degrees and parallel to the floor is typical. The more horizontal you are, the more your back works to hold the position.
 3. **Q: Is the barbell row bad for the lower back?**

@@ -30,7 +30,7 @@ How to do the barbell Bulgarian split squat with your rear foot on a bench. Foot
 | Skill Level | Intermediate |
 | Movement Pattern | Single-Leg Squat |
 | Also Known As | Bulgarian Split Squat, Rear-Foot-Elevated Split Squat, Barbell Single-Leg Split Squat |
-| Approx. Calories per set | 4–7 kcal per side |
+| Approx. Calories per set | 3–6 kcal per leg |
 
 ---
 
@@ -121,7 +121,7 @@ Abdominals and Erector Spinae — keep the torso steady under the bar.
 ## FAQs
 
 1. **Q: Is the Bulgarian split squat a quad or glute exercise?**
-   A: Both. It trains the quads and glutes of the front leg. Small changes in torso lean and stance length shift the balance between them.
+   A: It trains the quads and glutes of the front leg. Small changes in torso lean and stance length shift the balance between them.
 2. **Q: How far should my front foot be from the bench?**
    A: Far enough that your front heel stays down and your front shin is close to vertical or slightly forward at the bottom. For many people, that is about one long stride.
 3. **Q: Barbell or dumbbells?**

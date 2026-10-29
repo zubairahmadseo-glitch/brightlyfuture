@@ -29,7 +29,7 @@ How to do the barbell Romanian deadlift (RDL) for hamstrings and glutes. Hip hin
 | Skill Level | Intermediate |
 | Movement Pattern | Hip Hinge |
 | Also Known As | RDL, Barbell RDL |
-| Approx. Calories per set | 5–8 kcal |
+| Approx. Calories per set | 3–6 kcal |
 
 ---
 

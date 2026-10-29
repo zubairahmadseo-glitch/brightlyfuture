@@ -29,7 +29,7 @@ How to do the seated dumbbell shoulder press on a back-supported bench. Muscles 
 | Skill Level | Beginner |
 | Movement Pattern | Vertical Push |
 | Also Known As | Seated Dumbbell Overhead Press, Seated Dumbbell Military Press |
-| Approx. Calories per set | 3–6 kcal |
+| Approx. Calories per set | 2–4 kcal |
 
 ---
 
