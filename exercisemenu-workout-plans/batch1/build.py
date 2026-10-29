@@ -22,6 +22,7 @@ PAGES = [
     "bro_split", "four_day_split", "three_day_full_body", "lean_bulk",
     "hypertrophy_program", "skinny_guys", "five_day_split", "ppl_hypertrophy",
     "beginner_strength", "women_strength", "powerlifting_beginners",
+    "chest_workout", "arm_workout", "core_workout", "glute_workout", "leg_day_workout",
 ]
 
 # Live exercise pages (verified 200 on 2026-10-28; not in the XML sitemap).
@@ -32,6 +33,8 @@ EXERCISE_LINKS = {
     "Barbell Curl": "/exercises/barbell-curl/",
     "Dumbbell Biceps Curl": "/exercises/dumbbell-biceps-curl/",
     "Hammer Curl": "/exercises/dumbbell-hammer-curl/",
+    "Barbell Lying Triceps Extension": "/exercises/barbell-lying-triceps-extension/",
+    "Barbell Standing Calf Raise": "/exercises/barbell-standing-calf-raise/",
     "Dumbbell Romanian Deadlift": "/dumbbell-romanian-deadlift/",
     "Trap Bar Deadlift": "/how-to-trap-bar-deadlift/",
 }
@@ -53,6 +56,11 @@ PLANS = {
     "beginner-strength-training-program": ("Strength", "Beginner Strength Training Program", "12 weeks of linear progression on the main lifts.", "3 days · Beginner"),
     "strength-training-for-women": ("Strength", "Strength Training Plan for Women", "Three full-body days with glute, posture and bone-health focus.", "3 days · Beginner–Intermediate"),
     "powerlifting-program-for-beginners": ("Strength", "Powerlifting Program for Beginners", "12 weeks of squat, bench and deadlift ending in a test day.", "3 days · Beginner–Intermediate"),
+    "chest-workout": ("Body Part", "Chest Workout Plan", "Best chest exercises plus a 4-week plan for gym, dumbbells or home.", "2 days/week · All levels"),
+    "arm-workout": ("Body Part", "Arm Workout Plan", "Biceps and triceps twice a week, with gym, dumbbell and band options.", "2 days/week · All levels"),
+    "core-workout": ("Body Part", "Core Workout Plan", "Short core sessions that train every core function, gym or home.", "3 days/week · All levels"),
+    "glute-workout": ("Body Part", "Glute Workout Plan", "Two glute days a week built on hip thrusts, squats and hinges.", "2 days/week · All levels"),
+    "leg-day-workout": ("Body Part", "Leg Day Workout", "Complete leg days for beginners, quad focus, hamstring focus or dumbbells.", "1–2 days/week · All levels"),
 }
 
 # Short labels for the "Jump to" chips (falls back to the H2 text).
@@ -67,7 +75,8 @@ CHIPS = {
     "cardio": "Cardio & sleep", "rate": "Rate of gain", "tracking": "Tracking", "after": "After 12 weeks",
     "program": "Program phases", "myths": "Will I get bulky?", "cycle": "Menstrual cycle", "bones": "Bone health",
     "subs": "Exercise swaps", "start": "Starting weights", "stalls": "When you stall", "accessories": "Accessories",
-    "rest-days": "Rest days",
+    "rest-days": "Rest days", "exercises": "Best exercises", "functions": "Core functions", "abs": "Visible abs",
+    "home": "No weights?", "structure": "How to structure",
 }
 
 AUTHOR_BOX = """<aside class="emp-author" aria-label="About the author">

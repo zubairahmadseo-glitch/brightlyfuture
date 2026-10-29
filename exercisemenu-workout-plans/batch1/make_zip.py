@@ -1,13 +1,14 @@
-"""Package out/ into a paste-ready zip: python3 make_zip.py <dest_dir>"""
+"""Package out/ into a paste-ready zip: python3 make_zip.py <dest_dir> [zip_name] [slug1,slug2,...]"""
 import json, pathlib, shutil, sys, zipfile
 
 ROOT = pathlib.Path(__file__).parent
 dest = pathlib.Path(sys.argv[1])
-name = "ExerciseMenu-Workout-Plans-All-15"
+name = sys.argv[2] if len(sys.argv) > 2 else "ExerciseMenu-Workout-Plans-All-15"
+only = set(sys.argv[3].split(",")) if len(sys.argv) > 3 else None
 base = dest / name
 shutil.rmtree(base, ignore_errors=True)
 base.mkdir(parents=True)
-man = json.loads((ROOT / "out/manifest.json").read_text())
+man = [p for p in json.loads((ROOT / "out/manifest.json").read_text()) if only is None or p["slug"] in only]
 for p in man:
     d = base / f'{p["num"]:02d}-{p["slug"]}'
     d.mkdir()

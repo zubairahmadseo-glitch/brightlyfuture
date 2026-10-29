@@ -7,7 +7,7 @@ BANNED = ["in this article we will", "without further ado", "we hope you found",
           "significantly", "transform", "in today's world", "it's important to note", "whether you're a beginner or advanced",
           "let's dive", "in conclusion", "very", "really", "actually", "basically", "essentially", "incredibly", "many people struggle", "it depends"]
 live = set(pathlib.Path(sys.argv[1]).read_text().split()) if len(sys.argv) > 1 else None
-allowed_extra = {"/workout-plans/" + s + "/" for s in __import__("build").PLANS} | {"/exercises/barbell-bench-press/", "/exercises/barbell-curl/", "/exercises/barbell-incline-bench-press/", "/exercises/dumbbell-bench-press/", "/exercises/dumbbell-biceps-curl/", "/exercises/dumbbell-hammer-curl/"}
+allowed_extra = {"/workout-plans/" + s + "/" for s in __import__("build").PLANS} | {"/exercises/barbell-lying-triceps-extension/", "/exercises/barbell-standing-calf-raise/", "/exercises/barbell-bench-press/", "/exercises/barbell-curl/", "/exercises/barbell-incline-bench-press/", "/exercises/dumbbell-bench-press/", "/exercises/dumbbell-biceps-curl/", "/exercises/dumbbell-hammer-curl/"}
 ext_all = set()
 for m in [m for m in PAGES if pathlib.Path("content", m + ".py").exists()]:
     p = importlib.import_module("content." + m).PAGE

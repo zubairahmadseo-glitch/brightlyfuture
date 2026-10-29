@@ -40,6 +40,15 @@ R = {
     "radaelli2015": ("Radaelli R, et al. Dose-response of 1, 3, and 5 sets of resistance exercise on strength, local muscular endurance, and hypertrophy. <em>J Strength Cond Res</em>. 2015.", PM + "25546444/"),
     "seynnes2007": ("Seynnes OR, de Boer M, Narici MV. Early skeletal muscle hypertrophy and architectural changes in response to high-intensity resistance training. <em>J Appl Physiol</em>. 2007.", PM + "17053104/"),
     "ralston2017": ("Ralston GW, et al. The effect of weekly set volume on strength gain: a meta-analysis. <em>Sports Med</em>. 2017.", PM + "28755103/"),
+    "chaves2020": ("Chaves SFN, et al. Effects of horizontal and incline bench press on neuromuscular adaptations in untrained young men. <em>Int J Exerc Sci</em>. 2020.", PM + "32922646/"),
+    "ridao2020": ("Rodríguez-Ridao D, et al. Effect of five bench inclinations on the electromyographic activity of the pectoralis major, anterior deltoid, and triceps brachii during the bench press exercise. <em>Int J Environ Res Public Health</em>. 2020.", PM + "33049982/"),
+    "kikuchi2017": ("Kikuchi N, Nakazato K. Low-load bench press and push-up induce similar muscle hypertrophy and strength gain. <em>J Exerc Sci Fit</em>. 2017.", PM + "29541130/"),
+    "maeo2023": ("Maeo S, et al. Triceps brachii hypertrophy is substantially greater after elbow extension training performed in the overhead versus neutral arm position. <em>Eur J Sport Sci</em>. 2023.", PM + "35819335/"),
+    "mannarino2021": ("Mannarino P, et al. Single-joint exercise results in higher hypertrophy of elbow flexors than multijoint exercise. <em>J Strength Cond Res</em>. 2021.", PM + "31268995/"),
+    "vispute2011": ("Vispute SS, et al. The effect of abdominal exercise on abdominal fat. <em>J Strength Cond Res</em>. 2011.", PM + "21804427/"),
+    "plotkin2023": ("Plotkin DL, et al. Hip thrust and back squat training elicit similar gluteus muscle hypertrophy and transfer similarly to the deadlift. <em>Front Physiol</em>. 2023.", PM + "37877099/"),
+    "kubo2019": ("Kubo K, Ikebukuro T, Yata H. Effects of squat training with different depths on lower limb muscle volumes. <em>Eur J Appl Physiol</em>. 2019.", PM + "31230110/"),
+    "kassiano2023": ("Kassiano W, et al. Greater gastrocnemius muscle hypertrophy after partial range of motion training performed at long muscle lengths. <em>J Strength Cond Res</em>. 2023.", PM + "37015016/"),
 }
 
 

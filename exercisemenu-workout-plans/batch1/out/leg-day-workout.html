@@ -1,0 +1,330 @@
+<!-- wp:html -->
+<style>
+/* ExerciseMenu workout plan pages — shared styles (scoped to .emp so the theme is untouched) */
+.emp{--emp-ink:#1a1a2e;--emp-ink2:#0f3460;--emp-accent:#e94560;--emp-accent-d:#c9304a;--emp-glow:rgba(233,69,96,.09);--emp-text:#2d2d3a;--emp-muted:#6b7280;--emp-bg:#fff;--emp-alt:#f8f9fb;--emp-line:#e5e7eb;--emp-line2:#f0f1f3;--emp-green:#047857;--emp-green-bg:#ecfdf5;--emp-blue:#0369a1;--emp-blue-bg:#f0f9ff;--emp-amber:#b45309;--emp-amber-bg:#fffbeb;--emp-r:12px;--emp-rs:8px;--emp-mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--emp-text);line-height:1.7;font-size:17px}
+.emp *,.emp *::before,.emp *::after{box-sizing:border-box}
+.emp h2{font-size:clamp(1.35rem,3vw,1.75rem);line-height:1.3;color:var(--emp-ink);margin:0 0 .75rem;font-weight:700}
+.emp h3{font-size:clamp(1.1rem,2.4vw,1.3rem);line-height:1.35;color:var(--emp-ink);margin:1.4rem 0 .5rem;font-weight:700}
+.emp p{margin:0 0 1rem}
+.emp a{color:var(--emp-accent-d);text-decoration:underline;text-underline-offset:2px}
+.emp a:hover{color:var(--emp-accent)}
+.emp ul,.emp ol{margin:0 0 1rem 1.2rem;padding:0}
+.emp li{margin:.25rem 0}
+.emp .emp-section{padding:28px 0;border-bottom:1px solid var(--emp-line2)}
+.emp .emp-section:last-child{border-bottom:0}
+/* hero */
+.emp .emp-hero{background:linear-gradient(135deg,var(--emp-ink) 0%,#16213e 55%,var(--emp-ink2) 100%);color:#fff;border-radius:var(--emp-r);padding:clamp(22px,4vw,36px);margin:0 0 18px}
+.emp .emp-badge{display:inline-block;background:rgba(233,69,96,.22);border:1px solid rgba(233,69,96,.4);color:#fecdd3;padding:4px 12px;border-radius:20px;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px}
+.emp .emp-hero-lead{font-size:clamp(1rem,2vw,1.12rem);color:rgba(255,255,255,.88);margin:0 0 14px;max-width:680px}
+.emp .emp-hero-review{font-size:.84rem;font-weight:600;color:#a7f3d0;margin:0 0 12px}
+.emp .emp-hero-review a{color:#a7f3d0;text-decoration:underline;text-underline-offset:2px}
+.emp .emp-hero-review a:hover{color:#fff}
+.emp .emp-hero-meta{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.84rem;color:rgba(255,255,255,.78);margin:0;padding:0;list-style:none}
+.emp .emp-hero-meta li{margin:0}
+/* stats */
+.emp .emp-stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;margin:0 0 22px}
+.emp .emp-stat{border:1px solid var(--emp-line);border-radius:var(--emp-r);padding:14px 10px;text-align:center;background:var(--emp-bg);box-shadow:0 2px 8px rgba(0,0,0,.05)}
+.emp .emp-stat-v{font-family:var(--emp-mono);font-size:1.2rem;font-weight:700;color:var(--emp-ink)}
+.emp .emp-stat-l{font-size:.72rem;color:var(--emp-muted);text-transform:uppercase;letter-spacing:.5px}
+/* boxes */
+.emp .emp-answer{background:var(--emp-glow);border-left:4px solid var(--emp-accent);border-radius:0 var(--emp-rs) var(--emp-rs) 0;padding:16px 20px;margin:0 0 18px}
+.emp .emp-label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px;color:var(--emp-accent-d)}
+.emp .emp-answer p{margin:0}
+.emp .emp-takeaways{border:1px solid var(--emp-line);border-radius:var(--emp-r);padding:16px 20px;margin:0 0 18px;background:var(--emp-alt)}
+.emp .emp-takeaways ul{margin:0;list-style:none}
+.emp .emp-takeaways li{position:relative;padding-left:22px}
+.emp .emp-takeaways li::before{content:"✓";position:absolute;left:0;color:var(--emp-green);font-weight:700}
+.emp .emp-science,.emp .emp-tip,.emp .emp-warn{border-radius:var(--emp-r);padding:16px 20px;margin:18px 0;font-size:.95rem}
+.emp .emp-science{background:var(--emp-blue-bg);border:1px solid #bae6fd}
+.emp .emp-science .emp-label{color:var(--emp-blue)}
+.emp .emp-tip{background:var(--emp-green-bg);border:1px solid #a7f3d0}
+.emp .emp-tip .emp-label{color:var(--emp-green)}
+.emp .emp-warn{background:var(--emp-amber-bg);border:1px solid #fde68a}
+.emp .emp-warn .emp-label{color:var(--emp-amber)}
+.emp .emp-science p:last-child,.emp .emp-tip p:last-child,.emp .emp-warn p:last-child{margin:0}
+/* weekly schedule */
+.emp .emp-week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin:18px 0}
+@media (max-width:640px){.emp .emp-week{grid-template-columns:repeat(4,1fr)}}
+.emp .emp-wd{border-radius:var(--emp-rs);padding:10px 6px;text-align:center;border:2px solid var(--emp-line);background:var(--emp-alt)}
+.emp .emp-wd b{display:block;font-size:.68rem;text-transform:uppercase;letter-spacing:.5px;color:var(--emp-muted)}
+.emp .emp-wd span{font-size:.8rem;font-weight:600;color:var(--emp-ink);line-height:1.3;display:block}
+.emp .emp-wd.c1{background:#eff6ff;border-color:#bfdbfe}.emp .emp-wd.c1 b{color:#2563eb}
+.emp .emp-wd.c2{background:#f5f3ff;border-color:#c4b5fd}.emp .emp-wd.c2 b{color:#7c3aed}
+.emp .emp-wd.c3{background:#ecfdf5;border-color:#a7f3d0}.emp .emp-wd.c3 b{color:#059669}
+.emp .emp-wd.c4{background:#fff1f2;border-color:#fecdd3}.emp .emp-wd.c4 b{color:#e11d48}
+.emp .emp-wd.c5{background:#fff7ed;border-color:#fed7aa}.emp .emp-wd.c5 b{color:#c2410c}
+.emp .emp-wd.c6{background:#f0fdfa;border-color:#99f6e4}.emp .emp-wd.c6 b{color:#0f766e}
+.emp .emp-wd.rest{background:var(--emp-amber-bg);border-color:#fde68a}.emp .emp-wd.rest b{color:#d97706}
+/* day tabs (pure CSS, no JavaScript) */
+.emp .emp-tabs{margin:18px 0}
+.emp .emp-tabs>input{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.emp .emp-tabbar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.emp .emp-tabbar label{cursor:pointer;border:2px solid var(--emp-line);background:var(--emp-bg);color:var(--emp-ink);border-radius:30px;padding:7px 16px;font-weight:700;font-size:.9rem;line-height:1.2;user-select:none;transition:background .15s,border-color .15s}
+.emp .emp-tabbar label small{display:block;font-weight:500;font-size:.7rem;color:var(--emp-muted)}
+.emp .emp-tabbar label:hover{border-color:var(--emp-accent)}
+.emp .emp-panel{display:none}
+.emp .emp-tabs>input:focus-visible+.emp-tabbar{outline:none}
+.emp #emp-t1:checked~.emp-tabbar label[for=emp-t1],.emp #emp-t2:checked~.emp-tabbar label[for=emp-t2],.emp #emp-t3:checked~.emp-tabbar label[for=emp-t3],.emp #emp-t4:checked~.emp-tabbar label[for=emp-t4],.emp #emp-t5:checked~.emp-tabbar label[for=emp-t5],.emp #emp-t6:checked~.emp-tabbar label[for=emp-t6],.emp #emp-tall:checked~.emp-tabbar label[for=emp-tall]{background:var(--emp-accent);border-color:var(--emp-accent);color:#fff}
+.emp #emp-t1:checked~.emp-tabbar label[for=emp-t1] small,.emp #emp-t2:checked~.emp-tabbar label[for=emp-t2] small,.emp #emp-t3:checked~.emp-tabbar label[for=emp-t3] small,.emp #emp-t4:checked~.emp-tabbar label[for=emp-t4] small,.emp #emp-t5:checked~.emp-tabbar label[for=emp-t5] small,.emp #emp-t6:checked~.emp-tabbar label[for=emp-t6] small{color:rgba(255,255,255,.85)}
+.emp #emp-t1:focus-visible~.emp-tabbar label[for=emp-t1],.emp #emp-t2:focus-visible~.emp-tabbar label[for=emp-t2],.emp #emp-t3:focus-visible~.emp-tabbar label[for=emp-t3],.emp #emp-t4:focus-visible~.emp-tabbar label[for=emp-t4],.emp #emp-t5:focus-visible~.emp-tabbar label[for=emp-t5],.emp #emp-t6:focus-visible~.emp-tabbar label[for=emp-t6],.emp #emp-tall:focus-visible~.emp-tabbar label[for=emp-tall]{outline:3px solid var(--emp-ink2);outline-offset:2px}
+.emp #emp-t1:checked~.emp-panels .emp-p1,.emp #emp-t2:checked~.emp-panels .emp-p2,.emp #emp-t3:checked~.emp-panels .emp-p3,.emp #emp-t4:checked~.emp-panels .emp-p4,.emp #emp-t5:checked~.emp-panels .emp-p5,.emp #emp-t6:checked~.emp-panels .emp-p6,.emp #emp-tall:checked~.emp-panels .emp-panel{display:block}
+@media print{.emp .emp-panel{display:block!important}.emp .emp-tabbar{display:none}}
+/* workout card */
+.emp .emp-wo{border:1px solid var(--emp-line);border-radius:var(--emp-r);overflow:hidden;margin:0 0 18px;box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.emp .emp-wo-h{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;padding:14px 18px;background:var(--emp-ink);color:#fff}
+.emp .emp-wo-h h3{margin:0;color:#fff;font-size:1.15rem}
+.emp .emp-wo-h.c1{background:#2563eb}.emp .emp-wo-h.c2{background:#7c3aed}.emp .emp-wo-h.c3{background:#059669}.emp .emp-wo-h.c4{background:#e11d48}.emp .emp-wo-h.c5{background:#c2410c}.emp .emp-wo-h.c6{background:#0f766e}
+.emp .emp-tag{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.8px;padding:3px 10px;border-radius:20px;background:rgba(255,255,255,.22)}
+.emp .emp-wo-meta{display:flex;flex-wrap:wrap;gap:6px 18px;padding:10px 18px;background:var(--emp-alt);font-size:.82rem;color:var(--emp-muted);border-bottom:1px solid var(--emp-line)}
+.emp .emp-tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.emp table{width:100%;border-collapse:collapse;font-size:.92rem;margin:0}
+.emp .emp-ex th{background:var(--emp-alt);text-align:left;font-size:.7rem;text-transform:uppercase;letter-spacing:.7px;color:var(--emp-muted);padding:9px 12px;border-bottom:2px solid var(--emp-line);white-space:nowrap}
+.emp .emp-ex td{padding:11px 12px;border-bottom:1px solid var(--emp-line2);vertical-align:middle}
+.emp .emp-ex tr:last-child td{border-bottom:0}
+.emp .emp-ex .n{font-family:var(--emp-mono);color:#9ca3af;font-weight:700;width:30px}
+.emp .emp-ex .x{font-weight:600;color:var(--emp-ink)}
+.emp .emp-ex .x a{color:var(--emp-ink);text-decoration-color:var(--emp-accent)}
+.emp .emp-ex .t{display:block;font-size:.76rem;color:var(--emp-muted);font-weight:400}
+.emp .emp-ex .s{font-family:var(--emp-mono);font-weight:700;color:var(--emp-accent-d);white-space:nowrap}
+.emp .emp-ex .r,.emp .emp-ex .e{font-family:var(--emp-mono);font-size:.85rem;color:var(--emp-muted);white-space:nowrap}
+.emp .emp-wo-notes{padding:12px 18px;background:var(--emp-alt);border-top:1px solid var(--emp-line);font-size:.86rem;color:#4b5563}
+.emp .emp-wo-notes p{margin:0}
+@media (max-width:560px){.emp .emp-ex{font-size:.86rem}.emp .emp-ex th:nth-child(1),.emp .emp-ex td:nth-child(1){display:none}.emp .emp-ex td,.emp .emp-ex th{padding:9px 7px}.emp .emp-ex .r,.emp .emp-ex .e{white-space:normal;font-size:.76rem}.emp .emp-ex .s{font-size:.82rem}}
+/* data tables */
+.emp .emp-data{border:1px solid var(--emp-line);border-radius:var(--emp-rs);overflow:hidden;margin:16px 0}
+.emp .emp-data th{background:var(--emp-ink);color:#fff;text-align:left;font-size:.74rem;text-transform:uppercase;letter-spacing:.5px;padding:9px 12px}
+.emp .emp-data td{padding:9px 12px;border-bottom:1px solid var(--emp-line);font-size:.9rem}
+.emp .emp-data tr:nth-child(even) td{background:var(--emp-alt)}
+/* steps */
+.emp .emp-steps{list-style:none;margin:16px 0;counter-reset:st}
+.emp .emp-steps li{counter-increment:st;position:relative;padding:0 0 12px 48px;min-height:36px}
+.emp .emp-steps li::before{content:counter(st);position:absolute;left:0;top:0;width:34px;height:34px;border-radius:50%;background:var(--emp-accent);color:#fff;font-family:var(--emp-mono);font-weight:700;display:flex;align-items:center;justify-content:center;font-size:.85rem}
+/* macros */
+.emp .emp-macros{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:16px 0}
+.emp .emp-macro{border:1px solid var(--emp-line);border-radius:var(--emp-rs);padding:14px;text-align:center}
+.emp .emp-macro b{display:block;font-family:var(--emp-mono);font-size:1.25rem;color:var(--emp-accent-d)}
+.emp .emp-macro span{font-size:.82rem;color:var(--emp-muted)}
+/* faq */
+.emp .emp-faq details{border:1px solid var(--emp-line);border-radius:var(--emp-rs);margin:0 0 10px;background:var(--emp-bg)}
+.emp .emp-faq summary{cursor:pointer;list-style:none;padding:14px 44px 14px 18px;font-weight:600;color:var(--emp-ink);position:relative}
+.emp .emp-faq summary::-webkit-details-marker{display:none}
+.emp .emp-faq summary::after{content:"+";position:absolute;right:18px;top:50%;transform:translateY(-50%);color:var(--emp-accent);font-size:1.3rem;font-weight:700}
+.emp .emp-faq details[open] summary::after{content:"−"}
+.emp .emp-faq .emp-faq-a{padding:0 18px 14px;color:#4b5563;font-size:.95rem}
+.emp .emp-faq .emp-faq-a p{margin:0}
+/* related plans */
+.emp .emp-related{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:16px 0}
+.emp a.emp-card{display:block;border:1px solid var(--emp-line);border-radius:var(--emp-r);padding:16px 18px;color:inherit;text-decoration:none;background:var(--emp-bg);transition:border-color .15s,box-shadow .15s,transform .15s}
+.emp a.emp-card:hover{border-color:var(--emp-accent);box-shadow:0 6px 18px rgba(0,0,0,.08);transform:translateY(-2px)}
+.emp .emp-card-tag{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--emp-accent-d)}
+.emp .emp-card-t{display:block;font-weight:700;color:var(--emp-ink);margin:4px 0 4px;line-height:1.3}
+.emp .emp-card-d{display:block;font-size:.84rem;color:var(--emp-muted);line-height:1.5}
+.emp .emp-card-m{display:block;font-size:.75rem;color:var(--emp-ink2);margin-top:8px;font-weight:600}
+/* references + disclaimer */
+.emp .emp-refs{font-size:.84rem;color:var(--emp-muted)}
+.emp .emp-refs ol{margin-left:1.2rem}
+.emp .emp-refs a{color:var(--emp-muted)}
+.emp .emp-disclaimer{font-size:.85rem;color:var(--emp-muted);border-top:1px solid var(--emp-line);padding-top:14px;margin-top:8px}
+/* jump button + chips */
+.emp a.emp-jump{display:inline-block;margin-top:16px;background:var(--emp-accent);color:#fff;text-decoration:none;font-weight:700;padding:10px 20px;border-radius:30px;font-size:.92rem}
+.emp a.emp-jump:hover{background:var(--emp-accent-d);color:#fff}
+.emp .emp-chips{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0 0 6px;font-size:.84rem}
+.emp .emp-chips span{font-weight:700;color:var(--emp-muted);margin-right:2px}
+.emp .emp-chips a{border:1px solid var(--emp-line);background:var(--emp-alt);border-radius:20px;padding:4px 11px;color:var(--emp-ink);text-decoration:none}
+.emp .emp-chips a:hover{border-color:var(--emp-accent);color:var(--emp-accent-d)}
+/* author box */
+.emp .emp-author{display:flex;gap:16px;align-items:flex-start;background:var(--emp-alt);border:1px solid var(--emp-line);border-radius:var(--emp-r);padding:18px 20px;margin:24px 0}
+.emp .emp-author-av{flex:0 0 56px;height:56px;border-radius:50%;background:var(--emp-accent);color:#fff;font-weight:700;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+.emp .emp-author p{margin:0 0 6px;font-size:.92rem}
+.emp .emp-author p.emp-author-n{font-weight:700;color:var(--emp-ink);font-size:1rem;margin:0}
+.emp .emp-author p.emp-author-c{color:var(--emp-muted);font-size:.8rem;margin:0 0 8px}
+</style>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<div class="emp-hero">
+<span class="emp-badge">Body Part Plan · Legs</span>
+<p class="emp-hero-lead">Four complete leg day workouts: a beginner session, a quad-focused day, a hamstring and glute day, and a dumbbell-only version. Each one trains your quads, hamstrings, glutes and calves, in the order that gets the most from every exercise.</p>
+<p class="emp-hero-review">✓ Training reviewed by FISAF-certified coaches · Nutrition reviewed by <a href="https://exercisemenu.com/rimsha-shahid/">Rimsha Shahid</a>, certified dietitian</p>
+<ul class="emp-hero-meta"><li>📅 1–2 leg days/week</li><li>⏱ 50–65 min</li><li>📊 Beginner–Intermediate</li><li>🏋️ Gym or dumbbells</li><li>📄 Last reviewed: October 2026</li></ul>
+<a class="emp-jump" href="#workouts">See the workouts ↓</a>
+</div>
+<div class="emp-stats"><div class="emp-stat"><div class="emp-stat-v">1–2</div><div class="emp-stat-l">Leg days/week</div></div><div class="emp-stat"><div class="emp-stat-v">4</div><div class="emp-stat-l">Leg day plans</div></div><div class="emp-stat"><div class="emp-stat-v">2–3 min</div><div class="emp-stat-l">Rest on big lifts</div></div><div class="emp-stat"><div class="emp-stat-v">5–15</div><div class="emp-stat-l">Rep range</div></div><div class="emp-stat"><div class="emp-stat-v">15</div><div class="emp-stat-l">Exercises</div></div></div>
+<div class="emp-answer"><span class="emp-label">Quick answer</span><p>A complete leg day workout starts with a heavy squat or leg press, then adds a hip hinge such as the Romanian deadlift, a single-leg exercise, a leg curl or leg extension, and calf raises. Do 3–4 sets of each and train legs twice a week if you can.</p></div>
+<p>Pick a leg day in the tabs. If you train legs twice a week, alternate the quad-focus and hamstring-focus days. Below the workouts you'll see how to order your exercises and how many sets your legs need.</p>
+<nav class="emp-chips" aria-label="Jump to a section"><span>Jump to:</span><a href="#schedule">Schedule</a><a href="#workouts">Workouts</a><a href="#structure">How to structure</a><a href="#volume">Weekly sets</a><a href="#progression">Progression</a><a href="#mistakes">Mistakes</a><a href="#faq">FAQ</a></nav>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="schedule">
+<h2>Leg Day Schedule</h2>
+<div class="emp-week"><div class="emp-wd c1"><b>Mon</b><span>Leg day: Quads</span></div><div class="emp-wd rest"><b>Tue</b><span>Upper body</span></div><div class="emp-wd rest"><b>Wed</b><span>Rest</span></div><div class="emp-wd c2"><b>Thu</b><span>Leg day: Hamstrings</span></div><div class="emp-wd rest"><b>Fri</b><span>Upper body</span></div><div class="emp-wd rest"><b>Sat</b><span>Rest</span></div><div class="emp-wd rest"><b>Sun</b><span>Rest</span></div></div>
+<p>Two leg days a week, three or four days apart, let you train each leg muscle twice. Training a muscle twice a week builds more muscle than once a week in a <a href="https://pubmed.ncbi.nlm.nih.gov/27102172/" rel="noopener" target="_blank">meta-analysis</a>. If you only have time for one leg day, use the beginner workout or alternate the quad and hamstring days from week to week.</p>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="workouts">
+<h2>The Leg Day Workouts</h2>
+<p>"/ leg" means do the reps on each leg. RIR (reps in reserve) 2 means you stop with two clean reps left. Warm up with 2–4 lighter sets on the first exercise.</p>
+<div class="emp-tabs">
+<input type="radio" name="emp-day" id="emp-t1" checked>
+<input type="radio" name="emp-day" id="emp-t2">
+<input type="radio" name="emp-day" id="emp-t3">
+<input type="radio" name="emp-day" id="emp-t4">
+<input type="radio" name="emp-day" id="emp-tall">
+<div class="emp-tabbar" role="group" aria-label="Choose a training day"><label for="emp-t1">Beginner<small>First leg day</small></label><label for="emp-t2">Quad focus<small>Squat day</small></label><label for="emp-t3">Hamstring focus<small>Hinge day</small></label><label for="emp-t4">Dumbbells<small>Home or gym</small></label><label for="emp-tall">All days<small>Show every workout</small></label></div>
+<div class="emp-panels">
+<div class="emp-panel emp-p1">
+<div class="emp-wo">
+<div class="emp-wo-h c1"><h3>Beginner Leg Day Workout</h3><span class="emp-tag">Gym</span></div>
+<div class="emp-wo-meta"><span>⏱ 50–60 min</span><span>🎯 5 exercises</span><span>📊 15 working sets</span><span>💪 Quads / Hamstrings / Glutes / Calves</span></div>
+<div class="emp-tw"><table class="emp-ex"><thead><tr><th>#</th><th>Exercise</th><th>Sets × Reps</th><th>Rest</th><th>Effort</th></tr></thead>
+<tbody>
+<tr><td class="n">1</td><td class="x">Goblet Squat<span class="t">Primary: quads, glutes · Secondary: adductors</span></td><td class="s">3 × 8–12</td><td class="r">2 min</td><td class="e">RIR 2</td></tr>
+<tr><td class="n">2</td><td class="x">Leg Press<span class="t">Primary: quads, glutes</span></td><td class="s">3 × 10–12</td><td class="r">2 min</td><td class="e">RIR 2</td></tr>
+<tr><td class="n">3</td><td class="x"><a href="https://exercisemenu.com/dumbbell-romanian-deadlift/">Dumbbell Romanian Deadlift</a><span class="t">Primary: hamstrings, glutes</span></td><td class="s">3 × 10–12</td><td class="r">2 min</td><td class="e">RIR 2</td></tr>
+<tr><td class="n">4</td><td class="x">Seated Leg Curl<span class="t">Primary: hamstrings</span></td><td class="s">3 × 10–15</td><td class="r">90 sec</td><td class="e">RIR 1–2</td></tr>
+<tr><td class="n">5</td><td class="x">Standing Calf Raise<span class="t">Primary: calves</span></td><td class="s">3 × 12–15</td><td class="r">60 sec</td><td class="e">RIR 1–2</td></tr>
+</tbody></table></div>
+<div class="emp-wo-notes"><p><strong>Notes:</strong> Hold one dumbbell at your chest for goblet squats and sit down between your heels. Use this workout twice a week for your first 8–12 weeks.</p></div>
+</div>
+</div>
+<div class="emp-panel emp-p2">
+<div class="emp-wo">
+<div class="emp-wo-h c2"><h3>Leg Day A: Quad Focus</h3><span class="emp-tag">Gym</span></div>
+<div class="emp-wo-meta"><span>⏱ 55–65 min</span><span>🎯 5 exercises</span><span>📊 15 working sets</span><span>💪 Quads / Glutes / Calves</span></div>
+<div class="emp-tw"><table class="emp-ex"><thead><tr><th>#</th><th>Exercise</th><th>Sets × Reps</th><th>Rest</th><th>Effort</th></tr></thead>
+<tbody>
+<tr><td class="n">1</td><td class="x">Back Squat<span class="t">Primary: quads, glutes · Secondary: adductors</span></td><td class="s">4 × 5–8</td><td class="r">3 min</td><td class="e">RIR 2</td></tr>
+<tr><td class="n">2</td><td class="x">Leg Press<span class="t">Primary: quads, glutes</span></td><td class="s">3 × 8–12</td><td class="r">2 min</td><td class="e">RIR 1–2</td></tr>
+<tr><td class="n">3</td><td class="x">Bulgarian Split Squat<span class="t">Primary: quads, glutes</span></td><td class="s">2 × 8–12 / leg</td><td class="r">90 sec</td><td class="e">RIR 1–2</td></tr>
+<tr><td class="n">4</td><td class="x">Leg Extension<span class="t">Primary: quads (incl. rectus femoris)</span></td><td class="s">3 × 10–15</td><td class="r">90 sec</td><td class="e">RIR 1</td></tr>
+<tr><td class="n">5</td><td class="x"><a href="https://exercisemenu.com/exercises/barbell-standing-calf-raise/">Barbell Standing Calf Raise</a><span class="t">Primary: gastrocnemius</span></td><td class="s">3 × 10–15</td><td class="r">90 sec</td><td class="e">RIR 1–2</td></tr>
+</tbody></table></div>
+<div class="emp-wo-notes"><p><strong>Notes:</strong> Keep your torso more upright on Bulgarian split squats to bias the quads. Pause one second in the stretch at the bottom of every calf raise.</p></div>
+</div>
+</div>
+<div class="emp-panel emp-p3">
+<div class="emp-wo">
+<div class="emp-wo-h c3"><h3>Leg Day B: Hamstring and Glute Focus</h3><span class="emp-tag">Gym</span></div>
+<div class="emp-wo-meta"><span>⏱ 55–65 min</span><span>🎯 5 exercises</span><span>📊 15 working sets</span><span>💪 Hamstrings / Glutes / Calves</span></div>
+<div class="emp-tw"><table class="emp-ex"><thead><tr><th>#</th><th>Exercise</th><th>Sets × Reps</th><th>Rest</th><th>Effort</th></tr></thead>
+<tbody>
+<tr><td class="n">1</td><td class="x">Romanian Deadlift<span class="t">Primary: hamstrings, glutes</span></td><td class="s">4 × 6–10</td><td class="r">2–3 min</td><td class="e">RIR 2</td></tr>
+<tr><td class="n">2</td><td class="x">Barbell Hip Thrust<span class="t">Primary: glutes</span></td><td class="s">3 × 8–12</td><td class="r">2 min</td><td class="e">RIR 1–2</td></tr>
+<tr><td class="n">3</td><td class="x">Seated Leg Curl<span class="t">Primary: hamstrings</span></td><td class="s">3 × 10–12</td><td class="r">90 sec</td><td class="e">RIR 1</td></tr>
+<tr><td class="n">4</td><td class="x">Walking Lunge<span class="t">Primary: glutes, quads</span></td><td class="s">2 × 10–12 / leg</td><td class="r">90 sec</td><td class="e">RIR 1–2</td></tr>
+<tr><td class="n">5</td><td class="x">Seated Calf Raise<span class="t">Primary: soleus</span></td><td class="s">3 × 12–15</td><td class="r">60 sec</td><td class="e">RIR 1</td></tr>
+</tbody></table></div>
+<div class="emp-wo-notes"><p><strong>Notes:</strong> Lower the Romanian deadlift until you feel a strong hamstring stretch, usually just below the knee, keeping your back flat. The seated calf raise trains the soleus, which the standing version works less.</p></div>
+</div>
+</div>
+<div class="emp-panel emp-p4">
+<div class="emp-wo">
+<div class="emp-wo-h c4"><h3>Dumbbell Leg Day Workout</h3><span class="emp-tag">Home gym</span></div>
+<div class="emp-wo-meta"><span>⏱ 50–60 min</span><span>🎯 5 exercises</span><span>📊 16 working sets</span><span>💪 Quads / Hamstrings / Glutes / Calves</span></div>
+<div class="emp-tw"><table class="emp-ex"><thead><tr><th>#</th><th>Exercise</th><th>Sets × Reps</th><th>Rest</th><th>Effort</th></tr></thead>
+<tbody>
+<tr><td class="n">1</td><td class="x">Goblet Squat<span class="t">Primary: quads, glutes</span></td><td class="s">4 × 8–15</td><td class="r">2 min</td><td class="e">RIR 1–2</td></tr>
+<tr><td class="n">2</td><td class="x"><a href="https://exercisemenu.com/dumbbell-romanian-deadlift/">Dumbbell Romanian Deadlift</a><span class="t">Primary: hamstrings, glutes</span></td><td class="s">4 × 8–12</td><td class="r">2 min</td><td class="e">RIR 1–2</td></tr>
+<tr><td class="n">3</td><td class="x">Bulgarian Split Squat<span class="t">Primary: quads, glutes</span></td><td class="s">3 × 8–12 / leg</td><td class="r">90 sec</td><td class="e">RIR 1–2</td></tr>
+<tr><td class="n">4</td><td class="x">Dumbbell Step-Up<span class="t">Primary: glutes, quads</span></td><td class="s">2 × 10–12 / leg</td><td class="r">90 sec</td><td class="e">RIR 1–2</td></tr>
+<tr><td class="n">5</td><td class="x">Single-Leg Calf Raise<span class="t">Primary: calves</span></td><td class="s">3 × 10–20 / leg</td><td class="r">60 sec</td><td class="e">RIR 1</td></tr>
+</tbody></table></div>
+<div class="emp-wo-notes"><p><strong>Notes:</strong> Do this workout twice a week. Without a leg curl, the Romanian deadlift does all the hamstring work, so keep it heavy and slow. Do calf raises on a step with the heel dropping below it.</p></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="structure">
+<h2>How to Structure a Leg Day Workout</h2>
+<div class="emp-tw emp-data"><table><thead><tr><th>Order</th><th>Exercise type</th><th>Why</th><th>Examples</th></tr></thead><tbody><tr><td>1</td><td>Heavy squat or press</td><td>Hardest lift, done while you're fresh</td><td>Back squat, goblet squat, leg press</td></tr><tr><td>2</td><td>Hip hinge</td><td>Hamstrings and glutes under a heavy stretch</td><td>Romanian deadlift</td></tr><tr><td>3</td><td>Single-leg exercise</td><td>Evens out left-right differences</td><td>Bulgarian split squat, walking lunge</td></tr><tr><td>4</td><td>Isolation</td><td>Trains what the big lifts miss</td><td>Leg extension, seated leg curl</td></tr><tr><td>5</td><td>Calves</td><td>Small muscle, needs its own work</td><td>Standing or seated calf raise</td></tr></tbody></table></div>
+<div class="emp-science"><span class="emp-label">🔬 Why squats aren't enough</span><p>In a <a href="https://pubmed.ncbi.nlm.nih.gov/31230110/" rel="noopener" target="_blank">10-week squat study</a>, full squats grew the quads, glutes and inner thighs, but not the hamstrings or the rectus femoris (the quad that crosses the hip). That's why each plan here adds a hinge, a leg curl and, on the quad day, a leg extension. For the leg curl, choose the seated machine: it grew the hamstrings more than the lying leg curl in a <a href="https://pubmed.ncbi.nlm.nih.gov/33009197/" rel="noopener" target="_blank">2021 study</a>.</p></div>
+<p>For calves, spend most of each rep in the bottom half. Partial reps in the stretched position grew the inner calf more than full reps in a <a href="https://pubmed.ncbi.nlm.nih.gov/37015016/" rel="noopener" target="_blank">calf training study</a>, so pause at the bottom and don't rush the top.</p>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="volume">
+<h2>How Many Sets and Reps on Leg Day?</h2>
+<p>Each workout has 15–16 hard sets. Use 5–8 reps on heavy squats, 8–12 on most other exercises and 10–15 on isolation and calf work. Rest 2–3 minutes between sets of squats and deadlifts: longer rest built more leg muscle than one-minute rest in a <a href="https://pubmed.ncbi.nlm.nih.gov/26605807/" rel="noopener" target="_blank">study on rest periods</a>. Running the quad day and hamstring day each week gives your quads about 14 direct sets, your glutes about 18, your hamstrings 7 and your calves 6. The <a href="https://pubmed.ncbi.nlm.nih.gov/41843416/" rel="noopener" target="_blank">2026 ACSM position stand</a> links 10 or more weekly sets per muscle with more growth, so if your hamstrings lag, add 2–3 sets of seated leg curls to the end of the quad day.</p>
+<p>New to leg training? Start with two sets per exercise and add a set every two weeks. Our guide to <a href="https://exercisemenu.com/how-many-sets-per-muscle-group-per-week/">sets per muscle group</a> explains how to adjust.</p>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="progression">
+<h2>How to Progress Your Leg Day</h2>
+<p>Add weight when you complete the top of the rep range on every set: 2.5–5 kg on squats, Romanian deadlifts and the leg press, and the smallest step available on machines. Track your numbers each session; if your squat stalls for three sessions in a row, take a lighter week. See <a href="https://exercisemenu.com/what-is-progressive-overload/">progressive overload</a> for more options, and our guide to <a href="https://exercisemenu.com/types-of-squats/">types of squats</a> if you need a different squat variation.</p>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="mistakes">
+<h2>Leg Day Mistakes</h2>
+<ul>
+<li><strong>Cutting squat depth.</strong> Half squats build less muscle. Go as deep as you can with a neutral back. If your knees ache, read <a href="https://exercisemenu.com/why-your-knees-hurt-when-squatting/">why your knees hurt when squatting</a>.</li>
+<li><strong>Skipping hamstrings.</strong> Squats and leg presses barely train them. Every leg day needs a hinge or a leg curl.</li>
+<li><strong>Bouncing calf raises.</strong> Pause for a second at the bottom of each rep.</li>
+<li><strong>Doing cardio-style circuits on leg day.</strong> Short rests and light weights tire you out without building much muscle.</li>
+</ul>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section emp-faq" id="faq">
+<h2>Leg Day Workout FAQ</h2>
+<details><summary>Can I build legs without squats?</summary><div class="emp-faq-a"><p>Yes. The leg press, Bulgarian split squat and hack squat all train the quads and glutes well. Squats are one good option, not a requirement.</p></div></details>
+<details><summary>Should I do cardio after leg day?</summary><div class="emp-faq-a"><p>Light walking or easy cycling is fine and can help you feel less stiff. Leave hard intervals or long runs for another day so they don't hurt your next leg session.</p></div></details>
+<details><summary>How long should leg day take?</summary><div class="emp-faq-a"><p>About 50–65 minutes including warm-up. Leg exercises need longer rests than upper-body work, so a leg day with 15–16 sets rarely fits into 30 minutes.</p></div></details>
+<details><summary>How many exercises should I do on leg day?</summary><div class="emp-faq-a"><p>Four to six is enough. Cover a squat or press, a hinge, a single-leg move and calves; adding more exercises past that usually means lower-quality sets on the ones that matter.</p></div></details>
+<details><summary>What should I train the day after leg day?</summary><div class="emp-faq-a"><p>Upper body. Your legs need 48–72 hours before another hard session, but your chest, back and arms are fresh.</p></div></details>
+</section>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<aside class="emp-author" aria-label="About the author">
+<div class="emp-author-av" aria-hidden="true">SB</div>
+<div><p class="emp-author-n">Sadia Baloch</p>
+<p class="emp-author-c">FISAF-certified fitness trainer</p>
+<p>Sadia Baloch is a FISAF-certified fitness trainer who has personally coached hundreds of clients over the past 7 years. She specializes in strength training, fat loss, and workout programming for beginners through intermediate lifters. Every article on ExerciseMenu.com is based on the same methods she uses with her in-person clients daily.</p></div>
+</aside>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<div class="emp">
+<section class="emp-section" id="related-plans">
+<h2>Related Workout Plans</h2>
+<div class="emp-related"><a class="emp-card" href="https://exercisemenu.com/workout-plans/glute-workout/"><span class="emp-card-tag">Body Part</span><span class="emp-card-t">Glute Workout Plan</span><span class="emp-card-d">Two glute days a week built on hip thrusts, squats and hinges.</span><span class="emp-card-m">2 days/week · All levels</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/upper-lower-split/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">4-Day Upper Lower Split</span><span class="emp-card-d">Upper and lower body twice a week with simple double progression.</span><span class="emp-card-m">4 days · Beginner–Intermediate</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/push-pull-legs/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">Push Pull Legs Workout Plan</span><span class="emp-card-d">6-day PPL with heavy A days and higher-rep B days.</span><span class="emp-card-m">6 days · Intermediate–Advanced</span></a><a class="emp-card" href="https://exercisemenu.com/workout-plans/5-day-workout-split/"><span class="emp-card-tag">Muscle Building</span><span class="emp-card-t">5-Day Workout Split</span><span class="emp-card-d">Upper, Lower, Push, Pull, Legs: every muscle twice a week.</span><span class="emp-card-m">5 days · Intermediate</span></a></div>
+</section>
+<div class="emp-refs"><h3>References</h3><ol><li>Schoenfeld BJ, Ogborn D, Krieger JW. Effects of resistance training frequency on measures of muscle hypertrophy: a systematic review and meta-analysis. <em>Sports Med</em>. 2016. <a href="https://pubmed.ncbi.nlm.nih.gov/27102172/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/27102172/</a></li><li>Kubo K, Ikebukuro T, Yata H. Effects of squat training with different depths on lower limb muscle volumes. <em>Eur J Appl Physiol</em>. 2019. <a href="https://pubmed.ncbi.nlm.nih.gov/31230110/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/31230110/</a></li><li>Maeo S, et al. Greater hamstrings muscle hypertrophy but similar damage protection after training at long versus short muscle lengths. <em>Med Sci Sports Exerc</em>. 2021. <a href="https://pubmed.ncbi.nlm.nih.gov/33009197/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/33009197/</a></li><li>Kassiano W, et al. Greater gastrocnemius muscle hypertrophy after partial range of motion training performed at long muscle lengths. <em>J Strength Cond Res</em>. 2023. <a href="https://pubmed.ncbi.nlm.nih.gov/37015016/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/37015016/</a></li><li>Schoenfeld BJ, et al. Longer interset rest periods enhance muscle strength and hypertrophy in resistance-trained men. <em>J Strength Cond Res</em>. 2016. <a href="https://pubmed.ncbi.nlm.nih.gov/26605807/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/26605807/</a></li><li>Currier BS, et al. American College of Sports Medicine Position Stand: Resistance Training Prescription for Muscle Function, Hypertrophy, and Physical Performance in Healthy Adults. <em>Med Sci Sports Exerc</em>. 2026. <a href="https://pubmed.ncbi.nlm.nih.gov/41843416/" rel="noopener" target="_blank">pubmed.ncbi.nlm.nih.gov/41843416/</a></li></ol></div>
+<p class="emp-disclaimer">This plan is general education for healthy adults, not medical advice. If you have an injury, a heart, joint or blood-pressure condition, or you are pregnant or postpartum, check with your doctor or a physiotherapist before starting a new training program.</p>
+</div>
+<!-- /wp:html -->
+
+<!-- wp:html -->
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can I build legs without squats?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The leg press, Bulgarian split squat and hack squat all train the quads and glutes well. Squats are one good option, not a requirement."}}, {"@type": "Question", "name": "Should I do cardio after leg day?", "acceptedAnswer": {"@type": "Answer", "text": "Light walking or easy cycling is fine and can help you feel less stiff. Leave hard intervals or long runs for another day so they don't hurt your next leg session."}}, {"@type": "Question", "name": "How long should leg day take?", "acceptedAnswer": {"@type": "Answer", "text": "About 50–65 minutes including warm-up. Leg exercises need longer rests than upper-body work, so a leg day with 15–16 sets rarely fits into 30 minutes."}}, {"@type": "Question", "name": "How many exercises should I do on leg day?", "acceptedAnswer": {"@type": "Answer", "text": "Four to six is enough. Cover a squat or press, a hinge, a single-leg move and calves; adding more exercises past that usually means lower-quality sets on the ones that matter."}}, {"@type": "Question", "name": "What should I train the day after leg day?", "acceptedAnswer": {"@type": "Answer", "text": "Upper body. Your legs need 48–72 hours before another hard session, but your chest, back and arms are fresh."}}]}</script>
+<!-- /wp:html -->

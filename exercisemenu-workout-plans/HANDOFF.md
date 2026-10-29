@@ -32,6 +32,13 @@ All 15 pages are built in `batch1/` and packaged as a paste-ready zip. The user 
 
 Plans #1–#4 were originally written by the user (two HTML files + two .docx). They were rebuilt in the same template and fixed: false "reviewed by dietitian/coaches" box (later the user confirmed reviewers are real — see section 3), fake "download PDF/tracker" offers removed, misquoted studies fixed (Pelland, Ralston, ACSM, Seynnes, Reg Park), 5×5 progression maths corrected (session-by-session table), deadlift bar-height claim fixed, Upper/Lower chest only trained once → incline press added to Upper B, Full Body hamstrings got a leg curl + dumbbell RDL, lying leg curl → seated (Maeo 2021).
 
+### Batch 2 — body-part plans (written 29 Oct 2026, not yet published)
+Built in the same `batch1/` system (content files `chest_workout.py`, `arm_workout.py`, `core_workout.py`, `glute_workout.py`, `leg_day_workout.py`):
+#97 chest-workout ("chest workout"), #100 arm-workout ("arm workout"), #62 core-workout ("core workout"), #53 glute-workout ("glute workout"), #54 leg-day-workout ("leg day workout").
+Research per plan (top 7 competitors, short/mid/long-tail keywords, PAA questions, entities) in `batch2/research/*.xlsx` and `batch2/RESEARCH-SUMMARY.md` (also has the GIF usage table). Tools: `batch2/research.py`, `batch2/report.py`.
+Zip for only these 5: `python3 make_zip.py <dir> ExerciseMenu-Body-Part-Plans-5 chest-workout,arm-workout,core-workout,glute-workout,leg-day-workout`.
+Live exercise pages now also include barbell-lying-triceps-extension and barbell-standing-calf-raise (in `EXERCISE_LINKS`).
+
 ### Meta titles/descriptions (latest, CTR-optimised, in each `batch1/content/*.py`)
 Rewritten for all 15 on 29 Oct 2026: focus keyword first, numbers (days/weeks), "Free" (plans are free), question hook in description, every promise matches page content. Titles 48–57 chars, descriptions 140–152 chars. "4 Day / 3 Day / 5 Day" written without hyphen so Rank Math matches the focus keyword exactly.
 

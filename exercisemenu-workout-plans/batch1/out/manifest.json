@@ -118,5 +118,45 @@
     "meta_title": "Powerlifting Program for Beginners: 12 Weeks to Test Day",
     "meta_desc": "A free 12-week powerlifting program for beginners: squat, bench and deadlift 3 days a week with RPE targets, three phases and a test day to finish.",
     "focus_kw": "powerlifting program for beginners"
+  },
+  {
+    "num": 97,
+    "slug": "chest-workout",
+    "title": "Chest Workout: Best Chest Exercises and a 4-Week Plan",
+    "meta_title": "Chest Workout: Best Exercises + Free 4-Week Chest Plan",
+    "meta_desc": "A chest workout plan you can follow today: the best chest exercises for upper, middle and lower chest, plus gym, dumbbell and no-equipment versions.",
+    "focus_kw": "chest workout"
+  },
+  {
+    "num": 100,
+    "slug": "arm-workout",
+    "title": "Arm Workout: Biceps and Triceps Plan for Gym or Home",
+    "meta_title": "Arm Workout: Free Biceps & Triceps Plan (Gym or Home)",
+    "meta_desc": "Want bigger arms? This arm workout trains biceps and triceps twice a week, with gym, dumbbell and resistance band versions plus weekly progression.",
+    "focus_kw": "arm workout"
+  },
+  {
+    "num": 62,
+    "slug": "core-workout",
+    "title": "Core Workout: Short Ab and Core Plan for Gym or Home",
+    "meta_title": "Core Workout: 20-Minute Ab & Core Plan (Gym or Home)",
+    "meta_desc": "Short on time? This core workout trains your abs, obliques and lower back in about 20 minutes, 3 days a week, with gym, home and 10-minute versions.",
+    "focus_kw": "core workout"
+  },
+  {
+    "num": 53,
+    "slug": "glute-workout",
+    "title": "Glute Workout: 2-Day Plan to Build Your Glutes",
+    "meta_title": "Glute Workout: Free 2-Day Plan to Build Bigger Glutes",
+    "meta_desc": "Which exercises actually grow your glutes? This glute workout uses hip thrusts, squats, hinges and lunges twice a week, with a gym and home version.",
+    "focus_kw": "glute workout"
+  },
+  {
+    "num": 54,
+    "slug": "leg-day-workout",
+    "title": "Leg Day Workout: Complete Plans for Quads, Hamstrings and Calves",
+    "meta_title": "Leg Day Workout: 4 Free Leg Day Plans (Gym & Dumbbells)",
+    "meta_desc": "Not sure how to structure leg day? Pick a beginner, quad-focus, hamstring-focus or dumbbell leg day workout, with sets, reps, rest and progression.",
+    "focus_kw": "leg day workout"
   }
 ]
