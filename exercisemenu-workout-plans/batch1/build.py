@@ -24,6 +24,7 @@ PAGES = [
     "hypertrophy_program", "skinny_guys", "five_day_split", "ppl_hypertrophy",
     "beginner_strength", "women_strength", "powerlifting_beginners",
     "chest_workout", "arm_workout", "core_workout", "glute_workout", "leg_day_workout",
+    "resistance_band",
 ]
 
 # Live exercise pages (verified 200 on 2026-10-28; not in the XML sitemap).
@@ -61,6 +62,7 @@ PLANS = {
     "arm-workout": ("Body Part", "Arm Workout Plan", "Biceps and triceps twice a week, with gym, dumbbell and band options.", "2 days/week · All levels"),
     "core-workout": ("Body Part", "Core Workout Plan", "Short core sessions that train every core function, gym or home.", "3 days/week · All levels"),
     "glute-workout": ("Body Part", "Glute Workout Plan", "Two glute days a week built on hip thrusts, squats and hinges.", "2 days/week · All levels"),
+    "resistance-band-workout": ("Home Workout", "Resistance Band Workout Plan", "Three full-body band workouts a week with a beginner version.", "3 days/week · Beginner–Intermediate"),
     "leg-day-workout": ("Body Part", "Leg Day Workout", "Complete leg days for beginners, quad focus, hamstring focus or dumbbells.", "1–2 days/week · All levels"),
 }
 
@@ -77,7 +79,7 @@ CHIPS = {
     "program": "Program phases", "myths": "Will I get bulky?", "cycle": "Menstrual cycle", "bones": "Bone health",
     "subs": "Exercise swaps", "start": "Starting weights", "stalls": "When you stall", "accessories": "Accessories",
     "rest-days": "Rest days", "exercises": "Best exercises", "functions": "Core functions", "abs": "Visible abs",
-    "home": "No weights?", "structure": "How to structure",
+    "home": "No weights?", "structure": "How to structure", "bands": "Which bands",
 }
 
 AUTHOR_BOX = """<aside class="emp-author" aria-label="About the author">

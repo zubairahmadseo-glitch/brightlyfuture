@@ -49,6 +49,8 @@ R = {
     "plotkin2023": ("Plotkin DL, et al. Hip thrust and back squat training elicit similar gluteus muscle hypertrophy and transfer similarly to the deadlift. <em>Front Physiol</em>. 2023.", PM + "37877099/"),
     "kubo2019": ("Kubo K, Ikebukuro T, Yata H. Effects of squat training with different depths on lower limb muscle volumes. <em>Eur J Appl Physiol</em>. 2019.", PM + "31230110/"),
     "kassiano2023": ("Kassiano W, et al. Greater gastrocnemius muscle hypertrophy after partial range of motion training performed at long muscle lengths. <em>J Strength Cond Res</em>. 2023.", PM + "37015016/"),
+    "lopes2019": ("Lopes JSS, et al. Effects of training with elastic resistance versus conventional resistance on muscular strength: a systematic review and meta-analysis. <em>SAGE Open Med</em>. 2019.", PM + "30815258/"),
+    "calatayud2015": ("Calatayud J, et al. Bench press and push-up at comparable levels of muscle activity results in similar strength gains. <em>J Strength Cond Res</em>. 2015.", PM + "24983847/"),
 }
 
 
