@@ -3,6 +3,8 @@
 New session: read `HANDOFF.md` (full session summary) and this whole file before doing anything. Do NOT ask the user to re-explain.
 Also load the `exercisemenu-content` skill. Reply to the user in Roman Urdu.
 
+**MANDATORY: read `SOURCES.md` before writing any workout plan or exercise page.** Every recommendation (sets/reps, rest, progression, muscles, form/cues, mistakes, nutrition, supplements) must be verified against the sources listed there, then written in our own coach voice. Experience shapes how we explain, never what is true; never invent stories, results or studies.
+
 ## Current status (updated 28 Oct 2026)
 - **Plans #1–#15 are finished** and live in `batch1/` (content, builder, zip packaging). The user pastes pages into WordPress manually from the zip (`batch1/make_zip.py`); the REST connection failed (proxy rejected the network secret).
 - **Next plans come from `ExerciseMenu_Workout_Plans_YMYL_Safe_Roadmap.xlsx`** (tab "Remaining Plans", Status = "To write"). 14 YMYL-risk plans were removed (tab "Removed (YMYL Risk)") — never write those. Respect the "YMYL Notes" column for each plan.

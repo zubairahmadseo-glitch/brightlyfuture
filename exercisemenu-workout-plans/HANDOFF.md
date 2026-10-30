@@ -2,6 +2,8 @@
 
 New session: read this file completely before doing anything. It summarises everything agreed with the user so far. Do NOT ask the user to re-explain anything below. Reply to the user in **Roman Urdu**. Also load the `exercisemenu-content` skill.
 
+**MANDATORY: read `SOURCES.md` before writing any workout plan or exercise page.** Every recommendation (sets/reps, rest, progression, muscles, form/cues, mistakes, nutrition, supplements) must be verified against the sources listed there, then written in our own coach voice. Experience shapes how we explain, never what is true; never invent stories, results or studies.
+
 Repo: `zubairahmadseo-glitch/brightlyfuture`, branch **`claude/quirky-hawking-mxnkp4`** (all work is here; folder `exercisemenu-workout-plans/`).
 Site: **exercisemenu.com** (WordPress, SmartMag theme, Rank Math, Wordfence, Hostinger/LiteSpeed). Owner/author: **Sadia Baloch**.
 
