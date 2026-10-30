@@ -30,7 +30,7 @@ PAGE = {
 <p>This matches how many strength and physique athletes deload. A {cite('delphi2023', 'Delphi consensus')} defined deloading as a planned reduction in training stress to manage fatigue and boost readiness, and a {cite('deload2024', 'survey of physique athletes')} found deloads came about every 5–6 weeks and lasted about a week. See the {L('/what-is-a-deload-week/', 'deload week guide')} for more.</p>
 """),
         ("workouts", "The PPL Hypertrophy Workouts", f"""
-<p>Select a day. Base sets are shown; follow the weekly effort target from the block table. "Last set" notes tell you which exercises get a drop set or rest-pause set in weeks 3–5.</p>
+<p>Select a day. Base sets are shown; follow the weekly effort target from the <a href="#mesocycle">6-week block table</a> below. "Last set" notes tell you which exercises get a drop set or rest-pause set in weeks 3–5.</p>
 {TABS}
 """),
         ("techniques", "Drop Sets and Rest-Pause: How and Why", f"""
@@ -75,19 +75,10 @@ PAGE = {
 ])}
 <p>Eat enough to support the volume: about 1.6–2.2 g/kg of protein per day, which covers the point where gains plateaued in a {cite('protein2018', 'meta-analysis of 49 trials')}, and calories at or slightly above maintenance. Running this plan in a deep calorie deficit is a poor match for its volume.</p>
 """),
-        ("who", "Who This Advanced PPL Program Is For", f"""
-<ul>
-<li>You have 2+ years of consistent, logged training and have already run a PPL or upper/lower split.</li>
-<li>You can recover from six sessions a week: 7+ hours of sleep, enough food, manageable stress.</li>
-<li>Your main goal is muscle size, and you accept slower strength progress during this block.</li>
-<li>You can judge reps in reserve accurately (within about 1–2 reps). The {L('/rpe-vs-rir/', 'RPE vs RIR guide')} helps you calibrate.</li>
-</ul>
-{box("warn", "⚠️ Not a fix for stalled progress", "<p>If you have stopped growing on a moderate-volume plan, check sleep, calorie intake and effort before adding volume. Adding sets on top of poor recovery usually makes things worse.</p>")}
-"""),
     ],
     "schedule": [("Mon", "Push A", "c1"), ("Tue", "Pull A", "c2"), ("Wed", "Legs A", "c3"), ("Thu", "Push B", "c4"), ("Fri", "Pull B", "c5"), ("Sat", "Legs B", "c6"), ("Sun", "Rest", "rest")],
     "days": [
-        {"tab": "Day 1", "tab_sub": "Push A", "title": "Day 1 — Push A", "tag": "Chest · Delts · Triceps", "color": 1, "time": "50–60 min", "focus": "Chest / Shoulders / Triceps",
+        {"tab": "Day 1", "tab_sub": "Push A", "title": "Day 1: Push A", "tag": "Chest · Delts · Triceps", "color": 1, "time": "50–60 min", "focus": "Chest / Shoulders / Triceps",
          "exercises": [
              ("Barbell Bench Press", "Primary: chest · Secondary: front delts, triceps", "3 × 6–10", "2–3 min", "RIR 1–2"),
              ("Seated Dumbbell Shoulder Press", "Primary: front delts · Secondary: triceps", "3 × 8–12", "2 min", "RIR 1–2"),
@@ -96,7 +87,7 @@ PAGE = {
              ("Overhead Cable Triceps Extension", "Primary: triceps (long head)", "3 × 10–15", "60–90 sec", "RIR 0–1"),
          ],
          "notes": "Weeks 3–5: drop set on the last cable fly set; rest-pause on the last lateral raise set."},
-        {"tab": "Day 2", "tab_sub": "Pull A", "title": "Day 2 — Pull A", "tag": "Back · Rear delts · Biceps", "color": 2, "time": "50–60 min", "focus": "Back / Rear delts / Biceps",
+        {"tab": "Day 2", "tab_sub": "Pull A", "title": "Day 2: Pull A", "tag": "Back · Rear delts · Biceps", "color": 2, "time": "50–60 min", "focus": "Back / Rear delts / Biceps",
          "exercises": [
              ("Weighted Pull-Up (or Lat Pulldown)", "Primary: lats · Secondary: biceps", "3 × 6–10", "2–3 min", "RIR 1–2"),
              ("Chest-Supported Dumbbell Row", "Primary: mid-back, rear delts", "3 × 8–12", "2 min", "RIR 1"),
@@ -106,7 +97,7 @@ PAGE = {
              ("Hammer Curl", "Primary: brachialis", "2 × 10–15", "60 sec", "RIR 0–1"),
          ],
          "notes": "Weeks 3–5: rest-pause on the last reverse pec deck set; drop set on the last incline curl set."},
-        {"tab": "Day 3", "tab_sub": "Legs A", "title": "Day 3 — Legs A", "tag": "Quad focus", "color": 3, "time": "55–65 min", "focus": "Quads / Hamstrings / Calves",
+        {"tab": "Day 3", "tab_sub": "Legs A", "title": "Day 3: Legs A", "tag": "Quad focus", "color": 3, "time": "55–65 min", "focus": "Quads / Hamstrings / Calves",
          "exercises": [
              ("Back Squat", "Primary: quads, glutes · Secondary: adductors", "3 × 6–10", "3 min", "RIR 1–2"),
              ("Romanian Deadlift", "Primary: hamstrings, glutes", "3 × 8–10", "2–3 min", "RIR 2"),
@@ -116,7 +107,7 @@ PAGE = {
              ("Cable Crunch", "Primary: abs", "2 × 10–15", "60 sec", "RIR 1"),
          ],
          "notes": "Weeks 3–5: drop set on the last leg extension set; rest-pause on the last calf raise set. Keep squats and RDLs at RIR 1–2 throughout."},
-        {"tab": "Day 4", "tab_sub": "Push B", "title": "Day 4 — Push B", "tag": "Chest · Delts · Triceps", "color": 4, "time": "50–60 min", "focus": "Chest / Shoulders / Triceps",
+        {"tab": "Day 4", "tab_sub": "Push B", "title": "Day 4: Push B", "tag": "Chest · Delts · Triceps", "color": 4, "time": "50–60 min", "focus": "Chest / Shoulders / Triceps",
          "exercises": [
              ("Incline Barbell Bench Press", "Primary: upper chest · Secondary: front delts, triceps", "3 × 8–12", "2–3 min", "RIR 1–2"),
              ("Weighted Dip", "Primary: lower chest, triceps", "3 × 8–12", "2 min", "RIR 1–2"),
@@ -126,7 +117,7 @@ PAGE = {
              ("Triceps Pushdown", "Primary: triceps", "2 × 12–15", "60 sec", "RIR 0–1"),
          ],
          "notes": "Weeks 3–5: drop set on the last pec deck set and the last pushdown set. Skip dips if they cause shoulder pain; use a machine chest press instead."},
-        {"tab": "Day 5", "tab_sub": "Pull B", "title": "Day 5 — Pull B", "tag": "Back · Rear delts · Biceps", "color": 5, "time": "50–60 min", "focus": "Back / Rear delts / Biceps",
+        {"tab": "Day 5", "tab_sub": "Pull B", "title": "Day 5: Pull B", "tag": "Back · Rear delts · Biceps", "color": 5, "time": "50–60 min", "focus": "Back / Rear delts / Biceps",
          "exercises": [
              ("Barbell Row", "Primary: mid-back, lats · Secondary: rear delts", "3 × 8–10", "2–3 min", "RIR 1–2"),
              ("Lat Pulldown (neutral grip)", "Primary: lats", "3 × 10–12", "2 min", "RIR 1"),
@@ -136,7 +127,7 @@ PAGE = {
              ("Cable Curl", "Primary: biceps", "2 × 12–15", "60 sec", "RIR 0–1"),
          ],
          "notes": "Weeks 3–5: drop set on the last cable curl set."},
-        {"tab": "Day 6", "tab_sub": "Legs B", "title": "Day 6 — Legs B", "tag": "Glute & hamstring focus", "color": 6, "time": "55–65 min", "focus": "Glutes / Hamstrings / Quads / Calves",
+        {"tab": "Day 6", "tab_sub": "Legs B", "title": "Day 6: Legs B", "tag": "Glute & hamstring focus", "color": 6, "time": "55–65 min", "focus": "Glutes / Hamstrings / Quads / Calves",
          "exercises": [
              ("Hack Squat", "Primary: quads", "3 × 8–12", "2–3 min", "RIR 1–2"),
              ("Barbell Hip Thrust", "Primary: glutes · Secondary: hamstrings", "3 × 8–12", "2 min", "RIR 1–2"),

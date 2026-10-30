@@ -60,35 +60,17 @@ PAGE = {
     ["Plank", "3 × 30–60 sec", "After either workout"],
 ])}
 """),
-        ("subs", "Exercise Substitutions", f"""
-{table(["Programmed lift", "Substitution"], [
-    ["Barbell back squat", "Front squat or safety-bar squat"],
-    ["Barbell bench press", "Dumbbell bench press"],
-    ["Barbell row", "Pendlay row or dumbbell row"],
-    ["Overhead press", "Seated dumbbell shoulder press"],
-    ["Conventional deadlift", "Trap bar deadlift or sumo deadlift"],
-])}
-<p>Swap one lift at a time; changing several turns it into a different program.</p>
-"""),
-        ("compare", "5×5 vs Other Beginner Programs", f"""
-{table(["", "5×5 (this plan)", "Starting Strength", "Beginner full body"], [
-    ["Main sets", "5 × 5 (deadlift 1 × 5)", "3 × 5 (deadlift 1 × 5)", "Usually 3 × 8–12"],
-    ["Lifts", "Squat, bench, row, OHP, deadlift", "Squat, bench, OHP, deadlift, power clean", "Compound lifts plus machines and isolation"],
-    ["Progression", "Add weight every session", "Add weight every session", "Reps first, then weight"],
-])}
-<p>Choose 5×5 if your main goal is barbell strength with a simple, fixed routine. If you also want to learn machines and higher-rep work, our {L('/workout-plans/full-body-workout-plan/', 'full body workout plan for beginners')} is a better fit.</p>
-"""),
     ],
     "schedule": [("Mon", "Workout A", "c4"), ("Tue", "Rest", "rest"), ("Wed", "Workout B", "c2"), ("Thu", "Rest", "rest"), ("Fri", "Workout A", "c4"), ("Sat", "Rest", "rest"), ("Sun", "Rest", "rest")],
     "days": [
-        {"tab": "Workout A", "tab_sub": "Squat · Bench · Row", "title": "Workout A", "tag": "Mon / Fri (week 1)", "color": 4, "time": "50–75 min", "focus": "Full body",
+        {"tab": "Workout A", "tab_sub": "Squat · Bench · Row", "title": "Workout A", "tag": "Barbell", "when": "Mon & Fri in week 1, Wed in week 2", "color": 4, "time": "50–75 min", "focus": "Full body",
          "exercises": [
              ("Barbell Back Squat", "Primary: quads, glutes · Secondary: back, core", "5 × 5", "3–5 min", "All reps, good form"),
              ("Barbell Bench Press", "Primary: chest · Secondary: front delts, triceps", "5 × 5", "3–5 min", "All reps, good form"),
              ("Barbell Bent-Over Row", "Primary: upper back, lats · Secondary: biceps", "5 × 5", "3–5 min", "All reps, good form"),
          ],
          "notes": "Use a spotter or safety arms on the bench press, and squat inside a rack with the safety bars set just below your lowest position."},
-        {"tab": "Workout B", "tab_sub": "Squat · OHP · Deadlift", "title": "Workout B", "tag": "Wed (week 1)", "color": 2, "time": "40–60 min", "focus": "Full body",
+        {"tab": "Workout B", "tab_sub": "Squat · OHP · Deadlift", "title": "Workout B", "tag": "Barbell", "when": "Wed in week 1, Mon & Fri in week 2", "color": 2, "time": "40–60 min", "focus": "Full body",
          "exercises": [
              ("Barbell Back Squat", "Primary: quads, glutes · Secondary: back, core", "5 × 5", "3–5 min", "All reps, good form"),
              ("Overhead Press (Barbell)", "Primary: shoulders · Secondary: triceps, upper chest", "5 × 5", "3–5 min", "All reps, good form"),
@@ -96,6 +78,9 @@ PAGE = {
          ],
          "notes": f"The deadlift is one set because your lower back has already worked through five sets of squats. Read {L('/how-to-deadlift-for-beginners/', 'how to deadlift for beginners')} before your first session."},
     ],
+    "swap_overrides": {"Barbell Back Squat": "Front Squat or Safety-Bar Squat", "Back Squat": "Front Squat or Safety-Bar Squat",
+                       "Barbell Row": "Pendlay Row or Dumbbell Row", "Barbell Bent-Over Row": "Pendlay Row or Dumbbell Row",
+                       "Conventional Deadlift": "Trap Bar Deadlift or Sumo Deadlift", "Deadlift": "Trap Bar Deadlift or Sumo Deadlift"},
     "faq_title": "5×5 Workout FAQ",
     "faqs": [
         ("Is 5x5 good for building muscle?", "Yes, especially for beginners. Heavy compound lifts done for several sets build muscle as well as strength, and adding arm accessories after 6–8 weeks covers the smaller muscles."),

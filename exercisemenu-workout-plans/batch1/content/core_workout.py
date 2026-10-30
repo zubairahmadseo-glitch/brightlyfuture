@@ -56,7 +56,7 @@ PAGE = {
     ],
     "schedule": [("Mon", "Core A", "c1"), ("Tue", "Rest from core", "rest"), ("Wed", "Core B", "c2"), ("Thu", "Rest from core", "rest"), ("Fri", "Core A", "c1"), ("Sat", "Rest", "rest"), ("Sun", "Rest", "rest")],
     "days": [
-        {"tab": "Core A", "tab_sub": "Gym", "title": "Core Workout A (Gym)", "tag": "Gym", "color": 1, "time": "20–25 min", "focus": "Abs / Obliques / Lower back",
+        {"tab": "Core A", "tab_sub": "Gym", "title": "Core Workout A (Gym)", "tag": "Gym", "when": "Mon & Fri in week 1, Wed in week 2", "color": 1, "time": "20–25 min", "focus": "Abs / Obliques / Lower back",
          "exercises": [
              ("Cable Crunch", "Primary: rectus abdominis", "3 × 10–15", "60 sec", "RIR 1–2"),
              ("Pallof Press", "Primary: obliques (anti-rotation)", "2 × 10 / side", "45 sec", "RIR 2"),
@@ -65,7 +65,7 @@ PAGE = {
              ("Back Extension", "Primary: erector spinae · Secondary: glutes, hamstrings", "2 × 10–15", "60 sec", "RIR 2"),
          ],
          "notes": "Kneel facing the cable for crunches and round your spine down toward your knees; keep your hips still. On dead bugs, press your lower back into the floor the whole time."},
-        {"tab": "Core B", "tab_sub": "Gym", "title": "Core Workout B (Gym)", "tag": "Gym", "color": 2, "time": "20–25 min", "focus": "Abs / Obliques / Lower back",
+        {"tab": "Core B", "tab_sub": "Gym", "title": "Core Workout B (Gym)", "tag": "Gym", "when": "Wed in week 1, Mon & Fri in week 2", "color": 2, "time": "20–25 min", "focus": "Abs / Obliques / Lower back",
          "exercises": [
              ("Ab Wheel Rollout", "Primary: rectus abdominis (anti-extension)", "3 × 6–12", "60 sec", "RIR 2"),
              ("Cable Wood Chop", "Primary: obliques (rotation)", "2 × 10 / side", "45 sec", "RIR 2"),
@@ -74,7 +74,7 @@ PAGE = {
              ("Bird Dog", "Primary: erector spinae, obliques · Secondary: glutes", "2 × 8 / side", "45 sec", "Pause 2 sec each rep"),
          ],
          "notes": "Start ab wheel rollouts from your knees and roll only as far as you can without your lower back sagging. Carry a dumbbell or kettlebell in one hand and walk tall. Raise your knees to hip height or higher on knee raises without swinging."},
-        {"tab": "At home", "tab_sub": "No equipment", "title": "Core Workout at Home", "tag": "Home", "color": 4, "time": "20–25 min", "focus": "Abs / Obliques / Lower back",
+        {"tab": "At home", "tab_sub": "No equipment", "title": "Core Workout at Home", "tag": "Home", "when": "Mon · Wed · Fri", "color": 4, "time": "20–25 min", "focus": "Abs / Obliques / Lower back",
          "exercises": [
              ("Reverse Crunch", "Primary: rectus abdominis", "3 × 10–15", "45 sec", "RIR 1–2"),
              ("Plank", "Primary: rectus abdominis, transverse abdominis", "3 × 20–45 sec", "45 sec", "Hold with good form"),
@@ -83,7 +83,7 @@ PAGE = {
              ("Superman Hold", "Primary: erector spinae · Secondary: glutes", "2 × 20–30 sec", "45 sec", "Hold with good form"),
          ],
          "notes": "Lift your hips off the floor on reverse crunches by curling your pelvis, not by swinging your legs. For the superman, lift your chest and legs a few centimetres and keep your neck in line."},
-        {"tab": "10-minute", "tab_sub": "Busy days", "title": "10-Minute Core Workout", "tag": "Home or gym", "color": 6, "time": "10 min", "focus": "Whole core",
+        {"tab": "10-minute", "tab_sub": "Busy days", "title": "10-Minute Core Workout", "tag": "Home or gym", "when": "Any core day when you're short on time", "color": 6, "time": "10 min", "focus": "Whole core",
          "exercises": [
              ("Dead Bug", "Primary: transverse abdominis", "2 rounds × 40 sec", "20 sec", "Steady pace"),
              ("Bicycle Crunch", "Primary: rectus abdominis, obliques", "2 rounds × 40 sec", "20 sec", "Slow, controlled reps"),

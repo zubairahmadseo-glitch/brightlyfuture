@@ -67,7 +67,7 @@ PAGE = {
              ("Machine Hip Abduction", "Primary: gluteus medius and minimus", "3 × 15–20", "60 sec", "RIR 1"),
          ],
          "notes": "Squat to at least thighs parallel, deeper if your back stays neutral. For glute-biased back extensions, round your upper back slightly and point your toes out."},
-        {"tab": "At home", "tab_sub": "Dumbbells + band", "title": "Glute Workout at Home", "tag": "Home", "color": 4, "time": "45–55 min", "focus": "Glutes / Hamstrings / Quads",
+        {"tab": "At home", "tab_sub": "Dumbbells + band", "title": "Glute Workout at Home", "tag": "Home", "when": "Mon & Thu", "color": 4, "time": "45–55 min", "focus": "Glutes / Hamstrings / Quads",
          "exercises": [
              ("Dumbbell Hip Thrust", "Primary: gluteus maximus", "4 × 10–20", "90 sec", "RIR 1"),
              ("Dumbbell Romanian Deadlift", "Primary: gluteus maximus, hamstrings", "3 × 10–12", "90 sec", "RIR 1–2"),

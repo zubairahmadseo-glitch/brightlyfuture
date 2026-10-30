@@ -67,15 +67,6 @@ PAGE = {
 ])}
 <p>If you prefer one muscle group per day, our {L('/workout-plans/bro-split/', 'bro split workout plan')} covers that approach with the same attention to weekly volume.</p>
 """),
-        ("who", "Who This 5-Day Split Is For", f"""
-<ul>
-<li>You have trained consistently for at least a year and know the main barbell lifts.</li>
-<li>You can commit to five sessions of 45–70 minutes.</li>
-<li>You want strength numbers to rise while adding size.</li>
-<li>You have outgrown a 3- or 4-day program and need more weekly volume.</li>
-</ul>
-{box("tip", "💡 Coach's note", f"<p>Five days is a big commitment. If you regularly miss one session a week, a 4-day plan you finish beats a 5-day plan you half-finish. See {L('/how-to-create-a-weekly-workout-schedule/', 'how to create a weekly workout schedule')} for help choosing.</p>")}
-"""),
         ("nutrition", "Nutrition and Recovery", f"""
 <p>Eat about 1.6–2.2 g of protein per kg of body weight daily; gains plateaued around 1.62 g/kg in a {cite('protein2018', 'meta-analysis of 49 trials')}. To build muscle, aim for a modest surplus and a weight gain of 0.25–0.5% of body weight per week, as recommended in a {cite('offseason2019', 'review of off-season nutrition')}. Sleep 7–9 hours: five training days leave little margin for short nights. Get your number from the {L('/protein-calculator/', 'protein calculator')}.</p>
 """),
@@ -91,7 +82,7 @@ PAGE = {
     ],
     "schedule": [("Mon", "Upper", "c1"), ("Tue", "Lower", "c3"), ("Wed", "Rest", "rest"), ("Thu", "Push", "c4"), ("Fri", "Pull", "c2"), ("Sat", "Legs", "c6"), ("Sun", "Rest", "rest")],
     "days": [
-        {"tab": "Day 1", "tab_sub": "Upper", "title": "Day 1 — Upper (Heavy)", "tag": "Strength", "color": 1, "time": "60–70 min", "focus": "Chest / Back / Shoulders",
+        {"tab": "Day 1", "tab_sub": "Upper", "title": "Day 1: Upper (Heavy)", "tag": "Strength", "color": 1, "time": "60–70 min", "focus": "Chest / Back / Shoulders",
          "exercises": [
              ("Barbell Bench Press", "Primary: chest · Secondary: front delts, triceps", "3 × 5–8", "3 min", "RIR 2"),
              ("Barbell Row", "Primary: mid-back, lats · Secondary: rear delts, biceps", "3 × 6–8", "2–3 min", "RIR 2"),
@@ -101,7 +92,7 @@ PAGE = {
              ("Face Pull", "Primary: rear delts · Secondary: rotator cuff", "2 × 12–15", "60 sec", "RIR 1"),
          ],
          "notes": "Pair lateral raises with face pulls as a superset. Ramp up on bench with 2–3 warm-up sets."},
-        {"tab": "Day 2", "tab_sub": "Lower", "title": "Day 2 — Lower (Heavy)", "tag": "Strength", "color": 3, "time": "55–65 min", "focus": "Quads / Hamstrings / Glutes / Calves",
+        {"tab": "Day 2", "tab_sub": "Lower", "title": "Day 2: Lower (Heavy)", "tag": "Strength", "color": 3, "time": "55–65 min", "focus": "Quads / Hamstrings / Glutes / Calves",
          "exercises": [
              ("Back Squat", "Primary: quads, glutes · Secondary: adductors", "3 × 5–8", "3 min", "RIR 2"),
              ("Romanian Deadlift", "Primary: hamstrings, glutes", "3 × 6–8", "2–3 min", "RIR 2"),
@@ -111,7 +102,7 @@ PAGE = {
              ("Hanging Knee Raise", "Primary: abs", "2 × 10–15", "60 sec", "RIR 1"),
          ],
          "notes": "Squat and RDL are the priority; cut the knee raises before cutting either of them."},
-        {"tab": "Day 3", "tab_sub": "Push", "title": "Day 3 — Push (Volume)", "tag": "Hypertrophy", "color": 4, "time": "50–60 min", "focus": "Chest / Delts / Triceps",
+        {"tab": "Day 3", "tab_sub": "Push", "title": "Day 3: Push (Volume)", "tag": "Hypertrophy", "color": 4, "time": "50–60 min", "focus": "Chest / Delts / Triceps",
          "exercises": [
              ("Incline Dumbbell Press (30°)", "Primary: upper chest · Secondary: front delts", "3 × 8–12", "2 min", "RIR 1–2"),
              ("Dumbbell Bench Press", "Primary: chest · Secondary: triceps", "3 × 10–12", "2 min", "RIR 1–2"),
@@ -121,7 +112,7 @@ PAGE = {
              ("Triceps Pushdown", "Primary: triceps", "2 × 12–15", "60 sec", "RIR 0–1"),
          ],
          "notes": "Take 2–3 seconds to lower each press. Alternate cable lateral raise sets with triceps sets to save time."},
-        {"tab": "Day 4", "tab_sub": "Pull", "title": "Day 4 — Pull (Volume)", "tag": "Hypertrophy", "color": 2, "time": "45–55 min", "focus": "Back / Rear delts / Biceps",
+        {"tab": "Day 4", "tab_sub": "Pull", "title": "Day 4: Pull (Volume)", "tag": "Hypertrophy", "color": 2, "time": "45–55 min", "focus": "Back / Rear delts / Biceps",
          "exercises": [
              ("Lat Pulldown", "Primary: lats · Secondary: biceps", "3 × 10–12", "2 min", "RIR 1–2"),
              ("Chest-Supported Dumbbell Row", "Primary: mid-back, rear delts", "3 × 10–12", "90 sec", "RIR 1"),
@@ -131,7 +122,7 @@ PAGE = {
              ("Hammer Curl", "Primary: brachialis", "2 × 10–15", "60 sec", "RIR 1"),
          ],
          "notes": "On rows, let the shoulder blades move forward at the stretch and squeeze back at the top."},
-        {"tab": "Day 5", "tab_sub": "Legs", "title": "Day 5 — Legs (Volume)", "tag": "Hypertrophy", "color": 6, "time": "50–60 min", "focus": "Quads / Glutes / Hamstrings / Calves",
+        {"tab": "Day 5", "tab_sub": "Legs", "title": "Day 5: Legs (Volume)", "tag": "Hypertrophy", "color": 6, "time": "50–60 min", "focus": "Quads / Glutes / Hamstrings / Calves",
          "exercises": [
              ("Hack Squat (or Leg Press)", "Primary: quads", "3 × 10–15", "2 min", "RIR 1–2"),
              ("Barbell Hip Thrust", "Primary: glutes · Secondary: hamstrings", "3 × 8–12", "2 min", "RIR 1–2"),

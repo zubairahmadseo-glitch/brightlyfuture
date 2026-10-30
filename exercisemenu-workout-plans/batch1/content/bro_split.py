@@ -60,40 +60,11 @@ PAGE = {
 </ul>
 <p>More detail on timing is in the {L('/what-is-a-deload-week/', 'deload week guide')}.</p>
 """),
-        ("warmup", "Warm-Up and Exercise Substitutions", f"""
-<h3>Warm-up (8–10 minutes)</h3>
+        ("warmup", "Warm-Up", f"""
 <p>Do 5 minutes of easy cardio, then 2–3 ramp-up sets of the first exercise: an empty bar or light load for 8–10 reps, about 60% of your working weight for 5 reps, then about 80% for 2–3 reps. Later exercises need only one lighter feeder set.</p>
-<h3>Common substitutions</h3>
-{table(["If you can't do…", "Swap to", "Why"], [
-    ["Barbell bench press", "Dumbbell bench press or machine press", "Same muscles, more shoulder-friendly path"],
-    ["Pull-ups", "Lat pulldown", "Lets you load below bodyweight"],
-    ["Back squat", "Hack squat or leg press", "Less lower-back loading, same quad focus"],
-    ["Romanian deadlift", "Dumbbell RDL or 45° back extension", "Lighter, easier to learn"],
-    ["Weighted dips", "Decline or flat dumbbell press", "Avoids deep shoulder extension"],
-])}
-<p>Keep a swap for the full 8-week block so you can track progress on it.</p>
 """),
         ("nutrition", "What to Eat on a Bro Split", f"""
 <p>Two numbers matter most. Eat about 1.6 g of protein per kg of body weight daily: muscle gains from protein plateaued near 1.62 g/kg in a {cite('protein2018', 'meta-analysis of 49 trials')}. If you want to add size, eat slightly above maintenance; a {cite('offseason2019', 'bodybuilding nutrition review')} suggests a 10–20% surplus with a gain of about 0.25–0.5% of body weight per week. Get your protein target from the {L('/protein-calculator/', 'protein calculator')}.</p>
-"""),
-        ("who", "Who This Bro Split Is For", f"""
-<ul>
-<li>6–12+ months of consistent training with solid form on the bench press, squat, row and overhead press.</li>
-<li>Five training days a week and up to 75 minutes per session.</li>
-<li>You like machine and cable work and one muscle-focused session per day.</li>
-</ul>
-<p>Beginners progress faster on full-body training. If you can only train four days, missing a day here removes a muscle for the week; our {L('/workout-plans/4-day-workout-split/', '4-day workout split')} trains everything twice and is more forgiving.</p>
-"""),
-        ("comparison", "Bro Split vs Push Pull Legs vs Upper/Lower", f"""
-<p>All three splits build muscle when weekly sets are similar: a {cite('split2024', '2024 meta-analysis')} found split and full-body routines produced similar gains when volume was matched, and a {cite('pelland2026', '2026 meta-regression')} found training frequency had little effect on growth once weekly sets were accounted for. Choose by your schedule and how you recover.</p>
-{table(["", "Bro split (this plan)", "Push Pull Legs", "Upper/Lower"], [
-    ["Days per week", "5", "6 (or 3)", "4"],
-    ["Direct hits per muscle", "1×", "2× (6-day)", "2×"],
-    ["Session focus", "One muscle group", "Movement pattern", "Half the body"],
-    ["Missed-day impact", "High: a muscle skips the week", "Medium", "Low–medium"],
-    ["Best for", "Intermediate lifters who like focused sessions", "Lifters with 6 days to train", "Busy lifters wanting 2× frequency"],
-])}
-<p>A smart compromise is to run this bro split for one 8-week block, then switch to a split with twice-weekly frequency. Changing the stimulus every few months keeps training fresh without program-hopping every few weeks.</p>
 """),
         ("mistakes", "Common Bro Split Mistakes", f"""
 <ul>
@@ -106,7 +77,7 @@ PAGE = {
     ],
     "schedule": [("Mon", "Chest", "c1"), ("Tue", "Back", "c2"), ("Wed", "Shoulders", "c5"), ("Thu", "Legs", "c3"), ("Fri", "Arms", "c4"), ("Sat", "Rest", "rest"), ("Sun", "Rest", "rest")],
     "days": [
-        {"tab": "Day 1", "tab_sub": "Chest", "title": "Day 1 — Chest & Abs", "tag": "Push focus", "color": 1, "time": "55–65 min", "focus": "Chest / Abs",
+        {"tab": "Day 1", "tab_sub": "Chest", "title": "Day 1: Chest & Abs", "tag": "Push focus", "color": 1, "time": "55–65 min", "focus": "Chest / Abs",
          "exercises": [
              ("Barbell Bench Press", "Primary: chest · Secondary: front delts, triceps", "4 × 6–8", "2–3 min", "RIR 1–2"),
              ("Incline Dumbbell Press (30°)", "Primary: upper chest · Secondary: front delts", "3 × 8–10", "2 min", "RIR 1–2"),
@@ -115,7 +86,7 @@ PAGE = {
              ("Cable Crunch", "Primary: abs", "3 × 10–15", "60 sec", "RIR 1"),
          ],
          "notes": "Lean forward slightly on dips to bias the chest. If dips bother your shoulders, use the decline dumbbell press. On cable flyes, pause for a second in the stretched position."},
-        {"tab": "Day 2", "tab_sub": "Back", "title": "Day 2 — Back & Rear Delts", "tag": "Pull focus", "color": 2, "time": "60–70 min", "focus": "Lats / Mid-back / Rear delts",
+        {"tab": "Day 2", "tab_sub": "Back", "title": "Day 2: Back & Rear Delts", "tag": "Pull focus", "color": 2, "time": "60–70 min", "focus": "Lats / Mid-back / Rear delts",
          "exercises": [
              ("Pull-Up (weighted or assisted)", "Primary: lats · Secondary: biceps", "4 × 6–10", "2–3 min", "RIR 1–2"),
              ("Barbell Row", "Primary: mid-back, lats · Secondary: rear delts, biceps", "4 × 6–8", "2–3 min", "RIR 2"),
@@ -125,7 +96,7 @@ PAGE = {
              ("45° Back Extension", "Primary: spinal erectors · Secondary: glutes, hamstrings", "3 × 10–12", "90 sec", "RIR 2"),
          ],
          "notes": "Swap pull-ups for lat pulldowns if you cannot complete 6 strict reps. Keep the barbell row torso at about 45° and avoid jerking the weight up."},
-        {"tab": "Day 3", "tab_sub": "Shoulders", "title": "Day 3 — Shoulders & Traps", "tag": "Delt focus", "color": 5, "time": "50–60 min", "focus": "Delts / Traps / Abs",
+        {"tab": "Day 3", "tab_sub": "Shoulders", "title": "Day 3: Shoulders & Traps", "tag": "Delt focus", "color": 5, "time": "50–60 min", "focus": "Delts / Traps / Abs",
          "exercises": [
              ("Seated Dumbbell Shoulder Press", "Primary: front delts · Secondary: side delts, triceps", "4 × 6–10", "2–3 min", "RIR 1–2"),
              ("Dumbbell Lateral Raise", "Primary: side delts", "4 × 12–15", "60–90 sec", "RIR 0–1"),
@@ -135,7 +106,7 @@ PAGE = {
              ("Hanging Knee Raise", "Primary: abs, hip flexors", "3 × 10–15", "60 sec", "RIR 1"),
          ],
          "notes": "Keep lateral raises strict and controlled. If you have to swing the dumbbells up, the weight is too heavy."},
-        {"tab": "Day 4", "tab_sub": "Legs", "title": "Day 4 — Legs", "tag": "Priority day", "color": 3, "time": "65–75 min", "focus": "Quads / Hamstrings / Glutes / Calves",
+        {"tab": "Day 4", "tab_sub": "Legs", "title": "Day 4: Legs", "tag": "Priority day", "color": 3, "time": "65–75 min", "focus": "Quads / Hamstrings / Glutes / Calves",
          "exercises": [
              ("Back Squat", "Primary: quads, glutes · Secondary: adductors", "4 × 6–8", "3 min", "RIR 2"),
              ("Romanian Deadlift", "Primary: hamstrings, glutes", "4 × 8–10", "2–3 min", "RIR 2"),
@@ -145,7 +116,7 @@ PAGE = {
              ("Standing Calf Raise", "Primary: calves (gastrocnemius)", "4 × 10–15", "60–90 sec", "RIR 1"),
          ],
          "notes": f"The seated leg curl is chosen over the lying version because training the hamstrings at longer lengths produced more growth in a {cite('maeo2021', 'controlled trial')}. Pause 1–2 seconds at the bottom of each calf raise."},
-        {"tab": "Day 5", "tab_sub": "Arms", "title": "Day 5 — Arms & Calves", "tag": "Arm focus", "color": 4, "time": "55–65 min", "focus": "Biceps / Triceps / Calves",
+        {"tab": "Day 5", "tab_sub": "Arms", "title": "Day 5: Arms & Calves", "tag": "Arm focus", "color": 4, "time": "55–65 min", "focus": "Biceps / Triceps / Calves",
          "exercises": [
              ("Close-Grip Bench Press", "Primary: triceps · Secondary: chest", "3 × 6–10", "2–3 min", "RIR 2"),
              ("Barbell Curl", "Primary: biceps", "3 × 8–10", "90 sec", "RIR 1"),
@@ -157,6 +128,8 @@ PAGE = {
          ],
          "notes": "Pair biceps and triceps moves as supersets (e.g., curl then pushdown) to save time."},
     ],
+    "swap_overrides": {"Barbell Bench Press": "Dumbbell Bench Press or Machine Chest Press", "Weighted Dip": "Flat or Decline Dumbbell Press",
+                       "Romanian Deadlift": "Dumbbell Romanian Deadlift or 45° Back Extension", "Back Squat": "Hack Squat or Leg Press", "Barbell Back Squat": "Hack Squat or Leg Press"},
     "faq_title": "Bro Split Workout Plan FAQ",
     "faqs": [
         ("Can I do cardio on a bro split?", "Yes. Easy cardio such as walking or cycling for 20–30 minutes fits after upper-body days or on weekends. Avoid hard intervals the day before leg day so squats and Romanian deadlifts do not suffer."),
@@ -167,6 +140,6 @@ PAGE = {
         ("What if I miss a day?", "Do the missed session the next day and push the rest of the week back by one day. Avoid skipping legs; if you must drop a session, drop arms, since biceps and triceps already get indirect work."),
     ],
     "related": ["push-pull-legs", "5-day-workout-split", "upper-lower-split", "ppl-hypertrophy-program"],
-    "refs": refs("split2024", "pelland2026", "acsm2026", "vol2017", "rest2016", "restsys2017", "acsm2009", "deload2024", "failure2023", "maeo2021", "protein2018", "offseason2019"),
+    "refs": refs("pelland2026", "acsm2026", "vol2017", "rest2016", "restsys2017", "acsm2009", "deload2024", "failure2023", "maeo2021", "protein2018", "offseason2019"),
     "disclaimer": DISCLAIMER,
 }

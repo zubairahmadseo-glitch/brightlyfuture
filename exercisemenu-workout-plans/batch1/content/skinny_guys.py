@@ -61,15 +61,6 @@ PAGE = {
 <p>Second, you cannot keep gaining weight without eating more energy than you burn. A {cite('surplus2019', '2019 review')} concluded an energy surplus provides an anabolic stimulus on its own and supports muscle growth from training. For many skinny lifters, the part they can change is calorie intake, which often never reaches a real surplus.</p>
 {box("tip", "💡 Quick test", "<p>Log everything you eat for 7 days and weigh yourself each morning. If weight is flat, your average intake is your maintenance. Many self-described hardgainers find they eat less than they thought, especially on busy days.</p>")}
 """),
-        ("who", "Who This Plan Is For", f"""
-<ul>
-<li>You are lean or underweight and want to add muscle and body weight.</li>
-<li>You have 0–18 months of lifting experience.</li>
-<li>You can train three days a week for 45–55 minutes.</li>
-<li>You have struggled to gain on longer, high-volume routines.</li>
-</ul>
-<p>If you are completely new to the gym, the first two weeks of this plan double as technique practice. Start light, learn each movement, and build from there. The {L('/how-many-reps-and-sets-should-a-beginner-do/', 'beginner reps and sets guide')} explains why starting easy pays off.</p>
-"""),
         ("cardio", "Cardio, Sleep and Daily Activity", f"""
 <p>You do not need to stop cardio. Two 20–30 minute easy sessions a week keep your heart and lungs fit. If your weight trend stalls, eat more rather than dropping all activity. Long, hard conditioning sessions are the ones to limit, since they burn the calories you are trying to store.</p>
 <p>Sleep 7–9 hours where possible. Poor sleep makes it harder to eat well, recover and progress your lifts.</p>
@@ -86,7 +77,7 @@ PAGE = {
     ],
     "schedule": [("Mon", "Upper", "c1"), ("Tue", "Rest", "rest"), ("Wed", "Lower", "c3"), ("Thu", "Rest", "rest"), ("Fri", "Full Body", "c4"), ("Sat", "Rest", "rest"), ("Sun", "Rest", "rest")],
     "days": [
-        {"tab": "Day 1", "tab_sub": "Upper", "title": "Day 1 — Upper Body", "tag": "Push + Pull", "color": 1, "time": "45–55 min", "focus": "Chest / Back / Shoulders / Arms",
+        {"tab": "Day 1", "tab_sub": "Upper", "title": "Day 1: Upper Body", "tag": "Push + Pull", "color": 1, "time": "45–55 min", "focus": "Chest / Back / Shoulders / Arms",
          "exercises": [
              ("Barbell Bench Press", "Primary: chest · Secondary: front delts, triceps", "3 × 6–8", "2–3 min", "RIR 2"),
              ("Lat Pulldown", "Primary: lats · Secondary: biceps", "3 × 8–10", "2 min", "RIR 2"),
@@ -96,7 +87,7 @@ PAGE = {
              ("Triceps Pushdown", "Primary: triceps", "2 × 10–12", "60 sec", "RIR 1"),
          ],
          "notes": "Superset the curl and pushdown. If you cannot do 6 bench reps with the empty bar, use the dumbbell bench press until you can."},
-        {"tab": "Day 2", "tab_sub": "Lower", "title": "Day 2 — Lower Body", "tag": "Legs + Core", "color": 3, "time": "45–55 min", "focus": "Quads / Hamstrings / Glutes / Calves",
+        {"tab": "Day 2", "tab_sub": "Lower", "title": "Day 2: Lower Body", "tag": "Legs + Core", "color": 3, "time": "45–55 min", "focus": "Quads / Hamstrings / Glutes / Calves",
          "exercises": [
              ("Back Squat", "Primary: quads, glutes · Secondary: adductors, core", "3 × 6–8", "3 min", "RIR 2"),
              ("Romanian Deadlift", "Primary: hamstrings, glutes", "3 × 8–10", "2–3 min", "RIR 2"),
@@ -106,7 +97,7 @@ PAGE = {
              ("Cable Crunch", "Primary: abs", "2 × 10–15", "60 sec", "RIR 1"),
          ],
          "notes": "If back squats feel awkward, start with a goblet squat for 2–4 weeks, then move to the barbell."},
-        {"tab": "Day 3", "tab_sub": "Full Body", "title": "Day 3 — Full Body", "tag": "Strength + Size", "color": 4, "time": "50–55 min", "focus": "Full body",
+        {"tab": "Day 3", "tab_sub": "Full Body", "title": "Day 3: Full Body", "tag": "Strength + Size", "color": 4, "time": "50–55 min", "focus": "Full body",
          "exercises": [
              ("Trap Bar Deadlift", "Primary: glutes, quads, hamstrings · Secondary: upper back", "3 × 5–8", "3 min", "RIR 2"),
              ("Incline Dumbbell Press (30°)", "Primary: upper chest · Secondary: front delts", "3 × 8–10", "2 min", "RIR 2"),

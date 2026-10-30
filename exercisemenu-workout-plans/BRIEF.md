@@ -24,7 +24,8 @@ Do these steps in order for each plan, and show the research to the user before 
 
 ## Page standards (learned in batch 1 — keep them)
 - **Workout first:** Quick Answer → schedule → day tabs → everything else. Users come for the plan; don't make them dig. Keep pages short; no padding, no repeated info, FAQs must add new info.
-- **No Key Takeaways box** (user agreed it repeated the body).
+- **No Key Takeaways box and no Quick Answer box** (plan pages, not articles). Order: hero → stats → jump chips → workout tabs → schedule → other sections.
+- Each tab card shows its training days (📅, from `schedule` colours or a `"when"` override), a "Swap:" line per exercise (`batch1/swaps.py`, page `swap_overrides`, or `"swaps": False`), and a "How to progress ↓" link.
 - **Day tabs are pure CSS** (radio inputs) so WordPress keeps them; "All days" tab included.
 - **Hero line on every page:** "✓ Training reviewed by FISAF-certified coaches · Nutrition reviewed by [Rimsha Shahid](https://exercisemenu.com/rimsha-shahid/), certified dietitian" (her profile title is "Certified Dietitian | Clinical Nutritionist" — never write "registered dietitian").
 - **Author box after the FAQ:** Sadia Baloch, FISAF-certified fitness trainer (text in `batch1/build.py` `AUTHOR_BOX`). No other bylines.

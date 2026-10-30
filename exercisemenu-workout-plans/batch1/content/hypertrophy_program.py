@@ -31,7 +31,7 @@ PAGE = {
 <p>Week 6 follows the consensus definition from a {cite('delphi2023', 'Delphi study of coaches and researchers')}: a period of reduced training stress to reduce fatigue and prepare for the next block. Athletes in a {cite('deload2024', 'cross-sectional survey')} deloaded about every 5–6 weeks by cutting sets and reps, close to the rhythm used here. More on timing is in our {L('/what-is-a-deload-week/', 'deload week guide')}.</p>
 """),
         ("workouts", "The Hypertrophy Workouts", f"""
-<p>Choose a day. Sets shown are the week 1–2 base. Effort uses reps in reserve; read the {L('/rpe-vs-rir/', 'RPE vs RIR guide')} if you need a refresher, and follow the week's target from the table above.</p>
+<p>Choose a day. Sets shown are the week 1–2 base. Effort uses reps in reserve; read the {L('/rpe-vs-rir/', 'RPE vs RIR guide')} if you need a refresher, and follow the week's target from the <a href="#mesocycle">6-week block table</a> below.</p>
 {TABS}
 """),
         ("volume", "Weekly Volume: Base vs Peak", f"""
@@ -62,15 +62,6 @@ PAGE = {
 <li><strong>Count only hard sets.</strong> Warm-up sets do not count toward weekly volume. See {L('/warm-up-sets-vs-working-sets/', 'warm-up sets vs working sets')}.</li>
 </ul>
 """),
-        ("split", "Why an Anterior/Posterior Split?", f"""
-<p>An anterior/posterior split divides the body front and back instead of upper and lower. Anterior days train quads, chest, front and side delts, and biceps. Posterior days train back, hamstrings, glutes, rear delts, triceps and calves.</p>
-<ul>
-<li><strong>Balanced session length.</strong> Each day mixes one big lower-body lift with upper-body work, so no day is a 75-minute leg session.</li>
-<li><strong>Less overlap.</strong> Biceps are trained on chest days and triceps on back days, so arms are fresh for their direct work.</li>
-<li><strong>Two exposures per muscle.</strong> Each anterior and posterior session runs twice a week.</li>
-</ul>
-<p>If you prefer splitting by upper and lower body, our {L('/workout-plans/4-day-workout-split/', '4-day workout split')} compares the main options.</p>
-"""),
         ("principles", "Why This Program Works for Hypertrophy", f"""
 <p>Four variables do most of the work. The {cite('acsm2026', '2026 ACSM position stand')}, which pooled 137 systematic reviews, found muscle growth was enhanced by higher weekly volume (10 or more sets per muscle) and eccentric overload, while many other details had inconsistent effects.</p>
 {table(["Variable", "This program", "Evidence"], [
@@ -88,7 +79,7 @@ PAGE = {
     ],
     "schedule": [("Mon", "Anterior A", "c1"), ("Tue", "Posterior A", "c2"), ("Wed", "Rest", "rest"), ("Thu", "Anterior B", "c6"), ("Fri", "Posterior B", "c5"), ("Sat", "Rest", "rest"), ("Sun", "Rest", "rest")],
     "days": [
-        {"tab": "Day 1", "tab_sub": "Anterior A", "title": "Day 1 — Anterior A", "tag": "Quads · Chest · Biceps", "color": 1, "time": "60–70 min", "focus": "Quads / Chest / Delts / Biceps",
+        {"tab": "Day 1", "tab_sub": "Anterior A", "title": "Day 1: Anterior A", "tag": "Quads · Chest · Biceps", "color": 1, "time": "60–70 min", "focus": "Quads / Chest / Delts / Biceps",
          "exercises": [
              ("Back Squat (or Hack Squat)", "Primary: quads · Secondary: glutes, adductors", "3 × 6–10", "2–3 min", "Week target"),
              ("Barbell Bench Press", "Primary: chest · Secondary: front delts, triceps", "3 × 6–10", "2–3 min", "Week target"),
@@ -98,7 +89,7 @@ PAGE = {
              ("Incline Dumbbell Curl", "Primary: biceps (long head)", "3 × 10–15", "60–90 sec", "Week target"),
          ],
          "notes": "Lower the bench press to the chest with a brief pause. Set the leg extension seat back slightly so the quads stretch at the bottom."},
-        {"tab": "Day 2", "tab_sub": "Posterior A", "title": "Day 2 — Posterior A", "tag": "Back · Hamstrings · Triceps", "color": 2, "time": "60–70 min", "focus": "Back / Hamstrings / Triceps / Calves",
+        {"tab": "Day 2", "tab_sub": "Posterior A", "title": "Day 2: Posterior A", "tag": "Back · Hamstrings · Triceps", "color": 2, "time": "60–70 min", "focus": "Back / Hamstrings / Triceps / Calves",
          "exercises": [
              ("Romanian Deadlift", "Primary: hamstrings, glutes", "3 × 6–10", "2–3 min", "Week target"),
              ("Pull-Up (or Lat Pulldown)", "Primary: lats · Secondary: biceps", "3 × 6–10", "2–3 min", "Week target"),
@@ -108,7 +99,7 @@ PAGE = {
              ("Standing Calf Raise", "Primary: calves", "3 × 10–15", "60 sec", "Week target"),
          ],
          "notes": "On RDLs, push the hips back until you feel a strong hamstring stretch, usually just below the knee. Pause 1–2 seconds at the bottom of every calf raise."},
-        {"tab": "Day 3", "tab_sub": "Anterior B", "title": "Day 3 — Anterior B", "tag": "Quads · Chest · Biceps", "color": 6, "time": "55–65 min", "focus": "Quads / Chest / Delts / Biceps",
+        {"tab": "Day 3", "tab_sub": "Anterior B", "title": "Day 3: Anterior B", "tag": "Quads · Chest · Biceps", "color": 6, "time": "55–65 min", "focus": "Quads / Chest / Delts / Biceps",
          "exercises": [
              ("Leg Press", "Primary: quads · Secondary: glutes", "3 × 10–15", "2 min", "Week target"),
              ("Machine Chest Press", "Primary: chest · Secondary: triceps", "3 × 8–12", "2 min", "Week target"),
@@ -119,7 +110,7 @@ PAGE = {
              ("Cable Crunch", "Primary: abs", "2 × 10–15", "60 sec", "Week target"),
          ],
          "notes": "Run cable lateral raises behind the body so the side delt is loaded at the bottom of the rep."},
-        {"tab": "Day 4", "tab_sub": "Posterior B", "title": "Day 4 — Posterior B", "tag": "Back · Glutes · Triceps", "color": 5, "time": "60–70 min", "focus": "Back / Glutes / Hamstrings / Triceps",
+        {"tab": "Day 4", "tab_sub": "Posterior B", "title": "Day 4: Posterior B", "tag": "Back · Glutes · Triceps", "color": 5, "time": "60–70 min", "focus": "Back / Glutes / Hamstrings / Triceps",
          "exercises": [
              ("Barbell Hip Thrust", "Primary: glutes · Secondary: hamstrings", "3 × 8–12", "2 min", "Week target"),
              ("Seated Leg Curl", "Primary: hamstrings", "3 × 10–15", "90 sec", "Week target"),

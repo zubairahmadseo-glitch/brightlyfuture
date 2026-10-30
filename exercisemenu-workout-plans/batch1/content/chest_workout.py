@@ -80,7 +80,7 @@ PAGE = {
              ("Dip (or Assisted Dip)", "Primary: lower chest · Secondary: triceps", "2 × 8–12", "2 min", "RIR 1–2"),
          ],
          "notes": "Set the incline bench to about 30°. Lean forward on dips to bias the chest; skip them if they bother your shoulders and do a machine chest press instead."},
-        {"tab": "Dumbbells", "tab_sub": "Bench + dumbbells", "title": "Chest Workout: Dumbbells Only", "tag": "Home gym", "color": 4, "time": "35–45 min", "focus": "Chest / Triceps",
+        {"tab": "Dumbbells", "tab_sub": "Bench + dumbbells", "title": "Chest Workout: Dumbbells Only", "tag": "Home gym", "when": "Mon & Thu", "color": 4, "time": "35–45 min", "focus": "Chest / Triceps",
          "exercises": [
              ("Dumbbell Bench Press", "Primary: middle chest · Secondary: triceps, front delts", "4 × 8–12", "2 min", "RIR 1–2"),
              ("Incline Dumbbell Press (30°)", "Primary: upper chest", "3 × 8–12", "2 min", "RIR 1–2"),
@@ -88,7 +88,7 @@ PAGE = {
              ("Push-Up", "Primary: chest · Secondary: triceps", "2 × as many as possible", "90 sec", "RIR 1"),
          ],
          "notes": "Do this workout twice a week. With no bench, use the floor press for presses and a floor fly with a short range."},
-        {"tab": "No equipment", "tab_sub": "Push-ups only", "title": "Chest Workout: No Equipment", "tag": "Home", "color": 6, "time": "30–40 min", "focus": "Chest / Triceps",
+        {"tab": "No equipment", "tab_sub": "Push-ups only", "title": "Chest Workout: No Equipment", "tag": "Home", "when": "Mon & Thu", "color": 6, "time": "30–40 min", "focus": "Chest / Triceps",
          "exercises": [
              ("Push-Up", "Primary: chest · Secondary: triceps, front delts", "4 × 8–20", "90 sec", "RIR 1–2"),
              ("Feet-Elevated Push-Up", "Primary: upper chest · Secondary: front delts", "3 × 6–15", "90 sec", "RIR 1–2"),

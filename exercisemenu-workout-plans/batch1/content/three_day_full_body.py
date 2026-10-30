@@ -55,44 +55,19 @@ PAGE = {
         ("deload", "Deload Every 8th Week", f"""
 <p>Run weeks 1–7 as written and deload in week 8. Keep all three days, cut sets roughly in half, and stop each set at RIR 3–4. In a {cite('deload2024', 'survey of strength and physique athletes')}, deloads lasted about a week, came every 5–6 weeks on average, and mostly reduced sets and reps while keeping training frequency. If you feel worn down by week 5 or 6, deload then. The {L('/what-is-a-deload-week/', 'deload week guide')} lists the warning signs.</p>
 """),
-        ("warmup", "Warm-Up and Substitutions", f"""
+        ("warmup", "Warm-Up", f"""
 <p>Warm up for 5–8 minutes with light cardio and a few bodyweight squats, hip hinges and band pull-aparts. Then ramp up on the first lift: bar or light load × 8, about 60% × 5, about 80% × 2–3. The {L('/how-to-warm-up-before-a-workout/', 'warm-up guide')} covers this in more detail.</p>
-{table(["Exercise", "Swap", "When"], [
-    ["Back squat", "Safety-bar squat or hack squat", "Shoulder or lower-back discomfort"],
-    ["Weighted pull-up", "Lat pulldown 4 × 6–8", "Fewer than 6 strict bodyweight reps"],
-    ["Trap bar deadlift", "Conventional deadlift or dumbbell RDL", "No trap bar available"],
-    ["Bulgarian split squat", "Reverse lunge or leg press", "Balance issues"],
-    ["Standing overhead press", "Seated dumbbell press", "Lower-back arching"],
-])}
 """),
         ("why", "Why Full Body Still Works for Intermediates", f"""
 <p>Split and full-body routines produced similar strength and muscle gains when weekly volume was matched in a {cite('split2024', '2024 meta-analysis of 14 studies')}. Training a lift more often also helps strength: gains rose with weekly frequency in a {cite('freqstr2018', '2018 meta-analysis')}, and the {cite('pelland2026', '2026 Pelland meta-regression')} found the same with diminishing returns. The heavy/light/medium rotation is a fatigue tool; the {cite('acsm2026', '2026 ACSM position stand')} found periodization models did not consistently change outcomes, so its value is practical: you grind heavy loads only once a week.</p>
 """),
-        ("who", "Who This Program Is For", f"""
-<ul>
-<li>You have 6–24 months of consistent training and your beginner gains have slowed.</li>
-<li>You can train <strong>three non-consecutive days</strong> (Mon/Wed/Fri or Tue/Thu/Sat).</li>
-<li>You can squat, bench, hinge and press with solid technique.</li>
-<li>You want both strength and size, not a pure powerlifting or pure bodybuilding plan.</li>
-</ul>
-{box("tip", "💡 Not sure you're intermediate?", f"<p>If you can still add weight to your main lifts every session, you are still a beginner, and a simpler program will move you faster. Start with our {L('/workout-plans/full-body-workout-plan/', 'full body workout plan for beginners')} and come back when progress slows to weekly or slower.</p>")}
-"""),
         ("nutrition", "What to Eat on This Plan", f"""
 <p>Aim for about 1.6 g of protein per kg of body weight daily, the point where gains plateaued in a {cite('protein2018', 'meta-analysis of 49 trials')}. Spread it evenly over 3–5 meals; the {cite('issnprotein', 'ISSN protein position stand')} suggests 20–40 g per meal every 3–4 hours. A meal with carbs and protein 1–3 hours before training helps you start the session fuelled. For meal ideas, see the {L('/best-pre-workout-meal-for-muscle-gain/', 'best pre-workout meals for muscle gain')}.</p>
-"""),
-        ("compare", "3-Day Full Body vs Other 3-Day Options", f"""
-{table(["Plan", "Best for", "Main difference"], [
-    ["3-day full body (this plan)", "Intermediates with 3 days", "Heavy/light/medium days, varied exercises"],
-    ["Typical beginner full-body plan", "First 3–6 months", "Same lifts each session, add weight every workout"],
-    ["Typical 5×5 program", "Strength-first lifters", "Five sets of five on a few barbell lifts"],
-    ["3-day push/pull/legs", "Lifters who like split sessions", "Each muscle trained once a week"],
-])}
-<p>When three days a week becomes too limiting for your goals, a 4-day split is the natural next step, because it lets you add volume without lengthening each session.</p>
 """),
     ],
     "schedule": [("Mon", "Heavy", "c4"), ("Tue", "Rest", "rest"), ("Wed", "Light", "c1"), ("Thu", "Rest", "rest"), ("Fri", "Medium", "c2"), ("Sat", "Rest", "rest"), ("Sun", "Rest", "rest")],
     "days": [
-        {"tab": "Day 1", "tab_sub": "Heavy", "title": "Day 1 — Heavy", "tag": "4–6 reps", "color": 4, "time": "65–75 min", "focus": "Full body",
+        {"tab": "Day 1", "tab_sub": "Heavy", "title": "Day 1: Heavy", "tag": "4–6 reps", "color": 4, "time": "65–75 min", "focus": "Full body",
          "exercises": [
              ("Back Squat", "Primary: quads, glutes · Secondary: adductors, core", "4 × 4–6", "3 min", "RIR 2"),
              ("Barbell Bench Press", "Primary: chest · Secondary: front delts, triceps", "4 × 4–6", "3 min", "RIR 2"),
@@ -102,7 +77,7 @@ PAGE = {
              ("Standing Calf Raise", "Primary: calves", "3 × 8–12", "60–90 sec", "RIR 1"),
          ],
          "notes": "Squat and bench are the priority. If time is short, cut lateral raises and calf raises, not the main lifts."},
-        {"tab": "Day 2", "tab_sub": "Light", "title": "Day 2 — Light", "tag": "10–15 reps", "color": 1, "time": "55–65 min", "focus": "Full body",
+        {"tab": "Day 2", "tab_sub": "Light", "title": "Day 2: Light", "tag": "10–15 reps", "color": 1, "time": "55–65 min", "focus": "Full body",
          "exercises": [
              ("Leg Press", "Primary: quads · Secondary: glutes", "3 × 12–15", "90 sec", "RIR 1–2"),
              ("Dumbbell Bench Press", "Primary: chest · Secondary: triceps", "3 × 10–12", "90 sec", "RIR 1–2"),
@@ -113,7 +88,7 @@ PAGE = {
              ("Triceps Pushdown", "Primary: triceps", "3 × 12–15", "60 sec", "RIR 1"),
          ],
          "notes": "Run the curl and pushdown as a superset. The aim today is clean reps and a strong pump, not heavy loads."},
-        {"tab": "Day 3", "tab_sub": "Medium", "title": "Day 3 — Medium", "tag": "5–10 reps", "color": 2, "time": "60–70 min", "focus": "Full body",
+        {"tab": "Day 3", "tab_sub": "Medium", "title": "Day 3: Medium", "tag": "5–10 reps", "color": 2, "time": "60–70 min", "focus": "Full body",
          "exercises": [
              ("Trap Bar Deadlift", "Primary: glutes, quads, hamstrings · Secondary: upper back", "3 × 5–7", "3 min", "RIR 2"),
              ("Standing Overhead Press", "Primary: front delts · Secondary: triceps, upper chest", "3 × 6–8", "2–3 min", "RIR 2"),
@@ -125,6 +100,8 @@ PAGE = {
          ],
          "notes": "Rest a full 2 minutes between split-squat legs if you need it. Superset the hammer curl and overhead extension."},
     ],
+    "swap_overrides": {"Back Squat": "Safety-Bar Squat or Hack Squat", "Barbell Back Squat": "Safety-Bar Squat or Hack Squat",
+                       "Weighted Pull-Up": "Lat Pulldown (if you can't do 6 strict pull-ups)", "Bulgarian Split Squat": "Reverse Lunge or Leg Press"},
     "faq_title": "3-Day Full Body Workout FAQ",
     "faqs": [
         ("Can I do this 3 day full body workout on consecutive days?", "It's not recommended. Each session trains every muscle, so back-to-back days leave you under-recovered. Keep at least 48 hours between sessions."),

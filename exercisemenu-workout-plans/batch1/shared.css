@@ -136,3 +136,6 @@
 .emp .emp-author p{margin:0 0 6px;font-size:.92rem}
 .emp .emp-author p.emp-author-n{font-weight:700;color:var(--emp-ink);font-size:1rem;margin:0}
 .emp .emp-author p.emp-author-c{color:var(--emp-muted);font-size:.8rem;margin:0 0 8px}
+.emp .emp-ex .sw{display:block;font-size:.72rem;color:var(--emp-accent-d);font-weight:500;margin-top:2px}
+.emp .emp-swapnote{font-size:.8rem;color:var(--emp-muted);margin:8px 2px 0}
+@media (max-width:600px){.emp .emp-stats{grid-template-columns:repeat(3,1fr);gap:6px}.emp .emp-stat{padding:8px 4px}.emp .emp-stat-v{font-size:1rem}.emp .emp-stat-l{font-size:.62rem}}

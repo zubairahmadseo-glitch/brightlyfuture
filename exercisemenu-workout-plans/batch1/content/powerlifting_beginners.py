@@ -81,13 +81,10 @@ PAGE = {
         ("nutrition", "Nutrition, Recovery and Body Weight", f"""
 <p>Eat about 1.6–2.2 g of protein per kg of body weight daily; a {cite('protein2018', 'meta-analysis of 49 trials')} found muscle gains plateaued near 1.6 g/kg. Beginners do not need to cut weight for a weight class; eat at maintenance or slightly above and let strength rise. Creatine monohydrate at 3–5 g per day is the {cite('creatine', 'best-supported supplement')} for strength training and is optional.</p>
 """),
-        ("next", "After the Test Day", f"""
-<p>Take an easy week, then rerun the program with your new numbers. A second 12-week cycle is often still productive for a beginner. Once progress across a full cycle slows, it is time for more volume and longer phases. Typical strength levels by age and body weight are in our guides to the {L('/average-squat-weight/', 'average squat')}, {L('/average-bench-press-by-age-weight-and-sex/', 'average bench press')} and {L('/is-your-deadlift-good-average-weights-by-level-age/', 'average deadlift')}.</p>
-"""),
     ],
     "schedule": [("Mon", "Day 1", "c4"), ("Tue", "Rest", "rest"), ("Wed", "Day 2", "c2"), ("Thu", "Rest", "rest"), ("Fri", "Day 3", "c1"), ("Sat", "Rest", "rest"), ("Sun", "Rest", "rest")],
     "days": [
-        {"tab": "Day 1", "tab_sub": "Squat + Bench", "title": "Day 1 — Squat & Bench Volume", "tag": "Weeks 1–4", "color": 4, "time": "60–70 min", "focus": "Squat / Bench / Upper back",
+        {"tab": "Day 1", "tab_sub": "Squat + Bench", "title": "Day 1: Squat & Bench Volume", "tag": "Weeks 1–4", "color": 4, "time": "60–70 min", "focus": "Squat / Bench / Upper back",
          "exercises": [
              ("Back Squat (competition depth)", "Primary: quads, glutes · Secondary: adductors, back", "4 × 6", "3–4 min", "RPE 7"),
              ("Barbell Bench Press (touch-and-go)", "Primary: chest · Secondary: front delts, triceps", "3 × 8", "3 min", "RPE 7"),
@@ -96,7 +93,7 @@ PAGE = {
              ("Hanging Knee Raise", "Primary: abs", "3 × 10–15", "60 sec", "RPE 8"),
          ],
          "notes": "Film a side view of your top squat set each week to check depth. Use the same stance and bar position every session."},
-        {"tab": "Day 2", "tab_sub": "Deadlift + Bench", "title": "Day 2 — Deadlift & Paused Bench", "tag": "Weeks 1–4", "color": 2, "time": "60–75 min", "focus": "Deadlift / Bench / Back",
+        {"tab": "Day 2", "tab_sub": "Deadlift + Bench", "title": "Day 2: Deadlift & Paused Bench", "tag": "Weeks 1–4", "color": 2, "time": "60–75 min", "focus": "Deadlift / Bench / Back",
          "exercises": [
              ("Deadlift (conventional or sumo)", "Primary: glutes, hamstrings, back · Secondary: quads, grip", "3 × 5", "3–5 min", "RPE 7"),
              ("Paused Bench Press (1-second pause)", "Primary: chest · Secondary: triceps, front delts", "4 × 5", "3–4 min", "RPE 7"),
@@ -105,7 +102,7 @@ PAGE = {
              ("Triceps Pushdown", "Primary: triceps", "3 × 10–12", "60 sec", "RPE 8"),
          ],
          "notes": "Choose sumo or conventional before you start and keep it for the full 12 weeks. Pause until the bar is still on the chest, then press."},
-        {"tab": "Day 3", "tab_sub": "Technique", "title": "Day 3 — Paused Squat & Variations", "tag": "Weeks 1–4", "color": 1, "time": "55–65 min", "focus": "Squat / Bench / Hinge",
+        {"tab": "Day 3", "tab_sub": "Technique", "title": "Day 3: Paused Squat & Variations", "tag": "Weeks 1–4", "color": 1, "time": "55–65 min", "focus": "Squat / Bench / Hinge",
          "exercises": [
              ("Paused Back Squat (2-second pause)", "Primary: quads, glutes · Builds position in the hole", "3 × 5", "3 min", "RPE 6–7"),
              ("Close-Grip Bench Press", "Primary: triceps, chest", "3 × 6–8", "2–3 min", "RPE 7"),
@@ -115,6 +112,7 @@ PAGE = {
          ],
          "notes": "Paused squats feel much harder than regular squats. Start well below your regular squat weight for the same reps and set the load by RPE. Keep the torso tight through the pause."},
     ],
+    "swaps": False,
     "faq_title": "Powerlifting Program for Beginners FAQ",
     "faqs": [
         ("Should I deadlift sumo or conventional?", "Both are legal in competition. Before starting the program, try each for a few sessions with moderate weights, then pick the style that lets you lift more with a comfortable back and hips, and keep it for the full 12 weeks."),

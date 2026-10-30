@@ -69,7 +69,7 @@ PAGE = {
              ("Dumbbell Biceps Curl", "Primary: biceps", "3 × 10–12", "60 sec", "RIR 1"),
          ],
          "notes": "Lower the bar on lying extensions to just behind your head, not your nose, so the long head works through a full stretch. Superset the last two exercises if you're short on time."},
-        {"tab": "Dumbbells", "tab_sub": "Home or gym", "title": "Arm Workout: Dumbbells Only", "tag": "Home gym", "color": 4, "time": "35–45 min", "focus": "Biceps / Triceps",
+        {"tab": "Dumbbells", "tab_sub": "Home or gym", "title": "Arm Workout: Dumbbells Only", "tag": "Home gym", "when": "Tue & Fri", "color": 4, "time": "35–45 min", "focus": "Biceps / Triceps",
          "exercises": [
              ("Dumbbell Biceps Curl", "Primary: biceps", "3 × 8–12", "60–90 sec", "RIR 1–2"),
              ("Close-Grip Dumbbell Press", "Primary: triceps · Secondary: chest", "3 × 8–12", "90 sec", "RIR 1–2"),
@@ -78,7 +78,7 @@ PAGE = {
              ("Hammer Curl", "Primary: brachialis, brachioradialis", "2 × 10–12", "60 sec", "RIR 1"),
          ],
          "notes": "Do this workout twice a week. Press the dumbbells with palms facing each other and elbows close to your sides. Hold one dumbbell with both hands for the overhead extension."},
-        {"tab": "Bands", "tab_sub": "No weights", "title": "Arm Workout: Resistance Bands and Bodyweight", "tag": "Home", "color": 6, "time": "30–40 min", "focus": "Biceps / Triceps",
+        {"tab": "Bands", "tab_sub": "No weights", "title": "Arm Workout: Resistance Bands and Bodyweight", "tag": "Home", "when": "Tue & Fri", "color": 6, "time": "30–40 min", "focus": "Biceps / Triceps",
          "exercises": [
              ("Diamond Push-Up", "Primary: triceps · Secondary: chest", "3 × as many as possible", "90 sec", "RIR 1"),
              ("Band Curl", "Primary: biceps", "3 × 12–20", "60 sec", "RIR 1"),

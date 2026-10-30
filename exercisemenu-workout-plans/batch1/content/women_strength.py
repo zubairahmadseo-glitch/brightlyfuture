@@ -43,15 +43,6 @@ PAGE = {
 ])}
 <p>Direct sets count fully and indirect sets count as half. Glutes and legs get the most volume because many women name them as a priority; the upper body gets enough to grow stronger and keep posture balanced. The {cite('acsm2026', '2026 ACSM position stand')} links more growth with 10+ weekly sets per muscle, so add 2 sets of upper-body work per session if that is your priority.</p>
 """),
-        ("who", "Who This Plan Is For", f"""
-<ul>
-<li>Women with 0–2 years of lifting experience who want a structured gym plan.</li>
-<li>Goals of strength, shape (especially glutes and legs), fat loss support or long-term health.</li>
-<li>Access to a gym with barbells, dumbbells, cables and basic machines.</li>
-<li>Time for three 45–60 minute sessions a week, or two when life is busy.</li>
-</ul>
-<p>For a deeper look at rep ranges, read our guide to {L('/reps-and-sets-for-woman/', 'reps and sets for women')}. If fat loss is your main goal and you are just starting out, the {L('/3-week-beginner-fat-loss-workout-plan-for-women/', '3-week beginner fat loss plan for women')} is a gentler on-ramp.</p>
-"""),
         ("myths", "Will Strength Training Make Women Bulky?", f"""
 <p>No, not by accident. A {cite('sex2020', 'meta-analysis comparing men and women')} on the same programs found similar relative muscle growth between sexes and greater relative upper-body strength gains in women. Relative gains are not the same as absolute size, though. In a {cite('hubal2005', 'study of 585 adults')} following the same 12-week arm program, women gained more relative strength than men, while men gained slightly more muscle size.</p>
 <p>What women see after a few months of lifting is usually firmer, more defined arms, legs and glutes, especially if body fat drops. Building visibly large muscle takes years of deliberate training and eating in a surplus.</p>
@@ -73,7 +64,7 @@ PAGE = {
     ],
     "schedule": [("Mon", "Day 1", "c4"), ("Tue", "Rest", "rest"), ("Wed", "Day 2", "c2"), ("Thu", "Rest", "rest"), ("Fri", "Day 3", "c6"), ("Sat", "Walk / rest", "rest"), ("Sun", "Rest", "rest")],
     "days": [
-        {"tab": "Day 1", "tab_sub": "Squat + Push", "title": "Day 1 — Squat, Glutes & Push", "tag": "Lower + upper push", "color": 4, "time": "50–60 min", "focus": "Quads / Glutes / Chest / Shoulders",
+        {"tab": "Day 1", "tab_sub": "Squat + Push", "title": "Day 1: Squat, Glutes & Push", "tag": "Lower + upper push", "color": 4, "time": "50–60 min", "focus": "Quads / Glutes / Chest / Shoulders",
          "exercises": [
              ("Back Squat (or Goblet Squat)", "Primary: quads, glutes · Secondary: adductors, core", "3 × 6–10", "2–3 min", "RIR 2"),
              ("Barbell Hip Thrust", "Primary: glutes · Secondary: hamstrings", "3 × 8–12", "2 min", "RIR 1–2"),
@@ -83,7 +74,7 @@ PAGE = {
              ("Pallof Press", "Primary: obliques, deep core", "2 × 10 / side", "60 sec", "Controlled"),
          ],
          "notes": "Use a pad on the bar for hip thrusts. Beginners should goblet squat for the first 2–4 weeks before moving to the barbell."},
-        {"tab": "Day 2", "tab_sub": "Hinge + Pull", "title": "Day 2 — Hinge, Glutes & Pull", "tag": "Lower + upper pull", "color": 2, "time": "50–60 min", "focus": "Hamstrings / Glutes / Back / Arms",
+        {"tab": "Day 2", "tab_sub": "Hinge + Pull", "title": "Day 2: Hinge, Glutes & Pull", "tag": "Lower + upper pull", "color": 2, "time": "50–60 min", "focus": "Hamstrings / Glutes / Back / Arms",
          "exercises": [
              ("Romanian Deadlift", "Primary: hamstrings, glutes · Secondary: back", "3 × 6–10", "2–3 min", "RIR 2"),
              ("Lat Pulldown", "Primary: lats · Secondary: biceps", "3 × 8–12", "90 sec", "RIR 1–2"),
@@ -93,7 +84,7 @@ PAGE = {
              ("Dumbbell Biceps Curl", "Primary: biceps", "2 × 10–15", "60 sec", "RIR 1–2"),
          ],
          "notes": "For more glute work on split squats, lean your torso slightly forward and use a longer stance."},
-        {"tab": "Day 3", "tab_sub": "Full Body", "title": "Day 3 — Full Body Strength", "tag": "Strength + carry", "color": 6, "time": "50–60 min", "focus": "Full body",
+        {"tab": "Day 3", "tab_sub": "Full Body", "title": "Day 3: Full Body Strength", "tag": "Strength + carry", "color": 6, "time": "50–60 min", "focus": "Full body",
          "exercises": [
              ("Trap Bar Deadlift", "Primary: glutes, quads, hamstrings · Secondary: upper back, grip", "3 × 5–8", "2–3 min", "RIR 2"),
              ("Incline Dumbbell Press (30°)", "Primary: upper chest · Secondary: front delts", "3 × 8–12", "90 sec", "RIR 2"),

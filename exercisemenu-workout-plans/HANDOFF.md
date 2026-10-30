@@ -54,7 +54,7 @@ Rewritten for all 15 on 29 Oct 2026: focus keyword first, numbers (days/weeks), 
 ## 2. User preferences (very important)
 - **Zero mistakes / YMYL accuracy.** Every sets/reps/rest/nutrition claim must be backed by a source you actually read (PubMed abstract, ACSM, NSCA). Cite with working links. Never invent studies, numbers, downloads, tools, reviewers or credentials. Recheck every page after writing.
 - **Pages must not be long or boring.** Users come for the plan: Quick Answer → schedule → workouts (day tabs) → everything else. No padding, no repeated info, every H2 answers one question directly, FAQs must add NEW info (not repeat the body).
-- **No Key Takeaways box** (removed — it repeated the body).
+- **No Key Takeaways box and no Quick Answer box** (30 Oct 2026: pages must read as plans, not articles). Workout tabs come right after hero/stats/chips; schedule section after the tabs. Tab cards show days, per-exercise swaps (`batch1/swaps.py`) and a progression link. "Who it's for", split-comparison and substitution-table sections were removed.
 - **No AI voice**: avoid "the catch", "sweet spot", "the takeaway", "not only…", triplets, "It's worth noting", and the banned list in the `exercisemenu-content` skill.
 - Nutrition: full section only where the intent needs it (lean bulk, skinny guys); elsewhere 2–3 lines (protein 1.6 g/kg + protein calculator link).
 - Internal links only to URLs live in the sitemap; exercise names link only to live `/exercises/` pages (6 live on 28 Oct 2026: barbell-bench-press, barbell-incline-bench-press, dumbbell-bench-press, barbell-curl, dumbbell-biceps-curl, dumbbell-hammer-curl).

@@ -81,15 +81,6 @@ PAGE = {
 ])}
 <p>Re-check every two weeks. Weight often jumps more than the target in the first week because of extra food and water in your body, so judge the bulk from week 2 onward.</p>
 """),
-        ("after", "What to Do After 12 Weeks", f"""
-<p>At the end of week 12, compare your weekly-average weight, waist measurement, photos and main lifts with week 1. Then choose:</p>
-<ul>
-<li><strong>Continue:</strong> waist grew only slightly and lifts rose. Take a deload week, then run another 12-week block.</li>
-<li><strong>Maintenance phase:</strong> you gained more fat than you wanted. Eat at maintenance for 4–8 weeks while training normally.</li>
-<li><strong>Cut:</strong> you are ready to lose fat. Keep training heavy and keep protein high.</li>
-</ul>
-<p>For recovery between blocks, the {L('/what-is-a-deload-week/', 'deload week guide')} explains how to reduce training without losing progress.</p>
-"""),
         ("mistakes", "Lean Bulk Mistakes to Avoid", f"""
 <ul>
 <li><strong>"See food" bulking.</strong> A large surplus adds fat faster than muscle, as the {cite('garthe2013', 'Garthe trial')} showed.</li>
@@ -102,7 +93,7 @@ PAGE = {
     ],
     "schedule": [("Mon", "Push", "c1"), ("Tue", "Pull", "c2"), ("Wed", "Rest", "rest"), ("Thu", "Legs", "c3"), ("Fri", "Rest", "rest"), ("Sat", "Full Body", "c4"), ("Sun", "Rest", "rest")],
     "days": [
-        {"tab": "Day 1", "tab_sub": "Push", "title": "Day 1 — Push", "tag": "Chest · Shoulders · Triceps", "color": 1, "time": "55–65 min", "focus": "Chest / Shoulders / Triceps",
+        {"tab": "Day 1", "tab_sub": "Push", "title": "Day 1: Push", "tag": "Chest · Shoulders · Triceps", "color": 1, "time": "55–65 min", "focus": "Chest / Shoulders / Triceps",
          "exercises": [
              ("Barbell Bench Press", "Primary: chest · Secondary: front delts, triceps", "3 × 6–10", "2–3 min", "RIR 1–2"),
              ("Seated Dumbbell Shoulder Press", "Primary: front delts · Secondary: triceps", "3 × 8–10", "2 min", "RIR 1–2"),
@@ -112,7 +103,7 @@ PAGE = {
              ("Overhead Cable Triceps Extension", "Primary: triceps (long head)", "3 × 10–12", "60–90 sec", "RIR 1"),
          ],
          "notes": "Phase 2: bench press and shoulder press go to 4 sets. Phase 3: bench and shoulder press become 4 × 5–8 with 2.5–3 min rests."},
-        {"tab": "Day 2", "tab_sub": "Pull", "title": "Day 2 — Pull", "tag": "Back · Rear delts · Biceps", "color": 2, "time": "55–65 min", "focus": "Back / Rear delts / Biceps",
+        {"tab": "Day 2", "tab_sub": "Pull", "title": "Day 2: Pull", "tag": "Back · Rear delts · Biceps", "color": 2, "time": "55–65 min", "focus": "Back / Rear delts / Biceps",
          "exercises": [
              ("Lat Pulldown (or Pull-Up)", "Primary: lats · Secondary: biceps", "3 × 8–10", "2 min", "RIR 1–2"),
              ("Barbell Row", "Primary: mid-back, lats · Secondary: rear delts", "3 × 6–10", "2–3 min", "RIR 2"),
@@ -122,7 +113,7 @@ PAGE = {
              ("Hammer Curl", "Primary: brachialis", "2 × 10–12", "60 sec", "RIR 1"),
          ],
          "notes": "Phase 2: pulldown and barbell row go to 4 sets. Keep the row strict; if your torso rises above 45°, the load is too heavy."},
-        {"tab": "Day 3", "tab_sub": "Legs", "title": "Day 3 — Legs", "tag": "Quads · Hamstrings · Calves", "color": 3, "time": "60–70 min", "focus": "Legs / Core",
+        {"tab": "Day 3", "tab_sub": "Legs", "title": "Day 3: Legs", "tag": "Quads · Hamstrings · Calves", "color": 3, "time": "60–70 min", "focus": "Legs / Core",
          "exercises": [
              ("Back Squat", "Primary: quads, glutes", "3 × 6–10", "3 min", "RIR 2"),
              ("Romanian Deadlift", "Primary: hamstrings, glutes", "3 × 8–10", "2–3 min", "RIR 2"),
@@ -132,7 +123,7 @@ PAGE = {
              ("Cable Crunch", "Primary: abs", "2 × 10–15", "60 sec", "RIR 1"),
          ],
          "notes": "Phase 2: squat and RDL go to 4 sets. Phase 3: squat becomes 4 × 5–8."},
-        {"tab": "Day 4", "tab_sub": "Full Body", "title": "Day 4 — Full Body", "tag": "Second weekly hit", "color": 4, "time": "55–65 min", "focus": "Full body",
+        {"tab": "Day 4", "tab_sub": "Full Body", "title": "Day 4: Full Body", "tag": "Second weekly hit", "color": 4, "time": "55–65 min", "focus": "Full body",
          "exercises": [
              ("Incline Barbell Bench Press", "Primary: upper chest · Secondary: front delts, triceps", "3 × 8–10", "2 min", "RIR 1–2"),
              ("Chest-Supported Dumbbell Row", "Primary: mid-back, lats", "3 × 8–12", "90 sec", "RIR 1"),

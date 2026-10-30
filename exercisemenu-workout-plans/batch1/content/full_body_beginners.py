@@ -69,19 +69,10 @@ PAGE = {
 <li><strong>Program hopping.</strong> Finish all 8 weeks before changing anything.</li>
 </ul>
 """),
-        ("compare", "Full Body vs Split for Beginners", f"""
-{table(["", "Full body (this plan)", "Upper/lower", "Push pull legs"], [
-    ["Days per week", "3", "4", "6"],
-    ["Frequency per muscle", "3×", "2×", "2×"],
-    ["Practice on main lifts", "High", "Good", "Moderate"],
-    ["If you miss a session", "Every muscle still trained twice", "Some muscles once", "Some muscles once"],
-])}
-<p>Split and full-body routines built similar muscle and strength when weekly sets were equal in a {cite('split2024', '2024 meta-analysis')}. Full body is the easier starting point because it gives you more practice on each lift with only three gym days.</p>
-"""),
     ],
     "schedule": [("Mon", "Day A", "c4"), ("Tue", "Rest", "rest"), ("Wed", "Day B", "c1"), ("Thu", "Rest", "rest"), ("Fri", "Day C", "c2"), ("Sat", "Rest", "rest"), ("Sun", "Rest", "rest")],
     "days": [
-        {"tab": "Day A", "tab_sub": "Squat focus", "title": "Day A — Squat Focus", "tag": "Full body", "color": 4, "time": "45–55 min", "focus": "Full body",
+        {"tab": "Day A", "tab_sub": "Squat focus", "title": "Day A: Squat Focus", "tag": "Full body", "color": 4, "time": "45–55 min", "focus": "Full body",
          "exercises": [
              ("Barbell Back Squat", "Primary: quads, glutes · Secondary: core", "3 × 8–10", "2–3 min", "RIR 2–3"),
              ("Dumbbell Bench Press", "Primary: chest · Secondary: front delts, triceps", "3 × 10–12", "90 sec", "RIR 2–3"),
@@ -92,7 +83,7 @@ PAGE = {
              ("Plank", "Primary: core", "2 × 30–45 sec", "60 sec", "Stop before form breaks"),
          ],
          "notes": "Squat until your hip crease is at or just below knee level. If you can't reach that depth yet, use goblet squats while your mobility improves."},
-        {"tab": "Day B", "tab_sub": "Bench focus", "title": "Day B — Bench Press Focus", "tag": "Full body", "color": 1, "time": "45–55 min", "focus": "Full body",
+        {"tab": "Day B", "tab_sub": "Bench focus", "title": "Day B: Bench Press Focus", "tag": "Full body", "color": 1, "time": "45–55 min", "focus": "Full body",
          "exercises": [
              ("Barbell Bench Press", "Primary: chest · Secondary: front delts, triceps", "3 × 8–10", "2–3 min", "RIR 2–3"),
              ("Barbell Bent-Over Row", "Primary: back · Secondary: biceps, rear delts", "3 × 8–10", "2 min", "RIR 2–3"),
@@ -103,7 +94,7 @@ PAGE = {
              ("Cable Crunch", "Primary: abs", "2 × 15–20", "60 sec", "RIR 2"),
          ],
          "notes": "Always bench with a spotter or with the rack's safety arms set just below chest height."},
-        {"tab": "Day C", "tab_sub": "Deadlift focus", "title": "Day C — Deadlift Focus", "tag": "Full body", "color": 2, "time": "45–55 min", "focus": "Full body",
+        {"tab": "Day C", "tab_sub": "Deadlift focus", "title": "Day C: Deadlift Focus", "tag": "Full body", "color": 2, "time": "45–55 min", "focus": "Full body",
          "exercises": [
              ("Conventional Deadlift", "Primary: hamstrings, glutes, back · Secondary: core, grip", "3 × 6–8", "2–3 min", "RIR 2–3"),
              ("Incline Dumbbell Press (30°)", "Primary: upper chest · Secondary: shoulders, triceps", "3 × 10–12", "90 sec", "RIR 2–3"),
@@ -124,6 +115,6 @@ PAGE = {
         ("What should I do after 8 weeks?", "Repeat the 8 weeks with heavier starting weights, or move to a 4-day upper/lower split if you can add a day. Many beginners stay on full body for 3–6 months."),
     ],
     "related": ["beginner-strength-training-program", "upper-lower-split", "5x5-workout", "push-pull-legs"],
-    "refs": refs("acsm2009", "seynnes2007", "protein2018", "split2024"),
+    "refs": refs("acsm2009", "seynnes2007", "protein2018"),
     "disclaimer": DISCLAIMER,
 }

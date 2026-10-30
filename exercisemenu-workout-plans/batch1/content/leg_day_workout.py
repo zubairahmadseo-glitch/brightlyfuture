@@ -49,9 +49,9 @@ PAGE = {
 </ul>
 """),
     ],
-    "schedule": [("Mon", "Leg day: Quads", "c1"), ("Tue", "Upper body", "rest"), ("Wed", "Rest", "rest"), ("Thu", "Leg day: Hamstrings", "c2"), ("Fri", "Upper body", "rest"), ("Sat", "Rest", "rest"), ("Sun", "Rest", "rest")],
+    "schedule": [("Mon", "Leg day: Quads", "c2"), ("Tue", "Upper body", "rest"), ("Wed", "Rest", "rest"), ("Thu", "Leg day: Hamstrings", "c3"), ("Fri", "Upper body", "rest"), ("Sat", "Rest", "rest"), ("Sun", "Rest", "rest")],
     "days": [
-        {"tab": "Beginner", "tab_sub": "First leg day", "title": "Beginner Leg Day Workout", "tag": "Gym", "color": 1, "time": "50–60 min", "focus": "Quads / Hamstrings / Glutes / Calves",
+        {"tab": "Beginner", "tab_sub": "First leg day", "title": "Beginner Leg Day Workout", "tag": "Gym", "when": "Mon & Thu", "color": 1, "time": "50–60 min", "focus": "Quads / Hamstrings / Glutes / Calves",
          "exercises": [
              ("Goblet Squat", "Primary: quads, glutes · Secondary: adductors", "3 × 8–12", "2 min", "RIR 2"),
              ("Leg Press", "Primary: quads, glutes", "3 × 10–12", "2 min", "RIR 2"),
@@ -78,7 +78,7 @@ PAGE = {
              ("Seated Calf Raise", "Primary: soleus", "3 × 12–15", "60 sec", "RIR 1"),
          ],
          "notes": "Lower the Romanian deadlift until you feel a strong hamstring stretch, usually just below the knee, keeping your back flat. The seated calf raise trains the soleus, which the standing version works less."},
-        {"tab": "Dumbbells", "tab_sub": "Home or gym", "title": "Dumbbell Leg Day Workout", "tag": "Home gym", "color": 4, "time": "50–60 min", "focus": "Quads / Hamstrings / Glutes / Calves",
+        {"tab": "Dumbbells", "tab_sub": "Home or gym", "title": "Dumbbell Leg Day Workout", "tag": "Home gym", "when": "Mon & Thu", "color": 4, "time": "50–60 min", "focus": "Quads / Hamstrings / Glutes / Calves",
          "exercises": [
              ("Goblet Squat", "Primary: quads, glutes", "4 × 8–15", "2 min", "RIR 1–2"),
              ("Dumbbell Romanian Deadlift", "Primary: hamstrings, glutes", "4 × 8–12", "2 min", "RIR 1–2"),

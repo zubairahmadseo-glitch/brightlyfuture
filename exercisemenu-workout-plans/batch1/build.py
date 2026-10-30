@@ -8,6 +8,7 @@ Editing in WordPress: open the Custom HTML block for the section you want.
 Usage: python3 build.py            -> writes out/<slug>.html and preview/<slug>.html
 """
 import html
+from swaps import SWAPS
 import importlib
 import json
 import pathlib
@@ -102,17 +103,38 @@ def ex_name(name):
     return esc(name)
 
 
-def workout_card(day):
+def swap_for(name, p):
+    if p.get("swaps") is False:
+        return ""
+    base = re.sub(r"\s*\(.*?\)", "", name).strip()
+    sw = p.get("swap_overrides", {}).get(base) or SWAPS.get(base)
+    return f'<span class="sw">Swap: {esc(sw)}</span>' if sw else ""
+
+
+PROG_IDS = ("progression", "phases", "program", "mesocycle")
+
+
+def card_days(day, p):
+    if "when" in day:
+        return day["when"]
+    names = [d for d, _, c in p["schedule"] if c == f'c{day.get("color", 1)}']
+    return " · ".join(names)
+
+
+def workout_card(day, p):
     rows = []
     for i, ex in enumerate(day["exercises"], 1):
         name, target, sets, rest, effort = ex
         rows.append(
-            f'<tr><td class="n">{i}</td><td class="x">{ex_name(name)}<span class="t">{esc(target)}</span></td>'
+            f'<tr><td class="n">{i}</td><td class="x">{ex_name(name)}<span class="t">{esc(target)}</span>{swap_for(name, p)}</td>'
             f'<td class="s">{esc(sets)}</td><td class="r">{esc(rest)}</td><td class="e">{esc(effort)}</td></tr>'
         )
     total_sets = day.get("total_sets") or sum(_first_int(e[2]) for e in day["exercises"])
-    meta = [f'⏱ {day["time"]}', f'🎯 {len(day["exercises"])} exercises', f'📊 {total_sets} working sets', f'💪 {day["focus"]}']
-    notes = f'<div class="emp-wo-notes"><p><strong>Notes:</strong> {day["notes"]}</p></div>' if day.get("notes") else ""
+    when = card_days(day, p)
+    meta = ([f'📅 {esc(when)}'] if when else []) + [f'⏱ {day["time"]}', f'🎯 {len(day["exercises"])} exercises', f'📊 {total_sets} working sets', f'💪 {day["focus"]}']
+    prog = next((sid for sid, _, _ in p["sections"] if sid in PROG_IDS), None)
+    prog_txt = f' <a href="#{prog}">How to progress ↓</a>' if prog else ""
+    notes = f'<div class="emp-wo-notes"><p><strong>Notes:</strong> {day.get("notes", "")}{prog_txt}</p></div>' if (day.get("notes") or prog) else ""
     return f'''<div class="emp-wo">
 <div class="emp-wo-h c{day.get("color", 1)}"><h3>{esc(day["title"])}</h3><span class="emp-tag">{esc(day["tag"])}</span></div>
 <div class="emp-wo-meta">{"".join(f"<span>{m}</span>" for m in meta)}</div>
@@ -129,19 +151,20 @@ def _first_int(s):
     return int(m.group(1)) if m else 0
 
 
-def tabs(days):
+def tabs(days, p):
     inputs, labels, panels = [], [], []
     for i, d in enumerate(days, 1):
         chk = " checked" if i == 1 else ""
         inputs.append(f'<input type="radio" name="emp-day" id="emp-t{i}"{chk}>')
         labels.append(f'<label for="emp-t{i}">{esc(d["tab"])}<small>{esc(d["tab_sub"])}</small></label>')
-        panels.append(f'<div class="emp-panel emp-p{i}">\n{workout_card(d)}\n</div>')
+        panels.append(f'<div class="emp-panel emp-p{i}">\n{workout_card(d, p)}\n</div>')
     inputs.append('<input type="radio" name="emp-day" id="emp-tall">')
     labels.append('<label for="emp-tall">All days<small>Show every workout</small></label>')
     return (
         '<div class="emp-tabs">\n' + "\n".join(inputs)
         + '\n<div class="emp-tabbar" role="group" aria-label="Choose a training day">' + "".join(labels) + "</div>\n"
         + '<div class="emp-panels">\n' + "\n".join(panels) + "\n</div>\n</div>"
+        + ('<p class="emp-swapnote">Swap = a like-for-like alternative if the equipment is busy or the lift doesn\'t suit you. Change one exercise at a time and keep it for at least 4 weeks so you can track progress.</p>' if p.get("swaps") is not False else "")
     )
 
 
@@ -156,6 +179,12 @@ def wrap(inner):
     return f'<div class="emp">\n{inner.strip()}\n</div>'
 
 
+def order(p):
+    """Workouts first, then every other section in its original order."""
+    secs = p["sections"]
+    return [s for s in secs if s[0] == "workouts"] + [s for s in secs if s[0] != "workouts"]
+
+
 def render(p):
     blocks = [block("<style>\n" + CSS.strip() + "\n</style>")]
 
@@ -164,16 +193,13 @@ def render(p):
 <p class="emp-hero-lead">{p["hero_lead"]}</p>
 <p class="emp-hero-review">✓ Training reviewed by FISAF-certified coaches · Nutrition reviewed by <a href="https://exercisemenu.com/rimsha-shahid/">Rimsha Shahid</a>, certified dietitian</p>
 <ul class="emp-hero-meta">{"".join(f"<li>{m}</li>" for m in p["hero_meta"])}<li>📄 Last reviewed: October 2026</li></ul>
-<a class="emp-jump" href="#workouts">See the workouts ↓</a>
 </div>
 <div class="emp-stats">{"".join(f'<div class="emp-stat"><div class="emp-stat-v">{esc(v)}</div><div class="emp-stat-l">{esc(l)}</div></div>' for v, l in p["stats"])}</div>
-<div class="emp-answer"><span class="emp-label">Quick answer</span><p>{p["quick_answer"]}</p></div>
-{p["intro"]}
-<nav class="emp-chips" aria-label="Jump to a section"><span>Jump to:</span>{"".join(f'<a href="#{sid}">{esc(CHIPS.get(sid, t))}</a>' for sid, t, _ in p["sections"])}<a href="#faq">FAQ</a></nav>'''
+<nav class="emp-chips" aria-label="Jump to a section"><span>Jump to:</span>{"".join(f'<a href="#{sid}">{esc(CHIPS.get(sid, t))}</a>' for sid, t, _ in order(p))}<a href="#faq">FAQ</a></nav>'''
     blocks.append(block(wrap(hero)))
 
-    for sid, title, body in p["sections"]:
-        body = body.replace("{{WEEK}}", week(p["schedule"])).replace("{{TABS}}", tabs(p["days"]))
+    for sid, title, body in order(p):
+        body = body.replace("{{WEEK}}", week(p["schedule"])).replace("{{TABS}}", tabs(p["days"], p))
         blocks.append(block(wrap(f'<section class="emp-section" id="{sid}">\n<h2>{esc(title)}</h2>\n{body.strip()}\n</section>')))
 
     faq_html = "".join(

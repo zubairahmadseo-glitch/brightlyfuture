@@ -56,20 +56,6 @@ PAGE = {
 <p>When your main lifts stall for two sessions in a row at the same weight and reps, take a deload week: same exercises and weights, about half the sets (4 sets → 2). Then resume the progression.</p>
 <p>On rest days, a 20–30 minute walk or a short mobility session is enough. Take an extra day off if joint soreness doesn't fade during your warm-up or your sleep has been poor for several nights. The {L('/rest-day-vs-active-recovery/', 'rest day vs active recovery guide')} explains the options.</p>
 """),
-        ("subs", "Exercise Substitutions", f"""
-{table(["Programmed exercise", "Gym alternative", "Minimal equipment"], [
-    ["Barbell bench press", "Dumbbell bench press", "Weighted push-ups"],
-    ["Incline dumbbell press", "Incline machine press", "Feet-elevated push-ups"],
-    ["Overhead press", "Seated dumbbell shoulder press", "Pike push-ups"],
-    ["Barbell back squat", "Hack squat, goblet squat", "Dumbbell goblet squat"],
-    ["Romanian deadlift", "Dumbbell RDL", "Single-leg dumbbell RDL"],
-    ["Lat pulldown", "Pull-ups, chin-ups", "Band pulldown"],
-    ["Barbell row", "Dumbbell row, T-bar row", "Inverted row"],
-    ["Leg press", "Hack squat", "Dumbbell step-ups"],
-    ["Seated leg curl", "Lying leg curl", "Nordic curl, slider curl"],
-])}
-<p>Swap one exercise at a time and keep the swap for at least 4 weeks so you can track it.</p>
-"""),
         ("mistakes", "Common Mistakes", f"""
 <ul>
 <li><strong>Skipping Lower B.</strong> It carries most of the week's hamstring work. If you must miss it, move it to the next free day.</li>
@@ -80,7 +66,7 @@ PAGE = {
     ],
     "schedule": [("Mon", "Upper A", "c1"), ("Tue", "Lower A", "c3"), ("Wed", "Rest", "rest"), ("Thu", "Upper B", "c2"), ("Fri", "Lower B", "c6"), ("Sat", "Rest", "rest"), ("Sun", "Rest", "rest")],
     "days": [
-        {"tab": "Day 1", "tab_sub": "Upper A", "title": "Day 1 — Upper A (Push Emphasis)", "tag": "Upper", "color": 1, "time": "50–60 min", "focus": "Chest / Shoulders / Back / Arms",
+        {"tab": "Day 1", "tab_sub": "Upper A", "title": "Day 1: Upper A (Push Emphasis)", "tag": "Upper", "color": 1, "time": "50–60 min", "focus": "Chest / Shoulders / Back / Arms",
          "exercises": [
              ("Barbell Bench Press", "Primary: chest · Secondary: front delts, triceps", "4 × 6–8", "2–3 min", "RPE 7–8"),
              ("Overhead Press (Barbell)", "Primary: front & side delts · Secondary: triceps", "3 × 8–10", "2 min", "RPE 7–8"),
@@ -91,7 +77,7 @@ PAGE = {
              ("Triceps Pushdown", "Primary: triceps", "2 × 10–12", "60 sec", "RPE 8–9"),
          ],
          "notes": "Bench and overhead press go first while you are fresh. The pulldown keeps pulling work in balance with the pressing."},
-        {"tab": "Day 2", "tab_sub": "Lower A", "title": "Day 2 — Lower A (Squat Focus)", "tag": "Lower", "color": 3, "time": "45–55 min", "focus": "Quads / Hamstrings / Calves",
+        {"tab": "Day 2", "tab_sub": "Lower A", "title": "Day 2: Lower A (Squat Focus)", "tag": "Lower", "color": 3, "time": "45–55 min", "focus": "Quads / Hamstrings / Calves",
          "exercises": [
              ("Barbell Back Squat", "Primary: quads, glutes", "4 × 6–8", "2–3 min", "RPE 7–8"),
              ("Leg Press", "Primary: quads, glutes", "3 × 10–12", "2 min", "RPE 7–8"),
@@ -100,7 +86,7 @@ PAGE = {
              ("Standing Calf Raise", "Primary: calves", "4 × 12–15", "60 sec", "RPE 8–9"),
          ],
          "notes": f"The leg press adds quad work without loading your spine a second time. Seated leg curls built more hamstring muscle than lying curls in a {cite('maeo2021', 'controlled trial')}."},
-        {"tab": "Day 3", "tab_sub": "Upper B", "title": "Day 3 — Upper B (Pull Emphasis)", "tag": "Upper", "color": 2, "time": "50–60 min", "focus": "Back / Chest / Shoulders / Arms",
+        {"tab": "Day 3", "tab_sub": "Upper B", "title": "Day 3: Upper B (Pull Emphasis)", "tag": "Upper", "color": 2, "time": "50–60 min", "focus": "Back / Chest / Shoulders / Arms",
          "exercises": [
              ("Barbell Bent-Over Row", "Primary: lats, mid-back · Secondary: rear delts, biceps", "4 × 6–8", "2–3 min", "RPE 7–8"),
              ("Lat Pulldown", "Primary: lats · Secondary: biceps", "3 × 8–10", "2 min", "RPE 7–8"),
@@ -111,7 +97,7 @@ PAGE = {
              ("Triceps Pushdown", "Primary: triceps", "2 × 10–12", "60 sec", "RPE 8–9"),
          ],
          "notes": "The row leads today because grip and lower-back fatigue would hold it back later in the session. The incline press gives your chest its second session of the week."},
-        {"tab": "Day 4", "tab_sub": "Lower B", "title": "Day 4 — Lower B (Hip-Hinge Focus)", "tag": "Lower", "color": 6, "time": "45–55 min", "focus": "Hamstrings / Glutes / Quads / Calves",
+        {"tab": "Day 4", "tab_sub": "Lower B", "title": "Day 4: Lower B (Hip-Hinge Focus)", "tag": "Lower", "color": 6, "time": "45–55 min", "focus": "Hamstrings / Glutes / Quads / Calves",
          "exercises": [
              ("Romanian Deadlift", "Primary: hamstrings, glutes", "4 × 8–10", "2–3 min", "RPE 7–8"),
              ("Bulgarian Split Squat", "Primary: quads, glutes", "3 × 8–10 / leg", "90 sec", "RPE 7–8"),

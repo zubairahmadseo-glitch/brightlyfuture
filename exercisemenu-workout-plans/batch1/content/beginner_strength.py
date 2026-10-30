@@ -57,15 +57,6 @@ PAGE = {
 {box("science", "🔬 Beginners also build muscle", f"<p>Training for strength builds muscle too. In a {cite('load2021', 'network meta-analysis')}, untrained participants showed greater muscle growth than trained ones, and growth was similar across load ranges. Heavy sets of 5 on the main lifts plus 8–12 rep accessories cover both goals.</p>")}
 <p>If your main goal is muscle size rather than strength, our {L('/workout-plans/full-body-workout-plan/', 'full body workout plan for beginners')} is the better starting point.</p>
 """),
-        ("who", "Who This Beginner Program Is For", f"""
-<ul>
-<li>You have lifted for less than six months, or not at all.</li>
-<li>You have access to a barbell, squat rack, bench and a few dumbbells and machines.</li>
-<li>You can train three non-consecutive days a week for 45–60 minutes.</li>
-<li>You are healthy and free of injuries that limit squatting, hinging or pressing.</li>
-</ul>
-<p>Not sure about sets and reps yet? The {L('/how-many-reps-and-sets-should-a-beginner-do/', 'beginner sets and reps guide')} explains the basics behind this plan.</p>
-"""),
         ("mistakes", "Beginner Mistakes to Avoid", f"""
 <ul>
 <li><strong>Starting too heavy.</strong> Beginning light gives you many weeks of steady progress instead of stalling early.</li>
@@ -78,13 +69,10 @@ PAGE = {
         ("nutrition", "Eating for Strength Gains", f"""
 <p>Eat about 1.6 g of protein per kg of body weight daily; muscle gains plateaued near 1.62 g/kg in a {cite('protein2018', 'meta-analysis of 49 trials')}. Get enough total food to support training: if you want to gain weight, eat a little above maintenance; if you want to lose fat, a modest deficit usually still allows strength gains as a beginner. Use the {L('/protein-calculator/', 'protein calculator')} to set your target.</p>
 """),
-        ("next", "What to Do After 12 Weeks", f"""
-<p>Once weekly jumps stall even with smaller increments, you have outgrown simple linear progression. The next step is a program that mixes heavy, light and medium days and progresses more slowly, such as our {L('/workout-plans/3-day-full-body-workout/', '3-day full body workout for intermediates')} if you still train three days, or our {L('/workout-plans/upper-lower-split/', '4-day upper lower split')} if you can add a day.</p>
-"""),
     ],
     "schedule": [("Mon", "Day 1", "c4"), ("Tue", "Rest", "rest"), ("Wed", "Day 2", "c2"), ("Thu", "Rest", "rest"), ("Fri", "Day 3", "c1"), ("Sat", "Rest", "rest"), ("Sun", "Rest", "rest")],
     "days": [
-        {"tab": "Day 1", "tab_sub": "Squat + Bench", "title": "Day 1 — Squat & Bench (Heavy)", "tag": "3 × 5", "color": 4, "time": "45–60 min", "focus": "Full body",
+        {"tab": "Day 1", "tab_sub": "Squat + Bench", "title": "Day 1: Squat & Bench (Heavy)", "tag": "3 × 5", "color": 4, "time": "45–60 min", "focus": "Full body",
          "exercises": [
              ("Back Squat", "Primary: quads, glutes · Secondary: adductors, core", "3 × 5", "2–3 min", "RIR 2–3"),
              ("Barbell Bench Press", "Primary: chest · Secondary: front delts, triceps", "3 × 5", "2–3 min", "RIR 2–3"),
@@ -93,7 +81,7 @@ PAGE = {
              ("Plank", "Primary: abs, deep core", "3 × 20–40 sec", "60 sec", "Stop before form breaks"),
          ],
          "notes": "Use a spotter or set the rack safety bars for bench press. Squat to at least parallel (hip crease level with the top of the knee) if your mobility allows."},
-        {"tab": "Day 2", "tab_sub": "Deadlift + Press", "title": "Day 2 — Deadlift & Overhead Press (Heavy)", "tag": "3 × 5", "color": 2, "time": "45–55 min", "focus": "Full body",
+        {"tab": "Day 2", "tab_sub": "Deadlift + Press", "title": "Day 2: Deadlift & Overhead Press (Heavy)", "tag": "3 × 5", "color": 2, "time": "45–55 min", "focus": "Full body",
          "exercises": [
              ("Trap Bar Deadlift", "Primary: glutes, quads, hamstrings · Secondary: upper back, grip", "3 × 5", "2–3 min", "RIR 2–3"),
              ("Standing Overhead Press", "Primary: shoulders · Secondary: triceps, upper chest", "3 × 5", "2 min", "RIR 2–3"),
@@ -102,7 +90,7 @@ PAGE = {
              ("Dumbbell Biceps Curl", "Primary: biceps", "2 × 10–12", "60 sec", "RIR 2"),
          ],
          "notes": "No trap bar? Use a conventional barbell deadlift for 1–2 sets of 5 after a careful warm-up. Reset your position before every rep."},
-        {"tab": "Day 3", "tab_sub": "Volume", "title": "Day 3 — Squat & Press (Volume)", "tag": "3 × 8", "color": 1, "time": "45–55 min", "focus": "Full body",
+        {"tab": "Day 3", "tab_sub": "Volume", "title": "Day 3: Squat & Press (Volume)", "tag": "3 × 8", "color": 1, "time": "45–55 min", "focus": "Full body",
          "exercises": [
              ("Back Squat", "85–90% of this week's Day 1 load", "3 × 8", "2 min", "RIR 2–3"),
              ("Dumbbell Bench Press", "Primary: chest · Secondary: triceps", "3 × 8–10", "90 sec", "RIR 2"),
