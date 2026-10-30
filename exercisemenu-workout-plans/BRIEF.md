@@ -29,6 +29,8 @@ Do these steps in order for each plan, and show the research to the user before 
 4. **Gap analysis + structure** (what all cover, what 1–2 cover, what none cover), then build the page outline.
 5. **Then write the plan** in the batch 1 system (below), verify every claim, build, lint, audit, link-check, and deliver a paste-ready zip.
 
+> **NEVER IGNORE (user instruction, 30 Oct 2026): workout plan pages are PLANS, not articles.** Users come to see and follow the workout plan, not an in-depth article. Every new plan page must follow the exact structure of the 20 finished pages in `batch1/` (same builder, template and order): hero → stats → jump chips → workout day tabs (days, sets × reps, rest, effort, swaps, notes, progression link) → schedule → short plan sections (progression, weekly sets, deload/warm-up only if the plan needs them, mistakes) → FAQ → author box → related plans → references. No Quick Answer, no Key Takeaways, no long explanation sections. Competitor research decides which keywords/questions to cover, but it never turns a plan page into an article: put keywords into the plan, short sections and FAQs instead.
+
 ## Page standards (learned in batch 1 — keep them)
 - **Workout first:** Quick Answer → schedule → day tabs → everything else. Users come for the plan; don't make them dig. Keep pages short; no padding, no repeated info, FAQs must add new info.
 - **No Key Takeaways box and no Quick Answer box** (plan pages, not articles). Order: hero → stats → jump chips → workout tabs → schedule → other sections.

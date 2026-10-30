@@ -65,6 +65,8 @@ Rewritten for all 15 on 29 Oct 2026: focus keyword first, numbers (days/weeks), 
 
 ---
 
+> **NEVER IGNORE (user instruction, 30 Oct 2026): workout plan pages are PLANS, not articles.** Users come to see and follow the workout plan, not an in-depth article. Every new plan page must follow the exact structure of the 20 finished pages in `batch1/` (same builder, template and order): hero → stats → jump chips → workout day tabs (days, sets × reps, rest, effort, swaps, notes, progression link) → schedule → short plan sections (progression, weekly sets, deload/warm-up only if the plan needs them, mistakes) → FAQ → author box → related plans → references. No Quick Answer, no Key Takeaways, no long explanation sections. Competitor research decides which keywords/questions to cover, but it never turns a plan page into an article: put keywords into the plan, short sections and FAQs instead.
+
 ## 3. Fixed page elements (keep on every plan page)
 - **Hero credit line** (between hero description and the days/minutes meta):
   `✓ Training reviewed by FISAF-certified coaches · Nutrition reviewed by [Rimsha Shahid](https://exercisemenu.com/rimsha-shahid/), certified dietitian`
