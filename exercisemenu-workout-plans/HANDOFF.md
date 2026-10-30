@@ -77,7 +77,12 @@ Rewritten for all 15 on 29 Oct 2026: focus keyword first, numbers (days/weeks), 
 
 ---
 
-## 4. Mandatory workflow for every NEW plan (user instruction)
+## 4. Mandatory workflow for every NEW plan and exercise page (user instruction)
+
+> **Two rules, both mandatory, for EVERY workout plan AND exercise page (user instruction, 30 Oct 2026):**
+> 1. **Competitor + keyword research first** (steps 1–4 below): fetch the pages Google ranks in the top 7 for the target keyword, then extract short-tail, mid-tail and long-tail keywords, entities, People Also Ask / related queries and autocomplete queries, plus each competitor's outline, structure, FAQs and gaps. Use it to match user intent and cover what users search for, better than the competitors. Show the research data to the user (xlsx + summary) before or with the page.
+> 2. **Verified sources** (`SOURCES.md`): every recommendation is checked against those sources, then written in our own coach voice.
+> Research decides *what* to cover; sources decide *what is true*.
 1. **Top 7 competitors** for the target keyword (WebSearch + fetch each page): outline, workout structure, FAQs, sources, word count, weaknesses.
 2. From all 7: **short-tail, mid-tail and long-tail keywords** and **entities** (tag 3+ competitors = must include, 2 = differentiator).
 3. **Own keyword research**: Google/Bing/DuckDuckGo autocomplete (work from the container — URLs in BRIEF.md) with modifiers, plus People Also Ask. No search-volume tool exists — say volumes are not verified; the user checks them.

@@ -10,7 +10,12 @@ Also load the `exercisemenu-content` skill. Reply to the user in Roman Urdu.
 - **Next plans come from `ExerciseMenu_Workout_Plans_YMYL_Safe_Roadmap.xlsx`** (tab "Remaining Plans", Status = "To write"). 14 YMYL-risk plans were removed (tab "Removed (YMYL Risk)") — never write those. Respect the "YMYL Notes" column for each plan.
 - Avoid keyword cannibalisation with written pages (e.g. #85 "beginner gym workout" and #77 "full body workout" vs #2 "gym workout plan") — give each a clearly different angle and tell the user.
 
-## MANDATORY workflow for every new plan (user instruction, 28 Oct 2026)
+## MANDATORY workflow for every new plan and exercise page (user instruction, 28 Oct 2026)
+
+> **Two rules, both mandatory, for EVERY workout plan AND exercise page (user instruction, 30 Oct 2026):**
+> 1. **Competitor + keyword research first** (steps 1–4 below): fetch the pages Google ranks in the top 7 for the target keyword, then extract short-tail, mid-tail and long-tail keywords, entities, People Also Ask / related queries and autocomplete queries, plus each competitor's outline, structure, FAQs and gaps. Use it to match user intent and cover what users search for, better than the competitors. Show the research data to the user (xlsx + summary) before or with the page.
+> 2. **Verified sources** (`SOURCES.md`): every recommendation is checked against those sources, then written in our own coach voice.
+> Research decides *what* to cover; sources decide *what is true*.
 Do these steps in order for each plan, and show the research to the user before writing:
 
 1. **Competitor research — top 7 ranking pages** for the plan's target keyword (WebSearch; fetch each page with WebFetch or curl). For each competitor record: URL, H1→H2→H3 outline, workout structure (days, exercises, sets/reps/rest), FAQs, data/sources used, word count, depth, and what they do badly.

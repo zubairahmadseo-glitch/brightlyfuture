@@ -2,6 +2,9 @@
 
 Applies to EVERY workout plan page and EVERY exercise page on exercisemenu.com: workout structure, sets × reps, rest, progression, muscles worked, form and cues, common mistakes, warm-up, nutrition (pre/post workout, protein, calories), supplements, safety notes, FAQs — every section, named or not.
 
+## Works together with competitor research
+This rule never replaces the competitor + keyword research in `BRIEF.md` (top 7 ranking pages; short/mid/long-tail keywords; entities; PAA, related and autocomplete queries; outlines and gaps). Do that research first to decide what the page covers and how it matches search intent; then verify every recommendation here.
+
 ## The rule
 1. Every recommendation (what to do, how much, how to do it, what to eat) must match the verified sources below. Read the actual abstract / position stand / guideline before writing it.
 2. Write it in our own words, in a unique way, in the voice of an experienced coach (Sadia Baloch's coaching approach): practical framing, clear cues, real-world tips. **Experience shapes how we explain, never what is true.** Every claim inside that voice must still be backed by a source here.
