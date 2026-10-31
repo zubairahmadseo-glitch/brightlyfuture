@@ -33,6 +33,9 @@ All 21 workout plan pages built in `exercisemenu-workout-plans/batch1/` (the 20 
    | PPL + Full Body | Dumbbell Walking Lunge | Dumbbell Lunge (walking or in place) |
    | Full Body | Hanging Knee Raise | keep name; note: bend your knees (GIF shows the straight-leg version) |
    | Full Body | Dumbbell Romanian Deadlift | keep (already links to the /dumbbell-romanian-deadlift/ guide) |
+   **Also fix the swaps that would clash after renaming (PPL):** Day 4 "Triceps Pushdown" → "Triceps Rope Pushdown", so its swap must change from "Triceps Rope Pushdown" to "Triceps Pushdown (straight bar)". Day 5 "Incline Dumbbell Hammer Curl" → "Hammer Curl", so its swap must change from "Hammer Curl" to "Rope Cable Hammer Curl". After every rename, check that no exercise has itself as its swap.
+   GIF names on Gym Visual differ from site names (e.g. "Lever Seated Reverse Fly" = Reverse Pec Deck, "Sled 45 Leg Press" = Leg Press, "Cable Low Fly" = Low-to-High Cable Fly, "Cable Kneeling Crunch" = Cable Crunch, "Cable Wide Grip Lat Pulldown (female)" = Lat Pulldown + Wide-Grip Lat Pulldown). Match by exercise, not by name.
+   Dumbbell Lateral Raise and Barbell Seated Calf Raise GIFs are with the user and will be uploaded too.
    Check the other 19 plans the same way and propose renames before applying them. Every rename must keep the plan accurate (sets/reps, muscles, swaps, volume counts, exercise-count stat). Re-check `batch1/swaps.py` and page `swap_overrides` after renames.
 4. **Links:** add each live exercise page to `EXERCISE_LINKS` in `batch1/build.py` (name match is exact name or `name + " ("` prefix) and to `allowed_extra` in `lint.py`. Never link to a page that is not live.
 5. **Build + check:** `python3 build.py`, `python3 lint.py <live_paths.txt>`, `python3 audit.py`; check every internal link returns 200; screenshot one tab per changed page.
