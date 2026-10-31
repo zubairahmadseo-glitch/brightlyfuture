@@ -32,7 +32,7 @@ RELATED = {
     "cable-face-pull": ["/cable-shoulder-exercises/", "/cable-back-exercises/", "/push-pull-legs-split/"],
     "cable-lat-pulldown": ["/cable-back-exercises/", "/how-to-use-a-cable-machine/", "/push-pull-legs-split/"],
     "seated-cable-row": ["/cable-back-exercises/", "/how-to-use-a-cable-machine/", "/how-many-sets-per-muscle-group-per-week/"],
-    "leg-press": ["/types-of-squats/", "/how-many-reps-and-sets-for-muscle-growth/", "/what-is-progressive-overload/"],
+    "leg-press": ["/how-many-reps-and-sets-for-muscle-growth/", "/what-is-progressive-overload/", "/how-to-structure-a-workout/"],
 }
 PLAN_TITLE = {
     "push-pull-legs": "Push Pull Legs Workout Plan", "full-body-workout-plan": "Full Body Workout Plan for Beginners",
@@ -177,8 +177,8 @@ def norm(s):
     return re.sub(r"[^a-z]", "", s.lower())
 
 
-def build(slug, d, names):
-    doc = new_doc()
+def build(slug, d, names, doc=None):
+    doc = doc or new_doc()
     doc.add_heading(d["name"], level=0)
     status = "LIVE PAGE — replace every field with the content below." if slug in LIVE else "NEW PAGE — add as a new Exercise (save as Draft, check, then Publish)."
     p = doc.add_paragraph(); r = p.add_run(status); r.bold = True
@@ -302,3 +302,35 @@ with zipfile.ZipFile(zpath, "w", zipfile.ZIP_DEFLATED) as z:
     for f in files:
         z.write(f, "ExerciseMenu-5-Exercise-Pages/" + os.path.basename(f))
 print("ok", len(files), "->", zpath)
+
+# ---------------------------------------------------------------- developer file (audit + all 5 pages)
+AUDIT = [
+    ["Check", "Result"],
+    ["Exercise names", "Matched to each GIF and to the names used in your 20 plans: Cable Kneeling Crunch, Cable Face Pull, Cable Lat Pulldown, Seated Cable Row (V-bar), Leg Press (45-degree sled)."],
+    ["Form and cues vs GIF", "Each image was zoomed and the steps written to match it: crunch kneeling with the back to the machine; face pull at shoulder height with the rope ends separating; wide-grip pulldown to the upper chest; V-bar row starting with a forward reach; 45-degree sled with safety handles."],
+    ["Verified research", "4 sources, each opened and checked: Andersen 2014 (lat pulldown grip width), Martín-Fuentes 2020 review (leg press foot position), Vispute 2011 (ab exercise and belly fat), ACE seated row instructions."],
+    ["Claims removed or corrected", "V-bar 'allows more weight' (study used overhand grips, not a V-bar); 'wide bar works upper back more' (not proven); 'pushing through toes stresses knees' (not proven); 'face pull works more upper back than reverse fly' (changed to outward rotation only); ACE source now named as the machine row it is; unverified page numbers removed from a citation."],
+    ["Honest caveats on the page", "Leg press foot position: research is mixed, so the page recommends a self-selected stance. Seated row start: the GIF reaches forward; the page says staying upright is also used."],
+    ["AI voice / patterns", "Banned words checked automatically; repeated FAQ openers ('Usually because…') varied; plain, direct sentences."],
+    ["Related articles", "All 9 links return 200 and were opened: cable shoulder/back and cable machine articles mention these exercises. 'Types of Squats' was removed from Leg Press because it does not mention the leg press."],
+    ["Anything irrelevant?", "Dumbbell Lateral Raise removed as a Face Pull alternative (it trains the side delts, not the rear delts)."],
+    ["Calories", "Estimates from the 2024 Compendium of Physical Activities (3.5 MET), 70 kg person, 30–60 s set."],
+    ["Not checked", "Only still frames of the GIFs were reviewed. Play each GIF once before publishing to confirm the movement matches the steps."],
+]
+dev = new_doc()
+dev.add_heading("ExerciseMenu — Developer File: 5 Exercise Pages", level=0)
+dev.add_paragraph("Headings below are the exact box names on the Edit Exercise screen (plugin v1.2.0). Copy each value into the field with the same name.")
+dev.add_heading("Audit", level=1)
+grid(dev, AUDIT[0], AUDIT[1:], (120, 380))
+dev.add_heading("Order of work", level=1)
+for line in ["Create all 5 pages as Drafts first so they appear in each other's 'Alternative Exercises' dropdowns.",
+             "Upload each 720 GIF to the Media Library and pick it in 'GIF / Media'.",
+             "Fill every box below, then publish and purge LiteSpeed Cache.",
+             "Add 'Workout Plans Using This Exercise' entries only after each plan page is live under /workout-plans/."]:
+    dev.add_paragraph(line, style="List Number")
+for s in ORDER:
+    dev.add_page_break()
+    build(s, data[s], names, dev)
+dpath = os.path.join(HERE, "ExerciseMenu-Developer-File-5-Exercises.docx")
+dev.save(dpath)
+print("dev ->", dpath)

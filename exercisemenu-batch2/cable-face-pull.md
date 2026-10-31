@@ -126,6 +126,6 @@ Biceps Brachii and Brachialis — bend the elbows during the pull.
 3. **Q: Why do programs add face pulls to bench press days?**
    A: Many programs use them to balance lots of pressing with direct work for the rear delts and upper back.
 4. **Q: Face pull or reverse fly — which is better?**
-   A: Both train the rear delts. The face pull also brings in more upper back and outward rotation of the shoulder, so many programs include it.
+   A: Both train the rear delts. The face pull adds outward rotation of the shoulder at the end of each rep, which a reverse fly does not.
 5. **Q: Can I use a band instead of a cable?**
    A: Yes. A band anchored at face height lets you do the same movement at home.

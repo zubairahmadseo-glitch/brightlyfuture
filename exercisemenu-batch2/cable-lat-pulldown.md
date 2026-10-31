@@ -100,7 +100,7 @@ Biceps Brachii and Brachialis — bend the elbows during the pull.
 ## Tips
 
 1. **Drive Your Elbows Down:** Think about pulling your elbows into your back pockets rather than pulling with your hands.
-2. **Grip Width Is Flexible:** Andersen and colleagues (2014) found similar lat activity with grips 1 to 2 times shoulder width, with the wide grip a little higher during the lowering phase. Use the width that feels best.
+2. **Grip Width Is Flexible:** Andersen and colleagues (2014) found similar overall lat activity with grips 1 to 2 times shoulder width; the wide grip was higher than the narrow grip only during the lowering phase. Use the width that feels best.
 3. **Control the Stretch:** Take 2–3 seconds to let the bar rise; the stretched top position is part of the work.
 4. **Use Straps if Your Grip Fails First:** Straps let your back finish the set when your hands tire first.
 
@@ -111,7 +111,7 @@ Biceps Brachii and Brachialis — bend the elbows during the pull.
 | Type | Title | Description |
 |---|---|---|
 | 🔽 Easier | Resistance Band Lat Pulldown | A band anchored above you gives light resistance for learning the movement at home. |
-| 🔽 Easier | Close-Grip (V-Bar) Lat Pulldown | A narrower, palms-facing grip is comfortable for many lifters and usually allows a little more weight. |
+| 🔽 Easier | Close-Grip (V-Bar) Lat Pulldown | A narrower, palms-facing grip that many lifters find comfortable on the shoulders. |
 | 🔼 Harder | Pull-Up | Lifting your own body weight on a bar trains the same muscles and needs more strength. |
 | 🔼 Harder | Lat Pulldown with Slow Lowering | Take 3–4 seconds to let the bar rise, which makes the same weight harder. |
 
@@ -128,6 +128,6 @@ Biceps Brachii and Brachialis — bend the elbows during the pull.
 4. **Q: Is the lat pulldown as good as the pull-up?**
    A: Both train the lats. The pulldown lets you choose a weight lighter than your body weight, which suits beginners and higher-rep sets.
 5. **Q: Why do I feel lat pulldowns in my arms?**
-   A: Your arms always help, but feeling them most usually means you are pulling with your hands. Focus on driving your elbows down.
+   A: Your arms always help. If you feel them most, you are probably pulling with your hands. Focus on driving your elbows down.
 
 **Citation (Tip 2 & FAQ 1):** Andersen V, et al. *Effects of grip width on muscle strength and activation in the lat pull-down.* J Strength Cond Res. 2014;28(4):1135–1142. https://pubmed.ncbi.nlm.nih.gov/24662157/

@@ -97,7 +97,7 @@ Internal Obliques — assist trunk flexion and keep the torso steady.
 ## Tips
 
 1. **Think Ribs to Hips:** Picture shortening the distance between your lower ribs and your hip bones. This keeps the movement in your spine.
-2. **Breathe Out as You Curl:** Exhaling fully at the bottom of each rep makes it easier to round your spine further.
+2. **Breathe Out as You Curl:** Exhale as you curl down and breathe in as you uncurl, so you don't hold your breath through the set.
 3. **Add Weight in Small Steps:** The cable stack makes it simple to add a little weight once you can complete all reps with control.
 4. **Keep Your Setup the Same:** Kneeling with your back to the machine, as shown, or facing it both work. Use one setup every session so you can track progress.
 
@@ -121,10 +121,10 @@ Internal Obliques — assist trunk flexion and keep the torso steady.
 2. **Q: Will cable crunches burn belly fat?**
    A: Not on their own. In a 6-week study by Vispute and colleagues (2011), ab exercises improved muscular endurance but did not reduce belly fat. Fat loss depends on your overall diet and activity.
 3. **Q: Why do I feel cable crunches in my hip flexors or lower back?**
-   A: Usually because the hips are moving. Keep your hips still over your knees and lighten the weight until the movement comes from your spine.
+   A: Most often the hips are moving. Keep your hips still over your knees and lighten the weight until the movement comes from your spine.
 4. **Q: How heavy should I go?**
    A: Use a weight you can move for 10–15 controlled reps without swinging your hips. The cable lets you load the abs more than a floor crunch.
 5. **Q: How often should I train abs?**
-   A: Two or three sessions a week is enough for most people, especially if you also do heavy compound lifts.
+   A: The workout plans on this site use 2–3 sets once or twice a week. Add more only if your abs recover well between sessions.
 
 **Citation (FAQ 2):** Vispute SS, et al. *The effect of abdominal exercise on abdominal fat.* J Strength Cond Res. 2011;25(9). https://pubmed.ncbi.nlm.nih.gov/21804427/

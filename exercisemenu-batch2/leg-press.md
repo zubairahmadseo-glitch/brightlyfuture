@@ -68,7 +68,7 @@ Calves (Gastrocnemius and Soleus) — keep the feet steady on the platform.
 | # | Step Title | Step Description |
 |---|---|---|
 | 1 | Sit in the machine | Sit with your back and hips flat against the pad and your head resting back. |
-| 2 | Set your feet | Place your feet about hip- to shoulder-width apart in the middle of the platform, toes pointing slightly out. |
+| 2 | Set your feet | Place your feet about hip- to shoulder-width apart in the middle of the platform, toes pointing straight ahead or slightly out. |
 | 3 | Release the safeties | Press the platform up until your legs are almost straight, then turn the safety handles to release the sled. Hold the side handles. |
 | 4 | Lower with control | Bend your knees to lower the sled toward your chest until your knees reach about 90 degrees, or as deep as you can while your hips and lower back stay on the pad. |
 | 5 | Press back up | Push through your whole foot to press the platform back up. Stop just before your knees lock. |
@@ -90,9 +90,9 @@ Calves (Gastrocnemius and Soleus) — keep the feet steady on the platform.
 ## Common Mistakes
 
 1. **Hips Lifting off the Pad:** Lowering too deep makes your hips curl up and your lower back round. Stop where your hips and back stay flat on the pad.
-2. **Locking Your Knees:** Snapping your knees straight at the top puts stress on the joint. Stop just short of lockout.
+2. **Locking Your Knees:** Snapping your knees straight under a heavy load takes tension off the muscles and loads the joint. Stop just short of lockout.
 3. **Knees Caving In:** Letting your knees fall inward reduces control. Keep them in line with your toes.
-4. **Heels Lifting:** Pushing through your toes shifts stress to the knees. Keep your whole foot flat and press through your heels and mid-foot.
+4. **Heels Lifting:** Lifting your heels makes your feet unstable on the platform. Keep your whole foot flat and press through your heels and mid-foot.
 5. **Bouncing at the Bottom:** Dropping the sled fast and bouncing out uses momentum. Lower under control and press smoothly.
 
 ---
@@ -128,6 +128,6 @@ Calves (Gastrocnemius and Soleus) — keep the feet steady on the platform.
 4. **Q: Should I lock my knees at the top?**
    A: No. Stop just before your knees lock so the muscles keep working and the joint is not snapped straight under load.
 5. **Q: Why does my lower back hurt on the leg press?**
-   A: Usually because your hips lift and your back rounds at the bottom. Reduce the depth or the weight and keep your hips on the pad.
+   A: The most common cause is your hips lifting and your back rounding at the bottom. Reduce the depth or the weight and keep your hips on the pad.
 
 **Citation (Tip 1 & FAQ 2):** Martín-Fuentes I, Oliva-Lozano JM, Muyor JM. *Evaluation of the Lower Limb Muscles' Electromyographic Activity during the Leg Press Exercise and Its Variants: A Systematic Review.* Int J Environ Res Public Health. 2020;17(13):4626. https://pmc.ncbi.nlm.nih.gov/articles/PMC7369968/

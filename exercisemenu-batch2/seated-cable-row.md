@@ -99,10 +99,10 @@ Erector Spinae — hold your back straight while you sit and row.
 
 ## Tips
 
-1. **Avoid a Backward Lean:** ACE advises avoiding any backward lean during the pull to reduce stress on the lower back.
+1. **Avoid a Backward Lean:** ACE's seated row instructions advise avoiding any backward lean during the pull to reduce stress on the lower back.
 2. **Think Elbows Back:** Driving your elbows past your sides keeps the work in your back rather than your arms.
-3. **Use the Stretch:** Letting your shoulders reach forward at the start, with a flat back, trains the back through a fuller range.
-4. **Try Other Handles:** A wide bar shifts more work to the upper back; a V-bar keeps the elbows close and the lats working.
+3. **Choose Your Start Position:** The demonstration lets the shoulders reach forward at the start for a longer range. Some coaches prefer staying upright with the shoulders back the whole time. Both are used; keep your lower back flat either way.
+4. **Keep the Same Handle:** Changing from a V-bar to a wide bar or rope changes your grip and elbow path, so use the same handle when you track progress.
 
 ---
 
@@ -120,14 +120,14 @@ Erector Spinae — hold your back straight while you sit and row.
 ## FAQs
 
 1. **Q: Should I lean forward at the start?**
-   A: A small lean from the hips with a flat back is fine and lets your shoulders reach forward. Sit upright as you pull; don't lean back past vertical.
+   A: It is optional. A small lean from the hips with a flat back lets your shoulders reach forward, as in the demonstration. Sit upright as you pull and don't lean back past vertical.
 2. **Q: Where should I pull the handle to?**
    A: To your upper stomach or lower ribs, with your elbows close to your body.
 3. **Q: V-bar or wide bar?**
-   A: Both train the back. A V-bar keeps your elbows close to your sides; a wide bar spreads your elbows and works the upper back more.
+   A: Both train the back. A V-bar keeps your elbows close to your sides, while a wide bar lets your elbows move out away from your body.
 4. **Q: Seated cable row or bent-over row?**
    A: The seated cable row supports your lower body and keeps tension steady, while the bent-over row also trains you to hold a hip hinge. Many programs use both.
 5. **Q: Why does my lower back hurt?**
-   A: Usually from rounding your lower back or leaning far back to move the weight. Lower the weight and keep your back flat.
+   A: Common causes are rounding your lower back or leaning far back to move the weight. Lower the weight and keep your back flat.
 
-**Citation (Tip 1):** American Council on Exercise (ACE). *Seated Row — Exercise Library.* https://www.acefitness.org/education-and-resources/lifestyle/exercise-library/168/seated-row
+**Citation (Tip 1):** American Council on Exercise (ACE). *Seated Row (machine) — Exercise Library.* https://www.acefitness.org/education-and-resources/lifestyle/exercise-library/168/seated-row
