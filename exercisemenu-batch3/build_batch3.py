@@ -1,4 +1,4 @@
-"""Build one .docx per exercise for batch 3 (5 machine/cable/bodyweight exercises), same layout as build_batch2.py."""
+"""Build one .docx per exercise for batch 3 (7 machine/cable/bodyweight exercises), same layout as build_batch2.py."""
 import glob
 import os
 import re
@@ -12,9 +12,9 @@ from docx.shared import Pt, RGBColor
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "out")
 SITE = "https://exercisemenu.com"
-ORDER = ["seated-leg-curl", "cable-overhead-triceps-extension", "pull-up", "reverse-pec-deck-fly", "low-to-high-cable-fly"]
+ORDER = ["cable-triceps-pushdown", "seated-leg-curl", "cable-overhead-triceps-extension", "leg-extension", "pull-up", "reverse-pec-deck-fly", "low-to-high-cable-fly"]
 LIVE = set()
-FOCUS = {"seated-leg-curl": "seated leg curl", "cable-overhead-triceps-extension": "overhead triceps extension",
+FOCUS = {"cable-triceps-pushdown": "triceps pushdown", "leg-extension": "leg extension", "seated-leg-curl": "seated leg curl", "cable-overhead-triceps-extension": "overhead triceps extension",
          "pull-up": "pull-up", "reverse-pec-deck-fly": "reverse pec deck", "low-to-high-cable-fly": "low to high cable fly"}
 # Exercise pages already published or written in earlier batches.
 LIVE_PAGES = {"barbell-romanian-deadlift": "Barbell Romanian Deadlift", "barbell-deadlift": "Barbell Deadlift",
@@ -23,8 +23,11 @@ LIVE_PAGES = {"barbell-romanian-deadlift": "Barbell Romanian Deadlift", "barbell
               "barbell-bent-over-row": "Barbell Bent-Over Row", "dumbbell-one-arm-row": "Dumbbell One-Arm Row",
               "dumbbell-bench-press": "Dumbbell Bench Press", "barbell-incline-bench-press": "Barbell Incline Bench Press",
               "dumbbell-incline-bench-press": "Dumbbell Incline Bench Press",
-              "cable-lat-pulldown": "Cable Lat Pulldown", "seated-cable-row": "Seated Cable Row", "cable-face-pull": "Cable Face Pull"}
+              "cable-lat-pulldown": "Cable Lat Pulldown", "seated-cable-row": "Seated Cable Row", "cable-face-pull": "Cable Face Pull",
+              "leg-press": "Leg Press", "barbell-back-squat": "Barbell Back Squat", "barbell-bulgarian-split-squat": "Barbell Bulgarian Split Squat"}
 ALTERNATIVES = {
+    "cable-triceps-pushdown": ["cable-overhead-triceps-extension", "barbell-lying-triceps-extension", "barbell-close-grip-bench-press"],
+    "leg-extension": ["leg-press", "barbell-back-squat", "barbell-bulgarian-split-squat"],
     "seated-leg-curl": ["barbell-romanian-deadlift", "barbell-deadlift"],
     "cable-overhead-triceps-extension": ["barbell-lying-triceps-extension", "barbell-close-grip-bench-press"],
     "pull-up": ["cable-lat-pulldown", "seated-cable-row", "barbell-bent-over-row"],
@@ -32,6 +35,8 @@ ALTERNATIVES = {
     "low-to-high-cable-fly": ["dumbbell-bench-press", "barbell-incline-bench-press", "dumbbell-incline-bench-press"],
 }
 RELATED = {
+    "cable-triceps-pushdown": ["/how-to-use-a-cable-machine/", "/compound-vs-isolation/", "/how-many-exercises-per-muscle-group-should-you-do/"],
+    "leg-extension": ["/compound-vs-isolation/", "/why-your-knees-hurt-when-squatting/", "/how-many-reps-and-sets-for-muscle-growth/"],
     "seated-leg-curl": ["/dumbbell-romanian-deadlift/", "/compound-vs-isolation/", "/how-many-reps-and-sets-for-muscle-growth/"],
     "cable-overhead-triceps-extension": ["/how-to-use-a-cable-machine/", "/how-many-exercises-per-muscle-group-should-you-do/", "/compound-vs-isolation/"],
     "pull-up": ["/progressive-overload-for-beginners/", "/push-pull-legs-split/", "/how-many-sets-per-muscle-group-per-week/"],
@@ -50,6 +55,16 @@ PLAN_TITLE = {
 }
 # (plan slug, day label) — read out of the workout tables of the 20 written plans
 PLANS = {
+    "cable-triceps-pushdown": [("push-pull-legs", "Day 4 — Push B (Volume)"), ("full-body-workout-plan", "Day B — Bench Press Focus"),
+        ("upper-lower-split", "Day 1 — Upper A + Day 3 — Upper B"), ("bro-split", "Day 5 — Arms & Calves"),
+        ("4-day-workout-split", "Day 4 — Limbs B (Volume)"), ("3-day-full-body-workout", "Day 2 — Light"),
+        ("hypertrophy-program", "Day 4 — Posterior B"), ("workout-plan-for-skinny-guys", "Day 1 — Upper Body"),
+        ("5-day-workout-split", "Day 3 — Push (Volume)"), ("ppl-hypertrophy-program", "Day 4 — Push B"),
+        ("beginner-strength-training-program", "Day 3 — Squat & Press (Volume)"), ("strength-training-for-women", "Day 3 — Full Body Strength"),
+        ("powerlifting-program-for-beginners", "Day 2 — Deadlift & Paused Bench"), ("arm-workout", "Arm Workout B — Isolation Day")],
+    "leg-extension": [("push-pull-legs", "Day 3 — Legs A (Heavy) + Day 6 — Legs B (Volume)"), ("upper-lower-split", "Day 2 — Lower A (Squat Focus)"),
+        ("bro-split", "Day 4 — Legs"), ("4-day-workout-split", "Day 4 — Limbs B (Volume)"), ("hypertrophy-program", "Day 1 — Anterior A"),
+        ("5-day-workout-split", "Day 5 — Legs (Volume)"), ("ppl-hypertrophy-program", "Day 3 — Legs A"), ("leg-day-workout", "Leg Day A — Quad Focus")],
     "seated-leg-curl": [("push-pull-legs", "Day 3 — Legs A (Heavy) + Day 6 — Legs B (Volume)"), ("full-body-workout-plan", "Day A — Squat Focus"),
         ("upper-lower-split", "Day 2 — Lower A + Day 4 — Lower B"), ("bro-split", "Day 4 — Legs"),
         ("4-day-workout-split", "Day 2 — Limbs A (Heavy) + Day 4 — Limbs B (Volume)"), ("3-day-full-body-workout", "Day 2 — Light"),
@@ -304,30 +319,29 @@ for i, s in enumerate(ORDER, 1):
     path = os.path.join(OUT, f"{i:02d}-{s}.docx")
     build(s, data[s], names).save(path)
     files.append(path)
-zpath = os.path.join(HERE, "ExerciseMenu-5-Exercise-Pages-Batch-3.zip")
+zpath = os.path.join(HERE, "ExerciseMenu-7-Exercise-Pages-Batch-3.zip")
 with zipfile.ZipFile(zpath, "w", zipfile.ZIP_DEFLATED) as z:
     for f in files:
-        z.write(f, "ExerciseMenu-5-Exercise-Pages-Batch-3/" + os.path.basename(f))
+        z.write(f, "ExerciseMenu-7-Exercise-Pages-Batch-3/" + os.path.basename(f))
 print("ok", len(files), "->", zpath)
 
 # ---------------------------------------------------------------- developer file (audit + all 5 pages)
 AUDIT = [
     ["Check", "Result"],
-    ["Exercise names", "Each of the 5 GIFs was zoomed in on before anything was written, and the name taken from what the image actually shows: Seated Leg Curl, Cable Overhead Triceps Extension (rope), Pull-Up, Reverse Pec Deck Fly, Low-to-High Cable Fly. Two of these are not the exercises named in the previous message — see 'Note on the images' below."],
-    ["Form, cues and positioning vs GIF", "Steps written from the frames: leg curl roller just above the heels with the thigh pad above the knees; overhead extension from a LOW pulley with the back to the stack and the elbows pointing forward; pull-up with an overhand grip a little wider than the shoulders and the ankles crossed; reverse pec deck with a palms-down grip on the horizontal handles and the chest on the pad; cable fly from two LOW pulleys in a staggered stance with the trunk upright."],
-    ["Verified research", "4 sources, each abstract opened and read: Maeo 2021 (seated vs lying leg curl, 14% vs 9%), Maeo 2023 (overhead vs neutral triceps, 28.5% vs 19.6% long head, 34-39% less load), Youdas 2010 (pull-up vs chin-up EMG), Schoenfeld 2013 (neutral vs pronated grip on the reverse fly machine). ACE's own Standing Incline Cable Flyes page was fetched for the cable fly cues."],
-    ["Claims NOT made", "No upper-chest EMG claim for the low-to-high fly: no study has measured that exercise, and the page says so on the page itself rather than hiding it. No ankle-position claim on the leg curl. No 'wide grip is harder on the shoulders' claim on the pull-up (only the shorter range, which is geometry)."],
-    ["Honest caveats on the page", "Low-to-High Cable Fly, Tip 3 and FAQ 1 both state the upper-chest rationale is anatomical, not measured. Reverse Pec Deck says the neutral-grip finding came from a machine with vertical handles, while the GIF shows palms-down handles."],
-    ["AI voice / patterns", "Banned-word check runs in the build (very, really, basically, significantly, game changer, dive into, etc.) and passes. FAQ openers varied; no repeated sentence shapes across the 5 pages."],
-    ["Related articles", "3 per page, all chosen from articles already on exercisemenu.com and all topically matched (cable chest article for the cable fly, Romanian deadlift for the leg curl, cable machine guide for the overhead extension, progressive overload for the pull-up)."],
-    ["Anything irrelevant?", "Teres major was dropped from the Reverse Pec Deck muscle list: it is not a horizontal abductor. Dumbbell lateral raise is not listed anywhere as a rear-delt alternative."],
-    ["Workout plan usage", "Taken from the tables of your 20 written plans: Seated Leg Curl 14 plans, Cable Overhead Triceps Extension 9, Pull-Up 8, Reverse Pec Deck 5, Low-to-High Cable Fly 3."],
+    ["Exercise names", "Every GIF was zoomed in on before anything was written and the name taken from what the image shows: Cable Triceps Pushdown (rope), Seated Leg Curl, Cable Overhead Triceps Extension (rope), Leg Extension, Pull-Up, Reverse Pec Deck Fly, Low-to-High Cable Fly."],
+    ["Form, cues and positioning vs GIF", "Steps written from the frames. Pushdown: high pulley, rope, elbows pinned at the sides, hands starting at upper-stomach height. Leg curl: roller just above the heels, thigh pad above the knees. Overhead extension: LOW pulley with the back to the stack, elbows pointing forward. Leg extension: roller across the front of the lower legs just above the feet, knees bent about 90 degrees at the start, hands on the side handles. Pull-Up: overhand grip a little wider than the shoulders, ankles crossed. Reverse pec deck: palms-down grip on the horizontal handles, chest on the pad. Cable fly: two LOW pulleys, staggered stance, trunk upright."],
+    ["Verified research", "7 sources, each abstract opened and read: Maeo 2021 (seated vs lying leg curl, 14% vs 9%), Maeo 2023 (overhead vs neutral triceps, 28.5% vs 19.6% long head at 34-39% less load), Youdas 2010 (pull-up vs chin-up EMG), Schoenfeld 2013 (neutral vs pronated grip on the reverse fly machine), Pedrosa 2022 (knee extension ROM, 100-65 degrees grew more than full range in several muscle regions), Smith 2009 (20-study review: VMO cannot be preferentially activated), Rendos 2016 (handle type does not change triceps EMG in the pushdown). ACE's Standing Incline Cable Flyes page was fetched for the cable fly cues."],
+    ["Claims NOT made", "No 'rope beats bar' claim on the pushdown: the only head-to-head data found no triceps difference, and the page says so. No upper-chest EMG claim for the low-to-high fly: no study has measured that exercise. No 'turning your toes shapes the inner quad' claim on the leg extension - the page states the opposite, with the review behind it. No 'leg extensions wreck your knees' claim either way."],
+    ["Honest caveats on the page", "Low-to-High Cable Fly, Tip 3 and FAQ 1 both say the upper-chest rationale is anatomical, not measured. Reverse Pec Deck notes the neutral-grip finding came from a machine with vertical handles, while the GIF shows palms-down handles. Leg Extension FAQ 1 tells anyone with knee pain to see a clinician rather than giving medical advice."],
+    ["AI voice / patterns", "Banned-word check runs in the build (very, really, basically, significantly, game changer, dive into and others) and passes on all 7 pages. FAQ openers varied; no repeated sentence shapes across pages."],
+    ["Related articles", "3 per page, all live on exercisemenu.com (checked, all return 200) and all topically matched - cable chest article for the cable fly, Romanian deadlift for the leg curl, knee-pain article for the leg extension, cable machine guide for both triceps pages."],
+    ["Anything irrelevant?", "Teres major was dropped from the Reverse Pec Deck muscle list: it is not a horizontal abductor. No rower or lateral raise is listed as a rear-delt alternative."],
+    ["Workout plan usage", "Read out of the tables of your 20 written plans: Seated Leg Curl 14 plans, Cable Triceps Pushdown 14, Cable Overhead Triceps Extension 9, Pull-Up 8, Leg Extension 8, Reverse Pec Deck 5, Low-to-High Cable Fly 3."],
     ["Calories", "Estimates from the 2024 Compendium of Physical Activities, 70 kg person, 30-60 s set. 3-6 kcal for the pull-up (bodyweight compound), 2-4 kcal for the rest."],
-    ["Note on the images", "Images 1 and 4 of the 5 you sent are NOT the Cable Triceps Pushdown and Leg Extension named in the previous message. Image 1 is a seated reverse pec deck (rear delts highlighted) and image 4 is a standing low-pulley cable fly (chest highlighted). The pages were written for what the GIFs show. Cable Triceps Pushdown and Leg Extension still have no page."],
-    ["Not checked", "Only still frames were reviewed, since the files you sent are single-frame images rather than animations. Play each purchased GIF once before publishing to confirm the movement matches the steps."],
+    ["Not checked", "Only still frames were reviewed, since the files supplied are single-frame images rather than animations. Play each purchased GIF once before publishing to confirm the movement matches the steps."],
 ]
 dev = new_doc()
-dev.add_heading("ExerciseMenu — Developer File: 5 Exercise Pages (Batch 3)", level=0)
+dev.add_heading("ExerciseMenu — Developer File: 7 Exercise Pages (Batch 3)", level=0)
 dev.add_paragraph("Headings below are the exact box names on the Edit Exercise screen (plugin v1.2.0). Copy each value into the field with the same name.")
 dev.add_heading("Audit", level=1)
 grid(dev, AUDIT[0], AUDIT[1:], (120, 380))
@@ -340,6 +354,6 @@ for line in ["Create all 5 pages as Drafts first so they appear in each other's 
 for s in ORDER:
     dev.add_page_break()
     build(s, data[s], names, dev)
-dpath = os.path.join(HERE, "ExerciseMenu-Developer-File-5-Exercises-Batch-3.docx")
+dpath = os.path.join(HERE, "ExerciseMenu-Developer-File-7-Exercises-Batch-3.docx")
 dev.save(dpath)
 print("dev ->", dpath)
