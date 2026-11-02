@@ -72,7 +72,7 @@ Calves (Soleus and Gastrocnemius) — stabilize the ankles.
 | 1 | Set the bar in the rack | Set the bar at about armpit height. Step under it and rest it across your upper traps, not on your neck. Grip the bar just outside your shoulders. |
 | 2 | Unrack and set your stance | Stand up to lift the bar off the hooks, take two or three steps back, and set your feet about shoulder-width apart with toes turned slightly out. |
 | 3 | Brace | Take a deep breath into your belly and tighten your abs as if preparing for a punch. Keep your chest up and eyes forward. |
-| 4 | Squat down | Bend your hips and knees at the same time. Let your knees travel forward and out in line with your toes. Descend as low as you can while your back stays neutral and heels stay down. |
+| 4 | Squat down | Bend your hips and knees at the same time. Let your knees travel forward and out in line with your toes. Descend as low as you can while your back stays neutral and heels stay down. ACE's back squat instructions and the demonstration both go until the hips drop below the knees. |
 | 5 | Drive up | Push through your whole foot to stand up, keeping your chest up and knees in line with your toes. Exhale near the top. |
 | 6 | Re-rack safely | After the last rep, walk forward until the bar touches the uprights, then lower it onto the hooks. |
 

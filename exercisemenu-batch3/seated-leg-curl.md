@@ -3,7 +3,7 @@
 - **Status:** NEW — add as a new Exercise
 - **Suggested slug:** `/exercises/seated-leg-curl/`
 - **GIF:** already in your Media Library — select `Lever-Seated-Leg-Curl-Thighs-FIX.gif` (no upload needed)
-- **GIF check (all 30 frames played):** seated with the back against the pad, the thigh pad locked across the lower thighs just above the knees, the roller on the back of the lower legs just above the heels. The hands grip the **two handles on the thigh-pad frame in front of the torso**. The legs start almost straight and the roller is pulled down and back under the seat. The steps below match the animation.
+- **GIF check (all 30 frames played):** seated with the back against the pad, the thigh pad locked across the lower thighs just above the knees, the roller across the back of the lower legs above the ankle. The hands grip the **two handles on the thigh-pad frame in front of the torso**. The legs start almost straight and the roller is pulled down and back under the seat. The steps below match the animation.
 
 ---
 
@@ -42,7 +42,7 @@ How to do the seated leg curl for your hamstrings. Machine setup, pad position, 
 
 ## Quick Answer (AEO)
 
-The seated leg curl trains the hamstrings. Sit with your back on the pad, lock the thigh pad above your knees and set the roller just above your heels, then bend your knees to pull the roller down and back. Return slowly. Use 3 sets of 10 to 15 reps.
+The seated leg curl trains the hamstrings. Sit with your back on the pad, lock the thigh pad above your knees and set the roller across your lower shins, then bend your knees to pull the roller down and back. Return slowly. Use 3 sets of 10 to 15 reps.
 
 ---
 
@@ -69,7 +69,7 @@ Popliteus — unlocks the knee at the start of the bend.
 | # | Step Title | Step Description |
 |---|---|---|
 | 1 | Set the back pad | Adjust the back pad so that when you sit, your knees line up with the pivot point of the machine arm. |
-| 2 | Set the roller | Set the leg roller so it rests on the back of your lower legs, just above your heels. |
+| 2 | Set the roller | Set the leg roller across the back of your lower legs, around the lower third — above the ankle, not resting on your Achilles. |
 | 3 | Lock the thigh pad | Sit with your back flat against the pad and bring the thigh pad down across your lower thighs, just above your knees, so your legs stay in place. |
 | 4 | Take the handles | Hold the two handles on the thigh-pad frame in front of you and start with your legs almost straight, hamstrings already under tension. |
 | 5 | Curl your legs down | Bend your knees and pull the roller down and back as far as the machine allows. Pause for a second at the end. |
@@ -92,7 +92,7 @@ Popliteus — unlocks the knee at the start of the bend.
 
 1. **Knees Off the Pivot:** If your knee joint does not line up with the machine's pivot, the pads slide and the movement feels awkward. Move the back pad before you load the machine.
 2. **Hips Lifting off the Seat:** Pushing your hips up to move the weight takes the work off the hamstrings. Keep them on the seat and lower the load.
-3. **Roller in the Wrong Place:** A roller sitting on the calf muscle or on the heel itself is uncomfortable and harder to control. Place it just above your heels.
+3. **Roller in the Wrong Place:** A roller sitting up on the calf muscle, or down on the Achilles, is uncomfortable and harder to control. ACE's leg curl instructions put the pad on the lower third of the lower leg and say to avoid contact at or just above the heel.
 4. **Dropping the Weight:** Letting the stack fall skips the lowering half of the rep. Take 2–3 seconds to straighten your legs.
 5. **Half Reps:** Stopping short at both ends trains less of the range. Curl as far as the machine allows and straighten until you feel the stretch.
 
@@ -123,12 +123,14 @@ Popliteus — unlocks the knee at the start of the bend.
 1. **Q: Seated or lying leg curl — which is better?**
    A: For muscle growth the seated version has the edge. Maeo and colleagues (2021) trained one leg with each for 12 weeks and measured about 14% hamstring growth from seated curls against about 9% from lying curls.
 2. **Q: Where should the roller sit?**
-   A: On the back of your lower legs, just above your heels — not on the calf muscle and not on the heel itself.
+   A: Across the back of your lower legs, around the lower third — above the ankle, not up on the calf and not down on your Achilles.
 3. **Q: Why do my hamstrings cramp during leg curls?**
    A: Cramping usually settles when you lower the weight, slow the reps down and build the number of sets up over a few weeks rather than all at once.
 4. **Q: Do leg curls help my squat and deadlift?**
    A: They train knee bending, which squats and deadlifts do not. Most programs use them alongside hip hinges such as the Romanian deadlift, not instead of them.
 5. **Q: How often should I train hamstrings?**
    A: The workout plans on this site train them once or twice a week with 3–4 sets each session.
+
+**Citation (Step 2, Mistake 3 & FAQ 2):** American Council on Exercise (ACE). *Lying Hamstrings Curl — Exercise Library.* https://www.acefitness.org/resources/everyone/exercise-library/153/lying-hamstrings-curl/
 
 **Citation (Tip 1 & FAQ 1):** Maeo S, Huang M, Wu Y, Sakurai H, Kusagawa Y, Sugiyama T, Kanehisa H, Isaka T. *Greater Hamstrings Muscle Hypertrophy but Similar Damage Protection after Training at Long versus Short Muscle Lengths.* Med Sci Sports Exerc. 2021;53(4):825–837. https://pubmed.ncbi.nlm.nih.gov/33009197/

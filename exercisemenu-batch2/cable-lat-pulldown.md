@@ -70,7 +70,7 @@ Biceps Brachii and Brachialis — bend the elbows during the pull.
 |---|---|---|
 | 1 | Set the thigh pad | Sit at the machine and adjust the pad so your thighs are held firmly and your feet are flat on the floor. |
 | 2 | Take a wide grip | Stand up, grip the bar with an overhand grip wider than your shoulders, then sit down with your arms fully straight. |
-| 3 | Set your chest | Lean back slightly, lift your chest and pull your shoulders down away from your ears. |
+| 3 | Set your chest | Lean back slightly — ACE's lat pulldown instructions say no more than 30 degrees — then lift your chest and pull your shoulders down away from your ears. |
 | 4 | Pull to your upper chest | Pull the bar down in front of your face to your upper chest by driving your elbows down toward your sides. |
 | 5 | Return slowly | Let the bar rise over 2–3 seconds until your arms are straight and you feel a stretch in your lats, then repeat. |
 
@@ -89,7 +89,7 @@ Biceps Brachii and Brachialis — bend the elbows during the pull.
 
 ## Common Mistakes
 
-1. **Leaning Back Too Far:** A big backward lean turns the pulldown into a row and lets body weight do the work. Keep a slight lean and a still torso.
+1. **Leaning Back Too Far:** A big backward lean turns the pulldown into a row and lets body weight do the work. ACE puts the limit at 30 degrees, and says not to lean further once the pull has started.
 2. **Swinging the Weight:** Jerking the bar down with your body uses momentum. Pull smoothly and control the return.
 3. **Cutting the Top Short:** Stopping before your arms straighten removes the stretch on the lats. Let the bar rise all the way.
 4. **Shrugging at the Bottom:** Letting your shoulders rise toward your ears shifts the work away from the lats. Keep them down.
@@ -124,10 +124,12 @@ Biceps Brachii and Brachialis — bend the elbows during the pull.
 2. **Q: Where should the bar touch?**
    A: Your upper chest, just below the collarbones. Pull the bar in front of your face, not behind your neck.
 3. **Q: How far should I lean back?**
-   A: Only slightly, enough to let the bar pass your face. Leaning far back turns it into a row.
+   A: Only slightly. ACE's instructions say no more than 30 degrees, and to hold that angle rather than leaning further as you pull.
 4. **Q: Is the lat pulldown as good as the pull-up?**
    A: Both train the lats. The pulldown lets you choose a weight lighter than your body weight, which suits beginners and higher-rep sets.
 5. **Q: Why do I feel lat pulldowns in my arms?**
    A: Your arms always help. If you feel them most, you are probably pulling with your hands. Focus on driving your elbows down.
+
+**Citation (Step 3, Mistake 1 & FAQ 3):** American Council on Exercise (ACE). *Seated Lat Pulldown — Exercise Library.* https://www.acefitness.org/resources/everyone/exercise-library/158/seated-lat-pulldown/
 
 **Citation (Tip 2 & FAQ 1):** Andersen V, et al. *Effects of grip width on muscle strength and activation in the lat pull-down.* J Strength Cond Res. 2014;28(4):1135–1142. https://pubmed.ncbi.nlm.nih.gov/24662157/

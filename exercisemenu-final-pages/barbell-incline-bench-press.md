@@ -88,7 +88,7 @@ Serratus Anterior — helps stabilize the shoulder blades.
 
 ## Common Mistakes
 
-1. **Setting the Bench Too Steep:** Angles above 45 degrees shift more of the work to the front shoulders. Keep the bench near 30 degrees.
+1. **Setting the Bench Too Steep:** Rodríguez-Ridao and colleagues (2020) found that above 30 degrees the front shoulder takes over a measurably larger share of the work. Keep the bench near 30 degrees.
 2. **Bouncing the Bar off the Chest:** Rebounding uses momentum instead of muscle and is hard to control. Touch the chest lightly, then press.
 3. **Flaring the Elbows to 90 Degrees:** Fully flared elbows put more stress on the shoulders. Keep them at a moderate angle from your body.
 4. **Lifting the Hips off the Bench:** Driving the hips up flattens the incline and usually means the load is too heavy. Keep your glutes on the bench.
@@ -119,7 +119,7 @@ Serratus Anterior — helps stabilize the shoulder blades.
 ## FAQs
 
 1. **Q: What bench angle is best for the upper chest?**
-   A: About 30 degrees. A 2020 study by Rodríguez-Ridao and colleagues found upper chest activity peaked at 30 degrees, while angles above 45 degrees shifted more work to the front shoulders.
+   A: About 30 degrees. A 2020 study by Rodríguez-Ridao and colleagues tested 0, 15, 30, 45 and 60 degrees and found upper chest activity peaked at 30, and that inclines above 30 degrees raised front shoulder activity by a measurable margin. ACE's own incline chest press entry suggests 45 to 60 degrees, so guidance does differ; this page follows the measured data.
 2. **Q: Should I do incline bench before or after flat bench?**
    A: Do first the press you most want to improve. If upper chest is your priority, start with the incline.
 3. **Q: Can beginners do the incline bench press?**

@@ -66,7 +66,7 @@ Serratus Anterior — rotates and stabilizes the shoulder blade.
 
 | # | Step Title | Step Description |
 |---|---|---|
-| 1 | Stand tall | Stand with feet hip-width apart, holding a dumbbell in each hand at your sides. Brace your abs and keep your chest up. |
+| 1 | Stand tall | Stand with feet hip-width apart, holding a dumbbell in each hand in front of your thighs. Brace your abs and keep your chest up. |
 | 2 | Set your elbows | Keep a slight bend in your elbows and hold it for the whole set. |
 | 3 | Raise out to the sides | Lift the dumbbells out to your sides in a wide arc, leading with your elbows. |
 | 4 | Stop at shoulder height | Stop when your arms are about parallel to the floor, with palms facing down. |

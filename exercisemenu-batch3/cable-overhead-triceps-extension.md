@@ -92,7 +92,7 @@ Abdominals and Erector Spinae — keep your torso upright against the pull of th
 1. **Elbows Flaring Out:** Letting the elbows drift wide turns the movement into an overhead press. Keep them pointing forward, close to your head.
 2. **Moving the Upper Arms:** If the whole arm swings forward and back, the shoulders take over. Hold the upper arms still and move only the forearms.
 3. **Arching the Lower Back:** Leaning back to finish the rep loads the spine instead of the arms. Keep your ribs down and your abs tight.
-4. **Cutting the Stretch Short:** Stopping before your hands get behind your head removes the stretched position this exercise is chosen for.
+4. **Cutting the Stretch Short:** Stopping before your hands get behind your head removes the stretched position this exercise is chosen for. Going too far is the other fault: ACE's triceps extension instructions say to stop once your upper arms start to move backward, and never to let the weight touch the back of your head.
 5. **Loading It Like a Pushdown:** The overhead position handles less weight than an arms-at-the-side exercise. If the cable pulls you backward between reps, drop the load.
 
 ---
@@ -100,7 +100,7 @@ Abdominals and Erector Spinae — keep your torso upright against the pull of th
 ## Tips
 
 1. **Overhead Builds More Than Arms-at-the-Side:** Maeo and colleagues (2023) trained one arm overhead and the other at the side for 12 weeks. The long head grew about 28% overhead against about 20% at the side, even though the overhead arm used 34–39% less weight.
-2. **Chase the Stretch, Not the Load:** The overhead position is the point of this exercise, so take each rep to full depth behind your head.
+2. **Chase the Stretch, Not the Load:** The overhead position is the point of this exercise, so take each rep to a full stretch behind your head — but stop if your upper arms start to drift backward, as ACE advises.
 3. **Keep Your Head Still:** Pushing your head forward to clear the rope changes your posture. Let the rope travel beside your head instead.
 4. **Spread the Rope at the Top:** Pulling the two ends slightly apart as your arms straighten makes the finish easier to hold.
 
@@ -129,5 +129,7 @@ Abdominals and Erector Spinae — keep your torso upright against the pull of th
    A: Most often the weight is too heavy, or the elbows drift and snap straight at the top. Lower the load and stop just short of locking out. See a clinician if the pain carries on.
 5. **Q: Overhead extension or pushdown — which should I pick?**
    A: They train the same muscle in different positions. The overhead version stretches the long head, and many programs use both; the workout plans on this site do exactly that.
+
+**Citation (Mistake 4 & Tip 2):** American Council on Exercise (ACE). *Triceps Extension — Exercise Library.* https://www.acefitness.org/resources/everyone/exercise-library/74/triceps-extension/
 
 **Citation (Tip 1 & FAQ 1):** Maeo S, Wu Y, Huang M, Sakurai H, Kusagawa Y, Sugiyama T, Kanehisa H, Isaka T. *Triceps brachii hypertrophy is substantially greater after elbow extension training performed in the overhead versus neutral arm position.* Eur J Sport Sci. 2023;23(7):1240–1250. https://pubmed.ncbi.nlm.nih.gov/35819335/

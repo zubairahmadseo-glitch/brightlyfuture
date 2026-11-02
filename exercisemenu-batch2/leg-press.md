@@ -89,7 +89,7 @@ Calves (Gastrocnemius and Soleus) — keep the feet steady on the platform.
 
 ## Common Mistakes
 
-1. **Hips Lifting off the Pad:** Lowering past your own hip mobility makes your hips curl up and your lower back round. Your own limit is the depth where your hips and back still stay flat on the pad, whatever the knee angle.
+1. **Hips Lifting off the Pad:** Lowering past your own hip mobility makes your hips curl up and your lower back round. ACE's leg press instructions say not to let your thighs press into your ribcage and not to lift your seat off the pad or round your lower back. That is your depth limit, whatever the knee angle.
 2. **Locking Your Knees:** Snapping your knees straight under a heavy load takes tension off the muscles and loads the joint. Stop just short of lockout.
 3. **Knees Caving In:** Letting your knees fall inward reduces control. Keep them in line with your toes.
 4. **Heels Lifting:** Lifting your heels makes your feet unstable on the platform. Keep your whole foot flat and press through your heels and mid-foot.
@@ -129,5 +129,7 @@ Calves (Gastrocnemius and Soleus) — keep the feet steady on the platform.
    A: No. Stop just before your knees lock so the muscles keep working and the joint is not snapped straight under load.
 5. **Q: Why does my lower back hurt on the leg press?**
    A: The most common cause is your hips lifting and your back rounding at the bottom. Reduce the depth or the weight and keep your hips on the pad.
+
+**Citation (Mistake 1 & Step 4):** American Council on Exercise (ACE). *Seated Leg Press — Exercise Library.* https://www.acefitness.org/resources/everyone/exercise-library/154/seated-leg-press/
 
 **Citation (Tip 1 & FAQ 2):** Martín-Fuentes I, Oliva-Lozano JM, Muyor JM. *Evaluation of the Lower Limb Muscles' Electromyographic Activity during the Leg Press Exercise and Its Variants: A Systematic Review.* Int J Environ Res Public Health. 2020;17(13):4626. https://pmc.ncbi.nlm.nih.gov/articles/PMC7369968/

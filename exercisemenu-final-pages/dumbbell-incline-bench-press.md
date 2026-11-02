@@ -88,7 +88,7 @@ Serratus Anterior — stabilizes the shoulder blades.
 
 ## Common Mistakes
 
-1. **Bench Set Too Steep:** Angles above 45 degrees turn the press into more of a shoulder exercise. Keep it near 30 degrees.
+1. **Bench Set Too Steep:** Rodríguez-Ridao and colleagues (2020) found that above 30 degrees the front shoulder takes over a measurably larger share of the work. Keep the bench near 30 degrees.
 2. **Elbows Flared to 90 Degrees:** Fully flared elbows put more stress on the front of the shoulder. Keep them at a moderate angle from your body.
 3. **Shoulder Blades Rolling Forward:** Letting the shoulders lift off the bench at the top shifts work away from the chest. Keep the shoulder blades back and down.
 4. **Cutting the Bottom Short:** Stopping high reduces the stretch on the upper chest. Lower until the dumbbells are beside your chest.
@@ -98,7 +98,7 @@ Serratus Anterior — stabilizes the shoulder blades.
 
 ## Tips
 
-1. **Use About 30 Degrees:** A 2020 study by Rodríguez-Ridao and colleagues found the upper chest was most active at a 30-degree incline, while angles above 45 degrees increased front delt activity.
+1. **Use About 30 Degrees:** A 2020 study by Rodríguez-Ridao and colleagues tested 0, 15, 30, 45 and 60 degrees and found the upper chest most active at 30, with inclines above 30 degrees raising front delt activity by a measurable margin.
 2. **Keep Your Feet Planted:** Pressing your feet into the floor keeps your body stable on the bench.
 3. **Press Up, Not Back Toward Your Face:** The dumbbells should finish over your shoulders, not over your face or stomach.
 4. **Start Lighter Than Your Flat Press:** Most lifters use less weight on an incline than on a flat bench.
