@@ -42,7 +42,7 @@ How to do the 45-degree leg press safely. Foot placement, how deep to go, muscle
 
 ## Quick Answer (AEO)
 
-The leg press is a machine exercise for the quads and glutes. Sit with your back flat on the pad and feet about hip-width on the platform, lower the sled until your knees bend to about 90 degrees without your hips lifting, then press back up without locking your knees. Use 3 sets of 10 to 15 reps.
+The leg press is a machine exercise for the quads and glutes. Sit with your back flat on the pad and feet hip-width on the platform, lower the sled as far as you can with your hips and back still flat, then press back up without locking your knees. Use 3 sets of 10 to 15 reps.
 
 ---
 
@@ -70,7 +70,7 @@ Calves (Gastrocnemius and Soleus) — keep the feet steady on the platform.
 | 1 | Sit in the machine | Sit with your back and hips flat against the pad and your head resting back. |
 | 2 | Set your feet | Place your feet about hip- to shoulder-width apart in the middle of the platform, toes pointing straight ahead or slightly out. |
 | 3 | Release the safeties | Press the platform up until your legs are almost straight, then turn the safety handles to release the sled. Hold the side handles. |
-| 4 | Lower with control | Bend your knees to lower the sled toward your chest until your knees reach about 90 degrees, or as deep as you can while your hips and lower back stay on the pad. |
+| 4 | Lower with control | Bend your knees to lower the sled toward your chest as far as you can while your hips and lower back stay flat on the pad. The demonstration goes past 90 degrees of knee bend. Stop sooner if your hips start to curl up off the pad. |
 | 5 | Press back up | Push through your whole foot to press the platform back up. Stop just before your knees lock. |
 | 6 | Lock the safeties | After the last rep, turn the safety handles back into place before you take your feet off the platform. |
 
@@ -89,7 +89,7 @@ Calves (Gastrocnemius and Soleus) — keep the feet steady on the platform.
 
 ## Common Mistakes
 
-1. **Hips Lifting off the Pad:** Lowering too deep makes your hips curl up and your lower back round. Stop where your hips and back stay flat on the pad.
+1. **Hips Lifting off the Pad:** Lowering past your own hip mobility makes your hips curl up and your lower back round. Your own limit is the depth where your hips and back still stay flat on the pad, whatever the knee angle.
 2. **Locking Your Knees:** Snapping your knees straight under a heavy load takes tension off the muscles and loads the joint. Stop just short of lockout.
 3. **Knees Caving In:** Letting your knees fall inward reduces control. Keep them in line with your toes.
 4. **Heels Lifting:** Lifting your heels makes your feet unstable on the platform. Keep your whole foot flat and press through your heels and mid-foot.
@@ -100,7 +100,7 @@ Calves (Gastrocnemius and Soleus) — keep the feet steady on the platform.
 ## Tips
 
 1. **Foot Position: The Evidence Is Mixed:** A 2020 review by Martín-Fuentes and colleagues found mixed results on foot position. One study saw more glute activity with a high foot position and more quad activity with a low one, but the authors recommend a self-selected position.
-2. **Depth Comes Before Weight:** Use a load you can lower to your full, safe depth. Short reps with heavy weight train less of the movement.
+2. **Depth Comes Before Weight:** Use a load you can lower to your full, safe depth. The review by Martín-Fuentes and colleagues (2020) describes leg press ranges of motion running to 120 degrees of knee flexion, so a demonstration that goes past 90 degrees is normal.
 3. **Use the Safeties Every Set:** Lock the safety handles before you get in and after you finish.
 4. **Keep Your Head Back:** Resting your head on the pad helps keep your back flat.
 

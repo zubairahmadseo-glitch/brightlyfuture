@@ -13,7 +13,7 @@
 Cable Kneeling Crunch: How to Do It, Muscles & Sets
 
 **Meta Description (≤160):**
-How to do the cable kneeling crunch with your hips still and your spine doing the work. Muscles worked, sets and reps, common mistakes, and FAQs.
+How to do the cable kneeling crunch so your spine does the work, not your hips. Muscles worked, sets and reps, common mistakes, and FAQs.
 
 ---
 
@@ -42,7 +42,7 @@ How to do the cable kneeling crunch with your hips still and your spine doing th
 
 ## Quick Answer (AEO)
 
-The cable kneeling crunch is an ab exercise done on your knees below a high pulley. Hold a rope beside your head, keep your hips still, and curl your ribs toward your hips by rounding your spine. Uncurl slowly to return. Use 2 to 3 sets of 10 to 15 reps.
+The cable kneeling crunch is an ab exercise done on your knees below a high pulley. Hold a rope beside your head and curl your ribs toward your hips by rounding your spine, not by folding at the hips. Uncurl slowly to return. Use 2 to 3 sets of 10 to 15 reps.
 
 ---
 
@@ -68,7 +68,7 @@ Internal Obliques — assist trunk flexion and keep the torso steady.
 | 1 | Set the pulley high | Attach a rope to the high pulley of a cable machine and choose a light weight. |
 | 2 | Kneel below the pulley | Kneel directly below the pulley with your back to the machine, knees about hip-width apart, sitting up tall with your hips over your knees. |
 | 3 | Hold the rope by your head | Hold one end of the rope in each hand beside your head, hands near your ears. Keep them fixed there for the whole set. |
-| 4 | Curl down | Breathe out and round your spine, pulling your ribs toward your hips and your elbows toward your thighs. Your hips stay where they are. |
+| 4 | Curl down | Breathe out and round your spine, pulling your ribs toward your hips and your elbows toward your thighs. Your hips settle back a little as you fold, as they do in the demonstration; what matters is that the movement comes from your spine rounding. |
 | 5 | Uncurl slowly | Uncurl over about 2 seconds until your torso is upright again, then start the next rep. |
 
 ---
@@ -86,7 +86,7 @@ Internal Obliques — assist trunk flexion and keep the torso steady.
 
 ## Common Mistakes
 
-1. **Moving the Hips:** Sitting back toward your heels or pushing the hips back turns the crunch into a hip hinge and takes work away from the abs. Keep your hips over your knees.
+1. **Folding at the Hips With a Flat Back:** If your back stays straight and you simply bend forward at the hips, the abs do little. ACE's crunch instructions describe the movement as pulling your rib cage toward your pelvis, so round your spine on every rep.
 2. **Pulling with the Arms:** If your hands drift away from your head, the arms and shoulders start pulling the weight. Keep your hands fixed beside your head.
 3. **Bending with a Flat Back:** Folding forward from the hips with a straight back misses the movement. The abs work when the spine rounds, so curl your ribs toward your hips.
 4. **Using Too Much Weight:** A heavy stack usually forces a hip hinge and a jerky pull. Pick a load you can curl and uncurl smoothly.
@@ -121,10 +121,12 @@ Internal Obliques — assist trunk flexion and keep the torso steady.
 2. **Q: Will cable crunches burn belly fat?**
    A: Not on their own. In a 6-week study by Vispute and colleagues (2011), ab exercises improved muscular endurance but did not reduce belly fat. Fat loss depends on your overall diet and activity.
 3. **Q: Why do I feel cable crunches in my hip flexors or lower back?**
-   A: Most often the hips are moving. Keep your hips still over your knees and lighten the weight until the movement comes from your spine.
+   A: Most often the back is staying flat and the movement is coming from the hips. Lighten the weight and curl your ribs toward your hips so your spine rounds.
 4. **Q: How heavy should I go?**
    A: Use a weight you can move for 10–15 controlled reps without swinging your hips. The cable lets you load the abs more than a floor crunch.
 5. **Q: How often should I train abs?**
    A: The workout plans on this site use 2–3 sets once or twice a week. Add more only if your abs recover well between sessions.
+
+**Citation (Mistake 1):** American Council on Exercise (ACE). *Crunch — Exercise Library.* https://www.acefitness.org/resources/everyone/exercise-library/52/crunch/
 
 **Citation (FAQ 2):** Vispute SS, et al. *The effect of abdominal exercise on abdominal fat.* J Strength Cond Res. 2011;25(9). https://pubmed.ncbi.nlm.nih.gov/21804427/

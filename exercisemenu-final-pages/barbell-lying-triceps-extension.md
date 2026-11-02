@@ -35,13 +35,13 @@ How to do the barbell lying triceps extension (skull crusher) with correct form.
 
 ## GIF / Media
 
-- **GIF Alt Text:** Barbell lying triceps extension exercise demonstration lowering the bar toward the forehead
+- **GIF Alt Text:** Barbell lying triceps extension exercise demonstration lowering the bar past the forehead
 
 ---
 
 ## Quick Answer (AEO)
 
-The barbell lying triceps extension is an isolation lift for all three heads of the triceps. Lie flat on a bench, hold a barbell over your shoulders with arms straight, and bend only at the elbows to lower it toward your forehead. Press back up. Use 3 sets of 8 to 12 reps.
+The barbell lying triceps extension is an isolation lift for all three heads of the triceps. Lie flat on a bench, hold a barbell over your shoulders with straight arms, then bend only at the elbows to lower it to your forehead or a little past it. Press back up. Use 3 sets of 8 to 12 reps.
 
 ---
 
@@ -68,7 +68,7 @@ Latissimus Dorsi and Rear Shoulder — hold the upper arms still.
 | 1 | Lie on the bench | Lie flat on a bench with your feet on the floor. Hold the barbell with an overhand grip, hands about shoulder-width apart. |
 | 2 | Start with arms over your shoulders | Press the bar up so your arms are straight and vertical over your shoulders. |
 | 3 | Fix your upper arms | Keep your elbows pointing up toward the ceiling and your upper arms still. Only the elbows will bend. |
-| 4 | Lower toward your forehead | Bend your elbows to lower the bar slowly in an arc toward your forehead, stopping just above it. |
+| 4 | Lower to your forehead or just past it | Bend your elbows to lower the bar slowly in an arc to just above your forehead. It can travel a little further, to just over the top of your head, as the demonstration shows. Stop if your upper arms start to drift backward. |
 | 5 | Press back up | Straighten your elbows to raise the bar back to the start without letting your upper arms move. |
 
 ---
@@ -89,7 +89,7 @@ Latissimus Dorsi and Rear Shoulder — hold the upper arms still.
 1. **Flaring the Elbows Outward:** Elbows that drift wide take work away from the triceps and strain the elbows. Keep them pointing up and about shoulder-width apart.
 2. **Moving the Upper Arms:** Letting the upper arms swing turns the lift into a pullover. Keep them still so only the forearms move.
 3. **Using Too Much Weight:** A load you cannot lower slowly is hard to control over your face and stresses the elbows. Pick a weight you can lower over 2–3 seconds.
-4. **Dropping the Bar Fast:** Letting the bar fall toward your head is unsafe. Control every rep and stop just above the forehead.
+4. **Dropping the Bar Fast:** Letting the bar fall toward your head is unsafe. Control every rep and never let the bar touch your head.
 5. **Lifting the Hips:** Raising the hips off the bench usually means the load is too heavy. Keep your glutes on the bench.
 
 ---
