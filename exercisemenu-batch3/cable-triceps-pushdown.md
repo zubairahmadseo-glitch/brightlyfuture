@@ -110,9 +110,9 @@ Abdominals — keep your torso still as you push.
 
 | Type | Title | Description |
 |---|---|---|
-| 🔽 Easier | Resistance Band Pushdown | A band looped over a bar above you gives light resistance and works at home. |
+| 🔽 Easier | Resistance Band Pushdown | A band looped over a bar above you trains the same push with no machine. |
 | 🔽 Easier | Straight-Bar Pushdown | A fixed bar keeps both hands in one place, which is simpler to control than a rope. |
-| 🔼 Harder | Single-Arm Cable Pushdown | One arm at a time lets each side work alone and shows any difference between them. |
+| 🔼 Harder | Single-Arm Cable Pushdown | Pushing with one arm at a time lets you watch each elbow and stop it drifting forward. |
 | 🔼 Harder | Cable Pushdown with Slow Return | Take 3–4 seconds to let the rope rise on each rep. |
 
 ---

@@ -10,10 +10,10 @@
 ## SEO & Meta
 
 **Meta Title (≤60):**
-Reverse Pec Deck Fly: How to Do It, Muscles & Sets
+Reverse Pec Deck Fly: Form, Muscles Worked & Sets
 
 **Meta Description (≤160):**
-How to do the reverse pec deck fly for your rear delts and upper back. Seat setup, grip, muscles worked, sets and reps, mistakes, and FAQs.
+Reverse pec deck form for your rear delts and upper back. Seat setup, grip, muscles worked, sets and reps, common mistakes, and FAQs.
 
 ---
 
@@ -113,7 +113,7 @@ Lower Trapezius — helps control the shoulder blades.
 | 🔽 Easier | Resistance Band Pull-Apart | Holding a band at chest height and pulling it apart trains the same backward sweep with light resistance at home. |
 | 🔽 Easier | Chest-Supported Dumbbell Rear Delt Fly | Lying face down on an incline bench supports your torso while you learn the arc. |
 | 🔼 Harder | Reverse Pec Deck with 2-Second Pause | Hold the back position for 2 seconds on every rep before you return. |
-| 🔼 Harder | Single-Arm Reverse Pec Deck | Working one arm at a time lets each side work alone and shows any difference between them. |
+| 🔼 Harder | Single-Arm Reverse Pec Deck | With one arm you can hold the frame with the other hand and keep your chest flat on the pad. |
 
 ---
 

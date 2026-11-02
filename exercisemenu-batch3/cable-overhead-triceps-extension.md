@@ -93,7 +93,7 @@ Abdominals and Erector Spinae — keep your torso upright against the pull of th
 2. **Moving the Upper Arms:** If the whole arm swings forward and back, the shoulders take over. Hold the upper arms still and move only the forearms.
 3. **Arching the Lower Back:** Leaning back to finish the rep loads the spine instead of the arms. Keep your ribs down and your abs tight.
 4. **Cutting the Stretch Short:** Stopping before your hands get behind your head removes the stretched position this exercise is chosen for.
-5. **Too Much Weight:** A heavy stack pulls you backward and forces you to swing. Use a load you can control through the full range.
+5. **Loading It Like a Pushdown:** The overhead position handles less weight than an arms-at-the-side exercise. If the cable pulls you backward between reps, drop the load.
 
 ---
 
@@ -112,7 +112,7 @@ Abdominals and Erector Spinae — keep your torso upright against the pull of th
 |---|---|---|
 | 🔽 Easier | Cable Triceps Pushdown | Working with the arms at your sides is easier to control while you learn to keep your elbows still. |
 | 🔽 Easier | Seated Cable Overhead Triceps Extension | Sitting on a bench with back support removes body sway so you can focus on the elbows. |
-| 🔼 Harder | Single-Arm Cable Overhead Triceps Extension | One arm at a time lets each side work alone and shows any difference between them. |
+| 🔼 Harder | Single-Arm Cable Overhead Triceps Extension | One arm at a time makes it harder to let the upper arm drift, so the elbow stays put. |
 | 🔼 Harder | Cable Overhead Triceps Extension with Slow Lowering | Take 3–4 seconds to bend your elbows on each rep. |
 
 ---

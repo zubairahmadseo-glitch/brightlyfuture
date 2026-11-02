@@ -90,7 +90,7 @@ Popliteus — unlocks the knee at the start of the bend.
 
 ## Common Mistakes
 
-1. **Knees Off the Pivot:** If your knee joint does not line up with the machine's pivot, the pads slide and the movement feels awkward. Reset the back pad before you start.
+1. **Knees Off the Pivot:** If your knee joint does not line up with the machine's pivot, the pads slide and the movement feels awkward. Move the back pad before you load the machine.
 2. **Hips Lifting off the Seat:** Pushing your hips up to move the weight takes the work off the hamstrings. Keep them on the seat and lower the load.
 3. **Roller in the Wrong Place:** A roller sitting on the calf muscle or on the heel itself is uncomfortable and harder to control. Place it just above your heels.
 4. **Dropping the Weight:** Letting the stack fall skips the lowering half of the rep. Take 2–3 seconds to straighten your legs.
@@ -112,8 +112,8 @@ Popliteus — unlocks the knee at the start of the bend.
 | Type | Title | Description |
 |---|---|---|
 | 🔽 Easier | Lying Leg Curl | The lying machine trains the same knee bend and is a good stand-in when the seated machine is busy. |
-| 🔽 Easier | Resistance Band Leg Curl | Lying face down with a band around one ankle gives light resistance and works at home. |
-| 🔼 Harder | Single-Leg Seated Leg Curl | Curling with one leg at a time puts more load on each side and shows any difference between them. |
+| 🔽 Easier | Resistance Band Leg Curl | Lying face down and curling one heel toward your glutes against a band needs no machine. |
+| 🔼 Harder | Single-Leg Seated Leg Curl | Curling with one leg at a time stops a stronger leg from carrying the weaker one. |
 | 🔼 Harder | Seated Leg Curl with Slow Lowering | Take 3–4 seconds to straighten your legs, which keeps the same weight under tension for longer. |
 
 ---

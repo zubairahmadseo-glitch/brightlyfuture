@@ -42,7 +42,7 @@ How to do a pull-up with an overhand grip. Grip width, body position, muscles wo
 
 ## Quick Answer (AEO)
 
-A pull-up is a bodyweight exercise for the lats and upper back. Hang from a bar with an overhand grip a little wider than your shoulders, pull your chest toward the bar by driving your elbows down, then lower until your arms are straight. Use 3 sets close to failure.
+A pull-up is a bodyweight exercise for the lats and upper back. Hang from a bar with an overhand grip a little wider than your shoulders, pull your chest toward the bar by driving your elbows down, then lower until your arms are straight. Use 3 sets of 6 to 12 reps.
 
 ---
 

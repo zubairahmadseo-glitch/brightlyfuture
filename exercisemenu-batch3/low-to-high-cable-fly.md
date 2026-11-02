@@ -10,7 +10,7 @@
 ## SEO & Meta
 
 **Meta Title (≤60):**
-Low-to-High Cable Fly: How to Do It, Muscles & Sets
+Low-to-High Cable Fly: Form, Muscles Worked & Sets
 
 **Meta Description (≤160):**
 How to do the low-to-high cable fly for your chest. Pulley setup, stance, arm path, muscles worked, sets and reps, common mistakes, and FAQs.
@@ -93,7 +93,7 @@ Abdominals — keep your torso upright against the pull of the cables.
 2. **Bending and Straightening the Elbows:** Letting the elbows open and close turns the fly into a press and brings the triceps in. Keep the bend fixed.
 3. **Arching the Lower Back:** Flaring your ribs to help the arms up loads the spine. Keep your abs braced and your trunk upright.
 4. **Crossing Over on the Way Down:** On the lowering phase, let your arms open out to your sides without your hands crossing past the middle of your body.
-5. **Too Much Weight:** A heavy stack makes you swing and press. Pick a load you can sweep up smoothly and hold for a second.
+5. **Needing a Heave to Start:** If each rep begins with a swing of the hips, the stack is choosing the weight. Go lighter and keep the arc smooth.
 
 ---
 
@@ -110,7 +110,7 @@ Abdominals — keep your torso upright against the pull of the cables.
 
 | Type | Title | Description |
 |---|---|---|
-| 🔽 Easier | Resistance Band Low-to-High Fly | A band anchored low on each side gives light resistance and works at home. |
+| 🔽 Easier | Resistance Band Low-to-High Fly | A band anchored low on each side copies the same upward arc with no cable machine. |
 | 🔽 Easier | Pec Deck Fly (Machine) | The machine fixes the arm path, so you can focus on the squeeze rather than on balance. |
 | 🔼 Harder | Single-Arm Low-to-High Cable Fly | One side at a time adds a trunk-steadying challenge and lets each side work alone. |
 | 🔼 Harder | Low-to-High Cable Fly with 2-Second Hold | Hold the top position for 2 seconds on every rep before you lower. |

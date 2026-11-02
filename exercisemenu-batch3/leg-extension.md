@@ -10,10 +10,10 @@
 ## SEO & Meta
 
 **Meta Title (≤60):**
-Leg Extension: How to Do It, Muscles Worked & Sets
+Leg Extension Machine: Form, Muscles Worked & Sets
 
 **Meta Description (≤160):**
-How to do the leg extension for your quads. Seat and roller setup, how far to straighten, muscles worked, sets and reps, mistakes, and FAQs.
+Leg extension form, seat and roller setup, how far to straighten your knees, muscles worked, sets and reps, common mistakes, and FAQs.
 
 ---
 
@@ -58,8 +58,8 @@ Vastus Intermedius — sits under the rectus femoris and straightens the knee.
 
 **Secondary Muscles (one per line)**
 ```
-Tibialis Anterior — holds the foot and ankle steady against the roller.
-Abdominals and Hip Flexors — keep you sitting back in the seat.
+Iliopsoas — holds your thigh down on the seat as the roller rises.
+Abdominals — keep you sitting back against the pad.
 ```
 
 ---
@@ -111,8 +111,8 @@ Abdominals and Hip Flexors — keep you sitting back in the seat.
 | Type | Title | Description |
 |---|---|---|
 | 🔽 Easier | Bodyweight Sit-to-Stand | Standing up from a chair and sitting back down trains the quads with no machine and no added load. |
-| 🔽 Easier | Resistance Band Knee Extension | Sitting on a bench with a band around one ankle gives light resistance and works at home. |
-| 🔼 Harder | Single-Leg Leg Extension | One leg at a time puts more load on each side and shows any difference between them. |
+| 🔽 Easier | Resistance Band Knee Extension | Sitting on a bench with a band looped around one ankle loads the knee straightening without a machine. |
+| 🔼 Harder | Single-Leg Leg Extension | One leg at a time doubles the work on each thigh for the same stack weight. |
 | 🔼 Harder | Leg Extension with Slow Lowering | Take 3–4 seconds to bend your knees on each rep, which keeps the same weight under tension for longer. |
 
 ---
