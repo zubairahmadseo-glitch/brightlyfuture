@@ -2,8 +2,8 @@
 
 - **Status:** NEW — add as a new Exercise
 - **Suggested slug:** `/exercises/leg-extension/`
-- **GIF:** upload the GymVisual **Lever Leg Extension** GIF (720 size) and name it `Leg-Extension.gif`
-- **GIF check:** seated upright with the back against the pad, hands holding the handles at the sides of the seat, the roller resting across the front of the lower legs just above the feet. The start position shows the knees bent to about 90 degrees and the quadriceps highlighted. The steps below match this.
+- **GIF:** already in your Media Library — select `Lever-Leg-Extension-Thighs.gif` (no upload needed)
+- **GIF check (all 30 frames played):** seated upright with the back against the pad, hands on the handles at the sides of the seat, the roller across the front of the lower legs just above the feet. The knees start bent at about 90 degrees and straighten fully, then return. The quadriceps are highlighted. The steps below match the animation.
 
 ---
 
@@ -101,7 +101,7 @@ Abdominals — keep you sitting back against the pad.
 
 1. **Do Not Cut the Deep Part of the Rep:** Pedrosa and colleagues (2022) trained untrained women on this machine in different ranges. The group that trained only the deep part of the range, from 100 to 65 degrees of knee bend, grew more in several parts of the muscle than the full-range group.
 2. **You Cannot Target the Teardrop:** A systematic review of 20 EMG studies (Smith and colleagues, 2009) found that changing foot or leg position does not preferentially work the vastus medialis over the vastus lateralis. Turning your toes in or out will not shape the inner quad.
-3. **Pause at the Top:** A one-second hold at the top stops you from bouncing out of each rep, and it lets you use less weight for the same effort.
+3. **Pause at the Top:** A one-second hold stops you bouncing out of each rep, and it lets you use less weight for the same effort. If your knees are sensitive near lockout, hold slightly short of straight instead.
 4. **Hold the Handles:** Gripping the side handles keeps your hips in the seat, which keeps the work in your thighs.
 
 ---
@@ -120,7 +120,7 @@ Abdominals — keep you sitting back against the pad.
 ## FAQs
 
 1. **Q: Are leg extensions bad for your knees?**
-   A: For most healthy people they are a normal part of training. If you have knee pain or a knee injury, use a lighter weight, work in the range that feels comfortable, and speak to a clinician before loading it heavily.
+   A: For most healthy people they are a normal part of training. Pressure between the kneecap and the thigh bone does rise as the knee straightens, and it rises most over the last 30 degrees (Kaya and colleagues, 2012), which is why people with kneecap pain are usually kept in roughly the 25 to 90 degree range. If your knees hurt, stop short of full extension and speak to a clinician before loading it heavily.
 2. **Q: Does turning my toes in or out work different parts of the quad?**
    A: No. A review of 20 EMG studies by Smith and colleagues (2009) found that changing leg or foot position does not preferentially work the inner quad over the outer one.
 3. **Q: Should I lock my knees at the top?**
@@ -131,5 +131,7 @@ Abdominals — keep you sitting back against the pad.
    A: The plans on this site use 2–4 sets of 10–15 reps, usually at the end of a leg session after the squat or leg press.
 
 **Citation (Tip 1):** Pedrosa GF, Lima FV, Schoenfeld BJ, et al. *Partial range of motion training elicits favorable improvements in muscular adaptations when carried out at long muscle lengths.* Eur J Sport Sci. 2022;22(8):1250–1260. https://pubmed.ncbi.nlm.nih.gov/33977835/
+
+**Citation (FAQ 1):** Kaya D, Doral MN, Callaghan M. *How can we strengthen the quadriceps femoris in patients with patellofemoral pain syndrome?* Muscles Ligaments Tendons J. 2012;2(1):25–32. https://pmc.ncbi.nlm.nih.gov/articles/PMC3666499/
 
 **Citation (Tip 2 & FAQ 2):** Smith TO, Bowyer D, Dixon J, Stephenson R, Chester R, Donell ST. *Can vastus medialis oblique be preferentially activated? A systematic review of electromyographic studies.* Physiother Theory Pract. 2009;25(2):69–98. https://pubmed.ncbi.nlm.nih.gov/19212898/

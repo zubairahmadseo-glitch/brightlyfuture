@@ -2,8 +2,8 @@
 
 - **Status:** NEW — add as a new Exercise
 - **Suggested slug:** `/exercises/pull-up/`
-- **GIF:** upload the GymVisual **Pull up** GIF (720 size) and name it `Pull-Up.gif`
-- **GIF check:** hanging from a fixed bar with an overhand grip a little wider than the shoulders, arms straight, knees bent and the lower legs crossed behind. The lats, teres major, lower traps and forearms are highlighted. The steps below match this.
+- **GIF:** already in your Media Library — select `Pull-up-Back.gif` (no upload needed)
+- **GIF check (all 30 frames played):** starts in a dead hang with the arms straight, overhand grip a little wider than the shoulders, knees bent and ankles crossed behind. The pull takes the chin clear of the bar and the chest toward it, then returns to the straight-arm hang. The steps below match the animation.
 
 ---
 

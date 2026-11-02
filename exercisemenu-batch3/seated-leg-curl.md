@@ -2,8 +2,8 @@
 
 - **Status:** NEW — add as a new Exercise
 - **Suggested slug:** `/exercises/seated-leg-curl/`
-- **GIF:** upload the GymVisual **Lever Seated Leg Curl** GIF (720 size) and name it `Seated-Leg-Curl.gif`
-- **GIF check:** seated with the back against the pad, the thigh pad locked across the lower thighs just above the knees, the roller resting on the back of the lower legs just above the heels, hands on the side handles. The start position shows the legs almost straight. The steps below match this.
+- **GIF:** already in your Media Library — select `Lever-Seated-Leg-Curl-Thighs-FIX.gif` (no upload needed)
+- **GIF check (all 30 frames played):** seated with the back against the pad, the thigh pad locked across the lower thighs just above the knees, the roller on the back of the lower legs just above the heels. The hands grip the **two handles on the thigh-pad frame in front of the torso**. The legs start almost straight and the roller is pulled down and back under the seat. The steps below match the animation.
 
 ---
 
@@ -71,7 +71,7 @@ Popliteus — unlocks the knee at the start of the bend.
 | 1 | Set the back pad | Adjust the back pad so that when you sit, your knees line up with the pivot point of the machine arm. |
 | 2 | Set the roller | Set the leg roller so it rests on the back of your lower legs, just above your heels. |
 | 3 | Lock the thigh pad | Sit with your back flat against the pad and bring the thigh pad down across your lower thighs, just above your knees, so your legs stay in place. |
-| 4 | Take the handles | Hold the side handles and start with your legs almost straight and the hamstrings already under tension. |
+| 4 | Take the handles | Hold the two handles on the thigh-pad frame in front of you and start with your legs almost straight, hamstrings already under tension. |
 | 5 | Curl your legs down | Bend your knees and pull the roller down and back as far as the machine allows. Pause for a second at the end. |
 | 6 | Return slowly | Straighten your legs over 2–3 seconds until you feel the stretch again, then repeat. |
 

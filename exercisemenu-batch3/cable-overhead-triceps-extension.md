@@ -2,8 +2,8 @@
 
 - **Status:** NEW — add as a new Exercise
 - **Suggested slug:** `/exercises/cable-overhead-triceps-extension/`
-- **GIF:** upload the GymVisual **Cable Overhead Triceps Extension (rope attachment)** GIF (720 size) and name it `Cable-Overhead-Triceps-Extension.gif`
-- **GIF check:** standing tall with the back to a low pulley, a rope held in both hands, the cable running down behind the body. The finish shows both arms straight overhead with the elbows close to the head. Both triceps are highlighted. The steps below match this.
+- **GIF:** already in your Media Library — select `Cable-Overhead-Triceps-Extension-rope-at.gif` (no upload needed)
+- **GIF check (all 30 frames played):** standing tall with the back to a low pulley and a rope in both hands, the cable running down behind the body. The hands drop behind the head to about ear height with the elbows pointing up and forward, then press back to straight overhead. Both triceps are highlighted. The steps below match the animation.
 
 ---
 

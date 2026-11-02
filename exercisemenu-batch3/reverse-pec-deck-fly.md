@@ -2,8 +2,8 @@
 
 - **Status:** NEW — add as a new Exercise
 - **Suggested slug:** `/exercises/reverse-pec-deck-fly/`
-- **GIF:** upload the GymVisual **Lever Seated Reverse Fly** GIF (720 size) and name it `Reverse-Pec-Deck-Fly.gif`
-- **GIF check:** seated upright facing the machine with the chest against the pad, an overhand (palms-down) grip on the horizontal handles, arms held almost straight out in front at shoulder height at the start. The rear shoulders, rhomboids and middle traps are highlighted. The steps below match this.
+- **GIF:** already in your Media Library — select `Lever-Seated-Reverse-Fly-Shoulders.gif` (no upload needed)
+- **GIF check (all 30 frames played):** seated upright facing the machine with an overhand (palms-down) grip on the handles, arms almost straight out in front at shoulder height at the start, sweeping out until they are **in line with the shoulders**. The machine in this animation has **no chest pad** — the rider sits on an open bench. Many gym machines do have one, so step 3 covers both. The steps below match the animation.
 
 ---
 
@@ -69,7 +69,7 @@ Lower Trapezius — helps control the shoulder blades.
 |---|---|---|
 | 1 | Set the seat height | Adjust the seat so the handles sit at about shoulder height when you sit down. |
 | 2 | Swing the arms forward | Move the machine arms around to the front so the handles are within easy reach. |
-| 3 | Sit against the pad | Sit facing the machine with your chest on the pad and your feet flat on the floor. Sit tall with your chin tucked. |
+| 3 | Sit and get set | Sit facing the machine with your feet flat on the floor, sitting tall with your chin tucked. If your machine has a chest pad, rest your chest against it. |
 | 4 | Take the handles | Hold the handles with your palms facing down, arms almost straight with a small bend at the elbows. |
 | 5 | Sweep your arms back | Pull the handles out and back in a wide arc until your arms are roughly in line with your shoulders. Squeeze your shoulder blades together and pause for a second. |
 | 6 | Return slowly | Let your arms travel forward over 2–3 seconds until the handles are back in front of you, then repeat. |
@@ -89,9 +89,9 @@ Lower Trapezius — helps control the shoulder blades.
 
 ## Common Mistakes
 
-1. **Using Too Much Weight:** A heavy stack makes you jerk the handles and push your chest off the pad. Pick a load you can hold still for a second at the back.
+1. **Using Too Much Weight:** A heavy stack makes you jerk the handles and throw your torso into the rep. Pick a load you can hold still for a second at the back.
 2. **Bending the Elbows Through the Rep:** Pulling the handles with bending elbows turns the fly into a row and brings the lats and biceps in. Keep the small elbow bend fixed.
-3. **Pulling Your Chest off the Pad:** Rocking your torso backward adds momentum. Keep your chest on the pad for the whole set.
+3. **Rocking Your Torso Backward:** Swinging the upper body to start each rep adds momentum the rear delts never see. Keep your torso still from the first rep to the last.
 4. **Shrugging:** Letting your shoulders rise toward your ears shifts the work to the upper traps. Keep them down.
 5. **Dragging the Handles Too Far Back:** Pulling well past your shoulders strains the front of the shoulder without adding useful range. Stop in line with your shoulders.
 
@@ -113,7 +113,7 @@ Lower Trapezius — helps control the shoulder blades.
 | 🔽 Easier | Resistance Band Pull-Apart | Holding a band at chest height and pulling it apart trains the same backward sweep with light resistance at home. |
 | 🔽 Easier | Chest-Supported Dumbbell Rear Delt Fly | Lying face down on an incline bench supports your torso while you learn the arc. |
 | 🔼 Harder | Reverse Pec Deck with 2-Second Pause | Hold the back position for 2 seconds on every rep before you return. |
-| 🔼 Harder | Single-Arm Reverse Pec Deck | With one arm you can hold the frame with the other hand and keep your chest flat on the pad. |
+| 🔼 Harder | Single-Arm Reverse Pec Deck | With one arm you can hold the frame with your free hand, which stops the torso turning as you sweep. |
 
 ---
 
@@ -124,7 +124,7 @@ Lower Trapezius — helps control the shoulder blades.
 2. **Q: Should my palms face down or face in?**
    A: Both are used. A 2013 study by Schoenfeld and colleagues measured higher rear delt and infraspinatus activity with a neutral, thumbs-up grip, so try the vertical handles if your machine has them.
 3. **Q: How heavy should I go?**
-   A: Light enough for 12–15 controlled reps with your chest staying on the pad. Heavy loads usually turn the fly into a row.
+   A: Light enough for 12–15 controlled reps with your torso staying still. Heavy loads usually turn the fly into a row.
 4. **Q: Reverse pec deck or face pull?**
    A: Both train the rear delts. The face pull adds outward rotation of the shoulder at the end of each rep, while the machine fixes your torso so there is less to control.
 5. **Q: Where should I feel it?**

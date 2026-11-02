@@ -2,8 +2,8 @@
 
 - **Status:** NEW — add as a new Exercise
 - **Suggested slug:** `/exercises/low-to-high-cable-fly/`
-- **GIF:** upload the GymVisual **Cable Low Fly** GIF (720 size) and name it `Low-To-High-Cable-Fly.gif`
-- **GIF check:** standing between two low pulleys with a D-handle in each hand, a staggered stance with one foot forward, the torso upright. The start shows the arms down beside the hips with a small bend held at the elbows. The chest and front shoulders are highlighted. The steps below match this.
+- **GIF:** already in your Media Library — select `Cable-Low-Fly-Chest.gif` (no upload needed)
+- **GIF check (all 30 frames played):** standing between two low pulleys with a D-handle in each hand, a staggered stance with one foot forward, the torso upright. The arms start down beside the hips and sweep up and in until the hands meet **in front of the chest**, arms almost straight. They do not travel to face level in this animation. The steps below match the animation.
 
 ---
 
@@ -42,7 +42,7 @@ How to do the low-to-high cable fly for your chest. Pulley setup, stance, arm pa
 
 ## Quick Answer (AEO)
 
-The low-to-high cable fly trains the chest. Set two pulleys low, hold a handle in each hand in a staggered stance, then sweep your arms up and in until your hands meet in front of your upper chest or face. Lower slowly. Use 3 sets of 12 to 15 reps.
+The low-to-high cable fly trains the chest. Set two pulleys low, hold a handle in each hand in a staggered stance, then sweep your arms up and in until your hands meet in front of your chest. Lower slowly. Use 3 sets of 12 to 15 reps.
 
 ---
 
@@ -71,7 +71,7 @@ Abdominals — keep your torso upright against the pull of the cables.
 | 2 | Pick up the handles | Take a handle in each hand and step into the middle so the weights lift off the stacks and your arms hang down beside your hips. |
 | 3 | Take a staggered stance | Step one foot in front of the other with your trunk upright. Brace your abs so your lower back does not arch. |
 | 4 | Set your elbows | Hold a small, fixed bend in your elbows and keep your wrists straight. |
-| 5 | Sweep up and in | Breathe out and bring both arms up and in along a wide arc until your hands meet in front of your upper chest or at face level. The elbow bend does not change. |
+| 5 | Sweep up and in | Breathe out and bring both arms up and in along a wide arc until your hands meet in front of your chest, arms almost straight. The elbow bend does not change. |
 | 6 | Lower slowly | Pause, then let your arms open back down and out over 2–3 seconds to the start, then repeat. |
 
 ---
@@ -100,7 +100,7 @@ Abdominals — keep your torso upright against the pull of the cables.
 ## Tips
 
 1. **Think of a Wide Hug Going Upward:** Picture wrapping your arms around something large while lifting them, rather than pushing a weight away.
-2. **Finish at Face Level:** ACE's instructions bring the hands together at face level or above the head, which keeps the chest working at the top of the rep.
+2. **You Can Finish Higher:** The demonstration brings the hands together in front of the chest. ACE's version of this exercise carries them on up to face level or above the head. Either finish is used; pick one and keep it the same so your sets compare.
 3. **The Upper-Chest Claim Has Limits:** The upper fibres of the chest run toward the collarbone, so the upward path lines up with them. No study has measured this exercise directly, so treat it as a sensible variation rather than a proven upper-chest fix.
 4. **Keep the Stance the Same:** Note which foot goes forward and how far you step in, so the resistance is the same from session to session.
 
@@ -122,7 +122,7 @@ Abdominals — keep your torso upright against the pull of the cables.
 1. **Q: Does the low-to-high fly build the upper chest?**
    A: The upper fibres of the chest run toward the collarbone, so the upward arm path lines up with them. No study has measured this exercise directly, so treat it as a reasonable variation rather than a proven one.
 2. **Q: Where should my hands finish?**
-   A: ACE's instructions bring them together at face level or above your head.
+   A: In the demonstration they meet in front of the chest with the arms almost straight. ACE's version of the same setup takes them higher, to face level or above the head. Both are used — stay with one so you can track progress.
 3. **Q: How far forward should I step?**
    A: Far enough that the weights lift off the stacks at the start and your arms can open all the way without the plates touching down.
 4. **Q: Cable fly or dumbbell fly?**

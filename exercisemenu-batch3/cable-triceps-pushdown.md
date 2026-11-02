@@ -2,8 +2,8 @@
 
 - **Status:** NEW — add as a new Exercise
 - **Suggested slug:** `/exercises/cable-triceps-pushdown/`
-- **GIF:** upload the GymVisual **Cable Pushdown (with rope attachment)** GIF (720 size) and name it `Cable-Triceps-Pushdown.gif`
-- **GIF check:** standing upright facing a high pulley, a rope attached to the cable, both hands holding the rope ends in front of the upper stomach with the elbows bent and the upper arms close to the sides. The triceps are highlighted. The steps below match this.
+- **GIF:** already in your Media Library — select `Cable-Pushdown-with-rope-attachment-Upp.gif` (no upload needed)
+- **GIF check (all 30 frames played):** standing upright facing a high pulley with a rope on the cable. The hands start at about **mid-chest height** with the elbows bent and the upper arms at the sides, and travel down to about **waistband height** with the arms almost straight. The hands stay **together** at the bottom — the rope ends are not pulled apart. The steps below match the animation.
 
 ---
 
@@ -70,8 +70,8 @@ Abdominals — keep your torso still as you push.
 |---|---|---|
 | 1 | Set the pulley high | Attach a rope to a cable pulley set at or above head height. |
 | 2 | Take your stance | Face the machine and stand about a step back, feet about hip-width apart, standing tall. |
-| 3 | Set your elbows | Hold one end of the rope in each hand, palms facing each other, and pull your elbows in to your sides. Start with your hands at about upper-stomach height and your elbows bent. |
-| 4 | Push down | Breathe out and straighten your arms down until they are almost straight. Your upper arms stay at your sides and only your forearms move. |
+| 3 | Set your elbows | Hold one end of the rope in each hand, palms facing each other, and pull your elbows in to your sides. Start with your hands at about mid-chest height and your elbows well bent. |
+| 4 | Push down | Breathe out and push the rope down until your hands reach about waistband height and your arms are almost straight. Your upper arms stay at your sides and only your forearms move. |
 | 5 | Return slowly | Let the rope rise over 2–3 seconds until your elbows are bent again, then repeat without resting the stack. |
 
 ---
@@ -102,7 +102,7 @@ Abdominals — keep your torso still as you push.
 1. **Rope or Bar Makes Little Difference to the Triceps:** Rendos and colleagues (2016) compared handle types during standing pushdowns and found no significant difference in triceps activity between them. Use whichever your elbows and wrists prefer.
 2. **Pair It With an Overhead Exercise:** Maeo and colleagues (2023) found the long head grew more when trained overhead than with the arm at the side. The pushdown is the arm-at-the-side position, so it works well alongside an overhead extension rather than instead of it.
 3. **Keep Your Wrists Straight:** Let your wrists stay in line with your forearms rather than curling the rope down with your hands.
-4. **Split the Rope at the Bottom:** Pulling the two ends slightly apart as your arms straighten makes the end of the rep easier to hold.
+4. **Spreading the Rope Is Optional:** The demonstration keeps the hands together all the way down. Some lifters pull the two ends apart at the bottom instead. Neither has been shown to change what the triceps do, so use whichever you can hold still.
 
 ---
 
