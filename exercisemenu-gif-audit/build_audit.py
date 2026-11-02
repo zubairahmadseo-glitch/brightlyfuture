@@ -38,28 +38,12 @@ def small(doc, text, italic=True):
 
 # ---------------------------------------------------------------- data
 FIXES = [
- dict(name="Barbell Incline Bench Press", gif="Barbell-Incline-Bench-Press.gif",
-   page="/exercises/barbell-incline-bench-press/  (LIVE)",
-   saw="The bench back is set much steeper than 30 degrees — judged by eye it is close to 45. "
-       "Compare it with your own Dumbbell-Incline-Bench-Press-Chest.gif, which is clearly shallower. "
-       "Everything else matches: feet flat, grip a little wider than the shoulders, bar lowered to the upper chest.",
-   verdict="THE TEXT IS RIGHT AND THE GIF IS OFF. Do not weaken the text: the 30-degree advice comes from "
-           "Rodriguez-Ridao 2020, which measured upper-chest activity peaking at 30 degrees. "
-           "Pick ONE of the two options below.",
-   rows=[["Option A (recommended) — GIF / Media",
-          "Keep the page text as it is and swap the GIF for a 30-degree incline demonstration when you next buy one.",
-          "Nothing to retype. The page keeps giving the better advice."],
-         ["Option B — How-To Steps, Step 1 Description",
-          "Lie on the incline bench with your eyes just in front of the bar and your feet flat on the floor.",
-          "Lie on the incline bench with your eyes just in front of the bar and your feet flat on the floor. "
-          "The bench in the demonstration is set steeper than 30 degrees; 30 is the setting this page recommends."]]),
-
  dict(name="Barbell Lying Triceps Extension", gif="Barbell-Lying-Triceps-Extension.gif",
-   page="/exercises/barbell-lying-triceps-extension/  (LIVE)",
+   page="/exercises/barbell-lying-triceps-extension/   — LIVE",
    saw="The upper arms stay vertical the whole time, which the page already says. But at the bottom the bar "
-       "travels past the forehead and finishes just over the top of the head, not stopping above the forehead.",
-   verdict="Small wording fix in 3 places so the steps describe the arc the GIF actually shows. "
-           "FAQ 4 already says both versions exist, so leave that as it is.",
+       "travels past the forehead and finishes just over the top of the head, rather than stopping above the forehead.",
+   verdict="Wording fix in 5 places so the steps describe the arc the GIF actually shows. FAQ 4 already says "
+           "both versions of this lift exist, so leave that one alone.",
    rows=[["How-To Steps, Step 4 Title", "Lower toward your forehead", "Lower past your forehead"],
          ["How-To Steps, Step 4 Description",
           "Bend your elbows to lower the bar slowly in an arc toward your forehead, stopping just above it.",
@@ -72,15 +56,16 @@ FIXES = [
           "Barbell lying triceps extension exercise demonstration lowering the bar toward the forehead",
           "Barbell lying triceps extension exercise demonstration lowering the bar past the forehead"],
          ["Quick Answer (AEO)",
-          "...and bend only at the elbows to lower it toward your forehead. Press back up.",
-          "...and bend only at the elbows to lower it past your forehead to just above your head. Press back up."]]),
+          "and bend only at the elbows to lower it toward your forehead. Press back up.",
+          "and bend only at the elbows to lower it past your forehead to just above your head. Press back up."]]),
 
  dict(name="Cable Kneeling Crunch", gif="Cable-Kneeling-Crunch.gif",
-   page="/exercises/cable-kneeling-crunch/  (not published yet)",
-   saw="Kneeling with the back to the machine and the hands beside the head — both correct. BUT at the bottom "
-       "the hips clearly travel back toward the heels as the body folds into a ball. The hips do not stay over the knees.",
-   verdict="The page currently calls that a mistake, so the GIF and the text contradict each other in 5 places. "
-           "The real fault is folding at the hips with a FLAT back; some hip travel while the spine rounds is normal.",
+   page="/exercises/cable-kneeling-crunch/   — LIVE",
+   saw="Kneeling with the back to the machine and the hands beside the head, both correct. But at the bottom the "
+       "hips clearly travel back toward the heels as the body folds into a ball. They do not stay over the knees. "
+       "Checked against vertical reference lines drawn over the frames, not by eye alone.",
+   verdict="The page calls that a mistake, so the GIF and the text contradict each other in 5 places. The real "
+           "fault is folding at the hips with a FLAT back; some hip travel while the spine rounds is normal.",
    rows=[["Quick Answer (AEO)",
           "Hold a rope beside your head, keep your hips still, and curl your ribs toward your hips by rounding your spine.",
           "Hold a rope beside your head and curl your ribs toward your hips by rounding your spine, not by folding at the hips."],
@@ -90,100 +75,90 @@ FIXES = [
          ["How-To Steps, Step 4 Description",
           "Breathe out and round your spine, pulling your ribs toward your hips and your elbows toward your thighs. Your hips stay where they are.",
           "Breathe out and round your spine, pulling your ribs toward your hips and your elbows toward your thighs. "
-          "Your hips will settle back a little as you fold, which is fine — what matters is that your spine rounds."],
+          "Your hips will settle back a little as you fold, which is fine - what matters is that your spine rounds."],
          ["Common Mistakes, Mistake 1",
           "Moving the Hips: Sitting back toward your heels or pushing the hips back turns the crunch into a hip hinge and takes work away from the abs. Keep your hips over your knees.",
           "Folding at the Hips With a Flat Back: If your back stays straight and you just bend forward at the hips, "
-          "the abs do very little. Round your spine on every rep instead."],
+          "the abs do little. Round your spine on every rep instead."],
          ["FAQs, Answer 3",
           "Most often the hips are moving. Keep your hips still over your knees and lighten the weight until the movement comes from your spine.",
           "Most often the back is staying flat and the movement is coming from the hips. Lighten the weight and curl "
           "your ribs toward your hips so the spine rounds."]]),
 
- dict(name="Seated Cable Row", gif="Cable-seated-row-Back.gif",
-   page="/exercises/seated-cable-row/  (not published yet)",
-   saw="The start matches: torso leaning forward from the hips with the arms reaching. At the finish, though, the "
-       "torso is a little PAST vertical — a small backward lean of roughly 10 to 15 degrees.",
-   verdict="The page currently tells people to stop at upright and quotes ACE against any backward lean. "
-           "Keep ACE's stricter advice, but stop calling what the GIF shows a mistake.",
-   rows=[["How-To Steps, Step 4 Description",
-          "Sit tall as you pull the handle to your upper stomach, keeping your elbows close to your body. Squeeze your shoulder blades together and pause for a second.",
-          "Pull the handle to your upper stomach with your elbows close to your body, coming up to upright or just "
-          "past it, as the demonstration does. Squeeze your shoulder blades together and pause for a second."],
-         ["Common Mistakes, Mistake 1",
-          "Leaning Back to Pull: Throwing your torso backward uses body weight and stresses the lower back. Stop when you are sitting upright and let your arms and back finish the pull.",
-          "Rocking Backward to Start the Pull: A small lean past upright at the finish is normal, but throwing the "
-          "torso back to get the weight moving uses body weight and stresses the lower back. Let your arms and back finish the pull."],
-         ["Tips, Tip 1",
-          "Avoid a Backward Lean: ACE's seated row instructions advise avoiding any backward lean during the pull to reduce stress on the lower back.",
-          "Keep the Lean Small: ACE's seated row instructions advise avoiding a backward lean during the pull to "
-          "reduce stress on the lower back. The demonstration finishes just past upright; stay close to that rather than rowing with your whole body."],
-         ["FAQs, Answer 1 (last sentence only)",
-          "Sit upright as you pull and don't lean back past vertical.",
-          "Come up to upright or just past it as you pull, and don't rock your whole torso back to move the weight."]]),
-
  dict(name="Leg Press (45-degree sled)", gif="Sled-45%C2%B0-Leg-Press-Hips.gif",
-   page="/exercises/leg-press/  (not published yet)",
-   saw="Feet in the middle of the platform at about hip width — correct. The depth is deeper than the page says: "
-       "the knees bend well past 90 degrees and the thighs come close to the torso, while the hips and lower back stay on the pad.",
-   verdict="Lead with the real limit (hips and back on the pad) instead of the 90-degree number. "
-           "FAQ 1 already says '90 degrees or a little more', so that one is fine.",
+   page="/exercises/leg-press/   — LIVE",
+   saw="Feet in the middle of the platform at about hip width, which the page gets right. The depth is deeper than "
+       "the page says: the knees bend well past 90 degrees and the thighs come close to the torso, while the hips "
+       "and lower back stay flat on the pad.",
+   verdict="Lead with the real limit (hips and back on the pad) instead of the 90-degree number. FAQ 1 already "
+           "says '90 degrees or a little more', so that one is fine as it stands.",
    rows=[["Quick Answer (AEO)",
-          "...lower the sled until your knees bend to about 90 degrees without your hips lifting, then press back up without locking your knees.",
-          "...lower the sled as far as you can while your hips and lower back stay flat on the pad, then press back up without locking your knees."],
+          "lower the sled until your knees bend to about 90 degrees without your hips lifting, then press back up without locking your knees.",
+          "lower the sled as far as you can while your hips and lower back stay flat on the pad, then press back up without locking your knees."],
          ["How-To Steps, Step 4 Description",
           "Bend your knees to lower the sled toward your chest until your knees reach about 90 degrees, or as deep as you can while your hips and lower back stay on the pad.",
           "Bend your knees to lower the sled toward your chest as far as you can while your hips and lower back stay "
           "flat on the pad. The demonstration goes past 90 degrees of knee bend; stop sooner if your hips start to curl up."]]),
+]
 
- dict(name="Barbell Hip Thrust", gif="Barbell-Hip-Thrust-Hips.gif",
-   page="/exercises/barbell-hip-thrust/  (not published yet)",
-   saw="Shoulder blades on the bench, feet flat, hips driven up to a flat torso with the shins near vertical — all correct. "
-       "The one difference: the demonstration uses a BARE bar across the hips, with no barbell pad.",
-   verdict="Only step 1 needs a word changed, so the text does not describe something the GIF does not show. "
-           "Keep recommending the pad — it is sensible advice.",
-   rows=[["How-To Steps, Step 1 Description",
-          "Sit on the floor with the lower edge of your shoulder blades against the side of a flat bench. Roll a padded barbell over your legs until it sits in the crease of your hips.",
-          "Sit on the floor with the lower edge of your shoulder blades against the side of a flat bench. Roll the "
-          "barbell over your legs until it sits in the crease of your hips. The demonstration uses a bare bar; a "
-          "barbell pad or folded mat makes it far more comfortable."]]),
+WITHDRAWN = [
+ ["Barbell Incline Bench Press", "Barbell-Incline-Bench-Press.gif",
+  "I first wrote that the bench looked much steeper than the 30 degrees the page recommends, close to 45.",
+  "Withdrawn. Putting this GIF beside your own Dumbbell-Incline-Bench-Press-Chest.gif at the same scale, the two "
+  "benches look about the same, and a 3-D render in perspective cannot be measured reliably from pixels. "
+  "CHANGE NOTHING on this page."],
+ ["Barbell Hip Thrust", "Barbell-Hip-Thrust-Hips.gif",
+  "I first wrote that the demonstration uses a bare bar with no barbell pad, so step 1 should stop saying 'padded'.",
+  "Withdrawn, and this one was simply wrong. Enlarging the hip area shows a thick black barbell pad on the bar in "
+  "every frame. Step 1 is correct as written. CHANGE NOTHING on this page."],
+ ["Seated Cable Row", "Cable-seated-row-Back.gif",
+  "I first wrote that the torso finishes 10 to 15 degrees past vertical, which made the page's 'stop when upright' "
+  "cue a contradiction.",
+  "Downgraded to a note. With vertical reference lines over the frames, the torso finishes upright or only just past "
+  "it. That is close enough to what the page already says. The optional clarification is in Part B."],
 ]
 
 NOTES = [
- dict(name="Barbell Back Squat", gif="Barbell-Full-Squat-Thighs.gif", page="/exercises/barbell-back-squat/  (not published yet)",
+ dict(name="Seated Cable Row", gif="Cable-seated-row-Back.gif", page="/exercises/seated-cable-row/   — LIVE",
+   saw="The start matches the page: torso leaning forward from the hips with the arms reaching. At the finish the "
+       "torso comes up to upright or only just past it - checked against vertical reference lines over the frames.",
+   action="No contradiction worth a rewrite. Optional, if you want the page to match the demonstration exactly - "
+          "Tips, Tip 1: change the opening from 'Avoid a Backward Lean' to 'Keep the Lean Small', and in the body "
+          "change 'avoiding any backward lean' to 'avoiding a backward lean'. Everything else stays."),
+ dict(name="Barbell Back Squat", gif="Barbell-Full-Squat-Thighs.gif", page="/exercises/barbell-back-squat/   — LIVE",
    saw="High-bar squat on the upper traps, stance about shoulder width, toes slightly out. The demonstration squats "
        "clearly BELOW parallel — hips below the knees.",
    action="No contradiction: step 4 says 'as low as you can while your back stays neutral', and nothing on the page "
           "tells people to stop at parallel. Optional: add to Step 4 Description — 'The demonstration goes below "
           "parallel; go as deep as your own hips and back allow.'"),
- dict(name="Barbell Seated Calf Raise", gif="Barbell-Seated-Calf-Raise-Calves.gif", page="/exercises/barbell-seated-calf-raise/  (not published yet)",
+ dict(name="Barbell Seated Calf Raise", gif="Barbell-Seated-Calf-Raise-Calves.gif", page="/exercises/barbell-seated-calf-raise/   — LIVE",
    saw="Seated on the end of a flat bench, knees at about 90 degrees, bar across the lower thighs. The feet are FLAT "
        "ON THE FLOOR — there is no step or plate under the forefeet.",
    action="No contradiction: Step 3 already offers both. Optional, so readers are not confused: start Step 3 with "
           "'Place your feet flat on the floor, as the demonstration shows, or...' (it already reads in that order)."),
- dict(name="Barbell Preacher Curl", gif="Barbell-Preacher-Curl-Upper-Arms.gif", page="/exercises/barbell-preacher-curl/  (not published yet)",
+ dict(name="Barbell Preacher Curl", gif="Barbell-Preacher-Curl-Upper-Arms.gif", page="/exercises/barbell-preacher-curl/   — LIVE",
    saw="The lifter is STANDING at the preacher station, chest against the pad, using a STRAIGHT barbell (not an EZ bar).",
    action="No contradiction: the steps never say 'sit', and Equipment already reads 'Barbell (or EZ Bar), Preacher Bench'. "
           "Optional: Step 1 Description could begin 'Standing or seated at the preacher bench, adjust it so...'."),
- dict(name="Dumbbell Lateral Raise", gif="Dumbbell-Lateral-Raise-shoulder-AFIX.gif", page="/exercises/dumbbell-lateral-raise/  (LIVE)",
+ dict(name="Dumbbell Lateral Raise", gif="Dumbbell-Lateral-Raise-shoulder-AFIX.gif", page="/exercises/dumbbell-lateral-raise/   — LIVE",
    saw="The dumbbells start in front of the thighs, close together, and are raised out to about shoulder height with "
        "the palms turning down. Everything else matches.",
    action="Optional precision fix. Step 1 Description: change 'holding a dumbbell in each hand at your sides' to "
           "'holding a dumbbell in each hand in front of your thighs'."),
- dict(name="Barbell Close-Grip Bench Press", gif="Barbell-Close-Grip-Bench-Press-Upper-Arms.gif", page="/exercises/barbell-close-grip-bench-press/  (not published yet)",
+ dict(name="Barbell Close-Grip Bench Press", gif="Barbell-Close-Grip-Bench-Press-Upper-Arms.gif", page="/exercises/barbell-close-grip-bench-press/   — LIVE",
    saw="The grip looks slightly narrower than shoulder width and the elbows stay tucked. The bar lowers to the lower chest.",
    action="No change needed. 'About shoulder-width apart' is the standard cue and is close to what the GIF shows."),
 ]
 
 OK = [
  ("Barbell Bench Press", "Barbell-Bench-Press.gif", "Flat bench, feet down, grip a little wider than the shoulders, bar to mid-chest, press to lockout."),
- ("Barbell Bent-Over Row", "Barbell-Bent-Over-Row_Back-FIX.gif", "Torso around 45 degrees, overhand grip, bar pulled to the lower ribs, knees softly bent."),
+ ("Barbell Bent-Over Row", "Barbell-Bent-Over-Row_Back-FIX.gif", "Torso bent well forward, overhand grip, bar pulled to the lower ribs, knees softly bent."),
  ("Barbell Curl", "Barbell-Curl.gif", "Shoulder-width underhand grip, elbows at the sides, bar curled to chest height."),
  ("Barbell Deadlift", "Barbell-Deadlift_Hips-FIX.gif", "Bar from the floor, hip-width stance, double overhand grip, bar close to the legs, tall lockout."),
  ("Barbell Romanian Deadlift", "Barbell-Romanian-Deadlift-Hips-FIX.gif", "Knees softly bent and fixed, hips pushed back, bar down to mid-shin, back flat."),
  ("Barbell Overhead Press", "Barbell-Standing-Shoulders-Press-Shoulder.gif", "Standing, bar from the front shoulders, pressed to lockout overhead."),
  ("Barbell Standing Calf Raise", "Barbell-Standing-CalfRaise.gif", "Bar on the upper back, balls of the feet on a plate, heels dropped then raised high."),
- ("Barbell Bulgarian Split Squat", "Barbell-Single-Leg-Split-Squat-Hips-FIX.gif", "Top of the rear foot on the bench, front thigh to about parallel, bar on the upper traps."),
+ ("Barbell Bulgarian Split Squat", "Barbell-Single-Leg-Split-Squat-Hips-FIX.gif", "Top of the rear foot resting on the bench, front knee bent deeply, bar on the upper traps."),
  ("Dumbbell Bench Press", "Dumbbell-Bench-Press.gif", "Flat bench, palms forward, dumbbells to the sides of the chest, pressed up in a slight arc."),
  ("Dumbbell Incline Bench Press", "Dumbbell-Incline-Bench-Press-Chest.gif", "Incline bench, dumbbells from chest level to arms extended."),
  ("Dumbbell Biceps Curl", "Dumbbell-Biceps-Curl.gif", "Both arms together, palms forward at the start, elbows at the sides."),
@@ -221,26 +196,43 @@ HOUSE = [
 
 # ---------------------------------------------------------------- build
 doc = new_doc()
-doc.add_heading("ExerciseMenu — GIF vs Content Audit", level=0)
+doc.add_heading("ExerciseMenu — GIF vs Content Audit (v2, corrected)", level=0)
 doc.add_paragraph("Every exercise GIF in your Media Library was downloaded and played frame by frame, then compared "
                   "with the content written for its page. Section names below are the exact box names on the Edit "
                   "Exercise screen, so you can go straight to the box and change the text.")
-small(doc, "Method: 29 GIFs downloaded from the Media Library via the WordPress REST API. Each one is 30 frames at "
-           "100 ms (the dumbbell lunge is 50). Frames were extracted with Python/Pillow into contact sheets, and the "
-           "start, middle and end positions were enlarged and examined one by one. Nothing below comes from a single "
-           "still frame.")
+p = doc.add_paragraph()
+r = p.add_run("This is version 2. You asked me to check my own work, so I re-opened every finding. Three of the "
+              "nine I first reported did not survive that check — two were wrong and one was overstated. They are "
+              "listed in Part 0 so you do not act on them. Three real fixes remain.")
+r.bold = True
+small(doc, "Method: 36 exercise GIFs — 29 pulled from the Media Library for this pass, plus the 7 batch-3 files played "
+           "in the previous round. Each is 30 frames at 100 ms (the dumbbell lunge is 50). Frames were extracted with "
+           "Python/Pillow into contact sheets; start, middle and end positions were enlarged and examined one at a "
+           "time, and position claims were checked against vertical reference lines drawn over the frames. Every "
+           "'Current text' line below was matched word for word against the page source before it went in this file, "
+           "and every GIF link and page URL was requested live.")
 
 doc.add_heading("What came out of it", level=1)
 grid(doc, ["", "Count", "Meaning"], [
-  ["Fixes needed", str(len(FIXES)), "The GIF and the written content say different things. Section-wise changes are in Part A."],
+  ["Withdrawn", str(len(WITHDRAWN)), "Findings from version 1 that did not hold up. Do nothing with these. Part 0."],
+  ["Fixes needed", str(len(FIXES)), "The GIF and the written content say different things. Section-wise changes in Part A."],
   ["Notes only", str(len(NOTES)), "No contradiction, but something in the GIF is worth a line on the page. Part B."],
   ["Verified, no change", str(len(OK)), "The movement, cues and positions in the GIF match the page as written. Part C."],
   ["Housekeeping", str(len(HOUSE)), "Duplicate files and GIFs with no page yet. Part D."],
 ], (120, 55, 345))
+doc.add_paragraph("Page status: 29 of your exercise pages are already live. Only the 7 batch-3 pages (triceps "
+                  "pushdown, seated leg curl, overhead triceps extension, leg extension, pull-up, reverse pec deck, "
+                  "low-to-high cable fly) are not published yet. All three fixes below are on LIVE pages.")
+
+doc.add_page_break()
+doc.add_heading("Part 0 — Withdrawn from version 1", level=1)
+doc.add_paragraph("If you already started on any of these, stop. Nothing on these three pages needs changing.")
+grid(doc, ["Exercise", "GIF file", "What I said in v1", "What the re-check found"],
+     [[n, g, a, b] for n, g, a, b in WITHDRAWN], (88, 118, 148, 148), "F6D9D9")
 
 doc.add_page_break()
 doc.add_heading("Part A — GIFs that do not match their content", level=1)
-doc.add_paragraph("Each block: what the GIF shows, what to do, then the exact box to change.")
+doc.add_paragraph("Each block: what the GIF shows, what to do, then the exact box to change. All three pages are live.")
 for i, f in enumerate(FIXES, 1):
     doc.add_heading(f"A{i}. {f['name']}", level=2)
     grid(doc, ["", ""], [["GIF file", B + f["gif"]], ["Page", f["page"]],
@@ -258,7 +250,8 @@ for i, n in enumerate(NOTES, 1):
 
 doc.add_page_break()
 doc.add_heading("Part C — Verified, nothing to change", level=1)
-doc.add_paragraph("These were played the same way and the page text already describes exactly what happens in the GIF.")
+doc.add_paragraph("These were played the same way and the page text already describes what happens in the GIF. "
+                  "The last seven were played in the previous round, when batch 3 was corrected.")
 grid(doc, ["Exercise", "GIF file", "What the frames show"],
      [[n, g, s] for n, g, s in OK], (108, 160, 232))
 
