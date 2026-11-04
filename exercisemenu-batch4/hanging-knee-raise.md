@@ -57,7 +57,7 @@ Rectus Abdominis — curls the pelvis at the top of the rep and stops the lower 
 **Secondary Muscles (one per line)**
 ```
 External and Internal Obliques — keep the hips from swinging side to side.
-Latissimus Dorsi and Teres Major — hold your body steady under the bar.
+Latissimus Dorsi and Teres Major — hold the upper arms steady against the pull of the hang.
 Forearm Flexors — hold your grip on the bar.
 ```
 
@@ -69,7 +69,7 @@ Forearm Flexors — hold your grip on the bar.
 |---|---|---|
 | 1 | Hang from the bar | Take an overhand grip about shoulder-width apart and hang with your arms straight and your legs together. |
 | 2 | Settle the swing | Let your body stop moving before the first rep. Pull your shoulders down away from your ears so you are not hanging loose. |
-| 3 | Lift your knees | Bend your knees and lift your thighs until they reach about hip height, as the demonstration shows. Breathe out as you lift. |
+| 3 | Lift your knees | Bend your knees and lift your thighs until they reach about hip height, as the demonstration shows. ACE describes the same movement: start with the knees bent and lift them slowly as high as possible, pulling the knees toward the chest. Breathe out as you lift. |
 | 4 | Curl at the top | At the top, tilt your pelvis back slightly so your lower abs finish the rep rather than only your hip flexors. Pause for a second. |
 | 5 | Lower slowly | Lower over about 2 seconds until your legs hang straight again, keeping your body still, then repeat. |
 
@@ -129,4 +129,4 @@ Forearm Flexors — hold your grip on the bar.
 5. **Q: How often should I train abs?**
    A: The plans on this site train them once or twice a week, 2–3 sets each time.
 
-**Citation (Tip 1, Tip 2 & FAQ 4):** American Council on Exercise (ACE). *6 Exercises for a Stronger Core.* https://www.acefitness.org/resources/pros/expert-articles/5452/6-exercises-for-a-stronger-core/
+**Citation (Step 3, Tip 1, Tip 2 & FAQ 4):** American Council on Exercise (ACE). *6 Exercises for a Stronger Core.* https://www.acefitness.org/resources/pros/expert-articles/5452/6-exercises-for-a-stronger-core/

@@ -56,9 +56,8 @@ Triceps Brachii — straightens the elbows to press you back up.
 
 **Secondary Muscles (one per line)**
 ```
-Anterior Deltoid — assists the press at the bottom of the rep.
-Pectoralis Minor and Rhomboids — hold the shoulder blades in place against your body weight.
-Latissimus Dorsi — helps pull the upper arms down toward the body.
+Anterior Deltoid — brings the upper arms forward from the bottom of the rep.
+Lower Trapezius and Pectoralis Minor — draw the shoulder blades down so your body does not sink between the bars.
 Abdominals — keep your trunk from swinging on the bars.
 ```
 
@@ -102,7 +101,8 @@ Abdominals — keep your trunk from swinging on the bars.
 1. **Build Up Before You Add Weight:** A band looped under your knees or the assisted dip machine lets you train full-range reps before you can do them unassisted.
 2. **Add Load Once You Pass About 12 Reps:** A dip belt or a dumbbell held between your feet keeps the sets in a range that still builds strength.
 3. **Check the Bar Width:** Bars a little wider than your shoulders usually feel best. Bars much wider than that push the shoulders into a harder position.
-4. **Earn the Depth:** ACE flags shoulder mobility as the limiting factor on this lift. Start higher and add depth over weeks rather than in one session.
+4. **How Strong Is the Chest Claim?** Leaning forward lines the movement up with the chest fibres, which is why this version is named for the chest. Figures comparing leaning and upright dips circulate widely, but they trace back to blog write-ups rather than papers that could be checked, so treat the lean as a sensible choice rather than a measured one.
+5. **Earn the Depth:** ACE flags shoulder mobility as the limiting factor on this lift. Start higher and add depth over weeks rather than in one session.
 
 ---
 

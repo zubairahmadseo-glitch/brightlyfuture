@@ -59,7 +59,7 @@ External and Internal Obliques — stop the torso twisting or tipping.
 Transversus Abdominis — the deep abdominal wall that braces the trunk.
 Erector Spinae — work with the abs to hold the spine still.
 Gluteus Maximus and Quadriceps — keep the hips and knees straight.
-Anterior Deltoid and Serratus Anterior — hold the shoulders over the elbows.
+Serratus Anterior — holds your shoulder blades flat against your ribcage.
 ```
 
 ---
